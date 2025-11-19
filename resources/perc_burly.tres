@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://rnvj53a8u0gp"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_b3bd4"]
+[ext_resource type="Texture2D" uid="uid://dt754do5p14k4" path="res://img/slots/perc_burly.png" id="2_pmoox"]
+
+[resource]
+script = ExtResource("1_b3bd4")
+slot_name = "Burly"
+slot_description = "You're a little overweight.\\nHealth: +20%\\nAttack Speed: -20%"
+slot_sprite = ExtResource("2_pmoox")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

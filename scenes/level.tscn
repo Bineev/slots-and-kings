@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://rl65frn0ke4w"]
+
+[ext_resource type="Texture2D" uid="uid://b27qdr0a7odrk" path="res://img/castle_back.png" id="1_2q6dc"]
+[ext_resource type="Texture2D" uid="uid://cypodhfnqqklh" path="res://img/castle_UI.png" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://dwrt5w7q3wbfy" path="res://scenes/slot_machine.tscn" id="2_w8frs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7c3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2q6dc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Level" type="Node2D"]
+
+[node name="background" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w7c3h")
+centered = false
+
+[node name="SlotMachine" parent="." instance=ExtResource("2_w8frs")]
+position = Vector2(128, 125)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="bottom_panel" type="TextureRect" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_w7c3h")
