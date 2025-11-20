@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://v2ecx68fo8rt"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_7ljpl"]
+[ext_resource type="Resource" uid="uid://caakr72o7ok7m" path="res://resources/upgrade_movespeed+.tres" id="2_ua38n"]
+
+[node name="SlotUpgradeMvspd20" instance=ExtResource("1_7ljpl")]
+slot_res = ExtResource("2_ua38n")

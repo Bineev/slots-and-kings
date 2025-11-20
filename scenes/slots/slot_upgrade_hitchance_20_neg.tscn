@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1btvd7ns3ahd"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_awkkl"]
+[ext_resource type="Resource" uid="uid://b8f462hvntveo" path="res://resources/upgrade_hitchance-.tres" id="2_fx1ol"]
+
+[node name="SlotUpgradeHitchance20neg" instance=ExtResource("1_awkkl")]
+slot_res = ExtResource("2_fx1ol")

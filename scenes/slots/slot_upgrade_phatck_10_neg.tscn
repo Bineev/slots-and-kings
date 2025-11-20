@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyeo5a2y2d16a"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_7d8jk"]
+[ext_resource type="Resource" uid="uid://dh78mpax245js" path="res://resources/upgrade_phys_attack-.tres" id="2_mbhjm"]
+
+[node name="SlotUpgradePhatck10neg" instance=ExtResource("1_7d8jk")]
+slot_res = ExtResource("2_mbhjm")

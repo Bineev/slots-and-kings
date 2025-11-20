@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://d3f0vveudyfvg"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_u5ytx"]
+[ext_resource type="Texture2D" uid="uid://dt4msa3kwaypr" path="res://img/slots/upgrade_crit_chance_+.png" id="2_mpi6u"]
+
+[resource]
+script = ExtResource("1_u5ytx")
+slot_name = "crtchance+"
+slot_description = "crit chance +10%"
+slot_sprite = ExtResource("2_mpi6u")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

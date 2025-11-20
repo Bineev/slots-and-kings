@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://3iophmsywu15"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_64npk"]
+[ext_resource type="Texture2D" uid="uid://cv7pqhonuxbdp" path="res://img/slots/castle_villein_preview.png" id="2_iots7"]
+
+[resource]
+script = ExtResource("1_64npk")
+slot_name = "villein"
+slot_description = "soft head with the pitchfork"
+slot_sprite = ExtResource("2_iots7")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

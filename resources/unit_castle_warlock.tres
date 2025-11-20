@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://h4dlt5axqlsb"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_hf5hr"]
+[ext_resource type="Texture2D" uid="uid://bfnvhf87lku63" path="res://img/slots/castle_warlock_preview.png" id="2_mxkk6"]
+
+[resource]
+script = ExtResource("1_hf5hr")
+slot_name = "warlock"
+slot_description = "he could have been a gardener, but he chose witchcraft."
+slot_sprite = ExtResource("2_mxkk6")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

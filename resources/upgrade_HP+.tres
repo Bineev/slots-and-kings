@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://cj1dfj3p64f0c"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_sef1w"]
+[ext_resource type="Texture2D" uid="uid://dnyd0dwty1cvo" path="res://img/slots/upgrade_HP_+.png" id="2_awo8d"]
+
+[resource]
+script = ExtResource("1_sef1w")
+slot_name = "HP+"
+slot_description = "Health +10%"
+slot_sprite = ExtResource("2_awo8d")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

@@ -13,6 +13,7 @@ func initialize_slots():
 	for scene in slot_scenes:
 		var slot = scene.instantiate()
 		slots.append(slot)
+	slots.shuffle()
 
 
 func get_copy_slots():

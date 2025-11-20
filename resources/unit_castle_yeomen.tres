@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://drd1yf6mkcys8"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_dw383"]
+[ext_resource type="Texture2D" uid="uid://condc0wp7djh3" path="res://img/slots/castle_yeomen_preview.png" id="2_r4xqq"]
+
+[resource]
+script = ExtResource("1_dw383")
+slot_name = "yeomen"
+slot_description = "runs away from the battlefield faster than an arrow flies"
+slot_sprite = ExtResource("2_r4xqq")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

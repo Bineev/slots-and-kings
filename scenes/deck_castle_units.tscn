@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgq87o152gjee"]
+
+[ext_resource type="PackedScene" uid="uid://3g8irwp04avc" path="res://scenes/deck.tscn" id="1_iru3l"]
+[ext_resource type="PackedScene" uid="uid://mvvj3yfoxi8q" path="res://scenes/slots/slot_unit_castle_fyrd.tscn" id="2_pnblh"]
+[ext_resource type="PackedScene" uid="uid://ckf1qc2vw4805" path="res://scenes/slots/slot_unit_castle_yeomen.tscn" id="3_pgr1n"]
+[ext_resource type="PackedScene" uid="uid://bg3vp2ptjf3a4" path="res://scenes/slots/slot_unit_castle_villein.tscn" id="4_vsdko"]
+[ext_resource type="PackedScene" uid="uid://dcq3h6v07qail" path="res://scenes/slots/slot_unit_castle_warlock.tscn" id="5_744xo"]
+
+[node name="DeckCastleUnits" instance=ExtResource("1_iru3l")]
+slot_scenes = Array[PackedScene]([ExtResource("2_pnblh"), ExtResource("3_pgr1n"), ExtResource("4_vsdko"), ExtResource("5_744xo")])
+deck_type = 1

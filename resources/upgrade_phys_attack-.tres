@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://dh78mpax245js"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_g4h7n"]
+[ext_resource type="Texture2D" uid="uid://bwmmh1gdvrpsg" path="res://img/slots/upgrade_phys_damage_-.png" id="2_f6hkm"]
+
+[resource]
+script = ExtResource("1_g4h7n")
+slot_name = "physatk-"
+slot_description = "physical attack  -10%"
+slot_sprite = ExtResource("2_f6hkm")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

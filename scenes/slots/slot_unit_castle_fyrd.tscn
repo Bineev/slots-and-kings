@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://mvvj3yfoxi8q"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_2brai"]
+[ext_resource type="Resource" uid="uid://b2gwu84toog2g" path="res://resources/unic_castle_fyrd.tres" id="2_lp7u7"]
+
+[node name="SlotUnitCastleFyrd" instance=ExtResource("1_2brai")]
+slot_type = 1
+slot_res = ExtResource("2_lp7u7")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcq3h6v07qail"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_5yalp"]
+[ext_resource type="Resource" uid="uid://h4dlt5axqlsb" path="res://resources/unit_castle_warlock.tres" id="2_ro7xg"]
+
+[node name="SlotUnitCastleWarlock" instance=ExtResource("1_5yalp")]
+slot_type = 1
+slot_res = ExtResource("2_ro7xg")

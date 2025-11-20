@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfdig27dtf8o8"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_w66id"]
+[ext_resource type="Resource" uid="uid://cj1dfj3p64f0c" path="res://resources/upgrade_HP+.tres" id="2_tovqh"]
+
+[node name="SlotUpgradeHP10" instance=ExtResource("1_w66id")]
+slot_res = ExtResource("2_tovqh")

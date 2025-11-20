@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://caakr72o7ok7m"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_dpuae"]
+[ext_resource type="Texture2D" uid="uid://cq5mwm3m8s5w4" path="res://img/slots/upgrade_movement_speed_+.png" id="2_vrsfo"]
+
+[resource]
+script = ExtResource("1_dpuae")
+slot_name = "mvspd+"
+slot_description = "movement speed +20%"
+slot_sprite = ExtResource("2_vrsfo")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

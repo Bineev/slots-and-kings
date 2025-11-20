@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://cntedcdp551gp"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_l7t6v"]
+[ext_resource type="Texture2D" uid="uid://ws7f8npu1uxq" path="res://img/slots/upgrade_attack_speed_+.png" id="2_uu7mq"]
+
+[resource]
+script = ExtResource("1_l7t6v")
+slot_name = "aspd+"
+slot_description = "attack speed + 20%"
+slot_sprite = ExtResource("2_uu7mq")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

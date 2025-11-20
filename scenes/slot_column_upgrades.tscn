@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://f38fflbpak1t"]
+
+[ext_resource type="PackedScene" uid="uid://cpv4b801ai6h7" path="res://scenes/slot_column.tscn" id="1_ccd6j"]
+[ext_resource type="PackedScene" uid="uid://8fw3p8gdam5n" path="res://scenes/deck_upgrades.tscn" id="2_yngps"]
+[ext_resource type="Curve" uid="uid://b70di0nuxxfjy" path="res://resources/spin_curve.tres" id="3_swrsc"]
+
+[node name="SlotColumnUpgrades" instance=ExtResource("1_ccd6j")]
+deck_scene = ExtResource("2_yngps")
+spin_curve = ExtResource("3_swrsc")
