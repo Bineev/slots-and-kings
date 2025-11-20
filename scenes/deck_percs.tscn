@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7gfb0ywgpsf1"]
+
+[ext_resource type="PackedScene" uid="uid://3g8irwp04avc" path="res://scenes/deck.tscn" id="1_s08xd"]
+[ext_resource type="PackedScene" uid="uid://bd4b7uafi2nsi" path="res://scenes/slots/slot_perc_burly.tscn" id="2_n45k8"]
+[ext_resource type="PackedScene" uid="uid://bdr1f8d0vxa2t" path="res://scenes/slots/slot_perc_bessoted.tscn" id="3_a7sll"]
+[ext_resource type="PackedScene" uid="uid://3yk161ockgpn" path="res://scenes/slots/slot_perc_possessed.tscn" id="4_d5nf8"]
+
+[node name="DeckPercs" instance=ExtResource("1_s08xd")]
+slot_scenes = Array[PackedScene]([ExtResource("2_n45k8"), ExtResource("3_a7sll"), ExtResource("4_d5nf8"), ExtResource("2_n45k8")])
+deck_type = 2

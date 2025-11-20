@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpv4b801ai6h7"]
+
+[ext_resource type="PackedScene" uid="uid://du4ifhq563cvn" path="res://scenes/slot_carousel.tscn" id="1_4yr2j"]
+[ext_resource type="Script" uid="uid://bcnljgig4n44l" path="res://scenes/slot_column.gd" id="1_gh65a"]
+[ext_resource type="Texture2D" uid="uid://iwfgwtiftbr" path="res://img/mask.png" id="2_hxxi2"]
+
+[node name="SlotColumn" type="Node2D"]
+script = ExtResource("1_gh65a")
+
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
+texture = ExtResource("2_hxxi2")
+centered = false
+
+[node name="SlotCarouselTop" parent="Mask" instance=ExtResource("1_4yr2j")]
+unique_name_in_owner = true
+initial_indexes = Vector2(1, 0)
+
+[node name="Mask2" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(0, 21)
+texture = ExtResource("2_hxxi2")
+centered = false
+
+[node name="SlotCarouselMid" parent="Mask2" instance=ExtResource("1_4yr2j")]
+unique_name_in_owner = true
+carousel_type = 1
+initial_indexes = Vector2(2, 1)
+
+[node name="Mask3" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(0, 42)
+texture = ExtResource("2_hxxi2")
+centered = false
+
+[node name="SlotCarouselBot" parent="Mask3" instance=ExtResource("1_4yr2j")]
+unique_name_in_owner = true
+carousel_type = 2
+initial_indexes = Vector2(3, 2)

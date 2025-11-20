@@ -1,7 +1,7 @@
 extends Node
 
 enum SlotType {
-	UOGRADE, UNIT, PERC, ULT
+	UPGRADE, UNIT, PERC, ULT
 }
 
 enum CarouselType {

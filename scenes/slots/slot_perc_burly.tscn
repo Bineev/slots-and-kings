@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd4b7uafi2nsi"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_q8kyf"]
+[ext_resource type="Resource" uid="uid://rnvj53a8u0gp" path="res://resources/perc_burly.tres" id="2_du7en"]
+
+[node name="SlotPercBurly" instance=ExtResource("1_q8kyf")]
+slot_type = 2
+slot_res = ExtResource("2_du7en")

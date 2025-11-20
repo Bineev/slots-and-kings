@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://cg2i6usnlw27n"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_hlyt6"]
+[ext_resource type="Texture2D" uid="uid://dt0vi41gnai0e" path="res://img/slots/perc_besotted.png" id="2_nhyh5"]
+
+[resource]
+script = ExtResource("1_hlyt6")
+slot_name = "Bessoted"
+slot_description = "You shouldn't have eaten that mushroom\\n+20% damage\\nStrange behavior"
+slot_sprite = ExtResource("2_nhyh5")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

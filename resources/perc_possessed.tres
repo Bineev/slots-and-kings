@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://cr5mao2m8gv1q"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_xkrul"]
+[ext_resource type="Texture2D" uid="uid://derfvwderose" path="res://img/slots/perc_possessed.png" id="2_h5ind"]
+
+[resource]
+script = ExtResource("1_xkrul")
+slot_name = "Possessed"
+slot_description = "An exorcist is needed here\\nGradually loses health and increases attack speed"
+slot_sprite = ExtResource("2_h5ind")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

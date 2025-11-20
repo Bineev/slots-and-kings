@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdr1f8d0vxa2t"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_6lrc3"]
+[ext_resource type="Resource" uid="uid://cg2i6usnlw27n" path="res://resources/perc_bessoted.tres" id="2_wbpcq"]
+
+[node name="SlotPercBessoted" instance=ExtResource("1_6lrc3")]
+slot_type = 2
+slot_res = ExtResource("2_wbpcq")

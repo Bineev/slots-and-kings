@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1lnvk7s4sqmq"]
+
+[ext_resource type="PackedScene" uid="uid://cpv4b801ai6h7" path="res://scenes/slot_column.tscn" id="1_ihb4b"]
+[ext_resource type="PackedScene" uid="uid://b7gfb0ywgpsf1" path="res://scenes/deck_percs.tscn" id="2_im4o3"]
+
+[node name="SlotColumnPercs" instance=ExtResource("1_ihb4b")]
+slot_type = 2
+deck_scene = ExtResource("2_im4o3")
