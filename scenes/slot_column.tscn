@@ -14,7 +14,9 @@ centered = false
 
 [node name="SlotCarouselTop" parent="Mask" instance=ExtResource("1_4yr2j")]
 unique_name_in_owner = true
-initial_indexes = Vector2(1, 0)
+position = Vector2(0, -16)
+carousel_type = null
+initial_indexes = Vector2(0, 1)
 
 [node name="Mask2" type="Sprite2D" parent="."]
 clip_children = 1
@@ -24,8 +26,9 @@ centered = false
 
 [node name="SlotCarouselMid" parent="Mask2" instance=ExtResource("1_4yr2j")]
 unique_name_in_owner = true
+position = Vector2(0, -16)
 carousel_type = 1
-initial_indexes = Vector2(2, 1)
+initial_indexes = Vector2(1, 2)
 
 [node name="Mask3" type="Sprite2D" parent="."]
 clip_children = 1
@@ -35,5 +38,6 @@ centered = false
 
 [node name="SlotCarouselBot" parent="Mask3" instance=ExtResource("1_4yr2j")]
 unique_name_in_owner = true
+position = Vector2(0, -16)
 carousel_type = 2
-initial_indexes = Vector2(3, 2)
+initial_indexes = Vector2(2, 3)

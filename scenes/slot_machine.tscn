@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwrt5w7q3wbfy"]
+[gd_scene load_steps=4 format=3 uid="uid://dwrt5w7q3wbfy"]
 
 [ext_resource type="Texture2D" uid="uid://fns4xm0r5vtw" path="res://img/slot-machine.png" id="1_xixe3"]
+[ext_resource type="Script" uid="uid://bno6cf315is3a" path="res://scenes/slot_machine.gd" id="1_xjw1r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xjw1r"]
 animations = [{
@@ -14,6 +15,7 @@ animations = [{
 }]
 
 [node name="SlotMachine" type="Node2D"]
+script = ExtResource("1_xjw1r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xjw1r")

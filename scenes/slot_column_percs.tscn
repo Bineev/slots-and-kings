@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1lnvk7s4sqmq"]
+[gd_scene load_steps=4 format=3 uid="uid://d1lnvk7s4sqmq"]
 
 [ext_resource type="PackedScene" uid="uid://cpv4b801ai6h7" path="res://scenes/slot_column.tscn" id="1_ihb4b"]
 [ext_resource type="PackedScene" uid="uid://b7gfb0ywgpsf1" path="res://scenes/deck_percs.tscn" id="2_im4o3"]
+[ext_resource type="Curve" uid="uid://b70di0nuxxfjy" path="res://resources/spin_curve.tres" id="3_45qru"]
 
 [node name="SlotColumnPercs" instance=ExtResource("1_ihb4b")]
 slot_type = 2
 deck_scene = ExtResource("2_im4o3")
+spin_curve = ExtResource("3_45qru")
+
+[node name="SlotCarouselTop" parent="Mask" index="0"]
+carousel_type = 0
