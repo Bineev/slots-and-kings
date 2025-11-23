@@ -8,4 +8,6 @@ script = ExtResource("1_xkrul")
 slot_name = "Possessed"
 slot_description = "An exorcist is needed here\\nGradually loses health and increases attack speed"
 slot_sprite = ExtResource("2_h5ind")
+move_speed_mult = 2.0
+health_regen_interval = -1.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"

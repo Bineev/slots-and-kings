@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1bv4n8c15lwr"]
+
+[ext_resource type="Script" uid="uid://cbgdw1iqr1tx4" path="res://scripts/other/unit_factory.gd" id="1_hw2cp"]
+
+[node name="UnitFactory" type="Node2D"]
+script = ExtResource("1_hw2cp")

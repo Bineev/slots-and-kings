@@ -8,4 +8,5 @@ script = ExtResource("1_j61ay")
 slot_name = "hitchance-"
 slot_description = "hit chance -20%"
 slot_sprite = ExtResource("2_u5udy")
+hit_chance_mult = 0.8
 metadata/_custom_type_script = "uid://ckeieckjuifia"

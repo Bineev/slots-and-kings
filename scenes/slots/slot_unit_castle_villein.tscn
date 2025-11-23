@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bg3vp2ptjf3a4"]
 
 [ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_wfnp8"]
-[ext_resource type="Resource" uid="uid://3iophmsywu15" path="res://resources/unit_villein.tres" id="2_wfnp8"]
+[ext_resource type="Resource" uid="uid://0ajf3d4b3ckq" path="res://resources/unit_castle_villein.tres" id="2_wfnp8"]
 
 [node name="SlotUnitCastleVillein" instance=ExtResource("1_wfnp8")]
 slot_type = 1
