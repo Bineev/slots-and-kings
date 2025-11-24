@@ -15,7 +15,6 @@ centered = false
 [node name="SlotCarouselTop" parent="Mask" instance=ExtResource("1_4yr2j")]
 unique_name_in_owner = true
 position = Vector2(0, -16)
-carousel_type = null
 initial_indexes = Vector2(0, 1)
 
 [node name="Mask2" type="Sprite2D" parent="."]

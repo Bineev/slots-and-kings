@@ -11,6 +11,7 @@ var spin_progress : float = 0
 var slots : Array[Slot]
 var deck : Array[Slot]
 var is_stopped : bool = true
+var is_spin_end : bool
 var spin_speed : float
 var spin_time : float
 
@@ -59,6 +60,7 @@ func stop_spin():
 
 
 func spin_slots():
+	is_spin_end = false
 	for slot in slots:
 		slot.position.y += spin_speed
 	if slots[0].position.y > DataManager.slot_size.y:
@@ -93,9 +95,19 @@ func set_new_position_for_slots():
 	slots[0].initialize()
 	set_default_position_for_slots()
 
+
 func after_spin():
 	var tween = get_tree().create_tween()
 	if slots[0].position.y < DataManager.slot_size.y / 2:
 		tween.tween_callback(set_default_position_for_slots).set_delay(0.5)
 	else:
 		tween.tween_callback(set_new_position_for_slots).set_delay(0.5)
+	tween.tween_callback(spin_end).set_delay(1)
+
+
+func get_active_slot():
+	return slots[1]
+
+
+func spin_end():
+	is_spin_end = true

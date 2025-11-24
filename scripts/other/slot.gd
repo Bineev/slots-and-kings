@@ -20,4 +20,4 @@ func initialize():
 	slot_sprite.sprite_frames = SpriteFrames.new()
 	slot_sprite.sprite_frames.add_frame("default", slot_res.slot_sprite)
 	if slot_type == DataManager.SlotType.UNIT and slot_res is SlotUnitRes:
-		slot_unit_tier == slot_res.unit_tier
+		slot_unit_tier = slot_res.unit_tier

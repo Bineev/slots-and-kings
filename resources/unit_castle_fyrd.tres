@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=2 format=3 uid="uid://f8pvkffrpq72"]
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=3 format=3 uid="uid://f8pvkffrpq72"]
 
 [ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_bb1el"]
+[ext_resource type="Texture2D" uid="uid://cmdkiqwmw5qo" path="res://img/slots/castle_fyrd_preview.png" id="2_ar3k3"]
 
 [resource]
 script = ExtResource("1_bb1el")
 unit_tier = 1
 slot_name = "Fyrd"
 slot_description = "he only likes drinking more than fighting"
+slot_sprite = ExtResource("2_ar3k3")
 health = 50.0
 armor = 20.0
 physical_attack = 10.0
+scout_range = 300.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"

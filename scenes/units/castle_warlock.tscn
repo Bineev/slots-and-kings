@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuk5d1uwhiurv"]
+
+[ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_vpnis"]
+[ext_resource type="Texture2D" uid="uid://becg5wop86wr" path="res://img/units/castle_warlock.png" id="2_bkmhv"]
+
+[node name="CastleWarlock" instance=ExtResource("1_vpnis")]
+
+[node name="unit_sprite" parent="." index="1"]
+texture = ExtResource("2_bkmhv")

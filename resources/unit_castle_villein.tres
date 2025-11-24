@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SlotUnitRes" load_steps=3 format=3 uid="uid://0ajf3d4b3ckq"]
 
 [ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_apjqo"]
-[ext_resource type="Texture2D" uid="uid://xukw2s43bfoo" path="res://img/units/castle_villein.png" id="2_ycogn"]
+[ext_resource type="Texture2D" uid="uid://cv7pqhonuxbdp" path="res://img/slots/castle_villein_preview.png" id="2_ycogn"]
 
 [resource]
 script = ExtResource("1_apjqo")
@@ -10,4 +10,5 @@ slot_description = "soft head with the pitchfork"
 slot_sprite = ExtResource("2_ycogn")
 health = 30.0
 physical_attack = 5.0
+scout_range = 300.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"

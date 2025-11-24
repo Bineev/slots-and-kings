@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=6 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Texture2D" uid="uid://b27qdr0a7odrk" path="res://img/castle_back.png" id="1_2q6dc"]
-[ext_resource type="PackedScene" uid="uid://d1lnvk7s4sqmq" path="res://scenes/slot_column_percs.tscn" id="2_mx8sn"]
+[ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="Texture2D" uid="uid://cypodhfnqqklh" path="res://img/castle_UI.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dwrt5w7q3wbfy" path="res://scenes/slot_machine.tscn" id="2_w8frs"]
-[ext_resource type="PackedScene" uid="uid://f38fflbpak1t" path="res://scenes/slot_column_upgrades.tscn" id="3_ppgk2"]
-[ext_resource type="PackedScene" uid="uid://d3uof7pn2viin" path="res://scenes/slot_column_castle_units.tscn" id="4_2r41h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w7c3h"]
 animations = [{
@@ -19,24 +17,11 @@ animations = [{
 }]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_klq6b")
 
 [node name="background" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w7c3h")
 centered = false
-
-[node name="columns" type="Node2D" parent="."]
-
-[node name="SlotColumnPercs" parent="columns" instance=ExtResource("2_mx8sn")]
-position = Vector2(77, 58)
-
-[node name="SlotColumnUpgrades" parent="columns" instance=ExtResource("3_ppgk2")]
-position = Vector2(98, 58)
-
-[node name="SlotColumnCastleUnits" parent="columns" instance=ExtResource("4_2r41h")]
-position = Vector2(119, 58)
-
-[node name="SlotColumnUpgrades2" parent="columns" instance=ExtResource("3_ppgk2")]
-position = Vector2(140, 58)
 
 [node name="SlotMachine" parent="." instance=ExtResource("2_w8frs")]
 position = Vector2(128, 125)
@@ -47,3 +32,20 @@ position = Vector2(128, 125)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_w7c3h")
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="top_spawner" type="Marker2D" parent="Spawners"]
+unique_name_in_owner = true
+position = Vector2(256, 37)
+
+[node name="mid_spawner" type="Marker2D" parent="Spawners"]
+unique_name_in_owner = true
+position = Vector2(255, 117)
+
+[node name="bot_spawner" type="Marker2D" parent="Spawners"]
+unique_name_in_owner = true
+position = Vector2(256, 200)
+
+[node name="player_units" type="Node2D" parent="."]
+unique_name_in_owner = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://7iq5iq0xb4wg"]
+
+[ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_faafi"]
+[ext_resource type="Texture2D" uid="uid://dfxwotxl0bx0o" path="res://img/units/castle_yeomen.png" id="2_xtj64"]
+
+[node name="CastleYeomen" instance=ExtResource("1_faafi")]
+
+[node name="unit_sprite" parent="." index="1"]
+texture = ExtResource("2_xtj64")

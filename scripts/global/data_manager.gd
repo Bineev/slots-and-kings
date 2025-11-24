@@ -27,6 +27,10 @@ enum UnitTier {
 	T7_1, T7_2, T7_3, T7_4,
 }
 
+enum UnitOwner {
+	PLAYER, ENEMY
+}
+
 var slot_size : Vector2 = Vector2(16, 16)
 
 var started_indexes : Vector2 = Vector2(1, 0)
@@ -36,3 +40,21 @@ var min_spin_time : float = 2
 var max_spin_time : float = 3
 
 var default_spin_speed : float = 0.1
+
+var male_names = [
+	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
+	'Bernard', 'Baldo', 'Bran', 'Benedict', 'Bert',
+	'Clement', 'Calvo', 'Charles', 'Crispin', ' Dadmar',
+	'Daniel', 'Duncan', 'Darwin', 'Erik', 'Ernest',
+	'Engelrich', 'Fabian', 'Francis', 'Frank', 'Frotbald',
+	'Gerbert', 'Gustav', 'Grimwin', 'Godric', 'Harold',
+	 'Helmwin', 'Hardulf', 'Hildewalde', 'Ingram', 'Ishmael',
+	'Jacob', 'Job', 'Joshua', 'Knut', 'Lance', ' Luke', 'Laurence',
+	'Macbeth', 'Mark', 'Maga', 'Muhammad', 'Nadalbert', 'Nathan',
+	'Noah', 'Ortolf', 'Orm', 'Olaf', 'Octavian', 'Pascal',
+	'Patrick', 'Paul', 'Peter', 'Quentin', 'Raphael', 'Reynold',
+	'Remy', 'Rufus', 'Reinrich', 'Sigmund', 'Simon', 'Santiago',
+	'Tanculf', 'Thorsten', 'Theobald', 'Tiberius', 'Urith',
+	'Victor', 'Virgil', 'Volkrich', 'Walrich', 'Geoffrey', 
+	'William', 'Warnhard', 
+]

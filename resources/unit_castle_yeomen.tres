@@ -12,4 +12,5 @@ slot_sprite = ExtResource("2_2xb3e")
 health = 30.0
 armor = 10.0
 physical_attack = 12.0
+scout_range = 300.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"

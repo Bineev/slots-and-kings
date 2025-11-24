@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ur2h318rl3w0"]
+
+[ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_2rehq"]
+[ext_resource type="Texture2D" uid="uid://xukw2s43bfoo" path="res://img/units/castle_villein.png" id="2_o5l30"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q4ca4"]
+radius = 4.0
+height = 16.0
+
+[node name="CastleVillein" instance=ExtResource("1_2rehq")]
+
+[node name="unit_collision" parent="." index="0"]
+shape = SubResource("CapsuleShape2D_q4ca4")
+
+[node name="unit_sprite" parent="." index="1"]
+position = Vector2(0, -4)
+texture = ExtResource("2_o5l30")

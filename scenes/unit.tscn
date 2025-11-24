@@ -10,3 +10,13 @@ script = ExtResource("1_o7ajc")
 [node name="unit_sprite" type="Sprite2D" parent="."]
 
 [node name="unit_anim" type="AnimationPlayer" parent="."]
+
+[node name="attack_range" type="Area2D" parent="."]
+
+[node name="attack_range_collision" type="CollisionShape2D" parent="attack_range"]
+unique_name_in_owner = true
+
+[node name="scout_range" type="Area2D" parent="."]
+
+[node name="scout_range_collision" type="CollisionShape2D" parent="scout_range"]
+unique_name_in_owner = true
