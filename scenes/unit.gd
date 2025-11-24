@@ -41,3 +41,8 @@ class_name Unit
 @export var inc_damage_mult_vs_forest : float = 1
 
 var unit_state : DataManager.UnitState
+var unit_family : DataManager.UnitFamily
+var unit_tier : DataManager.UnitTier
+var unit_name : String
+var unit_class : String
+var unit_desc : String
