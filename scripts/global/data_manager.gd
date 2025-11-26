@@ -31,6 +31,10 @@ enum UnitOwner {
 	PLAYER, ENEMY
 }
 
+enum ResType {
+	GOLD, FOOD, SPIN_TOKEN, CRYSTAL
+}
+
 var slot_size : Vector2 = Vector2(16, 16)
 
 var started_indexes : Vector2 = Vector2(1, 0)

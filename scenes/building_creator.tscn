@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://du1jk1jvycey7"]
+
+[ext_resource type="PackedScene" uid="uid://l2eh1ynjfw06" path="res://scenes/building.tscn" id="1_q2ixk"]
+[ext_resource type="Script" uid="uid://bp78sb1gptu28" path="res://scenes/building_creator.gd" id="2_a1avw"]
+
+[node name="BuildingCreator" instance=ExtResource("1_q2ixk")]
+script = ExtResource("2_a1avw")
+entity_pool = Array[PackedScene]([])
+generation_interval = 0.0
+choose_UI_scene = null
+choose_count = 0

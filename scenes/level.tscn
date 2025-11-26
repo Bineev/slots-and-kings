@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=7 format=3 uid="uid://rl65frn0ke4w"]
 
-[ext_resource type="Texture2D" uid="uid://b27qdr0a7odrk" path="res://img/castle_back.png" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
+[ext_resource type="Texture2D" uid="uid://dn060854hlspj" path="res://img/castle_back_3.png" id="2_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cypodhfnqqklh" path="res://img/castle_UI.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dwrt5w7q3wbfy" path="res://scenes/slot_machine.tscn" id="2_w8frs"]
+[ext_resource type="PackedScene" uid="uid://ht8303wxnf5o" path="res://scenes/spawner.tscn" id="5_ppgk2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w7c3h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_2q6dc")
+"texture": ExtResource("2_mx8sn")
 }],
 "loop": true,
 "name": &"default",
@@ -24,28 +25,139 @@ sprite_frames = SubResource("SpriteFrames_w7c3h")
 centered = false
 
 [node name="SlotMachine" parent="." instance=ExtResource("2_w8frs")]
-position = Vector2(128, 125)
+position = Vector2(123, 245)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="bottom_panel" type="TextureRect" parent="UI"]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_w7c3h")
 
-[node name="Spawners" type="Node2D" parent="."]
-
-[node name="top_spawner" type="Marker2D" parent="Spawners"]
+[node name="spawners" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(256, 37)
+position = Vector2(250, 251)
 
-[node name="mid_spawner" type="Marker2D" parent="Spawners"]
-unique_name_in_owner = true
-position = Vector2(255, 117)
+[node name="Spawner" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, -9)
 
-[node name="bot_spawner" type="Marker2D" parent="Spawners"]
-unique_name_in_owner = true
-position = Vector2(256, 200)
+[node name="Spawner2" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, 1)
+
+[node name="Spawner3" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(19, -9)
+
+[node name="Spawner4" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(19, 1)
+
+[node name="Spawner5" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(12, -9)
+
+[node name="Spawner6" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(12, 1)
+
+[node name="Spawner7" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(5, -9)
+
+[node name="Spawner8" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(5, 1)
+
+[node name="Spawner9" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(-2, -9)
+
+[node name="Spawner10" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(-2, 1)
+
+[node name="Spawner11" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, -19)
+
+[node name="Spawner12" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(19, -19)
+
+[node name="Spawner13" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(12, -19)
+
+[node name="Spawner14" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(5, -19)
+
+[node name="Spawner15" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(-2, -19)
+
+[node name="Spawner16" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, 11)
+
+[node name="Spawner17" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(19, 11)
+
+[node name="Spawner18" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(12, 11)
+
+[node name="Spawner19" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(5, 11)
+
+[node name="Spawner20" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(-2, 11)
+
+[node name="Spawner21" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, -28)
+
+[node name="Spawner22" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(19, -28)
+
+[node name="Spawner23" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(12, -28)
+
+[node name="Spawner24" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(5, -28)
+
+[node name="Spawner25" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(-2, -28)
+
+[node name="Spawner26" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, 21)
+
+[node name="Spawner27" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(19, 21)
+
+[node name="Spawner28" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(12, 21)
+
+[node name="Spawner29" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(5, 21)
+
+[node name="Spawner30" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(-1, 21)
+
+[node name="Spawner31" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, -38)
+
+[node name="Spawner32" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(19, -38)
+
+[node name="Spawner33" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(12, -38)
+
+[node name="Spawner34" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(5, -38)
+
+[node name="Spawner35" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(-2, -38)
+
+[node name="Spawner36" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, 31)
+
+[node name="Spawner37" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(19, 31)
+
+[node name="Spawner38" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(12, 31)
+
+[node name="Spawner39" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(5, 31)
+
+[node name="Spawner40" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(-1, 31)
 
 [node name="player_units" type="Node2D" parent="."]
 unique_name_in_owner = true

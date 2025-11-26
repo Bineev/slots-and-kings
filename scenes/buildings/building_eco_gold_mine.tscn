@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c04hhfieltrsi"]
+
+[ext_resource type="PackedScene" uid="uid://mk7rl828mvpf" path="res://scenes/building_eco.tscn" id="1_ko7j8"]
+[ext_resource type="Texture2D" uid="uid://bpdlvhexw0yu7" path="res://img/buildings/building_gold_mine.png" id="2_1v0ob"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6nmt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1v0ob")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BuildingEcoGoldMine" instance=ExtResource("1_ko7j8")]
+res_type = 0
+res_amount = 10
+get_res_interval = 10.0
+
+[node name="building_sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_e6nmt")

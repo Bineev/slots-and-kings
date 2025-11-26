@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgav8hsk0h78k"]
+
+[ext_resource type="PackedScene" uid="uid://l2eh1ynjfw06" path="res://scenes/building.tscn" id="1_h03c0"]
+[ext_resource type="Script" uid="uid://7v7ox2dlfr5n" path="res://scripts/other/building_generator.gd" id="2_gxdra"]
+
+[node name="BuildingGenerator" instance=ExtResource("1_h03c0")]
+script = ExtResource("2_gxdra")
+entity_pool = null
+generation_interval = null
+choose_UI_scene = null
+
+[node name="generate_timer" type="Timer" parent="." index="3"]
+unique_name_in_owner = true

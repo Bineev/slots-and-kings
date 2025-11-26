@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4g8fbsd34riu"]
+
+[ext_resource type="PackedScene" uid="uid://mk7rl828mvpf" path="res://scenes/building_eco.tscn" id="1_6xw4s"]
+[ext_resource type="Texture2D" uid="uid://dvhn0urjfhqy2" path="res://img/buildings/building_farm.png" id="2_rewbd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpnqe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rewbd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BuildingEcoFarm" instance=ExtResource("1_6xw4s")]
+res_type = 1
+res_amount = 1
+get_res_interval = 20.0
+
+[node name="building_sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_kpnqe")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://mk7rl828mvpf"]
+
+[ext_resource type="PackedScene" uid="uid://l2eh1ynjfw06" path="res://scenes/building.tscn" id="1_e1fgg"]
+[ext_resource type="Script" uid="uid://bvll8hwk37c1b" path="res://scripts/other/building_eco.gd" id="2_c63sy"]
+
+[node name="BuildingEco" instance=ExtResource("1_e1fgg")]
+script = ExtResource("2_c63sy")
+
+[node name="get_res_timer" type="Timer" parent="." index="3"]
+unique_name_in_owner = true
+wait_time = 1000.0
+
+[connection signal="timeout" from="get_res_timer" to="." method="_on_get_res_timer_timeout"]

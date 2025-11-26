@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://l2eh1ynjfw06"]
+
+[ext_resource type="Script" uid="uid://krdpufq40uar" path="res://scripts/other/building.gd" id="1_n8bkc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejq8p"]
+size = Vector2(64, 64)
+
+[node name="Building" type="Area2D"]
+script = ExtResource("1_n8bkc")
+
+[node name="building_sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="building_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ejq8p")
+
+[node name="building_anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
