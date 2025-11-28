@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d1jhwgxjej5fh"]
+
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="1_balre"]
+
+[resource]
+font = ExtResource("1_balre")
+font_size = 8
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)

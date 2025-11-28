@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://quhemjd0dbdh"]
+[gd_scene load_steps=12 format=3 uid="uid://quhemjd0dbdh"]
 
 [ext_resource type="Script" uid="uid://dx4x1qmvvcwjy" path="res://scripts/other/building_ui.gd" id="1_if0vd"]
 [ext_resource type="PackedScene" uid="uid://in0qu805m2bf" path="res://scenes/buildings_preview/building_preview_farm.tscn" id="2_wunb3"]
@@ -10,20 +10,36 @@
 [ext_resource type="PackedScene" uid="uid://c6kgb32tdpeqj" path="res://scenes/buildings_preview/building_preview_t_2_barracks.tscn" id="8_ntjld"]
 [ext_resource type="PackedScene" uid="uid://r20awwbeqwng" path="res://scenes/buildings_preview/building_preview_t_3_barracks.tscn" id="9_b1v6l"]
 [ext_resource type="PackedScene" uid="uid://dk3cbrspov7o8" path="res://scenes/buildings_preview/building_preview_t_4_barracks.tscn" id="10_20vxf"]
+[ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="11_lbfxy"]
 
 [node name="BuildingUI" type="CenterContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_if0vd")
 building_preview_scenes = Array[PackedScene]([ExtResource("2_wunb3"), ExtResource("3_lbfxy"), ExtResource("4_wopjm"), ExtResource("5_fts5n"), ExtResource("6_ykri7"), ExtResource("7_j5ja2"), ExtResource("8_ntjld"), ExtResource("9_b1v6l"), ExtResource("10_20vxf")])
 
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+color = Color(0.84313726, 0.70980394, 0.5803922, 1)
+
+[node name="label_close" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 3.0
+offset_bottom = 25.0
+text = "ПКМ - закрыть"
+label_settings = ExtResource("11_lbfxy")
+
 [node name="buildings_container" type="GridContainer" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(830, 540)
 layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
 columns = 4

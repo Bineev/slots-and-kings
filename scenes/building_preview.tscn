@@ -1,23 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmtajflsqdycd"]
+[gd_scene load_steps=7 format=3 uid="uid://dmtajflsqdycd"]
 
 [ext_resource type="Script" uid="uid://cmn80s840v678" path="res://scripts/other/building_preview.gd" id="1_pgw6j"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_pgw6j"]
-font_size = 12
+[ext_resource type="LabelSettings" uid="uid://cjxq87g1sh7c8" path="res://styles/10_dark.tres" id="2_rotd2"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="2_t8f08"]
+[ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="3_fr6k8"]
+[ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="3_jl218"]
+[ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="4_mhy82"]
 
 [node name="BuildingPreview" type="VBoxContainer"]
-custom_minimum_size = Vector2(200, 160)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(200, 100)
+offset_right = 8.0
+offset_bottom = 104.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_pgw6j")
@@ -25,8 +18,10 @@ script = ExtResource("1_pgw6j")
 [node name="label_building_name" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+label_settings = ExtResource("2_rotd2")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="building_texture" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -36,11 +31,23 @@ stretch_mode = 5
 
 [node name="label_building_desc" type="Label" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-label_settings = SubResource("LabelSettings_pgw6j")
+label_settings = ExtResource("3_fr6k8")
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="buy_button" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_t8f08")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("3_jl218")
+theme_override_styles/pressed = ExtResource("3_jl218")
+theme_override_styles/hover = ExtResource("4_mhy82")
+theme_override_styles/focus = ExtResource("3_jl218")
