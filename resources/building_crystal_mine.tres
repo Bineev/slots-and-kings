@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingRes" load_steps=3 format=3 uid="uid://bwdgspbdfvgq2"]
+
+[ext_resource type="Script" uid="uid://ebjnjxcsijom" path="res://resources/building_res.gd" id="1_8msq7"]
+[ext_resource type="Texture2D" uid="uid://dushheuwqvg5a" path="res://img/buildings/building_crystal_mine.png" id="1_lxdnj"]
+
+[resource]
+script = ExtResource("1_8msq7")
+building_name = "шахта кристаллов"
+building_desc = "С определенным интервалом производит кристаллы"
+building_cost = 1000
+building_sprite = ExtResource("1_lxdnj")
+produce_amount = 1
+produce_interval = 20.0
+metadata/_custom_type_script = "uid://ebjnjxcsijom"

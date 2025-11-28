@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0167bt4byfvw"]
+
+[ext_resource type="PackedScene" uid="uid://dmtajflsqdycd" path="res://scenes/building_preview.tscn" id="1_nupqc"]
+[ext_resource type="Resource" uid="uid://bd84agy1iwne" path="res://resources/building_training_camp.tres" id="2_335ta"]
+
+[node name="BuildingPreviewTrainingCamp" instance=ExtResource("1_nupqc")]
+building_res = ExtResource("2_335ta")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcpjm1ahsxlql"]
+
+[ext_resource type="PackedScene" uid="uid://dmtajflsqdycd" path="res://scenes/building_preview.tscn" id="1_pac32"]
+[ext_resource type="Resource" uid="uid://df04vwq8arb47" path="res://resources/building_T1_barracks.tres" id="2_df2fp"]
+
+[node name="BuildingPreviewT1Barracks" instance=ExtResource("1_pac32")]
+building_res = ExtResource("2_df2fp")

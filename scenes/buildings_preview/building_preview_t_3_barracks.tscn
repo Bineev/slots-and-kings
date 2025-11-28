@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://r20awwbeqwng"]
+
+[ext_resource type="PackedScene" uid="uid://dmtajflsqdycd" path="res://scenes/building_preview.tscn" id="1_mop18"]
+[ext_resource type="Resource" uid="uid://5xt8tjcf7kvc" path="res://resources/building_T3_barracks.tres" id="2_00346"]
+
+[node name="BuildingPreviewT3Barracks" instance=ExtResource("1_mop18")]
+building_res = ExtResource("2_00346")

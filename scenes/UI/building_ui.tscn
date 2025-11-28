@@ -1,0 +1,29 @@
+[gd_scene load_steps=11 format=3 uid="uid://quhemjd0dbdh"]
+
+[ext_resource type="Script" uid="uid://dx4x1qmvvcwjy" path="res://scripts/other/building_ui.gd" id="1_if0vd"]
+[ext_resource type="PackedScene" uid="uid://in0qu805m2bf" path="res://scenes/buildings_preview/building_preview_farm.tscn" id="2_wunb3"]
+[ext_resource type="PackedScene" uid="uid://cn77jc08tu3lx" path="res://scenes/buildings_preview/building_preview_factory.tscn" id="3_lbfxy"]
+[ext_resource type="PackedScene" uid="uid://bcpjm1ahsxlql" path="res://scenes/buildings_preview/building_preview_t_1_barracks.tscn" id="4_wopjm"]
+[ext_resource type="PackedScene" uid="uid://c0167bt4byfvw" path="res://scenes/buildings_preview/building_preview_training_camp.tscn" id="5_fts5n"]
+[ext_resource type="PackedScene" uid="uid://djdhcl4c8xlr8" path="res://scenes/buildings_preview/building_preview_gold_mine.tscn" id="6_ykri7"]
+[ext_resource type="PackedScene" uid="uid://cnphpyithdmu4" path="res://scenes/buildings_preview/building_preview_crystal_mine.tscn" id="7_j5ja2"]
+[ext_resource type="PackedScene" uid="uid://c6kgb32tdpeqj" path="res://scenes/buildings_preview/building_preview_t_2_barracks.tscn" id="8_ntjld"]
+[ext_resource type="PackedScene" uid="uid://r20awwbeqwng" path="res://scenes/buildings_preview/building_preview_t_3_barracks.tscn" id="9_b1v6l"]
+[ext_resource type="PackedScene" uid="uid://dk3cbrspov7o8" path="res://scenes/buildings_preview/building_preview_t_4_barracks.tscn" id="10_20vxf"]
+
+[node name="BuildingUI" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_if0vd")
+building_preview_scenes = Array[PackedScene]([ExtResource("2_wunb3"), ExtResource("3_lbfxy"), ExtResource("4_wopjm"), ExtResource("5_fts5n"), ExtResource("6_ykri7"), ExtResource("7_j5ja2"), ExtResource("8_ntjld"), ExtResource("9_b1v6l"), ExtResource("10_20vxf")])
+
+[node name="buildings_container" type="GridContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(830, 540)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4

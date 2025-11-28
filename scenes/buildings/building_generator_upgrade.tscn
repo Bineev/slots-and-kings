@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dc0hkvd82jihv"]
 
 [ext_resource type="PackedScene" uid="uid://cgav8hsk0h78k" path="res://scenes/building_generator.tscn" id="1_j4cx7"]
-[ext_resource type="Texture2D" uid="uid://cv6g24t85mj12" path="res://img/buildings/building_train_camp.png" id="2_4b1xj"]
+[ext_resource type="Texture2D" uid="uid://cv6g24t85mj12" path="res://img/buildings/building_training_camp.png" id="2_4b1xj"]
 [ext_resource type="PackedScene" uid="uid://dfdig27dtf8o8" path="res://scenes/slots/slot_upgrade_hp_10.tscn" id="2_n31ji"]
 [ext_resource type="PackedScene" uid="uid://v2ecx68fo8rt" path="res://scenes/slots/slot_upgrade_mvspd_20.tscn" id="3_vfr4u"]
 [ext_resource type="PackedScene" uid="uid://b0njh3b7sguke" path="res://scenes/slots/slot_upgrade_critchance_10.tscn" id="4_4sueu"]

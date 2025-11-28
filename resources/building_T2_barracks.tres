@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingRes" load_steps=3 format=3 uid="uid://dlb4qw6bmhjeh"]
+
+[ext_resource type="Script" uid="uid://ebjnjxcsijom" path="res://resources/building_res.gd" id="1_0sh0t"]
+[ext_resource type="Texture2D" uid="uid://xjqj8l0j0dcr" path="res://img/buildings/building_barracks_T2.png" id="1_otxo4"]
+
+[resource]
+script = ExtResource("1_0sh0t")
+building_name = "Т2 бараки"
+building_desc = "Создает слот Т2 юнита для рулетки"
+building_cost = 2000
+building_sprite = ExtResource("1_otxo4")
+produce_amount = 1
+produce_interval = 120.0
+metadata/_custom_type_script = "uid://ebjnjxcsijom"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingRes" load_steps=3 format=3 uid="uid://bd84agy1iwne"]
+
+[ext_resource type="Texture2D" uid="uid://cv6g24t85mj12" path="res://img/buildings/building_training_camp.png" id="1_3n0n1"]
+[ext_resource type="Script" uid="uid://ebjnjxcsijom" path="res://resources/building_res.gd" id="1_iq17q"]
+
+[resource]
+script = ExtResource("1_iq17q")
+building_name = "тренировочный лагерь"
+building_desc = "С определенным интервалом создает слоты улучшений для рулетки"
+building_cost = 1500
+building_sprite = ExtResource("1_3n0n1")
+produce_amount = 1
+produce_interval = 60.0
+metadata/_custom_type_script = "uid://ebjnjxcsijom"

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://djdhcl4c8xlr8"]
+
+[ext_resource type="PackedScene" uid="uid://dmtajflsqdycd" path="res://scenes/building_preview.tscn" id="1_bbnj4"]
+[ext_resource type="Resource" uid="uid://qc2robn6jjdp" path="res://resources/building_gold.tres" id="2_cicn4"]
+
+[node name="BuildingPreviewGoldMine" instance=ExtResource("1_bbnj4")]
+building_res = ExtResource("2_cicn4")

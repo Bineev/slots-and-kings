@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingRes" load_steps=3 format=3 uid="uid://cpnlmnv2krllq"]
+
+[ext_resource type="Texture2D" uid="uid://yydoewyj52tw" path="res://img/buildings/building_faсtory.png" id="1_jyygt"]
+[ext_resource type="Script" uid="uid://ebjnjxcsijom" path="res://resources/building_res.gd" id="2_uupli"]
+
+[resource]
+script = ExtResource("2_uupli")
+building_name = "фабрика"
+building_desc = "С определенным интервалом производит жетоны"
+building_cost = 500
+building_sprite = ExtResource("1_jyygt")
+produce_amount = 1
+produce_interval = 10.0
+metadata/_custom_type_script = "uid://ebjnjxcsijom"

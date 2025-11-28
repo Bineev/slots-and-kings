@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv6g24t85mj12"
-path="res://.godot/imported/building_train_camp.png-76880ae59c0897ca5f4e99e25384e6d7.ctex"
+path="res://.godot/imported/building_training_camp.png-e96fcf02f4a2c179c2c44cd27e222fdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/buildings/building_train_camp.png"
-dest_files=["res://.godot/imported/building_train_camp.png-76880ae59c0897ca5f4e99e25384e6d7.ctex"]
+source_file="res://img/buildings/building_training_camp.png"
+dest_files=["res://.godot/imported/building_training_camp.png-e96fcf02f4a2c179c2c44cd27e222fdf.ctex"]
 
 [params]
 

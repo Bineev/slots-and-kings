@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmtajflsqdycd"]
+
+[ext_resource type="Script" uid="uid://cmn80s840v678" path="res://scripts/other/building_preview.gd" id="1_pgw6j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pgw6j"]
+font_size = 12
+
+[node name="BuildingPreview" type="VBoxContainer"]
+custom_minimum_size = Vector2(200, 160)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_pgw6j")
+
+[node name="label_building_name" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="building_texture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="label_building_desc" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_pgw6j")
+autowrap_mode = 2
+
+[node name="buy_button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

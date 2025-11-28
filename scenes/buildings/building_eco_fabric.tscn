@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cki8vb52bo5c2"]
 
 [ext_resource type="PackedScene" uid="uid://mk7rl828mvpf" path="res://scenes/building_eco.tscn" id="1_isubk"]
-[ext_resource type="Texture2D" uid="uid://yydoewyj52tw" path="res://img/buildings/building_fabric.png" id="2_ue50a"]
+[ext_resource type="Texture2D" uid="uid://yydoewyj52tw" path="res://img/buildings/building_faсtory.png" id="2_ue50a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fyg13"]
 animations = [{
