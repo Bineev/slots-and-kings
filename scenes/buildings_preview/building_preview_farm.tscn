@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://in0qu805m2bf"]
+[gd_scene load_steps=4 format=3 uid="uid://in0qu805m2bf"]
 
 [ext_resource type="PackedScene" uid="uid://dmtajflsqdycd" path="res://scenes/building_preview.tscn" id="1_63lul"]
+[ext_resource type="PackedScene" uid="uid://b4g8fbsd34riu" path="res://scenes/buildings/building_eco_farm.tscn" id="2_av4d1"]
 [ext_resource type="Resource" uid="uid://b3chhv0rjkh35" path="res://resources/building_farm.tres" id="2_meggw"]
 
 [node name="BuildingPreviewFarm" instance=ExtResource("1_63lul")]
+building_scene = ExtResource("2_av4d1")
 building_res = ExtResource("2_meggw")

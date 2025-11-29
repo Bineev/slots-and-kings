@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildingRes" load_steps=3 format=3 uid="uid://xdttvbb0axo6"]
+
+[ext_resource type="Texture2D" uid="uid://b2ixcd5klp7by" path="res://img/buildings/building_empty.png" id="1_7twhw"]
+[ext_resource type="Script" uid="uid://ebjnjxcsijom" path="res://resources/building_res.gd" id="1_ygal0"]
+
+[resource]
+script = ExtResource("1_ygal0")
+building_name = "Место под здание"
+building_desc = "При нажатии откроется меню строительства"
+building_sprite = ExtResource("1_7twhw")
+metadata/_custom_type_script = "uid://ebjnjxcsijom"

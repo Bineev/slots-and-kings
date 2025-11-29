@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnphpyithdmu4"]
+[gd_scene load_steps=4 format=3 uid="uid://cnphpyithdmu4"]
 
 [ext_resource type="PackedScene" uid="uid://dmtajflsqdycd" path="res://scenes/building_preview.tscn" id="1_fckwy"]
 [ext_resource type="Resource" uid="uid://bwdgspbdfvgq2" path="res://resources/building_crystal_mine.tres" id="2_ag1s0"]
+[ext_resource type="PackedScene" uid="uid://c56y02jjgshjn" path="res://scenes/buildings/building_eco_crystal_mine.tscn" id="2_okdn3"]
 
 [node name="BuildingPreviewCrystalMine" instance=ExtResource("1_fckwy")]
+building_scene = ExtResource("2_okdn3")
 building_res = ExtResource("2_ag1s0")

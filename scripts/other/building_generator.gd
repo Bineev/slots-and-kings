@@ -17,9 +17,9 @@ func _ready() -> void:
 	SignalManager.on_entity_choosed.connect(add_choosed_entity)
 
 
-func initialize(new_deck : Deck):
+func initialize():
 	await self.ready
-	deck = new_deck
+	#deck = new_deck
 	generate_timer.wait_time = generation_interval
 	show_choose_UI()
 

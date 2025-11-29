@@ -9,9 +9,11 @@ class_name BuildingUI
 
 var building_previews : Array[BuildingPreview]
 var is_should_check_input : bool = true
+var prebuilding : Building
 
 func _ready() -> void:
 	initialize()
+	SignalManager.on_choose_building.connect(choose_building)
 
 
 func _input(event):
@@ -24,6 +26,7 @@ func _input(event):
 			var tween = get_tree().create_tween()
 			tween.tween_callback(destroy).set_delay(0.5)
 
+
 func initialize():
 	await self.ready
 	for building_scene in building_preview_scenes:
@@ -34,3 +37,12 @@ func initialize():
 
 func destroy():
 	queue_free()
+
+
+func choose_building(building_scene : PackedScene):
+	SignalManager.on_build_building.emit(building_scene, prebuilding)
+	visible = false
+	var tween = get_tree().create_tween()
+	tween.tween_callback(destroy).set_delay(0.5)
+	
+	

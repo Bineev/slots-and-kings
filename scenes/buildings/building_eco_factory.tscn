@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cki8vb52bo5c2"]
+
+[ext_resource type="PackedScene" uid="uid://mk7rl828mvpf" path="res://scenes/building_eco.tscn" id="1_50q6t"]
+[ext_resource type="Resource" uid="uid://cpnlmnv2krllq" path="res://resources/building_factory.tres" id="2_3l077"]
+
+[node name="BuildingEcoFactory" instance=ExtResource("1_50q6t")]
+res_type = 2
+res_amount = 1
+get_res_interval = 10.0
+building_res = ExtResource("2_3l077")

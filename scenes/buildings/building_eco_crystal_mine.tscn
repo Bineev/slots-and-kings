@@ -1,23 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c56y02jjgshjn"]
+[gd_scene load_steps=3 format=3 uid="uid://c56y02jjgshjn"]
 
 [ext_resource type="PackedScene" uid="uid://mk7rl828mvpf" path="res://scenes/building_eco.tscn" id="1_hak5g"]
-[ext_resource type="Texture2D" uid="uid://dushheuwqvg5a" path="res://img/buildings/building_crystal_mine.png" id="2_jh54g"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bvxyn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_jh54g")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Resource" uid="uid://bwdgspbdfvgq2" path="res://resources/building_crystal_mine.tres" id="2_jh54g"]
 
 [node name="BuildingEcoCrystalMine" instance=ExtResource("1_hak5g")]
 res_type = 3
 res_amount = 1
 get_res_interval = 30.0
+building_res = ExtResource("2_jh54g")
 
 [node name="building_sprite" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_bvxyn")
+unique_name_in_owner = false

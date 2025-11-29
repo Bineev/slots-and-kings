@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://hcjh0c5pnpmr"]
+
+[ext_resource type="PackedScene" uid="uid://l2eh1ynjfw06" path="res://scenes/building.tscn" id="1_b5qh4"]
+[ext_resource type="Script" uid="uid://boub6g0btxvgh" path="res://scripts/other/building_empty.gd" id="2_50na4"]
+[ext_resource type="Resource" uid="uid://xdttvbb0axo6" path="res://resources/building_empty.tres" id="3_h13ar"]
+[ext_resource type="PackedScene" uid="uid://quhemjd0dbdh" path="res://scenes/UI/building_ui.tscn" id="3_pn5wu"]
+
+[node name="BuildingEmpty" instance=ExtResource("1_b5qh4")]
+script = ExtResource("2_50na4")
+building_res = ExtResource("3_h13ar")
+pop_up_ui_scene = ExtResource("3_pn5wu")

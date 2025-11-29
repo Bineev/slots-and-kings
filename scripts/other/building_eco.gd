@@ -11,7 +11,7 @@ class_name BuildingEco
 
 
 func initialize():
-	await self.ready
+	super.initialize()
 	get_res_timer.wait_time = get_res_interval
 	get_res_timer.start()
 

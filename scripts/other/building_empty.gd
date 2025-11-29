@@ -1,0 +1,12 @@
+extends Building
+
+class_name BuildingEmpty
+
+
+func show_ui():
+	pop_up_ui = pop_up_ui_scene.instantiate()
+	pop_up_ui.prebuilding = self
+	SignalManager.on_pop_up_UI.emit(pop_up_ui)
+
+func close_ui():
+	pass

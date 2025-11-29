@@ -9,6 +9,7 @@ size = Vector2(64, 64)
 script = ExtResource("1_n8bkc")
 
 [node name="building_sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 
 [node name="building_collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ejq8p")
