@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6kgb32tdpeqj"]
+[gd_scene load_steps=4 format=3 uid="uid://c6kgb32tdpeqj"]
 
 [ext_resource type="PackedScene" uid="uid://dmtajflsqdycd" path="res://scenes/building_preview.tscn" id="1_ge4yc"]
 [ext_resource type="Resource" uid="uid://dlb4qw6bmhjeh" path="res://resources/building_T2_barracks.tres" id="2_a53da"]
+[ext_resource type="PackedScene" uid="uid://calbndmbxrgc" path="res://scenes/buildings/building_creator_castle_t_2.tscn" id="2_cw2dn"]
 
 [node name="BuildingPreviewT2Barracks" instance=ExtResource("1_ge4yc")]
+building_scene = ExtResource("2_cw2dn")
 building_res = ExtResource("2_a53da")

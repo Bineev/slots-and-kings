@@ -5,6 +5,9 @@
 
 [node name="BuildingEco" instance=ExtResource("1_e1fgg")]
 script = ExtResource("2_c63sy")
+res_type = 0
+res_amount = 0
+get_res_interval = 0.0
 
 [node name="get_res_timer" type="Timer" parent="." index="3"]
 unique_name_in_owner = true

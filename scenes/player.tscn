@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2n1x2qfrsxyl"]
+[gd_scene load_steps=15 format=3 uid="uid://b2n1x2qfrsxyl"]
 
-[ext_resource type="Script" uid="uid://tslubic5dm4q" path="res://scripts/other/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://3w73b74vo6kv" path="res://scripts/global/player_manager.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://bg3vp2ptjf3a4" path="res://scenes/slots/slot_unit_castle_villein.tscn" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://b1btvd7ns3ahd" path="res://scenes/slots/slot_upgrade_hitchance_20_neg.tscn" id="3_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://dfdig27dtf8o8" path="res://scenes/slots/slot_upgrade_hp_10.tscn" id="4_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://npurki3d253k" path="res://scenes/slots/slot_upgrade_empty.tscn" id="5_fjrip"]
+[ext_resource type="PackedScene" uid="uid://bd4b7uafi2nsi" path="res://scenes/slots/slot_perc_burly.tscn" id="6_ur7pv"]
+[ext_resource type="PackedScene" uid="uid://c7ouj3brlhyfk" path="res://scenes/slots/slot_perc_scribe.tscn" id="7_y4r1p"]
+[ext_resource type="PackedScene" uid="uid://bdr1f8d0vxa2t" path="res://scenes/slots/slot_perc_bessoted.tscn" id="8_d2wvv"]
+[ext_resource type="PackedScene" uid="uid://3yk161ockgpn" path="res://scenes/slots/slot_perc_possessed.tscn" id="9_3v2ag"]
+[ext_resource type="PackedScene" uid="uid://mvvj3yfoxi8q" path="res://scenes/slots/slot_unit_castle_fyrd.tscn" id="10_d2wvv"]
+[ext_resource type="PackedScene" uid="uid://ckf1qc2vw4805" path="res://scenes/slots/slot_unit_castle_yeomen.tscn" id="11_3v2ag"]
+[ext_resource type="PackedScene" uid="uid://k503csgfo6f1" path="res://scenes/slots/slot_upgrade_aspd_20.tscn" id="12_f1ej7"]
+[ext_resource type="PackedScene" uid="uid://v2ecx68fo8rt" path="res://scenes/slots/slot_upgrade_mvspd_20.tscn" id="13_oprun"]
+[ext_resource type="PackedScene" uid="uid://b0njh3b7sguke" path="res://scenes/slots/slot_upgrade_critchance_10.tscn" id="14_a8ls1"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3vyb7")
+health = 100
+gold = 2000
+tokens = 5
+food = 2
+base_units_deck = Array[PackedScene]([ExtResource("2_g2els"), ExtResource("2_g2els"), ExtResource("2_g2els"), ExtResource("2_g2els")])
+base_upgrades_deck = Array[PackedScene]([ExtResource("3_qlg0r"), ExtResource("4_tuyoq"), ExtResource("5_fjrip"), ExtResource("5_fjrip")])
+base_percs_deck = Array[PackedScene]([ExtResource("6_ur7pv"), ExtResource("7_y4r1p"), ExtResource("8_d2wvv"), ExtResource("9_3v2ag")])
+units_T1_pool = Array[PackedScene]([ExtResource("10_d2wvv"), ExtResource("11_3v2ag")])
+upgrades_T1_pool = Array[PackedScene]([ExtResource("12_f1ej7"), ExtResource("13_oprun"), ExtResource("14_a8ls1"), ExtResource("4_tuyoq")])

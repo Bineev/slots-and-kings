@@ -9,3 +9,6 @@ entity_pool = Array[PackedScene]([])
 generation_interval = 0.0
 choose_UI_scene = null
 choose_count = 0
+
+[node name="generate_timer" type="Timer" parent="." index="3"]
+unique_name_in_owner = true

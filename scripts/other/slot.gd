@@ -2,7 +2,6 @@ extends Area2D
 
 class_name Slot
 
-
 @export var slot_type : DataManager.SlotType
 @export var slot_res : SlotRes
 @export var slot_content_scene : PackedScene

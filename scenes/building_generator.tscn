@@ -5,8 +5,10 @@
 
 [node name="BuildingGenerator" instance=ExtResource("1_h03c0")]
 script = ExtResource("2_gxdra")
-entity_pool = null
-generation_interval = null
+entity_tier = 0
+entity_pool = Array[PackedScene]([])
+slots_amount = 0
+generation_interval = 0.0
 choose_UI_scene = null
 
 [node name="generate_timer" type="Timer" parent="." index="3"]

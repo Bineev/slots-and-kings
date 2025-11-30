@@ -4,6 +4,7 @@ class_name BuildingCreator
 
 
 @export var entity_pool : Array[PackedScene]
+@export var slots_amount : int
 @export var generation_interval : float
 @export var choose_UI_scene : PackedScene
 @export var choose_count : int
@@ -16,13 +17,15 @@ var choose_UI : ChooseUI
 
 func _ready() -> void:
 	SignalManager.on_entity_choosed.connect(add_choosed_entity)
+	initialize()
 
-
-func initialize(new_deck : Deck):
-	await self.ready
-	deck = new_deck
+func initialize():
+	super.initialize()
+	#deck = new_deck
+	slots_amount = building_res.produce_amount
+	generation_interval = building_res.produce_interval
 	generate_timer.wait_time = generation_interval
-	show_choose_UI()
+	#show_choose_UI()
 
 
 func show_choose_UI():

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://calbndmbxrgc"]
+
+[ext_resource type="PackedScene" uid="uid://du1jk1jvycey7" path="res://scenes/building_creator.tscn" id="1_q446p"]
+[ext_resource type="Resource" uid="uid://dlb4qw6bmhjeh" path="res://resources/building_T2_barracks.tres" id="2_kavr2"]
+
+[node name="BuildingCreatorCastleT2" instance=ExtResource("1_q446p")]
+building_res = ExtResource("2_kavr2")

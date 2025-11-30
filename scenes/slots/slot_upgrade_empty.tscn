@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://npurki3d253k"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_mjbos"]
+[ext_resource type="Resource" uid="uid://sxoa7kpjidf4" path="res://resources/empty_upgrade.tres" id="2_qotux"]
+
+[node name="SlotUpgradeEmpty" instance=ExtResource("1_mjbos")]
+slot_res = ExtResource("2_qotux")
+metadata/slot_name = "empty"

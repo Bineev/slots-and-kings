@@ -27,6 +27,10 @@ enum UnitTier {
 	T7_1, T7_2, T7_3, T7_4,
 }
 
+enum EntityTier {
+	T1, T2, T3, T4, T5, T6, T7
+}
+
 enum UnitOwner {
 	PLAYER, ENEMY
 }

@@ -5,3 +5,4 @@
 
 [node name="SlotUpgradeAspd20" instance=ExtResource("1_64u4l")]
 slot_res = ExtResource("2_fi2wr")
+metadata/slot_name = "aspd+20"

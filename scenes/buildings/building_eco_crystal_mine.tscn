@@ -8,6 +8,3 @@ res_type = 3
 res_amount = 1
 get_res_interval = 30.0
 building_res = ExtResource("2_jh54g")
-
-[node name="building_sprite" parent="." index="0"]
-unique_name_in_owner = false

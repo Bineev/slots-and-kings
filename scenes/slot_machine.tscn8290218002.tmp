@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwrt5w7q3wbfy"]
+[gd_scene load_steps=12 format=3 uid="uid://dwrt5w7q3wbfy"]
 
 [ext_resource type="Texture2D" uid="uid://fns4xm0r5vtw" path="res://img/slot-machine.png" id="1_xixe3"]
 [ext_resource type="Script" uid="uid://bno6cf315is3a" path="res://scenes/slot_machine.gd" id="1_xjw1r"]
@@ -10,7 +10,6 @@
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="8_dgsef"]
 [ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="9_awi2f"]
 [ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="10_r2p6a"]
-[ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="11_awi2f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xjw1r"]
 animations = [{
@@ -55,50 +54,38 @@ T2_1 = ExtResource("7_h3s22")
 
 [node name="spin_button" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = -71.0
-offset_top = 8.0
-offset_right = -31.0
-offset_bottom = 25.0
-focus_mode = 0
+offset_left = -110.0
+offset_top = 6.0
+offset_right = -38.0
+offset_bottom = 22.0
 theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_disabled_color = Color(0.6784314, 0.46666667, 0.34117648, 1)
+theme_override_colors/font_hover_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_fonts/font = ExtResource("8_dgsef")
-theme_override_font_sizes/font_size = 5
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = ExtResource("9_awi2f")
 theme_override_styles/pressed = ExtResource("9_awi2f")
 theme_override_styles/hover = ExtResource("10_r2p6a")
-theme_override_styles/hover_pressed = ExtResource("10_r2p6a")
-theme_override_styles/disabled = ExtResource("11_awi2f")
 theme_override_styles/focus = ExtResource("9_awi2f")
 text = "КРУТИТЬ"
 
 [node name="create_button" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 29.0
-offset_top = 8.0
-offset_right = 71.0
-offset_bottom = 25.0
-focus_mode = 0
+offset_left = 36.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 22.0
 theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_disabled_color = Color(0.6784314, 0.46666667, 0.34117648, 1)
+theme_override_colors/font_hover_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_fonts/font = ExtResource("8_dgsef")
-theme_override_font_sizes/font_size = 5
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = ExtResource("9_awi2f")
 theme_override_styles/pressed = ExtResource("9_awi2f")
 theme_override_styles/hover = ExtResource("10_r2p6a")
-theme_override_styles/hover_pressed = ExtResource("10_r2p6a")
-theme_override_styles/disabled = ExtResource("11_awi2f")
 theme_override_styles/focus = ExtResource("9_awi2f")
-disabled = true
 text = "СОЗДАТЬ"
-
-[connection signal="pressed" from="spin_button" to="." method="_on_spin_button_pressed"]
-[connection signal="pressed" from="create_button" to="." method="_on_create_button_pressed"]

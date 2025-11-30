@@ -12,6 +12,8 @@ class_name BuildingEco
 
 func initialize():
 	super.initialize()
+	res_amount = building_res.produce_amount
+	get_res_interval = building_res.produce_interval
 	get_res_timer.wait_time = get_res_interval
 	get_res_timer.start()
 

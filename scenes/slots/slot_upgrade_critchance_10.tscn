@@ -5,3 +5,4 @@
 
 [node name="SlotUpgradeCritchance10" instance=ExtResource("1_4hrod")]
 slot_res = ExtResource("2_c6a67")
+metadata/slot_name = "critchance+10"

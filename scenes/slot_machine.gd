@@ -9,24 +9,34 @@ class_name SlotMachine
 @onready var fourth_column: SlotColumn = %fourth_column
 @onready var columns: Node2D = $columns
 @onready var castle_unit_factory: Node2D = %CastleUnitFactory
+@onready var spin_button: Button = %spin_button
+@onready var create_button: Button = %create_button
 
 var slots : Array[Slot]
 var is_need_check : bool
 
 func _ready() -> void:
 	SignalManager.on_spin_end.connect(create_unit)
-	spin_columns()
+	first_column.pre_spin()
+	second_column.pre_spin()
+	third_column.pre_spin()
+	fourth_column.pre_spin()
 
 
 func _process(delta: float) -> void:
 	if is_need_check:
 		if check_is_spin_end():
-			create_unit()
 			is_need_check = false
-	
+			spin_button.disabled = false
+			create_button.disabled = false
+
 
 func spin_columns():
 	SignalManager.spin_columns.emit()
+	first_column.set_carousels_spin_start()
+	second_column.set_carousels_spin_start()
+	third_column.set_carousels_spin_start()
+	fourth_column.set_carousels_spin_start()
 	is_need_check = true
 
 
@@ -51,3 +61,14 @@ func check_is_spin_end():
 		if not column.check_spin_end():
 			return false
 	return true
+
+
+func _on_spin_button_pressed() -> void:
+	spin_button.disabled = true
+	create_button.disabled = true
+	spin_columns()
+
+
+func _on_create_button_pressed() -> void:
+	create_button.disabled = true
+	create_unit()

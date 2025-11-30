@@ -7,7 +7,8 @@ class_name SlotColumn
 @export var deck_scene : PackedScene
 @export var spin_curve : Curve
 
-var deck : Deck
+var deck : Array[PackedScene]
+var is_first_spin : bool = true
 
 @onready var slot_carousel_top: SlotCarousel = %SlotCarouselTop
 @onready var slot_carousel_mid: SlotCarousel = %SlotCarouselMid
@@ -15,25 +16,39 @@ var deck : Deck
 
 
 func _ready() -> void:
-	initialize_deck()
 	SignalManager.spin_columns.connect(spin_carousels)
 
 
 func initialize_deck():
-	deck = deck_scene.instantiate()
-	deck.initialize_slots()
-	initialize_carousels()
+	clear_deck()
+	deck = Player.get_deck_by_slot_type(slot_type)
+	deck.shuffle()
+
+
+func clear_deck():
+	for item in deck:
+		deck.erase(item)
+
 
 func initialize_carousels():
 	slot_carousel_top.spin_curve = spin_curve
 	slot_carousel_mid.spin_curve = spin_curve
 	slot_carousel_bot.spin_curve = spin_curve
-	slot_carousel_top.initialize(deck.get_copy_slots())
-	slot_carousel_mid.initialize(deck.get_copy_slots())
-	slot_carousel_bot.initialize(deck.get_copy_slots())
+	slot_carousel_top.initialize(deck)
+	slot_carousel_mid.initialize(deck)
+	slot_carousel_bot.initialize(deck)
+
+
+func pre_spin():
+	initialize_deck()
+	initialize_carousels()
 
 
 func spin_carousels():
+	if not is_first_spin:
+		initialize_deck()
+		initialize_carousels()
+		is_first_spin = false
 	var new_spin_time : float = get_random_spin_time()
 	slot_carousel_top.spin_time = new_spin_time
 	slot_carousel_mid.spin_time = new_spin_time
@@ -68,3 +83,9 @@ func get_active_slots():
 
 func check_spin_end():
 	return slot_carousel_top.is_spin_end and slot_carousel_mid.is_spin_end and slot_carousel_bot.is_spin_end
+
+
+func set_carousels_spin_start():
+	slot_carousel_top.spin_start()
+	slot_carousel_mid.spin_start()
+	slot_carousel_bot.spin_start()

@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc0hkvd82jihv"]
+[gd_scene load_steps=6 format=3 uid="uid://dc0hkvd82jihv"]
 
 [ext_resource type="PackedScene" uid="uid://cgav8hsk0h78k" path="res://scenes/building_generator.tscn" id="1_jrdo8"]
 [ext_resource type="PackedScene" uid="uid://dfdig27dtf8o8" path="res://scenes/slots/slot_upgrade_hp_10.tscn" id="2_krj1l"]
 [ext_resource type="PackedScene" uid="uid://v2ecx68fo8rt" path="res://scenes/slots/slot_upgrade_mvspd_20.tscn" id="3_2yhvq"]
 [ext_resource type="PackedScene" uid="uid://b0njh3b7sguke" path="res://scenes/slots/slot_upgrade_critchance_10.tscn" id="4_22ygh"]
+[ext_resource type="Resource" uid="uid://bd84agy1iwne" path="res://resources/building_training_camp.tres" id="5_krj1l"]
 
 [node name="BuildingTrainingCamp" instance=ExtResource("1_jrdo8")]
+entity_tier = 0
 entity_pool = Array[PackedScene]([ExtResource("2_krj1l"), ExtResource("3_2yhvq"), ExtResource("4_22ygh")])
+slots_amount = 2
 generation_interval = 120.0
+building_res = ExtResource("5_krj1l")
 
 [node name="generate_timer" parent="." index="3"]
 wait_time = 1000.0

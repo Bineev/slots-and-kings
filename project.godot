@@ -19,11 +19,13 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 DataManager="*res://scripts/global/data_manager.gd"
 SignalManager="*res://scripts/global/signal_manager.gd"
 UtilsManager="*res://scripts/global/utils_manager.gd"
+Player="*res://scenes/player.tscn"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+window/size/mode=3
 window/size/window_width_override=1600
 window/size/window_height_override=900
 window/stretch/mode="canvas_items"

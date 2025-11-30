@@ -10,6 +10,7 @@ var spin_curve : Curve
 var spin_progress : float = 0
 var slots : Array[Slot]
 var deck : Array[Slot]
+var deck_scenes : Array[PackedScene]
 var is_stopped : bool = true
 var is_spin_end : bool
 var spin_speed : float
@@ -33,9 +34,19 @@ func _process(delta: float) -> void:
 			spin_slots()
 
 
-func initialize(copy_deck: Array[Slot]):
-	deck.append_array(copy_deck)
+func initialize(new_deck: Array[PackedScene]):
+	deck_scenes = new_deck
+	deck.clear()
+	for item in deck_scenes:
+		deck.append(item.instantiate())
+	clear_slots()
 	initialize_slots()
+
+
+func clear_slots():
+	for slot in slots:
+		remove_child(slot)
+	slots.clear()
 
 
 func initialize_slots():
@@ -60,7 +71,6 @@ func stop_spin():
 
 
 func spin_slots():
-	is_spin_end = false
 	for slot in slots:
 		slot.position.y += spin_speed
 	if slots[0].position.y > DataManager.slot_size.y:
@@ -107,6 +117,10 @@ func after_spin():
 
 func get_active_slot():
 	return slots[1]
+
+
+func spin_start():
+	is_spin_end = false
 
 
 func spin_end():
