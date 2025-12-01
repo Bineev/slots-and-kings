@@ -82,6 +82,8 @@ func spin_slots():
 		if initial_indexes.y < 0:
 			initial_indexes = Vector2(deck.size() - 2, deck.size() - 1)
 		slots.push_front(deck[initial_indexes.x])
+		if slots[0].get_parent():
+			remove_child(slots[0])
 		add_child(slots[0])
 		slots[0].initialize()
 		slots[0].position.y = slots[1].position.y - DataManager.slot_size.y

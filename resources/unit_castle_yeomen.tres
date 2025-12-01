@@ -9,6 +9,7 @@ unit_tier = 2
 slot_name = "yeomen"
 slot_description = "runs away from the battlefield faster than an arrow flies"
 slot_sprite = ExtResource("2_2xb3e")
+slot_type = 1
 health = 30.0
 armor = 10.0
 physical_attack = 12.0

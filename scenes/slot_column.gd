@@ -26,8 +26,7 @@ func initialize_deck():
 
 
 func clear_deck():
-	for item in deck:
-		deck.erase(item)
+	deck.clear()
 
 
 func initialize_carousels():
@@ -42,13 +41,13 @@ func initialize_carousels():
 func pre_spin():
 	initialize_deck()
 	initialize_carousels()
+	is_first_spin = false
 
 
 func spin_carousels():
 	if not is_first_spin:
 		initialize_deck()
 		initialize_carousels()
-		is_first_spin = false
 	var new_spin_time : float = get_random_spin_time()
 	slot_carousel_top.spin_time = new_spin_time
 	slot_carousel_mid.spin_time = new_spin_time

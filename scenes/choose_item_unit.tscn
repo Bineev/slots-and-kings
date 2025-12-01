@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6duq0ejepe32"]
+
+[ext_resource type="PackedScene" uid="uid://j7uwrhnjvs6d" path="res://scenes/choose_item.tscn" id="1_2mae6"]
+
+[node name="ChooseItemUnit" instance=ExtResource("1_2mae6")]
+
+[node name="label_item_desc" parent="." index="2"]
+custom_minimum_size = Vector2(0, 40)

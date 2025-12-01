@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://du1jk1jvycey7"]
+[gd_scene load_steps=4 format=3 uid="uid://du1jk1jvycey7"]
 
 [ext_resource type="PackedScene" uid="uid://l2eh1ynjfw06" path="res://scenes/building.tscn" id="1_q2ixk"]
 [ext_resource type="Script" uid="uid://bp78sb1gptu28" path="res://scenes/building_creator.gd" id="2_a1avw"]
+[ext_resource type="PackedScene" uid="uid://b74xvtvkdied4" path="res://scenes/choose_ui.tscn" id="3_vjtmf"]
 
 [node name="BuildingCreator" instance=ExtResource("1_q2ixk")]
 script = ExtResource("2_a1avw")
+entity_tier = 0
 entity_pool = Array[PackedScene]([])
+slots_amount = 0
 generation_interval = 0.0
-choose_UI_scene = null
-choose_count = 0
+choose_UI_scene = ExtResource("3_vjtmf")
 
-[node name="generate_timer" type="Timer" parent="." index="3"]
-unique_name_in_owner = true
+[node name="generate_timer" parent="." index="4"]
+wait_time = 10000.0

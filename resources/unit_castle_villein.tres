@@ -8,6 +8,7 @@ script = ExtResource("1_apjqo")
 slot_name = "villein"
 slot_description = "soft head with the pitchfork"
 slot_sprite = ExtResource("2_ycogn")
+slot_type = 1
 health = 30.0
 physical_attack = 5.0
 scout_range = 300.0

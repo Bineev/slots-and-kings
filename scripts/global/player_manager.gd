@@ -26,9 +26,24 @@ extends Node
 @export var percs_T2_pool : Array[PackedScene]
 @export var percs_T3_pool : Array[PackedScene]
 
+var current_health : int
+var current_gold : int
+var current_tokens : int
+var current_food : int
+var current_crystals : int
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
+	SignalManager.on_get_res.connect(get_res)
+	initialize()
+
+
+func initialize():
+	current_health = health
+	current_gold = gold
+	current_tokens = tokens
+	current_food = food
+	current_crystals = crystals
 
 
 func get_random_upgrades(tier : DataManager.EntityTier, amount : int):
@@ -43,11 +58,26 @@ func get_random_upgrades(tier : DataManager.EntityTier, amount : int):
 		DataManager.EntityTier.T4:
 			upgrade_scenes = upgrades_T4_pool
 	
-	print(get_unique_entities(upgrade_scenes, amount))
+	return get_unique_entities(upgrade_scenes, amount)
+
+
+func get_random_units(tier : DataManager.EntityTier, amount : int):
+	var unit_scenes : Array[PackedScene]
+	match tier:
+		DataManager.EntityTier.T1:
+			unit_scenes = units_T1_pool
+		DataManager.EntityTier.T2:
+			unit_scenes = units_T2_pool
+		DataManager.EntityTier.T3:
+			unit_scenes = units_T3_pool
+		DataManager.EntityTier.T4:
+			unit_scenes = units_T4_pool
+	
+	return get_unique_entities(unit_scenes, amount)
 
 
 func get_unique_entities(entities : Array[PackedScene], amount : int):
-	var unique_array : Array
+	var unique_array : Array[PackedScene]
 	entities.shuffle()
 	var count : int
 	for entity in entities:
@@ -55,25 +85,66 @@ func get_unique_entities(entities : Array[PackedScene], amount : int):
 			break
 		unique_array.append(entity)
 		count += 1
-	
+
 	return unique_array
 
 
 func add_item_to_deck(slot_scene : PackedScene, slot_type : DataManager.SlotType):
 	match slot_type:
 		DataManager.SlotType.UPGRADE:
-			base_upgrades_deck.append(slot_scene)
+			add_upgrade_slot_to_deck(slot_scene)
 		DataManager.SlotType.PERC:
 			base_percs_deck.append(slot_scene)
 		DataManager.SlotType.UNIT:
-			base_units_deck.append(slot_scene)
+			add_unit_slot_to_deck(slot_scene)
+
+
+func add_unit_slot_to_deck(slot_scene : PackedScene):
+	var slot : Slot
+	var counter : int
+	for item in base_units_deck:
+		slot = item.instantiate()
+		if slot.slot_res.unit_tier == DataManager.UnitTier.T0:
+			base_units_deck.erase(item)
+			counter += 1
+			if counter == 2:
+				break
+	for i in range(counter):
+		base_units_deck.append(slot_scene)
+
+	# пока костылем добавляются два юнита (заменяются кресты)
+
+
+func add_upgrade_slot_to_deck(slot_scene : PackedScene):
+	var slot : Slot
+	for item in base_upgrades_deck:
+		slot = item.instantiate()
+		if slot.get_meta('slot_name') == 'empty':
+			base_upgrades_deck.erase(item)
+			break
+	base_upgrades_deck.append(slot_scene)
 
 
 func get_deck_by_slot_type(slot_type : DataManager.SlotType):
+	var slots : Array[PackedScene]
 	match slot_type:
 		DataManager.SlotType.UPGRADE:
-			return base_upgrades_deck.duplicate()
+			slots = base_upgrades_deck.duplicate()
 		DataManager.SlotType.PERC:
-			return base_percs_deck.duplicate()
+			slots = base_percs_deck.duplicate()
 		DataManager.SlotType.UNIT:
-			return base_units_deck.duplicate()
+			slots = base_units_deck.duplicate()
+	slots.shuffle()
+	return slots
+
+
+func get_res(res_type : DataManager.ResType, res_amount : int):
+	match res_type:
+		DataManager.ResType.GOLD:
+			current_gold += res_amount
+		DataManager.ResType.SPIN_TOKEN:
+			current_tokens += res_amount
+		DataManager.ResType.CRYSTAL:
+			current_crystals += res_amount
+		DataManager.ResType.FOOD:
+			current_food += res_amount

@@ -34,7 +34,6 @@ extends Node2D
 
 
 func choose_player_unit(slots : Array[Slot]):
-	print(slots[0].slot_unit_tier)
 	match slots[0].slot_unit_tier:
 		DataManager.UnitTier.T0:
 			create_player_unit(T0, slots)

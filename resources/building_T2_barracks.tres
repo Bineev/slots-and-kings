@@ -5,6 +5,8 @@
 
 [resource]
 script = ExtResource("1_0sh0t")
+slots_amount = 2
+entity_tier = 1
 building_name = "Т2 бараки"
 building_desc = "Создает слот Т2 юнита для рулетки"
 building_cost = 2000

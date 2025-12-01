@@ -11,18 +11,26 @@ class_name Building
 var pop_up_ui : Control
 
 @onready var building_sprite: AnimatedSprite2D = %building_sprite
+@onready var building_progress_bar: ProgressBar = %building_progress_bar
+@onready var generate_timer: Timer = %generate_timer
 
-
-func _ready() -> void:
-	initialize()
 
 func initialize():
-	await self.ready
+	await get_tree().process_frame
 	building_name = building_res.building_name
 	building_desc = building_res.building_desc
 	building_cost = building_res.building_cost
 	building_sprite.sprite_frames = SpriteFrames.new()
 	building_sprite.sprite_frames.add_frame('default', building_res.building_sprite)
+	building_progress_bar.max_value = building_res.produce_interval
+
+
+func _process(delta: float) -> void:
+	update_progress_bar()
+
+
+func update_progress_bar():
+	building_progress_bar.value = building_res.produce_interval - generate_timer.time_left
 
 
 func show_ui():

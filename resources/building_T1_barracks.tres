@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_epapv")
+slots_amount = 2
 building_name = "Т1 бараки"
 building_desc = "Создает слот Т1 юнита для рулетки"
 building_cost = 1000

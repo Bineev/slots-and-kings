@@ -4,6 +4,7 @@ class_name Level
 
 
 var is_need_def_of_loop : bool
+var free_spawners : Array[Spawner]
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -15,6 +16,9 @@ func _ready() -> void:
 	SignalManager.on_create_player_unit.connect(add_player_unit)
 	SignalManager.on_pop_up_UI.connect(add_UI)
 	SignalManager.on_build_building.connect(build_building)
+	SignalManager.on_show_choose_UI.connect(add_choose_UI)
+	for spawner in spawners.get_children():
+		free_spawners.append(spawner)
 
 
 func add_player_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
@@ -24,26 +28,22 @@ func add_player_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitO
 
 
 func get_free_random_spawner():
-	var active_spawner : Spawner
-	for spawner in spawners.get_children():
-		if not spawner.is_filled:
-			active_spawner = spawner
-			spawner.is_filled = true
-			break
-	if not active_spawner:
-		active_spawner = spawners.get_children().pick_random()
+	var spawner = free_spawners.pick_random()
+	spawner.is_filled = true
+	free_spawners.erase(spawner)
 		
-	return active_spawner
-
-
-func free_spawners():
-	for spawner in spawners.get_children():
-		spawner.is_filled = false
+	return spawner
 
 
 func add_UI(pop_up_UI : Control):
 	ui.add_child(pop_up_UI)
 	pop_up_UI.initialize()
+
+
+func add_choose_UI(building : Building, chooseUI : ChooseUI):
+	ui.add_child(chooseUI)
+	chooseUI.initialize()
+	chooseUI.global_position = building.global_position
 
 
 func build_building(building_scene : PackedScene, prebuilding : Building):

@@ -1,46 +1,38 @@
 extends Building
 
 class_name BuildingCreator
-
-
+@export var entity_tier : DataManager.EntityTier
 @export var entity_pool : Array[PackedScene]
 @export var slots_amount : int
 @export var generation_interval : float
 @export var choose_UI_scene : PackedScene
-@export var choose_count : int
 
 var deck : Deck
 var choose_UI : ChooseUI
 
-@onready var generate_timer: Timer = %generate_timer
-
-
-func _ready() -> void:
-	SignalManager.on_entity_choosed.connect(add_choosed_entity)
-	initialize()
 
 func initialize():
 	super.initialize()
-	#deck = new_deck
+	building_progress_bar.visible = false
+	entity_tier = building_res.entity_tier
 	slots_amount = building_res.produce_amount
 	generation_interval = building_res.produce_interval
 	generate_timer.wait_time = generation_interval
-	#show_choose_UI()
+	var tween = get_tree().create_tween()
+	tween.tween_callback(show_choose_UI).set_delay(0.5)
 
 
 func show_choose_UI():
 	choose_UI = choose_UI_scene.instantiate()
-	var copy_entity_pool : Array[PackedScene] = entity_pool.duplicate(true)
-	choose_UI.initialize(self, UtilsManager.get_random_items(copy_entity_pool, choose_count))
-	SignalManager.on_show_choose_UI.emit(choose_UI)
-
-
-func add_choosed_entity(owner : Building, slot_scene : PackedScene):
-	if owner == self:
-		var slot : Slot = slot_scene.instantiate()
-		deck.append(slot)
-	# может быть баг, если во время спина 
+	var units : Array[PackedScene] = Player.get_random_units(entity_tier, building_res.slots_amount)
+	choose_UI.set_choose_scenes(units)
+	choose_UI.set_building_owner(self)
+	SignalManager.on_show_choose_UI.emit(self, choose_UI)
 
 
 func _on_generate_timer_timeout() -> void:
 	show_choose_UI()
+
+
+func start_produce():
+	generate_timer.start()

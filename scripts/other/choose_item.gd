@@ -5,11 +5,16 @@ class_name ChooseItem
 var slot_scene : PackedScene
 var slot_res : SlotRes
 var slot_type : DataManager.SlotType
+var chooseUI : ChooseUI
 
 @onready var label_item_name: Label = %label_item_name
 @onready var item_texture: TextureRect = %item_texture
 @onready var label_item_desc: Label = %label_item_desc
 @onready var choose_button: Button = %choose_button
+
+
+func _ready() -> void:
+	SignalManager.on_choice_done.connect(on_choose_done)
 
 
 func initialize():
@@ -20,5 +25,26 @@ func initialize():
 	slot_type = slot_res.slot_type
 
 
+func set_slot_scene(new_slot_scene : PackedScene):
+	slot_scene = new_slot_scene
+
+
+func set_slot_res(new_slot_res : SlotRes):
+	slot_res = new_slot_res
+
+
+func set_choose_UI(new_choose_UI : ChooseUI):
+	chooseUI = new_choose_UI
+
+
 func _on_choose_button_pressed() -> void:
+	SignalManager.on_choice_done.emit(self)
 	SignalManager.on_choose_item.emit(slot_scene, slot_type)
+
+
+func on_choose_done(chooseItem : ChooseItem):
+	if chooseItem == self:
+		choose_button.disabled = true
+		var tween = get_tree().create_tween()
+		tween.tween_property(chooseUI, "scale", Vector2.ZERO, 0.3)
+		tween.tween_callback(chooseUI.queue_free).set_delay(0.4)

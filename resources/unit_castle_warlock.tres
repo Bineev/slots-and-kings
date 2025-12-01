@@ -9,5 +9,6 @@ unit_tier = 5
 slot_name = "warlock"
 slot_description = "he could have been a gardener, but he chose witchcraft"
 slot_sprite = ExtResource("2_mxkk6")
+slot_type = 1
 scout_range = 300.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"

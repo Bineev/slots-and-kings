@@ -3,6 +3,11 @@ extends Building
 class_name BuildingEmpty
 
 
+func _ready() -> void:
+	initialize()
+	building_progress_bar.visible = false
+
+
 func show_ui():
 	pop_up_ui = pop_up_ui_scene.instantiate()
 	pop_up_ui.prebuilding = self

@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_iq17q")
+slots_amount = 2
 building_name = "тренировочный лагерь"
 building_desc = "С определенным интервалом создает слоты улучшений для рулетки"
 building_cost = 1500

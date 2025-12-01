@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://doynloj8rxnd5"]
+
+[ext_resource type="PackedScene" uid="uid://b74xvtvkdied4" path="res://scenes/choose_ui.tscn" id="1_kuvqu"]
+[ext_resource type="PackedScene" uid="uid://b6duq0ejepe32" path="res://scenes/choose_item_unit.tscn" id="2_fps8f"]
+[ext_resource type="Script" uid="uid://8ha7lvwwbl5p" path="res://scripts/other/choose_ui_unit.gd" id="2_yafya"]
+
+[node name="ChooseUIUnit" instance=ExtResource("1_kuvqu")]
+script = ExtResource("2_yafya")
+choose_item_scene = ExtResource("2_fps8f")
