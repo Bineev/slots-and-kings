@@ -1,5 +1,8 @@
 extends Node
 
+
+var viewport_size = Vector2(960, 540)
+
 enum SlotType {
 	UPGRADE, UNIT, PERC, ULT
 }
@@ -37,6 +40,10 @@ enum UnitOwner {
 
 enum ResType {
 	GOLD, FOOD, SPIN_TOKEN, CRYSTAL
+}
+
+enum UnitType {
+	MELEE, RANGE, PHYS, MAGE, SUPPORT, TANK
 }
 
 var slot_size : Vector2 = Vector2(16, 16)

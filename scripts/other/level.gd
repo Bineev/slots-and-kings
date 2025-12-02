@@ -17,6 +17,7 @@ func _ready() -> void:
 	SignalManager.on_pop_up_UI.connect(add_UI)
 	SignalManager.on_build_building.connect(build_building)
 	SignalManager.on_show_choose_UI.connect(add_choose_UI)
+	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 
@@ -44,6 +45,7 @@ func add_choose_UI(building : Building, chooseUI : ChooseUI):
 	ui.add_child(chooseUI)
 	chooseUI.initialize()
 	chooseUI.global_position = building.global_position
+	get_tree().create_timer(0.03).timeout.connect(align_popup.bind(chooseUI))
 
 
 func build_building(building_scene : PackedScene, prebuilding : Building):
@@ -53,3 +55,20 @@ func build_building(building_scene : PackedScene, prebuilding : Building):
 	new_building.initialize()
 	buildings.remove_child(prebuilding)
 	prebuilding.queue_free()
+
+
+func align_popup(popup : Control):
+	var window = DataManager.viewport_size
+	var popup_corrected_x : float = popup.global_position.x + popup.size.x / 2
+	var popup_corrected_y : float = popup.global_position.y
+
+	print(popup.global_position.y)
+	if popup_corrected_y < 0:
+		popup.global_position.y = 0
+	if popup_corrected_y + popup.size.y > window.y:
+		popup.global_position.y = window.y - popup.size.y
+	if popup_corrected_x < 0:
+		popup.global_position.x = 0
+	if popup_corrected_x + popup.size.x > window.x:
+		popup.global_position.x = window.x - popup.size.x
+	

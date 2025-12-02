@@ -1,0 +1,143 @@
+[gd_scene load_steps=8 format=3 uid="uid://rl65frn0ke4w"]
+
+[ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
+[ext_resource type="Texture2D" uid="uid://dn060854hlspj" path="res://img/castle_back_3.png" id="2_mx8sn"]
+[ext_resource type="Texture2D" uid="uid://cypodhfnqqklh" path="res://img/castle_UI.png" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://dwrt5w7q3wbfy" path="res://scenes/slot_machine.tscn" id="2_w8frs"]
+[ext_resource type="PackedScene" uid="uid://ht8303wxnf5o" path="res://scenes/spawner.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://hcjh0c5pnpmr" path="res://scenes/building_empty.tscn" id="6_2r41h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7c3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mx8sn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_klq6b")
+
+[node name="background" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w7c3h")
+centered = false
+
+[node name="SlotMachine" parent="." instance=ExtResource("2_w8frs")]
+position = Vector2(123, 245)
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="bottom_panel" type="TextureRect" parent="UI"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_w7c3h")
+
+[node name="spawners" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(250, 251)
+
+[node name="Spawner" parent="spawners" instance=ExtResource("5_ppgk2")]
+
+[node name="Spawner2" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(27, 0)
+
+[node name="Spawner3" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(54, 0)
+
+[node name="Spawner4" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(82, 0)
+
+[node name="Spawner5" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(10, -31)
+
+[node name="Spawner6" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(37, -31)
+
+[node name="Spawner7" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(64, -31)
+
+[node name="Spawner8" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(92, -31)
+
+[node name="Spawner9" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(11, 30)
+
+[node name="Spawner10" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(38, 30)
+
+[node name="Spawner11" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(65, 30)
+
+[node name="Spawner12" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(93, 30)
+
+[node name="Spawner13" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(-1, -59)
+
+[node name="Spawner14" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, -59)
+
+[node name="Spawner15" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(53, -59)
+
+[node name="Spawner16" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(81, -59)
+
+[node name="Spawner17" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(1, 59)
+
+[node name="Spawner18" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(28, 59)
+
+[node name="Spawner19" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(55, 59)
+
+[node name="Spawner20" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(83, 59)
+
+[node name="player_units" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="buildings" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="BuildingEmpty" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(82, 58)
+
+[node name="BuildingEmpty2" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(253, 62)
+
+[node name="BuildingEmpty3" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(400, 44)
+
+[node name="BuildingEmpty4" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(568, 60)
+
+[node name="BuildingEmpty5" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(741, 47)
+
+[node name="BuildingEmpty6" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(876, 63)
+
+[node name="BuildingEmpty7" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(142, 466)
+
+[node name="BuildingEmpty8" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(303, 434)
+
+[node name="BuildingEmpty9" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(448, 471)
+
+[node name="BuildingEmpty10" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(619, 441)
+
+[node name="BuildingEmpty11" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(753, 488)
+
+[node name="BuildingEmpty12" parent="buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(884, 443)

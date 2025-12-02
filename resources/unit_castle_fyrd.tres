@@ -6,12 +6,15 @@
 [resource]
 script = ExtResource("1_bb1el")
 unit_tier = 1
-slot_name = "Fyrd"
-slot_description = "he only likes drinking more than fighting"
+unit_types = Array[int]([0, 2])
+slot_name = "ополченец"
+slot_description = "больше драки любит только пьянку"
 slot_sprite = ExtResource("2_ar3k3")
 slot_type = 1
 health = 50.0
-armor = 20.0
+armor = 10.0
 physical_attack = 10.0
+attack_speed = 1.8
+move_speed = 20.0
 scout_range = 300.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"
