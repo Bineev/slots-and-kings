@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("1_hx86b")
-slot_name = "scribe"
-slot_description = "Swords and halberds for the cattle\\nMagic attack +30%\\nPhysic attack -50%"
+slot_name = "книжник"
+slot_description = "мечи и алебарды для холопов\\nМаг атака +30%\\nФиз атака -50%"
 slot_sprite = ExtResource("2_tqe6y")
+slot_type = 2
 physical_attack_mult = 0.5
 magical_attack_mult = 1.3
 metadata/_custom_type_script = "uid://ckeieckjuifia"

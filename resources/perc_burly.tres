@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("1_b3bd4")
-slot_name = "Burly"
-slot_description = "You're a little overweight.\\nHealth: +20%\\nAttack Speed: -30%"
+slot_name = "тучный"
+slot_description = "Вы слегка полноваты\\nХП: +20%\\nСкорость атаки: -30%"
 slot_sprite = ExtResource("2_pmoox")
+slot_type = 2
 health_mult = 1.2
 attack_speed_mult = 0.7
 metadata/_custom_type_script = "uid://ckeieckjuifia"

@@ -19,8 +19,6 @@ func _ready() -> void:
 
 func initialize():
 	await get_tree().process_frame
-	# может быть сделать текстурой (взять из слота)
-	container.add_child(unit)
 	label_unit_name.text = unit.unit_name.to_upper()
 	var unit_types : String
 	for type in unit.unit_types:

@@ -1,5 +1,8 @@
 extends Node2D
 
+class_name UnitFactory
+
+
 @export var unit_family : DataManager.UnitFamily
 
 @export var T0 : PackedScene
@@ -137,6 +140,8 @@ func apply_slots(new_unit, slots):
 		new_unit.stats.health_regen_interval_mult += slot.slot_res.health_regen_interval_mult - 1
 		new_unit.stats.true_damage += slot.slot_res.true_damage
 		new_unit.stats.true_damage_mult += slot.slot_res.true_damage_mult - 1
+		new_unit.stats.scout_range += slot.slot_res.scout_range
+		new_unit.stats.scout_range_mult += slot.slot_res.scout_range_mult - 1
 		new_unit.stats.damage_mult_vs_all += slot.slot_res.damage_mult_vs_all - 1
 		new_unit.stats.damage_mult_vs_castle += slot.slot_res.damage_mult_vs_castle - 1
 		new_unit.stats.damage_mult_vs_hell += slot.slot_res.damage_mult_vs_hell - 1

@@ -73,10 +73,11 @@ func get_active_slots():
 	var top_slot : Slot = slot_carousel_top.get_active_slot()
 	var bot_slot : Slot = slot_carousel_bot.get_active_slot()
 	new_slots.append(mid_slot)
-	if mid_slot.slot_name == top_slot.slot_name:
-		new_slots.append(top_slot)
-	if mid_slot.slot_name == bot_slot.slot_name:
-		new_slots.append(bot_slot)
+	if mid_slot.slot_type != DataManager.SlotType.UNIT:
+		if mid_slot.slot_name == top_slot.slot_name:
+			new_slots.append(top_slot)
+		if mid_slot.slot_name == bot_slot.slot_name:
+			new_slots.append(bot_slot)
 	return new_slots
 
 

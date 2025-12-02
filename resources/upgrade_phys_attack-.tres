@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_g4h7n")
-slot_name = "physatk-"
-slot_description = "physical attack  -10%"
+slot_name = "физатака -10%"
+slot_description = "физическая атака понижена на 10%"
 slot_sprite = ExtResource("2_f6hkm")
 physical_attack_mult = 0.9
 metadata/_custom_type_script = "uid://ckeieckjuifia"

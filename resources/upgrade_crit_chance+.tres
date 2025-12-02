@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_u5ytx")
-slot_name = "crtchance+"
-slot_description = "crit chance +30%"
+slot_name = "критш+20"
+slot_description = "шанс крита +20%"
 slot_sprite = ExtResource("2_mpi6u")
-crit_chance = 0.3
+crit_chance = 20.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"

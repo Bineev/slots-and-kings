@@ -5,9 +5,11 @@
 
 [resource]
 script = ExtResource("1_hlyt6")
-slot_name = "Bessoted"
-slot_description = "You shouldn't have eaten that mushroom\\n+20% damage\\nMovement speed: -60%"
+slot_name = "одурманенный"
+slot_description = "Не надо было есть этот гриб\\nФиз атака: +20%\\nСкорость движения: -60%"
 slot_sprite = ExtResource("2_nhyh5")
+slot_type = 2
+physical_attack_mult = 1.2
 move_speed_mult = 0.4
 damage_mult_vs_all = 1.2
 metadata/_custom_type_script = "uid://ckeieckjuifia"

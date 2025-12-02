@@ -83,6 +83,7 @@ var male_names = [
 	'William', 'Warnhard', 
 ]
 
+# переработать статы исходя из их логики и представления
 var default_stats : Dictionary = {
 	'health' : 0,
 	'health_mult' : 1,
