@@ -5,6 +5,7 @@ class_name Unit
 @export var unit_family : DataManager.UnitFamily
 @export var unit_tier : DataManager.UnitTier
 @export var unit_types : Array[DataManager.UnitType]
+@export var unit_cost : int
 # stats and multiplicators
 var stats : Dictionary = {
 	'health' : 0,
@@ -69,6 +70,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	unit_name = slot.slot_name
 	unit_desc = slot.slot_description
 	unit_types = slot.unit_types
+	unit_cost = slot.unit_cost
 	var ar_shape = CircleShape2D.new()
 	ar_shape.radius = stats.attack_range
 	attack_range_collision.shape  = ar_shape

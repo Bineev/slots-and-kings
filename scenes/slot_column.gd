@@ -45,9 +45,9 @@ func pre_spin():
 
 
 func spin_carousels():
-	if not is_first_spin:
-		initialize_deck()
-		initialize_carousels()
+	#if not is_first_spin:
+	initialize_deck()
+	initialize_carousels()
 	var new_spin_time : float = get_random_spin_time()
 	slot_carousel_top.spin_time = new_spin_time
 	slot_carousel_mid.spin_time = new_spin_time

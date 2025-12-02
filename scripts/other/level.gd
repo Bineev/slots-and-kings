@@ -28,6 +28,7 @@ func _ready() -> void:
 
 
 func add_player_unit():
+	Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
 	current_unit.reparent(player_units)
 	current_unit.global_position = get_free_random_spawner().global_position
 	current_unit.set_active()
@@ -42,6 +43,12 @@ func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.Unit
 	unit_preview_UI.initialize()
 	unit_preview_UI.global_position = Vector2(93, 241)
 	current_unit = unit
+	# может быть баг
+	await get_tree().process_frame
+	if Player.check_res(current_unit.unit_cost, DataManager.ResType.FOOD):
+		SignalManager.on_enough_food.emit()
+	else:
+		SignalManager.on_not_enough_food.emit()
 
 
 func get_free_random_spawner():
@@ -85,4 +92,7 @@ func align_popup(popup : Control):
 		popup.global_position.x = 0
 	if popup_corrected_x + popup.size.x > window.x:
 		popup.global_position.x = window.x - popup.size.x
-	
+
+
+func get_current_unit():
+	return current_unit

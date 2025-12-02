@@ -31,6 +31,8 @@ func initialize():
 	label_building_desc.text = building_desc
 	building_texture.texture = building_res.building_sprite
 	buy_button.text = str(building_cost)
+	if not Player.check_res(building_cost, DataManager.ResType.GOLD):
+		buy_button.disabled = true
 
 
 func choose_building():
@@ -38,4 +40,5 @@ func choose_building():
 
 
 func _on_buy_button_pressed() -> void:
+	Player.get_res(DataManager.ResType.GOLD, -building_cost)
 	choose_building()

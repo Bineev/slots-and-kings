@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://dawq8kdhvtnp2"]
+
+[ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="2_sje42"]
+[ext_resource type="Script" uid="uid://c0b2e38fqdxju" path="res://scripts/other/resources_ui.gd" id="2_vo0oj"]
+[ext_resource type="Texture2D" uid="uid://jnyjnlacm5c5" path="res://img/res_gold.png" id="3_jcwh1"]
+[ext_resource type="Texture2D" uid="uid://d4bwygy7kyw3p" path="res://img/res_food.png" id="4_rfy7p"]
+[ext_resource type="Texture2D" uid="uid://cmrgge0sgfm6f" path="res://img/res_token.png" id="5_isxp0"]
+[ext_resource type="Texture2D" uid="uid://c1l22ye0qntep" path="res://img/res_crystal.png" id="6_vo0oj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_isxp0"]
+bg_color = Color(0.65882355, 0.70980394, 0.69803923, 1)
+shadow_color = Color(0.08235294, 0.11372549, 0.15686275, 1)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[node name="ResourcesUI" type="PanelContainer"]
+offset_right = 198.0
+offset_bottom = 16.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_isxp0")
+script = ExtResource("2_vo0oj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 0
+
+[node name="resources_container" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="label_res_gold" type="Label" parent="MarginContainer/resources_container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 22)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+label_settings = ExtResource("2_sje42")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="rect_res_gold" type="TextureRect" parent="MarginContainer/resources_container"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_jcwh1")
+stretch_mode = 2
+
+[node name="filler" type="Control" parent="MarginContainer/resources_container"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="label_res_food" type="Label" parent="MarginContainer/resources_container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 22)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+label_settings = ExtResource("2_sje42")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="rect_res_food" type="TextureRect" parent="MarginContainer/resources_container"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("4_rfy7p")
+stretch_mode = 5
+
+[node name="filler2" type="Control" parent="MarginContainer/resources_container"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="label_res_tokens" type="Label" parent="MarginContainer/resources_container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 22)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+label_settings = ExtResource("2_sje42")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="rect_res_tokens" type="TextureRect" parent="MarginContainer/resources_container"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("5_isxp0")
+stretch_mode = 5
+
+[node name="filler3" type="Control" parent="MarginContainer/resources_container"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="label_res_crystals" type="Label" parent="MarginContainer/resources_container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 22)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+label_settings = ExtResource("2_sje42")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="rect_res_crystals" type="TextureRect" parent="MarginContainer/resources_container"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("6_vo0oj")
+stretch_mode = 5

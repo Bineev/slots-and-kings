@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_hf5hr")
 unit_tier = 5
+unit_cost = 1
 slot_name = "колдун"
 slot_description = "мог бы быть садовником, но выбрал колдовство"
 slot_sprite = ExtResource("2_mxkk6")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=10 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dwrt5w7q3wbfy" path="res://scenes/slot_machine.tscn" id="2_w8frs"]
 [ext_resource type="PackedScene" uid="uid://ht8303wxnf5o" path="res://scenes/spawner.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://hcjh0c5pnpmr" path="res://scenes/building_empty.tscn" id="6_2r41h"]
+[ext_resource type="PackedScene" uid="uid://dawq8kdhvtnp2" path="res://scenes/resources_ui.tscn" id="6_b121j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w7c3h"]
 animations = [{
@@ -38,6 +39,12 @@ visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_w7c3h")
+
+[node name="ResourcesUI" parent="UI" instance=ExtResource("6_b121j")]
+offset_left = 20.0
+offset_top = 365.0
+offset_right = 231.0
+offset_bottom = 390.0
 
 [node name="spawners" type="Node2D" parent="."]
 unique_name_in_owner = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://quhemjd0dbdh"]
+[gd_scene load_steps=13 format=3 uid="uid://quhemjd0dbdh"]
 
 [ext_resource type="Script" uid="uid://dx4x1qmvvcwjy" path="res://scripts/other/building_ui.gd" id="1_if0vd"]
 [ext_resource type="PackedScene" uid="uid://in0qu805m2bf" path="res://scenes/buildings_preview/building_preview_farm.tscn" id="2_wunb3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://r20awwbeqwng" path="res://scenes/buildings_preview/building_preview_t_3_barracks.tscn" id="9_b1v6l"]
 [ext_resource type="PackedScene" uid="uid://dk3cbrspov7o8" path="res://scenes/buildings_preview/building_preview_t_4_barracks.tscn" id="10_20vxf"]
 [ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="11_lbfxy"]
+[ext_resource type="Texture2D" uid="uid://jnyjnlacm5c5" path="res://img/res_gold.png" id="13_ykri7"]
 
 [node name="BuildingUI" type="CenterContainer"]
 anchors_preset = 8
@@ -36,6 +37,27 @@ offset_right = 3.0
 offset_bottom = 25.0
 text = "ПКМ - закрыть"
 label_settings = ExtResource("11_lbfxy")
+
+[node name="label_gold" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 26.0
+offset_right = 37.0
+offset_bottom = 49.0
+text = "1000"
+label_settings = ExtResource("11_lbfxy")
+horizontal_alignment = 2
+
+[node name="rect_gold" type="TextureRect" parent="ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 42.0
+offset_top = 20.0
+offset_right = 58.0
+offset_bottom = 36.0
+texture = ExtResource("13_ykri7")
 
 [node name="buildings_container" type="GridContainer" parent="."]
 unique_name_in_owner = true

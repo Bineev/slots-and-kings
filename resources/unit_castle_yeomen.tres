@@ -7,6 +7,7 @@
 script = ExtResource("1_r4xqq")
 unit_tier = 2
 unit_types = Array[int]([1, 2])
+unit_cost = 1
 slot_name = "лучник"
 slot_description = "убегает с поля боя быстрее, чем летит стрела"
 slot_sprite = ExtResource("2_2xb3e")

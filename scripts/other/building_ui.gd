@@ -6,6 +6,7 @@ class_name BuildingUI
 @export var building_preview_scenes : Array[PackedScene]
 
 @onready var buildings_container: GridContainer = %buildings_container
+@onready var label_gold: Label = %label_gold
 
 var building_previews : Array[BuildingPreview]
 var is_should_check_input : bool = true
@@ -33,6 +34,7 @@ func initialize():
 		var building = building_scene.instantiate()
 		buildings_container.add_child(building)
 		building.initialize()
+	update_gold()
 
 
 func destroy():
@@ -44,5 +46,7 @@ func choose_building(building_scene : PackedScene):
 	visible = false
 	var tween = get_tree().create_tween()
 	tween.tween_callback(destroy).set_delay(0.5)
-	
-	
+
+
+func update_gold():
+	label_gold.text = str(Player.get_gold())

@@ -11,6 +11,7 @@ var slot_name : String
 var slot_description : String
 var slot_unit_tier : DataManager.UnitTier
 var unit_types : Array[DataManager.UnitType]
+var unit_cost : int
 
 @onready var slot_sprite: AnimatedSprite2D = %slot_sprite
 
@@ -23,3 +24,4 @@ func initialize():
 	if slot_type == DataManager.SlotType.UNIT and slot_res is SlotUnitRes:
 		slot_unit_tier = slot_res.unit_tier
 		unit_types = slot_res.unit_types
+		unit_cost = slot_res.unit_cost

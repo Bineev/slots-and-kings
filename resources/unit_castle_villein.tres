@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_apjqo")
 unit_types = Array[int]([0, 2])
+unit_cost = 1
 slot_name = "крестьянин"
 slot_description = "бестолочь с вилами"
 slot_sprite = ExtResource("2_ycogn")

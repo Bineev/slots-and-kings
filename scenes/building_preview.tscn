@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmtajflsqdycd"]
+[gd_scene load_steps=8 format=3 uid="uid://dmtajflsqdycd"]
 
 [ext_resource type="Script" uid="uid://cmn80s840v678" path="res://scripts/other/building_preview.gd" id="1_pgw6j"]
 [ext_resource type="LabelSettings" uid="uid://cjxq87g1sh7c8" path="res://styles/10_dark.tres" id="2_rotd2"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="3_fr6k8"]
 [ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="3_jl218"]
 [ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="4_mhy82"]
+[ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="7_d8x2p"]
 
 [node name="BuildingPreview" type="VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
@@ -51,6 +52,7 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = ExtResource("3_jl218")
 theme_override_styles/pressed = ExtResource("3_jl218")
 theme_override_styles/hover = ExtResource("4_mhy82")
+theme_override_styles/disabled = ExtResource("7_d8x2p")
 theme_override_styles/focus = ExtResource("3_jl218")
 
 [connection signal="pressed" from="buy_button" to="." method="_on_buy_button_pressed"]

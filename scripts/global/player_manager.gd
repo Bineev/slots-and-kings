@@ -148,3 +148,32 @@ func get_res(res_type : DataManager.ResType, res_amount : int):
 			current_crystals += res_amount
 		DataManager.ResType.FOOD:
 			current_food += res_amount
+	SignalManager.on_res_change.emit(res_type)
+
+
+func get_gold():
+	return current_gold
+
+
+func get_food():
+	return current_food
+
+
+func get_tokens():
+	return current_tokens
+
+
+func get_crystals():
+	return current_crystals
+
+
+func check_res(amount : int, res_type : DataManager.ResType):
+	match res_type:
+		DataManager.ResType.GOLD:
+			return current_gold - amount >= 0
+		DataManager.ResType.SPIN_TOKEN:
+			return current_tokens - amount >= 0
+		DataManager.ResType.CRYSTAL:
+			return current_crystals - amount >= 0
+		DataManager.ResType.FOOD:
+			return current_food - amount >= 0

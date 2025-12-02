@@ -17,7 +17,7 @@ func initialize():
 
 
 func get_res():
-	SignalManager.on_get_res.emit(res_type, res_amount)
+	Player.get_res(res_type, res_amount)
 
 
 func show_getting_res():

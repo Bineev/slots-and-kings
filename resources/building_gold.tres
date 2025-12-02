@@ -9,6 +9,6 @@ building_name = "золотая шахта"
 building_desc = "С определенным интервалом производит золото"
 building_cost = 1000
 building_sprite = ExtResource("1_nohwn")
-produce_amount = 20
+produce_amount = 50
 produce_interval = 10.0
 metadata/_custom_type_script = "uid://ebjnjxcsijom"
