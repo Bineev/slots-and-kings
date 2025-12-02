@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 			is_need_check = false
 			spin_button.disabled = false
 			create_button.disabled = false
+			create_unit()
 
 
 func spin_columns():
@@ -71,4 +72,4 @@ func _on_spin_button_pressed() -> void:
 
 func _on_create_button_pressed() -> void:
 	create_button.disabled = true
-	create_unit()
+	SignalManager.on_add_unit_on_field.emit()

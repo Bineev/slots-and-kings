@@ -46,6 +46,15 @@ enum UnitType {
 	MELEE, RANGE, PHYS, MAGE, SUPPORT, TANK
 }
 
+var unit_types_table : Dictionary = {
+	UnitType.MELEE : 'мили',
+	UnitType.RANGE : 'ренж',
+	UnitType.PHYS : 'физ',
+	UnitType.MAGE : 'маг',
+	UnitType.SUPPORT : 'саппорт',
+	UnitType.TANK : 'танк'
+}
+
 var slot_size : Vector2 = Vector2(16, 16)
 
 var started_indexes : Vector2 = Vector2(1, 0)
@@ -73,3 +82,48 @@ var male_names = [
 	'Victor', 'Virgil', 'Volkrich', 'Walrich', 'Geoffrey', 
 	'William', 'Warnhard', 
 ]
+
+var default_stats : Dictionary = {
+	'health' : 0,
+	'health_mult' : 1,
+	'armor' : 0,
+	'armor_mult' : 1,
+	'physical_attack' : 0,
+	'physical_attack_mult' : 1,
+	'magical_attack' : 0,
+	'magical_attack_mult' : 1,
+	'hit_chance' : 1,
+	'hit_chance_mult' : 1,
+	'crit_chance' : 0,
+	'crit_chance_mult' : 1,
+	'evade' : 0,
+	'evade_mult' : 1,
+	'shield' : 0,
+	'shield_mult' : 1,
+	'attack_speed' : 0,
+	'attack_speed_mult' : 1,
+	'move_speed' : 0,
+	'move_speed_mult' : 1,
+	'attack_range' : 0,
+	'attack_range_mult' : 1,
+	'life_steal' : 0,
+	'life_steal_mult' : 1,
+	'health_regen' : 0,
+	'health_regen_mult' : 1,
+	'health_regen_interval' : INF,
+	'health_regen_interval_mult' : 1,
+	'true_damage' : 0,
+	'true_damage_mult' : 0,
+	'scout_range' : 0,
+	'scout_range_mult' : 1,
+	'damage_mult_vs_all' : 1,
+	'damage_mult_vs_castle' : 1,
+	'damage_mult_vs_hell' : 1,
+	'damage_mult_vs_forest' : 1,
+	'inc_damage_magic_mult' : 1,
+	'inc_damage_physical_mult' : 1,
+	'inc_damage_mult_vs_all' : 1,
+	'inc_damage_mult_vs_castle' : 1,
+	'inc_damage_mult_vs_hell' : 1,
+	'inc_damage_mult_vs_forest' : 1
+}

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=9 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
+[ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
 [ext_resource type="Texture2D" uid="uid://dn060854hlspj" path="res://img/castle_back_3.png" id="2_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cypodhfnqqklh" path="res://img/castle_UI.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dwrt5w7q3wbfy" path="res://scenes/slot_machine.tscn" id="2_w8frs"]
@@ -20,6 +21,7 @@ animations = [{
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_klq6b")
+unit_preview_scene = ExtResource("2_klq6b")
 
 [node name="background" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w7c3h")

@@ -8,6 +8,7 @@ script = ExtResource("1_o7ajc")
 [node name="unit_collision" type="CollisionShape2D" parent="."]
 
 [node name="unit_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 
 [node name="unit_anim" type="AnimationPlayer" parent="."]
 

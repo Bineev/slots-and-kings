@@ -102,47 +102,48 @@ func create_player_unit(unit, slots):
 
 
 func apply_slots(new_unit, slots):
+	# TODO сделать калькулирование мультипликаторов во флэт статы
 	for slot in slots:
 		if slot.slot_type == DataManager.SlotType.ULT:
 			# some logic
 			continue
-		new_unit.health += slot.slot_res.health
-		new_unit.health_mult += slot.slot_res.health_mult - 1
-		new_unit.armor += slot.slot_res.armor
-		new_unit.armor_mult += slot.slot_res.armor_mult - 1
-		new_unit.physical_attack += slot.slot_res.physical_attack
-		new_unit.physical_attack_mult += slot.slot_res.physical_attack_mult - 1
-		new_unit.magical_attack += slot.slot_res.magical_attack
-		new_unit.magical_attack_mult += slot.slot_res.magical_attack_mult - 1
-		new_unit.hit_chance += slot.slot_res.hit_chance
-		new_unit.hit_chance_mult += slot.slot_res.hit_chance_mult - 1
-		new_unit.crit_chance += slot.slot_res.crit_chance
-		new_unit.crit_chance_mult += slot.slot_res.crit_chance_mult - 1
-		new_unit.evade += slot.slot_res.evade
-		new_unit.evade_mult += slot.slot_res.evade_mult - 1
-		new_unit.shield += slot.slot_res.shield
-		new_unit.shield_mult += slot.slot_res.shield_mult - 1
-		new_unit.attack_speed += slot.slot_res.attack_speed
-		new_unit.attack_speed_mult += slot.slot_res.attack_speed_mult - 1
-		new_unit.move_speed += slot.slot_res.move_speed
-		new_unit.move_speed_mult += slot.slot_res.move_speed_mult - 1
-		new_unit.attack_range += slot.slot_res.attack_range
-		new_unit.attack_range_mult += slot.slot_res.attack_range_mult - 1
-		new_unit.life_steal += slot.slot_res.life_steal
-		new_unit.life_steal_mult += slot.slot_res.life_steal_mult - 1
-		new_unit.health_regen += slot.slot_res.health_regen
-		new_unit.health_regen_mult += slot.slot_res.health_regen_mult - 1
-		new_unit.health_regen_interval += slot.slot_res.health_regen_interval
-		new_unit.health_regen_interval_mult += slot.slot_res.health_regen_interval_mult - 1
-		new_unit.true_damage += slot.slot_res.true_damage
-		new_unit.true_damage_mult += slot.slot_res.true_damage_mult - 1
-		new_unit.damage_mult_vs_all += slot.slot_res.damage_mult_vs_all - 1
-		new_unit.damage_mult_vs_castle += slot.slot_res.damage_mult_vs_castle - 1
-		new_unit.damage_mult_vs_hell += slot.slot_res.damage_mult_vs_hell - 1
-		new_unit.damage_mult_vs_forest += slot.slot_res.damage_mult_vs_forest - 1
-		new_unit.inc_damage_magic_mult += slot.slot_res.inc_damage_magic_mult - 1
-		new_unit.inc_damage_physical_mult += slot.slot_res.inc_damage_physical_mult - 1
-		new_unit.inc_damage_mult_vs_all += slot.slot_res.inc_damage_mult_vs_all - 1
-		new_unit.inc_damage_mult_vs_castle += slot.slot_res.inc_damage_mult_vs_castle - 1
-		new_unit.inc_damage_mult_vs_hell += slot.slot_res.inc_damage_mult_vs_hell - 1
-		new_unit.inc_damage_mult_vs_forest += slot.slot_res.inc_damage_mult_vs_forest - 1
+		new_unit.stats.health += slot.slot_res.health
+		new_unit.stats.health_mult += slot.slot_res.health_mult - 1
+		new_unit.stats.armor += slot.slot_res.armor
+		new_unit.stats.armor_mult += slot.slot_res.armor_mult - 1
+		new_unit.stats.physical_attack += slot.slot_res.physical_attack
+		new_unit.stats.physical_attack_mult += slot.slot_res.physical_attack_mult - 1
+		new_unit.stats.magical_attack += slot.slot_res.magical_attack
+		new_unit.stats.magical_attack_mult += slot.slot_res.magical_attack_mult - 1
+		new_unit.stats.hit_chance += slot.slot_res.hit_chance
+		new_unit.stats.hit_chance_mult += slot.slot_res.hit_chance_mult - 1
+		new_unit.stats.crit_chance += slot.slot_res.crit_chance
+		new_unit.stats.crit_chance_mult += slot.slot_res.crit_chance_mult - 1
+		new_unit.stats.evade += slot.slot_res.evade
+		new_unit.stats.evade_mult += slot.slot_res.evade_mult - 1
+		new_unit.stats.shield += slot.slot_res.shield
+		new_unit.stats.shield_mult += slot.slot_res.shield_mult - 1
+		new_unit.stats.attack_speed += slot.slot_res.attack_speed
+		new_unit.stats.attack_speed_mult += slot.slot_res.attack_speed_mult - 1
+		new_unit.stats.move_speed += slot.slot_res.move_speed
+		new_unit.stats.move_speed_mult += slot.slot_res.move_speed_mult - 1
+		new_unit.stats.attack_range += slot.slot_res.attack_range
+		new_unit.stats.attack_range_mult += slot.slot_res.attack_range_mult - 1
+		new_unit.stats.life_steal += slot.slot_res.life_steal
+		new_unit.stats.life_steal_mult += slot.slot_res.life_steal_mult - 1
+		new_unit.stats.health_regen += slot.slot_res.health_regen
+		new_unit.stats.health_regen_mult += slot.slot_res.health_regen_mult - 1
+		new_unit.stats.health_regen_interval += slot.slot_res.health_regen_interval
+		new_unit.stats.health_regen_interval_mult += slot.slot_res.health_regen_interval_mult - 1
+		new_unit.stats.true_damage += slot.slot_res.true_damage
+		new_unit.stats.true_damage_mult += slot.slot_res.true_damage_mult - 1
+		new_unit.stats.damage_mult_vs_all += slot.slot_res.damage_mult_vs_all - 1
+		new_unit.stats.damage_mult_vs_castle += slot.slot_res.damage_mult_vs_castle - 1
+		new_unit.stats.damage_mult_vs_hell += slot.slot_res.damage_mult_vs_hell - 1
+		new_unit.stats.damage_mult_vs_forest += slot.slot_res.damage_mult_vs_forest - 1
+		new_unit.stats.inc_damage_magic_mult += slot.slot_res.inc_damage_magic_mult - 1
+		new_unit.stats.inc_damage_physical_mult += slot.slot_res.inc_damage_physical_mult - 1
+		new_unit.stats.inc_damage_mult_vs_all += slot.slot_res.inc_damage_mult_vs_all - 1
+		new_unit.stats.inc_damage_mult_vs_castle += slot.slot_res.inc_damage_mult_vs_castle - 1
+		new_unit.stats.inc_damage_mult_vs_hell += slot.slot_res.inc_damage_mult_vs_hell - 1
+		new_unit.stats.inc_damage_mult_vs_forest += slot.slot_res.inc_damage_mult_vs_forest - 1
