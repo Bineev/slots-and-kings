@@ -8,6 +8,8 @@ class_name BuildingGenerator
 @export var slots_amount : int
 @export var generation_interval : float
 @export var choose_UI_scene : PackedScene
+@export var upgrade_tier_cost : int
+@export var upgrade_tier_res : DataManager.ResType
 
 var deck : Deck
 var choose_UI : ChooseUI
@@ -37,3 +39,16 @@ func _on_generate_timer_timeout() -> void:
 
 func start_produce():
 	generate_timer.start()
+
+
+func tier_up():
+	if entity_tier <= DataManager.max_entity_tier:
+		entity_tier += 1
+	upgrade_tier_cost *= 2
+
+
+func show_ui():
+	pop_up_ui = pop_up_ui_scene.instantiate()
+	pop_up_ui.set_data(entity_tier, upgrade_tier_cost, upgrade_tier_res, self)
+	SignalManager.on_open_building_menu.emit(self, pop_up_ui)
+	

@@ -128,3 +128,5 @@ var default_stats : Dictionary = {
 	'inc_damage_mult_vs_hell' : 1,
 	'inc_damage_mult_vs_forest' : 1
 }
+
+var max_entity_tier : int = 4
