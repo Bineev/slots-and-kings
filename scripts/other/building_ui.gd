@@ -1,4 +1,4 @@
-extends CenterContainer
+extends PanelContainer
 
 class_name BuildingUI
 

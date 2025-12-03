@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://quhemjd0dbdh"]
+[gd_scene load_steps=16 format=3 uid="uid://quhemjd0dbdh"]
 
+[ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_fts5n"]
 [ext_resource type="Script" uid="uid://dx4x1qmvvcwjy" path="res://scripts/other/building_ui.gd" id="1_if0vd"]
 [ext_resource type="PackedScene" uid="uid://in0qu805m2bf" path="res://scenes/buildings_preview/building_preview_farm.tscn" id="2_wunb3"]
 [ext_resource type="PackedScene" uid="uid://cn77jc08tu3lx" path="res://scenes/buildings_preview/building_preview_factory.tscn" id="3_lbfxy"]
@@ -12,56 +13,76 @@
 [ext_resource type="PackedScene" uid="uid://dk3cbrspov7o8" path="res://scenes/buildings_preview/building_preview_t_4_barracks.tscn" id="10_20vxf"]
 [ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="11_lbfxy"]
 [ext_resource type="Texture2D" uid="uid://jnyjnlacm5c5" path="res://img/res_gold.png" id="13_ykri7"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="14_ykri7"]
 
-[node name="BuildingUI" type="CenterContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[sub_resource type="LabelSettings" id="LabelSettings_j5ja2"]
+font = ExtResource("14_ykri7")
+font_size = 18
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+
+[node name="BuildingUI" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_fts5n")
 script = ExtResource("1_if0vd")
 building_preview_scenes = Array[PackedScene]([ExtResource("2_wunb3"), ExtResource("3_lbfxy"), ExtResource("4_wopjm"), ExtResource("5_fts5n"), ExtResource("6_ykri7"), ExtResource("7_j5ja2"), ExtResource("8_ntjld"), ExtResource("9_b1v6l"), ExtResource("10_20vxf")])
 
-[node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(960, 540)
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-color = Color(0.84313726, 0.70980394, 0.5803922, 1)
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="label_close" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 3.0
-offset_bottom = 25.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="label_close" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 0
 text = "ПКМ - закрыть"
 label_settings = ExtResource("11_lbfxy")
+vertical_alignment = 2
 
-[node name="label_gold" type="Label" parent="ColorRect"]
+[node name="filled" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="label_gold" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(36, 0)
-layout_mode = 0
-offset_left = 1.0
-offset_top = 26.0
-offset_right = 37.0
-offset_bottom = 49.0
+custom_minimum_size = Vector2(36, 16)
+layout_mode = 2
 text = "1000"
 label_settings = ExtResource("11_lbfxy")
 horizontal_alignment = 2
+vertical_alignment = 2
 
-[node name="rect_gold" type="TextureRect" parent="ColorRect"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 42.0
-offset_top = 20.0
-offset_right = 58.0
-offset_bottom = 36.0
-texture = ExtResource("13_ykri7")
-
-[node name="buildings_container" type="GridContainer" parent="."]
+[node name="rect_gold" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("13_ykri7")
+stretch_mode = 4
+
+[node name="label_header" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 0
+text = "СТРОИТЕЛЬСТВО"
+label_settings = SubResource("LabelSettings_j5ja2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buildings_container" type="GridContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
-columns = 4
+columns = 5
