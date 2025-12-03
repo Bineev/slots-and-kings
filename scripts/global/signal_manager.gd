@@ -16,3 +16,4 @@ signal on_add_unit_on_field
 signal on_res_change(res_type : DataManager.ResType)
 signal on_not_enough_food
 signal on_enough_food
+signal on_show_info_res_popup(building : Building, info_res_popup_UI : InfoResPopupUI)

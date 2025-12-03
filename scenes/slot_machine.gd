@@ -14,6 +14,7 @@ class_name SlotMachine
 
 var slots : Array[Slot]
 var is_need_check : bool
+var is_already_created : bool
 
 func _ready() -> void:
 	SignalManager.on_spin_end.connect(create_unit)
@@ -69,6 +70,7 @@ func check_is_spin_end():
 
 
 func _on_spin_button_pressed() -> void:
+	is_already_created = false
 	Player.get_res(DataManager.ResType.SPIN_TOKEN, -1)
 	spin_button.disabled = true
 	create_button.disabled = true
@@ -77,6 +79,7 @@ func _on_spin_button_pressed() -> void:
 
 func _on_create_button_pressed() -> void:
 	create_button.disabled = true
+	is_already_created = true
 	SignalManager.on_add_unit_on_field.emit()
 
 
@@ -102,5 +105,5 @@ func update_buttons(res_type : DataManager.ResType):
 			if check_is_spin_end():
 				enable_spin_button()
 		DataManager.ResType.FOOD:
-			if check_is_spin_end() and Player.check_res(get_parent().get_current_unit().unit_cost, DataManager.ResType.FOOD):
+			if check_is_spin_end() and Player.check_res(get_parent().get_current_unit().unit_cost, DataManager.ResType.FOOD) and not is_already_created:
 				enable_create_button()

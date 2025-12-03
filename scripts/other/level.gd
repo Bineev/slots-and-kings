@@ -22,6 +22,7 @@ func _ready() -> void:
 	SignalManager.on_build_building.connect(build_building)
 	SignalManager.on_show_choose_UI.connect(add_choose_UI)
 	SignalManager.on_add_unit_on_field.connect(add_player_unit)
+	SignalManager.on_show_info_res_popup.connect(show_info_res_popup_UI)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
@@ -96,3 +97,15 @@ func align_popup(popup : Control):
 
 func get_current_unit():
 	return current_unit
+
+
+func show_info_res_popup_UI(building : Building, info_res_popup_UI : InfoResPopupUI):
+	ui.add_child(info_res_popup_UI)
+	info_res_popup_UI.global_position = building.global_position - Vector2(16, 16)
+	info_res_popup_UI.initialize()
+	var tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property(info_res_popup_UI, 'global_position', building.global_position - Vector2(16, 76), 1).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(info_res_popup_UI, 'modulate', Color8(1, 1, 1, 0.3), 1).set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(info_res_popup_UI, 'scale', Vector2(0.5, 0.5), 1).set_trans(Tween.TRANS_SPRING)
+	tween.tween_callback(info_res_popup_UI.close_popup).set_delay(1)

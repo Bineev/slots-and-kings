@@ -6,6 +6,7 @@ class_name BuildingEco
 @export var res_type : DataManager.ResType
 @export var res_amount : int
 @export var get_res_interval : float
+@export var info_popup_UI_scene : PackedScene
 
 
 func initialize():
@@ -21,7 +22,9 @@ func get_res():
 
 
 func show_getting_res():
-	pass
+	var info_popup_UI : InfoResPopupUI = info_popup_UI_scene.instantiate()
+	info_popup_UI.set_data(res_type, res_amount)
+	SignalManager.on_show_info_res_popup.emit(self, info_popup_UI)
 
 
 func _on_generate_timer_timeout() -> void:

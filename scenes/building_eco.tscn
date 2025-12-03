@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://mk7rl828mvpf"]
+[gd_scene load_steps=4 format=3 uid="uid://mk7rl828mvpf"]
 
 [ext_resource type="PackedScene" uid="uid://l2eh1ynjfw06" path="res://scenes/building.tscn" id="1_e1fgg"]
 [ext_resource type="Script" uid="uid://bvll8hwk37c1b" path="res://scripts/other/building_eco.gd" id="2_c63sy"]
+[ext_resource type="PackedScene" uid="uid://dtspilpntytvx" path="res://scenes/info_res_popup_ui.tscn" id="3_uih5d"]
 
 [node name="BuildingEco" instance=ExtResource("1_e1fgg")]
 script = ExtResource("2_c63sy")
-res_type = null
-res_amount = null
-get_res_interval = null
+res_type = 0
+res_amount = 0
+get_res_interval = 0.0
+info_popup_UI_scene = ExtResource("3_uih5d")
 
 [connection signal="timeout" from="generate_timer" to="." method="_on_generate_timer_timeout"]
