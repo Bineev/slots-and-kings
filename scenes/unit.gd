@@ -58,9 +58,17 @@ var stats : Dictionary = {
 @export var unit_desc : String
 @export var is_active : bool
 
+var is_should_change_state : bool 
+
 @onready var attack_range_collision: CollisionShape2D = %attack_range_collision
+@onready var unit_anim_player: AnimationPlayer = %unit_anim_player
 @onready var scout_range_collision: CollisionShape2D = %scout_range_collision
 @onready var unit_sprite: Sprite2D = %unit_sprite
+
+
+func _process(delta: float) -> void:
+	if is_should_change_state:
+		apply_state()
 
 
 func initialize(slot : Slot, owner : DataManager.UnitOwner):
@@ -77,10 +85,14 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	var sr_shape = RectangleShape2D.new()
 	sr_shape.size = Vector2(stats.scout_range, 50)
 	attack_range_collision.shape  = sr_shape
+	unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_LINEAR
+	change_state(DataManager.UnitState.ATTACK)
 
 
 func set_active():
 	is_active = true
+	change_state(DataManager.UnitState.IDLE)
+	unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_NONE
 
 
 func parse_stats():
@@ -91,3 +103,25 @@ func parse_stats():
 		unique_stats[stat] = stats[stat]
 	
 	return unique_stats
+
+
+func change_state(new_state : DataManager.UnitState):
+	is_should_change_state = true
+	unit_state = new_state
+
+
+func apply_state():
+	match unit_state:
+		DataManager.UnitState.IDLE:
+			unit_anim_player.play('idle')
+		DataManager.UnitState.WALK:
+			unit_anim_player.play('walk')
+		DataManager.UnitState.ATTACK:
+			unit_anim_player.play('attack')
+		DataManager.UnitState.DIED:
+			unit_anim_player.play('died')
+		DataManager.UnitState.DEAD:
+			unit_anim_player.play('dead')
+
+	is_should_change_state = false
+	# можно привязать логику к аним треку (дроп ресурса, стата, исчезновение, мб звук)

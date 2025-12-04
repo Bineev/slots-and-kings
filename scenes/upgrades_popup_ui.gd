@@ -13,6 +13,10 @@ class_name UpgradesMenuUI
 @onready var button_buy: Button = %button_buy
 
 
+func _ready() -> void:
+	SignalManager.on_get_res.connect(enable_buy_button_if_enough_res)
+
+
 func initialize():
 	await get_tree().process_frame
 	if current_tier >= DataManager.max_entity_tier - 1:
@@ -23,6 +27,8 @@ func initialize():
 	label_curent_tier.text = DataManager.EntityTier.keys()[current_tier]
 	label_next_tier.text += " " + DataManager.EntityTier.keys()[current_tier + 1]
 	button_buy.text = str(next_tier_cost)
+	if not Player.check_res(next_tier_cost, upgrade_tier_res):
+		button_buy.disabled = true
 
 
 func set_data(new_current_tier : DataManager.EntityTier, new_next_tier_cost : int, new_upgrade_tier_res : DataManager.ResType, new_building_owner : Building):
@@ -33,6 +39,7 @@ func set_data(new_current_tier : DataManager.EntityTier, new_next_tier_cost : in
 
 
 func _on_button_buy_pressed() -> void:
+
 	building_owner.tier_up()
 	button_buy.disabled = true
 	var tween = get_tree().create_tween()
@@ -46,3 +53,10 @@ func _input(event):
 			visible = false
 			var tween = get_tree().create_tween()
 			tween.tween_callback(queue_free).set_delay(0.5)
+
+
+func enable_buy_button_if_enough_res(res_type : DataManager.ResType, res_amount : int):
+	if res_type != upgrade_tier_res:
+		return
+	if Player.check_res(next_tier_cost, upgrade_tier_res):
+		button_buy.disabled = false

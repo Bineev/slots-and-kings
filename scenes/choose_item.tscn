@@ -8,7 +8,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_nfi8k"]
 font = ExtResource("4_mcvrv")
-font_size = 8
+font_size = 7
 font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k45hk"]
@@ -34,10 +34,12 @@ script = ExtResource("1_25v66")
 
 [node name="label_item_name" type="Label" parent="."]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_nfi8k")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 uppercase = true
 
 [node name="item_texture" type="TextureRect" parent="."]
@@ -49,7 +51,7 @@ stretch_mode = 5
 
 [node name="label_item_desc" type="Label" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_k45hk")
 horizontal_alignment = 1
