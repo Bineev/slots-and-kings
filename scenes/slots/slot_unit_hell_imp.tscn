@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://blb3uul4hoxcv"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_k1yfx"]
+[ext_resource type="Resource" uid="uid://cf8q6y24cl7j3" path="res://resources/unit_hell_imp.tres" id="2_ysd76"]
+
+[node name="SlotUnitHellImp" instance=ExtResource("1_k1yfx")]
+slot_type = 1
+slot_res = ExtResource("2_ysd76")

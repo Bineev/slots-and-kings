@@ -79,6 +79,9 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	unit_desc = slot.slot_description
 	unit_types = slot.unit_types
 	unit_cost = slot.unit_cost
+	unit_family = slot.slot_res.unit_family
+	unit_tier = slot.slot_unit_tier
+	unit_sprite.texture = slot.slot_res.unit_sprite
 	var ar_shape = CircleShape2D.new()
 	ar_shape.radius = stats.attack_range
 	attack_range_collision.shape  = ar_shape
@@ -87,9 +90,12 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	attack_range_collision.shape  = sr_shape
 	unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_LINEAR
 	change_state(DataManager.UnitState.ATTACK)
+	if owner == DataManager.UnitOwner.ENEMY:
+		unit_sprite.flip_h = true
 
 
 func set_active():
+	await get_tree().process_frame
 	is_active = true
 	change_state(DataManager.UnitState.IDLE)
 	unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_NONE

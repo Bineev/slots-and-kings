@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cohxs6dnbcss8"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_hlcb8"]
+[ext_resource type="Resource" uid="uid://b507x12mrluyd" path="res://resources/unit_hell_manticora.tres" id="2_1nka1"]
+
+[node name="SlotUnitHellManticore" instance=ExtResource("1_hlcb8")]
+slot_type = 1
+slot_res = ExtResource("2_1nka1")

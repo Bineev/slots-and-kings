@@ -4,29 +4,48 @@ class_name Level
 
 
 @export var unit_preview_scene : PackedScene
+@export var waves_scenes : Array[PackedScene]
+@export var first_wave_timer : float
 
 var is_need_def_of_loop : bool
 var free_spawners : Array[Spawner]
+var free_enemy_spawners : Array[Spawner]
 var unit_preview_UI : UnitPreviewUI
 var current_unit : Unit
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
+@onready var enemy_spawners: Node2D = %enemy_spawners
 @onready var ui: CanvasLayer = %UI
 @onready var buildings: Node2D = %buildings
+@onready var enemy_units: Node2D = %enemy_units
+@onready var timer_to_next_wave: Timer = %timer_to_next_wave
+@onready var waves: Node2D = %waves
+@onready var spawns: Node2D = %spawns
 
 
 func _ready() -> void:
-	SignalManager.on_create_player_unit.connect(add_unit_preview)
+	SignalManager.on_create_unit.connect(add_unit_preview)
 	SignalManager.on_pop_up_UI.connect(add_UI)
 	SignalManager.on_build_building.connect(build_building)
 	SignalManager.on_show_choose_UI.connect(add_choose_UI)
 	SignalManager.on_add_unit_on_field.connect(add_player_unit)
 	SignalManager.on_show_info_res_popup.connect(show_info_res_popup_UI)
 	SignalManager.on_open_building_menu.connect(add_building_menu_UI)
+	SignalManager.on_create_enemy_unit.connect(add_enemy_unit)
+	SignalManager.on_start_spawn.connect(clear_enemy_spawns)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
+	for spawner in enemy_spawners.get_children():
+		free_enemy_spawners.append(spawner)
+	start_waves()
+
+
+func start_waves():
+	await self.ready
+	timer_to_next_wave.wait_time = first_wave_timer
+	timer_to_next_wave.start()
 
 
 func add_player_unit():
@@ -34,6 +53,13 @@ func add_player_unit():
 	current_unit.reparent(player_units)
 	current_unit.global_position = get_free_random_spawner().global_position
 	current_unit.set_active()
+
+
+func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
+	enemy_units.add_child(unit)
+	unit.initialize(slots[0], owner)
+	unit.global_position = get_free_random_enemy_spawner().global_position
+	unit.set_active()
 
 
 func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
@@ -54,10 +80,20 @@ func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.Unit
 
 
 func get_free_random_spawner():
+	if free_spawners.size() == 0:
+		clear_player_spawns()
 	var spawner = free_spawners.pick_random()
 	spawner.is_filled = true
 	free_spawners.erase(spawner)
 
+	return spawner
+
+
+func get_free_random_enemy_spawner():
+	var spawner = free_enemy_spawners.pick_random()
+	spawner.is_filled = true
+	free_enemy_spawners.erase(spawner)
+	
 	return spawner
 
 
@@ -119,3 +155,33 @@ func show_info_res_popup_UI(building : Building, info_res_popup_UI : InfoResPopu
 	tween.tween_property(info_res_popup_UI, 'modulate', Color8(1, 1, 1, 0.3), 1).set_trans(Tween.TRANS_SPRING)
 	tween.tween_property(info_res_popup_UI, 'scale', Vector2(0.5, 0.5), 1).set_trans(Tween.TRANS_SPRING)
 	tween.tween_callback(info_res_popup_UI.close_popup).set_delay(1)
+
+
+func clear_enemy_spawns():
+	free_enemy_spawners.clear()
+	for spawner in enemy_spawners.get_children():
+		spawner.is_filled = false
+		free_enemy_spawners.append(spawner)
+
+
+func clear_player_spawns():
+	free_spawners.clear()
+	for spawner in spawners.get_children():
+		spawner.is_filled = false
+		free_spawners.append(spawner)
+
+
+func _on_timer_to_next_wave_timeout() -> void:
+	create_wave()
+	
+	
+func create_wave():
+	var wave_scene : PackedScene = waves_scenes.pop_front()
+	if not wave_scene:
+		timer_to_next_wave.stop()
+		return
+	var wave : Wave = wave_scene.instantiate()
+	waves.add_child(wave)
+	wave.start_wave()
+	timer_to_next_wave.wait_time = wave.time_to_next_wave
+	timer_to_next_wave.start()

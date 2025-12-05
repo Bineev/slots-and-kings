@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=4 format=3 uid="uid://cf8q6y24cl7j3"]
+
+[ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_2coxr"]
+[ext_resource type="Texture2D" uid="uid://dotok612qrkox" path="res://img/slots/hell_imp.png" id="2_102hv"]
+[ext_resource type="Texture2D" uid="uid://ce4ok0da8to74" path="res://img/units/hell_imp_anim.png" id="3_n35yw"]
+
+[resource]
+script = ExtResource("1_2coxr")
+unit_family = 1
+unit_tier = 1
+unit_types = Array[int]([0, 2])
+unit_cost = 1
+unit_sprite = ExtResource("3_n35yw")
+slot_name = "имп"
+slot_description = "мелкое, но злобное существо"
+slot_sprite = ExtResource("2_102hv")
+slot_type = 1
+health = 40.0
+physical_attack = 15.0
+attack_speed = 1.6
+move_speed = 25.0
+metadata/_custom_type_script = "uid://853hpku0xq1e"

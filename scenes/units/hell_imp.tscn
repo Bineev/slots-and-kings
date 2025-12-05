@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2s0dxjybaryg"]
+
+[ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_g8yuo"]
+
+[node name="HellImp" instance=ExtResource("1_g8yuo")]

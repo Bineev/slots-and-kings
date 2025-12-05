@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=3 format=3 uid="uid://23tjxjxh002g"]
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=4 format=3 uid="uid://23tjxjxh002g"]
 
 [ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_r4xqq"]
 [ext_resource type="Texture2D" uid="uid://condc0wp7djh3" path="res://img/slots/castle_yeomen_preview.png" id="2_2xb3e"]
+[ext_resource type="Texture2D" uid="uid://imp768g7nkch" path="res://img/units/castle_yeomen_anim.png" id="3_2xb3e"]
 
 [resource]
 script = ExtResource("1_r4xqq")
 unit_tier = 2
 unit_types = Array[int]([1, 2])
 unit_cost = 1
+unit_sprite = ExtResource("3_2xb3e")
 slot_name = "лучник"
 slot_description = "убегает с поля боя быстрее, чем летит стрела"
 slot_sprite = ExtResource("2_2xb3e")

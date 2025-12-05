@@ -59,7 +59,7 @@ func get_active_slots():
 
 func create_unit():
 	slots = get_active_slots()
-	castle_unit_factory.choose_player_unit(slots)
+	castle_unit_factory.choose_unit(slots)
 
 
 func check_is_spin_end():

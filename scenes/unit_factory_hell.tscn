@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfnu88g2jfqmk"]
+
+[ext_resource type="PackedScene" uid="uid://d1bv4n8c15lwr" path="res://scenes/unit_factory.tscn" id="1_xpxu7"]
+[ext_resource type="PackedScene" uid="uid://c7mq3x3jn14v5" path="res://scenes/units/hell_manticore.tscn" id="2_gelrf"]
+[ext_resource type="PackedScene" uid="uid://c2s0dxjybaryg" path="res://scenes/units/hell_imp.tscn" id="3_2blbi"]
+
+[node name="UnitFactoryHell" instance=ExtResource("1_xpxu7")]
+unit_family = 1
+unit_owner = 1
+T1_1 = ExtResource("2_gelrf")
+T3_1 = ExtResource("3_2blbi")

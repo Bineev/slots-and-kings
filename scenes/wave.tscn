@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs3hmeek3f233"]
+
+[ext_resource type="Script" uid="uid://can6nu0xfh2x6" path="res://scripts/other/wave.gd" id="1_y5ysc"]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_y5ysc")
+
+[node name="timer_to_next_spawn" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="timer_to_next_spawn" to="." method="_on_timer_to_next_spawn_timeout"]

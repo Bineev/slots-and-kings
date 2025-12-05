@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc735g5w8l21r"]
+
+[ext_resource type="PackedScene" uid="uid://bs3hmeek3f233" path="res://scenes/wave.tscn" id="1_kjwrj"]
+[ext_resource type="PackedScene" uid="uid://b3kkot8vuyvh3" path="res://scenes/enemy_spawns/enemy_spawn_hell_0v_1.tscn" id="2_5ddqw"]
+
+[node name="Wave1Diff1" instance=ExtResource("1_kjwrj")]
+enemy_spawn_scenes = Array[PackedScene]([ExtResource("2_5ddqw"), ExtResource("2_5ddqw")])
+wave_count = 1
+time_to_next_wave = 60.0

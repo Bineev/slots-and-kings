@@ -1,7 +1,7 @@
 extends Node
 
 signal spin_columns
-signal on_create_player_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner)
+signal on_create_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner)
 signal on_spin_end
 signal on_get_res(res_type : DataManager.ResType, res_amount : int)
 signal on_entity_choosed(owner : Building, slot : Slot)
@@ -18,3 +18,6 @@ signal on_not_enough_food
 signal on_enough_food
 signal on_show_info_res_popup(building : Building, info_res_popup_UI : InfoResPopupUI)
 signal on_open_building_menu(building : Building, menu_UI : Control)
+signal on_create_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner)
+signal on_end_wave(time_to_next_wave : float)
+signal on_start_spawn
