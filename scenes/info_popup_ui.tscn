@@ -4,6 +4,7 @@
 [ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="1_agstw"]
 
 [node name="InfoPopupUI" type="PanelContainer"]
+z_index = 97
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

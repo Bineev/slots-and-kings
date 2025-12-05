@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://beb467pe7mklk"]
 
 [ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_yr6fi"]
-[ext_resource type="Texture2D" uid="uid://dxiqtmljmwcm4" path="res://img/units/castle_fyrd.png" id="2_4sv81"]
+[ext_resource type="Texture2D" uid="uid://hqts1hk1ywrp" path="res://img/units/castle_fyrd_anim.png" id="2_4sv81"]
 
 [node name="CastleFyrd" instance=ExtResource("1_yr6fi")]
 

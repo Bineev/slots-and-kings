@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://7iq5iq0xb4wg"]
 
 [ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_faafi"]
-[ext_resource type="Texture2D" uid="uid://dfxwotxl0bx0o" path="res://img/units/castle_yeomen.png" id="2_xtj64"]
+[ext_resource type="Texture2D" uid="uid://imp768g7nkch" path="res://img/units/castle_yeomen_anim.png" id="2_xtj64"]
 
 [node name="CastleYeomen" instance=ExtResource("1_faafi")]
 

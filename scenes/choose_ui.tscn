@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://j7uwrhnjvs6d" path="res://scenes/choose_item.tscn" id="2_20bt8"]
 
 [node name="ChooseUI" type="PanelContainer"]
+z_index = 98
 offset_right = 20.0
 offset_bottom = 20.0
 theme_override_styles/panel = ExtResource("1_i2pct")
