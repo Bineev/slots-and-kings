@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7mq3x3jn14v5"]
+[gd_scene load_steps=3 format=3 uid="uid://c7mq3x3jn14v5"]
 
 [ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_cf31j"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cf31j"]
+size = Vector2(32, 24)
+
 [node name="HellManticore" instance=ExtResource("1_cf31j")]
+
+[node name="unit_collision" parent="." index="0"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_cf31j")

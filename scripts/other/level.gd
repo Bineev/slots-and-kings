@@ -50,6 +50,7 @@ func start_waves():
 	timer_to_next_wave.wait_time = first_wave_timer
 	timer_to_next_wave.start()
 	is_wave_in_progress = true
+	Player.set_player_units_in_fight()
 	# установить false когда последний спавн и врагов на карте не осталось
 
 
@@ -69,6 +70,8 @@ func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOw
 	unit.global_position = get_free_random_enemy_spawner().global_position
 	unit.set_active()
 	Player.add_unit_to_enemy_units(unit)
+	unit.is_in_fight = true
+
 
 func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
 	unit_preview_UI = unit_preview_scene.instantiate()
@@ -200,7 +203,7 @@ func start_check_is_enemies_remaining():
 
 
 func _on_timer_between_check_enemies_timeout() -> void:
-	if Player.is_enemies_alive():
+	if not Player.is_enemies_alive():
 		timer_between_check_enemies.stop()
 		is_wave_in_progress = false
 		SignalManager.on_wave_done.emit()

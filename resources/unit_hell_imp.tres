@@ -18,5 +18,6 @@ slot_type = 1
 health = 40.0
 physical_attack = 15.0
 attack_speed = 1.6
-move_speed = 25.0
+move_speed = 30.0
+attack_range = 20.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"

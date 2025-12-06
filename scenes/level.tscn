@@ -214,10 +214,10 @@ position = Vector2(884, 443)
 [node name="spawns" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="player_units" type="Node2D" parent="."]
+[node name="enemy_units" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="enemy_units" type="Node2D" parent="."]
+[node name="player_units" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="timer_to_next_wave" type="Timer" parent="."]

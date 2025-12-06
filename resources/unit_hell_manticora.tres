@@ -20,5 +20,6 @@ armor = 20.0
 physical_attack = 30.0
 crit_chance = 20.0
 attack_speed = 2.0
-move_speed = 30.0
+move_speed = 40.0
+attack_range = 30.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"

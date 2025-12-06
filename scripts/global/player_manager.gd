@@ -203,5 +203,22 @@ func get_enemies():
 	return enemy_units
 
 
+func get_player_units():
+	return player_units
+
+
 func is_enemies_alive():
 	return enemy_units.size() > 0
+
+
+func is_player_units_alive():
+	return player_units.size() > 0
+
+
+func set_player_units_in_fight():
+	for unit in player_units:
+		unit.is_in_fight = true
+
+
+func check_enemies(unit_owner : DataManager.UnitOwner):
+	return is_enemies_alive() if unit_owner == DataManager.UnitOwner.PLAYER else is_player_units_alive()

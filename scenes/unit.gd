@@ -64,6 +64,7 @@ var is_can_attack : bool = true
 var current_target : Unit
 var enemies_in_range : Array[Unit]
 var is_in_fight : bool
+var current_health : int
 
 @onready var attack_range_collision: CollisionShape2D = %attack_range_collision
 @onready var unit_anim_player: AnimationPlayer = %unit_anim_player
@@ -71,6 +72,7 @@ var is_in_fight : bool
 @onready var unit_sprite: Sprite2D = %unit_sprite
 @onready var unit_collision: CollisionShape2D = %unit_collision
 @onready var timer_aspd: Timer = %timer_aspd
+@onready var attack_range: Area2D = %attack_range
 
 
 func _ready() -> void:
@@ -81,17 +83,25 @@ func _process(delta: float) -> void:
 	if is_should_change_state:
 		apply_state()
 
+	if not is_active:
+		return
+
 	match unit_state:
 		DataManager.UnitState.WALK:
-			if current_target:
+			if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
 				var direction : Vector2 = (current_target.global_position - global_position).normalized()
 				velocity = stats.move_speed * direction
 				move_and_slide()
 				if enemies_in_range.has(current_target):
 					change_state(DataManager.UnitState.IDLE)
+			else:
+				current_target = get_enemy_on_field()
 		DataManager.UnitState.IDLE:
-			if is_in_fight and is_can_attack:
+			if is_in_fight and is_can_attack and Player.check_enemies(unit_owner):
 				fight()
+		DataManager.UnitState.DIED:
+			print('died')
+			# remove from
 
 
 func initialize(slot : Slot, owner : DataManager.UnitOwner):
@@ -132,10 +142,11 @@ func set_active():
 func set_collisions_by_owner():
 	if unit_owner == DataManager.UnitOwner.PLAYER:
 		set_collision_layer_value(2, true)
-		set_collision_mask_value(3, true)
+		attack_range.set_collision_mask_value(3, true)
 	else:
 		set_collision_layer_value(3, true)
-		set_collision_mask_value(2, true)
+		attack_range.set_collision_mask_value(2, true)
+	
 
 
 func parse_stats():
@@ -176,7 +187,6 @@ func _on_attack_range_body_entered(body: Node2D) -> void:
 		return
 	if not enemies_in_range.has(unit) and unit.get_state() != DataManager.UnitState.DIED and unit.get_state() != DataManager.UnitState.DEAD:
 		enemies_in_range.append(unit)
-		print(unit)
 
 
 func _on_attack_range_body_exited(body: Node2D) -> void:
@@ -184,26 +194,28 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 	if unit.unit_owner == unit_owner:
 		return
 	enemies_in_range.erase(unit)
-	print('Unit removed')
 
 
 func fight():
-	if not current_target:
-		current_target = get_target_by_setting()
 	# если есть живой таргет в ренже атаки
-	if current_target:
+	if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
 		attack()
 		return
+	else:
+		current_target = get_target_by_setting()
+
 	# если нет живого таргета в ренже, ищем какой-то таргет на поле
-	if not current_target:
+	if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
+		attack()
+		return
+	else:
 		current_target = get_enemy_on_field()
 	# если есть живой таргет на поле, то идем к нему, пока не дойдем в ренж атаки
-	if current_target:
+	if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
 		change_state(DataManager.UnitState.WALK)
 	# если живого таргета нет, встаем в idle
-	if not current_target:
+	else:
 		change_state(DataManager.UnitState.IDLE)
-		return
 
 
 func stop_fight():
@@ -215,7 +227,7 @@ func attack():
 	is_can_attack = false
 	timer_aspd.wait_time = stats.attack_speed
 	timer_aspd.start()
-	current_target.get_damage(self)
+	current_target.get_damage(1, self)
 
 
 func get_target_by_setting():
@@ -251,7 +263,7 @@ func custom_sort_low_hp(a : Unit, b : Unit):
 
 
 func get_enemy_on_field():
-	var targets : Array[Unit] = Player.get_enemies()
+	var targets : Array[Unit] = Player.get_enemies() if unit_owner == DataManager.UnitOwner.PLAYER else Player.get_player_units()
 	if targets.size() == 0:
 		return null
 	# потом можно через match и target_setting
@@ -259,8 +271,10 @@ func get_enemy_on_field():
 	return targets[0]
 
 
-func get_damage(damage_owner):
-	pass
+func get_damage(damage, damage_owner):
+	if current_health - damage <= 0:
+		current_health = 0
+		change_state(DataManager.UnitState.DIED)
 
 
 func toggle_is_in_fight():

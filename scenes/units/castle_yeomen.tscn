@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://7iq5iq0xb4wg"]
+[gd_scene load_steps=4 format=3 uid="uid://7iq5iq0xb4wg"]
 
 [ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_faafi"]
 [ext_resource type="Texture2D" uid="uid://imp768g7nkch" path="res://img/units/castle_yeomen_anim.png" id="2_xtj64"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtj64"]
+radius = 5.0
+height = 16.0
+
 [node name="CastleYeomen" instance=ExtResource("1_faafi")]
+
+[node name="unit_collision" parent="." index="0"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_xtj64")
 
 [node name="unit_sprite" parent="." index="1"]
 texture = ExtResource("2_xtj64")

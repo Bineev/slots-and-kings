@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuk5d1uwhiurv"]
+[gd_scene load_steps=4 format=3 uid="uid://cuk5d1uwhiurv"]
 
 [ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_vpnis"]
 [ext_resource type="Texture2D" uid="uid://dgj4toaiwexx4" path="res://img/units/castle_warlock_anim.png" id="2_bkmhv"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bkmhv"]
+radius = 5.0
+height = 16.0
+
 [node name="CastleWarlock" instance=ExtResource("1_vpnis")]
+
+[node name="unit_collision" parent="." index="0"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_bkmhv")
 
 [node name="unit_sprite" parent="." index="1"]
 texture = ExtResource("2_bkmhv")
