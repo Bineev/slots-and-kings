@@ -113,6 +113,7 @@ _data = {
 script = ExtResource("1_o7ajc")
 
 [node name="unit_collision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 
 [node name="unit_sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -134,3 +135,12 @@ unique_name_in_owner = true
 
 [node name="scout_range_collision" type="CollisionShape2D" parent="scout_range"]
 unique_name_in_owner = true
+
+[node name="timer_aspd" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="timer_aspd" to="." method="_on_timer_aspd_timeout"]

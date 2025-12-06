@@ -19,5 +19,6 @@ signal on_enough_food
 signal on_show_info_res_popup(building : Building, info_res_popup_UI : InfoResPopupUI)
 signal on_open_building_menu(building : Building, menu_UI : Control)
 signal on_create_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner)
-signal on_end_wave(time_to_next_wave : float)
+signal on_end_wave
 signal on_start_spawn
+signal on_wave_done

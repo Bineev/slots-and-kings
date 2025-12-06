@@ -12,6 +12,7 @@ var free_spawners : Array[Spawner]
 var free_enemy_spawners : Array[Spawner]
 var unit_preview_UI : UnitPreviewUI
 var current_unit : Unit
+var is_wave_in_progress : bool
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -22,6 +23,7 @@ var current_unit : Unit
 @onready var timer_to_next_wave: Timer = %timer_to_next_wave
 @onready var waves: Node2D = %waves
 @onready var spawns: Node2D = %spawns
+@onready var timer_between_check_enemies: Timer = %timer_between_check_enemies
 
 
 func _ready() -> void:
@@ -34,6 +36,7 @@ func _ready() -> void:
 	SignalManager.on_open_building_menu.connect(add_building_menu_UI)
 	SignalManager.on_create_enemy_unit.connect(add_enemy_unit)
 	SignalManager.on_start_spawn.connect(clear_enemy_spawns)
+	SignalManager.on_end_wave.connect(start_check_is_enemies_remaining)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
@@ -46,6 +49,8 @@ func start_waves():
 	await self.ready
 	timer_to_next_wave.wait_time = first_wave_timer
 	timer_to_next_wave.start()
+	is_wave_in_progress = true
+	# установить false когда последний спавн и врагов на карте не осталось
 
 
 func add_player_unit():
@@ -53,6 +58,9 @@ func add_player_unit():
 	current_unit.reparent(player_units)
 	current_unit.global_position = get_free_random_spawner().global_position
 	current_unit.set_active()
+	Player.add_unit_to_player_units(current_unit)
+	if is_wave_in_progress:
+		current_unit.is_in_fight = true
 
 
 func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
@@ -60,7 +68,7 @@ func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOw
 	unit.initialize(slots[0], owner)
 	unit.global_position = get_free_random_enemy_spawner().global_position
 	unit.set_active()
-
+	Player.add_unit_to_enemy_units(unit)
 
 func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
 	unit_preview_UI = unit_preview_scene.instantiate()
@@ -185,3 +193,14 @@ func create_wave():
 	wave.start_wave()
 	timer_to_next_wave.wait_time = wave.time_to_next_wave
 	timer_to_next_wave.start()
+
+
+func start_check_is_enemies_remaining():
+	timer_between_check_enemies.start()
+
+
+func _on_timer_between_check_enemies_timeout() -> void:
+	if Player.is_enemies_alive():
+		timer_between_check_enemies.stop()
+		is_wave_in_progress = false
+		SignalManager.on_wave_done.emit()

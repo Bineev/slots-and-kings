@@ -226,4 +226,8 @@ unique_name_in_owner = true
 [node name="waves" type="Node2D" parent="."]
 unique_name_in_owner = true
 
+[node name="timer_between_check_enemies" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
+[connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]

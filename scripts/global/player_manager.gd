@@ -31,6 +31,10 @@ var current_gold : int
 var current_tokens : int
 var current_food : int
 var current_crystals : int
+var enemy_units : Array[Unit]
+var player_units : Array[Unit]
+var dead_enemy_units : Array[Unit]
+var dead_player_units : Array[Unit]
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
@@ -177,3 +181,27 @@ func check_res(amount : int, res_type : DataManager.ResType):
 			return current_crystals - amount >= 0
 		DataManager.ResType.FOOD:
 			return current_food - amount >= 0
+
+
+func add_unit_to_player_units(unit : Unit):
+	player_units.append(unit)
+
+
+func remove_unit_from_player_units(unit : Unit):
+	player_units.erase(unit)
+
+
+func add_unit_to_enemy_units(unit : Unit):
+	enemy_units.append(unit)
+
+
+func remove_unit_from_enemy_units(unit : Unit):
+	enemy_units.erase(unit)
+	
+	
+func get_enemies():
+	return enemy_units
+
+
+func is_enemies_alive():
+	return enemy_units.size() > 0

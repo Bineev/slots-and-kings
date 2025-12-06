@@ -18,7 +18,7 @@ func spawn():
 	var spawn_scene : PackedScene = enemy_spawn_scenes.pop_front()
 	if not spawn_scene:
 		timer_to_next_spawn.stop()
-		SignalManager.on_end_wave.emit(time_to_next_wave)
+		SignalManager.on_end_wave.emit()
 		get_tree().create_timer(1).timeout.connect(destroy)
 		return
 	var spawn : EnemySpawn = spawn_scene.instantiate()

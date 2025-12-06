@@ -46,6 +46,11 @@ enum UnitType {
 	MELEE, RANGE, PHYS, MAGE, SUPPORT, TANK
 }
 
+enum TargetSetting {
+	CLOSEST, MAX_HP, LOW_HP
+}
+
+
 var unit_types_table : Dictionary = {
 	UnitType.MELEE : 'мили',
 	UnitType.RANGE : 'ренж',

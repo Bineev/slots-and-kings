@@ -57,18 +57,41 @@ var stats : Dictionary = {
 @export var unit_name : String
 @export var unit_desc : String
 @export var is_active : bool
+@export var get_target_setting : DataManager.TargetSetting
 
 var is_should_change_state : bool 
+var is_can_attack : bool = true
+var current_target : Unit
+var enemies_in_range : Array[Unit]
+var is_in_fight : bool
 
 @onready var attack_range_collision: CollisionShape2D = %attack_range_collision
 @onready var unit_anim_player: AnimationPlayer = %unit_anim_player
 @onready var scout_range_collision: CollisionShape2D = %scout_range_collision
 @onready var unit_sprite: Sprite2D = %unit_sprite
+@onready var unit_collision: CollisionShape2D = %unit_collision
+@onready var timer_aspd: Timer = %timer_aspd
+
+
+func _ready() -> void:
+	SignalManager.on_wave_done.connect(toggle_is_in_fight)
 
 
 func _process(delta: float) -> void:
 	if is_should_change_state:
 		apply_state()
+
+	match unit_state:
+		DataManager.UnitState.WALK:
+			if current_target:
+				var direction : Vector2 = (current_target.global_position - global_position).normalized()
+				velocity = stats.move_speed * direction
+				move_and_slide()
+				if enemies_in_range.has(current_target):
+					change_state(DataManager.UnitState.IDLE)
+		DataManager.UnitState.IDLE:
+			if is_in_fight and is_can_attack:
+				fight()
 
 
 func initialize(slot : Slot, owner : DataManager.UnitOwner):
@@ -85,13 +108,18 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	var ar_shape = CircleShape2D.new()
 	ar_shape.radius = stats.attack_range
 	attack_range_collision.shape  = ar_shape
-	var sr_shape = RectangleShape2D.new()
-	sr_shape.size = Vector2(stats.scout_range, 50)
-	attack_range_collision.shape  = sr_shape
+	#var sr_shape = RectangleShape2D.new()
+	#sr_shape.size = Vector2(stats.scout_range, 50)
+	#scout_range_collision.shape  = sr_shape
 	unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_LINEAR
 	change_state(DataManager.UnitState.ATTACK)
-	if owner == DataManager.UnitOwner.ENEMY:
+	if unit_owner == DataManager.UnitOwner.ENEMY:
 		unit_sprite.flip_h = true
+	set_collisions_by_owner()
+
+
+func get_state() -> DataManager.UnitState:
+	return unit_state
 
 
 func set_active():
@@ -99,6 +127,15 @@ func set_active():
 	is_active = true
 	change_state(DataManager.UnitState.IDLE)
 	unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_NONE
+
+
+func set_collisions_by_owner():
+	if unit_owner == DataManager.UnitOwner.PLAYER:
+		set_collision_layer_value(2, true)
+		set_collision_mask_value(3, true)
+	else:
+		set_collision_layer_value(3, true)
+		set_collision_mask_value(2, true)
 
 
 func parse_stats():
@@ -131,3 +168,105 @@ func apply_state():
 
 	is_should_change_state = false
 	# можно привязать логику к аним треку (дроп ресурса, стата, исчезновение, мб звук)
+
+
+func _on_attack_range_body_entered(body: Node2D) -> void:
+	var unit : Unit = body
+	if unit.unit_owner == unit_owner:
+		return
+	if not enemies_in_range.has(unit) and unit.get_state() != DataManager.UnitState.DIED and unit.get_state() != DataManager.UnitState.DEAD:
+		enemies_in_range.append(unit)
+		print(unit)
+
+
+func _on_attack_range_body_exited(body: Node2D) -> void:
+	var unit : Unit = body
+	if unit.unit_owner == unit_owner:
+		return
+	enemies_in_range.erase(unit)
+	print('Unit removed')
+
+
+func fight():
+	if not current_target:
+		current_target = get_target_by_setting()
+	# если есть живой таргет в ренже атаки
+	if current_target:
+		attack()
+		return
+	# если нет живого таргета в ренже, ищем какой-то таргет на поле
+	if not current_target:
+		current_target = get_enemy_on_field()
+	# если есть живой таргет на поле, то идем к нему, пока не дойдем в ренж атаки
+	if current_target:
+		change_state(DataManager.UnitState.WALK)
+	# если живого таргета нет, встаем в idle
+	if not current_target:
+		change_state(DataManager.UnitState.IDLE)
+		return
+
+
+func stop_fight():
+	is_in_fight = false
+
+
+func attack():
+	change_state(DataManager.UnitState.ATTACK)
+	is_can_attack = false
+	timer_aspd.wait_time = stats.attack_speed
+	timer_aspd.start()
+	current_target.get_damage(self)
+
+
+func get_target_by_setting():
+	var targets : Array[Unit]
+	# понадобится проверка на освобожден
+	for unit in enemies_in_range:
+		if unit.get_state() != DataManager.UnitState.DIED and unit.get_state() != DataManager.UnitState.DEAD:
+			targets.append(unit)
+	if targets.size() == 0:
+		return null
+		
+	match get_target_setting:
+		DataManager.TargetSetting.CLOSEST:
+			targets.sort_custom(custom_sort_closest)
+		DataManager.TargetSetting.MAX_HP:
+			targets.sort_custom(custom_sort_max_hp)
+		DataManager.TargetSetting.LOW_HP:
+			targets.sort_custom(custom_sort_low_hp)
+	
+	return targets[0]
+
+
+func custom_sort_closest(a : Unit, b : Unit):
+	return true
+
+
+func custom_sort_max_hp(a : Unit, b : Unit):
+	return true
+
+
+func custom_sort_low_hp(a : Unit, b : Unit):
+	return true
+
+
+func get_enemy_on_field():
+	var targets : Array[Unit] = Player.get_enemies()
+	if targets.size() == 0:
+		return null
+	# потом можно через match и target_setting
+	targets.sort_custom(custom_sort_closest)
+	return targets[0]
+
+
+func get_damage(damage_owner):
+	pass
+
+
+func toggle_is_in_fight():
+	is_in_fight = false
+
+
+func _on_timer_aspd_timeout() -> void:
+	change_state(DataManager.UnitState.IDLE)
+	is_can_attack = true
