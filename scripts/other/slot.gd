@@ -5,7 +5,7 @@ class_name Slot
 @export var slot_type : DataManager.SlotType
 @export var slot_res : SlotRes
 @export var slot_content_scene : PackedScene
-
+@export var entity_tier : DataManager.EntityTier
 
 var slot_name : String
 var slot_description : String
@@ -25,3 +25,4 @@ func initialize():
 		slot_unit_tier = slot_res.unit_tier
 		unit_types = slot_res.unit_types
 		unit_cost = slot_res.unit_cost
+		entity_tier = slot_res.entity_tier

@@ -60,7 +60,7 @@ func add_player_unit():
 	current_unit.global_position = get_free_random_spawner().global_position
 	current_unit.set_active()
 	Player.add_unit_to_player_units(current_unit)
-	if is_wave_in_progress:
+	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
 		current_unit.is_in_fight = true
 
 

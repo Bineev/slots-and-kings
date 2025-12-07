@@ -19,8 +19,9 @@
 script = ExtResource("1_3vyb7")
 health = 100
 gold = 2000
-tokens = 5
-food = 2
+tokens = 100
+food = 100
+crystals = 100
 base_units_deck = Array[PackedScene]([ExtResource("2_g2els"), ExtResource("2_g2els"), ExtResource("2_g2els"), ExtResource("2_g2els")])
 base_upgrades_deck = Array[PackedScene]([ExtResource("3_qlg0r"), ExtResource("5_fjrip"), ExtResource("5_fjrip"), ExtResource("13_oprun")])
 base_percs_deck = Array[PackedScene]([ExtResource("6_ur7pv"), ExtResource("7_y4r1p"), ExtResource("8_d2wvv"), ExtResource("9_3v2ag")])

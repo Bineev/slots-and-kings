@@ -6,6 +6,7 @@ class_name Unit
 @export var unit_tier : DataManager.UnitTier
 @export var unit_types : Array[DataManager.UnitType]
 @export var unit_cost : int
+@export var entity_tier : DataManager.EntityTier
 # stats and multiplicators
 var stats : Dictionary = {
 	'health' : 0,
@@ -67,6 +68,7 @@ var current_target : Unit
 var enemies_in_range : Array[Unit]
 var is_in_fight : bool
 var previous_state : DataManager.UnitState
+var drop_chances : Dictionary
 
 var current_health : float
 var current_armor : float
@@ -108,14 +110,12 @@ var actual_health : float
 
 
 func _ready() -> void:
-	SignalManager.on_wave_done.connect(toggle_is_in_fight)
+	SignalManager.on_wave_done.connect(set_not_is_in_fight)
 	SignalManager.on_unit_die.connect(clear_target)
+	SignalManager.on_start_spawn.connect(set_is_in_fight)
 
 
 func _process(delta: float) -> void:
-	if is_should_change_state:
-		apply_state()
-
 	if not is_active:
 		return
 
@@ -125,6 +125,7 @@ func _process(delta: float) -> void:
 				var direction : Vector2 = (current_target.global_position - global_position).normalized()
 				velocity = current_move_speed * direction
 				move_and_slide()
+				# возможно здесь косяк
 				if enemies_in_range.has(current_target):
 					change_state(DataManager.UnitState.IDLE)
 			else:
@@ -135,6 +136,24 @@ func _process(delta: float) -> void:
 			if is_in_fight and is_can_attack and Player.check_enemies(unit_owner):
 				fight()
 
+
+func generate_drop_chances():
+	var drop_gold : int = entity_tier * DataManager.gold_drop_default + DataManager.gold_drop_default
+	var drop_gold_chance : int = 100
+	var drop_tokens : int = 1
+	var drop_tokens_chance : int = DataManager.tokens_drop_chance
+	var drop_food : int = 1
+	var drop_food_chance : int = DataManager.food_drop_chance
+	var drop_crystals : int = 1
+	var drop_crystals_chance : int = DataManager.crystals_drop_chance * entity_tier
+	drop_chances['drop_gold'] = drop_gold
+	drop_chances['drop_gold_chance'] = drop_gold_chance
+	drop_chances['drop_tokens'] = drop_tokens
+	drop_chances['drop_tokens_chance'] = drop_tokens_chance
+	drop_chances['drop_food'] = drop_food
+	drop_chances['drop_food_chance'] = drop_food_chance
+	drop_chances['drop_crystals'] = drop_crystals
+	drop_chances['drop_crystals_chance'] = drop_crystals_chance
 
 func apply_stats():
 	current_health = stats.health * stats.health_mult
@@ -166,6 +185,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	unit_cost = slot.unit_cost
 	unit_family = slot.slot_res.unit_family
 	unit_tier = slot.slot_unit_tier
+	entity_tier = slot.entity_tier
 	unit_sprite.texture = slot.slot_res.unit_sprite
 	var ar_shape = CircleShape2D.new()
 	ar_shape.radius = stats.attack_range
@@ -180,6 +200,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	set_collisions_by_owner()
 	Player.apply_heroes_skills(self)
 	apply_stats()
+	generate_drop_chances()
 	actual_health = current_health
 	if unit_owner == DataManager.UnitOwner.PLAYER:
 		z_index = 3
@@ -222,29 +243,27 @@ func change_state(new_state : DataManager.UnitState):
 	is_should_change_state = true
 	previous_state = unit_state
 	unit_state = new_state
+	apply_state()
 
 
 func apply_state():
 	match unit_state:
 		DataManager.UnitState.IDLE:
-			if previous_state != DataManager.UnitState.DIED and previous_state != DataManager.UnitState.DEAD: 
+			if unit_state != DataManager.UnitState.DIED and unit_state != DataManager.UnitState.DEAD:
+				#unit_anim_player.stop()
 				unit_anim_player.play('idle')
 		DataManager.UnitState.WALK:
-			if previous_state != DataManager.UnitState.DIED and previous_state != DataManager.UnitState.DEAD:
-				unit_anim_player.play('walk')
+			#unit_anim_player.stop()
+			unit_anim_player.play('walk')
 		DataManager.UnitState.ATTACK:
-			if previous_state != DataManager.UnitState.DIED and previous_state != DataManager.UnitState.DEAD:
-				unit_anim_player.play('attack')
+			#unit_anim_player.stop()
+			unit_anim_player.play('attack')
 		DataManager.UnitState.DIED:
+			#unit_anim_player.stop()
 			unit_anim_player.play('died')
-			if unit_owner == DataManager.UnitOwner.PLAYER:
-				Player.remove_unit_from_player_units(self)
-			elif unit_owner == DataManager.UnitOwner.ENEMY:
-				Player.remove_unit_from_enemy_units(self)
-			z_index = 1
 		DataManager.UnitState.DEAD:
+			#unit_anim_player.stop()
 			unit_anim_player.play('dead')
-
 
 	is_should_change_state = false
 	# можно привязать логику к аним треку (дроп ресурса, стата, исчезновение, мб звук)
@@ -266,16 +285,19 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 
 
 func fight():
+	if unit_state == DataManager.UnitState.DIED or unit_state == DataManager.UnitState.DEAD:
+		return
+	
 	current_target = get_target_by_setting()
 	# если есть живой таргет в ренже атаки
 
-	if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
+	if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 		attack()
 		return
 	else:
 		current_target = get_enemy_on_field()
 	# если есть живой таргет на поле, то идем к нему, пока не дойдем в ренж атаки
-	if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
+	if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 		change_state(DataManager.UnitState.WALK)
 	# если живого таргета нет, встаем в idle
 	else:
@@ -287,6 +309,8 @@ func stop_fight():
 
 
 func attack():
+	if not is_can_attack or timer_aspd.time_left > 0:
+		return
 	# установить скорость анимации исходя из скорости атаки
 	change_state(DataManager.UnitState.ATTACK)
 	is_can_attack = false
@@ -337,8 +361,18 @@ func get_enemy_on_field():
 
 
 func get_damage(damage, damage_owner):
+	if not is_active:
+		return
 	if actual_health - damage <= 0:
 		actual_health = 0
+		timer_aspd.stop()
+		is_in_fight = false
+		is_can_attack = false
+		if unit_owner == DataManager.UnitOwner.PLAYER:
+			Player.remove_unit_from_player_units(self)
+		elif unit_owner == DataManager.UnitOwner.ENEMY:
+			Player.remove_unit_from_enemy_units(self)
+		z_index = 1
 		is_active = false
 		SignalManager.on_unit_die.emit(self)
 		change_state(DataManager.UnitState.DIED)
@@ -346,11 +380,13 @@ func get_damage(damage, damage_owner):
 	actual_health -= damage
 
 
-func toggle_is_in_fight():
+func set_not_is_in_fight():
 	is_in_fight = false
 
 
 func _on_timer_aspd_timeout() -> void:
+	if unit_state == DataManager.UnitState.DIED or unit_state == DataManager.UnitState.DEAD:
+		timer_aspd.stop() 
 	change_state(DataManager.UnitState.IDLE)
 	is_can_attack = true
 
@@ -432,10 +468,30 @@ func apply_damage():
 
 func die():
 	change_state(DataManager.UnitState.DEAD)
+	drop_res()
 
 
 func clear_target(unit : Unit):
 	if current_target == unit:
 		await get_tree().process_frame
 		current_target = null
-		change_state(DataManager.UnitState.IDLE)
+
+
+func drop_res():
+	# голд дропает всегда
+	var drop_check : float = randf()
+	Player.get_res(DataManager.ResType.GOLD, drop_chances.drop_gold)
+	# остальные ресурсы с шансом
+	if drop_check <= drop_chances.drop_crystals_chance:
+		Player.get_res(DataManager.ResType.CRYSTAL, drop_chances.drop_crystals)
+		return
+	if drop_check <= drop_chances.drop_food_chance:
+		Player.get_res(DataManager.ResType.FOOD, drop_chances.drop_food)
+		return
+	if drop_check <= drop_chances.drop_tokens_chance:
+		Player.get_res(DataManager.ResType.SPIN_TOKEN, drop_chances.drop_tokens)
+		return
+
+
+func set_is_in_fight():
+	is_in_fight = true

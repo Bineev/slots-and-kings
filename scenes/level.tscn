@@ -24,7 +24,7 @@ animations = [{
 [node name="Level" type="Node2D"]
 script = ExtResource("1_klq6b")
 unit_preview_scene = ExtResource("2_klq6b")
-waves_scenes = Array[PackedScene]([ExtResource("3_8c41q"), ExtResource("3_8c41q")])
+waves_scenes = Array[PackedScene]([ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q")])
 first_wave_timer = 3.0
 
 [node name="background" type="AnimatedSprite2D" parent="."]

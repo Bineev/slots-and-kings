@@ -105,5 +105,5 @@ func update_buttons(res_type : DataManager.ResType):
 			if check_is_spin_end():
 				enable_spin_button()
 		DataManager.ResType.FOOD:
-			if check_is_spin_end() and Player.check_res(get_parent().get_current_unit().unit_cost, DataManager.ResType.FOOD) and not is_already_created:
+			if check_is_spin_end() and not is_already_created and get_parent().get_current_unit() and Player.check_res(get_parent().get_current_unit().unit_cost, DataManager.ResType.FOOD):
 				enable_create_button()

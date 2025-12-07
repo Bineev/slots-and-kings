@@ -31,7 +31,7 @@ enum UnitTier {
 }
 
 enum EntityTier {
-	T1, T2, T3, T4, T5, T6, T7
+	T0, T1, T2, T3, T4, T5, T6, T7
 }
 
 enum UnitOwner {
@@ -75,6 +75,14 @@ var max_spin_time : float = 3
 var default_spin_speed : float = 0.1
 
 var max_armor : float = 0.7
+
+var gold_drop_default : int = 10
+
+var tokens_drop_chance : float = 0.2
+
+var food_drop_chance : float = 0.1
+
+var crystals_drop_chance : float = 0.03
 
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
