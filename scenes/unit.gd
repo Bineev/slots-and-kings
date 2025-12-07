@@ -121,16 +121,17 @@ func _process(delta: float) -> void:
 
 	match unit_state:
 		DataManager.UnitState.WALK:
-			if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
+			if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 				var direction : Vector2 = (current_target.global_position - global_position).normalized()
 				velocity = current_move_speed * direction
 				move_and_slide()
+				unit_sprite.flip_h = current_target and current_target.global_position.x < global_position.x
 				# возможно здесь косяк
 				if enemies_in_range.has(current_target):
 					change_state(DataManager.UnitState.IDLE)
 			else:
 				current_target = get_enemy_on_field()
-				if not current_target or current_target.get_state() == DataManager.UnitState.DIED or current_target.get_state() == DataManager.UnitState.DEAD:
+				if not current_target or current_target.unit_state == DataManager.UnitState.DIED or current_target.unit_state == DataManager.UnitState.DEAD:
 					change_state(DataManager.UnitState.IDLE)
 		DataManager.UnitState.IDLE:
 			if is_in_fight and is_can_attack and Player.check_enemies(unit_owner):
@@ -312,6 +313,7 @@ func attack():
 	if not is_can_attack or timer_aspd.time_left > 0:
 		return
 	# установить скорость анимации исходя из скорости атаки
+	unit_sprite.flip_h = current_target and current_target.global_position.x < global_position.x
 	change_state(DataManager.UnitState.ATTACK)
 	is_can_attack = false
 	timer_aspd.wait_time = stats.attack_speed
@@ -386,9 +388,10 @@ func set_not_is_in_fight():
 
 func _on_timer_aspd_timeout() -> void:
 	if unit_state == DataManager.UnitState.DIED or unit_state == DataManager.UnitState.DEAD:
-		timer_aspd.stop() 
-	change_state(DataManager.UnitState.IDLE)
+		timer_aspd.stop()
 	is_can_attack = true
+	current_target = null
+	change_state(DataManager.UnitState.IDLE)
 
 
 func apply_damage():
