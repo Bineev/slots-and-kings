@@ -16,10 +16,12 @@ class_name SlotRes
 @export var physical_attack_mult : float = 1
 @export var magical_attack : float = 0
 @export var magical_attack_mult : float = 1
-@export var hit_chance : float = 1
+@export var hit_chance : float = 0
 @export var hit_chance_mult : float = 1
 @export var crit_chance : float = 0
 @export var crit_chance_mult : float = 1
+@export var crit_attack : float = 0
+@export var crit_attack_mult : float = 1
 @export var evade : float = 0
 @export var evade_mult : float = 1
 @export var shield : float = 0

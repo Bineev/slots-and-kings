@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmmit0t3sbl2v"]
+
+[ext_resource type="Script" uid="uid://84j5n8m7uy0m" path="res://scripts/other/skill.gd" id="1_hfop6"]
+
+[node name="Skill" type="Node2D"]
+script = ExtResource("1_hfop6")

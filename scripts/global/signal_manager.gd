@@ -22,3 +22,4 @@ signal on_create_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManage
 signal on_end_wave
 signal on_start_spawn
 signal on_wave_done
+signal on_unit_die(unit : Unit)

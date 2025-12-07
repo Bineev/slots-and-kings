@@ -43,13 +43,16 @@ enum ResType {
 }
 
 enum UnitType {
-	MELEE, RANGE, PHYS, MAGE, SUPPORT, TANK
+	MELEE, RANGE, PHYS, MAGE, SUPPORT, TANK, ASSASSIN
 }
 
 enum TargetSetting {
 	CLOSEST, MAX_HP, LOW_HP
 }
 
+enum UnitClass {
+	ENGINEER, PRIEST, MAGE, SCOUT, KNIGHT
+}
 
 var unit_types_table : Dictionary = {
 	UnitType.MELEE : 'мили',
@@ -57,7 +60,8 @@ var unit_types_table : Dictionary = {
 	UnitType.PHYS : 'физ',
 	UnitType.MAGE : 'маг',
 	UnitType.SUPPORT : 'саппорт',
-	UnitType.TANK : 'танк'
+	UnitType.TANK : 'танк',
+	UnitType.ASSASSIN : 'убийца'
 }
 
 var slot_size : Vector2 = Vector2(16, 16)
@@ -69,6 +73,8 @@ var min_spin_time : float = 1.5
 var max_spin_time : float = 3
 
 var default_spin_speed : float = 0.1
+
+var max_armor : float = 0.7
 
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
@@ -98,10 +104,12 @@ var default_stats : Dictionary = {
 	'physical_attack_mult' : 1,
 	'magical_attack' : 0,
 	'magical_attack_mult' : 1,
-	'hit_chance' : 1,
+	'hit_chance' : 100,
 	'hit_chance_mult' : 1,
 	'crit_chance' : 0,
 	'crit_chance_mult' : 1,
+	'crit_attack' : 50,
+	'crit_attack_mult' : 1,
 	'evade' : 0,
 	'evade_mult' : 1,
 	'shield' : 0,
@@ -135,3 +143,48 @@ var default_stats : Dictionary = {
 }
 
 var max_entity_tier : int = 4
+
+var default_stats_to_rus : Dictionary = {
+	'health' : 'здоровье',
+	'health_mult' : 1,
+	'armor' : 'броня',
+	'armor_mult' : 1,
+	'physical_attack' : 'физ атака',
+	'physical_attack_mult' : 1,
+	'magical_attack' : 'маг атака',
+	'magical_attack_mult' : 1,
+	'hit_chance' : 'точность',
+	'hit_chance_mult' : 1,
+	'crit_chance' : 'шанс крита',
+	'crit_chance_mult' : 1,
+	'evade' : 'уворот',
+	'evade_mult' : 1,
+	'shield' : 'щит',
+	'shield_mult' : 1,
+	'attack_speed' : 'ск. атаки',
+	'attack_speed_mult' : 1,
+	'move_speed' : 'ск. движения',
+	'move_speed_mult' : 1,
+	'attack_range' : 'дальность атаки',
+	'attack_range_mult' : 1,
+	'life_steal' : 'лайфстил',
+	'life_steal_mult' : 1,
+	'health_regen' : 'регенерация',
+	'health_regen_mult' : 1,
+	'health_regen_interval' : "реген интервал",
+	'health_regen_interval_mult' : 1,
+	'true_damage' : 'чистая атака',
+	'true_damage_mult' : 0,
+	'scout_range' : 'дальность обнаружения',
+	'scout_range_mult' : 1,
+	'damage_mult_vs_all' : 'повышение урона',
+	'damage_mult_vs_castle' : 'повышение урона против Замка',
+	'damage_mult_vs_hell' : 'повышшение урона против Преисподней',
+	'damage_mult_vs_forest' : 'повышение урона против Леса',
+	'inc_damage_magic_mult' : 'снижение маг урона',
+	'inc_damage_physical_mult' : 'снижение физ урона',
+	'inc_damage_mult_vs_all' : 'снижение урона',
+	'inc_damage_mult_vs_castle' : 'снижение урона от Замка',
+	'inc_damage_mult_vs_hell' : 'снижение урона от Преисподней',
+	'inc_damage_mult_vs_forest' : 'снижение урона от Леса'
+}

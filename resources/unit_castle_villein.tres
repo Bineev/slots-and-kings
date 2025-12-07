@@ -17,6 +17,6 @@ health = 30.0
 physical_attack = 5.0
 attack_speed = 2.0
 move_speed = 20.0
-attack_range = 15.0
+attack_range = 10.0
 scout_range = 300.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"

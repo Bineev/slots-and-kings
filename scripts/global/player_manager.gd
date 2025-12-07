@@ -35,6 +35,7 @@ var enemy_units : Array[Unit]
 var player_units : Array[Unit]
 var dead_enemy_units : Array[Unit]
 var dead_player_units : Array[Unit]
+var heroes : Array[Hero]
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
@@ -189,6 +190,7 @@ func add_unit_to_player_units(unit : Unit):
 
 func remove_unit_from_player_units(unit : Unit):
 	player_units.erase(unit)
+	pass
 
 
 func add_unit_to_enemy_units(unit : Unit):
@@ -222,3 +224,8 @@ func set_player_units_in_fight():
 
 func check_enemies(unit_owner : DataManager.UnitOwner):
 	return is_enemies_alive() if unit_owner == DataManager.UnitOwner.PLAYER else is_player_units_alive()
+
+
+func apply_heroes_skills(unit : Unit):
+	for hero in heroes:
+		hero.apply_passives(unit)

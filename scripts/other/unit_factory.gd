@@ -130,6 +130,8 @@ func apply_slots(new_unit, slots):
 		new_unit.stats.hit_chance_mult += slot.slot_res.hit_chance_mult - 1
 		new_unit.stats.crit_chance += slot.slot_res.crit_chance
 		new_unit.stats.crit_chance_mult += slot.slot_res.crit_chance_mult - 1
+		new_unit.stats.crit_attack += slot.slot_res.crit_chance
+		new_unit.stats.crit_attack_mult += slot.slot_res.crit_chance_mult - 1
 		new_unit.stats.evade += slot.slot_res.evade
 		new_unit.stats.evade_mult += slot.slot_res.evade_mult - 1
 		new_unit.stats.shield += slot.slot_res.shield

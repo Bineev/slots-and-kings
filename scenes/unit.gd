@@ -16,10 +16,12 @@ var stats : Dictionary = {
 	'physical_attack_mult' : 1,
 	'magical_attack' : 0,
 	'magical_attack_mult' : 1,
-	'hit_chance' : 1,
+	'hit_chance' : 100,
 	'hit_chance_mult' : 1,
 	'crit_chance' : 0,
 	'crit_chance_mult' : 1,
+	'crit_attack' : 50,
+	'crit_attack_mult' : 1,
 	'evade' : 0,
 	'evade_mult' : 1,
 	'shield' : 0,
@@ -64,7 +66,37 @@ var is_can_attack : bool = true
 var current_target : Unit
 var enemies_in_range : Array[Unit]
 var is_in_fight : bool
-var current_health : int
+var previous_state : DataManager.UnitState
+
+var current_health : float
+var current_armor : float
+var current_physical_attack : float
+var current_magical_attack : float
+var current_hit_chance : float
+var current_crit_chance : float
+var current_crit_attack : float
+var current_evade : float
+var current_shield : float
+var current_attack_speed : float
+var current_move_speed : float
+var current_attack_range : float
+var current_life_steal : float
+var current_health_regen : float
+var current_health_regen_interval : float
+var current_true_damage : float
+var current_scout_range : float
+var current_damage_mult_vs_all : float
+var current_damage_mult_vs_castle : float
+var current_damage_mult_vs_hell : float
+var current_damage_mult_vs_forest : float
+var current_inc_damage_magic_mult : float
+var current_inc_damage_physical_mult : float
+var current_inc_damage_mult_vs_all : float
+var current_inc_damage_mult_vs_castle : float
+var current_inc_damage_mult_vs_hell : float
+var current_inc_damage_mult_vs_forest : float
+
+var actual_health : float
 
 @onready var attack_range_collision: CollisionShape2D = %attack_range_collision
 @onready var unit_anim_player: AnimationPlayer = %unit_anim_player
@@ -77,6 +109,7 @@ var current_health : int
 
 func _ready() -> void:
 	SignalManager.on_wave_done.connect(toggle_is_in_fight)
+	SignalManager.on_unit_die.connect(clear_target)
 
 
 func _process(delta: float) -> void:
@@ -90,18 +123,37 @@ func _process(delta: float) -> void:
 		DataManager.UnitState.WALK:
 			if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
 				var direction : Vector2 = (current_target.global_position - global_position).normalized()
-				velocity = stats.move_speed * direction
+				velocity = current_move_speed * direction
 				move_and_slide()
 				if enemies_in_range.has(current_target):
 					change_state(DataManager.UnitState.IDLE)
 			else:
 				current_target = get_enemy_on_field()
+				if not current_target or current_target.get_state() == DataManager.UnitState.DIED or current_target.get_state() == DataManager.UnitState.DEAD:
+					change_state(DataManager.UnitState.IDLE)
 		DataManager.UnitState.IDLE:
 			if is_in_fight and is_can_attack and Player.check_enemies(unit_owner):
 				fight()
-		DataManager.UnitState.DIED:
-			print('died')
-			# remove from
+
+
+func apply_stats():
+	current_health = stats.health * stats.health_mult
+	current_armor = stats.armor * stats.armor_mult
+	current_physical_attack = stats.physical_attack * stats.physical_attack_mult
+	current_magical_attack = stats.magical_attack * stats.magical_attack_mult
+	current_hit_chance = stats.hit_chance * stats.hit_chance_mult
+	current_crit_chance = stats.crit_chance * stats.crit_chance_mult
+	current_crit_attack = stats.crit_attack * stats.crit_attack_mult
+	current_evade = stats.evade * stats.evade_mult
+	current_shield = stats.shield * stats.shield_mult
+	current_attack_speed = stats.attack_speed * stats.attack_speed_mult
+	current_move_speed = stats.move_speed * stats.move_speed_mult
+	current_attack_range = stats.attack_range * stats.attack_range_mult
+	current_life_steal = stats.life_steal * stats.life_steal_mult
+	current_health_regen = stats.health_regen * stats.health_regen_mult
+	current_health_regen_interval = stats.health_regen_interval * stats.health_regen_interval_mult
+	current_true_damage = stats.true_damage * stats.true_damage_mult
+	current_scout_range = stats.scout_range * stats.scout_range_mult
 
 
 func initialize(slot : Slot, owner : DataManager.UnitOwner):
@@ -126,6 +178,13 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	if unit_owner == DataManager.UnitOwner.ENEMY:
 		unit_sprite.flip_h = true
 	set_collisions_by_owner()
+	Player.apply_heroes_skills(self)
+	apply_stats()
+	actual_health = current_health
+	if unit_owner == DataManager.UnitOwner.PLAYER:
+		z_index = 3
+	elif unit_owner == DataManager.UnitOwner.ENEMY:
+		z_index = 2
 
 
 func get_state() -> DataManager.UnitState:
@@ -152,30 +211,40 @@ func set_collisions_by_owner():
 func parse_stats():
 	var unique_stats : Dictionary
 	for stat in DataManager.default_stats.keys():
-		if stats[stat] == DataManager.default_stats[stat]:
+		if  get('current_' + stat) == DataManager.default_stats[stat] or stat.contains('mult') or stat.contains('scout'):
 			continue
-		unique_stats[stat] = stats[stat]
+		unique_stats[DataManager.default_stats_to_rus[stat]] = get('current_' + stat) if stat.contains('attack_speed') else int(get('current_' + stat)) 
 	
 	return unique_stats
 
 
 func change_state(new_state : DataManager.UnitState):
 	is_should_change_state = true
+	previous_state = unit_state
 	unit_state = new_state
 
 
 func apply_state():
 	match unit_state:
 		DataManager.UnitState.IDLE:
-			unit_anim_player.play('idle')
+			if previous_state != DataManager.UnitState.DIED and previous_state != DataManager.UnitState.DEAD: 
+				unit_anim_player.play('idle')
 		DataManager.UnitState.WALK:
-			unit_anim_player.play('walk')
+			if previous_state != DataManager.UnitState.DIED and previous_state != DataManager.UnitState.DEAD:
+				unit_anim_player.play('walk')
 		DataManager.UnitState.ATTACK:
-			unit_anim_player.play('attack')
+			if previous_state != DataManager.UnitState.DIED and previous_state != DataManager.UnitState.DEAD:
+				unit_anim_player.play('attack')
 		DataManager.UnitState.DIED:
 			unit_anim_player.play('died')
+			if unit_owner == DataManager.UnitOwner.PLAYER:
+				Player.remove_unit_from_player_units(self)
+			elif unit_owner == DataManager.UnitOwner.ENEMY:
+				Player.remove_unit_from_enemy_units(self)
+			z_index = 1
 		DataManager.UnitState.DEAD:
 			unit_anim_player.play('dead')
+
 
 	is_should_change_state = false
 	# можно привязать логику к аним треку (дроп ресурса, стата, исчезновение, мб звук)
@@ -197,14 +266,9 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 
 
 func fight():
+	current_target = get_target_by_setting()
 	# если есть живой таргет в ренже атаки
-	if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
-		attack()
-		return
-	else:
-		current_target = get_target_by_setting()
 
-	# если нет живого таргета в ренже, ищем какой-то таргет на поле
 	if current_target and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
 		attack()
 		return
@@ -223,11 +287,12 @@ func stop_fight():
 
 
 func attack():
+	# установить скорость анимации исходя из скорости атаки
 	change_state(DataManager.UnitState.ATTACK)
 	is_can_attack = false
 	timer_aspd.wait_time = stats.attack_speed
 	timer_aspd.start()
-	current_target.get_damage(1, self)
+	apply_damage()
 
 
 func get_target_by_setting():
@@ -251,15 +316,15 @@ func get_target_by_setting():
 
 
 func custom_sort_closest(a : Unit, b : Unit):
-	return true
+	return abs(global_position.distance_to(a.global_position)) < abs(global_position.distance_to(b.global_position))
 
 
 func custom_sort_max_hp(a : Unit, b : Unit):
-	return true
+	return a.current_health > b.current_health
 
 
 func custom_sort_low_hp(a : Unit, b : Unit):
-	return true
+	return a.current_health < b.current_health
 
 
 func get_enemy_on_field():
@@ -272,9 +337,13 @@ func get_enemy_on_field():
 
 
 func get_damage(damage, damage_owner):
-	if current_health - damage <= 0:
-		current_health = 0
+	if actual_health - damage <= 0:
+		actual_health = 0
+		is_active = false
+		SignalManager.on_unit_die.emit(self)
 		change_state(DataManager.UnitState.DIED)
+		return
+	actual_health -= damage
 
 
 func toggle_is_in_fight():
@@ -284,3 +353,89 @@ func toggle_is_in_fight():
 func _on_timer_aspd_timeout() -> void:
 	change_state(DataManager.UnitState.IDLE)
 	is_can_attack = true
+
+
+func apply_damage():
+	if not current_target or current_target.get_state() == DataManager.UnitState.DIED or current_target.get_state() == DataManager.UnitState.DEAD:
+		change_state(DataManager.UnitState.IDLE)
+		is_can_attack = true
+		return
+	
+	# берем нужный тип атаки
+	var attack : float
+	
+	if unit_types.has(DataManager.UnitType.MAGE):
+		attack = current_magical_attack
+	elif unit_types.has(DataManager.UnitType.ASSASSIN):
+		attack = current_true_damage
+	elif unit_types.has(DataManager.UnitType.PHYS):
+		attack = current_physical_attack
+	
+	
+	# проверка на хит
+	var hit_chance : float = (current_hit_chance - current_target.current_evade) / 100
+	var hit_check : float = randf()
+	var is_hit : bool = hit_check <= hit_chance
+	if not is_hit:
+		# показать popup "промах"
+		return
+	
+	# проверка на крит
+	var crit_chance : float = current_crit_chance / 100
+	var crit_check : float = randf()
+	var is_crit : bool = crit_check <= crit_chance
+	if is_crit:
+		# поменять цвет попапа и размер
+		attack += attack * (current_crit_attack / 100)
+
+	if not current_target:
+		return
+	# проверка на броню
+	if current_target.current_armor > 0:
+		var armor = current_target.current_armor if current_target.current_armor < DataManager.max_armor else DataManager.max_armor 
+		attack = attack * (1 - current_target.current_armor / 100)
+		
+	if not current_target:
+		return
+	# проверка на тип урона
+	if unit_types.has(DataManager.UnitType.MAGE):
+		attack *= (1 - current_target.current_inc_damage_magic_mult / 100)
+	elif unit_types.has(DataManager.UnitType.ASSASSIN):
+		attack *= (1 - current_target.current_inc_damage_physical_mult / 100)
+	
+	if not current_target:
+		return
+	# проверка на увеличение/уменьшение урона
+	var global_mult : float
+	match current_target.unit_family:
+		DataManager.UnitFamily.CASTLE:
+			global_mult += current_damage_mult_vs_castle 
+		DataManager.UnitFamily.HELL:
+			global_mult += current_damage_mult_vs_hell 
+		DataManager.UnitFamily.FOREST:
+			global_mult += current_damage_mult_vs_forest 
+	match unit_family:
+		DataManager.UnitFamily.CASTLE:
+			global_mult -= current_target.current_inc_damage_mult_vs_castle 
+		DataManager.UnitFamily.HELL:
+			global_mult -= current_target.current_inc_damage_mult_vs_hell 
+		DataManager.UnitFamily.FOREST:
+			global_mult -= current_target.current_inc_damage_mult_vs_forest 
+	global_mult += current_damage_mult_vs_all - current_target.current_inc_damage_mult_vs_all
+	attack *= (1 - global_mult)
+	if not current_target:
+		return
+	# применить урон к цели
+	current_target.get_damage(round(attack), self)
+	print('%s наносит %f урона %s' % [self.unit_name, attack, current_target.unit_name])
+
+
+func die():
+	change_state(DataManager.UnitState.DEAD)
+
+
+func clear_target(unit : Unit):
+	if current_target == unit:
+		await get_tree().process_frame
+		current_target = null
+		change_state(DataManager.UnitState.IDLE)

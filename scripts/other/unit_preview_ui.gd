@@ -28,9 +28,10 @@ func initialize():
 	var unique_stats : Dictionary = unit.parse_stats()
 	var unit_stats : String
 	for stat in unique_stats.keys():
-		if stat.contains('mult'):
-			continue
-		unit_stats += '%s %s\n' % [stat.replace('_', ' '), unique_stats[stat]]
+		var pre_string : String = '%s %s' % [stat.replace('_', ' '), unique_stats[stat]]
+		if stat.contains('точность') or stat.contains('шанс') or stat.contains('уворот'):
+			pre_string += '%'
+		unit_stats += pre_string + '\n'
 	label_stats.text = unit_stats
 
 
