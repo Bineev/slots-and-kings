@@ -7,6 +7,8 @@ extends Node
 @export var food : int
 @export var crystals : int
 
+@export var wave_rewards : Array[DataManager.RewardType]
+
 @export var base_units_deck : Array[PackedScene]
 @export var base_upgrades_deck : Array[PackedScene]
 @export var base_percs_deck : Array[PackedScene]
@@ -36,6 +38,7 @@ var player_units : Array[Unit]
 var dead_enemy_units : Array[Unit]
 var dead_player_units : Array[Unit]
 var heroes : Array[Hero]
+var current_wave_count : int
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
@@ -79,6 +82,14 @@ func get_random_units(tier : DataManager.EntityTier, amount : int):
 			unit_scenes = units_T4_pool
 	
 	return get_unique_entities(unit_scenes, amount)
+
+
+func get_random_percs(tier : DataManager.EntityTier, amount : int):
+	pass
+
+
+func get_random_heroes(tier : DataManager.EntityTier, amount : int):
+	pass
 
 
 func get_unique_entities(entities : Array[PackedScene], amount : int):
@@ -229,3 +240,19 @@ func check_enemies(unit_owner : DataManager.UnitOwner):
 func apply_heroes_skills(unit : Unit):
 	for hero in heroes:
 		hero.apply_passives(unit)
+
+
+func get_current_wave_count():
+	return current_wave_count
+
+
+func increment_current_wave_count():
+	current_wave_count += 1
+
+
+func set_wave_rewards(new_wave_rewards : Array[DataManager.RewardType]):
+	wave_rewards = new_wave_rewards
+
+
+func get_wave_rewards():
+	return wave_rewards

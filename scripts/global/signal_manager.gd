@@ -23,3 +23,5 @@ signal on_end_wave
 signal on_start_spawn
 signal on_wave_done
 signal on_unit_die(unit : Unit)
+signal on_show_choose_UI_after_wave(chooseUI : ChooseUI)
+signal on_new_wave_start

@@ -2,12 +2,13 @@ extends PanelContainer
 
 class_name ChooseUI
 
-
+@export var choose_item_type : DataManager.SlotType
 @export var choose_item_scene : PackedScene
 
 var building_owner : Building
 var choose_scenes : Array[PackedScene]
 var choose_items : Array[Slot]
+var is_should_start_wave : bool
 
 @onready var choose_container: HBoxContainer = %choose_container
 
@@ -22,6 +23,10 @@ func set_choose_scenes(new_choose_scenes : Array[PackedScene]):
 
 func set_building_owner(building : Building):
 	building_owner = building
+
+
+func set_is_should_start_wave(new_is_should_start_wave : bool):
+	is_should_start_wave = new_is_should_start_wave
 
 
 func initialize():
@@ -39,4 +44,7 @@ func initialize():
 
 
 func close_choose_UI(item : ChooseItem):
-	building_owner.start_produce()
+	if building_owner:
+		building_owner.start_produce()
+	if is_should_start_wave:
+		SignalManager.on_new_wave_start.emit()

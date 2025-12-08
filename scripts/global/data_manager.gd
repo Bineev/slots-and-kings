@@ -54,6 +54,10 @@ enum UnitClass {
 	ENGINEER, PRIEST, MAGE, SCOUT, KNIGHT
 }
 
+enum RewardType {
+	EMPTY, UNIT, UPGRADE, PERC, HERO, REMOVER, MARKET, BLACK_MARKET
+}
+
 var unit_types_table : Dictionary = {
 	UnitType.MELEE : 'мили',
 	UnitType.RANGE : 'ренж',
@@ -63,6 +67,8 @@ var unit_types_table : Dictionary = {
 	UnitType.TANK : 'танк',
 	UnitType.ASSASSIN : 'убийца'
 }
+
+var default_choose_amount : int = 2
 
 var slot_size : Vector2 = Vector2(16, 16)
 
@@ -83,6 +89,18 @@ var tokens_drop_chance : float = 0.2
 var food_drop_chance : float = 0.1
 
 var crystals_drop_chance : float = 0.03
+
+var T2_transition : int = 4
+
+var T3_transition : int = 8
+
+var T4_transition : int = 12
+
+var default_gold_reward : int = 300
+
+var default_crystal_reward : int = 1
+
+var default_food_reward : int = 3
 
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
@@ -165,6 +183,8 @@ var default_stats_to_rus : Dictionary = {
 	'hit_chance_mult' : 1,
 	'crit_chance' : 'шанс крита',
 	'crit_chance_mult' : 1,
+	'crit_attack' : 'величина крита',
+	'crit_attack_mult' : 1,
 	'evade' : 'уворот',
 	'evade_mult' : 1,
 	'shield' : 'щит',

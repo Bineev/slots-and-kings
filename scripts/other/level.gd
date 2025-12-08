@@ -6,6 +6,8 @@ class_name Level
 @export var unit_preview_scene : PackedScene
 @export var waves_scenes : Array[PackedScene]
 @export var first_wave_timer : float
+@export var wave_rewards : Array[DataManager.RewardType]
+@export var wave_reward_UI_scene : PackedScene
 
 var is_need_def_of_loop : bool
 var free_spawners : Array[Spawner]
@@ -13,6 +15,8 @@ var free_enemy_spawners : Array[Spawner]
 var unit_preview_UI : UnitPreviewUI
 var current_unit : Unit
 var is_wave_in_progress : bool
+var next_wave : Wave
+var wave_reward_UI : RewardAfterWaveUI
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -37,20 +41,21 @@ func _ready() -> void:
 	SignalManager.on_create_enemy_unit.connect(add_enemy_unit)
 	SignalManager.on_start_spawn.connect(clear_enemy_spawns)
 	SignalManager.on_end_wave.connect(start_check_is_enemies_remaining)
+	SignalManager.on_show_choose_UI_after_wave.connect(add_choose_UI_in_center)
+	SignalManager.on_new_wave_start.connect(start_next_wave_countdown)
+	SignalManager.on_wave_done.connect(show_reward)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
 		free_enemy_spawners.append(spawner)
+	Player.set_wave_rewards(wave_rewards)
 	start_waves()
 
 
 func start_waves():
 	await self.ready
-	timer_to_next_wave.wait_time = first_wave_timer
-	timer_to_next_wave.start()
-	is_wave_in_progress = true
-	Player.set_player_units_in_fight()
+	start_next_wave_countdown()
 	# установить false когда последний спавн и врагов на карте не осталось
 
 
@@ -127,6 +132,17 @@ func add_choose_UI(building : Building, chooseUI : ChooseUI):
 	get_tree().create_timer(0.01).timeout.connect(align_popup.bind(chooseUI))
 
 
+func add_choose_UI_in_center(chooseUI : ChooseUI):
+	ui.add_child(chooseUI)
+	chooseUI.initialize()
+	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(chooseUI))
+
+
+func align_item_in_center(item : Control):
+	item.global_position.x = DataManager.viewport_size.x / 2 - item.size.x / 2
+	item.global_position.y = DataManager.viewport_size.y / 2 - item.size.y / 2
+
+
 func build_building(building_scene : PackedScene, prebuilding : Building):
 	var new_building = building_scene.instantiate()
 	buildings.add_child(new_building)
@@ -187,14 +203,20 @@ func _on_timer_to_next_wave_timeout() -> void:
 	
 	
 func create_wave():
-	var wave_scene : PackedScene = waves_scenes.pop_front()
-	if not wave_scene:
+	next_wave.start_wave()
+	Player.increment_current_wave_count()
+	is_wave_in_progress = true
+	Player.set_player_units_in_fight()
+
+
+func start_next_wave_countdown():
+	var next_wave_scene : PackedScene = waves_scenes.pop_front()
+	if not next_wave_scene:
 		timer_to_next_wave.stop()
 		return
-	var wave : Wave = wave_scene.instantiate()
-	waves.add_child(wave)
-	wave.start_wave()
-	timer_to_next_wave.wait_time = wave.time_to_next_wave
+	next_wave = next_wave_scene.instantiate()
+	waves.add_child(next_wave)
+	timer_to_next_wave.wait_time = next_wave.time_to_next_wave
 	timer_to_next_wave.start()
 
 
@@ -207,3 +229,13 @@ func _on_timer_between_check_enemies_timeout() -> void:
 		timer_between_check_enemies.stop()
 		is_wave_in_progress = false
 		SignalManager.on_wave_done.emit()
+
+
+func show_reward():
+	var wave_count : int = Player.get_current_wave_count()
+	wave_reward_UI = wave_reward_UI_scene.instantiate()
+	wave_reward_UI.set_wave_count(wave_count)
+	wave_reward_UI.set_reward_type(Player.get_wave_rewards().pop_front())
+	ui.add_child(wave_reward_UI)
+	wave_reward_UI.initialize()
+	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(wave_reward_UI))

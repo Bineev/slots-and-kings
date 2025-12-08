@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvaunp0kqa8m6"]
+
+[ext_resource type="Script" uid="uid://d3tn5p2xawqxa" path="res://scripts/other/reward_item.gd" id="1_76jk7"]
+
+[node name="RewardItem" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_76jk7")
