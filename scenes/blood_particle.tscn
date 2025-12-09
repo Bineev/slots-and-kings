@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://fdq0wjehentr"]
+
+[ext_resource type="Texture2D" uid="uid://cftd10dmren5t" path="res://img/blood.png" id="1_2jgbo"]
+[ext_resource type="Script" uid="uid://baqns5rkyyycc" path="res://scripts/other/blood_particle.gd" id="2_ccgeu"]
+
+[node name="BloodParticle" type="CPUParticles2D"]
+emitting = false
+amount = 10
+texture = ExtResource("1_2jgbo")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.5
+randomness = 0.17
+direction = Vector2(0, -1)
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+angular_velocity_min = 10.0
+angular_velocity_max = 20.0
+scale_amount_max = 2.0
+anim_speed_max = 10.0
+script = ExtResource("2_ccgeu")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

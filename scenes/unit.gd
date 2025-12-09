@@ -9,6 +9,7 @@ class_name Unit
 @export var entity_tier : DataManager.EntityTier
 @export var info_popup_UI_scene : PackedScene
 @export var info_damage_popup_ui_scene : PackedScene
+@export var blood_particle_scene : PackedScene
 # stats and multiplicators
 var stats : Dictionary = {
 	'health' : 0,
@@ -406,6 +407,7 @@ func get_damage(damage, damage_owner):
 	if not is_active:
 		return
 	show_damage(damage)
+	show_blood()
 	if actual_health - damage <= 0:
 		actual_health = 0
 		timer_aspd.stop()
@@ -563,3 +565,10 @@ func show_damage(damage : int):
 	info_damage_popup_ui.set_unit_owner(unit_owner)
 	info_damage_popup_ui.set_amount(damage)
 	SignalManager.on_show_damage.emit(self, info_damage_popup_ui)
+
+
+func show_blood():
+	var blood_particle : CPUParticles2D = blood_particle_scene.instantiate()
+	add_child(blood_particle)
+	blood_particle.emitting = true
+	
