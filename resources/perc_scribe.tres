@@ -9,6 +9,7 @@ slot_name = "книжник"
 slot_description = "мечи и алебарды для холопов\\nМаг атака +30%\\nФиз атака -50%"
 slot_sprite = ExtResource("2_tqe6y")
 slot_type = 2
+entity_tier = 1
 physical_attack_mult = 0.5
 magical_attack_mult = 1.3
 metadata/_custom_type_script = "uid://ckeieckjuifia"

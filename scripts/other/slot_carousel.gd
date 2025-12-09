@@ -56,6 +56,7 @@ func initialize_slots():
 	for slot in slots:
 		add_child(slot)
 		slot.initialize()
+		slot.input_pickable = false
 		slot.position += offset
 		offset += Vector2(0, DataManager.slot_size.y)
 
@@ -74,6 +75,8 @@ func spin_slots():
 	for slot in slots:
 		slot.position.y += spin_speed
 	if slots[0].position.y > DataManager.slot_size.y:
+		if slots.size() > 0:
+			slots[1].set_monitorable(false)
 		remove_child(slots[1])
 		slots.erase(slots[1])
 		initial_indexes -= Vector2.ONE
@@ -123,7 +126,13 @@ func get_active_slot():
 
 func spin_start():
 	is_spin_end = false
+	#for slot in slots:
+		#slot.set_monitorable(false)
+	for slot in slots:
+		slot.input_pickable = false
 
 
 func spin_end():
 	is_spin_end = true
+	#slots[1].set_monitorable(true)
+	slots[1].input_pickable = true

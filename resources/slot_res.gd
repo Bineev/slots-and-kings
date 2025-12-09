@@ -6,6 +6,7 @@ class_name SlotRes
 @export var slot_description : String
 @export var slot_sprite : Texture2D
 @export var slot_type : DataManager.SlotType
+@export var entity_tier : DataManager.EntityTier
 
 # stats and multiplicators
 @export var health : float = 0

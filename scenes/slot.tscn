@@ -1,11 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://cluryhbmp3j2a"]
+[gd_scene load_steps=9 format=3 uid="uid://cluryhbmp3j2a"]
 
 [ext_resource type="Script" uid="uid://1a6pcsavrpif" path="res://scripts/other/slot.gd" id="1_4v6ba"]
 [ext_resource type="Texture2D" uid="uid://cps8f28n71vgc" path="res://img/highlight_slot.png" id="2_ic0fu"]
 [ext_resource type="Shader" uid="uid://dtu1sfsav5a2i" path="res://shaders/highlight.gdshader" id="2_vqyee"]
+[ext_resource type="PackedScene" uid="uid://w4c2mrw01hig" path="res://scenes/tooltip_slot.tscn" id="3_5f2j7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqyee"]
 size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_ic0fu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("highlight_sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_4v6ba"]
 resource_name = "highlight"
@@ -25,21 +41,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.8)]
 }
 
-[sub_resource type="Animation" id="Animation_ic0fu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("highlight_sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vqyee"]
 _data = {
 &"RESET": SubResource("Animation_ic0fu"),
@@ -47,8 +48,12 @@ _data = {
 }
 
 [node name="Slot" type="Area2D"]
+input_pickable = false
+monitoring = false
+monitorable = false
 script = ExtResource("1_4v6ba")
 shader = ExtResource("2_vqyee")
+tooltip_scene = ExtResource("3_5f2j7")
 
 [node name="slot_sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -59,6 +64,7 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="highlight_sprite" type="Sprite2D" parent="."]
@@ -74,3 +80,6 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_vqyee")
 }
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

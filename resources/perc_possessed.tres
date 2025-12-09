@@ -9,6 +9,7 @@ slot_name = "помешанный"
 slot_description = "Здесь нужен экзорцист\\nПостепенно теряет здоровье\\nСкорость движения: +100%"
 slot_sprite = ExtResource("2_h5ind")
 slot_type = 2
+entity_tier = 1
 move_speed_mult = 2.0
 health_regen_mult = -1.0
 health_regen_interval = 10.0

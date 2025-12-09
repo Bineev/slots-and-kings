@@ -13,6 +13,7 @@ slot_name = "колдун"
 slot_description = "мог бы быть садовником, но выбрал колдовство"
 slot_sprite = ExtResource("2_mxkk6")
 slot_type = 1
+entity_tier = 2
 health = 40.0
 magical_attack = 16.0
 attack_speed = 3.0

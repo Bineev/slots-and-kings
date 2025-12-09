@@ -14,6 +14,7 @@ slot_name = "лучник"
 slot_description = "убегает с поля боя быстрее, чем летит стрела"
 slot_sprite = ExtResource("2_2xb3e")
 slot_type = 1
+entity_tier = 1
 health = 30.0
 armor = 10.0
 physical_attack = 12.0

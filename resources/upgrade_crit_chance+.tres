@@ -8,5 +8,6 @@ script = ExtResource("1_u5ytx")
 slot_name = "критш+20"
 slot_description = "шанс крита +20%"
 slot_sprite = ExtResource("2_mpi6u")
+entity_tier = 1
 crit_chance = 20.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"

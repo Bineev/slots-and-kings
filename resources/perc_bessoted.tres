@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("1_hlyt6")
 slot_name = "одурманенный"
-slot_description = "Не надо было есть этот гриб\\nФиз атака: +20%\\nСкорость движения: -60%"
+slot_description = "Не надо было есть этот гриб \\n Физ атака: +20% \\n Скорость движения: -60%"
 slot_sprite = ExtResource("2_nhyh5")
 slot_type = 2
+entity_tier = 1
 physical_attack_mult = 1.2
 move_speed_mult = 0.4
 damage_mult_vs_all = 1.2

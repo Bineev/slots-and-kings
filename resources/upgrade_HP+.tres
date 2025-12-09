@@ -8,5 +8,6 @@ script = ExtResource("1_sef1w")
 slot_name = "ХП+10%"
 slot_description = "здоровье повышено на 10%"
 slot_sprite = ExtResource("2_awo8d")
+entity_tier = 1
 health_mult = 1.2
 metadata/_custom_type_script = "uid://ckeieckjuifia"

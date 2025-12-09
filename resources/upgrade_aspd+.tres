@@ -8,5 +8,6 @@ script = ExtResource("1_l7t6v")
 slot_name = "скорость атаки * 20%"
 slot_description = "скорость атаки увеличена на 20%"
 slot_sprite = ExtResource("2_uu7mq")
+entity_tier = 1
 attack_speed_mult = 0.8
 metadata/_custom_type_script = "uid://ckeieckjuifia"

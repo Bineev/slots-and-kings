@@ -52,6 +52,7 @@ func _ready() -> void:
 	SignalManager.on_player_get_hit.connect(update_hp_bar)
 	SignalManager.on_drop_res_popup.connect(show_res_popup_after_unit_dead)
 	SignalManager.on_show_damage.connect(show_damage_ui)
+	SignalManager.on_show_tooltip.connect(add_tooltip)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
@@ -304,3 +305,11 @@ func show_damage_ui(unit : Unit, info_damage_popup_ui : InfoDamagePopupUI):
 	tween.tween_property(info_damage_popup_ui, 'modulate', Color8(1, 1, 1, 0.3), 1).set_trans(Tween.TRANS_SPRING)
 	tween.tween_property(info_damage_popup_ui, 'scale', Vector2(0.5, 0.5), 1).set_trans(Tween.TRANS_SPRING)
 	tween.tween_callback(info_damage_popup_ui.close_popup).set_delay(1)
+
+
+func add_tooltip(object : Object, tooltip : Tooltip):
+	ui.add_child(tooltip)
+	tooltip.global_position = object.global_position
+	tooltip.initialize()
+	await get_tree().process_frame
+	tooltip.global_position.y -= (tooltip.size.y + 20)
