@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=21 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -10,6 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://ht8303wxnf5o" path="res://scenes/spawner.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://hcjh0c5pnpmr" path="res://scenes/building_empty.tscn" id="6_2r41h"]
 [ext_resource type="PackedScene" uid="uid://dawq8kdhvtnp2" path="res://scenes/resources_ui.tscn" id="6_b121j"]
+[ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="9_8iemx"]
+[ext_resource type="PackedScene" uid="uid://dt3imoqxuidua" path="res://scenes/fight_point.tscn" id="11_t1rx8"]
+[ext_resource type="Shader" uid="uid://c80cx0a1lq0ng" path="res://shaders/shake.gdshader" id="13_64w2a"]
+[ext_resource type="Script" uid="uid://vhv5wnnl5o3b" path="res://scripts/other/canvas_layer.gd" id="13_fpun6"]
+[ext_resource type="Shader" uid="uid://bik2ofmudh5u4" path="res://shaders/ctr.gdshader" id="15_wc255"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
+shader = ExtResource("13_64w2a")
+shader_parameter/ShakeStrength = 0.0
+shader_parameter/FactorA = Vector2(100, 100)
+shader_parameter/FactorB = Vector2(1, 1)
+shader_parameter/magnitude = Vector2(0.01, 0.01)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w7c3h"]
 animations = [{
@@ -22,6 +34,40 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1rx8"]
+bg_color = Color(0.8156863, 0.85490197, 0.5686275, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iemx"]
+bg_color = Color(0.09803922, 0.2, 0.1764706, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arp2o"]
+shader = ExtResource("15_wc255")
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/scan_line_amount = 0.10000000475
+shader_parameter/warp_amount = 0.030000001425
+shader_parameter/noise_amount = 0.050000002375
+shader_parameter/interference_amount = 0.0
+shader_parameter/grille_amount = 0.050000002375
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.150000007125
+shader_parameter/vignette_intensity = 0.30000001425
+shader_parameter/aberation_amount = 0.0
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = -8.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_klq6b")
 unit_preview_scene = ExtResource("2_klq6b")
@@ -30,27 +76,25 @@ first_wave_timer = 3.0
 wave_rewards = Array[int]([1, 2, 3, 4])
 wave_reward_UI_scene = ExtResource("4_olg7q")
 
+[node name="shaders_layer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.001
+script = ExtResource("13_fpun6")
+
+[node name="rect_shake_shader" type="ColorRect" parent="shaders_layer"]
+material = SubResource("ShaderMaterial_fpun6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="background" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w7c3h")
 centered = false
 
 [node name="SlotMachine" parent="." instance=ExtResource("2_w8frs")]
 position = Vector2(123, 245)
-
-[node name="UI" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
-
-[node name="bottom_panel" type="TextureRect" parent="UI"]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_w7c3h")
-
-[node name="ResourcesUI" parent="UI" instance=ExtResource("6_b121j")]
-offset_left = 20.0
-offset_top = 365.0
-offset_right = 231.0
-offset_bottom = 390.0
 
 [node name="spawners" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -217,12 +261,6 @@ position = Vector2(884, 443)
 [node name="spawns" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="enemy_units" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="player_units" type="Node2D" parent="."]
-unique_name_in_owner = true
-
 [node name="timer_to_next_wave" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
@@ -232,6 +270,109 @@ unique_name_in_owner = true
 
 [node name="timer_between_check_enemies" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="castle_fight_points" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="FightPoint" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 324)
+
+[node name="FightPoint2" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 312)
+
+[node name="FightPoint3" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 300)
+
+[node name="FightPoint4" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 289)
+
+[node name="FightPoint5" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 278)
+
+[node name="FightPoint6" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 266)
+
+[node name="FightPoint7" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 254)
+
+[node name="FightPoint8" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 242)
+
+[node name="FightPoint9" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 230)
+
+[node name="FightPoint10" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 218)
+
+[node name="FightPoint11" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 207)
+
+[node name="FightPoint12" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 196)
+
+[node name="FightPoint13" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 184)
+
+[node name="FightPoint14" parent="castle_fight_points" instance=ExtResource("11_t1rx8")]
+position = Vector2(240, 172)
+
+[node name="enemy_units" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="player_units" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="bottom_panel" type="TextureRect" parent="UI"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_w7c3h")
+
+[node name="ResourcesUI" parent="UI" instance=ExtResource("6_b121j")]
+offset_left = 20.0
+offset_top = 365.0
+offset_right = 231.0
+offset_bottom = 390.0
+
+[node name="hp_bar" type="ProgressBar" parent="UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(145, 11)
+offset_left = 50.0
+offset_top = 290.0
+offset_right = 195.0
+offset_bottom = 301.0
+theme_override_styles/background = SubResource("StyleBoxFlat_t1rx8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8iemx")
+step = 1.0
+value = 100.0
+rounded = true
+show_percentage = false
+
+[node name="label_hp_bar" type="Label" parent="UI/hp_bar"]
+visible = false
+custom_minimum_size = Vector2(211, 22)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 211.0
+offset_bottom = 31.0
+text = "прочность"
+label_settings = ExtResource("9_8iemx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_arp2o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
 [connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]

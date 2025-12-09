@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d05xwahttcgrd"]
+[gd_scene load_steps=9 format=3 uid="uid://d05xwahttcgrd"]
 
 [ext_resource type="Script" uid="uid://c5vj47s3a7ooe" path="res://scenes/unit.gd" id="1_o7ajc"]
+[ext_resource type="Texture2D" uid="uid://mm46fdorr5pj" path="res://img/shadow_min.png" id="2_1jvru"]
 
 [sub_resource type="Animation" id="Animation_1jvru"]
 resource_name = "attack"
@@ -142,11 +143,17 @@ script = ExtResource("1_o7ajc")
 [node name="unit_collision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 
+[node name="unit_shadow_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(0, 10)
+texture = ExtResource("2_1jvru")
+
 [node name="unit_sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 hframes = 5
 vframes = 5
-frame = 20
+frame = 10
 
 [node name="unit_anim_player" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

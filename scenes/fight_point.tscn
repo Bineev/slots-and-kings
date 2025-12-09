@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt3imoqxuidua"]
+
+[ext_resource type="Script" uid="uid://chw038ejjeus4" path="res://scripts/other/fight_point.gd" id="1_1eqwm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rveaa"]
+radius = 5.0
+
+[node name="FightPoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_1eqwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rveaa")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

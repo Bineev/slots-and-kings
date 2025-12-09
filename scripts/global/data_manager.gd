@@ -12,7 +12,7 @@ enum CarouselType {
 }
 
 enum UnitState {
-	IDLE, WALK, ATTACK, HITTED, DIED, DEAD
+	IDLE, WALK, ATTACK, HITTED, DIED, DEAD, WALK_TO_CASTLE
 }
 
 enum UnitFamily {

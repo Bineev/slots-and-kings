@@ -17,6 +17,7 @@ var current_unit : Unit
 var is_wave_in_progress : bool
 var next_wave : Wave
 var wave_reward_UI : RewardAfterWaveUI
+var free_fight_points : Array[FightPoint]
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -28,6 +29,8 @@ var wave_reward_UI : RewardAfterWaveUI
 @onready var waves: Node2D = %waves
 @onready var spawns: Node2D = %spawns
 @onready var timer_between_check_enemies: Timer = %timer_between_check_enemies
+@onready var castle_fight_points: Node2D = %castle_fight_points
+@onready var hp_bar: ProgressBar = %hp_bar
 
 
 func _ready() -> void:
@@ -44,17 +47,22 @@ func _ready() -> void:
 	SignalManager.on_show_choose_UI_after_wave.connect(add_choose_UI_in_center)
 	SignalManager.on_new_wave_start.connect(start_next_wave_countdown)
 	SignalManager.on_wave_done.connect(show_reward)
+	SignalManager.on_wave_done.connect(clear_fight_points)
+	SignalManager.on_player_get_hit.connect(update_hp_bar)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
 		free_enemy_spawners.append(spawner)
+	for point in castle_fight_points.get_children():
+		free_fight_points.append(point)
 	Player.set_wave_rewards(wave_rewards)
 	start_waves()
 
 
 func start_waves():
 	await self.ready
+	initialize_hp_bar()
 	start_next_wave_countdown()
 	# установить false когда последний спавн и врагов на карте не осталось
 
@@ -62,7 +70,8 @@ func start_waves():
 func add_player_unit():
 	Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
 	current_unit.reparent(player_units)
-	current_unit.global_position = get_free_random_spawner().global_position
+	current_unit.fight_point = get_free_random_spawner()
+	current_unit.global_position = current_unit.fight_point.global_position
 	current_unit.set_active()
 	Player.add_unit_to_player_units(current_unit)
 	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
@@ -76,6 +85,7 @@ func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOw
 	unit.set_active()
 	Player.add_unit_to_enemy_units(unit)
 	unit.is_in_fight = true
+	unit.fight_point = get_free_random_fight_point()
 
 
 func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
@@ -239,3 +249,29 @@ func show_reward():
 	ui.add_child(wave_reward_UI)
 	wave_reward_UI.initialize()
 	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(wave_reward_UI))
+
+
+func get_free_random_fight_point():
+	if free_fight_points.size() == 0:
+		clear_player_spawns()
+	var point = free_fight_points.pick_random()
+	point.is_filled = true
+	free_fight_points.erase(point)
+
+	return point
+
+
+func clear_fight_points():
+	free_fight_points.clear()
+	for point in castle_fight_points.get_children():
+		point.is_filled = false
+		free_fight_points.append(point)
+
+
+func initialize_hp_bar():
+	hp_bar.max_value = Player.get_current_health()
+	hp_bar.value = Player.get_current_health()
+
+
+func update_hp_bar():
+	hp_bar.value = Player.get_current_health()

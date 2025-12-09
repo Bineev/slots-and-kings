@@ -17,7 +17,7 @@
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3vyb7")
-health = 100
+health = 1000
 gold = 2000
 tokens = 100
 food = 100

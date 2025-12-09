@@ -256,3 +256,15 @@ func set_wave_rewards(new_wave_rewards : Array[DataManager.RewardType]):
 
 func get_wave_rewards():
 	return wave_rewards
+
+
+func get_damage(damage : float):
+	current_health = clamp(current_health - damage, 0, health)
+	if current_health <= 0:
+		print("DIE")
+	SignalManager.on_player_get_hit.emit()
+	# тряска
+
+
+func get_current_health():
+	return current_health

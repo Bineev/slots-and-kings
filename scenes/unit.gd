@@ -61,6 +61,7 @@ var stats : Dictionary = {
 @export var unit_desc : String
 @export var is_active : bool
 @export var get_target_setting : DataManager.TargetSetting
+@export var fight_point : Node2D
 
 var is_should_change_state : bool 
 var is_can_attack : bool = true
@@ -136,6 +137,20 @@ func _process(delta: float) -> void:
 		DataManager.UnitState.IDLE:
 			if is_in_fight and is_can_attack and Player.check_enemies(unit_owner):
 				fight()
+			else:
+				if not check_is_on_point():
+					change_state(DataManager.UnitState.WALK_TO_CASTLE)
+		DataManager.UnitState.WALK_TO_CASTLE:
+			var direction : Vector2
+			if unit_owner == DataManager.UnitOwner.ENEMY:
+				direction = (fight_point.global_position - global_position).normalized()
+			else:
+				direction = (fight_point.global_position - global_position).normalized()
+			velocity = current_move_speed * direction
+			move_and_slide()
+			unit_sprite.flip_h = fight_point and fight_point.global_position.x < global_position.x
+			if Player.check_enemies(unit_owner) or check_is_on_point():
+				change_state(DataManager.UnitState.IDLE)
 
 
 func generate_drop_chances():
@@ -225,9 +240,9 @@ func set_collisions_by_owner():
 		set_collision_layer_value(2, true)
 		attack_range.set_collision_mask_value(3, true)
 	else:
+		set_collision_layer_value(4, true)
 		set_collision_layer_value(3, true)
 		attack_range.set_collision_mask_value(2, true)
-	
 
 
 func parse_stats():
@@ -265,6 +280,9 @@ func apply_state():
 		DataManager.UnitState.DEAD:
 			#unit_anim_player.stop()
 			unit_anim_player.play('dead')
+		DataManager.UnitState.WALK_TO_CASTLE:
+			#unit_anim_player.stop()
+			unit_anim_player.play('walk')
 
 	is_should_change_state = false
 	# можно привязать логику к аним треку (дроп ресурса, стата, исчезновение, мб звук)
@@ -320,6 +338,18 @@ func attack():
 	timer_aspd.start()
 	apply_damage()
 
+
+func attack_castle():
+	var attack : float
+	if unit_types.has(DataManager.UnitType.MAGE):
+		attack = current_magical_attack
+	elif unit_types.has(DataManager.UnitType.ASSASSIN):
+		attack = current_true_damage
+	elif unit_types.has(DataManager.UnitType.PHYS):
+		attack = current_physical_attack
+	Player.get_damage(round(attack))
+	
+	
 
 func get_target_by_setting():
 	var targets : Array[Unit]
@@ -471,6 +501,7 @@ func apply_damage():
 
 func die():
 	change_state(DataManager.UnitState.DEAD)
+	fight_point.is_filled = false
 	drop_res()
 
 
@@ -498,3 +529,9 @@ func drop_res():
 
 func set_is_in_fight():
 	is_in_fight = true
+
+
+func check_is_on_point():
+	if fight_point:
+		return abs(fight_point.global_position.x - global_position.x) < 10 and abs(fight_point.global_position.y - global_position.y) < 10
+	return false
