@@ -10,7 +10,6 @@ script = ExtResource("1_gh65a")
 [node name="Mask" type="Sprite2D" parent="."]
 clip_children = 1
 texture = ExtResource("2_hxxi2")
-centered = false
 
 [node name="SlotCarouselTop" parent="Mask" instance=ExtResource("1_4yr2j")]
 unique_name_in_owner = true
@@ -21,7 +20,6 @@ initial_indexes = Vector2(0, 1)
 clip_children = 1
 position = Vector2(0, 21)
 texture = ExtResource("2_hxxi2")
-centered = false
 
 [node name="SlotCarouselMid" parent="Mask2" instance=ExtResource("1_4yr2j")]
 unique_name_in_owner = true
@@ -33,7 +31,6 @@ initial_indexes = Vector2(1, 2)
 clip_children = 1
 position = Vector2(0, 42)
 texture = ExtResource("2_hxxi2")
-centered = false
 
 [node name="SlotCarouselBot" parent="Mask3" instance=ExtResource("1_4yr2j")]
 unique_name_in_owner = true

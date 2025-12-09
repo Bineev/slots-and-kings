@@ -17,7 +17,7 @@ var spin_speed : float
 var spin_time : float
 
 func _ready() -> void:
-	spin_speed = DataManager.default_spin_speed
+	spin_speed = DataManager.default_spin_speed * DataManager.action_speed_coeff
 
 
 func _process(delta: float) -> void:

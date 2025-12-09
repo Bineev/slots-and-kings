@@ -64,7 +64,7 @@ func stop_carousels():
 
 
 func get_random_spin_time():
-	return randf_range(DataManager.min_spin_time, DataManager.max_spin_time)
+	return randf_range(DataManager.min_spin_time, DataManager.max_spin_time) / DataManager.action_speed_coeff 
 
 
 func get_active_slots():
@@ -73,7 +73,7 @@ func get_active_slots():
 	var top_slot : Slot = slot_carousel_top.get_active_slot()
 	var bot_slot : Slot = slot_carousel_bot.get_active_slot()
 	new_slots.append(mid_slot)
-	if mid_slot.slot_type != DataManager.SlotType.UNIT:
+	if mid_slot.slot_type != DataManager.SlotType.UNIT and (mid_slot.has_meta('slot_name') and mid_slot.get_meta('slot_name') != 'empty'):
 		if mid_slot.slot_name == top_slot.slot_name:
 			new_slots.append(top_slot)
 		if mid_slot.slot_name == bot_slot.slot_name:

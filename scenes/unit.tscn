@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d05xwahttcgrd"]
+[gd_scene load_steps=11 format=3 uid="uid://d05xwahttcgrd"]
 
 [ext_resource type="Script" uid="uid://c5vj47s3a7ooe" path="res://scenes/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://mm46fdorr5pj" path="res://img/shadow_min.png" id="2_1jvru"]
+[ext_resource type="PackedScene" uid="uid://dc0w3cqhn1fva" path="res://scenes/info_res_unit_popup_ui.tscn" id="2_gic7v"]
+[ext_resource type="PackedScene" uid="uid://cs8u43irygm8d" path="res://scenes/info_damage_popup_ui.tscn" id="3_gic7v"]
 
 [sub_resource type="Animation" id="Animation_1jvru"]
 resource_name = "attack"
@@ -139,6 +141,8 @@ _data = {
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_o7ajc")
+info_popup_UI_scene = ExtResource("2_gic7v")
+info_damage_popup_ui_scene = ExtResource("3_gic7v")
 
 [node name="unit_collision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=22 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ht8303wxnf5o" path="res://scenes/spawner.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://hcjh0c5pnpmr" path="res://scenes/building_empty.tscn" id="6_2r41h"]
 [ext_resource type="PackedScene" uid="uid://dawq8kdhvtnp2" path="res://scenes/resources_ui.tscn" id="6_b121j"]
-[ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="9_8iemx"]
 [ext_resource type="PackedScene" uid="uid://dt3imoqxuidua" path="res://scenes/fight_point.tscn" id="11_t1rx8"]
 [ext_resource type="Shader" uid="uid://c80cx0a1lq0ng" path="res://shaders/shake.gdshader" id="13_64w2a"]
 [ext_resource type="Script" uid="uid://vhv5wnnl5o3b" path="res://scripts/other/canvas_layer.gd" id="13_fpun6"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="14_wc255"]
 [ext_resource type="Shader" uid="uid://bik2ofmudh5u4" path="res://shaders/ctr.gdshader" id="15_wc255"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
@@ -35,21 +35,15 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1rx8"]
-bg_color = Color(0.8156863, 0.85490197, 0.5686275, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-shadow_size = 1
-shadow_offset = Vector2(0, 1)
+bg_color = Color(0.9857362, 0.81399506, 0.7966688, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iemx"]
-bg_color = Color(0.09803922, 0.2, 0.1764706, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(0.64705884, 0.1882353, 0.1882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_arp2o"]
+font = ExtResource("14_wc255")
+font_size = 4
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_arp2o"]
 shader = ExtResource("15_wc255")
@@ -339,10 +333,10 @@ offset_bottom = 390.0
 
 [node name="hp_bar" type="ProgressBar" parent="UI"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(145, 11)
-offset_left = 50.0
-offset_top = 290.0
-offset_right = 195.0
+custom_minimum_size = Vector2(130, 10)
+offset_left = 58.0
+offset_top = 291.0
+offset_right = 188.0
 offset_bottom = 301.0
 theme_override_styles/background = SubResource("StyleBoxFlat_t1rx8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8iemx")
@@ -352,14 +346,13 @@ rounded = true
 show_percentage = false
 
 [node name="label_hp_bar" type="Label" parent="UI/hp_bar"]
-visible = false
-custom_minimum_size = Vector2(211, 22)
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 10)
 layout_mode = 0
-offset_top = 8.0
-offset_right = 211.0
-offset_bottom = 31.0
+offset_right = 130.0
+offset_bottom = 10.0
 text = "прочность"
-label_settings = ExtResource("9_8iemx")
+label_settings = SubResource("LabelSettings_arp2o")
 horizontal_alignment = 1
 vertical_alignment = 1
 

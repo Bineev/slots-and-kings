@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwrt5w7q3wbfy"]
+[gd_scene load_steps=12 format=3 uid="uid://dwrt5w7q3wbfy"]
 
 [ext_resource type="Texture2D" uid="uid://fns4xm0r5vtw" path="res://img/slot-machine.png" id="1_xixe3"]
 [ext_resource type="Script" uid="uid://bno6cf315is3a" path="res://scenes/slot_machine.gd" id="1_xjw1r"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://f38fflbpak1t" path="res://scenes/slot_column_upgrades.tscn" id="4_puwce"]
 [ext_resource type="PackedScene" uid="uid://d3uof7pn2viin" path="res://scenes/slot_column_castle_units.tscn" id="5_h3s22"]
 [ext_resource type="PackedScene" uid="uid://dhn74hpisi7pp" path="res://scenes/castle_unit_factory.tscn" id="6_puwce"]
-[ext_resource type="PackedScene" uid="uid://cuk5d1uwhiurv" path="res://scenes/units/castle_warlock.tscn" id="7_h3s22"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="8_dgsef"]
 [ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="9_awi2f"]
 [ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="10_r2p6a"]
@@ -34,24 +33,22 @@ position = Vector2(-128, -125)
 
 [node name="first_column" parent="columns" instance=ExtResource("3_2e0ow")]
 unique_name_in_owner = true
-position = Vector2(77, 58)
+position = Vector2(85, 66)
 
 [node name="second_column" parent="columns" instance=ExtResource("4_puwce")]
 unique_name_in_owner = true
-position = Vector2(98, 58)
+position = Vector2(106, 66)
 
 [node name="third_column" parent="columns" instance=ExtResource("5_h3s22")]
 unique_name_in_owner = true
-position = Vector2(119, 58)
+position = Vector2(127, 66)
 
 [node name="fourth_column" parent="columns" instance=ExtResource("4_puwce")]
 unique_name_in_owner = true
-position = Vector2(140, 58)
+position = Vector2(148, 66)
 
 [node name="CastleUnitFactory" parent="." instance=ExtResource("6_puwce")]
 unique_name_in_owner = true
-T1_3 = null
-T2_1 = ExtResource("7_h3s22")
 
 [node name="spin_button" type="Button" parent="."]
 unique_name_in_owner = true

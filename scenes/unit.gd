@@ -7,6 +7,8 @@ class_name Unit
 @export var unit_types : Array[DataManager.UnitType]
 @export var unit_cost : int
 @export var entity_tier : DataManager.EntityTier
+@export var info_popup_UI_scene : PackedScene
+@export var info_damage_popup_ui_scene : PackedScene
 # stats and multiplicators
 var stats : Dictionary = {
 	'health' : 0,
@@ -124,7 +126,7 @@ func _process(delta: float) -> void:
 		DataManager.UnitState.WALK:
 			if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 				var direction : Vector2 = (current_target.global_position - global_position).normalized()
-				velocity = current_move_speed * direction
+				velocity = current_move_speed * direction * DataManager.action_speed_coeff
 				move_and_slide()
 				unit_sprite.flip_h = current_target and current_target.global_position.x < global_position.x
 				# возможно здесь косяк
@@ -146,7 +148,7 @@ func _process(delta: float) -> void:
 				direction = (fight_point.global_position - global_position).normalized()
 			else:
 				direction = (fight_point.global_position - global_position).normalized()
-			velocity = current_move_speed * direction
+			velocity = current_move_speed * direction * DataManager.action_speed_coeff
 			move_and_slide()
 			unit_sprite.flip_h = fight_point and fight_point.global_position.x < global_position.x
 			if Player.check_enemies(unit_owner) or check_is_on_point():
@@ -268,21 +270,26 @@ func apply_state():
 			if unit_state != DataManager.UnitState.DIED and unit_state != DataManager.UnitState.DEAD:
 				#unit_anim_player.stop()
 				unit_anim_player.play('idle')
+				unit_anim_player.speed_scale = DataManager.action_speed_coeff
 		DataManager.UnitState.WALK:
 			#unit_anim_player.stop()
 			unit_anim_player.play('walk')
+			unit_anim_player.speed_scale = current_move_speed / 30 * DataManager.action_speed_coeff
 		DataManager.UnitState.ATTACK:
 			#unit_anim_player.stop()
 			unit_anim_player.play('attack')
 		DataManager.UnitState.DIED:
 			#unit_anim_player.stop()
 			unit_anim_player.play('died')
+			unit_anim_player.speed_scale = DataManager.action_speed_coeff
 		DataManager.UnitState.DEAD:
 			#unit_anim_player.stop()
 			unit_anim_player.play('dead')
+			unit_anim_player.speed_scale = DataManager.action_speed_coeff
 		DataManager.UnitState.WALK_TO_CASTLE:
 			#unit_anim_player.stop()
 			unit_anim_player.play('walk')
+			unit_anim_player.speed_scale = current_move_speed / 30 * DataManager.action_speed_coeff
 
 	is_should_change_state = false
 	# можно привязать логику к аним треку (дроп ресурса, стата, исчезновение, мб звук)
@@ -332,9 +339,11 @@ func attack():
 		return
 	# установить скорость анимации исходя из скорости атаки
 	unit_sprite.flip_h = current_target and current_target.global_position.x < global_position.x
+	unit_anim_player.speed_scale = 2 / current_attack_speed * DataManager.action_speed_coeff
+	print(5 / current_attack_speed * DataManager.action_speed_coeff)
 	change_state(DataManager.UnitState.ATTACK)
 	is_can_attack = false
-	timer_aspd.wait_time = stats.attack_speed
+	timer_aspd.wait_time = current_attack_speed / DataManager.action_speed_coeff
 	timer_aspd.start()
 	apply_damage()
 
@@ -348,6 +357,7 @@ func attack_castle():
 	elif unit_types.has(DataManager.UnitType.PHYS):
 		attack = current_physical_attack
 	Player.get_damage(round(attack))
+	print('hui')
 	
 	
 
@@ -395,6 +405,7 @@ func get_enemy_on_field():
 func get_damage(damage, damage_owner):
 	if not is_active:
 		return
+	show_damage(damage)
 	if actual_health - damage <= 0:
 		actual_health = 0
 		timer_aspd.stop()
@@ -515,15 +526,19 @@ func drop_res():
 	# голд дропает всегда
 	var drop_check : float = randf()
 	Player.get_res(DataManager.ResType.GOLD, drop_chances.drop_gold)
+	show_getting_res(DataManager.ResType.GOLD, drop_chances.drop_gold, 0)
 	# остальные ресурсы с шансом
 	if drop_check <= drop_chances.drop_crystals_chance:
 		Player.get_res(DataManager.ResType.CRYSTAL, drop_chances.drop_crystals)
+		show_getting_res(DataManager.ResType.CRYSTAL, drop_chances.drop_crystals, 10)
 		return
 	if drop_check <= drop_chances.drop_food_chance:
 		Player.get_res(DataManager.ResType.FOOD, drop_chances.drop_food)
+		show_getting_res(DataManager.ResType.FOOD, drop_chances.drop_food, 10)
 		return
 	if drop_check <= drop_chances.drop_tokens_chance:
 		Player.get_res(DataManager.ResType.SPIN_TOKEN, drop_chances.drop_tokens)
+		show_getting_res(DataManager.ResType.SPIN_TOKEN, drop_chances.drop_tokens, 10)
 		return
 
 
@@ -535,3 +550,16 @@ func check_is_on_point():
 	if fight_point:
 		return abs(fight_point.global_position.x - global_position.x) < 10 and abs(fight_point.global_position.y - global_position.y) < 10
 	return false
+
+
+func show_getting_res(res_type, res_amount, x_offset : float):
+	var info_popup_UI : InfoResPopupUI = info_popup_UI_scene.instantiate()
+	info_popup_UI.set_data(res_type, res_amount)
+	SignalManager.on_drop_res_popup.emit(self, info_popup_UI, x_offset)
+
+
+func show_damage(damage : int):
+	var info_damage_popup_ui : InfoDamagePopupUI = info_damage_popup_ui_scene.instantiate()
+	info_damage_popup_ui.set_unit_owner(unit_owner)
+	info_damage_popup_ui.set_amount(damage)
+	SignalManager.on_show_damage.emit(self, info_damage_popup_ui)

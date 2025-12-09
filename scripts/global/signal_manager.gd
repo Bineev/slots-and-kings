@@ -26,3 +26,5 @@ signal on_unit_die(unit : Unit)
 signal on_show_choose_UI_after_wave(chooseUI : ChooseUI)
 signal on_new_wave_start
 signal on_player_get_hit
+signal on_drop_res_popup(unit : Unit, info_res_popup_UI : InfoResPopupUI , x_offsetx_offset : float)
+signal on_show_damage(unit : Unit, info_damage_popup_ui : InfoDamagePopupUI)

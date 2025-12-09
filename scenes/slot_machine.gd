@@ -59,6 +59,8 @@ func get_active_slots():
 
 func create_unit():
 	slots = get_active_slots()
+	for slot in slots:
+		slot.highlight_slot()
 	castle_unit_factory.choose_unit(slots)
 
 

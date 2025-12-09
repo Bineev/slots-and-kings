@@ -12,7 +12,7 @@ height = 16.0
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_g8yuo")
 
-[node name="scout_range" parent="." index="4"]
+[node name="scout_range" parent="." index="5"]
 visible = false
 
 [node name="scout_range_collision" parent="scout_range" index="0"]

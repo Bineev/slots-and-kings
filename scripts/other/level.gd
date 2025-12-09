@@ -31,6 +31,7 @@ var free_fight_points : Array[FightPoint]
 @onready var timer_between_check_enemies: Timer = %timer_between_check_enemies
 @onready var castle_fight_points: Node2D = %castle_fight_points
 @onready var hp_bar: ProgressBar = %hp_bar
+@onready var label_hp_bar: Label = %label_hp_bar
 
 
 func _ready() -> void:
@@ -49,6 +50,8 @@ func _ready() -> void:
 	SignalManager.on_wave_done.connect(show_reward)
 	SignalManager.on_wave_done.connect(clear_fight_points)
 	SignalManager.on_player_get_hit.connect(update_hp_bar)
+	SignalManager.on_drop_res_popup.connect(show_res_popup_after_unit_dead)
+	SignalManager.on_show_damage.connect(show_damage_ui)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
@@ -193,6 +196,17 @@ func show_info_res_popup_UI(building : Building, info_res_popup_UI : InfoResPopu
 	tween.tween_property(info_res_popup_UI, 'scale', Vector2(0.5, 0.5), 1).set_trans(Tween.TRANS_SPRING)
 	tween.tween_callback(info_res_popup_UI.close_popup).set_delay(1)
 
+func show_res_popup_after_unit_dead(unit : Unit, info_res_popup_UI : InfoResPopupUI , x_offset : float):
+	ui.add_child(info_res_popup_UI)
+	info_res_popup_UI.global_position = unit.global_position + Vector2(-16 + x_offset, -16)
+	info_res_popup_UI.initialize()
+	var tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property(info_res_popup_UI, 'global_position', unit.global_position + Vector2(16 + x_offset, -76), 1).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(info_res_popup_UI, 'modulate', Color8(1, 1, 1, 0.3), 1).set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(info_res_popup_UI, 'scale', Vector2(0.5, 0.5), 1).set_trans(Tween.TRANS_SPRING)
+	tween.tween_callback(info_res_popup_UI.close_popup).set_delay(1)
+
 
 func clear_enemy_spawns():
 	free_enemy_spawners.clear()
@@ -271,7 +285,22 @@ func clear_fight_points():
 func initialize_hp_bar():
 	hp_bar.max_value = Player.get_current_health()
 	hp_bar.value = Player.get_current_health()
+	label_hp_bar.text = '%d / %d' % [Player.get_current_health(), Player.get_health()]
 
 
 func update_hp_bar():
 	hp_bar.value = Player.get_current_health()
+	label_hp_bar.text = '%d / %d' % [Player.get_current_health(), Player.get_health()]
+
+
+func show_damage_ui(unit : Unit, info_damage_popup_ui : InfoDamagePopupUI):
+	ui.add_child(info_damage_popup_ui)
+	info_damage_popup_ui.global_position = unit.global_position + Vector2(0, -24)
+	info_damage_popup_ui.initialize()
+	await get_tree().process_frame
+	var tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property(info_damage_popup_ui, 'global_position', unit.global_position + Vector2(0, -76), 1).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(info_damage_popup_ui, 'modulate', Color8(1, 1, 1, 0.3), 1).set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(info_damage_popup_ui, 'scale', Vector2(0.5, 0.5), 1).set_trans(Tween.TRANS_SPRING)
+	tween.tween_callback(info_damage_popup_ui.close_popup).set_delay(1)

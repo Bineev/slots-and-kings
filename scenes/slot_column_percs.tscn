@@ -8,6 +8,3 @@
 slot_type = 2
 deck_scene = ExtResource("2_im4o3")
 spin_curve = ExtResource("3_45qru")
-
-[node name="SlotCarouselTop" parent="Mask" index="0"]
-carousel_type = 0

@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc0w3cqhn1fva"]
+
+[ext_resource type="PackedScene" uid="uid://dtspilpntytvx" path="res://scenes/info_res_popup_ui.tscn" id="1_v16vy"]
+[ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="2_sjuc6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v16vy"]
+
+[node name="InfoResUnitPopupUI" instance=ExtResource("1_v16vy")]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_v16vy")
+
+[node name="label_amount" parent="HBoxContainer" index="0"]
+label_settings = ExtResource("2_sjuc6")

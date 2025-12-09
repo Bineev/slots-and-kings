@@ -102,6 +102,8 @@ var default_crystal_reward : int = 1
 
 var default_food_reward : int = 3
 
+var action_speed_coeff : float = 1.5
+
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
 	'Bernard', 'Baldo', 'Bran', 'Benedict', 'Bert',

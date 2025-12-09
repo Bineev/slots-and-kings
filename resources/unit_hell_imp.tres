@@ -11,6 +11,7 @@ unit_tier = 1
 unit_types = Array[int]([0, 2])
 unit_cost = 1
 unit_sprite = ExtResource("3_n35yw")
+entity_tier = 1
 slot_name = "имп"
 slot_description = "мелкое, но злобное существо"
 slot_sprite = ExtResource("2_102hv")

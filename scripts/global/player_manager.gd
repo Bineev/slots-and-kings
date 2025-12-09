@@ -268,3 +268,7 @@ func get_damage(damage : float):
 
 func get_current_health():
 	return current_health
+
+
+func get_health():
+	return health

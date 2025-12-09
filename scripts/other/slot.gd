@@ -6,6 +6,7 @@ class_name Slot
 @export var slot_res : SlotRes
 @export var slot_content_scene : PackedScene
 @export var entity_tier : DataManager.EntityTier
+@export var shader : Shader
 
 var slot_name : String
 var slot_description : String
@@ -14,6 +15,9 @@ var unit_types : Array[DataManager.UnitType]
 var unit_cost : int
 
 @onready var slot_sprite: AnimatedSprite2D = %slot_sprite
+@onready var slot_anim_player: AnimationPlayer = %slot_anim_player
+@onready var highlight_sprite: Sprite2D = %highlight_sprite
+@onready var shader_rect: ColorRect = %shader_rect
 
 
 func initialize():
@@ -26,3 +30,14 @@ func initialize():
 		unit_types = slot_res.unit_types
 		unit_cost = slot_res.unit_cost
 		entity_tier = slot_res.entity_tier
+
+
+func highlight_slot():
+	slot_anim_player.play("highlight")
+	var shader_material = ShaderMaterial.new()
+	shader_material.shader = shader
+	shader_rect.material = shader_material
+
+
+func stop_highlight():
+	slot_anim_player.stop()
