@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d05xwahttcgrd"]
+[gd_scene load_steps=16 format=3 uid="uid://d05xwahttcgrd"]
 
 [ext_resource type="Script" uid="uid://c5vj47s3a7ooe" path="res://scenes/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://mm46fdorr5pj" path="res://img/shadow_min.png" id="2_1jvru"]
@@ -140,6 +140,15 @@ _data = {
 &"walk": SubResource("Animation_k673f")
 }
 
+[sub_resource type="Gradient" id="Gradient_e8hdl"]
+offsets = PackedFloat32Array(0, 0.71985817)
+colors = PackedColorArray(0.68307734, 0.6830774, 0.68307734, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oee7j"]
+gradient = SubResource("Gradient_e8hdl")
+fill = 1
+fill_from = Vector2(0.51282054, 0.50427353)
+
 [node name="Unit" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
@@ -192,6 +201,12 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 wait_time = 5.0
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+energy = 0.8
+range_layer_max = 5
+texture = SubResource("GradientTexture2D_oee7j")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]

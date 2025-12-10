@@ -235,9 +235,10 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 		z_index = 3
 	elif unit_owner == DataManager.UnitOwner.ENEMY:
 		z_index = 2
-	if unit_owner == DataManager.UnitOwner.ENEMY:
-		parse_stats()
+	parse_stats()
 	create_tooltip()
+	# can be bug
+	#slots.clear()
 
 
 func get_state() -> DataManager.UnitState:

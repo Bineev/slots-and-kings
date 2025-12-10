@@ -82,6 +82,8 @@ func add_player_unit():
 		if Player.check_res(current_unit.unit_cost, DataManager.ResType.FOOD):
 			Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
 			create_unit_from_scratch()
+	await get_tree().process_frame
+	current_unit.queue_free()
 	current_unit = null
 
 

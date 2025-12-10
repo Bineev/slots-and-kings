@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=27 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -64,6 +64,16 @@ shader_parameter/roll_line_amount = 0.0
 shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -8.0
 shader_parameter/pixel_strength = -2.0
+
+[sub_resource type="Gradient" id="Gradient_5f2j7"]
+colors = PackedColorArray(0.7411765, 0.7411765, 0.7411765, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_82cfe"]
+gradient = SubResource("Gradient_5f2j7")
+width = 40
+height = 16
+fill = 2
+fill_from = Vector2(0.4957265, 0.508547)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_klq6b")
@@ -379,6 +389,9 @@ layout_mode = 2
 texture = ExtResource("16_ux5qa")
 stretch_mode = 3
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.34117648, 0.44705883, 0.46666667, 1)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -389,6 +402,111 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="lights" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="light_slot" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(80, 186)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot2" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(122, 186)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot3" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(101, 186)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot4" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(143, 186)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot5" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(164, 186)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot6" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(80, 207)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot7" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(122, 207)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot8" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(101, 207)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot9" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(143, 207)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot10" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(164, 207)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot11" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(80, 228)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot12" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(122, 228)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot13" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(101, 228)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot14" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(143, 228)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot15" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(164, 228)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot16" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(89, 250)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
+
+[node name="light_slot17" type="PointLight2D" parent="lights"]
+unique_name_in_owner = true
+position = Vector2(155, 251)
+color = Color(0.9098039, 0.75686276, 0.4392157, 1)
+texture = SubResource("GradientTexture2D_82cfe")
 
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
 [connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]
