@@ -403,10 +403,10 @@ func get_enemy_on_field():
 	return targets[0]
 
 
-func get_damage(damage, damage_owner):
+func get_damage(damage : int, damage_owner : Object, is_crit : bool = false):
 	if not is_active:
 		return
-	show_damage(damage)
+	show_damage(damage, is_crit)
 	show_blood()
 	if actual_health - damage <= 0:
 		actual_health = 0
@@ -460,6 +460,7 @@ func apply_damage():
 	var is_hit : bool = hit_check <= hit_chance
 	if not is_hit:
 		# показать popup "промах"
+		show_miss()
 		return
 	
 	# проверка на крит
@@ -508,7 +509,7 @@ func apply_damage():
 	if not current_target:
 		return
 	# применить урон к цели
-	current_target.get_damage(round(attack), self)
+	current_target.get_damage(round(attack), self, is_crit)
 	print('%s наносит %f урона %s' % [self.unit_name, attack, current_target.unit_name])
 
 
@@ -560,11 +561,20 @@ func show_getting_res(res_type, res_amount, x_offset : float):
 	SignalManager.on_drop_res_popup.emit(self, info_popup_UI, x_offset)
 
 
-func show_damage(damage : int):
+func show_damage(damage : int, is_crit):
 	var info_damage_popup_ui : InfoDamagePopupUI = info_damage_popup_ui_scene.instantiate()
 	info_damage_popup_ui.set_unit_owner(unit_owner)
 	info_damage_popup_ui.set_amount(damage)
+	info_damage_popup_ui.set_is_crit(is_crit)
 	SignalManager.on_show_damage.emit(self, info_damage_popup_ui)
+
+
+func show_miss():
+	if current_target:
+		var info_damage_popup_ui : InfoDamagePopupUI = info_damage_popup_ui_scene.instantiate()
+		info_damage_popup_ui.set_unit_owner(current_target.unit_owner)
+		info_damage_popup_ui.set_amount(0)
+		SignalManager.on_show_damage.emit(current_target, info_damage_popup_ui)
 
 
 func show_blood():

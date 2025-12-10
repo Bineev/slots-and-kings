@@ -6,9 +6,12 @@ class_name Tooltip
 @export var entity_name : String
 @export var entity_desc : String
 @export var entity_tier : DataManager.EntityTier
+@export var subtooltip_scene : PackedScene
+@export var subtooltips : Tooltip
 
 @onready var label_name: Label = %label_name
 @onready var label_desc: Label = %label_desc
+@onready var sub_tooltips_container: VBoxContainer = %sub_tooltips_container
 
 
 func initialize():

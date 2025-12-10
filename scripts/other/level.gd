@@ -53,6 +53,7 @@ func _ready() -> void:
 	SignalManager.on_drop_res_popup.connect(show_res_popup_after_unit_dead)
 	SignalManager.on_show_damage.connect(show_damage_ui)
 	SignalManager.on_show_tooltip.connect(add_tooltip)
+	SignalManager.on_hide_tooltip.connect(remove_tooltip)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
@@ -313,3 +314,8 @@ func add_tooltip(object : Object, tooltip : Tooltip):
 	tooltip.initialize()
 	await get_tree().process_frame
 	tooltip.global_position.y -= (tooltip.size.y + 20)
+
+
+func remove_tooltip(tooltip : Tooltip):
+	if tooltip:
+		ui.remove_child(tooltip)
