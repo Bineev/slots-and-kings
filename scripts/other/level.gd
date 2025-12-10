@@ -33,6 +33,7 @@ var current_tooltip : Control
 @onready var castle_fight_points: Node2D = %castle_fight_points
 @onready var hp_bar: ProgressBar = %hp_bar
 @onready var label_hp_bar: Label = %label_hp_bar
+@onready var slot_machine: SlotMachine = %SlotMachine
 
 
 func _ready() -> void:
@@ -74,14 +75,11 @@ func start_waves():
 
 
 func add_player_unit():
-	Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
-	current_unit.reparent(player_units)
-	current_unit.fight_point = get_free_random_spawner()
-	current_unit.global_position = current_unit.fight_point.global_position
-	current_unit.set_active()
-	Player.add_unit_to_player_units(current_unit)
-	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
-		current_unit.is_in_fight = true
+	for i in range(Player.get_units_count_for_next_create()):
+		if Player.check_res(current_unit.unit_cost, DataManager.ResType.FOOD):
+			Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
+			create_unit_from_scratch()
+	current_unit = null
 
 
 func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
@@ -101,7 +99,7 @@ func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.Unit
 	unit_preview_UI.add_unit()
 	unit.initialize(slots[0], owner)
 	unit_preview_UI.initialize()
-	unit_preview_UI.global_position = Vector2(75, 275)
+	unit_preview_UI.global_position = Vector2(57, 262)
 	current_unit = unit
 	# может быть баг
 	await get_tree().process_frame
@@ -109,6 +107,19 @@ func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.Unit
 		SignalManager.on_enough_food.emit()
 	else:
 		SignalManager.on_not_enough_food.emit()
+
+
+func create_unit_from_scratch():
+	var factory = slot_machine.get_factory()
+	var unit : Unit = factory.get_unit(current_unit.slots)
+	player_units.add_child(unit)
+	unit.initialize(current_unit.slots[0], DataManager.UnitOwner.PLAYER)
+	unit.fight_point = get_free_random_spawner()
+	unit.global_position = unit.fight_point.global_position
+	unit.set_active()
+	Player.add_unit_to_player_units(unit)
+	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
+		unit.is_in_fight = true
 
 
 func get_free_random_spawner():

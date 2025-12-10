@@ -10,6 +10,7 @@ var unit : Unit
 @onready var label_unit_tags: Label = %label_unit_tags
 @onready var label_stats: RichTextLabel = %label_stats
 @onready var container: HBoxContainer = %container
+@onready var label_cost: Label = %label_cost
 
 
 func _ready() -> void:
@@ -39,6 +40,7 @@ func initialize():
 			pre_string = '[color=#a53030]%s[/color]' % pre_string
 		unit_stats += pre_string + '\n'
 	label_stats.text = unit_stats
+	label_cost.text = str(unit.unit_cost)
 
 
 func set_unit(new_unit : Unit):
@@ -46,8 +48,8 @@ func set_unit(new_unit : Unit):
 
 func add_unit():
 	container.add_child(unit)
-	unit.position.x = 10
-	unit.position.y = 8
+	unit.position.x = 20
+	unit.position.y = 12
 
 
 func close_UI():

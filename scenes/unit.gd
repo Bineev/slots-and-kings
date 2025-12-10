@@ -72,6 +72,7 @@ var stats : Dictionary = {
 @export var fight_point : Node2D
 @export var is_tooltip_shown : bool
 
+var slots : Array[Slot]
 var is_should_change_state : bool 
 var is_can_attack : bool = true
 var current_target : Unit
@@ -353,6 +354,9 @@ func fight():
 	# если живого таргета нет, встаем в idle
 	else:
 		change_state(DataManager.UnitState.IDLE)
+
+
+
 
 
 func stop_fight():
@@ -677,3 +681,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if not is_tooltip_shown:
 				is_tooltip_shown = true
 				show_tooltip()
+
+
+func add_slot(slot : Slot):
+	slots.append(slot)

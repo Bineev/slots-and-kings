@@ -88,6 +88,7 @@ sprite_frames = SubResource("SpriteFrames_w7c3h")
 centered = false
 
 [node name="SlotMachine" parent="." instance=ExtResource("2_w8frs")]
+unique_name_in_owner = true
 position = Vector2(123, 245)
 
 [node name="spawners" type="Node2D" parent="."]

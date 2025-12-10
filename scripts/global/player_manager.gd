@@ -39,6 +39,7 @@ var dead_enemy_units : Array[Unit]
 var dead_player_units : Array[Unit]
 var heroes : Array[Hero]
 var current_wave_count : int
+var next_create_units_count : int
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
@@ -272,3 +273,11 @@ func get_current_health():
 
 func get_health():
 	return health
+
+
+func set_units_count_for_next_create(units_count : int):
+	next_create_units_count = units_count
+
+
+func get_units_count_for_next_create():
+	return next_create_units_count

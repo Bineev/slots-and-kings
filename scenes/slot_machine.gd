@@ -61,6 +61,11 @@ func create_unit():
 	slots = get_active_slots()
 	for slot in slots:
 		slot.highlight_slot()
+	var units_count : int = slots.filter(func(slot : Slot): return slot.slot_type == DataManager.SlotType.UNIT).size()
+	var unit_slot : Slot = slots.pop_front()
+	slots = slots.filter(func(slot : Slot): return slot.slot_type != DataManager.SlotType.UNIT)
+	slots.push_front(unit_slot)
+	Player.set_units_count_for_next_create(units_count)
 	castle_unit_factory.choose_unit(slots)
 
 
@@ -109,3 +114,7 @@ func update_buttons(res_type : DataManager.ResType):
 		DataManager.ResType.FOOD:
 			if check_is_spin_end() and not is_already_created and get_parent().get_current_unit() and Player.check_res(get_parent().get_current_unit().unit_cost, DataManager.ResType.FOOD):
 				enable_create_button()
+
+
+func get_factory():
+	return castle_unit_factory

@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://tl8eifxjdkdk"]
+[gd_scene load_steps=8 format=3 uid="uid://tl8eifxjdkdk"]
 
 [ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_mrn2u"]
 [ext_resource type="Script" uid="uid://b07uvudl8np35" path="res://scripts/other/unit_preview_ui.gd" id="1_u8y82"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="2_3h746"]
+[ext_resource type="Texture2D" uid="uid://d4bwygy7kyw3p" path="res://img/res_food.png" id="4_mrn2u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mrn2u"]
 font = ExtResource("2_3h746")
 font_size = 6
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fw20q"]
+font = ExtResource("2_3h746")
+font_size = 7
 font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1slx1"]
@@ -16,22 +22,22 @@ font_size = 5
 font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [node name="UnitPreviewUI" type="PanelContainer"]
-offset_right = 56.0
-offset_bottom = 57.0
+offset_right = 132.0
+offset_bottom = 50.0
 theme_override_styles/panel = ExtResource("1_mrn2u")
 script = ExtResource("1_u8y82")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="container_unit_v" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 0
 
 [node name="label_unit_name" type="Label" parent="MarginContainer/container_unit_v"]
 unique_name_in_owner = true
@@ -45,17 +51,43 @@ layout_mode = 2
 
 [node name="rect_unit" type="TextureRect" parent="MarginContainer/container_unit_v/container"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="filler" type="Control" parent="MarginContainer/container_unit_v/container"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="container2" type="HBoxContainer" parent="MarginContainer/container_unit_v/container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = -5
+
+[node name="label_cost" type="Label" parent="MarginContainer/container_unit_v/container/container2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_horizontal = 8
+label_settings = SubResource("LabelSettings_fw20q")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="rect_res" type="TextureRect" parent="MarginContainer/container_unit_v/container/container2"]
 custom_minimum_size = Vector2(32, 24)
 layout_mode = 2
+texture = ExtResource("4_mrn2u")
+stretch_mode = 3
 
 [node name="label_unit_tags" type="Label" parent="MarginContainer/container_unit_v/container"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 24)
+custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 label_settings = SubResource("LabelSettings_1slx1")
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="label_stats" type="RichTextLabel" parent="MarginContainer/container_unit_v"]
