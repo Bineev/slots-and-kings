@@ -7,9 +7,10 @@ class_name Tooltip
 @export var entity_desc : String
 @export var entity_tier : DataManager.EntityTier
 @export var subtooltip_scene : PackedScene
-@export var subtooltips : Tooltip
+@export var subtooltips : Array[SubTooltip]
 
 var tooltip_owner : Object
+var is_initialized : bool
 
 @onready var label_name: Label = %label_name
 @onready var label_desc: Label = %label_desc
@@ -34,3 +35,7 @@ func set_entity_tier(new_entity_tier : DataManager.EntityTier):
 
 func set_tooltip_owner(new_tooltip_owner : Object):
 	tooltip_owner = new_tooltip_owner
+
+
+func add_subtooltip(new_subtooltip : SubTooltip):
+	subtooltips.append(new_subtooltip)

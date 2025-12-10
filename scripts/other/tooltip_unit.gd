@@ -27,6 +27,10 @@ func initialize():
 	rect_preview.texture = preview_texture
 	label_unit_types.text = unit_types
 	label_stats.text = stats
+	for subtooltip in subtooltips:
+		sub_tooltips_container.add_child(subtooltip)
+		subtooltip.initialize()
+	is_initialized = true
 
 
 func set_unit_types(new_unit_types : String):

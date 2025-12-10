@@ -14,6 +14,7 @@ class_name Unit
 @export var slot_unit_res : SlotUnitRes
 @export var tooltip_scene : PackedScene
 @export var tooltip : TooltipUnit
+@export var subtooltip_scene : PackedScene
 # stats and multiplicators
 var stats : Dictionary = {
 	'health' : 0,
@@ -233,6 +234,8 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 		z_index = 3
 	elif unit_owner == DataManager.UnitOwner.ENEMY:
 		z_index = 2
+	if unit_owner == DataManager.UnitOwner.ENEMY:
+		parse_stats()
 	create_tooltip()
 
 
@@ -434,6 +437,9 @@ func get_damage(damage : int, damage_owner : Object, is_crit : bool = false):
 		timer_aspd.stop()
 		is_in_fight = false
 		is_can_attack = false
+		input_pickable = false
+		if tooltip:
+			hide_tooltip()
 		if unit_owner == DataManager.UnitOwner.PLAYER:
 			Player.remove_unit_from_player_units(self)
 		elif unit_owner == DataManager.UnitOwner.ENEMY:
@@ -637,7 +643,13 @@ func create_tooltip():
 			pre_string = '[color=#a53030]%s[/color]' % pre_string
 		unit_stats += pre_string + '\n'
 	tooltip.set_stats(unit_stats)
-	
+	# create subtooltips
+	for slot_res in slot_resources:
+		var subtooltip : SubTooltip = subtooltip_scene.instantiate()
+		subtooltip.set_entity_name(slot_res.slot_name)
+		subtooltip.set_entity_desc(slot_res.slot_description)
+		subtooltip.set_preview_texture(slot_res.slot_sprite)
+		tooltip.add_subtooltip(subtooltip)
 	tooltip.visible = false
 
 

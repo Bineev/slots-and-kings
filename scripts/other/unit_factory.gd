@@ -116,7 +116,10 @@ func apply_slots(new_unit : Unit, slots):
 	# TODO сделать калькулирование мультипликаторов во флэт статы
 	for slot in slots:
 		if slot.slot_type != DataManager.SlotType.UNIT:
-			new_unit.add_slot_res(slot.slot_res)
+			if slot.has_meta('slot_name') and slot.get_meta('slot_name') == 'empty':
+				pass
+			else:
+				new_unit.add_slot_res(slot.slot_res)
 		if slot.slot_type == DataManager.SlotType.ULT:
 			# some logic
 			continue

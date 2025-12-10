@@ -314,7 +314,9 @@ func add_tooltip(object : Object, tooltip : Tooltip):
 		current_tooltip.tooltip_owner.hide_tooltip()
 	ui.add_child(tooltip)
 	tooltip.global_position = object.global_position
-	tooltip.initialize()
+	if not tooltip.is_initialized:
+		tooltip.initialize()
+		tooltip.is_initialized = true
 	# здесь может быть баг
 	current_tooltip = tooltip
 	await get_tree().process_frame
