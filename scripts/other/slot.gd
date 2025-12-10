@@ -52,6 +52,7 @@ func create_tooltip():
 	tooltip.set_entity_name(slot_name)
 	tooltip.set_entity_desc(slot_description)
 	tooltip.set_entity_tier(entity_tier)
+	tooltip.set_tooltip_owner(self)
 	tooltip.visible = false
 
 

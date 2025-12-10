@@ -58,6 +58,10 @@ enum RewardType {
 	EMPTY, UNIT, UPGRADE, PERC, HERO, REMOVER, MARKET, BLACK_MARKET
 }
 
+enum RelateType {
+	EQUAL, GREATER, LESSER
+}
+
 var unit_types_table : Dictionary = {
 	UnitType.MELEE : 'мили',
 	UnitType.RANGE : 'ренж',

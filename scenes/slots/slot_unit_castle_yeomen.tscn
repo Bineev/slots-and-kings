@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckf1qc2vw4805"]
 
 [ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_lltla"]
-[ext_resource type="Resource" uid="uid://drd1yf6mkcys8" path="res://resources/unit_castle_yeomen.tres" id="2_35loa"]
+[ext_resource type="Resource" uid="uid://23tjxjxh002g" path="res://resources/unit_castle_yeomen.tres" id="2_35loa"]
 
 [node name="SlotUnitCastleYeomen" instance=ExtResource("1_lltla")]
 slot_type = 1

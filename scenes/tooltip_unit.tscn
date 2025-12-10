@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0ltri10y2s5l"]
+
+[ext_resource type="PackedScene" uid="uid://byte4klk87mh0" path="res://scenes/tooltip.tscn" id="1_38x0f"]
+[ext_resource type="Script" uid="uid://b6k3iqdstdbta" path="res://scripts/other/tooltip_unit.gd" id="2_gd0l7"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_8cib3"]
+
+[node name="TooltipUnit" instance=ExtResource("1_38x0f")]
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+mouse_filter = 0
+script = ExtResource("2_gd0l7")
+preview_texture = null
+unit_types = ""
+stats = ""
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="rect_preview" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="label_unit_types" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_fonts/normal_font = ExtResource("3_8cib3")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label_stats" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_8cib3")
+theme_override_font_sizes/normal_font_size = 5
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

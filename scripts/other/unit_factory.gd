@@ -112,9 +112,11 @@ func create_unit(unit, slots):
 		SignalManager.on_create_enemy_unit.emit(new_unit, slots, unit_owner)
 
 
-func apply_slots(new_unit, slots):
+func apply_slots(new_unit : Unit, slots):
 	# TODO сделать калькулирование мультипликаторов во флэт статы
 	for slot in slots:
+		if slot.slot_type != DataManager.SlotType.UNIT:
+			new_unit.add_slot_res(slot.slot_res)
 		if slot.slot_type == DataManager.SlotType.ULT:
 			# some logic
 			continue

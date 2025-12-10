@@ -10,6 +10,10 @@ class_name Unit
 @export var info_popup_UI_scene : PackedScene
 @export var info_damage_popup_ui_scene : PackedScene
 @export var blood_particle_scene : PackedScene
+@export var slot_resources : Array[Resource]
+@export var slot_unit_res : SlotUnitRes
+@export var tooltip_scene : PackedScene
+@export var tooltip : TooltipUnit
 # stats and multiplicators
 var stats : Dictionary = {
 	'health' : 0,
@@ -20,7 +24,7 @@ var stats : Dictionary = {
 	'physical_attack_mult' : 1,
 	'magical_attack' : 0,
 	'magical_attack_mult' : 1,
-	'hit_chance' : 100,
+	'hit_chance' : 0,
 	'hit_chance_mult' : 1,
 	'crit_chance' : 0,
 	'crit_chance_mult' : 1,
@@ -65,6 +69,7 @@ var stats : Dictionary = {
 @export var is_active : bool
 @export var get_target_setting : DataManager.TargetSetting
 @export var fight_point : Node2D
+@export var is_tooltip_shown : bool
 
 var is_should_change_state : bool 
 var is_can_attack : bool = true
@@ -73,7 +78,8 @@ var enemies_in_range : Array[Unit]
 var is_in_fight : bool
 var previous_state : DataManager.UnitState
 var drop_chances : Dictionary
-
+var unique_stats : Dictionary
+var unique_stats_related : Dictionary
 var current_health : float
 var current_armor : float
 var current_physical_attack : float
@@ -117,6 +123,7 @@ func _ready() -> void:
 	SignalManager.on_wave_done.connect(set_not_is_in_fight)
 	SignalManager.on_unit_die.connect(clear_target)
 	SignalManager.on_start_spawn.connect(set_is_in_fight)
+	SignalManager.on_hide_unit_tooltip.connect(hide_unit_tooltip)
 
 
 func _process(delta: float) -> void:
@@ -206,6 +213,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	unit_tier = slot.slot_unit_tier
 	entity_tier = slot.entity_tier
 	unit_sprite.texture = slot.slot_res.unit_sprite
+	slot_unit_res = slot.slot_res
 	var ar_shape = CircleShape2D.new()
 	ar_shape.radius = stats.attack_range
 	attack_range_collision.shape  = ar_shape
@@ -225,6 +233,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 		z_index = 3
 	elif unit_owner == DataManager.UnitOwner.ENEMY:
 		z_index = 2
+	create_tooltip()
 
 
 func get_state() -> DataManager.UnitState:
@@ -249,15 +258,27 @@ func set_collisions_by_owner():
 
 
 func parse_stats():
-	var unique_stats : Dictionary
 	for stat in DataManager.default_stats.keys():
-		if  get('current_' + stat) == DataManager.default_stats[stat] or stat.contains('mult') or stat.contains('scout'):
+		if get('current_' + stat) == DataManager.default_stats[stat] or stat.contains('mult') or stat.contains('scout'):
 			continue
+		generate_related_stats(stat, DataManager.default_stats_to_rus[stat])
 		unique_stats[DataManager.default_stats_to_rus[stat]] = get('current_' + stat) if stat.contains('attack_speed') else int(get('current_' + stat)) 
 	
 	return unique_stats
 
 
+func generate_related_stats(stat, stat_rus):
+	if get('current_' + stat) == slot_unit_res[stat]:
+		unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.EQUAL
+	elif get('current_' + stat) > slot_unit_res[stat]:
+		unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.GREATER
+	elif get('current_' + stat) < slot_unit_res[stat]:
+		unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.LESSER
+	if stat == 'attack_speed':
+		if unique_stats_related[DataManager.default_stats_to_rus[stat]] == DataManager.RelateType.GREATER:
+			unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.LESSER
+		elif unique_stats_related[DataManager.default_stats_to_rus[stat]] == DataManager.RelateType.LESSER:
+			unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.GREATER
 func change_state(new_state : DataManager.UnitState):
 	is_should_change_state = true
 	previous_state = unit_state
@@ -582,3 +603,65 @@ func show_blood():
 	add_child(blood_particle)
 	blood_particle.emitting = true
 	
+
+func add_slot_res(new_slot_res : Resource):
+	slot_resources.append(new_slot_res)
+
+
+func create_tooltip():
+	await get_tree().process_frame
+	tooltip = tooltip_scene.instantiate()
+	tooltip.set_tooltip_owner(self)
+	tooltip.set_entity_name(unit_name)
+	tooltip.set_entity_desc(unit_desc)
+	tooltip.set_entity_tier(entity_tier)
+	# set unit types str
+	var unit_types_str : String
+	for type in unit_types:
+		unit_types_str += DataManager.unit_types_table[type]
+		unit_types_str += '\n'
+	tooltip.set_unit_types(unit_types_str)
+	# set preview texture
+	tooltip.set_preview_texture(slot_unit_res.slot_sprite)
+	# set stats
+	var unit_stats : String
+	for stat in unique_stats.keys():
+		var pre_string : String = '%s %s' % [stat.replace('_', ' '), unique_stats[stat]]
+		if stat.contains('точность') or stat.contains('шанс') or stat.contains('уворот'):
+			pre_string += '%'
+		if unique_stats_related[stat] == DataManager.RelateType.EQUAL:
+			pre_string = '[color=#341c27]%s[/color]' % pre_string
+		elif unique_stats_related[stat] == DataManager.RelateType.GREATER:
+			pre_string = '[color=#25562e]%s[/color]' % pre_string
+		elif unique_stats_related[stat] == DataManager.RelateType.LESSER:
+			pre_string = '[color=#a53030]%s[/color]' % pre_string
+		unit_stats += pre_string + '\n'
+	tooltip.set_stats(unit_stats)
+	
+	tooltip.visible = false
+
+
+func show_tooltip():
+		SignalManager.on_show_tooltip.emit(self, tooltip)
+		tooltip.visible = true
+		get_tree().create_timer(10).timeout.connect(hide_tooltip)
+
+
+func hide_tooltip():
+	if is_tooltip_shown:
+		SignalManager.on_hide_tooltip.emit(tooltip)
+		tooltip.visible = false
+		is_tooltip_shown = false
+
+
+func hide_unit_tooltip(new_tooltip : Tooltip):
+	if new_tooltip == tooltip:
+		hide_tooltip()
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			if not is_tooltip_shown:
+				is_tooltip_shown = true
+				show_tooltip()

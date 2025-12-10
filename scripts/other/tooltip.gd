@@ -9,6 +9,8 @@ class_name Tooltip
 @export var subtooltip_scene : PackedScene
 @export var subtooltips : Tooltip
 
+var tooltip_owner : Object
+
 @onready var label_name: Label = %label_name
 @onready var label_desc: Label = %label_desc
 @onready var sub_tooltips_container: VBoxContainer = %sub_tooltips_container
@@ -28,3 +30,7 @@ func set_entity_desc(new_entity_desc):
 
 func set_entity_tier(new_entity_tier : DataManager.EntityTier):
 	entity_tier = new_entity_tier
+
+
+func set_tooltip_owner(new_tooltip_owner : Object):
+	tooltip_owner = new_tooltip_owner

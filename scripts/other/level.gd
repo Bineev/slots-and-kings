@@ -18,6 +18,7 @@ var is_wave_in_progress : bool
 var next_wave : Wave
 var wave_reward_UI : RewardAfterWaveUI
 var free_fight_points : Array[FightPoint]
+var current_tooltip : Control
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -100,7 +101,7 @@ func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.Unit
 	unit_preview_UI.add_unit()
 	unit.initialize(slots[0], owner)
 	unit_preview_UI.initialize()
-	unit_preview_UI.global_position = Vector2(93, 241)
+	unit_preview_UI.global_position = Vector2(75, 275)
 	current_unit = unit
 	# может быть баг
 	await get_tree().process_frame
@@ -309,9 +310,13 @@ func show_damage_ui(unit : Unit, info_damage_popup_ui : InfoDamagePopupUI):
 
 
 func add_tooltip(object : Object, tooltip : Tooltip):
+	if current_tooltip and current_tooltip.tooltip_owner:
+		current_tooltip.tooltip_owner.hide_tooltip()
 	ui.add_child(tooltip)
 	tooltip.global_position = object.global_position
 	tooltip.initialize()
+	# здесь может быть баг
+	current_tooltip = tooltip
 	await get_tree().process_frame
 	tooltip.global_position.y -= (tooltip.size.y + 20)
 
@@ -319,3 +324,4 @@ func add_tooltip(object : Object, tooltip : Tooltip):
 func remove_tooltip(tooltip : Tooltip):
 	if tooltip:
 		ui.remove_child(tooltip)
+		current_tooltip = null
