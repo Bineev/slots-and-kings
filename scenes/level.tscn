@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=25 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -14,7 +14,10 @@
 [ext_resource type="Shader" uid="uid://c80cx0a1lq0ng" path="res://shaders/shake.gdshader" id="13_64w2a"]
 [ext_resource type="Script" uid="uid://vhv5wnnl5o3b" path="res://scripts/other/canvas_layer.gd" id="13_fpun6"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="14_wc255"]
+[ext_resource type="PackedScene" uid="uid://d26mxn681r4pd" path="res://scenes/next_wave_ui.tscn" id="15_arp2o"]
 [ext_resource type="Shader" uid="uid://bik2ofmudh5u4" path="res://shaders/ctr.gdshader" id="15_wc255"]
+[ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="16_82cfe"]
+[ext_resource type="Texture2D" uid="uid://cc0y4rlm7e1ah" path="res://img/wave_icon.png" id="16_ux5qa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
 shader = ExtResource("13_64w2a")
@@ -356,6 +359,25 @@ text = "прочность"
 label_settings = SubResource("LabelSettings_arp2o")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NextWaveUI" parent="UI" instance=ExtResource("15_arp2o")]
+unique_name_in_owner = true
+
+[node name="panel_in_fight" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.7254902)
+offset_left = 114.0
+offset_top = 122.0
+offset_right = 162.0
+offset_bottom = 170.0
+scale = Vector2(0.4, 0.4)
+theme_override_styles/panel = ExtResource("16_82cfe")
+
+[node name="rect_in_fight" type="TextureRect" parent="UI/panel_in_fight"]
+layout_mode = 2
+texture = ExtResource("16_ux5qa")
+stretch_mode = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

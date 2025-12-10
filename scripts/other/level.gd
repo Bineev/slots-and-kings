@@ -34,6 +34,8 @@ var current_tooltip : Control
 @onready var hp_bar: ProgressBar = %hp_bar
 @onready var label_hp_bar: Label = %label_hp_bar
 @onready var slot_machine: SlotMachine = %SlotMachine
+@onready var next_wave_ui: NextWaveUI = %NextWaveUI
+@onready var panel_in_fight: PanelContainer = %panel_in_fight
 
 
 func _ready() -> void:
@@ -70,6 +72,7 @@ func _ready() -> void:
 func start_waves():
 	await self.ready
 	initialize_hp_bar()
+	next_wave_ui.set_timer(timer_to_next_wave)
 	start_next_wave_countdown()
 	# установить false когда последний спавн и врагов на карте не осталось
 
@@ -241,6 +244,9 @@ func _on_timer_to_next_wave_timeout() -> void:
 	
 	
 func create_wave():
+	panel_in_fight.visible = true
+	next_wave_ui.next_wave_anim_player.stop()
+	next_wave_ui.visible = false
 	next_wave.start_wave()
 	Player.increment_current_wave_count()
 	is_wave_in_progress = true
@@ -256,6 +262,8 @@ func start_next_wave_countdown():
 	waves.add_child(next_wave)
 	timer_to_next_wave.wait_time = next_wave.time_to_next_wave
 	timer_to_next_wave.start()
+	next_wave_ui.is_should_update_label = true
+	next_wave_ui.visible = true
 
 
 func start_check_is_enemies_remaining():
@@ -270,6 +278,7 @@ func _on_timer_between_check_enemies_timeout() -> void:
 
 
 func show_reward():
+	panel_in_fight.visible = false
 	var wave_count : int = Player.get_current_wave_count()
 	wave_reward_UI = wave_reward_UI_scene.instantiate()
 	wave_reward_UI.set_wave_count(wave_count)
@@ -335,6 +344,6 @@ func add_tooltip(object : Object, tooltip : Tooltip):
 
 
 func remove_tooltip(tooltip : Tooltip):
-	if tooltip:
+	if tooltip and ui.get_children().has(tooltip):
 		ui.remove_child(tooltip)
 		current_tooltip = null
