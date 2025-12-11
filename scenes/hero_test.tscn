@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://by5j4d31dipjp"]
+
+[ext_resource type="PackedScene" uid="uid://bo4875f2g4u0n" path="res://scenes/hero.tscn" id="1_ugtid"]
+[ext_resource type="Texture2D" uid="uid://lm6yxbajv2oi" path="res://img/heroes/hero_castle_knight.png" id="2_daw3x"]
+[ext_resource type="Texture2D" uid="uid://cb6rqouoqi2xv" path="res://img/skills/active_skill_test.png" id="3_s8ve6"]
+[ext_resource type="Texture2D" uid="uid://bgcwtjisl7p2e" path="res://img/skills/passive_skill_test.png" id="4_ee2jn"]
+
+[node name="HeroTest" instance=ExtResource("1_ugtid")]
+hero_class = 4
+
+[node name="rect_hero_portrait" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+texture = ExtResource("2_daw3x")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/skills/active_container" index="0"]
+layout_mode = 2
+texture = ExtResource("3_s8ve6")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/skills/active_container" index="1"]
+layout_mode = 2
+texture = ExtResource("3_s8ve6")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/skills/active_container" index="2"]
+layout_mode = 2
+texture = ExtResource("3_s8ve6")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/skills/passive_container" index="0"]
+layout_mode = 2
+texture = ExtResource("4_ee2jn")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/skills/passive_container" index="1"]
+layout_mode = 2
+texture = ExtResource("4_ee2jn")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/skills/passive_container" index="2"]
+layout_mode = 2
+texture = ExtResource("4_ee2jn")
+stretch_mode = 3

@@ -1,4 +1,4 @@
-extends Area2D
+extends PanelContainer
 
 class_name Hero
 

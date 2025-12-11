@@ -203,6 +203,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 color = Color(0.9098039, 0.75686276, 0.4392157, 1)
 energy = 0.8
 range_layer_max = 5

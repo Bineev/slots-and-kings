@@ -1,12 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo4875f2g4u0n"]
+[gd_scene load_steps=4 format=3 uid="uid://bo4875f2g4u0n"]
 
 [ext_resource type="Script" uid="uid://c050s5drr5wmc" path="res://scripts/other/hero.gd" id="1_3uyx6"]
+[ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_yvbpl"]
+[ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="3_06baw"]
 
-[node name="Hero" type="Area2D"]
+[node name="Hero" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("1_yvbpl")
 script = ExtResource("1_3uyx6")
 
-[node name="hero_collision" type="CollisionShape2D" parent="."]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="hero_sprite" type="Sprite2D" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="label_hero_name" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+text = "Людвиг"
+label_settings = ExtResource("3_06baw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="rect_hero_portrait" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="skills" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="active_container" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/skills"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="passive_container" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/skills"]
+unique_name_in_owner = true
+layout_mode = 2
