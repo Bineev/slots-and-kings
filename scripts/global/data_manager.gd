@@ -50,7 +50,7 @@ enum TargetSetting {
 	CLOSEST, MAX_HP, LOW_HP
 }
 
-enum UnitClass {
+enum HeroClass {
 	ENGINEER, PRIEST, MAGE, SCOUT, KNIGHT
 }
 
@@ -61,6 +61,22 @@ enum RewardType {
 enum RelateType {
 	EQUAL, GREATER, LESSER
 }
+
+enum HeroType {
+	TYPE1, TYPE2, TYPE3
+}
+
+enum HeroGender {
+	MALE, FEMALE
+}
+
+enum HeroUpType {
+	STAT, PASSIVE, ACTIVE
+}
+
+
+var default_hero_up_order : Array[HeroUpType] = [HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT]
+
 
 var unit_types_table : Dictionary = {
 	UnitType.MELEE : 'мили',
@@ -221,4 +237,12 @@ var default_stats_to_rus : Dictionary = {
 	'inc_damage_mult_vs_castle' : 'снижение урона от Замка',
 	'inc_damage_mult_vs_hell' : 'снижение урона от Преисподней',
 	'inc_damage_mult_vs_forest' : 'снижение урона от Леса'
+}
+
+
+var hero_stats_to_rus : Dictionary = {
+	'power' : 'мощь',
+	'quiqness' : 'проворство',
+	'mastery' : 'мастерство',
+	'grace' : 'благородство'
 }

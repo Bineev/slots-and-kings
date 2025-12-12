@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci3dmlfk4dtx6"]
+
+[ext_resource type="PackedScene" uid="uid://cmmit0t3sbl2v" path="res://scenes/skill.tscn" id="1_h3cqi"]
+[ext_resource type="Script" uid="uid://q6ues30h78e" path="res://scripts/other/passive_skill.gd" id="2_y2pvd"]
+
+[node name="PassiveSkill" instance=ExtResource("1_h3cqi")]
+script = ExtResource("2_y2pvd")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://diap4c60rngap"]
+
+[ext_resource type="PackedScene" uid="uid://cmmit0t3sbl2v" path="res://scenes/skill.tscn" id="1_t3d48"]
+[ext_resource type="Script" uid="uid://cxx5tpkk2231t" path="res://scripts/other/active_skill.gd" id="2_r7nbd"]
+
+[node name="ActiveSkill" instance=ExtResource("1_t3d48")]
+script = ExtResource("2_r7nbd")
