@@ -28,6 +28,8 @@ extends Node
 @export var percs_T2_pool : Array[PackedScene]
 @export var percs_T3_pool : Array[PackedScene]
 
+@export var hero_factory_scene : PackedScene
+
 var current_health : int
 var current_gold : int
 var current_tokens : int
@@ -40,6 +42,7 @@ var dead_player_units : Array[Unit]
 var heroes : Array[Hero]
 var current_wave_count : int
 var next_create_units_count : int
+var hero_factory : HeroFactory
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
@@ -53,6 +56,7 @@ func initialize():
 	current_tokens = tokens
 	current_food = food
 	current_crystals = crystals
+	hero_factory = hero_factory_scene.instantiate()
 
 
 func get_random_upgrades(tier : DataManager.EntityTier, amount : int):
@@ -231,8 +235,14 @@ func is_player_units_alive():
 
 func set_player_units_in_fight():
 	for unit in player_units:
-		unit.is_in_fight = true
+		if unit and is_instance_valid(unit) and unit.unit_state != DataManager.UnitState.DIED and unit.unit_state != DataManager.UnitState.DEAD:
+			unit.is_in_fight = true
 
+
+func set_player_units_not_in_fight():
+	for unit in player_units:
+		if unit and is_instance_valid(unit) and unit.unit_state != DataManager.UnitState.DIED and unit.unit_state != DataManager.UnitState.DEAD:
+			unit.is_in_fight = false
 
 func check_enemies(unit_owner : DataManager.UnitOwner):
 	return is_enemies_alive() if unit_owner == DataManager.UnitOwner.PLAYER else is_player_units_alive()
@@ -281,3 +291,9 @@ func set_units_count_for_next_create(units_count : int):
 
 func get_units_count_for_next_create():
 	return next_create_units_count
+
+
+func get_random_hero(hero_level : int):
+	var hero : Hero = hero_factory.get_random_hero(hero_level)
+	heroes.append(hero)
+	SignalManager.on_add_hero_to_field.emit(hero)

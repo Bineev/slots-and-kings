@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://de20ijshf3iqc"]
+
+[ext_resource type="PackedScene" uid="uid://64qun1lrvr8r" path="res://scenes/hero_factory.tscn" id="1_x7jab"]
+[ext_resource type="PackedScene" uid="uid://bo4875f2g4u0n" path="res://scenes/hero.tscn" id="2_lgoj7"]
+[ext_resource type="Script" uid="uid://1x2ug41h1aiq" path="res://resources/hero_stat_res.gd" id="3_po7h7"]
+[ext_resource type="Resource" uid="uid://dynkis8j2hap1" path="res://resources/hero_knight.tres" id="4_vx28i"]
+
+[node name="HeroFactoryCastle" instance=ExtResource("1_x7jab")]
+hero_scene = ExtResource("2_lgoj7")
+hero_resources = Array[ExtResource("3_po7h7")]([ExtResource("4_vx28i")])

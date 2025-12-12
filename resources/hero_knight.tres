@@ -7,6 +7,7 @@
 script = ExtResource("1_ajajf")
 hero_class = 4
 portraits_pool = Array[Texture2D]([ExtResource("1_c110m")])
+hero_names_pool = Array[String](["Зигфрид", "Ганс", "Альберт", "Людвиг", "Бертольд", "Ульрих"])
 power = 1
 mastery = 1
 grace = 1

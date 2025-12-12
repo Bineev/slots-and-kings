@@ -246,3 +246,11 @@ var hero_stats_to_rus : Dictionary = {
 	'mastery' : 'мастерство',
 	'grace' : 'благородство'
 }
+
+var hero_classes_table : Dictionary = {
+	HeroClass.ENGINEER : 'инженер',
+	HeroClass.PRIEST : 'священник',
+	HeroClass.MAGE : 'волшебник',
+	HeroClass.SCOUT : 'следопыт',
+	HeroClass.KNIGHT : 'полководец'
+}

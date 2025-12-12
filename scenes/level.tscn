@@ -18,7 +18,7 @@
 [ext_resource type="Shader" uid="uid://bik2ofmudh5u4" path="res://shaders/ctr.gdshader" id="15_wc255"]
 [ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="16_82cfe"]
 [ext_resource type="Texture2D" uid="uid://cc0y4rlm7e1ah" path="res://img/wave_icon.png" id="16_ux5qa"]
-[ext_resource type="PackedScene" uid="uid://by5j4d31dipjp" path="res://scenes/hero_test.tscn" id="19_gunhw"]
+[ext_resource type="Script" uid="uid://dl4s2yfpgmxi0" path="res://scenes/spawner.gd" id="19_gunhw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
 shader = ExtResource("13_64w2a")
@@ -512,30 +512,35 @@ color = Color(0.9098039, 0.75686276, 0.4392157, 1)
 texture = SubResource("GradientTexture2D_82cfe")
 
 [node name="heroes" type="Node2D" parent="."]
+unique_name_in_owner = true
 
-[node name="HeroTest" parent="heroes" instance=ExtResource("19_gunhw")]
-offset_left = 380.0
-offset_top = 347.0
-offset_right = 522.0
-offset_bottom = 424.0
+[node name="heroes_slots" type="Node2D" parent="."]
+unique_name_in_owner = true
 
-[node name="HeroTest2" parent="heroes" instance=ExtResource("19_gunhw")]
-offset_left = 683.0
-offset_top = 351.0
-offset_right = 825.0
-offset_bottom = 428.0
+[node name="Spawner" type="Marker2D" parent="heroes_slots"]
+position = Vector2(352, 345)
+script = ExtResource("19_gunhw")
+metadata/_custom_type_script = "uid://dl4s2yfpgmxi0"
 
-[node name="HeroTest3" parent="heroes" instance=ExtResource("19_gunhw")]
-offset_left = 328.0
-offset_top = 81.0
-offset_right = 470.0
-offset_bottom = 158.0
+[node name="Spawner2" type="Marker2D" parent="heroes_slots"]
+position = Vector2(681, 347)
+script = ExtResource("19_gunhw")
+metadata/_custom_type_script = "uid://dl4s2yfpgmxi0"
 
-[node name="HeroTest4" parent="heroes" instance=ExtResource("19_gunhw")]
-offset_left = 631.0
-offset_top = 85.0
-offset_right = 773.0
-offset_bottom = 162.0
+[node name="Spawner3" type="Marker2D" parent="heroes_slots"]
+position = Vector2(316, 88)
+script = ExtResource("19_gunhw")
+metadata/_custom_type_script = "uid://dl4s2yfpgmxi0"
+
+[node name="Spawner4" type="Marker2D" parent="heroes_slots"]
+position = Vector2(647, 93)
+script = ExtResource("19_gunhw")
+metadata/_custom_type_script = "uid://dl4s2yfpgmxi0"
+
+[node name="is_in_fight_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
 
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
 [connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]
+[connection signal="timeout" from="is_in_fight_timer" to="." method="_on_is_in_fight_timer_timeout"]

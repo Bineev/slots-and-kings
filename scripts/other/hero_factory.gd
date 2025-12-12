@@ -32,9 +32,10 @@ func create_hero(hero_type : DataManager.HeroType, hero_level : int):
 	hero.set_portrait(hero_stat_res.portraits_pool.pick_random())
 	hero.set_hero_family(hero_stat_res.hero_family)
 	hero.set_hero_class(hero_stat_res.hero_class)
-	hero.set_gender(hero_stat_res.hero_gender)
-	hero.add_passive_scenes(hero_stat_res.first_passive_skill_pool.pick_random())
-	hero.add_active_scenes(hero_stat_res.first_passive_skill_pool.pick_random())
+	hero.set_hero_gender(hero_stat_res.hero_gender)
+	# открыть когда появятся скиллы
+	#hero.add_passive_scenes(hero_stat_res.first_passive_skill_pool.pick_random())
+	#hero.add_active_scenes(hero_stat_res.first_passive_skill_pool.pick_random())
 	hero.set_hero_name(hero_stat_res.hero_names_pool.pick_random())
 	
 	# левел апаемся

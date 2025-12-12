@@ -31,10 +31,31 @@ var is_active : bool
 # длительность бафа = базовая длительность + базовая длительность / 10
 @export var grace : int
 
+@onready var label_hero_name: Label = %label_hero_name
+@onready var rect_hero_portrait: TextureRect = %rect_hero_portrait
+@onready var skills: VBoxContainer = %skills
+@onready var active_container: HBoxContainer = %active_container
+@onready var passive_container: HBoxContainer = %passive_container
+@onready var label_hero_class: Label = %label_hero_class
 
 
 func initialize():
-	pass
+	await get_tree().process_frame
+	label_hero_name.text = hero_name
+	rect_hero_portrait.texture = hero_portrait
+	label_hero_class.text = DataManager.hero_classes_table[hero_class]
+	# добавляем скиллы
+	for scene in passives_scenes:
+		var passive = scene.instantiate()
+		# установить нужные данные для скилла
+		passive_container.add_child(passive)
+		passive.initialize()
+	for scene in actives_scenes:
+		var active = scene.instantiate()
+		# установить нужные данные для скилла
+		active_container.add_child(active)
+		active.initialize()
+	is_active = true
 
 
 func set_stats(new_power : int, new_quickness : int, new_mastery : int, new_grace : int):
@@ -87,3 +108,7 @@ func add_active_scenes(new_skill_scene : PackedScene):
 
 func set_hero_name(new_hero_name : String):
 	hero_name = new_hero_name
+
+
+func level_up():
+	pass

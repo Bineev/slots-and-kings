@@ -19,6 +19,7 @@ var next_wave : Wave
 var wave_reward_UI : RewardAfterWaveUI
 var free_fight_points : Array[FightPoint]
 var current_tooltip : Control
+var heroes_slots_points : Array[Spawner]
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -36,6 +37,8 @@ var current_tooltip : Control
 @onready var slot_machine: SlotMachine = %SlotMachine
 @onready var next_wave_ui: NextWaveUI = %NextWaveUI
 @onready var panel_in_fight: PanelContainer = %panel_in_fight
+@onready var heroes: Node2D = %heroes
+@onready var heroes_slots: Node2D = %heroes_slots
 
 
 func _ready() -> void:
@@ -58,6 +61,7 @@ func _ready() -> void:
 	SignalManager.on_show_damage.connect(show_damage_ui)
 	SignalManager.on_show_tooltip.connect(add_tooltip)
 	SignalManager.on_hide_tooltip.connect(remove_tooltip)
+	SignalManager.on_add_hero_to_field.connect(add_hero_to_field)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
@@ -65,7 +69,10 @@ func _ready() -> void:
 		free_enemy_spawners.append(spawner)
 	for point in castle_fight_points.get_children():
 		free_fight_points.append(point)
+	for spawner in heroes_slots.get_children():
+		heroes_slots_points.append(spawner)
 	Player.set_wave_rewards(wave_rewards)
+	Player.get_random_hero(1)
 	start_waves()
 
 
@@ -349,3 +356,18 @@ func remove_tooltip(tooltip : Tooltip):
 	if tooltip and ui.get_children().has(tooltip):
 		ui.remove_child(tooltip)
 		current_tooltip = null
+
+
+func add_hero_to_field(hero : Hero):
+	var hero_slot : Spawner = heroes_slots_points.pop_front()
+	hero_slot.is_filled = true
+	heroes.add_child(hero)
+	hero.global_position = hero_slot.global_position
+	hero.initialize()
+
+
+func _on_is_in_fight_timer_timeout() -> void:
+	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
+		Player.set_player_units_in_fight()
+	else:
+		Player.set_player_units_not_in_fight()

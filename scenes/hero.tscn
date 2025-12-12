@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo4875f2g4u0n"]
+[gd_scene load_steps=6 format=3 uid="uid://bo4875f2g4u0n"]
 
 [ext_resource type="Script" uid="uid://c050s5drr5wmc" path="res://scripts/other/hero.gd" id="1_3uyx6"]
 [ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_yvbpl"]
-[ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="3_06baw"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_mv13s"]
+[ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="4_w7pyx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y2sko"]
+font = ExtResource("3_mv13s")
+font_size = 7
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [node name="Hero" type="PanelContainer"]
 theme_override_styles/panel = ExtResource("1_yvbpl")
@@ -18,11 +24,21 @@ theme_override_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="label_hero_name" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="label_hero_name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Людвиг"
+label_settings = SubResource("LabelSettings_y2sko")
+
+[node name="label_hero_class" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Людвиг"
-label_settings = ExtResource("3_06baw")
+label_settings = ExtResource("4_w7pyx")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2n1x2qfrsxyl"]
+[gd_scene load_steps=17 format=3 uid="uid://b2n1x2qfrsxyl"]
 
 [ext_resource type="Script" uid="uid://3w73b74vo6kv" path="res://scripts/global/player_manager.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://bg3vp2ptjf3a4" path="res://scenes/slots/slot_unit_castle_villein.tscn" id="2_g2els"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cuk5d1uwhiurv" path="res://scenes/units/castle_warlock.tscn" id="12_oprun"]
 [ext_resource type="PackedScene" uid="uid://v2ecx68fo8rt" path="res://scenes/slots/slot_upgrade_mvspd_20.tscn" id="13_oprun"]
 [ext_resource type="PackedScene" uid="uid://b0njh3b7sguke" path="res://scenes/slots/slot_upgrade_critchance_10.tscn" id="14_a8ls1"]
+[ext_resource type="PackedScene" uid="uid://de20ijshf3iqc" path="res://scenes/hero_factory_castle.tscn" id="16_a8ls1"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3vyb7")
@@ -29,3 +30,4 @@ base_percs_deck = Array[PackedScene]([ExtResource("6_ur7pv"), ExtResource("7_y4r
 units_T1_pool = Array[PackedScene]([ExtResource("10_d2wvv"), ExtResource("11_3v2ag")])
 units_T2_pool = Array[PackedScene]([ExtResource("12_oprun")])
 upgrades_T1_pool = Array[PackedScene]([ExtResource("12_f1ej7"), ExtResource("13_oprun"), ExtResource("14_a8ls1"), ExtResource("4_tuyoq")])
+hero_factory_scene = ExtResource("16_a8ls1")
