@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" uid="uid://84j5n8m7uy0m" path="res://scripts/other/skill.gd" id="1_hfop6"]
 
-[node name="Skill" type="Node2D"]
+[node name="Skill" type="TextureRect"]
+stretch_mode = 3
 script = ExtResource("1_hfop6")

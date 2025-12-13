@@ -1,7 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://diap4c60rngap"]
+[gd_scene load_steps=4 format=3 uid="uid://diap4c60rngap"]
 
 [ext_resource type="PackedScene" uid="uid://cmmit0t3sbl2v" path="res://scenes/skill.tscn" id="1_t3d48"]
 [ext_resource type="Script" uid="uid://cxx5tpkk2231t" path="res://scripts/other/active_skill.gd" id="2_r7nbd"]
+[ext_resource type="PackedScene" uid="uid://dx387h5lstr4t" path="res://scenes/skill_zone.tscn" id="3_g3xg3"]
 
 [node name="ActiveSkill" instance=ExtResource("1_t3d48")]
 script = ExtResource("2_r7nbd")
+skill_res = null
+skill_cooldown = 0.0
+skill_delay = 0.0
+skill_flat_damage = 0
+skill_tick_damage = 0
+skill_tick_interval = 0
+skill_duration = 0.0
+skill_buff_amount = 0.0
+skill_buff_stats = Array[String]([])
+skill_flat_heal = 0
+skill_tick_heal = 0
+skill_range = 0.0
+
+[node name="SkillZone" parent="." index="0" instance=ExtResource("3_g3xg3")]
+unique_name_in_owner = true
+
+[node name="timer_skill_delay" type="Timer" parent="." index="1"]
+unique_name_in_owner = true
+
+[node name="skill_anim" type="Sprite2D" parent="." index="2"]
+unique_name_in_owner = true
+
+[node name="skill_anim_player" type="AnimationPlayer" parent="." index="3"]
+unique_name_in_owner = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="timeout" from="timer_skill_delay" to="." method="_on_timer_skill_delay_timeout"]

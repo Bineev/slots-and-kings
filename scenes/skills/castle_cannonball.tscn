@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://doe3ucvbmbdn4"]
+
+[ext_resource type="PackedScene" uid="uid://ir1joy8d4el2" path="res://scenes/active_skill_flat.tscn" id="1_yxdtp"]
+[ext_resource type="Resource" uid="uid://dw33qs0caq3yd" path="res://resources/knight_skill_cannonball.tres" id="2_sib0f"]
+
+[node name="CastleCannonball" instance=ExtResource("1_yxdtp")]
+skill_res = ExtResource("2_sib0f")

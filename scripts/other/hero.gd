@@ -46,14 +46,16 @@ func initialize():
 	label_hero_class.text = DataManager.hero_classes_table[hero_class]
 	# добавляем скиллы
 	for scene in passives_scenes:
-		var passive = scene.instantiate()
+		var passive : PassiveSkill = scene.instantiate()
 		# установить нужные данные для скилла
 		passive_container.add_child(passive)
+		passive.set_skill_owner(self)
 		passive.initialize()
 	for scene in actives_scenes:
-		var active = scene.instantiate()
+		var active : ActiveSkill = scene.instantiate()
 		# установить нужные данные для скилла
 		active_container.add_child(active)
+		active.set_skill_owner(self)
 		active.initialize()
 	is_active = true
 

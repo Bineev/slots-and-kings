@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=3 format=3 uid="uid://dw33qs0caq3yd"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_gvbk8"]
+[ext_resource type="Texture2D" uid="uid://7e6itldlvnse" path="res://img/skills/active_skill_flat_test.png" id="2_4l4cx"]
+
+[resource]
+script = ExtResource("1_gvbk8")
+skill_name = "пушечное ядро"
+skill_desc = "мощный выстрел в толпу"
+skill_preview = ExtResource("2_4l4cx")
+skill_target_type = 1
+skill_delay = 0.3
+skill_cooldown = 60.0
+skill_flat_damage = 50
+skill_range = 10.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

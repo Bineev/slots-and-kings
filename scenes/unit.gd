@@ -119,6 +119,7 @@ var actual_health : float
 @onready var unit_collision: CollisionShape2D = %unit_collision
 @onready var timer_aspd: Timer = %timer_aspd
 @onready var attack_range: Area2D = %attack_range
+@onready var unit_status_sprite: Sprite2D = %unit_status_sprite
 
 
 func _ready() -> void:
@@ -686,3 +687,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func add_slot(slot : Slot):
 	slots.append(slot)
+
+
+func show_buff():
+	unit_status_sprite.visible = true
+
+
+func hide_buff():
+	unit_status_sprite.visible = false

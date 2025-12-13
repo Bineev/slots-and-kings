@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d05xwahttcgrd"]
+[gd_scene load_steps=17 format=3 uid="uid://d05xwahttcgrd"]
 
 [ext_resource type="Script" uid="uid://c5vj47s3a7ooe" path="res://scenes/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://mm46fdorr5pj" path="res://img/shadow_min.png" id="2_1jvru"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://fdq0wjehentr" path="res://scenes/blood_particle.tscn" id="4_tb304"]
 [ext_resource type="PackedScene" uid="uid://c0ltri10y2s5l" path="res://scenes/tooltip_unit.tscn" id="5_ruro2"]
 [ext_resource type="PackedScene" uid="uid://ckt3h8ncifr7u" path="res://scenes/sub_tooltip.tscn" id="6_e8hdl"]
+[ext_resource type="Texture2D" uid="uid://fqunx6jel4uo" path="res://img/status_buff.png" id="8_oee7j"]
 
 [sub_resource type="Animation" id="Animation_1jvru"]
 resource_name = "attack"
@@ -174,6 +175,11 @@ unique_name_in_owner = true
 hframes = 5
 vframes = 5
 frame = 10
+
+[node name="unit_status_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -12)
+texture = ExtResource("8_oee7j")
 
 [node name="unit_anim_player" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
