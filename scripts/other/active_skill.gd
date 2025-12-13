@@ -17,11 +17,15 @@ class_name ActiveSkill
 @export var skill_tick_heal : int
 @export var skill_range : float
 
+var is_on_cd : bool
 
 @onready var timer_skill_delay: Timer = %timer_skill_delay
 @onready var skill_zone: SkillZone = %SkillZone
 @onready var skill_anim: Sprite2D = %skill_anim
 @onready var skill_anim_player: AnimationPlayer = %skill_anim_player
+@onready var timer_cd: Timer = %timer_cd
+@onready var label_cd: Label = %label_cd
+@onready var rect_cd_overlay: ColorRect = %rect_cd_overlay
 
 
 func initialize():
@@ -35,8 +39,13 @@ func initialize():
 	# пересчитываем исходя из стат героя
 	recalculate_stats()
 	texture = skill_res.skill_preview
+	timer_cd.wait_time = skill_cooldown
 	skill_zone.set_skill(self)
 	skill_zone.initialize()
+
+
+func _process(delta: float) -> void:
+	update_label_cd()
 
 
 func recalculate_stats():
@@ -60,6 +69,8 @@ func set_skill_delay(new_skill_delay : float):
 
 
 func _on_gui_input(event: InputEvent) -> void:
+	if is_on_cd:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			skill_zone.previous_position = global_position
@@ -80,8 +91,26 @@ func start_skill():
 	skill_anim_player.play('skill')
 	skill_zone.hide()
 	skill_zone.set_is_stopped(true)
+	timer_cd.start()
+	is_on_cd = true
+	label_cd.show()
+	rect_cd_overlay.show()
 
 
 func _on_timer_skill_delay_timeout() -> void:
 	skill_zone.stop_working()
 	activate()
+
+
+func _on_timer_cd_timeout() -> void:
+	is_on_cd = false
+	label_cd.hide()
+	rect_cd_overlay.hide()
+
+
+func update_label_cd():
+	label_cd.text = str(int(timer_cd.time_left))
+
+
+func clear_targets():
+	targets.clear()

@@ -44,7 +44,7 @@ func create_zone_view():
 	zone_view.height = skill.skill_range * 2
 	var gradient : Gradient = Gradient.new()
 	var point_count : int = gradient.get_point_count()
-	for i in range(point_count):
+	for i in range(point_count - 1):
 		gradient.remove_point(i)
 	gradient.set_offset(0, 0)
 	gradient.set_color(0, Color8(190, 119, 43, 100))
