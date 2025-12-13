@@ -42,6 +42,7 @@ func initialize():
 	timer_cd.wait_time = skill_cooldown
 	skill_zone.set_skill(self)
 	skill_zone.initialize()
+	create_tooltip()
 
 
 func _process(delta: float) -> void:
@@ -114,3 +115,41 @@ func update_label_cd():
 
 func clear_targets():
 	targets.clear()
+
+
+func create_tooltip():
+	await get_tree().process_frame
+	tooltip = tooltip_scene.instantiate()
+	tooltip.set_tooltip_owner(self)
+	tooltip.set_entity_name(skill_name)
+	tooltip.set_entity_desc(skill_desc)
+	var skill_stats : String
+	# генерируем инфу
+	if skill_cooldown > 0:
+		skill_stats += 'откат: %d\n' % skill_cooldown
+	if skill_flat_damage > 0:
+		skill_stats += 'урон: %d\n' % skill_flat_damage
+	if skill_flat_heal > 0:
+		skill_stats += 'лечение: %d\n' % skill_flat_heal
+	if skill_tick_damage > 0:
+		skill_stats += 'урон за тик: %d\n' % skill_tick_damage
+	if skill_tick_heal > 0:
+		skill_stats += 'лечение за тик: %d\n' % skill_tick_heal
+	if skill_tick_interval > 0:
+		skill_stats += 'интервал между эффектами: %.1f\n' % skill_tick_interval
+	if skill_tick_interval > 0:
+		skill_stats += 'интервал между эффектами: %.1f\n' % skill_tick_interval
+	if skill_buff_amount > 0:
+		skill_stats += 'величина бафа: %.1f%\n' % ((skill_buff_amount - 1) * 100)
+	if skill_duration > 0:
+		skill_stats += 'длительность: %.1f\n' % skill_duration
+
+	tooltip.set_stats(skill_stats)
+	## create subtooltips
+	#for slot_res in slot_resources:
+		#var subtooltip : SubTooltip = subtooltip_scene.instantiate()
+		#subtooltip.set_entity_name(slot_res.slot_name)
+		#subtooltip.set_entity_desc(slot_res.slot_description)
+		#subtooltip.set_preview_texture(slot_res.slot_sprite)
+		#tooltip.add_subtooltip(subtooltip)
+	tooltip.visible = false

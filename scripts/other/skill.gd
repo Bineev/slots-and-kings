@@ -3,6 +3,7 @@ extends TextureRect
 class_name Skill
 
 
+@export var tooltip_scene : PackedScene
 @export var skill_name : String
 @export var skill_desc : String
 @export var skill_tooltip : Tooltip
@@ -11,7 +12,8 @@ class_name Skill
 
 var skill_owner : Hero
 var targets : Array[Unit]
-
+var tooltip : Tooltip
+var is_tooltip_shown : bool
 
 func initialize():
 	pass
@@ -55,3 +57,31 @@ func remove_target(unit : Unit):
 
 func activate():
 	pass
+
+
+func show_tooltip():
+		SignalManager.on_show_tooltip.emit(self, tooltip)
+		tooltip.visible = true
+		get_tree().create_timer(10).timeout.connect(hide_tooltip)
+
+
+func hide_tooltip():
+	if is_tooltip_shown:
+		SignalManager.on_hide_tooltip.emit(tooltip)
+		tooltip.visible = false
+		is_tooltip_shown = false
+
+
+func hide_unit_tooltip(new_tooltip : Tooltip):
+	if new_tooltip == tooltip:
+		hide_tooltip()
+
+
+func _on_mouse_entered() -> void:
+	if not is_tooltip_shown:
+		is_tooltip_shown = true
+		show_tooltip()
+
+
+func _on_mouse_exited() -> void:
+	hide_tooltip()
