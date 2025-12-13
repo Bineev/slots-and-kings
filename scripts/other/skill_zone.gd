@@ -6,6 +6,7 @@ class_name SkillZone
 
 var skill : ActiveSkill
 var is_active : bool
+var is_stopped : bool
 var previous_position : Vector2
 
 @onready var skill_zone_collision: CollisionShape2D = %skill_zone_collision
@@ -13,7 +14,7 @@ var previous_position : Vector2
 
 
 func _process(delta: float) -> void:
-	if is_active:
+	if is_active and not is_stopped:
 		global_position = get_global_mouse_position()
 
 
@@ -21,6 +22,7 @@ func initialize():
 	await get_tree().process_frame
 	create_zone_view()
 	create_collision()
+	set_collisions()
 
 
 func set_skill(new_skill : ActiveSkill):
@@ -29,18 +31,27 @@ func set_skill(new_skill : ActiveSkill):
 
 func set_collisions():
 	if skill.skill_target_type == DataManager.UnitOwner.ENEMY:
-		set_collision_mask_value(3, true)
-	elif skill.skill_target_type == DataManager.UnitOwner.PLAYER:
 		set_collision_mask_value(2, true)
+	elif skill.skill_target_type == DataManager.UnitOwner.PLAYER:
+		set_collision_mask_value(3, true)
 
 
 func create_zone_view():
-	var zone_view = GradientTexture2D.new()
+	var zone_view : GradientTexture2D = GradientTexture2D.new()
 	zone_view.fill = GradientTexture2D.FILL_RADIAL
 	zone_view.fill_from = Vector2(0.5, 0.5)
 	zone_view.width = skill.skill_range * 2
 	zone_view.height = skill.skill_range * 2
-	#zone_view.gradient.colors = PackedColorArray([Color(207, 87, 60, 100), Color(207, 87, 60, 100)])
+	var gradient : Gradient = Gradient.new()
+	var point_count : int = gradient.get_point_count()
+	for i in range(point_count):
+		gradient.remove_point(i)
+	gradient.set_offset(0, 0)
+	gradient.set_color(0, Color8(190, 119, 43, 100))
+	gradient.add_point(0.7, Color8(190, 119, 43, 0))
+	gradient.add_point(1, Color8(190, 119, 43, 0))
+	gradient.interpolation_mode = Gradient.GRADIENT_INTERPOLATE_CONSTANT
+	zone_view.set_gradient(gradient)
 	skill_zone_sprite.texture = zone_view
 
 
@@ -78,4 +89,9 @@ func start_working():
 
 func stop_working():
 	set_inactive()
+	set_is_stopped(false)
 	global_position = previous_position
+
+
+func set_is_stopped(new_state : bool):
+	is_stopped = new_state

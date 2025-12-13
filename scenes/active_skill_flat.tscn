@@ -5,8 +5,3 @@
 
 [node name="ActiveSkillFlat" instance=ExtResource("1_slb7c")]
 script = ExtResource("2_c4usj")
-skill_range = 0.0
-
-[node name="timer_skill_delay" parent="." index="1"]
-wait_time = 10.0
-one_shot = true

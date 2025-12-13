@@ -79,6 +79,7 @@ func start_skill():
 	timer_skill_delay.start()
 	skill_anim_player.play('skill')
 	skill_zone.hide()
+	skill_zone.set_is_stopped(true)
 
 
 func _on_timer_skill_delay_timeout() -> void:

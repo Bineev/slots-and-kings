@@ -24,6 +24,7 @@ unique_name_in_owner = true
 
 [node name="timer_skill_delay" type="Timer" parent="." index="1"]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="skill_anim" type="Sprite2D" parent="." index="2"]
 unique_name_in_owner = true

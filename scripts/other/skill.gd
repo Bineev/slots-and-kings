@@ -12,8 +12,6 @@ class_name Skill
 var skill_owner : Hero
 var targets : Array[Unit]
 
-@onready var skill_sprite: Sprite2D = %skill_sprite
-
 
 func initialize():
 	pass
