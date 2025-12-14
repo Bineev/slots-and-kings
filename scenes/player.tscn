@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://3yk161ockgpn" path="res://scenes/slots/slot_perc_possessed.tscn" id="9_3v2ag"]
 [ext_resource type="PackedScene" uid="uid://mvvj3yfoxi8q" path="res://scenes/slots/slot_unit_castle_fyrd.tscn" id="10_d2wvv"]
 [ext_resource type="PackedScene" uid="uid://ckf1qc2vw4805" path="res://scenes/slots/slot_unit_castle_yeomen.tscn" id="11_3v2ag"]
+[ext_resource type="PackedScene" uid="uid://dcq3h6v07qail" path="res://scenes/slots/slot_unit_castle_warlock.tscn" id="12_a8ls1"]
 [ext_resource type="PackedScene" uid="uid://k503csgfo6f1" path="res://scenes/slots/slot_upgrade_aspd_20.tscn" id="12_f1ej7"]
-[ext_resource type="PackedScene" uid="uid://cuk5d1uwhiurv" path="res://scenes/units/castle_warlock.tscn" id="12_oprun"]
 [ext_resource type="PackedScene" uid="uid://v2ecx68fo8rt" path="res://scenes/slots/slot_upgrade_mvspd_20.tscn" id="13_oprun"]
 [ext_resource type="PackedScene" uid="uid://b0njh3b7sguke" path="res://scenes/slots/slot_upgrade_critchance_10.tscn" id="14_a8ls1"]
 [ext_resource type="PackedScene" uid="uid://de20ijshf3iqc" path="res://scenes/hero_factory_castle.tscn" id="16_a8ls1"]
@@ -28,6 +28,6 @@ base_units_deck = Array[PackedScene]([ExtResource("2_g2els"), ExtResource("2_g2e
 base_upgrades_deck = Array[PackedScene]([ExtResource("3_qlg0r"), ExtResource("5_fjrip"), ExtResource("5_fjrip"), ExtResource("13_oprun")])
 base_percs_deck = Array[PackedScene]([ExtResource("6_ur7pv"), ExtResource("7_y4r1p"), ExtResource("8_d2wvv"), ExtResource("9_3v2ag")])
 units_T1_pool = Array[PackedScene]([ExtResource("10_d2wvv"), ExtResource("11_3v2ag")])
-units_T2_pool = Array[PackedScene]([ExtResource("12_oprun")])
+units_T2_pool = Array[PackedScene]([ExtResource("12_a8ls1")])
 upgrades_T1_pool = Array[PackedScene]([ExtResource("12_f1ej7"), ExtResource("13_oprun"), ExtResource("14_a8ls1"), ExtResource("4_tuyoq")])
 hero_factory_scene = ExtResource("16_a8ls1")

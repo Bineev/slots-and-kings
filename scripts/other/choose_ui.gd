@@ -31,6 +31,7 @@ func set_is_should_start_wave(new_is_should_start_wave : bool):
 
 func initialize():
 	await get_tree().process_frame
+	# здесь баг при установке казарм 2 уровня
 	for scene in choose_scenes:
 		var new_choose_slot : Slot = scene.instantiate()
 		var slot_res = new_choose_slot.slot_res # (bug)

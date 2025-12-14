@@ -8,7 +8,7 @@ class_name SkillRes
 @export var skill_preview : Texture2D
 @export var skill_anim : Texture2D
 @export var skill_target_type : DataManager.UnitOwner
-
+@export var skill_damage_type : DataManager.UnitType
 @export var skill_buff_stats : Array[String]
 @export var skill_delay : float
 

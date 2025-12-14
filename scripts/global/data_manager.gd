@@ -74,6 +74,10 @@ enum HeroUpType {
 	STAT, PASSIVE, ACTIVE
 }
 
+enum ActionType {
+	DAMAGE, HEAL
+}
+
 
 var default_hero_up_order : Array[HeroUpType] = [HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT]
 
@@ -253,4 +257,10 @@ var hero_classes_table : Dictionary = {
 	HeroClass.MAGE : 'волшебник',
 	HeroClass.SCOUT : 'следопыт',
 	HeroClass.KNIGHT : 'полководец'
+}
+
+var unit_type_to_damage_type_table : Dictionary = {
+	UnitType.PHYS : 'физический',
+	UnitType.MAGE : 'магический',
+	UnitType.ASSASSIN : 'чистый'
 }

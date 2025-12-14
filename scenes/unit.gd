@@ -120,6 +120,7 @@ var actual_health : float
 @onready var timer_aspd: Timer = %timer_aspd
 @onready var attack_range: Area2D = %attack_range
 @onready var unit_status_sprite: Sprite2D = %unit_status_sprite
+@onready var timer_regen: Timer = %timer_regen
 
 
 func _ready() -> void:
@@ -240,6 +241,8 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	create_tooltip()
 	# can be bug
 	#slots.clear()
+	timer_regen.wait_time = current_health_regen_interval
+	timer_regen.start()
 
 
 func get_state() -> DataManager.UnitState:
@@ -695,3 +698,33 @@ func show_buff():
 
 func hide_buff():
 	unit_status_sprite.visible = false
+
+
+func _on_timer_regen_timeout() -> void:
+	apply_regen()
+
+
+func apply_regen():
+	if actual_health >= current_health:
+		return
+	get_health(current_health_regen)
+
+
+func get_health(health_amount : int):
+	var actual_health_amount : int = health_amount if actual_health + health_amount <= current_health else current_health - actual_health
+	actual_health += current_health
+	show_heal(actual_health_amount)
+
+
+func show_heal(actual_health_amount : int):
+	var info_heal_popup_ui : InfoDamagePopupUI = info_damage_popup_ui_scene.instantiate()
+	info_heal_popup_ui.set_unit_owner(unit_owner)
+	info_heal_popup_ui.set_amount(actual_health_amount)
+	info_heal_popup_ui.set_action_type(DataManager.ActionType.HEAL)
+	SignalManager.on_show_damage.emit(self, info_heal_popup_ui)
+
+
+func update_health_regen_interval():
+	timer_regen.stop()
+	timer_regen.wait_time = current_health_regen_interval
+	timer_regen.start()

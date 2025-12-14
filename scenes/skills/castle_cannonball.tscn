@@ -5,3 +5,4 @@
 
 [node name="CastleCannonball" instance=ExtResource("1_yxdtp")]
 skill_res = ExtResource("2_sib0f")
+skill_damage_type = 2

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs8u43irygm8d"]
+[gd_scene load_steps=7 format=3 uid="uid://cs8u43irygm8d"]
 
 [ext_resource type="PackedScene" uid="uid://qx8nlo0j2rfp" path="res://scenes/info_popup_ui.tscn" id="1_i85ps"]
 [ext_resource type="Script" uid="uid://dlvkghrlslio2" path="res://scripts/other/info_damage_popup_ui.gd" id="2_8ckm8"]
 [ext_resource type="LabelSettings" uid="uid://rg1jvfslwg7w" path="res://styles/5_red.tres" id="3_u2sw2"]
 [ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="4_2inec"]
+[ext_resource type="LabelSettings" uid="uid://b1qm7hfkabmng" path="res://styles/5_green.tres" id="5_x1qa7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2sw2"]
 
@@ -11,8 +12,11 @@
 theme_override_styles/panel = SubResource("StyleBoxEmpty_u2sw2")
 script = ExtResource("2_8ckm8")
 unit_owner = 0
-player_lable_settings = ExtResource("3_u2sw2")
-enemy_lable_settings = ExtResource("4_2inec")
+player_label_settings = ExtResource("3_u2sw2")
+enemy_label_settings = ExtResource("4_2inec")
+heal_label_settings = ExtResource("5_x1qa7")
+is_crit = false
+action_type = 0
 
 [node name="label_amount" parent="HBoxContainer" index="0"]
 label_settings = ExtResource("3_u2sw2")

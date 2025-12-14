@@ -4,6 +4,7 @@ class_name ActiveSkill
 
 
 @export var skill_res : SkillRes
+@export var skill_damage_type : DataManager.UnitType
 
 @export var skill_cooldown : float
 @export var skill_delay : float
@@ -35,10 +36,12 @@ func initialize():
 	skill_name = skill_res.skill_name
 	skill_desc = skill_res.skill_desc
 	skill_delay = skill_res.skill_delay
+	skill_damage_type = skill_res.skill_damage_type
 	# инициализируем статы
 	# пересчитываем исходя из стат героя
 	recalculate_stats()
 	texture = skill_res.skill_preview
+	skill_anim.texture = skill_res.skill_anim
 	timer_cd.wait_time = skill_cooldown
 	skill_zone.set_skill(self)
 	skill_zone.initialize()
@@ -89,6 +92,8 @@ func _on_gui_input(event: InputEvent) -> void:
 func start_skill():
 	timer_skill_delay.wait_time = skill_delay
 	timer_skill_delay.start()
+	skill_anim.global_position = skill_zone.global_position
+	set_anim_scale_by_range()
 	skill_anim_player.play('skill')
 	skill_zone.hide()
 	skill_zone.set_is_stopped(true)
@@ -104,6 +109,7 @@ func _on_timer_skill_delay_timeout() -> void:
 
 
 func _on_timer_cd_timeout() -> void:
+	# возможно нужно переместить скилл аним
 	is_on_cd = false
 	label_cd.hide()
 	rect_cd_overlay.hide()
@@ -127,6 +133,8 @@ func create_tooltip():
 	# генерируем инфу
 	if skill_cooldown > 0:
 		skill_stats += 'откат: %d\n' % skill_cooldown
+	if skill_flat_damage > 0 or skill_tick_damage > 0:
+		skill_stats += 'тип урона: %s\n' % DataManager.unit_type_to_damage_type_table[skill_damage_type]
 	if skill_flat_damage > 0:
 		skill_stats += 'урон: %d\n' % skill_flat_damage
 	if skill_flat_heal > 0:
@@ -144,6 +152,7 @@ func create_tooltip():
 	if skill_duration > 0:
 		skill_stats += 'длительность: %.1f\n' % skill_duration
 
+
 	tooltip.set_stats(skill_stats)
 	## create subtooltips
 	#for slot_res in slot_resources:
@@ -153,3 +162,8 @@ func create_tooltip():
 		#subtooltip.set_preview_texture(slot_res.slot_sprite)
 		#tooltip.add_subtooltip(subtooltip)
 	tooltip.visible = false
+
+
+func set_anim_scale_by_range():
+	var current_scale : float = skill_range / skill_res.skill_anim.get_height() * 1.5
+	skill_anim.scale = Vector2(current_scale, current_scale)
