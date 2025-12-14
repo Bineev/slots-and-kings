@@ -6,6 +6,33 @@
 [ext_resource type="PackedScene" uid="uid://7et0q5esfppv" path="res://scenes/tooltip_skill.tscn" id="3_hh2ii"]
 [ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="4_dv41m"]
 
+[sub_resource type="Animation" id="Animation_ehogu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("skill_anim:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("skill_anim:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_hh2ii"]
 resource_name = "skill"
 step = 0.25
@@ -34,33 +61,6 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_ehogu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("skill_anim:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("skill_anim:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_avxi3"]
 _data = {
 &"RESET": SubResource("Animation_ehogu"),
@@ -70,22 +70,18 @@ _data = {
 [node name="ActiveSkill" instance=ExtResource("1_t3d48")]
 script = ExtResource("2_r7nbd")
 skill_res = null
-skill_damage_type = null
-skill_cooldown = null
-skill_delay = null
-skill_flat_damage = null
-skill_tick_damage = null
-skill_tick_interval = null
-skill_duration = null
-skill_buff_amount = null
-skill_buff_stats = null
-skill_flat_heal = null
-skill_tick_heal = null
-skill_range = null
+skill_damage_type = 0
+skill_cooldown = 0.0
+skill_delay = 0.0
+skill_flat_damage = 0
+skill_tick_damage = 0
+skill_tick_interval = 0
+skill_duration = 0.0
+skill_buff_stats = Array[Dictionary]([])
+skill_flat_heal = 0
+skill_tick_heal = 0
+skill_range = 0.0
 tooltip_scene = ExtResource("3_hh2ii")
-skill_name = null
-skill_desc = null
-skill_target_type = null
 
 [node name="SkillZone" parent="." index="0" instance=ExtResource("3_g3xg3")]
 unique_name_in_owner = true

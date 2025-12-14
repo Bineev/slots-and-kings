@@ -31,9 +31,9 @@ func set_skill(new_skill : ActiveSkill):
 
 func set_collisions():
 	if skill.skill_target_type == DataManager.UnitOwner.ENEMY:
-		set_collision_mask_value(2, true)
-	elif skill.skill_target_type == DataManager.UnitOwner.PLAYER:
 		set_collision_mask_value(3, true)
+	elif skill.skill_target_type == DataManager.UnitOwner.PLAYER:
+		set_collision_mask_value(2, true)
 
 
 func create_zone_view():

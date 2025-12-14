@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7fqwn61wivwh"]
+
+[ext_resource type="PackedScene" uid="uid://diap4c60rngap" path="res://scenes/active_skill.tscn" id="1_sasin"]
+[ext_resource type="Script" uid="uid://d0dyfrqwk6lut" path="res://scripts/other/active_skill_change_stat.gd" id="2_jykhi"]
+
+[node name="ActiveSkillChangeStat" instance=ExtResource("1_sasin")]
+script = ExtResource("2_jykhi")
+skill_damage_type = null
+skill_cooldown = null
+skill_delay = null
+skill_flat_damage = null
+skill_tick_damage = null
+skill_tick_interval = null
+skill_duration = null
+skill_buff_amount = null
+skill_buff_stats = null
+skill_flat_heal = null
+skill_tick_heal = null
+skill_range = null
+skill_name = null
+skill_desc = null
+skill_target_type = null
+
+[node name="timer_deactivate" type="Timer" parent="." index="7"]
+unique_name_in_owner = true
+wait_time = 1000.0
+one_shot = true

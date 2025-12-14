@@ -476,7 +476,7 @@ func _on_timer_aspd_timeout() -> void:
 
 
 func apply_damage():
-	if not current_target or current_target.get_state() == DataManager.UnitState.DIED or current_target.get_state() == DataManager.UnitState.DEAD:
+	if not current_target or not is_instance_valid(current_target) or current_target.get_state() == DataManager.UnitState.DIED or current_target.get_state() == DataManager.UnitState.DEAD:
 		change_state(DataManager.UnitState.IDLE)
 		is_can_attack = true
 		return
@@ -493,7 +493,7 @@ func apply_damage():
 	
 	
 	# проверка на хит (мдля маг урона не работает эвейд)
-	var hit_chance : float = (current_hit_chance - current_target.current_evade) / 100 if unit_types.has(DataManager.UnitType.PHYS) else current_hit_chance / 100
+	var hit_chance : float = (current_hit_chance - current_target.current_evade) / 100 if not unit_types.has(DataManager.UnitType.MAGE) else current_hit_chance / 100
 	var hit_check : float = randf()
 	var is_hit : bool = hit_check <= hit_chance
 	if not is_hit:
@@ -509,7 +509,7 @@ func apply_damage():
 		# поменять цвет попапа и размер
 		attack += attack * (current_crit_attack / 100)
 
-	if not current_target:
+	if not current_target or not is_instance_valid(current_target):
 		return
 	# проверка на броню
 	var armor = current_target.current_armor if current_target.current_armor < DataManager.max_armor else DataManager.max_armor
@@ -519,7 +519,7 @@ func apply_damage():
 	elif unit_types.has(DataManager.UnitType.PHYS):
 		attack *= ((100 - armor) / 100)
 
-	if not current_target:
+	if not current_target or not is_instance_valid(current_target):
 		return
 	# проверка на увеличение/уменьшение урона
 	var global_mult : float = 1
@@ -539,7 +539,7 @@ func apply_damage():
 			global_mult += (1 - current_target.current_inc_damage_mult_vs_forest) 
 	global_mult += current_damage_mult_vs_all - current_target.current_inc_damage_mult_vs_all
 	attack = attack * global_mult if global_mult > DataManager.min_damage_mult else attack * DataManager.min_damage_mult
-	if not current_target:
+	if not current_target or not is_instance_valid(current_target):
 		return
 	# применить урон к цели
 	current_target.get_damage(round(attack), self, is_crit)
@@ -689,14 +689,6 @@ func add_slot(slot : Slot):
 	slots.append(slot)
 
 
-func show_buff():
-	unit_status_sprite.visible = true
-
-
-func hide_buff():
-	unit_status_sprite.visible = false
-
-
 func _on_timer_regen_timeout() -> void:
 	apply_regen()
 
@@ -725,3 +717,17 @@ func update_health_regen_interval():
 	timer_regen.stop()
 	timer_regen.wait_time = current_health_regen_interval
 	timer_regen.start()
+
+
+func show_buff():
+	unit_status_sprite.frame = 0
+	unit_status_sprite.show()
+
+
+func show_debuff():
+	unit_status_sprite.frame = 1
+	unit_status_sprite.show()
+
+
+func hide_status():
+	unit_status_sprite.hide()

@@ -9,5 +9,5 @@ func get_targets():
 
 func activate():
 	for target in targets:
-		target.get_damage(skill_flat_damage, self.skill_owner)
+		apply_damage(target)
 	clear_targets()

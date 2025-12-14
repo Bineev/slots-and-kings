@@ -12,8 +12,7 @@ class_name ActiveSkill
 @export var skill_tick_damage : int
 @export var skill_tick_interval : int
 @export var skill_duration : float
-@export var skill_buff_amount : float
-@export var skill_buff_stats : Array[String]
+@export var skill_buff_stats : Array[Dictionary]
 @export var skill_flat_heal : int
 @export var skill_tick_heal : int
 @export var skill_range : float
@@ -37,6 +36,7 @@ func initialize():
 	skill_desc = skill_res.skill_desc
 	skill_delay = skill_res.skill_delay
 	skill_damage_type = skill_res.skill_damage_type
+	skill_target_type = skill_res.skill_target_type
 	# инициализируем статы
 	# пересчитываем исходя из стат героя
 	recalculate_stats()
@@ -58,7 +58,18 @@ func recalculate_stats():
 	skill_tick_damage = skill_res.skill_tick_damage + skill_res.skill_tick_damage / 4 * skill_owner.power 
 	skill_tick_interval = skill_res.skill_tick_interval - skill_res.skill_tick_interval / 10 * skill_owner.quickness
 	skill_duration = skill_res.skill_duration + skill_res.skill_duration / 10 * skill_owner.grace
-	skill_buff_amount = skill_res.skill_buff_amount + skill_res.skill_buff_amount / 15 * skill_owner.grace
+	#skill_res.skill_buff_amount + skill_res.skill_buff_amount / 15 * skill_owner.grace
+	for dict in skill_buff_stats:
+		if dict.stat_change_type == 0:
+			if skill_damage_type == DataManager.UnitOwner.PLAYER:
+				dict.stat_change_amount = dict.stat_change_amount + dict.stat_change_amount / 10 * skill_owner.grace
+			else:
+				dict.stat_change_amount = dict.stat_change_amount - dict.stat_change_amount / 10 * skill_owner.grace
+		elif dict.stat_change_type == 1:
+			if skill_damage_type == DataManager.UnitOwner.PLAYER:
+				dict.stat_change_amount = dict.stat_change_amount + dict.stat_change_amount / 15 * skill_owner.grace
+			else:
+				dict.stat_change_amount = dict.stat_change_amount - dict.stat_change_amount / 15 * skill_owner.grace
 	skill_flat_heal = skill_res.skill_flat_heal + skill_res.skill_flat_heal / 4 * skill_owner.grace
 	skill_tick_heal = skill_res.skill_tick_heal + skill_res.skill_tick_heal / 4 * skill_owner.grace
 	skill_range = skill_res.skill_range + skill_res.skill_range / 8 * skill_owner.mastery
@@ -145,13 +156,23 @@ func create_tooltip():
 		skill_stats += 'лечение за тик: %d\n' % skill_tick_heal
 	if skill_tick_interval > 0:
 		skill_stats += 'интервал между эффектами: %.1f\n' % skill_tick_interval
-	if skill_tick_interval > 0:
-		skill_stats += 'интервал между эффектами: %.1f\n' % skill_tick_interval
-	if skill_buff_amount > 0:
-		skill_stats += 'величина бафа: %.1f%\n' % ((skill_buff_amount - 1) * 100)
+	#if skill_buff_amount > 0:
+		#skill_stats += 'величина бафа: %.1f%\n' % ((skill_buff_amount - 1) * 100)
 	if skill_duration > 0:
 		skill_stats += 'длительность: %.1f\n' % skill_duration
-
+	for dict in skill_buff_stats:
+		var stat_info : String = DataManager.hero_stats_to_rus[dict.stat_name] + ': '
+		if dict.stat_change_type == 0:
+			if skill_target_type == DataManager.UnitOwner.PLAYER:
+				stat_info += '+%s' % str(int(dict.stat_change_amount))
+			if skill_target_type == DataManager.UnitOwner.ENEMY:
+				stat_info += '-%s' % str(int(dict.stat_change_amount))
+		elif dict.stat_change_type == 1:
+			if skill_target_type == DataManager.UnitOwner.PLAYER:
+				stat_info += '+%s%' % str(int(dict.stat_change_amount * 100))
+			if skill_target_type == DataManager.UnitOwner.ENEMY:
+				stat_info += '-%s%' % str(int(dict.stat_change_amount * 100))
+		skill_stats += stat_info + '\n'
 
 	tooltip.set_stats(skill_stats)
 	## create subtooltips
@@ -170,74 +191,42 @@ func set_anim_scale_by_range():
 
 
 func apply_damage(current_target : Unit):
-	if not current_target or current_target.get_state() == DataManager.UnitState.DIED or current_target.get_state() == DataManager.UnitState.DEAD:
+	# таргета нет, то выходим
+	if not current_target or not is_instance_valid(current_target) or current_target.get_state() == DataManager.UnitState.DIED or current_target.get_state() == DataManager.UnitState.DEAD:
 		return
 	
-	# берем урон
-	var attack : float = skill_flat_damage if skill_flat_damage > 0 else skill_tick_damage 
+	var attack : float = skill_flat_damage if skill_flat_damage > 0 else skill_tick_damage
 	
-	if skill_damage_type == DataManager.UnitType.MAGE:
-		attack *= (ceil(current_target.current_inc_damage_magic_mult) - current_target.current_inc_damage_magic_mult)
-	elif skill_damage_type == DataManager.UnitType.ASSASSIN:
-		attack = current_true_damage
-	elif skill_damage_type == DataManager.UnitType.PHYS:
-		attack *= (ceil(current_target.current_inc_physical_magic_mult) - current_target.current_inc_physical_magic_mult)
-	
-	
-	# проверка на хит
-	var hit_chance : float = (current_hit_chance - current_target.current_evade) / 100
+	# проверка на хит (мдля маг урона не работает эвейд)
+	var hit_chance : float = (100 - current_target.current_evade) / 100 if skill_damage_type != DataManager.UnitType.MAGE else 1
 	var hit_check : float = randf()
 	var is_hit : bool = hit_check <= hit_chance
 	if not is_hit:
 		# показать popup "промах"
-		show_miss()
+		current_target.show_miss()
 		return
 	
 	# проверка на крит
-	var crit_chance : float = current_crit_chance / 100
+	var crit_chance : float = skill_owner.mastery * 8 / 100
 	var crit_check : float = randf()
 	var is_crit : bool = crit_check <= crit_chance
 	if is_crit:
 		# поменять цвет попапа и размер
-		attack += attack * (current_crit_attack / 100)
+		attack += attack * (skill_owner.mastery * 10 / 100)
 
-	if not current_target:
+	if not current_target or not is_instance_valid(current_target):
 		return
 	# проверка на броню
-	if current_target.current_armor > 0:
-		var armor = current_target.current_armor if current_target.current_armor < DataManager.max_armor else DataManager.max_armor 
-		attack = attack * (1 - current_target.current_armor / 100)
-		
-	if not current_target:
+	var armor = current_target.current_armor if current_target.current_armor < DataManager.max_armor else DataManager.max_armor
+	var magic_defence = current_target.current_magic_defence if current_target.current_magic_defence < DataManager.max_armor else DataManager.max_armor
+	if skill_damage_type == DataManager.UnitType.MAGE:
+		attack *= ((100 - magic_defence) / 100)
+	elif skill_damage_type == DataManager.UnitType.PHYS:
+		attack *= ((100 - armor) / 100)
+
+	if not current_target or not is_instance_valid(current_target):
 		return
-	# проверка на тип урона
-	if unit_types.has(DataManager.UnitType.MAGE):
-		attack *= (1 - current_target.current_inc_damage_magic_mult / 100)
-	elif unit_types.has(DataManager.UnitType.ASSASSIN):
-		attack *= (1 - current_target.current_inc_damage_physical_mult / 100)
-	
-	if not current_target:
-		return
-	# проверка на увеличение/уменьшение урона
-	var global_mult : float
-	match current_target.unit_family:
-		DataManager.UnitFamily.CASTLE:
-			global_mult += current_damage_mult_vs_castle 
-		DataManager.UnitFamily.HELL:
-			global_mult += current_damage_mult_vs_hell 
-		DataManager.UnitFamily.FOREST:
-			global_mult += current_damage_mult_vs_forest 
-	match unit_family:
-		DataManager.UnitFamily.CASTLE:
-			global_mult -= current_target.current_inc_damage_mult_vs_castle 
-		DataManager.UnitFamily.HELL:
-			global_mult -= current_target.current_inc_damage_mult_vs_hell 
-		DataManager.UnitFamily.FOREST:
-			global_mult -= current_target.current_inc_damage_mult_vs_forest 
-	global_mult += current_damage_mult_vs_all - current_target.current_inc_damage_mult_vs_all
-	attack *= (1 - global_mult)
-	if not current_target:
-		return
+
 	# применить урон к цели
 	current_target.get_damage(round(attack), self, is_crit)
-	print('%s наносит %f урона %s' % [self.unit_name, attack, current_target.unit_name])
+	print('%s наносит %f урона %s' % [skill_owner.hero_name, attack, current_target.unit_name])
