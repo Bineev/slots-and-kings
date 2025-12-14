@@ -43,6 +43,8 @@ func spawn_unit():
 	slots.append(slot)
 	for scene in upgrades_scenes:
 		var upgrade_slot : Slot = scene.instantiate()
+		upgrade_slot.hide()
+		add_child(upgrade_slot)
 		upgrade_slot.initialize()
 		slots.append(upgrade_slot)
 	unit_factory.choose_unit(slots)

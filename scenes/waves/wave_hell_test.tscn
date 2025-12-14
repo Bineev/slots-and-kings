@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://duhp3nb3urafr"]
+
+[ext_resource type="PackedScene" uid="uid://bs3hmeek3f233" path="res://scenes/wave.tscn" id="1_tnukc"]
+[ext_resource type="PackedScene" uid="uid://o11myk65kkml" path="res://scenes/spawns/enemy_spawn_hell_0_test.tscn" id="2_igu3g"]
+
+[node name="WaveHellTest" instance=ExtResource("1_tnukc")]
+enemy_spawn_scenes = Array[PackedScene]([ExtResource("2_igu3g")])
+time_to_next_wave = 30.0

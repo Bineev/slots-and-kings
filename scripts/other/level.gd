@@ -146,6 +146,9 @@ func get_free_random_spawner():
 
 func get_free_random_enemy_spawner():
 	var spawner = free_enemy_spawners.pick_random()
+	if not spawner:
+		clear_enemy_spawns()
+		spawner = free_enemy_spawners.pick_random()
 	spawner.is_filled = true
 	free_enemy_spawners.erase(spawner)
 	
@@ -301,6 +304,9 @@ func get_free_random_fight_point():
 	if free_fight_points.size() == 0:
 		clear_player_spawns()
 	var point = free_fight_points.pick_random()
+	if not point:
+		clear_fight_points()
+		point = free_fight_points.pick_random()
 	point.is_filled = true
 	free_fight_points.erase(point)
 

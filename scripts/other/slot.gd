@@ -27,6 +27,7 @@ func initialize():
 	slot_name = slot_res.slot_name
 	slot_description = slot_res.slot_description
 	entity_tier = slot_res.entity_tier
+	# баз возник когда добавил апгрейды к спавну
 	slot_sprite.sprite_frames = SpriteFrames.new()
 	slot_sprite.sprite_frames.add_frame("default", slot_res.slot_sprite)
 	if slot_type == DataManager.SlotType.UNIT and slot_res is SlotUnitRes:

@@ -4,6 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b3kkot8vuyvh3" path="res://scenes/enemy_spawns/enemy_spawn_hell_0v_1.tscn" id="2_5ddqw"]
 
 [node name="Wave1Diff1" instance=ExtResource("1_kjwrj")]
-enemy_spawn_scenes = Array[PackedScene]([ExtResource("2_5ddqw")])
+enemy_spawn_scenes = Array[PackedScene]([ExtResource("2_5ddqw"), null, null, null, null, null, null, null])
 wave_count = 1
 time_to_next_wave = 30.0
