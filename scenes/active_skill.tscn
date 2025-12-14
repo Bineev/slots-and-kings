@@ -70,19 +70,22 @@ _data = {
 [node name="ActiveSkill" instance=ExtResource("1_t3d48")]
 script = ExtResource("2_r7nbd")
 skill_res = null
-skill_damage_type = 0
-skill_cooldown = 0.0
-skill_delay = 0.0
-skill_flat_damage = 0
-skill_tick_damage = 0
-skill_tick_interval = 0
-skill_duration = 0.0
-skill_buff_amount = 0.0
-skill_buff_stats = Array[String]([])
-skill_flat_heal = 0
-skill_tick_heal = 0
-skill_range = 0.0
+skill_damage_type = null
+skill_cooldown = null
+skill_delay = null
+skill_flat_damage = null
+skill_tick_damage = null
+skill_tick_interval = null
+skill_duration = null
+skill_buff_amount = null
+skill_buff_stats = null
+skill_flat_heal = null
+skill_tick_heal = null
+skill_range = null
 tooltip_scene = ExtResource("3_hh2ii")
+skill_name = null
+skill_desc = null
+skill_target_type = null
 
 [node name="SkillZone" parent="." index="0" instance=ExtResource("3_g3xg3")]
 unique_name_in_owner = true

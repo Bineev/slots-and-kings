@@ -167,3 +167,77 @@ func create_tooltip():
 func set_anim_scale_by_range():
 	var current_scale : float = skill_range / skill_res.skill_anim.get_height() * 1.5
 	skill_anim.scale = Vector2(current_scale, current_scale)
+
+
+func apply_damage(current_target : Unit):
+	if not current_target or current_target.get_state() == DataManager.UnitState.DIED or current_target.get_state() == DataManager.UnitState.DEAD:
+		return
+	
+	# берем урон
+	var attack : float = skill_flat_damage if skill_flat_damage > 0 else skill_tick_damage 
+	
+	if skill_damage_type == DataManager.UnitType.MAGE:
+		attack *= (ceil(current_target.current_inc_damage_magic_mult) - current_target.current_inc_damage_magic_mult)
+	elif skill_damage_type == DataManager.UnitType.ASSASSIN:
+		attack = current_true_damage
+	elif skill_damage_type == DataManager.UnitType.PHYS:
+		attack *= (ceil(current_target.current_inc_physical_magic_mult) - current_target.current_inc_physical_magic_mult)
+	
+	
+	# проверка на хит
+	var hit_chance : float = (current_hit_chance - current_target.current_evade) / 100
+	var hit_check : float = randf()
+	var is_hit : bool = hit_check <= hit_chance
+	if not is_hit:
+		# показать popup "промах"
+		show_miss()
+		return
+	
+	# проверка на крит
+	var crit_chance : float = current_crit_chance / 100
+	var crit_check : float = randf()
+	var is_crit : bool = crit_check <= crit_chance
+	if is_crit:
+		# поменять цвет попапа и размер
+		attack += attack * (current_crit_attack / 100)
+
+	if not current_target:
+		return
+	# проверка на броню
+	if current_target.current_armor > 0:
+		var armor = current_target.current_armor if current_target.current_armor < DataManager.max_armor else DataManager.max_armor 
+		attack = attack * (1 - current_target.current_armor / 100)
+		
+	if not current_target:
+		return
+	# проверка на тип урона
+	if unit_types.has(DataManager.UnitType.MAGE):
+		attack *= (1 - current_target.current_inc_damage_magic_mult / 100)
+	elif unit_types.has(DataManager.UnitType.ASSASSIN):
+		attack *= (1 - current_target.current_inc_damage_physical_mult / 100)
+	
+	if not current_target:
+		return
+	# проверка на увеличение/уменьшение урона
+	var global_mult : float
+	match current_target.unit_family:
+		DataManager.UnitFamily.CASTLE:
+			global_mult += current_damage_mult_vs_castle 
+		DataManager.UnitFamily.HELL:
+			global_mult += current_damage_mult_vs_hell 
+		DataManager.UnitFamily.FOREST:
+			global_mult += current_damage_mult_vs_forest 
+	match unit_family:
+		DataManager.UnitFamily.CASTLE:
+			global_mult -= current_target.current_inc_damage_mult_vs_castle 
+		DataManager.UnitFamily.HELL:
+			global_mult -= current_target.current_inc_damage_mult_vs_hell 
+		DataManager.UnitFamily.FOREST:
+			global_mult -= current_target.current_inc_damage_mult_vs_forest 
+	global_mult += current_damage_mult_vs_all - current_target.current_inc_damage_mult_vs_all
+	attack *= (1 - global_mult)
+	if not current_target:
+		return
+	# применить урон к цели
+	current_target.get_damage(round(attack), self, is_crit)
+	print('%s наносит %f урона %s' % [self.unit_name, attack, current_target.unit_name])

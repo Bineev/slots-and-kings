@@ -128,6 +128,8 @@ var default_food_reward : int = 3
 
 var action_speed_coeff : float = 1.5
 
+var min_damage_mult : float = 0.3
+
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
 	'Bernard', 'Baldo', 'Bran', 'Benedict', 'Bert',
@@ -152,6 +154,8 @@ var default_stats : Dictionary = {
 	'health_mult' : 1,
 	'armor' : 0,
 	'armor_mult' : 1,
+	'magic_defence' : 0,
+	'magic_defence_mult' : 1,
 	'physical_attack' : 0,
 	'physical_attack_mult' : 1,
 	'magical_attack' : 0,
@@ -186,8 +190,6 @@ var default_stats : Dictionary = {
 	'damage_mult_vs_castle' : 1,
 	'damage_mult_vs_hell' : 1,
 	'damage_mult_vs_forest' : 1,
-	'inc_damage_magic_mult' : 1,
-	'inc_damage_physical_mult' : 1,
 	'inc_damage_mult_vs_all' : 1,
 	'inc_damage_mult_vs_castle' : 1,
 	'inc_damage_mult_vs_hell' : 1,
@@ -201,6 +203,8 @@ var default_stats_to_rus : Dictionary = {
 	'health_mult' : 1,
 	'armor' : 'броня',
 	'armor_mult' : 1,
+	'magic_defence' : 'маг защита',
+	'magic_defence_mult' : 1,
 	'physical_attack' : 'физ атака',
 	'physical_attack_mult' : 1,
 	'magical_attack' : 'маг атака',
@@ -235,8 +239,6 @@ var default_stats_to_rus : Dictionary = {
 	'damage_mult_vs_castle' : 'повышение урона против Замка',
 	'damage_mult_vs_hell' : 'повышшение урона против Преисподней',
 	'damage_mult_vs_forest' : 'повышение урона против Леса',
-	'inc_damage_magic_mult' : 'снижение маг урона',
-	'inc_damage_physical_mult' : 'снижение физ урона',
 	'inc_damage_mult_vs_all' : 'снижение урона',
 	'inc_damage_mult_vs_castle' : 'снижение урона от Замка',
 	'inc_damage_mult_vs_hell' : 'снижение урона от Преисподней',

@@ -21,6 +21,8 @@ var stats : Dictionary = {
 	'health_mult' : 1,
 	'armor' : 0,
 	'armor_mult' : 1,
+	'magic_defence' : 0,
+	'magic_defence_mult' : 1,
 	'physical_attack' : 0,
 	'physical_attack_mult' : 1,
 	'magical_attack' : 0,
@@ -55,8 +57,6 @@ var stats : Dictionary = {
 	'damage_mult_vs_castle' : 1,
 	'damage_mult_vs_hell' : 1,
 	'damage_mult_vs_forest' : 1,
-	'inc_damage_magic_mult' : 1,
-	'inc_damage_physical_mult' : 1,
 	'inc_damage_mult_vs_all' : 1,
 	'inc_damage_mult_vs_castle' : 1,
 	'inc_damage_mult_vs_hell' : 1,
@@ -84,6 +84,7 @@ var unique_stats : Dictionary
 var unique_stats_related : Dictionary
 var current_health : float
 var current_armor : float
+var current_magic_defence : float
 var current_physical_attack : float
 var current_magical_attack : float
 var current_hit_chance : float
@@ -188,6 +189,7 @@ func generate_drop_chances():
 func apply_stats():
 	current_health = stats.health * stats.health_mult
 	current_armor = stats.armor * stats.armor_mult
+	current_magic_defence = stats.magic_defence * stats.magic_defence_mult
 	current_physical_attack = stats.physical_attack * stats.physical_attack_mult
 	current_magical_attack = stats.magical_attack * stats.magical_attack_mult
 	current_hit_chance = stats.hit_chance * stats.hit_chance_mult
@@ -490,8 +492,8 @@ func apply_damage():
 		attack = current_physical_attack
 	
 	
-	# проверка на хит
-	var hit_chance : float = (current_hit_chance - current_target.current_evade) / 100
+	# проверка на хит (мдля маг урона не работает эвейд)
+	var hit_chance : float = (current_hit_chance - current_target.current_evade) / 100 if unit_types.has(DataManager.UnitType.PHYS) else current_hit_chance / 100
 	var hit_check : float = randf()
 	var is_hit : bool = hit_check <= hit_chance
 	if not is_hit:
@@ -510,38 +512,33 @@ func apply_damage():
 	if not current_target:
 		return
 	# проверка на броню
-	if current_target.current_armor > 0:
-		var armor = current_target.current_armor if current_target.current_armor < DataManager.max_armor else DataManager.max_armor 
-		attack = attack * (1 - current_target.current_armor / 100)
-		
-	if not current_target:
-		return
-	# проверка на тип урона
+	var armor = current_target.current_armor if current_target.current_armor < DataManager.max_armor else DataManager.max_armor
+	var magic_defence = current_target.current_magic_defence if current_target.current_magic_defence < DataManager.max_armor else DataManager.max_armor
 	if unit_types.has(DataManager.UnitType.MAGE):
-		attack *= (1 - current_target.current_inc_damage_magic_mult / 100)
-	elif unit_types.has(DataManager.UnitType.ASSASSIN):
-		attack *= (1 - current_target.current_inc_damage_physical_mult / 100)
-	
+		attack *= ((100 - magic_defence) / 100)
+	elif unit_types.has(DataManager.UnitType.PHYS):
+		attack *= ((100 - armor) / 100)
+
 	if not current_target:
 		return
 	# проверка на увеличение/уменьшение урона
-	var global_mult : float
+	var global_mult : float = 1
 	match current_target.unit_family:
 		DataManager.UnitFamily.CASTLE:
-			global_mult += current_damage_mult_vs_castle 
+			global_mult += abs(1 - current_damage_mult_vs_castle) 
 		DataManager.UnitFamily.HELL:
-			global_mult += current_damage_mult_vs_hell 
+			global_mult += abs(1 - current_damage_mult_vs_hell) 
 		DataManager.UnitFamily.FOREST:
-			global_mult += current_damage_mult_vs_forest 
+			global_mult += abs(1 - current_damage_mult_vs_forest) 
 	match unit_family:
 		DataManager.UnitFamily.CASTLE:
-			global_mult -= current_target.current_inc_damage_mult_vs_castle 
+			global_mult += (1 - current_target.current_inc_damage_mult_vs_castle) 
 		DataManager.UnitFamily.HELL:
-			global_mult -= current_target.current_inc_damage_mult_vs_hell 
+			global_mult += (1 - current_target.current_inc_damage_mult_vs_hell) 
 		DataManager.UnitFamily.FOREST:
-			global_mult -= current_target.current_inc_damage_mult_vs_forest 
+			global_mult += (1 - current_target.current_inc_damage_mult_vs_forest) 
 	global_mult += current_damage_mult_vs_all - current_target.current_inc_damage_mult_vs_all
-	attack *= (1 - global_mult)
+	attack = attack * global_mult if global_mult > DataManager.min_damage_mult else attack * DataManager.min_damage_mult
 	if not current_target:
 		return
 	# применить урон к цели

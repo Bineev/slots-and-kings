@@ -13,6 +13,8 @@ class_name SlotRes
 @export var health_mult : float = 1
 @export var armor : float = 0
 @export var armor_mult : float = 1
+@export var magic_defence : float = 0
+@export var magic_defence_mult : float = 1
 @export var physical_attack : float = 0
 @export var physical_attack_mult : float = 1
 @export var magical_attack : float = 0
@@ -47,8 +49,6 @@ class_name SlotRes
 @export var damage_mult_vs_castle : float = 1
 @export var damage_mult_vs_hell : float = 1
 @export var damage_mult_vs_forest : float = 1
-@export var inc_damage_magic_mult : float = 1
-@export var inc_damage_physical_mult : float = 1
 @export var inc_damage_mult_vs_all : float = 1
 @export var inc_damage_mult_vs_castle : float = 1
 @export var inc_damage_mult_vs_hell : float = 1

@@ -195,6 +195,8 @@ func apply_slots(new_unit : Unit, slots):
 		new_unit.stats.health_mult += slot.slot_res.health_mult - 1
 		new_unit.stats.armor += slot.slot_res.armor
 		new_unit.stats.armor_mult += slot.slot_res.armor_mult - 1
+		new_unit.stats.magic_defence += slot.slot_res.magic_defence
+		new_unit.stats.magic_defence_mult += slot.slot_res.magic_defence_mult - 1
 		new_unit.stats.physical_attack += slot.slot_res.physical_attack
 		new_unit.stats.physical_attack_mult += slot.slot_res.physical_attack_mult - 1
 		new_unit.stats.magical_attack += slot.slot_res.magical_attack
@@ -229,8 +231,6 @@ func apply_slots(new_unit : Unit, slots):
 		new_unit.stats.damage_mult_vs_castle += slot.slot_res.damage_mult_vs_castle - 1
 		new_unit.stats.damage_mult_vs_hell += slot.slot_res.damage_mult_vs_hell - 1
 		new_unit.stats.damage_mult_vs_forest += slot.slot_res.damage_mult_vs_forest - 1
-		new_unit.stats.inc_damage_magic_mult += slot.slot_res.inc_damage_magic_mult - 1
-		new_unit.stats.inc_damage_physical_mult += slot.slot_res.inc_damage_physical_mult - 1
 		new_unit.stats.inc_damage_mult_vs_all += slot.slot_res.inc_damage_mult_vs_all - 1
 		new_unit.stats.inc_damage_mult_vs_castle += slot.slot_res.inc_damage_mult_vs_castle - 1
 		new_unit.stats.inc_damage_mult_vs_hell += slot.slot_res.inc_damage_mult_vs_hell - 1
