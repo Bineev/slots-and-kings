@@ -61,10 +61,7 @@ func recalculate_stats():
 	#skill_res.skill_buff_amount + skill_res.skill_buff_amount / 15 * skill_owner.grace
 	for dict in skill_buff_stats:
 		if dict.stat_change_type == 0:
-			if skill_damage_type == DataManager.UnitOwner.PLAYER:
-				dict.stat_change_amount = dict.stat_change_amount + dict.stat_change_amount / 10 * skill_owner.grace
-			else:
-				dict.stat_change_amount = dict.stat_change_amount - dict.stat_change_amount / 10 * skill_owner.grace
+			dict.stat_change_amount = dict.stat_change_amount + dict.stat_change_amount / 10 * skill_owner.grace
 		elif dict.stat_change_type == 1:
 			if skill_damage_type == DataManager.UnitOwner.PLAYER:
 				dict.stat_change_amount = dict.stat_change_amount + dict.stat_change_amount / 15 * skill_owner.grace

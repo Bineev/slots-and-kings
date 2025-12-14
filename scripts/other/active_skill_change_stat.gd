@@ -24,11 +24,20 @@ func activate():
 func deactivate():
 	for target in targets:
 		back_stat_to_default(target)
+	clear_targets()
 
 
 func apply_change_stat(unit : Unit):
-	unit.get('current_') % 
+	for dict in skill_buff_stats:
+		if dict.stat_change_type == 0:
+			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
+		elif dict.stat_change_type == 1:
+			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
 
 
 func back_stat_to_default(unit : Unit):
-	pass
+	for dict in skill_buff_stats:
+		if dict.stat_change_type == 0:
+			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) - dict.stat_change_amount)
+		elif dict.stat_change_type == 1:
+			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) / dict.stat_change_amount)
