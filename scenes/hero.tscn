@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c050s5drr5wmc" path="res://scripts/other/hero.gd" id="1_3uyx6"]
 [ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_yvbpl"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_mv13s"]
-[ext_resource type="PackedScene" uid="uid://doe3ucvbmbdn4" path="res://scenes/skills/castle_cannonball.tscn" id="3_w7pyx"]
+[ext_resource type="PackedScene" uid="uid://bldarqm61aen1" path="res://scenes/skills/knight_shield_up.tscn" id="3_w7pyx"]
 [ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="4_w7pyx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y2sko"]

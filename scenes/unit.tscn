@@ -155,24 +155,11 @@ collision_layer = 0
 collision_mask = 0
 input_pickable = true
 script = ExtResource("1_o7ajc")
-unit_family = null
-unit_tier = null
-unit_types = null
-unit_cost = null
-entity_tier = null
 info_popup_UI_scene = ExtResource("2_gic7v")
 info_damage_popup_ui_scene = ExtResource("3_gic7v")
 blood_particle_scene = ExtResource("4_tb304")
-slot_resources = null
 tooltip_scene = ExtResource("5_ruro2")
 subtooltip_scene = ExtResource("6_e8hdl")
-unit_state = null
-unit_owner = null
-unit_name = null
-unit_desc = null
-is_active = null
-get_target_setting = null
-is_tooltip_shown = null
 
 [node name="unit_collision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -191,6 +178,7 @@ frame = 10
 
 [node name="unit_status_sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, -12)
 texture = ExtResource("8_oee7j")
 hframes = 2

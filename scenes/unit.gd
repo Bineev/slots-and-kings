@@ -104,8 +104,6 @@ var current_damage_mult_vs_all : float
 var current_damage_mult_vs_castle : float
 var current_damage_mult_vs_hell : float
 var current_damage_mult_vs_forest : float
-var current_inc_damage_magic_mult : float
-var current_inc_damage_physical_mult : float
 var current_inc_damage_mult_vs_all : float
 var current_inc_damage_mult_vs_castle : float
 var current_inc_damage_mult_vs_hell : float
@@ -205,6 +203,15 @@ func apply_stats():
 	current_health_regen_interval = stats.health_regen_interval * stats.health_regen_interval_mult
 	current_true_damage = stats.true_damage * stats.true_damage_mult
 	current_scout_range = stats.scout_range * stats.scout_range_mult
+	current_damage_mult_vs_all = stats.damage_mult_vs_all
+	current_damage_mult_vs_castle = stats.damage_mult_vs_castle
+	current_damage_mult_vs_hell = stats.damage_mult_vs_hell
+	current_damage_mult_vs_forest = stats.damage_mult_vs_forest
+	current_inc_damage_mult_vs_all = stats.inc_damage_mult_vs_all
+	current_inc_damage_mult_vs_castle = stats.inc_damage_mult_vs_castle
+	current_inc_damage_mult_vs_hell = stats.inc_damage_mult_vs_hell
+	current_inc_damage_mult_vs_forest = stats.inc_damage_mult_vs_forest
+	
 
 
 func initialize(slot : Slot, owner : DataManager.UnitOwner):
@@ -269,6 +276,7 @@ func set_collisions_by_owner():
 
 
 func parse_stats():
+	unique_stats = {}
 	for stat in DataManager.default_stats.keys():
 		if get('current_' + stat) == DataManager.default_stats[stat] or stat.contains('mult') or stat.contains('scout'):
 			continue

@@ -5,23 +5,10 @@
 
 [node name="ActiveSkillChangeStat" instance=ExtResource("1_sasin")]
 script = ExtResource("2_jykhi")
-skill_damage_type = null
-skill_cooldown = null
-skill_delay = null
-skill_flat_damage = null
-skill_tick_damage = null
-skill_tick_interval = null
-skill_duration = null
-skill_buff_amount = null
-skill_buff_stats = null
-skill_flat_heal = null
-skill_tick_heal = null
-skill_range = null
-skill_name = null
-skill_desc = null
-skill_target_type = null
 
 [node name="timer_deactivate" type="Timer" parent="." index="7"]
 unique_name_in_owner = true
 wait_time = 1000.0
 one_shot = true
+
+[connection signal="timeout" from="timer_deactivate" to="." method="_on_timer_deactivate_timeout"]

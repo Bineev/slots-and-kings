@@ -102,7 +102,8 @@ func start_skill():
 	timer_skill_delay.start()
 	skill_anim.global_position = skill_zone.global_position
 	set_anim_scale_by_range()
-	skill_anim_player.play('skill')
+	if skill_anim_player.get_animation('skill'):
+		skill_anim_player.play('skill')
 	skill_zone.hide()
 	skill_zone.set_is_stopped(true)
 	timer_cd.start()
@@ -158,7 +159,7 @@ func create_tooltip():
 	if skill_duration > 0:
 		skill_stats += 'длительность: %.1f\n' % skill_duration
 	for dict in skill_buff_stats:
-		var stat_info : String = DataManager.hero_stats_to_rus[dict.stat_name] + ': '
+		var stat_info : String = DataManager.default_stats_to_rus[dict.stat_name] + ': '
 		if dict.stat_change_type == 0:
 			if skill_target_type == DataManager.UnitOwner.PLAYER:
 				stat_info += '+%s' % str(int(dict.stat_change_amount))
@@ -183,6 +184,8 @@ func create_tooltip():
 
 
 func set_anim_scale_by_range():
+	if not skill_anim_player.get_animation("skill") or not skill_anim.texture:
+		return
 	var current_scale : float = skill_range / skill_res.skill_anim.get_height() * 1.5
 	skill_anim.scale = Vector2(current_scale, current_scale)
 
