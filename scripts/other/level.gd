@@ -62,6 +62,7 @@ func _ready() -> void:
 	SignalManager.on_show_tooltip.connect(add_tooltip)
 	SignalManager.on_hide_tooltip.connect(remove_tooltip)
 	SignalManager.on_add_hero_to_field.connect(add_hero_to_field)
+	SignalManager.on_add_unit_from_skill.connect(add_unit_from_skill)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
@@ -132,6 +133,18 @@ func create_unit_from_scratch():
 	Player.add_unit_to_player_units(unit)
 	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
 		unit.is_in_fight = true
+
+
+func add_unit_from_skill(unit : Unit, spawn_position : Vector2):
+	player_units.add_child(unit)
+	unit.initialize(unit.slots[0], DataManager.UnitOwner.PLAYER)
+	unit.fight_point = get_free_random_spawner()
+	unit.global_position = spawn_position
+	unit.set_active()
+	Player.add_unit_to_player_units(unit)
+	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
+		unit.is_in_fight = true
+
 
 
 func get_free_random_spawner():

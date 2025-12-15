@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HeroStatRes" load_steps=4 format=3 uid="uid://dynkis8j2hap1"]
 
-[ext_resource type="PackedScene" uid="uid://bldarqm61aen1" path="res://scenes/skills/knight_shield_up.tscn" id="1_0os8g"]
+[ext_resource type="PackedScene" uid="uid://bse1b72tpyt2j" path="res://scenes/skills/knight_summon_knight.tscn" id="1_0os8g"]
 [ext_resource type="Script" uid="uid://1x2ug41h1aiq" path="res://resources/hero_stat_res.gd" id="1_ajajf"]
 [ext_resource type="Texture2D" uid="uid://lm6yxbajv2oi" path="res://img/heroes/hero_castle_knight.png" id="1_c110m"]
 

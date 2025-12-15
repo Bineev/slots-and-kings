@@ -15,6 +15,7 @@ class_name Unit
 @export var tooltip_scene : PackedScene
 @export var tooltip : TooltipUnit
 @export var subtooltip_scene : PackedScene
+@export var unit_attack_type : DataManager.AttackType
 # stats and multiplicators
 var stats : Dictionary = {
 	'health' : 0,
@@ -124,7 +125,7 @@ var actual_health : float
 
 func _ready() -> void:
 	SignalManager.on_wave_done.connect(set_not_is_in_fight)
-	SignalManager.on_unit_die.connect(clear_target)
+	#SignalManager.on_unit_die.connect(clear_target)
 	SignalManager.on_start_spawn.connect(set_is_in_fight)
 	SignalManager.on_hide_unit_tooltip.connect(hide_unit_tooltip)
 
@@ -225,6 +226,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	unit_family = slot.slot_res.unit_family
 	unit_tier = slot.slot_unit_tier
 	entity_tier = slot.entity_tier
+	unit_attack_type = slot.unit_attack_type
 	unit_sprite.texture = slot.slot_res.unit_sprite
 	slot_unit_res = slot.slot_res
 	var ar_shape = CircleShape2D.new()
@@ -298,6 +300,8 @@ func generate_related_stats(stat, stat_rus):
 			unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.LESSER
 		elif unique_stats_related[DataManager.default_stats_to_rus[stat]] == DataManager.RelateType.LESSER:
 			unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.GREATER
+			
+			
 func change_state(new_state : DataManager.UnitState):
 	is_should_change_state = true
 	previous_state = unit_state
@@ -311,13 +315,14 @@ func apply_state():
 			if unit_state != DataManager.UnitState.DIED and unit_state != DataManager.UnitState.DEAD:
 				#unit_anim_player.stop()
 				unit_anim_player.play('idle')
+				print(unit_name + ' idle')
 				unit_anim_player.speed_scale = DataManager.action_speed_coeff
 		DataManager.UnitState.WALK:
 			#unit_anim_player.stop()
 			unit_anim_player.play('walk')
 			unit_anim_player.speed_scale = current_move_speed / 30 * DataManager.action_speed_coeff
 		DataManager.UnitState.ATTACK:
-			#unit_anim_player.stop()
+			unit_anim_player.stop()
 			unit_anim_player.play('attack')
 		DataManager.UnitState.DIED:
 			#unit_anim_player.stop()
@@ -371,9 +376,6 @@ func fight():
 		change_state(DataManager.UnitState.IDLE)
 
 
-
-
-
 func stop_fight():
 	is_in_fight = false
 
@@ -384,12 +386,16 @@ func attack():
 	# установить скорость анимации исходя из скорости атаки
 	unit_sprite.flip_h = current_target and current_target.global_position.x < global_position.x
 	unit_anim_player.speed_scale = 2 / current_attack_speed * DataManager.action_speed_coeff
-	print(5 / current_attack_speed * DataManager.action_speed_coeff)
 	change_state(DataManager.UnitState.ATTACK)
 	is_can_attack = false
+	if unit_attack_type == DataManager.AttackType.AOE:
+		var enemies : Array[Unit] = enemies_in_range.duplicate()
+		for target in enemies:
+			apply_damage(target)
+	else:
+		apply_damage(current_target)
 	timer_aspd.wait_time = current_attack_speed / DataManager.action_speed_coeff
 	timer_aspd.start()
-	apply_damage()
 
 
 func attack_castle():
@@ -483,10 +489,10 @@ func _on_timer_aspd_timeout() -> void:
 	change_state(DataManager.UnitState.IDLE)
 
 
-func apply_damage():
+
+func apply_damage(new_current_target : Unit):
+	current_target = new_current_target
 	if not current_target or not is_instance_valid(current_target) or current_target.get_state() == DataManager.UnitState.DIED or current_target.get_state() == DataManager.UnitState.DEAD:
-		change_state(DataManager.UnitState.IDLE)
-		is_can_attack = true
 		return
 	
 	# берем нужный тип атаки

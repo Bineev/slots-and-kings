@@ -43,6 +43,7 @@ var heroes : Array[Hero]
 var current_wave_count : int
 var next_create_units_count : int
 var hero_factory : HeroFactory
+var unit_factory : UnitFactory
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
@@ -297,3 +298,11 @@ func get_random_hero(hero_level : int):
 	var hero : Hero = hero_factory.get_random_hero(hero_level)
 	heroes.append(hero)
 	SignalManager.on_add_hero_to_field.emit(hero)
+
+
+func set_unit_factory(new_unit_factory : UnitFactory):
+	unit_factory = new_unit_factory
+
+
+func get_unit_factory():
+	return unit_factory

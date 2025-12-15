@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4lgqx36hrn1f"]
+
+[ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_krsra"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xuux1"]
+height = 22.0
+
+[node name="CastleKnight" instance=ExtResource("1_krsra")]
+
+[node name="unit_collision" parent="." index="0"]
+position = Vector2(-2, 13)
+shape = SubResource("CapsuleShape2D_xuux1")
+
+[node name="unit_shadow_sprite" parent="." index="1"]
+position = Vector2(-2, 21)
+scale = Vector2(1.5, 1.5)

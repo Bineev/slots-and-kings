@@ -8,6 +8,7 @@ class_name Slot
 @export var entity_tier : DataManager.EntityTier
 @export var shader : Shader
 @export var tooltip_scene : PackedScene
+@export var unit_attack_type : DataManager.AttackType
 
 var slot_name : String
 var slot_description : String
@@ -34,6 +35,7 @@ func initialize():
 		slot_unit_tier = slot_res.unit_tier
 		unit_types = slot_res.unit_types
 		unit_cost = slot_res.unit_cost
+		unit_attack_type = slot_res.unit_attack_type
 	create_tooltip()
 
 

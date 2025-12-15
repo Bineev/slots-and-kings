@@ -21,6 +21,8 @@ func _ready() -> void:
 	SignalManager.on_not_enough_food.connect(disable_create_button)
 	SignalManager.on_enough_food.connect(enable_create_button)
 	SignalManager.on_res_change.connect(update_buttons)
+	await get_tree().process_frame
+	Player.set_unit_factory(castle_unit_factory)
 	#first_column.pre_spin()
 	#second_column.pre_spin()
 	#third_column.pre_spin()

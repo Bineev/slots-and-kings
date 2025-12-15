@@ -37,6 +37,7 @@ func initialize():
 	skill_delay = skill_res.skill_delay
 	skill_damage_type = skill_res.skill_damage_type
 	skill_target_type = skill_res.skill_target_type
+
 	# инициализируем статы
 	# пересчитываем исходя из стат героя
 	recalculate_stats()

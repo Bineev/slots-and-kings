@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhn74hpisi7pp"]
+[gd_scene load_steps=7 format=3 uid="uid://dhn74hpisi7pp"]
 
 [ext_resource type="PackedScene" uid="uid://d1bv4n8c15lwr" path="res://scenes/unit_factory.tscn" id="1_ax7w4"]
 [ext_resource type="PackedScene" uid="uid://ur2h318rl3w0" path="res://scenes/units/castle_villein.tscn" id="2_olsyv"]
 [ext_resource type="PackedScene" uid="uid://beb467pe7mklk" path="res://scenes/units/castle_fyrd.tscn" id="3_6j83w"]
 [ext_resource type="PackedScene" uid="uid://7iq5iq0xb4wg" path="res://scenes/units/castle_yeomen.tscn" id="4_wht8r"]
 [ext_resource type="PackedScene" uid="uid://cuk5d1uwhiurv" path="res://scenes/units/castle_warlock.tscn" id="5_nlq1y"]
+[ext_resource type="PackedScene" uid="uid://b4lgqx36hrn1f" path="res://scenes/units/castle_knight.tscn" id="6_6j83w"]
 
 [node name="CastleUnitFactory" instance=ExtResource("1_ax7w4")]
 T0 = ExtResource("2_olsyv")
 T1_1 = ExtResource("3_6j83w")
 T1_2 = ExtResource("4_wht8r")
 T2_1 = ExtResource("5_nlq1y")
+T3_1 = ExtResource("6_6j83w")
