@@ -4,5 +4,5 @@
 [ext_resource type="PackedScene" uid="uid://o11myk65kkml" path="res://scenes/spawns/enemy_spawn_hell_0_test.tscn" id="2_igu3g"]
 
 [node name="WaveHellTest" instance=ExtResource("1_tnukc")]
-enemy_spawn_scenes = Array[PackedScene]([ExtResource("2_igu3g")])
+enemy_spawn_scenes = Array[PackedScene]([ExtResource("2_igu3g"), ExtResource("2_igu3g"), ExtResource("2_igu3g"), ExtResource("2_igu3g"), ExtResource("2_igu3g"), ExtResource("2_igu3g")])
 time_to_next_wave = 10.0
