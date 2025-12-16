@@ -82,6 +82,10 @@ enum AttackType {
 	SINGLE, AOE
 }
 
+enum PassiveSkillType {
+	RES_BY_WAVE, HEALTH_BY_WAVE, RES_BY_TIME, HEALTH_BY_TIME, UNIT_STAT, UNIT_TYPE
+}
+
 var default_hero_up_order : Array[HeroUpType] = [HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT]
 
 
