@@ -7,6 +7,7 @@ class_name ActiveSkill
 @export var skill_damage_type : DataManager.UnitType
 
 @export var is_void_zone : bool
+@export var is_trap : bool
 @export var skill_cooldown : float
 @export var skill_delay : float
 @export var skill_flat_damage : int
@@ -76,7 +77,7 @@ func initialize():
 	skill_zone.set_skill(self)
 	skill_zone.initialize()
 	create_tooltip()
-	if is_void_zone:
+	if is_void_zone or is_trap:
 		skill_anim.z_index = 0
 		if skill_anim_player.get_animation('skill'):
 			skill_anim_player.get_animation("skill").loop_mode = Animation.LOOP_LINEAR
@@ -133,6 +134,8 @@ func activate():
 	if not is_void_zone and unit_slots_scenes.size() == 0 and targets.size() == 0:
 		skill_zone.stop_working()
 		return
+	if is_trap:
+		modulate = Color8(255, 255, 255, 255)
 	# проверяем, продолжительный ли это скилл
 	if skill_duration > 0:
 		timer_deactivate.wait_time = skill_duration
@@ -184,6 +187,8 @@ func start_skill():
 	set_anim_scale_by_range()
 	if skill_anim_player.get_animation('skill'):
 		skill_anim_player.play('skill')
+		if is_trap:
+			skill_anim.modulate = Color8(255, 255, 255, 100)
 	skill_zone.hide()
 	skill_zone.set_is_stopped(true)
 	timer_cd.start()
