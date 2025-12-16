@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://bn2ulok870w01"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_0pnpt"]
+[ext_resource type="Texture2D" uid="uid://cc86bpp5vgerw" path="res://img/skills/passive_skill_chainmail-export.png" id="2_5t525"]
+
+[resource]
+script = ExtResource("1_0pnpt")
+skill_passive_type = 5
+skill_tier = 3
+skill_name = "кольчуга"
+skill_desc = "все мили юниты получают 20 армора"
+skill_preview = ExtResource("2_5t525")
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "armor"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

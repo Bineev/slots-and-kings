@@ -105,6 +105,7 @@ func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOw
 	Player.add_unit_to_enemy_units(unit)
 	unit.is_in_fight = true
 	unit.fight_point = get_free_random_fight_point()
+	SignalManager.on_unit_created.emit(unit)
 
 
 func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
@@ -135,6 +136,7 @@ func create_unit_from_scratch():
 	Player.add_unit_to_player_units(unit)
 	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
 		unit.is_in_fight = true
+	SignalManager.on_unit_created.emit(unit)
 
 
 func add_unit_from_skill(unit : Unit, spawn_position : Vector2):
@@ -146,7 +148,7 @@ func add_unit_from_skill(unit : Unit, spawn_position : Vector2):
 	Player.add_unit_to_player_units(unit)
 	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
 		unit.is_in_fight = true
-
+	SignalManager.on_unit_created.emit(unit)
 
 
 func get_free_random_spawner():
@@ -411,7 +413,6 @@ func unpause_timers():
 
 func recursive_find(node, target_type, result_array):
 	for child in node.get_children():
-		print(is_instance_of(child, target_type))
 		if is_instance_of(child, target_type):
 			result_array.append(child)
 		recursive_find(child, target_type, result_array) # Рекурсивный вызов

@@ -9,6 +9,7 @@ script = ExtResource("2_y2pvd")
 skill_res = null
 skill_passive_type = 0
 skill_damage_type = 0
+skill_unit_name = ""
 skill_buff_stats = []
 skill_resources = []
 skill_resources_amounts = []

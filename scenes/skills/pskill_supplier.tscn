@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpg805vv2j6lj"]
+
+[ext_resource type="PackedScene" uid="uid://ci3dmlfk4dtx6" path="res://scenes/passive_skill.tscn" id="1_nkogb"]
+[ext_resource type="Resource" uid="uid://eoj7jwndo6xy" path="res://resources/pskill_supplier.tres" id="2_f3fd7"]
+
+[node name="PskillSupplier" instance=ExtResource("1_nkogb")]
+skill_res = ExtResource("2_f3fd7")

@@ -6,6 +6,7 @@ class_name PassiveSkill
 @export var skill_res : PassiveSkillRes
 @export var skill_passive_type : DataManager.PassiveSkillType
 @export var skill_damage_type : DataManager.UnitType
+@export var skill_unit_name : String
 @export var skill_buff_stats : Array
 @export var skill_resources : Array
 @export var skill_resources_amounts : Array
@@ -32,6 +33,7 @@ func initialize():
 	skill_wave_count = skill_res.skill_wave_count
 	skill_passive_type = skill_res.skill_passive_type
 	get_something_time = skill_res.get_something_time
+	skill_unit_name = skill_res.skill_unit_name
 	# пересчитываем исходя из стат героя
 	recalculate_stats()
 	texture = skill_res.skill_preview
@@ -64,10 +66,12 @@ func parse_skill():
 		DataManager.PassiveSkillType.HEALTH_BY_TIME:
 			timer_get_health.wait_time = get_something_time
 			timer_get_health.start()
-		DataManager.PassiveSkillType.UNIT_STAT:
-			pass
+		DataManager.PassiveSkillType.UNIT_NAME:
+			apply_stats()
+			SignalManager.on_unit_created.connect(apply_stat)
 		DataManager.PassiveSkillType.UNIT_TYPE:
-			pass
+			apply_stats()
+			SignalManager.on_unit_created.connect(apply_stat)
 
 
 func add_res_by_wave():
@@ -93,8 +97,37 @@ func add_health():
 
 
 func _on_timer_get_res_timeout() -> void:
-	pass
-
+	add_res()
 
 func _on_timer_get_health_timeout() -> void:
-	pass # Replace with function body.
+	add_health()
+
+
+func apply_stats():
+	var units : Array[Unit] = Player.get_player_units() if skill_target_type == DataManager.UnitOwner.PLAYER else Player.get_enemies()
+	#if skill_passive_type == DataManager.PassiveSkillType.UNIT_TYPE:
+		#units = units.filter(func(new_unit : Unit): return new_unit.unit_types.has(skill_damage_type))
+	#if skill_passive_type == DataManager.PassiveSkillType.UNIT_NAME:
+		#units = units.filter(func(new_unit : Unit): return new_unit.unit_name == skill_unit_name)
+	#print(units)
+	for unit in units:
+		if unit and is_instance_valid(unit):
+			apply_stat(unit)
+
+
+func apply_stat(current_unit : Unit):
+	await get_tree().process_frame
+	if current_unit.unit_owner != skill_target_type:
+		return
+	if skill_passive_type == DataManager.PassiveSkillType.UNIT_TYPE and not current_unit.unit_types.has(skill_damage_type):
+		return
+	if skill_passive_type == DataManager.PassiveSkillType.UNIT_NAME and not current_unit.unit_name == skill_unit_name:
+		return
+	for dict in skill_buff_stats:
+		if dict.stat_change_type == 0:
+			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
+		elif dict.stat_change_type == 1:
+			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
+	current_unit.hide_tooltip()
+	current_unit.parse_stats()
+	current_unit.create_tooltip()

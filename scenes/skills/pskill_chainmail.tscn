@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5gfkbsnvwldr"]
+
+[ext_resource type="PackedScene" uid="uid://ci3dmlfk4dtx6" path="res://scenes/passive_skill.tscn" id="1_0yk0y"]
+[ext_resource type="Resource" uid="uid://bn2ulok870w01" path="res://resources/pskill_chainmail.tres" id="2_6ggw6"]
+
+[node name="PskillChainmail" instance=ExtResource("1_0yk0y")]
+skill_res = ExtResource("2_6ggw6")

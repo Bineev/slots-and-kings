@@ -10,6 +10,7 @@ class_name PassiveSkillRes
 @export var skill_preview : Texture2D
 @export var skill_target_type : DataManager.UnitOwner
 @export var skill_damage_type : DataManager.UnitType
+@export var skill_unit_name : String
 @export var skill_buff_stats : Array[Dictionary]
 @export var skill_resources : Array[DataManager.ResType]
 @export var skill_resources_amounts : Array[int]

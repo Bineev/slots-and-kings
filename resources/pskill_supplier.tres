@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://eoj7jwndo6xy"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_8ow7r"]
+[ext_resource type="Texture2D" uid="uid://cv78cbssjtst1" path="res://img/skills/passive_skill_supplier-export.png" id="2_4qhyx"]
+
+[resource]
+script = ExtResource("1_8ow7r")
+skill_passive_type = 2
+skill_tier = 1
+skill_name = "снабженец"
+skill_desc = "дает 5 еды каждые 3 минуты"
+skill_preview = ExtResource("2_4qhyx")
+skill_resources = Array[int]([1])
+skill_resources_amounts = Array[int]([5])
+get_something_time = 180
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
