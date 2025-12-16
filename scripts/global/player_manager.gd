@@ -306,3 +306,8 @@ func set_unit_factory(new_unit_factory : UnitFactory):
 
 func get_unit_factory():
 	return unit_factory
+
+
+func get_heal(amount : int):
+	current_health = clamp(current_health + amount, 0, health)
+	SignalManager.on_player_get_health.emit()

@@ -14,4 +14,5 @@ class_name PassiveSkillRes
 @export var skill_resources : Array[DataManager.ResType]
 @export var skill_resources_amounts : Array[int]
 @export var skill_health_amount : int
+@export var skill_wave_count : int
 # {stat_name : current_stat, stat_change_type : 0 (+) or 1 (*), stat_change_amount : float}

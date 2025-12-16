@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://bbty1w5nouaer"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_sja3r"]
+[ext_resource type="Texture2D" uid="uid://b8etc2k5lyoxt" path="res://img/skills/passive_skill_turnpenny_2-export.png" id="2_8uh2h"]
+
+[resource]
+script = ExtResource("1_sja3r")
+skill_tier = 1
+skill_name = "стяжатель"
+skill_desc = "каждую четную волну приносит 200 золота"
+skill_preview = ExtResource("2_8uh2h")
+skill_resources = Array[int]([0])
+skill_resources_amounts = Array[int]([200])
+skill_wave_count = 2
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

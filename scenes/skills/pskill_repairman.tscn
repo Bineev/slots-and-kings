@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3no5wdvonsb7"]
+
+[ext_resource type="PackedScene" uid="uid://ci3dmlfk4dtx6" path="res://scenes/passive_skill.tscn" id="1_oxtog"]
+[ext_resource type="Resource" uid="uid://d244ox2nldr6u" path="res://resources/pskill_repairman.tres" id="2_sw02d"]
+
+[node name="PskillRepairman" instance=ExtResource("1_oxtog")]
+skill_res = ExtResource("2_sw02d")

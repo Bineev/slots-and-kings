@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=28 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cypodhfnqqklh" path="res://img/castle_UI.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dwrt5w7q3wbfy" path="res://scenes/slot_machine.tscn" id="2_w8frs"]
 [ext_resource type="PackedScene" uid="uid://dc735g5w8l21r" path="res://scenes/waves/wave_1_diff_1.tscn" id="3_8c41q"]
-[ext_resource type="PackedScene" uid="uid://duhp3nb3urafr" path="res://scenes/waves/wave_hell_test.tscn" id="3_8gofh"]
 [ext_resource type="PackedScene" uid="uid://cndgsot5m7anv" path="res://scenes/reward_after_wave_ui.tscn" id="4_olg7q"]
 [ext_resource type="PackedScene" uid="uid://ht8303wxnf5o" path="res://scenes/spawner.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://hcjh0c5pnpmr" path="res://scenes/building_empty.tscn" id="6_2r41h"]
@@ -80,7 +79,7 @@ fill_from = Vector2(0.4957265, 0.508547)
 [node name="Level" type="Node2D"]
 script = ExtResource("1_klq6b")
 unit_preview_scene = ExtResource("2_klq6b")
-waves_scenes = Array[PackedScene]([ExtResource("3_8gofh"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q")])
+waves_scenes = Array[PackedScene]([ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q")])
 first_wave_timer = 3.0
 wave_rewards = Array[int]([1, 2, 3, 4])
 wave_reward_UI_scene = ExtResource("4_olg7q")

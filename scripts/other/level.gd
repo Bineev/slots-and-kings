@@ -63,6 +63,7 @@ func _ready() -> void:
 	SignalManager.on_hide_tooltip.connect(remove_tooltip)
 	SignalManager.on_add_hero_to_field.connect(add_hero_to_field)
 	SignalManager.on_add_unit_from_skill.connect(add_unit_from_skill)
+	SignalManager.on_player_get_health.connect(update_hp_bar)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7emlypuw54wn"]
+
+[ext_resource type="PackedScene" uid="uid://ci3dmlfk4dtx6" path="res://scenes/passive_skill.tscn" id="1_qhpxs"]
+[ext_resource type="Resource" uid="uid://bbty1w5nouaer" path="res://resources/pskill_200gold_each_2_wave.tres" id="2_b63ik"]
+
+[node name="PskilTurnpenny" instance=ExtResource("1_qhpxs")]
+skill_res = ExtResource("2_b63ik")
+skill_passive_type = 0
+skill_damage_type = 0
+skill_buff_stats = Array[Dictionary]([])
+skill_resources = Array[Dictionary]([])
+skill_resources_amounts = Array[Dictionary]([])
+skill_health_amount = 0
