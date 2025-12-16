@@ -14,4 +14,16 @@ skill_resources = []
 skill_resources_amounts = []
 skill_health_amount = 0
 skill_wave_count = 0
+get_something_time = 0
 tooltip_scene = ExtResource("3_fuant")
+
+[node name="timer_get_res" type="Timer" parent="." index="0"]
+unique_name_in_owner = true
+wait_time = 1000.0
+
+[node name="timer_get_health" type="Timer" parent="." index="1"]
+unique_name_in_owner = true
+wait_time = 1000.0
+
+[connection signal="timeout" from="timer_get_res" to="." method="_on_timer_get_res_timeout"]
+[connection signal="timeout" from="timer_get_health" to="." method="_on_timer_get_health_timeout"]

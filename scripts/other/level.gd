@@ -56,6 +56,7 @@ func _ready() -> void:
 	SignalManager.on_new_wave_start.connect(start_next_wave_countdown)
 	SignalManager.on_wave_done.connect(show_reward)
 	SignalManager.on_wave_done.connect(clear_fight_points)
+	SignalManager.on_wave_done.connect(pause_timers)
 	SignalManager.on_player_get_hit.connect(update_hp_bar)
 	SignalManager.on_drop_res_popup.connect(show_res_popup_after_unit_dead)
 	SignalManager.on_show_damage.connect(show_damage_ui)
@@ -290,6 +291,7 @@ func start_next_wave_countdown():
 	timer_to_next_wave.start()
 	next_wave_ui.is_should_update_label = true
 	next_wave_ui.visible = true
+	unpause_timers()
 
 
 func start_check_is_enemies_remaining():
@@ -391,3 +393,25 @@ func _on_is_in_fight_timer_timeout() -> void:
 		Player.set_player_units_in_fight()
 	else:
 		Player.set_player_units_not_in_fight()
+
+
+func pause_timers():
+	var timers : Array[Timer]
+	recursive_find(self, Timer, timers)
+	for timer in timers:
+		timer.paused = true
+
+
+func unpause_timers():
+	var timers : Array[Timer]
+	recursive_find(self, Timer, timers)
+	for timer in timers:
+		timer.paused = false
+
+
+func recursive_find(node, target_type, result_array):
+	for child in node.get_children():
+		print(is_instance_of(child, target_type))
+		if is_instance_of(child, target_type):
+			result_array.append(child)
+		recursive_find(child, target_type, result_array) # Рекурсивный вызов
