@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7fqwn61wivwh"]
-
-[ext_resource type="PackedScene" uid="uid://diap4c60rngap" path="res://scenes/active_skill.tscn" id="1_sasin"]
-[ext_resource type="Script" uid="uid://d0dyfrqwk6lut" path="res://scripts/other/active_skill_change_stat.gd" id="2_jykhi"]
-
-[node name="ActiveSkillChangeStat" instance=ExtResource("1_sasin")]
-script = ExtResource("2_jykhi")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ijhks4gk2yw"]
+
+[ext_resource type="PackedScene" uid="uid://diap4c60rngap" path="res://scenes/active_skill.tscn" id="1_ecano"]
+[ext_resource type="Resource" uid="uid://bhv4mcelc2yxr" path="res://resources/knight_shield_up.tres" id="2_tmhx7"]
+
+[node name="SkillCastleKnightShieldUp" instance=ExtResource("1_ecano")]
+skill_res = ExtResource("2_tmhx7")

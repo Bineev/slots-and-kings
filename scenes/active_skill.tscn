@@ -78,11 +78,11 @@ skill_flat_damage = 0
 skill_tick_damage = 0
 skill_tick_interval = 0
 skill_duration = 0.0
-skill_buff_stats = Array[Dictionary]([])
+skill_buff_stats = []
 skill_flat_heal = 0
 skill_tick_heal = 0
 skill_range = 0.0
-unit_slots_scenes = Array[Dictionary]([])
+unit_slots_scenes = []
 tooltip_scene = ExtResource("3_hh2ii")
 
 [node name="SkillZone" parent="." index="0" instance=ExtResource("3_g3xg3")]

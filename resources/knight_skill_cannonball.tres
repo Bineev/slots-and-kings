@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_gvbk8")
+skill_tier = 2
 skill_name = "пушечное ядро"
 skill_desc = "мощный выстрел в толпу"
 skill_preview = ExtResource("2_4l4cx")

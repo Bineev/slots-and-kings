@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_0o04m")
+skill_tier = 1
 skill_name = "поднять щиты"
 skill_desc = "Комманда подководца временно повышает броню и макс здоровье выбранным юнитам"
 skill_preview = ExtResource("2_24qut")

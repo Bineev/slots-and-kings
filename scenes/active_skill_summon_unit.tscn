@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://hrd0sadvu51i"]
-
-[ext_resource type="PackedScene" uid="uid://bhteprr36dh55" path="res://scenes/active_skill_summon.tscn" id="1_wsay7"]
-[ext_resource type="Script" uid="uid://8mkssxaa81x6" path="res://scripts/other/active_skill_summon_unit.gd" id="2_nwequ"]
-
-[node name="ActiveSkillSummonUnit" instance=ExtResource("1_wsay7")]
-script = ExtResource("2_nwequ")
-unit_slots_scenes = Array[PackedScene]([])

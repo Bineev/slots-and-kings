@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_dttpx")
+skill_tier = 3
 skill_name = "призыв Рыцаря"
 skill_desc = "Временно призывает на поле боя Рыцаря "
 skill_preview = ExtResource("2_1p40k")

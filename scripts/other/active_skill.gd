@@ -13,7 +13,7 @@ class_name ActiveSkill
 @export var skill_tick_damage : int
 @export var skill_tick_interval : int
 @export var skill_duration : float
-@export var skill_buff_stats : Array[Dictionary]
+@export var skill_buff_stats : Array
 @export var skill_flat_heal : int
 @export var skill_tick_heal : int
 @export var skill_range : float
@@ -57,6 +57,7 @@ func remove_slots():
 
 func initialize():
 	await get_tree().process_frame
+	skill_tier = skill_res.skill_tier
 	skill_buff_stats = skill_res.skill_buff_stats
 	skill_preview = skill_res.skill_preview
 	skill_name = skill_res.skill_name
@@ -125,18 +126,21 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func activate():
-	if targets.size() == 0:
+	if not is_void_zone and unit_slots_scenes.size() == 0 and targets.size() == 0:
+		skill_zone.stop_working()
 		return
 	# проверяем, продолжительный ли это скилл
 	if skill_duration > 0:
 		timer_deactivate.wait_time = skill_duration
-		timer_deactivate.start()
+	else:
+		timer_deactivate.wait_time = 0.01
+	timer_deactivate.start()
 	# проверяем, нужно ли нанести урон сразу
 	if skill_flat_damage > 0:
 		for target in targets:
 			apply_damage(target)
 	# проверяем, есть ли изменение стат (мгновенное)
-	if skill_buff_stats.size() != 0 and not is_void_zone:
+	if skill_buff_stats.size() > 0 and not is_void_zone:
 		# так как это не войд зона, то скилл зон надо отключить (чтобы не добавлялись юниты)
 		skill_zone.stop_working()
 		for target in targets:
@@ -167,7 +171,6 @@ func apply_tick(target : Unit):
 
 
 func start_skill():
-	clear_targets()
 	timer_skill_delay.wait_time = skill_delay
 	timer_skill_delay.start()
 	skill_anim.global_position = skill_zone.global_position
@@ -183,8 +186,6 @@ func start_skill():
 
 
 func _on_timer_skill_delay_timeout() -> void:
-	if not is_void_zone:
-		skill_zone.stop_working()
 	activate()
 
 
@@ -314,13 +315,13 @@ func deactivate():
 	if skill_buff_stats.size() > 0:
 		for target in targets:
 			back_stats(target)
-	# вроде все
-
+	# остановить тик таймер
+	timer_tick.stop()
+	clear_targets()
 
 
 func _on_timer_deactivate_timeout() -> void:
-	if skill_duration >= 0:
-		deactivate()
+	deactivate()
 
 
 func apply_change_stat(unit : Unit):

@@ -2,7 +2,7 @@ extends TextureRect
 
 class_name Skill
 
-
+@export var skill_tier : DataManager.EntityTier
 @export var tooltip_scene : PackedScene
 @export var skill_name : String
 @export var skill_desc : String

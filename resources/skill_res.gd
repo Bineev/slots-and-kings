@@ -3,6 +3,7 @@ extends Resource
 class_name SkillRes
 
 
+@export var skill_tier : DataManager.EntityTier
 @export var skill_name : String
 @export var skill_desc : String
 @export var skill_preview : Texture2D
