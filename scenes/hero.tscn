@@ -4,8 +4,8 @@
 [ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_yvbpl"]
 [ext_resource type="PackedScene" uid="uid://1ijhks4gk2yw" path="res://scenes/skills/skill_castle_knight_shield_up.tscn" id="3_mo806"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_mv13s"]
-[ext_resource type="PackedScene" uid="uid://v7oshorkk321" path="res://scenes/skills/skill_castle_knight_cannonball.tscn" id="4_n40cg"]
 [ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="4_w7pyx"]
+[ext_resource type="PackedScene" uid="uid://cs76b6d2xb6bl" path="res://scenes/skills/skill_castle_knight_burning_tar.tscn" id="5_mo806"]
 [ext_resource type="PackedScene" uid="uid://bncog4iaity1q" path="res://scenes/skills/skill_castle_knight_summon_knight.tscn" id="5_txblw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y2sko"]
@@ -16,7 +16,7 @@ font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 [node name="Hero" type="PanelContainer"]
 theme_override_styles/panel = ExtResource("1_yvbpl")
 script = ExtResource("1_3uyx6")
-actives_scenes = Array[PackedScene]([ExtResource("3_mo806"), ExtResource("4_n40cg"), ExtResource("5_txblw")])
+actives_scenes = Array[PackedScene]([ExtResource("3_mo806"), ExtResource("5_txblw"), ExtResource("5_mo806")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

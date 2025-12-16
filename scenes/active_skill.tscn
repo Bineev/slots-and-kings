@@ -22,7 +22,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("skill_anim:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -96,6 +96,7 @@ one_shot = true
 unique_name_in_owner = true
 visible = false
 z_index = 50
+z_as_relative = false
 hframes = 4
 
 [node name="skill_anim_player" type="AnimationPlayer" parent="." index="3"]

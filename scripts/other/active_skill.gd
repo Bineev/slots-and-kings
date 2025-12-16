@@ -76,6 +76,10 @@ func initialize():
 	skill_zone.set_skill(self)
 	skill_zone.initialize()
 	create_tooltip()
+	if is_void_zone:
+		skill_anim.z_index = 0
+		if skill_anim_player.get_animation('skill'):
+			skill_anim_player.get_animation("skill").loop_mode = Animation.LOOP_LINEAR
 
 
 func _process(delta: float) -> void:
@@ -145,6 +149,9 @@ func activate():
 		skill_zone.stop_working()
 		for target in targets:
 			apply_stats(target)
+	elif skill_buff_stats.size() > 0 and is_void_zone:
+		for target in targets:
+			apply_stats(target)
 	# проверяем, есть ли прямое лечение
 	if skill_flat_heal > 0:
 		for target in targets:
@@ -152,7 +159,7 @@ func activate():
 	# проверяем, есть ли тик
 	if skill_tick_interval > 0:
 		for target in targets:
-			target.apply_tick(target)
+			apply_tick(target)
 		timer_tick.wait_time = skill_tick_interval
 		timer_tick.start()
 	# если это создание юнита, то создаем
@@ -210,26 +217,27 @@ func create_tooltip():
 	tooltip.set_tooltip_owner(self)
 	tooltip.set_entity_name(skill_name)
 	tooltip.set_entity_desc(skill_desc)
+	tooltip.set_entity_tier(skill_tier)
 	var skill_stats : String
 	# генерируем инфу
 	if skill_cooldown > 0:
-		skill_stats += 'откат: %d\n' % skill_cooldown
-	if skill_flat_damage > 0 or skill_tick_damage > 0:
-		skill_stats += 'тип урона: %s\n' % DataManager.unit_type_to_damage_type_table[skill_damage_type]
+		skill_stats += 'откат: %dс\n' % skill_cooldown
 	if skill_flat_damage > 0:
 		skill_stats += 'урон: %d\n' % skill_flat_damage
+	if skill_tick_damage > 0:
+		skill_stats += 'урон: %d\n' % skill_tick_damage
+	if skill_flat_damage > 0 or skill_tick_damage > 0:
+		skill_stats += 'тип: %s\n' % DataManager.unit_type_to_damage_type_table[skill_damage_type]
 	if skill_flat_heal > 0:
 		skill_stats += 'лечение: %d\n' % skill_flat_heal
-	if skill_tick_damage > 0:
-		skill_stats += 'урон за тик: %d\n' % skill_tick_damage
 	if skill_tick_heal > 0:
-		skill_stats += 'лечение за тик: %d\n' % skill_tick_heal
+		skill_stats += 'лечение: %d\n' % skill_tick_heal
 	if skill_tick_interval > 0:
-		skill_stats += 'интервал между эффектами: %.1f\n' % skill_tick_interval
+		skill_stats += 'интервал: %.1f\n' % skill_tick_interval
 	#if skill_buff_amount > 0:
 		#skill_stats += 'величина бафа: %.1f%\n' % ((skill_buff_amount - 1) * 100)
 	if skill_duration > 0:
-		skill_stats += 'длительность: %.1f\n' % skill_duration
+		skill_stats += 'длительность: %.1fс\n' % skill_duration
 	for dict in skill_buff_stats:
 		var stat_info : String = DataManager.default_stats_to_rus[dict.stat_name] + ': '
 		if dict.stat_change_type == 0:
@@ -239,9 +247,9 @@ func create_tooltip():
 				stat_info += '-%s' % str(int(dict.stat_change_amount))
 		elif dict.stat_change_type == 1:
 			if skill_target_type == DataManager.UnitOwner.PLAYER:
-				stat_info += '+%s%' % str(int(dict.stat_change_amount * 100))
+				stat_info += '+%s%%' % str(int(dict.stat_change_amount * 100))
 			if skill_target_type == DataManager.UnitOwner.ENEMY:
-				stat_info += '-%s%' % str(int(dict.stat_change_amount * 100))
+				stat_info += '-%s%%' % str(int(100 - dict.stat_change_amount * 100))
 		skill_stats += stat_info + '\n'
 
 	tooltip.set_stats(skill_stats)
@@ -305,6 +313,9 @@ func apply_damage(current_target : Unit):
 
 
 func deactivate():
+	if skill_anim_player.get_animation('skill'):
+		skill_anim_player.stop()
+	skill_anim.hide()
 	skill_zone.stop_working()
 	# если создавался юнит, но удалить
 	if unit and is_instance_valid(unit):
@@ -314,7 +325,8 @@ func deactivate():
 	# если это была войд зона, то на момент отключения таргеты будут верные (если не будет делэев)
 	if skill_buff_stats.size() > 0:
 		for target in targets:
-			back_stats(target)
+			if target and is_instance_valid(target):
+				back_stats(target)
 	# остановить тик таймер
 	timer_tick.stop()
 	clear_targets()
@@ -324,20 +336,20 @@ func _on_timer_deactivate_timeout() -> void:
 	deactivate()
 
 
-func apply_change_stat(unit : Unit):
+func apply_change_stat(current_unit : Unit):
 	for dict in skill_buff_stats:
 		if dict.stat_change_type == 0:
-			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
+			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
 		elif dict.stat_change_type == 1:
-			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
+			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
 
 
-func back_stat_to_default(unit : Unit):
+func back_stat_to_default(current_unit : Unit):
 	for dict in skill_buff_stats:
 		if dict.stat_change_type == 0:
-			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) - dict.stat_change_amount)
+			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) - dict.stat_change_amount)
 		elif dict.stat_change_type == 1:
-			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) / dict.stat_change_amount)
+			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) / dict.stat_change_amount)
 
 
 func _on_timer_tick_timeout() -> void:

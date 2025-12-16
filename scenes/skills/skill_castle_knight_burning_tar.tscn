@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs76b6d2xb6bl"]
+
+[ext_resource type="PackedScene" uid="uid://diap4c60rngap" path="res://scenes/active_skill.tscn" id="1_0srv7"]
+[ext_resource type="Resource" uid="uid://bb4oj37i6m4ru" path="res://resources/skill_castle_knight_burning_tar.tres" id="2_3hpnq"]
+
+[node name="SkillCastleKnightBurningTar" instance=ExtResource("1_0srv7")]
+skill_res = ExtResource("2_3hpnq")
