@@ -20,7 +20,7 @@ func create_entity():
 		slots.append(slot)
 	await get_tree().process_frame
 	unit = factory.get_unit(slots)
-	SignalManager.on_add_unit_from_skill.emit(unit, get_global_mouse_position())
+	SignalManager.on_add_unit_from_skill.emit(unit, skill_zone.global_position)
 	get_tree().create_timer(1).timeout.connect(remove_slots)
 
 

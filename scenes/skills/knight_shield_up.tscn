@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bldarqm61aen1"]
+[gd_scene load_steps=4 format=3 uid="uid://bldarqm61aen1"]
 
 [ext_resource type="PackedScene" uid="uid://c7fqwn61wivwh" path="res://scenes/active_skill_change_stat.tscn" id="1_p0rwn"]
-[ext_resource type="Resource" uid="uid://bhv4mcelc2yxr" path="res://resources/knight_shield_up.tres" id="2_w80hj"]
+[ext_resource type="Script" uid="uid://cxx5tpkk2231t" path="res://scripts/other/active_skill.gd" id="2_w80hj"]
+[ext_resource type="Resource" uid="uid://bhv4mcelc2yxr" path="res://resources/knight_shield_up.tres" id="3_ynors"]
 
 [node name="KnightShieldUp" instance=ExtResource("1_p0rwn")]
-skill_res = ExtResource("2_w80hj")
+script = ExtResource("2_w80hj")
+skill_res = ExtResource("3_ynors")

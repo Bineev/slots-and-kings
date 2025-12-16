@@ -65,12 +65,18 @@ func _on_body_entered(body: Node2D) -> void:
 	if is_active:
 		var unit : Unit = body
 		skill.add_target(unit)
+		# если войд зона, то применяем баф/дебафф при входе
+		if skill.is_void_zone and skill.skill_buff_stats.size() > 0:
+			skill.apply_stats(unit)
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if is_active:
 		var unit : Unit = body
 		skill.remove_target(unit)
+		# если войд зона, то удаляем баф/дебафф при выходе
+		if skill.is_void_zone and skill.skill_buff_stats.size() > 0:
+			skill.back_stats(unit)
 
 
 func set_active():

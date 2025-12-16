@@ -6,6 +6,7 @@ class_name ActiveSkill
 @export var skill_res : SkillRes
 @export var skill_damage_type : DataManager.UnitType
 
+@export var is_void_zone : bool
 @export var skill_cooldown : float
 @export var skill_delay : float
 @export var skill_flat_damage : int
@@ -26,6 +27,32 @@ var is_on_cd : bool
 @onready var timer_cd: Timer = %timer_cd
 @onready var label_cd: Label = %label_cd
 @onready var rect_cd_overlay: ColorRect = %rect_cd_overlay
+@onready var timer_deactivate: Timer = %timer_deactivate
+@onready var timer_tick: Timer = %timer_tick
+
+@export var unit_slots_scenes : Array[PackedScene]
+
+var slots : Array[Slot]
+var unit : Unit
+
+
+func create_entity():
+	var factory : UnitFactory = Player.get_unit_factory()
+	for slot_scene in unit_slots_scenes:
+		var slot : Slot = slot_scene.instantiate()
+		add_child(slot)
+		slot.hide()
+		slot.initialize()
+		slots.append(slot)
+	await get_tree().process_frame
+	unit = factory.get_unit(slots)
+	SignalManager.on_add_unit_from_skill.emit(unit, skill_zone.global_position)
+	get_tree().create_timer(1).timeout.connect(remove_slots)
+
+
+func remove_slots():
+	for slot in slots:
+		slot.queue_free()
 
 
 func initialize():
@@ -35,9 +62,10 @@ func initialize():
 	skill_name = skill_res.skill_name
 	skill_desc = skill_res.skill_desc
 	skill_delay = skill_res.skill_delay
+	is_void_zone = skill_res.is_void_zone
 	skill_damage_type = skill_res.skill_damage_type
 	skill_target_type = skill_res.skill_target_type
-
+	unit_slots_scenes = skill_res.skill_slot_scenes
 	# инициализируем статы
 	# пересчитываем исходя из стат героя
 	recalculate_stats()
@@ -86,9 +114,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			skill_zone.previous_position = global_position
-			skill_zone.set_active()
-			skill_zone.show()
+			skill_zone.start_working()
 			# Calculate the offset from the object's origin to the mouse position
 			#skill_zone.offset = get_global_mouse_position() - global_position
 		else:
@@ -98,7 +124,50 @@ func _on_gui_input(event: InputEvent) -> void:
 			# Optional: Add logic here to "drop" the object or apply momentum
 
 
+func activate():
+	if targets.size() == 0:
+		return
+	# проверяем, продолжительный ли это скилл
+	if skill_duration > 0:
+		timer_deactivate.wait_time = skill_duration
+		timer_deactivate.start()
+	# проверяем, нужно ли нанести урон сразу
+	if skill_flat_damage > 0:
+		for target in targets:
+			apply_damage(target)
+	# проверяем, есть ли изменение стат (мгновенное)
+	if skill_buff_stats.size() != 0 and not is_void_zone:
+		# так как это не войд зона, то скилл зон надо отключить (чтобы не добавлялись юниты)
+		skill_zone.stop_working()
+		for target in targets:
+			apply_stats(target)
+	# проверяем, есть ли прямое лечение
+	if skill_flat_heal > 0:
+		for target in targets:
+			target.get_health(skill_flat_heal)
+	# проверяем, есть ли тик
+	if skill_tick_interval > 0:
+		for target in targets:
+			target.apply_tick(target)
+		timer_tick.wait_time = skill_tick_interval
+		timer_tick.start()
+	# если это создание юнита, то создаем
+	if unit_slots_scenes.size() > 0:
+		create_entity()
+
+
+func apply_tick(target : Unit):
+	if not target or not is_instance_valid(target) or target.unit_state == DataManager.UnitState.DIED or target.unit_state == DataManager.UnitState.DEAD:
+		return
+	if skill_tick_damage > 0:
+		apply_damage(target)
+	if skill_tick_heal > 0:
+		target.get_health(skill_tick_heal)
+	
+
+
 func start_skill():
+	clear_targets()
 	timer_skill_delay.wait_time = skill_delay
 	timer_skill_delay.start()
 	skill_anim.global_position = skill_zone.global_position
@@ -114,7 +183,8 @@ func start_skill():
 
 
 func _on_timer_skill_delay_timeout() -> void:
-	skill_zone.stop_working()
+	if not is_void_zone:
+		skill_zone.stop_working()
 	activate()
 
 
@@ -231,3 +301,64 @@ func apply_damage(current_target : Unit):
 	# применить урон к цели
 	current_target.get_damage(round(attack), self, is_crit)
 	print('%s наносит %f урона %s' % [skill_owner.hero_name, attack, current_target.unit_name])
+
+
+func deactivate():
+	skill_zone.stop_working()
+	# если создавался юнит, но удалить
+	if unit and is_instance_valid(unit):
+		unit.get_damage(1000000, skill_owner)
+	# если не войд зона и менялись статы, то вернуть как было
+	# если это была единоразовая акция, то возвращаем статы из старых таргетов
+	# если это была войд зона, то на момент отключения таргеты будут верные (если не будет делэев)
+	if skill_buff_stats.size() > 0:
+		for target in targets:
+			back_stats(target)
+	# вроде все
+
+
+
+func _on_timer_deactivate_timeout() -> void:
+	if skill_duration >= 0:
+		deactivate()
+
+
+func apply_change_stat(unit : Unit):
+	for dict in skill_buff_stats:
+		if dict.stat_change_type == 0:
+			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
+		elif dict.stat_change_type == 1:
+			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
+
+
+func back_stat_to_default(unit : Unit):
+	for dict in skill_buff_stats:
+		if dict.stat_change_type == 0:
+			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) - dict.stat_change_amount)
+		elif dict.stat_change_type == 1:
+			unit.set('current_%s' % dict.stat_name, unit.get('current_%s' % dict.stat_name) / dict.stat_change_amount)
+
+
+func _on_timer_tick_timeout() -> void:
+	for target in targets:
+		apply_tick(target)
+
+
+func apply_stats(target : Unit):
+	apply_change_stat(target)
+	if skill_target_type == DataManager.UnitOwner.PLAYER:
+		target.show_buff()
+	else:
+		target.show_debuff()
+	target.hide_tooltip()
+	target.parse_stats()
+	target.create_tooltip()
+
+
+func back_stats(target : Unit):
+	if target and is_instance_valid(target):
+		back_stat_to_default(target)
+		target.hide_status()
+		target.hide_tooltip()
+		target.parse_stats()
+		target.create_tooltip()

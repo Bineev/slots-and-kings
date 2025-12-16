@@ -5,10 +5,3 @@
 
 [node name="ActiveSkillChangeStat" instance=ExtResource("1_sasin")]
 script = ExtResource("2_jykhi")
-
-[node name="timer_deactivate" type="Timer" parent="." index="7"]
-unique_name_in_owner = true
-wait_time = 1000.0
-one_shot = true
-
-[connection signal="timeout" from="timer_deactivate" to="." method="_on_timer_deactivate_timeout"]

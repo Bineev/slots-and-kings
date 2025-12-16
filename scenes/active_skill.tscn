@@ -71,6 +71,7 @@ _data = {
 script = ExtResource("2_r7nbd")
 skill_res = null
 skill_damage_type = 0
+is_void_zone = false
 skill_cooldown = 0.0
 skill_delay = 0.0
 skill_flat_damage = 0
@@ -81,6 +82,7 @@ skill_buff_stats = Array[Dictionary]([])
 skill_flat_heal = 0
 skill_tick_heal = 0
 skill_range = 0.0
+unit_slots_scenes = Array[Dictionary]([])
 tooltip_scene = ExtResource("3_hh2ii")
 
 [node name="SkillZone" parent="." index="0" instance=ExtResource("3_g3xg3")]
@@ -129,6 +131,17 @@ label_settings = ExtResource("4_dv41m")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="timer_deactivate" type="Timer" parent="." index="7"]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[node name="timer_tick" type="Timer" parent="." index="8"]
+unique_name_in_owner = true
+wait_time = 100.0
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="timeout" from="timer_skill_delay" to="." method="_on_timer_skill_delay_timeout"]
 [connection signal="timeout" from="timer_cd" to="." method="_on_timer_cd_timeout"]
+[connection signal="timeout" from="timer_deactivate" to="." method="_on_timer_deactivate_timeout"]
+[connection signal="timeout" from="timer_tick" to="." method="_on_timer_tick_timeout"]

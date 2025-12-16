@@ -3,9 +3,6 @@ extends ActiveSkill
 class_name ActiveSkillChangeStat
 
 
-@onready var timer_deactivate: Timer = %timer_deactivate
-
-
 func get_targets():
 	return targets
 
