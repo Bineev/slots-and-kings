@@ -20,6 +20,7 @@ class_name ActiveSkill
 @export var skill_range : float
 
 var is_on_cd : bool
+var was_trap : bool
 
 @onready var timer_skill_delay: Timer = %timer_skill_delay
 @onready var skill_zone: SkillZone = %SkillZone
@@ -65,6 +66,7 @@ func initialize():
 	skill_desc = skill_res.skill_desc
 	skill_delay = skill_res.skill_delay
 	is_void_zone = skill_res.is_void_zone
+	is_trap = skill_res.is_trap
 	skill_damage_type = skill_res.skill_damage_type
 	skill_target_type = skill_res.skill_target_type
 	unit_slots_scenes = skill_res.skill_slot_scenes
@@ -76,7 +78,7 @@ func initialize():
 	timer_cd.wait_time = skill_cooldown
 	skill_zone.set_skill(self)
 	skill_zone.initialize()
-	create_tooltip()
+	#create_tooltip()
 	if is_void_zone or is_trap:
 		skill_anim.z_index = 0
 		if skill_anim_player.get_animation('skill'):
@@ -134,8 +136,7 @@ func activate():
 	if not is_void_zone and unit_slots_scenes.size() == 0 and targets.size() == 0:
 		skill_zone.stop_working()
 		return
-	if is_trap:
-		modulate = Color8(255, 255, 255, 255)
+	skill_anim.modulate = Color(1, 1, 1, 0.8)
 	# проверяем, продолжительный ли это скилл
 	if skill_duration > 0:
 		timer_deactivate.wait_time = skill_duration
@@ -188,7 +189,7 @@ func start_skill():
 	if skill_anim_player.get_animation('skill'):
 		skill_anim_player.play('skill')
 		if is_trap:
-			skill_anim.modulate = Color8(255, 255, 255, 100)
+			skill_anim.modulate = Color(1, 1, 1, 0.1)
 	skill_zone.hide()
 	skill_zone.set_is_stopped(true)
 	timer_cd.start()
@@ -217,7 +218,7 @@ func clear_targets():
 
 
 func create_tooltip():
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	tooltip = tooltip_scene.instantiate()
 	tooltip.set_tooltip_owner(self)
 	tooltip.set_entity_name(skill_name)
@@ -265,7 +266,7 @@ func create_tooltip():
 		#subtooltip.set_entity_desc(slot_res.slot_description)
 		#subtooltip.set_preview_texture(slot_res.slot_sprite)
 		#tooltip.add_subtooltip(subtooltip)
-	tooltip.visible = false
+	#tooltip.visible = false
 
 
 func set_anim_scale_by_range():
@@ -335,6 +336,8 @@ func deactivate():
 	# остановить тик таймер
 	timer_tick.stop()
 	clear_targets()
+	if was_trap:
+		is_trap = true
 
 
 func _on_timer_deactivate_timeout() -> void:
@@ -368,15 +371,15 @@ func apply_stats(target : Unit):
 		target.show_buff()
 	else:
 		target.show_debuff()
-	target.hide_tooltip()
-	target.parse_stats()
-	target.create_tooltip()
+	#target.hide_tooltip()
+	#target.parse_stats()
+	#target.create_tooltip()
 
 
 func back_stats(target : Unit):
 	if target and is_instance_valid(target):
 		back_stat_to_default(target)
-		target.hide_status()
-		target.hide_tooltip()
-		target.parse_stats()
-		target.create_tooltip()
+		#target.hide_status()
+		#target.hide_tooltip()
+		#target.parse_stats()
+		#target.create_tooltip()

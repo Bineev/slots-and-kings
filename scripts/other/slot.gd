@@ -36,7 +36,7 @@ func initialize():
 		unit_types = slot_res.unit_types
 		unit_cost = slot_res.unit_cost
 		unit_attack_type = slot_res.unit_attack_type
-	create_tooltip()
+	#create_tooltip()
 
 
 func highlight_slot():
@@ -53,10 +53,15 @@ func stop_highlight():
 func generate_unit_stats():
 	var unit_stats : String
 	for stat in DataManager.default_stats.keys():
-		if stat == 'crit_attack' or stat.contains('scout'):
+		if stat.contains('scout'):
 			continue
+		if stat == 'crit_attack' and slot_res.get(stat) == 50:
+			continue 
 		if DataManager.default_stats[stat] != slot_res.get(stat):
-			unit_stats += ('%s: %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+			if stat.contains('attack_speed') or stat.contains('mult'):
+				unit_stats += ('%s: %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+			else:
+				unit_stats += ('%s: %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
 	
 	return unit_stats
 
@@ -70,27 +75,30 @@ func create_tooltip():
 	tooltip.set_slot_res(slot_res)
 	if slot_type == DataManager.SlotType.UNIT:
 		tooltip.set_stats(generate_unit_stats())
-	tooltip.visible = false
+	#tooltip.visible = false
 
 
 func show_tooltip():
-		SignalManager.on_show_tooltip.emit(self, tooltip)
-		tooltip.visible = true
+	create_tooltip()
+	SignalManager.on_show_tooltip.emit(self, tooltip)
+	#tooltip.visible = true
 
 
 func hide_tooltip():
 	SignalManager.on_hide_tooltip.emit(tooltip)
-	tooltip.visible = false
+	#tooltip.visible = false
 
 
 func _on_mouse_entered() -> void:
-	if not is_tooltip_shown:
-		is_tooltip_shown = true
-		show_tooltip()
+	#if not is_tooltip_shown:
+		#is_tooltip_shown = true
+	show_tooltip()
 
 
 func _on_mouse_exited() -> void:
-	if tooltip and is_tooltip_shown:
-		is_tooltip_shown = false
-		hide_tooltip()
+	#if tooltip and is_tooltip_shown:
+		#is_tooltip_shown = false
+		#hide_tooltip()
+	if tooltip and is_instance_valid(tooltip):
+		tooltip.queue_free()
 		

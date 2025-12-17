@@ -39,8 +39,10 @@ func initialize():
 func generate_stats():
 	var unit_stats : String
 	for stat in DataManager.default_stats.keys():
-		if stat == 'crit_attack' or stat.contains('scout'):
+		if stat.contains('scout'):
 			continue
+		if stat == 'crit_attack' and slot_res.get(stat) == 50:
+			continue 
 		if DataManager.default_stats[stat] != slot_res.get(stat):
 			if stat.contains('attack_speed') or stat.contains('mult'):
 				unit_stats += ('%s: %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]

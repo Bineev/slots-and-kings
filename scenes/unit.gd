@@ -248,8 +248,8 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 		z_index = 3
 	elif unit_owner == DataManager.UnitOwner.ENEMY:
 		z_index = 2
-	parse_stats()
-	create_tooltip()
+	#parse_stats()
+	#create_tooltip()
 	# can be bug
 	#slots.clear()
 	timer_regen.wait_time = current_health_regen_interval
@@ -635,7 +635,8 @@ func add_slot_res(new_slot_res : Resource):
 
 
 func create_tooltip():
-	await get_tree().process_frame
+	# проверяем статы и парсим новый
+	parse_stats()
 	tooltip = tooltip_scene.instantiate()
 	tooltip.set_tooltip_owner(self)
 	tooltip.set_entity_name(unit_name)
@@ -674,20 +675,17 @@ func create_tooltip():
 		subtooltip.set_entity_desc(slot_res.slot_description)
 		subtooltip.set_preview_texture(slot_res.slot_sprite)
 		tooltip.add_subtooltip(subtooltip)
-	tooltip.visible = false
 
 
 func show_tooltip():
+	create_tooltip()
 	SignalManager.on_show_tooltip.emit(self, tooltip)
-	tooltip.visible = true
 	get_tree().create_timer(10).timeout.connect(hide_tooltip)
 
 
 func hide_tooltip():
-	if is_tooltip_shown:
-		SignalManager.on_hide_tooltip.emit(tooltip)
-		tooltip.visible = false
-		is_tooltip_shown = false
+	if tooltip and is_instance_valid(tooltip):
+		tooltip.queue_free()
 
 
 func hide_unit_tooltip(new_tooltip : Tooltip):
@@ -698,9 +696,9 @@ func hide_unit_tooltip(new_tooltip : Tooltip):
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if not is_tooltip_shown:
-				is_tooltip_shown = true
-				show_tooltip()
+			#if not is_tooltip_shown:
+				#is_tooltip_shown = true
+			show_tooltip()
 
 
 func add_slot(slot : Slot):

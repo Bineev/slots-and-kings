@@ -68,6 +68,7 @@ _data = {
 }
 
 [node name="ActiveSkill" instance=ExtResource("1_t3d48")]
+mouse_filter = 0
 script = ExtResource("2_r7nbd")
 skill_res = null
 skill_damage_type = 0

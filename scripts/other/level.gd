@@ -363,16 +363,17 @@ func show_damage_ui(unit : Unit, info_damage_popup_ui : InfoDamagePopupUI):
 
 
 func add_tooltip(object : Object, tooltip : Tooltip):
-	if current_tooltip and current_tooltip.tooltip_owner:
-		current_tooltip.tooltip_owner.hide_tooltip()
-	ui.add_child(tooltip)
-	tooltip.global_position = object.global_position
-	if not tooltip.is_initialized:
-		tooltip.initialize()
-		tooltip.is_initialized = true
-	# здесь может быть баг
+	if current_tooltip and is_instance_valid(current_tooltip):
+		current_tooltip.queue_free()
 	current_tooltip = tooltip
-	await get_tree().process_frame
+	ui.add_child(tooltip)
+	tooltip.initialize()
+	tooltip.global_position = object.global_position
+	#if not tooltip.is_initialized:
+		#tooltip.initialize()
+		#tooltip.is_initialized = true
+	# здесь может быть баг
+	#await get_tree().process_frame
 	tooltip.global_position.y -= (tooltip.size.y + 20)
 
 

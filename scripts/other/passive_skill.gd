@@ -37,7 +37,7 @@ func initialize():
 	# пересчитываем исходя из стат героя
 	recalculate_stats()
 	texture = skill_res.skill_preview
-	create_tooltip()
+	#create_tooltip()
 	parse_skill()
 
 
@@ -46,7 +46,7 @@ func recalculate_stats():
 
 
 func create_tooltip():
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	tooltip = tooltip_scene.instantiate()
 	tooltip.set_tooltip_owner(self)
 	tooltip.set_entity_name(skill_name)
@@ -128,6 +128,6 @@ func apply_stat(current_unit : Unit):
 			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
 		elif dict.stat_change_type == 1:
 			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
-	current_unit.hide_tooltip()
-	current_unit.parse_stats()
-	current_unit.create_tooltip()
+	#current_unit.hide_tooltip()
+	#current_unit.parse_stats()
+	#current_unit.create_tooltip()

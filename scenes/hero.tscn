@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c050s5drr5wmc" path="res://scripts/other/hero.gd" id="1_3uyx6"]
 [ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_yvbpl"]
-[ext_resource type="PackedScene" uid="uid://1ijhks4gk2yw" path="res://scenes/skills/skill_castle_knight_shield_up.tscn" id="3_mo806"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_mv13s"]
 [ext_resource type="PackedScene" uid="uid://b7emlypuw54wn" path="res://scenes/skills/pskil_turnpenny.tscn" id="3_n40cg"]
 [ext_resource type="PackedScene" uid="uid://b3no5wdvonsb7" path="res://scenes/skills/pskill_repairman.tscn" id="4_txblw"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cs76b6d2xb6bl" path="res://scenes/skills/skill_castle_knight_burning_tar.tscn" id="5_mo806"]
 [ext_resource type="PackedScene" uid="uid://b5gfkbsnvwldr" path="res://scenes/skills/pskill_chainmail.tscn" id="5_n5qna"]
 [ext_resource type="PackedScene" uid="uid://bncog4iaity1q" path="res://scenes/skills/skill_castle_knight_summon_knight.tscn" id="5_txblw"]
+[ext_resource type="PackedScene" uid="uid://bw65xkq31i51y" path="res://scenes/skills/askill_worm_box.tscn" id="8_n5qna"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y2sko"]
 font = ExtResource("3_mv13s")
@@ -20,7 +20,7 @@ font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 theme_override_styles/panel = ExtResource("1_yvbpl")
 script = ExtResource("1_3uyx6")
 passives_scenes = Array[PackedScene]([ExtResource("3_n40cg"), ExtResource("4_txblw"), ExtResource("5_n5qna")])
-actives_scenes = Array[PackedScene]([ExtResource("3_mo806"), ExtResource("5_txblw"), ExtResource("5_mo806")])
+actives_scenes = Array[PackedScene]([ExtResource("5_txblw"), ExtResource("8_n5qna"), ExtResource("5_mo806")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

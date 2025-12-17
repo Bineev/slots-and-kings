@@ -40,5 +40,6 @@ func set_unit_types(new_unit_types : String):
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if (event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT) and event.pressed:
-			if tooltip_owner and tooltip_owner.is_tooltip_shown:
-				SignalManager.on_hide_unit_tooltip.emit(self)
+			#if tooltip_owner and tooltip_owner.is_tooltip_shown:
+				#SignalManager.on_hide_unit_tooltip.emit(self)
+			queue_free()

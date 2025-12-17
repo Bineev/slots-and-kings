@@ -60,16 +60,19 @@ func activate():
 
 
 func show_tooltip():
-		SignalManager.on_show_tooltip.emit(self, tooltip)
-		tooltip.visible = true
-		get_tree().create_timer(10).timeout.connect(hide_tooltip)
+	create_tooltip()
+	SignalManager.on_show_tooltip.emit(self, tooltip)
+	#tooltip.visible = true
+	get_tree().create_timer(10).timeout.connect(hide_tooltip)
 
 
 func hide_tooltip():
-	if is_tooltip_shown:
-		SignalManager.on_hide_tooltip.emit(tooltip)
-		tooltip.visible = false
-		is_tooltip_shown = false
+	#if is_tooltip_shown:
+		#SignalManager.on_hide_tooltip.emit(tooltip)
+		#tooltip.visible = false
+		#is_tooltip_shown = false
+	if tooltip and is_instance_valid(tooltip):
+		tooltip.queue_free()
 
 
 func hide_unit_tooltip(new_tooltip : Tooltip):
@@ -78,9 +81,9 @@ func hide_unit_tooltip(new_tooltip : Tooltip):
 
 
 func _on_mouse_entered() -> void:
-	if not is_tooltip_shown:
-		is_tooltip_shown = true
-		show_tooltip()
+	#if not is_tooltip_shown:
+		#is_tooltip_shown = true
+	show_tooltip()
 
 
 func _on_mouse_exited() -> void:

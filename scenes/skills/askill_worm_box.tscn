@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw65xkq31i51y"]
+
+[ext_resource type="PackedScene" uid="uid://diap4c60rngap" path="res://scenes/active_skill.tscn" id="1_nw1k5"]
+[ext_resource type="Resource" uid="uid://npd7e8355siq" path="res://resources/askill_worm_box.tres" id="2_hshy1"]
+
+[node name="AskillWormBox" instance=ExtResource("1_nw1k5")]
+skill_res = ExtResource("2_hshy1")

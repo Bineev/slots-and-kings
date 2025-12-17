@@ -1,14 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://7et0q5esfppv"]
+[gd_scene load_steps=5 format=3 uid="uid://7et0q5esfppv"]
 
 [ext_resource type="PackedScene" uid="uid://byte4klk87mh0" path="res://scenes/tooltip.tscn" id="1_goo18"]
 [ext_resource type="Script" uid="uid://c7pcavn30r0cv" path="res://scripts/other/tooltip_skill.gd" id="2_i6c3e"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_i6c3e"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_i6c3e"]
+line_spacing = 2.0
+font = ExtResource("3_i6c3e")
+font_size = 6
+font_color = Color(0.0627451, 0.078431375, 0.12156863, 1)
+
 [node name="TooltipSkill" instance=ExtResource("1_goo18")]
 script = ExtResource("2_i6c3e")
 stats = ""
 
-[node name="label_stats" type="RichTextLabel" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+[node name="PanelContainer" parent="HBoxContainer" index="0"]
+custom_minimum_size = Vector2(150, 0)
+
+[node name="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer" index="0"]
+theme_override_constants/separation = 5
+
+[node name="label_desc" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1"]
+label_settings = SubResource("LabelSettings_i6c3e")
+
+[node name="filler" type="Control" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="label_stats" type="RichTextLabel" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_hx86b")
 slot_name = "книжник"
-slot_description = "мечи и алебарды для холопов\\nМаг атака +30%\\nФиз атака -50%"
+slot_description = "мечи и алебарды для холопов. Маг атака +30%. Физ атака -50%"
 slot_sprite = ExtResource("2_tqe6y")
 slot_type = 2
 entity_tier = 1
