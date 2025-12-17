@@ -652,7 +652,11 @@ func create_tooltip():
 	# set stats
 	var unit_stats : String
 	for stat in unique_stats.keys():
-		var pre_string : String = '%s %s' % [stat.replace('_', ' '), unique_stats[stat]]
+		var pre_string : String
+		if stat.contains('здоровье'):
+			pre_string = '%s %s/%s' % [stat.replace('_', ' '), int(actual_health), unique_stats[stat]]
+		else:
+			pre_string = '%s %s' % [stat.replace('_', ' '), unique_stats[stat]]
 		if stat.contains('точность') or stat.contains('шанс') or stat.contains('уворот'):
 			pre_string += '%'
 		if unique_stats_related[stat] == DataManager.RelateType.EQUAL:
@@ -674,9 +678,9 @@ func create_tooltip():
 
 
 func show_tooltip():
-		SignalManager.on_show_tooltip.emit(self, tooltip)
-		tooltip.visible = true
-		get_tree().create_timer(10).timeout.connect(hide_tooltip)
+	SignalManager.on_show_tooltip.emit(self, tooltip)
+	tooltip.visible = true
+	get_tree().create_timer(10).timeout.connect(hide_tooltip)
 
 
 func hide_tooltip():

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6duq0ejepe32"]
+[gd_scene load_steps=3 format=3 uid="uid://b6duq0ejepe32"]
 
 [ext_resource type="PackedScene" uid="uid://j7uwrhnjvs6d" path="res://scenes/choose_item.tscn" id="1_2mae6"]
+[ext_resource type="Script" uid="uid://csqnyr25m56ff" path="res://scripts/other/choose_item_unit.gd" id="2_luyd6"]
 
 [node name="ChooseItemUnit" instance=ExtResource("1_2mae6")]
+script = ExtResource("2_luyd6")
 
 [node name="label_item_desc" parent="." index="2"]
 custom_minimum_size = Vector2(0, 40)

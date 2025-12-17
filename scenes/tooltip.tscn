@@ -20,9 +20,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
+offset_left = -102.0
 offset_top = -50.0
-offset_right = 50.0
+offset_right = 102.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -33,7 +33,7 @@ script = ExtResource("1_7dicn")
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("1_wnlnb")
@@ -65,11 +65,10 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 label_settings = ExtResource("4_ywu5r")
-horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="sub_tooltips_container" type="VBoxContainer" parent="HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2

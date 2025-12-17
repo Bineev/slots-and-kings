@@ -11,6 +11,7 @@ var chooseUI : ChooseUI
 @onready var item_texture: TextureRect = %item_texture
 @onready var label_item_desc: Label = %label_item_desc
 @onready var choose_button: Button = %choose_button
+@onready var label_item_stats: Label = %label_item_stats
 
 
 func _ready() -> void:
@@ -19,10 +20,34 @@ func _ready() -> void:
 
 func initialize():
 	label_item_name.text = slot_res.slot_name
-	label_item_desc.text = slot_res.slot_description
+	if slot_res.slot_type == DataManager.SlotType.UNIT:
+		var types : String
+		for item in slot_res.unit_types:
+			types += DataManager.unit_types_table[item] + '\n'
+		label_item_desc.text = types
+	else:
+		label_item_desc.text = slot_res.slot_description
 	choose_button.text = 'ВЫБРАТЬ'
 	item_texture.texture = slot_res.slot_sprite
 	slot_type = slot_res.slot_type
+	if slot_res.slot_type == DataManager.SlotType.UNIT:
+		label_item_stats.text = generate_stats()
+	else:
+		label_item_stats.hide()
+
+
+func generate_stats():
+	var unit_stats : String
+	for stat in DataManager.default_stats.keys():
+		if stat == 'crit_attack' or stat.contains('scout'):
+			continue
+		if DataManager.default_stats[stat] != slot_res.get(stat):
+			if stat.contains('attack_speed') or stat.contains('mult'):
+				unit_stats += ('%s: %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+			else:
+				unit_stats += ('%s: %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+	
+	return unit_stats
 
 
 func set_slot_scene(new_slot_scene : PackedScene):

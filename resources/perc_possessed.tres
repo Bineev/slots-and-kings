@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_xkrul")
 slot_name = "помешанный"
-slot_description = "Здесь нужен экзорцист\\nПостепенно теряет здоровье\\nСкорость движения: +100%"
+slot_description = "Здесь нужен экзорцист. Постепенно теряет здоровье. Скорость движения: +100%"
 slot_sprite = ExtResource("2_h5ind")
 slot_type = 2
 entity_tier = 1

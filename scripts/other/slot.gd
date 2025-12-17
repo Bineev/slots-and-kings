@@ -50,12 +50,26 @@ func stop_highlight():
 	slot_anim_player.stop()
 
 
+func generate_unit_stats():
+	var unit_stats : String
+	for stat in DataManager.default_stats.keys():
+		if stat == 'crit_attack' or stat.contains('scout'):
+			continue
+		if DataManager.default_stats[stat] != slot_res.get(stat):
+			unit_stats += ('%s: %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+	
+	return unit_stats
+
+
 func create_tooltip():
 	tooltip = tooltip_scene.instantiate()
 	tooltip.set_entity_name(slot_name)
 	tooltip.set_entity_desc(slot_description)
 	tooltip.set_entity_tier(entity_tier)
 	tooltip.set_tooltip_owner(self)
+	tooltip.set_slot_res(slot_res)
+	if slot_type == DataManager.SlotType.UNIT:
+		tooltip.set_stats(generate_unit_stats())
 	tooltip.visible = false
 
 

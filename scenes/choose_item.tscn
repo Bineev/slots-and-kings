@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://j7uwrhnjvs6d"]
+[gd_scene load_steps=9 format=3 uid="uid://j7uwrhnjvs6d"]
 
 [ext_resource type="Script" uid="uid://bs3leybmfmye6" path="res://scripts/other/choose_item.gd" id="1_25v66"]
+[ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="3_25v66"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="4_mcvrv"]
 [ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="5_k45hk"]
 [ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="5_yflhg"]
@@ -13,8 +14,8 @@ font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k45hk"]
 font = ExtResource("4_mcvrv")
-font_size = 5
-font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+font_size = 6
+font_color = Color(0.0627451, 0.078431375, 0.12156863, 1)
 
 [node name="ChooseItem" type="VBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
@@ -54,8 +55,12 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_k45hk")
-horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="label_item_stats" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("3_25v66")
 
 [node name="choose_button" type="Button" parent="."]
 unique_name_in_owner = true

@@ -1,12 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsqng6122lrwj"]
+[gd_scene load_steps=5 format=3 uid="uid://bsqng6122lrwj"]
 
 [ext_resource type="PackedScene" uid="uid://du1jk1jvycey7" path="res://scenes/building_creator.tscn" id="1_1ub1b"]
 [ext_resource type="Resource" uid="uid://df04vwq8arb47" path="res://resources/building_T1_barracks.tres" id="2_jqta0"]
 [ext_resource type="PackedScene" uid="uid://mvvj3yfoxi8q" path="res://scenes/slots/slot_unit_castle_fyrd.tscn" id="2_qlo87"]
 [ext_resource type="PackedScene" uid="uid://ckf1qc2vw4805" path="res://scenes/slots/slot_unit_castle_yeomen.tscn" id="3_ciq41"]
-[ext_resource type="PackedScene" uid="uid://doynloj8rxnd5" path="res://scenes/choose_ui_unit.tscn" id="4_ciq41"]
 
 [node name="BuildingCreatorCastleT1" instance=ExtResource("1_1ub1b")]
 entity_pool = Array[PackedScene]([ExtResource("2_qlo87"), ExtResource("3_ciq41")])
-choose_UI_scene = ExtResource("4_ciq41")
 building_res = ExtResource("2_jqta0")
