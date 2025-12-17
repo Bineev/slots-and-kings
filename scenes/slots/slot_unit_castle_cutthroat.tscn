@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://46qnruei11m6"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_qd2kv"]
+[ext_resource type="Resource" uid="uid://d62nskxn4g5g" path="res://resources/unit_castle_cutthroat.tres" id="2_wa2e7"]
+
+[node name="slot_unit_castle_cutthroat" instance=ExtResource("1_qd2kv")]
+slot_type = 1
+slot_res = ExtResource("2_wa2e7")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2n1x2qfrsxyl"]
+[gd_scene load_steps=19 format=3 uid="uid://b2n1x2qfrsxyl"]
 
 [ext_resource type="Script" uid="uid://3w73b74vo6kv" path="res://scripts/global/player_manager.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://bg3vp2ptjf3a4" path="res://scenes/slots/slot_unit_castle_villein.tscn" id="2_g2els"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://v2ecx68fo8rt" path="res://scenes/slots/slot_upgrade_mvspd_20.tscn" id="13_oprun"]
 [ext_resource type="PackedScene" uid="uid://cdpqewontsc8j" path="res://scenes/slots/slot_unit_castle_knight.tscn" id="13_qfm1y"]
 [ext_resource type="PackedScene" uid="uid://b0njh3b7sguke" path="res://scenes/slots/slot_upgrade_critchance_10.tscn" id="14_a8ls1"]
+[ext_resource type="PackedScene" uid="uid://46qnruei11m6" path="res://scenes/slots/slot_unit_castle_cutthroat.tscn" id="14_fulsm"]
 [ext_resource type="PackedScene" uid="uid://de20ijshf3iqc" path="res://scenes/hero_factory_castle.tscn" id="16_a8ls1"]
 
 [node name="Player" type="Node2D"]
@@ -29,7 +30,7 @@ base_units_deck = Array[PackedScene]([ExtResource("2_g2els"), ExtResource("2_g2e
 base_upgrades_deck = Array[PackedScene]([ExtResource("3_qlg0r"), ExtResource("5_fjrip"), ExtResource("5_fjrip"), ExtResource("13_oprun")])
 base_percs_deck = Array[PackedScene]([ExtResource("6_ur7pv"), ExtResource("7_y4r1p"), ExtResource("8_d2wvv"), ExtResource("9_3v2ag")])
 units_T1_pool = Array[PackedScene]([ExtResource("10_d2wvv"), ExtResource("11_3v2ag")])
-units_T2_pool = Array[PackedScene]([ExtResource("12_a8ls1")])
+units_T2_pool = Array[PackedScene]([ExtResource("12_a8ls1"), ExtResource("14_fulsm")])
 units_T3_pool = Array[PackedScene]([ExtResource("13_qfm1y")])
 upgrades_T1_pool = Array[PackedScene]([ExtResource("12_f1ej7"), ExtResource("13_oprun"), ExtResource("14_a8ls1"), ExtResource("4_tuyoq")])
 hero_factory_scene = ExtResource("16_a8ls1")

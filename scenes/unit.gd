@@ -51,7 +51,7 @@ var stats : Dictionary = {
 	'health_regen_interval' : INF,
 	'health_regen_interval_mult' : 1,
 	'true_damage' : 0,
-	'true_damage_mult' : 0,
+	'true_damage_mult' : 1,
 	'scout_range' : 0,
 	'scout_range_mult' : 1,
 	'damage_mult_vs_all' : 1,

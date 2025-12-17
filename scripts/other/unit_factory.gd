@@ -5,36 +5,7 @@ class_name UnitFactory
 
 @export var unit_family : DataManager.UnitFamily
 @export var unit_owner : DataManager.UnitOwner
-
-@export var T0 : PackedScene
-@export var T1_1 : PackedScene
-@export var T1_2 : PackedScene
-@export var T1_3 : PackedScene
-@export var T1_4 : PackedScene
-@export var T2_1 : PackedScene
-@export var T2_2 : PackedScene
-@export var T2_3 : PackedScene
-@export var T2_4 : PackedScene
-@export var T3_1 : PackedScene
-@export var T3_2 : PackedScene
-@export var T3_3 : PackedScene
-@export var T3_4 : PackedScene
-@export var T4_1 : PackedScene
-@export var T4_2 : PackedScene
-@export var T4_3 : PackedScene
-@export var T4_4 : PackedScene
-@export var T5_1 : PackedScene
-@export var T5_2 : PackedScene
-@export var T5_3 : PackedScene
-@export var T5_4 : PackedScene
-@export var T6_1 : PackedScene
-@export var T6_2 : PackedScene
-@export var T6_3 : PackedScene
-@export var T6_4 : PackedScene
-@export var T7_1 : PackedScene
-@export var T7_2 : PackedScene
-@export var T7_3 : PackedScene
-@export var T7_4 : PackedScene
+@export var unit_scene : PackedScene
 
 
 func set_unit_owner(new_unit_owner : DataManager.UnitOwner):
@@ -42,131 +13,18 @@ func set_unit_owner(new_unit_owner : DataManager.UnitOwner):
 
 
 func choose_unit(slots : Array[Slot]):
-	match slots[0].slot_unit_tier:
-		DataManager.UnitTier.T0:
-			create_unit(T0, slots)
-		DataManager.UnitTier.T1_1:
-			create_unit(T1_1, slots)
-		DataManager.UnitTier.T1_2:
-			create_unit(T1_2, slots)
-		DataManager.UnitTier.T1_3:
-			create_unit(T1_3, slots)
-		DataManager.UnitTier.T1_4:
-			create_unit(T1_4, slots)
-		DataManager.UnitTier.T2_1:
-			create_unit(T2_1, slots)
-		DataManager.UnitTier.T2_2:
-			create_unit(T2_2, slots)
-		DataManager.UnitTier.T2_3:
-			create_unit(T2_3, slots)
-		DataManager.UnitTier.T2_4:
-			create_unit(T2_4, slots)
-		DataManager.UnitTier.T3_1:
-			create_unit(T3_1, slots)
-		DataManager.UnitTier.T3_2:
-			create_unit(T3_2, slots)
-		DataManager.UnitTier.T3_3:
-			create_unit(T3_3, slots)
-		DataManager.UnitTier.T3_4:
-			create_unit(T3_4, slots)
-		DataManager.UnitTier.T4_1:
-			create_unit(T4_1, slots)
-		DataManager.UnitTier.T4_2:
-			create_unit(T4_2, slots)
-		DataManager.UnitTier.T4_3:
-			create_unit(T4_3, slots)
-		DataManager.UnitTier.T4_4:
-			create_unit(T4_4, slots)
-		DataManager.UnitTier.T5_1:
-			create_unit(T5_1, slots)
-		DataManager.UnitTier.T5_2:
-			create_unit(T5_2, slots)
-		DataManager.UnitTier.T5_3:
-			create_unit(T5_3, slots)
-		DataManager.UnitTier.T5_4:
-			create_unit(T5_4, slots)
-		DataManager.UnitTier.T6_1:
-			create_unit(T6_1, slots)
-		DataManager.UnitTier.T6_2:
-			create_unit(T6_2, slots)
-		DataManager.UnitTier.T6_3:
-			create_unit(T6_3, slots)
-		DataManager.UnitTier.T6_4:
-			create_unit(T6_4, slots)
-		DataManager.UnitTier.T7_1:
-			create_unit(T7_1, slots)
-		DataManager.UnitTier.T7_2:
-			create_unit(T7_2, slots)
-		DataManager.UnitTier.T7_3:
-			create_unit(T7_3, slots)
-		DataManager.UnitTier.T7_4:
-			create_unit(T7_4, slots)
+	create_unit(slots)
+
 
 
 func get_unit(slots : Array[Slot]):
-	match slots[0].slot_unit_tier:
-		DataManager.UnitTier.T0:
-			return create_and_get_unit(T0, slots)
-		DataManager.UnitTier.T1_1:
-			return create_and_get_unit(T1_1, slots)
-		DataManager.UnitTier.T1_2:
-			return create_and_get_unit(T1_2, slots)
-		DataManager.UnitTier.T1_3:
-			return create_and_get_unit(T1_3, slots)
-		DataManager.UnitTier.T1_4:
-			return create_and_get_unit(T1_4, slots)
-		DataManager.UnitTier.T2_1:
-			return create_and_get_unit(T2_1, slots)
-		DataManager.UnitTier.T2_2:
-			return create_and_get_unit(T2_2, slots)
-		DataManager.UnitTier.T2_3:
-			return create_and_get_unit(T2_3, slots)
-		DataManager.UnitTier.T2_4:
-			return create_and_get_unit(T2_4, slots)
-		DataManager.UnitTier.T3_1:
-			return create_and_get_unit(T3_1, slots)
-		DataManager.UnitTier.T3_2:
-			return create_and_get_unit(T3_2, slots)
-		DataManager.UnitTier.T3_3:
-			return create_and_get_unit(T3_3, slots)
-		DataManager.UnitTier.T3_4:
-			return create_and_get_unit(T3_4, slots)
-		DataManager.UnitTier.T4_1:
-			return create_and_get_unit(T4_1, slots)
-		DataManager.UnitTier.T4_2:
-			return create_and_get_unit(T4_2, slots)
-		DataManager.UnitTier.T4_3:
-			return create_and_get_unit(T4_3, slots)
-		DataManager.UnitTier.T4_4:
-			return create_and_get_unit(T4_4, slots)
-		DataManager.UnitTier.T5_1:
-			return create_and_get_unit(T5_1, slots)
-		DataManager.UnitTier.T5_2:
-			return create_and_get_unit(T5_2, slots)
-		DataManager.UnitTier.T5_3:
-			return create_and_get_unit(T5_3, slots)
-		DataManager.UnitTier.T5_4:
-			return create_and_get_unit(T5_4, slots)
-		DataManager.UnitTier.T6_1:
-			return create_and_get_unit(T6_1, slots)
-		DataManager.UnitTier.T6_2:
-			return create_and_get_unit(T6_2, slots)
-		DataManager.UnitTier.T6_3:
-			return create_and_get_unit(T6_3, slots)
-		DataManager.UnitTier.T6_4:
-			return create_and_get_unit(T6_4, slots)
-		DataManager.UnitTier.T7_1:
-			return create_and_get_unit(T7_1, slots)
-		DataManager.UnitTier.T7_2:
-			return create_and_get_unit(T7_2, slots)
-		DataManager.UnitTier.T7_3:
-			return create_and_get_unit(T7_3, slots)
-		DataManager.UnitTier.T7_4:
-			return create_and_get_unit(T7_4, slots)
+	return create_and_get_unit(slots)
 
 
-func create_unit(unit, slots):
-	var new_unit = unit.instantiate()
+
+func create_unit(slots):
+	#var new_unit = unit.instantiate()
+	var new_unit = unit_scene.instantiate()
 	apply_slots(new_unit, slots)
 	if unit_owner == DataManager.UnitOwner.PLAYER:
 		SignalManager.on_create_unit.emit(new_unit, slots, unit_owner)
@@ -174,8 +32,9 @@ func create_unit(unit, slots):
 		SignalManager.on_create_enemy_unit.emit(new_unit, slots, unit_owner)
 
 
-func create_and_get_unit(unit, slots):
-	var new_unit = unit.instantiate()
+func create_and_get_unit(slots):
+	#var new_unit = unit.instantiate()
+	var new_unit = unit_scene.instantiate()
 	apply_slots(new_unit, slots)
 	return new_unit
 

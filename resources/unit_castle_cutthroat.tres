@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=4 format=3 uid="uid://d62nskxn4g5g"]
+
+[ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_qvwck"]
+[ext_resource type="Texture2D" uid="uid://c8oftv071db6p" path="res://img/slots/castle_cutthroat_preview.png" id="2_01ati"]
+[ext_resource type="Texture2D" uid="uid://mbchu86wkru1" path="res://img/units/castle_cutthroat_anim.png" id="3_urv82"]
+
+[resource]
+script = ExtResource("1_qvwck")
+unit_tier = 6
+unit_types = Array[int]([0, 6])
+unit_cost = 2
+unit_sprite = ExtResource("3_urv82")
+slot_name = "головорез"
+slot_description = "после встречи проверяйте карманы"
+slot_sprite = ExtResource("2_01ati")
+slot_type = 1
+entity_tier = 2
+health = 80.0
+hit_chance = 100.0
+evade = 30.0
+attack_speed = 1.5
+move_speed = 30.0
+attack_range = 30.0
+true_damage = 20.0
+metadata/_custom_type_script = "uid://853hpku0xq1e"

@@ -42,7 +42,7 @@ class_name SlotRes
 @export var health_regen_interval : float = INF
 @export var health_regen_interval_mult : float = 1
 @export var true_damage : float = 0
-@export var true_damage_mult : float = 0
+@export var true_damage_mult : float = 1
 @export var scout_range : float = 0
 @export var scout_range_mult : float = 1
 @export var damage_mult_vs_all : float = 1
