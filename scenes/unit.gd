@@ -121,6 +121,7 @@ var actual_health : float
 @onready var attack_range: Area2D = %attack_range
 @onready var unit_status_sprite: Sprite2D = %unit_status_sprite
 @onready var timer_regen: Timer = %timer_regen
+@onready var collide_range: Area2D = %collide_range
 
 
 func _ready() -> void:
@@ -229,9 +230,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	unit_attack_type = slot.unit_attack_type
 	unit_sprite.texture = slot.slot_res.unit_sprite
 	slot_unit_res = slot.slot_res
-	var ar_shape = CircleShape2D.new()
-	ar_shape.radius = stats.attack_range
-	attack_range_collision.shape  = ar_shape
+
 	#var sr_shape = RectangleShape2D.new()
 	#sr_shape.size = Vector2(stats.scout_range, 50)
 	#scout_range_collision.shape  = sr_shape
@@ -243,6 +242,9 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	Player.apply_heroes_skills(self)
 	apply_stats()
 	generate_drop_chances()
+	var ar_shape = CircleShape2D.new()
+	ar_shape.radius = current_attack_range
+	attack_range_collision.shape  = ar_shape
 	actual_health = current_health
 	if unit_owner == DataManager.UnitOwner.PLAYER:
 		z_index = 3
@@ -270,10 +272,18 @@ func set_active():
 func set_collisions_by_owner():
 	if unit_owner == DataManager.UnitOwner.PLAYER:
 		set_collision_layer_value(2, true)
+		#collide_range.set_collision_layer_value(10, true)
+		#collide_range.set_collision_mask_value(10, true)
+		#set_collision_layer_value(10, true)
+		#set_collision_mask_value(10, true)
 		attack_range.set_collision_mask_value(3, true)
 	else:
 		set_collision_layer_value(4, true)
 		set_collision_layer_value(3, true)
+		#collide_range.set_collision_layer_value(11, true)
+		#collide_range.set_collision_mask_value(11, true)
+		#set_collision_layer_value(11, true)
+		#set_collision_mask_value(11, true)
 		attack_range.set_collision_mask_value(2, true)
 
 
@@ -463,6 +473,9 @@ func get_damage(damage : int, damage_owner : Object, is_crit : bool = false):
 		is_in_fight = false
 		is_can_attack = false
 		input_pickable = false
+		collide_range.monitorable = false
+		collide_range.monitoring = false
+		unit_collision.disabled = true
 		if tooltip:
 			hide_tooltip()
 		if unit_owner == DataManager.UnitOwner.PLAYER:
@@ -747,3 +760,37 @@ func show_debuff():
 
 func hide_status():
 	unit_status_sprite.hide()
+
+
+func _on_collide_range_area_entered(area: Area2D) -> void:
+	var new_velocity : Vector2
+	var new_unit_velocity : Vector2
+	var unit : Unit = area.get_parent()
+	# чекаем в какую сторону смотрим
+	var is_to_left = unit_sprite.flip_h
+	var unit_is_to_left = unit.unit_sprite.flip_h
+	# если мы смотрим в одну сторону
+	if is_to_left == unit_is_to_left:
+		# обрабатываем только когда отстаем
+		if is_to_left and global_position.x < unit.global_position.x:
+			return
+		if not is_to_left and global_position.x > unit.global_position.x:
+			return
+		# обработка
+		# чуть отскакиваем назад
+		if is_to_left:
+			new_velocity.x = current_move_speed * 3
+		else:
+			new_velocity.x = -current_move_speed * 3
+		if unit.unit_state != DataManager.UnitState.ATTACK:
+			new_unit_velocity.x = -new_velocity.x
+		# пытаемся обойти снизу
+		if global_position.y >= unit.global_position.y:
+			new_velocity.y = current_move_speed * 3
+		else:
+			new_velocity.y = -current_move_speed * 3
+
+	velocity = new_velocity
+	unit.velocity = new_unit_velocity
+	move_and_slide()
+	#unit.move_and_slide()

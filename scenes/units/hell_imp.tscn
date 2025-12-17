@@ -1,19 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2s0dxjybaryg"]
+[gd_scene load_steps=2 format=3 uid="uid://c2s0dxjybaryg"]
 
 [ext_resource type="PackedScene" uid="uid://d05xwahttcgrd" path="res://scenes/unit.tscn" id="1_g8yuo"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8yuo"]
-radius = 5.0
-height = 16.0
-
 [node name="HellImp" instance=ExtResource("1_g8yuo")]
 
-[node name="unit_collision" parent="." index="0"]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_g8yuo")
-
-[node name="scout_range" parent="." index="5"]
-visible = false
-
-[node name="scout_range_collision" parent="scout_range" index="0"]
+[node name="CollisionShape2D" parent="collide_range" index="0"]
 visible = false

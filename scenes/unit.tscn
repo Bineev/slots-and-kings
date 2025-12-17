@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d05xwahttcgrd"]
+[gd_scene load_steps=19 format=3 uid="uid://d05xwahttcgrd"]
 
 [ext_resource type="Script" uid="uid://c5vj47s3a7ooe" path="res://scenes/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://mm46fdorr5pj" path="res://img/shadow_min.png" id="2_1jvru"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://c0ltri10y2s5l" path="res://scenes/tooltip_unit.tscn" id="5_ruro2"]
 [ext_resource type="PackedScene" uid="uid://ckt3h8ncifr7u" path="res://scenes/sub_tooltip.tscn" id="6_e8hdl"]
 [ext_resource type="Texture2D" uid="uid://b78xt2st3uvs" path="res://img/status.png" id="8_oee7j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gdr1"]
+radius = 5.0
+height = 14.0
 
 [sub_resource type="Animation" id="Animation_1jvru"]
 resource_name = "attack"
@@ -150,6 +154,10 @@ gradient = SubResource("Gradient_e8hdl")
 fill = 1
 fill_from = Vector2(0.51282054, 0.50427353)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oee7j"]
+radius = 6.0
+height = 16.0
+
 [node name="Unit" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
@@ -163,6 +171,8 @@ subtooltip_scene = ExtResource("6_e8hdl")
 
 [node name="unit_collision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_7gdr1")
 
 [node name="unit_shadow_sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -191,6 +201,7 @@ libraries = {
 
 [node name="attack_range" type="Area2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, 2)
 collision_layer = 0
 collision_mask = 0
 
@@ -221,8 +232,18 @@ texture = SubResource("GradientTexture2D_oee7j")
 unique_name_in_owner = true
 wait_time = 1000.0
 
+[node name="collide_range" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collide_range"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_oee7j")
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="timer_aspd" to="." method="_on_timer_aspd_timeout"]
 [connection signal="timeout" from="timer_regen" to="." method="_on_timer_regen_timeout"]
+[connection signal="area_entered" from="collide_range" to="." method="_on_collide_range_area_entered"]

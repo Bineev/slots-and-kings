@@ -7,5 +7,5 @@
 [node name="UnitFactoryHell" instance=ExtResource("1_xpxu7")]
 unit_family = 1
 unit_owner = 1
-T1_1 = ExtResource("2_gelrf")
-T3_1 = ExtResource("3_2blbi")
+T1_1 = ExtResource("3_2blbi")
+T3_1 = ExtResource("2_gelrf")
