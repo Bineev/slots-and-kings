@@ -122,6 +122,7 @@ var actual_health : float
 @onready var unit_status_sprite: Sprite2D = %unit_status_sprite
 @onready var timer_regen: Timer = %timer_regen
 @onready var collide_range: Area2D = %collide_range
+@onready var unit_shadow_sprite: Sprite2D = %unit_shadow_sprite
 
 
 func _ready() -> void:
@@ -164,6 +165,7 @@ func _process(delta: float) -> void:
 			velocity = current_move_speed * direction * DataManager.action_speed_coeff
 			move_and_slide()
 			unit_sprite.flip_h = fight_point and fight_point.global_position.x < global_position.x
+			# здесь баг?
 			if Player.check_enemies(unit_owner) or check_is_on_point():
 				change_state(DataManager.UnitState.IDLE)
 
@@ -250,6 +252,8 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 		z_index = 3
 	elif unit_owner == DataManager.UnitOwner.ENEMY:
 		z_index = 2
+	set_unit_collistion_params()
+	set_shadow()
 	#parse_stats()
 	#create_tooltip()
 	# can be bug
@@ -469,6 +473,7 @@ func get_damage(damage : int, damage_owner : Object, is_crit : bool = false):
 	if actual_health - damage <= 0:
 		actual_health = 0
 		timer_aspd.stop()
+		timer_regen.stop()
 		is_in_fight = false
 		is_can_attack = false
 		input_pickable = false
@@ -610,7 +615,7 @@ func set_is_in_fight():
 
 func check_is_on_point():
 	if fight_point:
-		return abs(fight_point.global_position.x - global_position.x) < 10 and abs(fight_point.global_position.y - global_position.y) < 10
+		return abs(fight_point.global_position.x - global_position.x) < 5 and abs(fight_point.global_position.y - global_position.y) < 5
 	return false
 
 
@@ -796,3 +801,19 @@ func _on_collide_range_area_entered(area: Area2D) -> void:
 	unit.velocity = new_unit_velocity
 	move_and_slide()
 	#unit.move_and_slide()
+
+
+func set_unit_collistion_params():
+	var frame_size : Vector2 = Vector2(unit_sprite.texture.get_height() / 5, unit_sprite.texture.get_height() / 5)
+	var capsule_shape = CapsuleShape2D.new()
+	# Ensure collision shape dimensions match the mesh dimensions
+	capsule_shape.radius = frame_size.x / 4
+	capsule_shape.height = frame_size.y * 2 / 3
+	unit_collision.shape = capsule_shape
+	unit_collision.position.y = frame_size.y / 6
+
+
+func set_shadow():
+	var frame_size : Vector2 = Vector2(unit_sprite.texture.get_height() / 5, unit_sprite.texture.get_height() / 5)
+	unit_shadow_sprite.position.y = frame_size.y / 2 - frame_size.y / 100
+	unit_shadow_sprite.scale = Vector2(frame_size.y / unit_shadow_sprite.texture.get_height() / 7, frame_size.y / unit_shadow_sprite.texture.get_height() / 7)

@@ -417,3 +417,32 @@ func recursive_find(node, target_type, result_array):
 		if is_instance_of(child, target_type):
 			result_array.append(child)
 		recursive_find(child, target_type, result_array) # Рекурсивный вызов
+
+
+func sort_player_units():
+	var units : Array[Unit] = Player.get_player_units()
+	if units.size() == 0:
+		return
+	units.sort_custom(func(a, b): return a.global_position.y < b.global_position.y)
+	var base_ordering : int = 3
+	for unit in units:
+		base_ordering += 1
+		if unit and is_instance_valid(unit) and unit.unit_state != DataManager.UnitState.DIED and unit.unit_state != DataManager.UnitState.DEAD:
+			unit.z_index = base_ordering
+
+
+func sort_enemy_units():
+	var units : Array[Unit] = Player.get_enemies()
+	if units.size() == 0:
+		return
+	units.sort_custom(func(a, b): return a.global_position.y < b.global_position.y)
+	var base_ordering : int = 3
+	for unit in units:
+		base_ordering += 1
+		if unit and is_instance_valid(unit) and unit.unit_state != DataManager.UnitState.DIED and unit.unit_state != DataManager.UnitState.DEAD:
+			unit.z_index = base_ordering
+
+
+func _on_timer_sort_units_timeout() -> void:
+	sort_player_units()
+	sort_enemy_units()
