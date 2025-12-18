@@ -1,10 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://onabww3iqc2d"]
+[gd_scene load_steps=3 format=3 uid="uid://onabww3iqc2d"]
 
 [ext_resource type="PackedScene" uid="uid://du1jk1jvycey7" path="res://scenes/building_creator.tscn" id="1_n2wjm"]
 [ext_resource type="Resource" uid="uid://d0ao2a04mn4ep" path="res://resources/building_T4_barracks.tres" id="2_1vwph"]
-[ext_resource type="PackedScene" uid="uid://doynloj8rxnd5" path="res://scenes/choose_ui_unit.tscn" id="2_al50i"]
 
 [node name="BuildingCreatorCastleT4" instance=ExtResource("1_n2wjm")]
 entity_tier = 3
-choose_UI_scene = ExtResource("2_al50i")
 building_res = ExtResource("2_1vwph")

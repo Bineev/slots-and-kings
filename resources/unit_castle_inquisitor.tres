@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=4 format=3 uid="uid://cnk4yhlg10440"]
+
+[ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_ikb1m"]
+[ext_resource type="Texture2D" uid="uid://c31umre4xp23e" path="res://img/units/castle_inquistor_anim.png" id="2_i4xjh"]
+[ext_resource type="Texture2D" uid="uid://b7kmwuygm43x2" path="res://img/slots/castle_inquisitor_preview.png" id="2_qi61j"]
+
+[resource]
+script = ExtResource("1_ikb1m")
+unit_tier = 10
+unit_types = Array[int]([0, 3, 5])
+unit_cost = 3
+unit_sprite = ExtResource("2_i4xjh")
+slot_name = "инквизитор"
+slot_description = "В ваших интересах покаясться"
+slot_sprite = ExtResource("2_qi61j")
+slot_type = 1
+entity_tier = 3
+health = 120.0
+armor = 20.0
+magic_defence = 40.0
+magical_attack = 40.0
+hit_chance = 100.0
+attack_speed = 2.0
+move_speed = 30.0
+attack_range = 25.0
+health_regen = 10.0
+health_regen_interval = 5.0
+damage_mult_vs_hell = 1.2
+metadata/_custom_type_script = "uid://853hpku0xq1e"

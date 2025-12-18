@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccd6xj0dxfi4s"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_tx1p5"]
+[ext_resource type="Resource" uid="uid://cnk4yhlg10440" path="res://resources/unit_castle_inquisitor.tres" id="2_oxjj5"]
+
+[node name="SlotUnitCastleInquisitor" instance=ExtResource("1_tx1p5")]
+slot_type = 1
+slot_res = ExtResource("2_oxjj5")

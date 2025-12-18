@@ -4,5 +4,5 @@
 
 [resource]
 font = ExtResource("1_dbywx")
-font_size = 5
-font_color = Color(0.14509805, 0.3372549, 0.18039216, 1)
+font_size = 6
+font_color = Color(0.27450982, 0.50980395, 0.19607843, 1)

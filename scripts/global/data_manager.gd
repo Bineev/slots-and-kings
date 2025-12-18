@@ -245,7 +245,7 @@ var default_stats_to_rus : Dictionary = {
 	'scout_range_mult' : 1,
 	'damage_mult_vs_all' : 'повышение урона',
 	'damage_mult_vs_castle' : 'повышение урона против Замка',
-	'damage_mult_vs_hell' : 'повышшение урона против Преисподней',
+	'damage_mult_vs_hell' : 'урон против Бездны',
 	'damage_mult_vs_forest' : 'повышение урона против Леса',
 	'inc_damage_mult_vs_all' : 'снижение урона',
 	'inc_damage_mult_vs_castle' : 'снижение урона от Замка',

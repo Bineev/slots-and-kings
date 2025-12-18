@@ -80,7 +80,7 @@ func apply_slots(new_unit : Unit, slots):
 		new_unit.stats.life_steal_mult += slot.slot_res.life_steal_mult - 1
 		new_unit.stats.health_regen += slot.slot_res.health_regen
 		new_unit.stats.health_regen_mult += slot.slot_res.health_regen_mult - 1
-		new_unit.stats.health_regen_interval += slot.slot_res.health_regen_interval
+		new_unit.stats.health_regen_interval = min(slot.slot_res.health_regen_interval, new_unit.stats.health_regen_interval)
 		new_unit.stats.health_regen_interval_mult += slot.slot_res.health_regen_interval_mult - 1
 		new_unit.stats.true_damage += slot.slot_res.true_damage
 		new_unit.stats.true_damage_mult += slot.slot_res.true_damage_mult - 1

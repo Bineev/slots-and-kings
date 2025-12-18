@@ -254,8 +254,6 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	#create_tooltip()
 	# can be bug
 	#slots.clear()
-	timer_regen.wait_time = current_health_regen_interval
-	timer_regen.start()
 
 
 func get_state() -> DataManager.UnitState:
@@ -267,7 +265,8 @@ func set_active():
 	is_active = true
 	change_state(DataManager.UnitState.IDLE)
 	unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_NONE
-
+	timer_regen.wait_time = current_health_regen_interval
+	timer_regen.start()
 
 func set_collisions_by_owner():
 	if unit_owner == DataManager.UnitOwner.PLAYER:
@@ -723,14 +722,17 @@ func _on_timer_regen_timeout() -> void:
 
 
 func apply_regen():
-	if actual_health >= current_health:
+	if current_health_regen < 0:
+		get_damage(-current_health_regen, self)
 		return
 	get_health(current_health_regen)
 
 
 func get_health(health_amount : int):
+	if actual_health >= current_health:
+		return
 	var actual_health_amount : int = health_amount if actual_health + health_amount <= current_health else current_health - actual_health
-	actual_health += current_health
+	actual_health += actual_health_amount
 	show_heal(actual_health_amount)
 
 
