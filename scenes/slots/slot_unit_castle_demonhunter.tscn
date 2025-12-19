@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://br7kam8kvrkth"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_6n4l2"]
+[ext_resource type="Resource" uid="uid://dcv6n8g7fx1qh" path="res://resources/unit_castle_demonhunter.tres" id="2_wfxew"]
+
+[node name="SlotUnitCastleDemonhunter" instance=ExtResource("1_6n4l2")]
+slot_type = 1
+slot_res = ExtResource("2_wfxew")
