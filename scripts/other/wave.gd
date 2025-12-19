@@ -5,6 +5,7 @@ class_name Wave
 @export var enemy_spawn_scenes : Array[PackedScene]
 @export var wave_count : int
 @export var time_to_next_wave : float
+@export var time_to_next_spawn : float
 
 @onready var timer_to_next_spawn: Timer = %timer_to_next_spawn
 
@@ -16,15 +17,17 @@ func start_wave():
 
 func spawn():
 	var spawn_scene : PackedScene = enemy_spawn_scenes.pop_front()
+	if enemy_spawn_scenes.size() == 0:
+		SignalManager.on_end_wave.emit()
 	if not spawn_scene:
 		timer_to_next_spawn.stop()
-		SignalManager.on_end_wave.emit()
 		get_tree().create_timer(1).timeout.connect(destroy)
 		return
 	var spawn : EnemySpawn = spawn_scene.instantiate()
 	add_child(spawn)
 	spawn.start_spawn()
-	timer_to_next_spawn.wait_time = spawn.time_to_next_spawn
+	# здесь поменять
+	timer_to_next_spawn.wait_time = time_to_next_spawn
 	timer_to_next_spawn.start()
 
 
