@@ -43,7 +43,7 @@ enum ResType {
 }
 
 enum UnitType {
-	MELEE, RANGE, PHYS, MAGE, SUPPORT, TANK, ASSASSIN
+	MELEE, RANGE, PHYS, MAGE, SUPPORT, TANK, ASSASSIN, AOE
 }
 
 enum TargetSetting {
@@ -96,7 +96,8 @@ var unit_types_table : Dictionary = {
 	UnitType.MAGE : 'маг',
 	UnitType.SUPPORT : 'саппорт',
 	UnitType.TANK : 'танк',
-	UnitType.ASSASSIN : 'убийца'
+	UnitType.ASSASSIN : 'убийца',
+	UnitType.AOE : 'АОЕ',
 }
 
 var default_choose_amount : int = 2
@@ -202,7 +203,7 @@ var default_stats : Dictionary = {
 	'inc_damage_mult_vs_castle' : 1,
 	'inc_damage_mult_vs_hell' : 1,
 	'inc_damage_mult_vs_forest' : 1,
-	'projectile_speed' : 300,
+	'projectile_speed' : 0,
 	'projectile_speed_mult' : 1,
 	'projectile_attack_range' : 0,
 	'projectile_attack_range_mult' : 1,

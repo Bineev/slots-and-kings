@@ -9,6 +9,7 @@ var unit_projectile_texture : Texture2D
 var is_active : bool
 var projectile_speed : float
 var target : Unit
+var is_hit : bool
 
 @onready var sprite_projectile: Sprite2D = %sprite_projectile
 @onready var collision_projectile: CollisionShape2D = %collision_projectile
@@ -18,9 +19,12 @@ func _process(delta: float) -> void:
 	if not is_active:
 		return
 	if not target or not is_instance_valid(target) or target.unit_state == DataManager.UnitState.DIED or target.unit_state == DataManager.UnitState.DIED:
+		queue_free()
 		return
 	var direction = global_position.direction_to(target.global_position)
 	global_position += direction * projectile_speed * delta
+	if is_hit and (abs(global_position.x - target.global_position.x) < 2):
+		projectile_speed = 0
 
 
 func initialize():
@@ -51,8 +55,8 @@ func set_target(new_target : Unit):
 func create_projectile_collision():
 	var shape = RectangleShape2D.new()
 	var extents : Vector2
-	extents.x = sprite_projectile.texture.get_width()
-	extents.y = sprite_projectile.texture.get_height()
+	extents.x = sprite_projectile.texture.get_width() / 10
+	extents.y = sprite_projectile.texture.get_height() / 10
 	shape.extents = extents # Set the size/extents
 	collision_projectile.shape = shape
 
@@ -79,8 +83,12 @@ func _on_body_entered(body: Node2D) -> void:
 			projectile_owner.apply_damage(new_target)
 	else:
 		projectile_owner.apply_damage(unit)
-	hide()
-	is_active = false
+	is_hit = true
+	var tween : Tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property(self, 'is_active', false, 0.2)
+	tween.tween_property(self, 'modulate', Color(1, 1, 1, 0), 0.2)
+	tween.tween_callback(hide).set_delay(0.5)
 	get_tree().create_timer(3).timeout.connect(queue_free)
 
 

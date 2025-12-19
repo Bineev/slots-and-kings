@@ -1,25 +1,30 @@
-[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=4 format=3 uid="uid://h4dlt5axqlsb"]
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=5 format=3 uid="uid://h4dlt5axqlsb"]
 
 [ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_hf5hr"]
 [ext_resource type="Texture2D" uid="uid://bfnvhf87lku63" path="res://img/slots/castle_warlock_preview.png" id="2_mxkk6"]
+[ext_resource type="Texture2D" uid="uid://dgd4hclsu7b8t" path="res://img/projectile_warlock.png" id="3_05iay"]
 [ext_resource type="Texture2D" uid="uid://dgj4toaiwexx4" path="res://img/units/castle_warlock_anim.png" id="3_nlatw"]
 
 [resource]
 script = ExtResource("1_hf5hr")
 unit_tier = 5
-unit_types = Array[int]([3, 1])
+unit_types = Array[int]([3, 1, 7])
 unit_cost = 2
 unit_sprite = ExtResource("3_nlatw")
+unit_attack_type = 1
+unit_projectile_texture = ExtResource("3_05iay")
 slot_name = "колдун"
 slot_description = "мог бы стать садовником, но выбрал колдовство"
 slot_sprite = ExtResource("2_mxkk6")
 slot_type = 1
 entity_tier = 2
 health = 60.0
-magical_attack = 22.0
+magical_attack = 15.0
 hit_chance = 100.0
-attack_speed = 2.7
+attack_speed = 2.5
 move_speed = 15.0
-attack_range = 120.0
+attack_range = 150.0
 scout_range = 300.0
+projectile_speed = 125.0
+projectile_attack_range = 20.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"

@@ -64,7 +64,7 @@ var stats : Dictionary = {
 	'inc_damage_mult_vs_castle' : 1,
 	'inc_damage_mult_vs_hell' : 1,
 	'inc_damage_mult_vs_forest' : 1,
-	'projectile_speed' : 200,
+	'projectile_speed' : 0,
 	'projectile_speed_mult' : 1,
 	'projectile_attack_range' : 0,
 	'projectile_attack_range_mult' : 1,

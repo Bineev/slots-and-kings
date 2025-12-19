@@ -122,17 +122,17 @@ func add_item_to_deck(slot_scene : PackedScene, slot_type : DataManager.SlotType
 
 
 func add_unit_slot_to_deck(slot_scene : PackedScene):
-	var slot : Slot
-	var counter : int
-	for item in base_units_deck:
-		slot = item.instantiate()
-		if slot.slot_res.unit_tier == DataManager.UnitTier.T0:
-			base_units_deck.erase(item)
-			counter += 1
-			if counter == 2:
-				break
-	for i in range(counter):
-		base_units_deck.append(slot_scene)
+	#var slot : Slot
+	#var counter : int
+	#for item in base_units_deck:
+		#slot = item.instantiate()
+		#if slot.slot_res.unit_tier == DataManager.UnitTier.T0:
+			#base_units_deck.erase(item)
+			#counter += 1
+			#if counter == 2:
+				#break
+	#for i in range(counter):
+	base_units_deck.append(slot_scene)
 
 	# пока костылем добавляются два юнита (заменяются кресты)
 
