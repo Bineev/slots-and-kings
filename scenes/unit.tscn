@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d05xwahttcgrd"]
+[gd_scene load_steps=21 format=3 uid="uid://d05xwahttcgrd"]
 
 [ext_resource type="Script" uid="uid://c5vj47s3a7ooe" path="res://scenes/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://mm46fdorr5pj" path="res://img/shadow_min.png" id="2_1jvru"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://fdq0wjehentr" path="res://scenes/blood_particle.tscn" id="4_tb304"]
 [ext_resource type="PackedScene" uid="uid://c0ltri10y2s5l" path="res://scenes/tooltip_unit.tscn" id="5_ruro2"]
 [ext_resource type="PackedScene" uid="uid://ckt3h8ncifr7u" path="res://scenes/sub_tooltip.tscn" id="6_e8hdl"]
+[ext_resource type="PackedScene" uid="uid://b1frwub2mgd17" path="res://scenes/projectile.tscn" id="7_dh01e"]
 [ext_resource type="Texture2D" uid="uid://c31umre4xp23e" path="res://img/units/castle_inquistor_anim.png" id="8_7gdr1"]
 [ext_resource type="Texture2D" uid="uid://b78xt2st3uvs" path="res://img/status.png" id="8_oee7j"]
 
@@ -169,6 +170,7 @@ info_damage_popup_ui_scene = ExtResource("3_gic7v")
 blood_particle_scene = ExtResource("4_tb304")
 tooltip_scene = ExtResource("5_ruro2")
 subtooltip_scene = ExtResource("6_e8hdl")
+projectile_scene = ExtResource("7_dh01e")
 
 [node name="unit_shadow_sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true

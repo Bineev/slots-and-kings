@@ -53,3 +53,7 @@ class_name SlotRes
 @export var inc_damage_mult_vs_castle : float = 1
 @export var inc_damage_mult_vs_hell : float = 1
 @export var inc_damage_mult_vs_forest : float = 1
+@export var projectile_speed : float = 0
+@export var projectile_speed_mult : float = 1
+@export var projectile_attack_range : float = 0
+@export var projectile_attack_range_mult : float = 1

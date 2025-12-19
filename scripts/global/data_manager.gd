@@ -201,7 +201,11 @@ var default_stats : Dictionary = {
 	'inc_damage_mult_vs_all' : 1,
 	'inc_damage_mult_vs_castle' : 1,
 	'inc_damage_mult_vs_hell' : 1,
-	'inc_damage_mult_vs_forest' : 1
+	'inc_damage_mult_vs_forest' : 1,
+	'projectile_speed' : 300,
+	'projectile_speed_mult' : 1,
+	'projectile_attack_range' : 0,
+	'projectile_attack_range_mult' : 1,
 }
 
 var max_entity_tier : int = 4
@@ -250,7 +254,11 @@ var default_stats_to_rus : Dictionary = {
 	'inc_damage_mult_vs_all' : 'снижение урона',
 	'inc_damage_mult_vs_castle' : 'снижение урона от Замка',
 	'inc_damage_mult_vs_hell' : 'снижение урона от Преисподней',
-	'inc_damage_mult_vs_forest' : 'снижение урона от Леса'
+	'inc_damage_mult_vs_forest' : 'снижение урона от Леса',
+	'projectile_speed' : 'скорость снаряда',
+	'projectile_speed_mult' : 's',
+	'projectile_attack_range' : 'радиус аое снаряда',
+	'projectile_attack_range_mult' : 1,
 }
 
 

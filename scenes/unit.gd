@@ -16,6 +16,8 @@ class_name Unit
 @export var tooltip : TooltipUnit
 @export var subtooltip_scene : PackedScene
 @export var unit_attack_type : DataManager.AttackType
+@export var unit_projectile_texture : Texture2D
+@export var projectile_scene : PackedScene
 # stats and multiplicators
 var stats : Dictionary = {
 	'health' : 0,
@@ -61,7 +63,11 @@ var stats : Dictionary = {
 	'inc_damage_mult_vs_all' : 1,
 	'inc_damage_mult_vs_castle' : 1,
 	'inc_damage_mult_vs_hell' : 1,
-	'inc_damage_mult_vs_forest' : 1
+	'inc_damage_mult_vs_forest' : 1,
+	'projectile_speed' : 200,
+	'projectile_speed_mult' : 1,
+	'projectile_attack_range' : 0,
+	'projectile_attack_range_mult' : 1,
 }
 
 @export var unit_state : DataManager.UnitState
@@ -109,6 +115,8 @@ var current_inc_damage_mult_vs_all : float
 var current_inc_damage_mult_vs_castle : float
 var current_inc_damage_mult_vs_hell : float
 var current_inc_damage_mult_vs_forest : float
+var current_projectile_speed : float
+var current_projectile_attack_range : float
 
 var actual_health : float
 
@@ -215,7 +223,8 @@ func apply_stats():
 	current_inc_damage_mult_vs_castle = stats.inc_damage_mult_vs_castle
 	current_inc_damage_mult_vs_hell = stats.inc_damage_mult_vs_hell
 	current_inc_damage_mult_vs_forest = stats.inc_damage_mult_vs_forest
-	
+	current_projectile_speed = stats.projectile_speed
+	current_projectile_attack_range = stats.projectile_attack_range
 
 
 func initialize(slot : Slot, owner : DataManager.UnitOwner):
@@ -232,6 +241,8 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	unit_attack_type = slot.unit_attack_type
 	unit_sprite.texture = slot.slot_res.unit_sprite
 	slot_unit_res = slot.slot_res
+	if unit_types.has(DataManager.UnitType.RANGE):
+		unit_projectile_texture = slot.unit_projectile_texture
 
 	#var sr_shape = RectangleShape2D.new()
 	#sr_shape.size = Vector2(stats.scout_range, 50)
@@ -401,12 +412,15 @@ func attack():
 	unit_anim_player.speed_scale = 2 / current_attack_speed * DataManager.action_speed_coeff
 	change_state(DataManager.UnitState.ATTACK)
 	is_can_attack = false
-	if unit_attack_type == DataManager.AttackType.AOE:
-		var enemies : Array[Unit] = enemies_in_range.duplicate()
-		for target in enemies:
-			apply_damage(target)
-	else:
-		apply_damage(current_target)
+	if unit_types.has(DataManager.UnitType.MELEE):
+		if unit_attack_type == DataManager.AttackType.AOE:
+			var enemies : Array[Unit] = enemies_in_range.duplicate()
+			for target in enemies:
+				apply_damage(target)
+		else:
+			apply_damage(current_target)
+	elif unit_types.has(DataManager.UnitType.RANGE):
+		create_projectile(current_target)
 	timer_aspd.wait_time = current_attack_speed / DataManager.action_speed_coeff
 	timer_aspd.start()
 
@@ -477,9 +491,9 @@ func get_damage(damage : int, damage_owner : Object, is_crit : bool = false):
 		is_in_fight = false
 		is_can_attack = false
 		input_pickable = false
-		collide_range.monitorable = false
-		collide_range.monitoring = false
-		unit_collision.disabled = true
+		set_deferred('monitorable', false)
+		collide_range.set_deferred('monitoring', false)
+		unit_collision.set_deferred('disabled', true)
 		if tooltip:
 			hide_tooltip()
 		if unit_owner == DataManager.UnitOwner.PLAYER:
@@ -817,3 +831,14 @@ func set_shadow():
 	var frame_size : Vector2 = Vector2(unit_sprite.texture.get_height() / 5, unit_sprite.texture.get_height() / 5)
 	unit_shadow_sprite.position.y = frame_size.y / 2 - frame_size.y / 100
 	unit_shadow_sprite.scale = Vector2(frame_size.y / unit_shadow_sprite.texture.get_height() / 7, frame_size.y / unit_shadow_sprite.texture.get_height() / 7)
+
+
+func create_projectile(target : Unit):
+	var projectile : Projectile = projectile_scene.instantiate()
+	projectile.set_projectile_owner(self)
+	projectile.set_projectile_speed(current_projectile_speed)
+	projectile.set_target(target)
+	projectile.set_unit_projectile_texture(unit_projectile_texture)
+	#var initial_offset = -unit_sprite.texture.get_width() / 2 if global_position.x >= target.global_position.x else unit_sprite.texture.get_width() / 2
+	var initial_offset = 0
+	SignalManager.on_create_projectile.emit(projectile, Vector2(global_position.x + initial_offset, global_position.y))

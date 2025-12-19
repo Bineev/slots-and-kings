@@ -35,3 +35,4 @@ signal on_add_hero_to_field(hero : Hero)
 signal on_add_unit_from_skill(unit : Unit, spawn_position : Vector2)
 signal on_player_get_health
 signal on_unit_created(unit : Unit)
+signal on_create_projectile(projectile : Projectile, pos : Vector2)

@@ -9,6 +9,7 @@ class_name Slot
 @export var shader : Shader
 @export var tooltip_scene : PackedScene
 @export var unit_attack_type : DataManager.AttackType
+@export var unit_projectile_texture : Texture2D
 
 var slot_name : String
 var slot_description : String
@@ -36,6 +37,7 @@ func initialize():
 		unit_types = slot_res.unit_types
 		unit_cost = slot_res.unit_cost
 		unit_attack_type = slot_res.unit_attack_type
+		unit_projectile_texture = slot_res.unit_projectile_texture
 	#create_tooltip()
 
 

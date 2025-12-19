@@ -39,6 +39,7 @@ var heroes_slots_points : Array[Spawner]
 @onready var panel_in_fight: PanelContainer = %panel_in_fight
 @onready var heroes: Node2D = %heroes
 @onready var heroes_slots: Node2D = %heroes_slots
+@onready var projectiles: Node2D = %projectiles
 
 
 func _ready() -> void:
@@ -65,6 +66,7 @@ func _ready() -> void:
 	SignalManager.on_add_hero_to_field.connect(add_hero_to_field)
 	SignalManager.on_add_unit_from_skill.connect(add_unit_from_skill)
 	SignalManager.on_player_get_health.connect(update_hp_bar)
+	SignalManager.on_create_projectile.connect(create_projectile)
 	#SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
@@ -446,3 +448,9 @@ func sort_enemy_units():
 func _on_timer_sort_units_timeout() -> void:
 	sort_player_units()
 	sort_enemy_units()
+
+
+func create_projectile(projectile : Projectile, new_pos : Vector2):
+	projectiles.add_child(projectile)
+	projectile.initialize()
+	projectile.global_position = new_pos

@@ -545,6 +545,9 @@ autostart = true
 unique_name_in_owner = true
 autostart = true
 
+[node name="projectiles" type="Node2D" parent="."]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
 [connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]
 [connection signal="timeout" from="is_in_fight_timer" to="." method="_on_is_in_fight_timer_timeout"]

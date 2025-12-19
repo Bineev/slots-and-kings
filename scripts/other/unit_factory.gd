@@ -94,3 +94,7 @@ func apply_slots(new_unit : Unit, slots):
 		new_unit.stats.inc_damage_mult_vs_castle += slot.slot_res.inc_damage_mult_vs_castle - 1
 		new_unit.stats.inc_damage_mult_vs_hell += slot.slot_res.inc_damage_mult_vs_hell - 1
 		new_unit.stats.inc_damage_mult_vs_forest += slot.slot_res.inc_damage_mult_vs_forest - 1
+		new_unit.stats.projectile_speed += slot.slot_res.projectile_speed
+		new_unit.stats.projectile_speed_mult += slot.slot_res.projectile_speed_mult - 1
+		new_unit.stats.projectile_attack_range += slot.slot_res.projectile_attack_range
+		new_unit.stats.projectile_attack_range_mult += slot.slot_res.projectile_attack_range_mult - 1
