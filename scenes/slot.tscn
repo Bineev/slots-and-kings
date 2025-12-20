@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cluryhbmp3j2a"]
+[gd_scene load_steps=10 format=3 uid="uid://cluryhbmp3j2a"]
 
 [ext_resource type="Script" uid="uid://1a6pcsavrpif" path="res://scripts/other/slot.gd" id="1_4v6ba"]
 [ext_resource type="Texture2D" uid="uid://cps8f28n71vgc" path="res://img/highlight_slot.png" id="2_ic0fu"]
 [ext_resource type="Shader" uid="uid://dtu1sfsav5a2i" path="res://shaders/highlight.gdshader" id="2_vqyee"]
 [ext_resource type="PackedScene" uid="uid://w4c2mrw01hig" path="res://scenes/tooltip_slot.tscn" id="3_5f2j7"]
+[ext_resource type="Texture2D" uid="uid://cyoadrk310cfb" path="res://img/slots/slot_back.png" id="4_sjnr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqyee"]
 size = Vector2(16, 16)
@@ -54,6 +55,10 @@ monitorable = false
 script = ExtResource("1_4v6ba")
 shader = ExtResource("2_vqyee")
 tooltip_scene = ExtResource("3_5f2j7")
+
+[node name="slot_back_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("4_sjnr7")
 
 [node name="slot_sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

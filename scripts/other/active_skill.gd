@@ -379,6 +379,7 @@ func apply_stats(target : Unit):
 func back_stats(target : Unit):
 	if target and is_instance_valid(target):
 		back_stat_to_default(target)
+		target.hide_status()
 		#target.hide_status()
 		#target.hide_tooltip()
 		#target.parse_stats()

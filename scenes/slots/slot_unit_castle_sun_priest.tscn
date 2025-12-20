@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b63vkmuix1glq"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_j5crs"]
+[ext_resource type="Resource" uid="uid://7pmxvr6da48b" path="res://resources/unit_castle_sun_priest.tres" id="2_itmcb"]
+
+[node name="SlotUnitCastleSunPriest" instance=ExtResource("1_j5crs")]
+slot_type = 1
+slot_res = ExtResource("2_itmcb")
+entity_tier = 4

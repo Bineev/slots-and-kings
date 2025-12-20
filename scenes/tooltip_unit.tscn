@@ -39,6 +39,9 @@ mouse_filter = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Убийца - наносит чистый урон (игнор брони и маг защиты)
+Маг - наносит магический урон (игнор брони и уворота)
+Физ - наносит физический урон (игнор маг защиты)"
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 theme_override_fonts/normal_font = ExtResource("3_8cib3")

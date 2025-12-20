@@ -587,8 +587,10 @@ func apply_damage(new_current_target : Unit):
 	if not current_target or not is_instance_valid(current_target):
 		return
 	# применить урон к цели
-	current_target.get_damage(round(attack), self, is_crit)
 	print('%s наносит %f урона %s' % [self.unit_name, attack, current_target.unit_name])
+	if current_life_steal > 0 and current_target and is_instance_valid(current_target) and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
+		get_health(round(attack / 100 * current_life_steal))
+	current_target.get_damage(round(attack), self, is_crit)
 
 
 func die():
