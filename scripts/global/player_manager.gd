@@ -8,6 +8,8 @@ extends Node
 @export var crystals : int
 
 @export var wave_rewards : Array[DataManager.RewardType]
+@export var empty_perc_scene : PackedScene
+@export var empty_upgrade_scene : PackedScene
 
 @export var base_units_deck : Array[PackedScene]
 @export var base_upgrades_deck : Array[PackedScene]
@@ -305,3 +307,27 @@ func get_unit_factory():
 func get_heal(amount : int):
 	current_health = clamp(current_health + amount, 0, health)
 	SignalManager.on_player_get_health.emit()
+
+
+func remove_slot_by_type(slot : Slot, slot_type : DataManager.SlotType):
+	match slot_type:
+		DataManager.SlotType.UPGRADE:
+			remove_slot(base_upgrades_deck, slot)
+		DataManager.SlotType.PERC:
+			remove_slot(base_percs_deck, slot)
+		DataManager.SlotType.UNIT:
+			remove_slot(base_units_deck, slot)
+
+
+func remove_slot(deck : Array[PackedScene], slot : Slot):
+	var slots : Array[Slot]
+	for item in deck:
+		var item_instance : Slot = item.instantiate()
+		if item_instance.slot_res.slot_name == slot.slot_name:
+			if deck.size() == 4:
+				deck.erase(item)
+				deck.append(empty_perc_scene if slot.slot_type == DataManager.SlotType.PERC else empty_upgrade_scene)
+				break
+			else:
+				deck.erase(item)
+				break

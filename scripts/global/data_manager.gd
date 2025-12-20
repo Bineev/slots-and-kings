@@ -139,6 +139,8 @@ var action_speed_coeff : float = 1.5
 
 var min_damage_mult : float = 0.3
 
+var empty_slot_name : String = 'Зеро'
+
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
 	'Bernard', 'Baldo', 'Bran', 'Benedict', 'Bert',

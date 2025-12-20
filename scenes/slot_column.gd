@@ -33,8 +33,11 @@ func initialize_carousels():
 	slot_carousel_top.spin_curve = spin_curve
 	slot_carousel_mid.spin_curve = spin_curve
 	slot_carousel_bot.spin_curve = spin_curve
+	slot_carousel_top.initial_indexes = DataManager.started_indexes
 	slot_carousel_top.initialize(deck)
+	slot_carousel_mid.initial_indexes = DataManager.started_indexes + Vector2.ONE
 	slot_carousel_mid.initialize(deck)
+	slot_carousel_bot.initial_indexes = DataManager.started_indexes + Vector2.ONE + Vector2.ONE
 	slot_carousel_bot.initialize(deck)
 
 

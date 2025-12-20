@@ -7,6 +7,9 @@ class_name RewardAfterWaveUI
 @export var action_reward_item_scene : PackedScene
 @export var choose_UI_scene : PackedScene
 @export var choose_UI : ChooseUI
+@export var remover_slot_UI_scene : PackedScene
+@export var remover_slot_UI : RemoverUI
+
 
 @export var wave_count : int
 
@@ -22,6 +25,9 @@ func initialize():
 
 
 func show_popup_UI():
+	if reward_type == DataManager.RewardType.REMOVER:
+		show_slot_remover()
+		return
 	if reward_type != DataManager.RewardType.MARKET and reward_type != DataManager.RewardType.BLACK_MARKET:
 		show_choose_UI()
 		return
@@ -108,3 +114,16 @@ func set_resorces_count_by_wave_count():
 
 func set_wave_count(new_wave_count : int):
 	wave_count = new_wave_count
+
+
+func show_slot_remover():
+	remover_slot_UI = remover_slot_UI_scene.instantiate()
+	var slot_scenes : Array[PackedScene]
+	var units : Array[PackedScene] = Player.get_deck_by_slot_type(DataManager.SlotType.UNIT)
+	if units.size() > 4:
+		slot_scenes.append_array(units)
+	slot_scenes.append_array(Player.get_deck_by_slot_type(DataManager.SlotType.UPGRADE))
+	slot_scenes.append_array(Player.get_deck_by_slot_type(DataManager.SlotType.PERC))
+	remover_slot_UI.set_slot_scenes(slot_scenes)
+	remover_slot_UI.set_is_should_start_wave(true)
+	SignalManager.on_show_choose_UI_after_wave.emit(remover_slot_UI)

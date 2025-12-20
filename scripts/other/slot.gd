@@ -18,6 +18,7 @@ var unit_types : Array[DataManager.UnitType]
 var unit_cost : int
 var tooltip : Tooltip
 var is_tooltip_shown : bool
+var is_on_remover_UI : bool
 
 @onready var slot_sprite: AnimatedSprite2D = %slot_sprite
 @onready var slot_anim_player: AnimationPlayer = %slot_anim_player
@@ -39,6 +40,10 @@ func initialize():
 		unit_attack_type = slot_res.unit_attack_type
 		unit_projectile_texture = slot_res.unit_projectile_texture
 	#create_tooltip()
+
+
+func set_is_on_remover_UI(new_is_on_remover_UI : bool):
+	is_on_remover_UI = new_is_on_remover_UI
 
 
 func highlight_slot():
@@ -104,3 +109,13 @@ func _on_mouse_exited() -> void:
 	if tooltip and is_instance_valid(tooltip):
 		tooltip.queue_free()
 		
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if not is_on_remover_UI:
+		return
+	# Check if the event is a mouse button press
+	if event is InputEventMouseButton:
+		# Check specifically for the left mouse button being pressed down
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			SignalManager.on_choose_removed_slot.emit(self)

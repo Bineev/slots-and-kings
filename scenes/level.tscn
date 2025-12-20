@@ -81,7 +81,7 @@ script = ExtResource("1_klq6b")
 unit_preview_scene = ExtResource("2_klq6b")
 waves_scenes = Array[PackedScene]([ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q")])
 first_wave_timer = 3.0
-wave_rewards = Array[int]([1, 2, 3, 4])
+wave_rewards = Array[int]([5, 2, 1, 1, 5, 2, 1, 2, 1])
 wave_reward_UI_scene = ExtResource("4_olg7q")
 
 [node name="shaders_layer" type="CanvasLayer" parent="."]

@@ -23,7 +23,7 @@ signal on_end_wave
 signal on_start_spawn
 signal on_wave_done
 signal on_unit_die(unit : Unit)
-signal on_show_choose_UI_after_wave(chooseUI : ChooseUI)
+signal on_show_choose_UI_after_wave(chooseUI : Control)
 signal on_new_wave_start
 signal on_player_get_hit
 signal on_drop_res_popup(unit : Unit, info_res_popup_UI : InfoResPopupUI , x_offsetx_offset : float)
@@ -36,3 +36,4 @@ signal on_add_unit_from_skill(unit : Unit, spawn_position : Vector2)
 signal on_player_get_health
 signal on_unit_created(unit : Unit)
 signal on_create_projectile(projectile : Projectile, pos : Vector2)
+signal on_choose_removed_slot(slot : Slot)

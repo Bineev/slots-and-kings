@@ -58,6 +58,7 @@ func _ready() -> void:
 	SignalManager.on_wave_done.connect(show_reward)
 	SignalManager.on_wave_done.connect(clear_fight_points)
 	SignalManager.on_wave_done.connect(pause_timers)
+	SignalManager.on_wave_done.connect(cancel_attack)
 	SignalManager.on_player_get_hit.connect(update_hp_bar)
 	SignalManager.on_drop_res_popup.connect(show_res_popup_after_unit_dead)
 	SignalManager.on_show_damage.connect(show_damage_ui)
@@ -193,7 +194,7 @@ func add_choose_UI(building : Building, chooseUI : ChooseUI):
 	get_tree().create_timer(0.01).timeout.connect(align_popup.bind(chooseUI))
 
 
-func add_choose_UI_in_center(chooseUI : ChooseUI):
+func add_choose_UI_in_center(chooseUI : Control):
 	ui.add_child(chooseUI)
 	chooseUI.initialize()
 	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(chooseUI))
@@ -285,6 +286,7 @@ func create_wave():
 
 
 func start_next_wave_countdown():
+	unpause_timers()
 	var next_wave_scene : PackedScene = waves_scenes.pop_front()
 	if not next_wave_scene:
 		timer_to_next_wave.stop()
@@ -295,7 +297,6 @@ func start_next_wave_countdown():
 	timer_to_next_wave.start()
 	next_wave_ui.is_should_update_label = true
 	next_wave_ui.visible = true
-	unpause_timers()
 
 
 func start_check_is_enemies_remaining():
@@ -314,7 +315,10 @@ func show_reward():
 	var wave_count : int = Player.get_current_wave_count()
 	wave_reward_UI = wave_reward_UI_scene.instantiate()
 	wave_reward_UI.set_wave_count(wave_count)
-	wave_reward_UI.set_reward_type(Player.get_wave_rewards().pop_front())
+	var reward_type = Player.get_wave_rewards().pop_front()
+	if not reward_type:
+		return
+	wave_reward_UI.set_reward_type(reward_type)
 	ui.add_child(wave_reward_UI)
 	wave_reward_UI.initialize()
 	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(wave_reward_UI))
@@ -426,7 +430,7 @@ func sort_player_units():
 	if units.size() == 0:
 		return
 	units.sort_custom(func(a, b): return a.global_position.y < b.global_position.y)
-	var base_ordering : int = 3
+	var base_ordering : int = 43
 	for unit in units:
 		base_ordering += 1
 		if unit and is_instance_valid(unit) and unit.unit_state != DataManager.UnitState.DIED and unit.unit_state != DataManager.UnitState.DEAD:
@@ -454,3 +458,11 @@ func create_projectile(projectile : Projectile, new_pos : Vector2):
 	projectiles.add_child(projectile)
 	projectile.initialize()
 	projectile.global_position = new_pos
+
+
+func cancel_attack():
+	var units : Array[Unit] = Player.get_player_units()
+	for unit in units:
+		unit.change_state(DataManager.UnitState.IDLE)
+		unit.is_can_attack = true
+		unit.is_in_fight = false

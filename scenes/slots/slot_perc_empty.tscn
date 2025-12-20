@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://edd44jk248hq"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_gj1vo"]
+[ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="2_ktqav"]
+
+[node name="SlotPercEmpty" instance=ExtResource("1_gj1vo")]
+slot_type = 2
+slot_res = ExtResource("2_ktqav")

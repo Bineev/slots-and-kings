@@ -22,3 +22,4 @@ func initialize():
 			label_reward_info.text = 'Черный рынок'
 		DataManager.RewardType.MARKET:
 			label_reward_info.text = 'Торговец'
+	show()

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlkuko2amrh3t"]
+
+[ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_oqpmw"]
+[ext_resource type="Script" uid="uid://kpwydgahqm8s" path="res://scripts/other/remover_ui.gd" id="1_x1stn"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_sthbu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tb6si"]
+font = ExtResource("3_sthbu")
+font_size = 6
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+
+[node name="RemoverUI" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_oqpmw")
+script = ExtResource("1_x1stn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="label_header" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Выберите слот, который хотите удалить из рулетки"
+label_settings = SubResource("LabelSettings_tb6si")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="slots_container" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 4

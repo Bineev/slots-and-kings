@@ -17,7 +17,7 @@ func start_wave():
 
 func spawn():
 	var spawn_scene : PackedScene = enemy_spawn_scenes.pop_front()
-	if enemy_spawn_scenes.size() == 0:
+	if enemy_spawn_scenes.size() == 0 and spawn_scene:
 		SignalManager.on_end_wave.emit()
 	if not spawn_scene:
 		timer_to_next_spawn.stop()
