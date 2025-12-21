@@ -37,3 +37,4 @@ signal on_player_get_health
 signal on_unit_created(unit : Unit)
 signal on_create_projectile(projectile : Projectile, pos : Vector2)
 signal on_choose_removed_slot(slot : Slot)
+signal on_swap_done

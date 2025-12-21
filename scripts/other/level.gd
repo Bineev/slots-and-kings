@@ -112,6 +112,8 @@ func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOw
 
 
 func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
+	if unit_preview_UI:
+		unit_preview_UI.queue_free()
 	unit_preview_UI = unit_preview_scene.instantiate()
 	ui.add_child(unit_preview_UI)
 	unit_preview_UI.set_unit(unit)

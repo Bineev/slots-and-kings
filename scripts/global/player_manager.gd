@@ -6,6 +6,8 @@ extends Node
 @export var tokens : int
 @export var food : int
 @export var crystals : int
+@export var can_swap_time : float
+@export var is_can_swap : bool
 
 @export var wave_rewards : Array[DataManager.RewardType]
 @export var empty_perc_scene : PackedScene
@@ -331,3 +333,15 @@ func remove_slot(deck : Array[PackedScene], slot : Slot):
 			else:
 				deck.erase(item)
 				break
+
+
+func get_can_swap_time():
+	return can_swap_time
+
+
+func set_is_can_swap(new_is_can_swap : bool):
+	is_can_swap = new_is_can_swap
+
+
+func get_is_can_swap():
+	return is_can_swap

@@ -41,6 +41,15 @@ func initialize_carousels():
 	slot_carousel_bot.initialize(deck)
 
 
+func set_slot_collisions_for_swap():
+	for slot in slot_carousel_top.slots:
+		slot.set_collision_for_swap(10, 11, 12)
+	for slot in slot_carousel_mid.slots:
+		slot.set_collision_for_swap(11, 10, 12)
+	for slot in slot_carousel_bot.slots:
+		slot.set_collision_for_swap(12, 10, 11)
+
+
 func pre_spin():
 	initialize_deck()
 	initialize_carousels()

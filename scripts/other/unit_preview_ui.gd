@@ -52,6 +52,11 @@ func add_unit():
 	unit.position.y = 12
 
 
+func remove_current_unit():
+	if unit:
+		container.remove_child(unit)
+
+
 func close_UI():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, 'scale', Vector2.ZERO, 0.3)

@@ -28,6 +28,7 @@ gold = 1000000
 tokens = 100
 food = 100
 crystals = 100
+can_swap_time = 0.05
 empty_perc_scene = ExtResource("8_60mlk")
 empty_upgrade_scene = ExtResource("5_fjrip")
 base_units_deck = Array[PackedScene]([ExtResource("2_g2els"), ExtResource("2_g2els"), ExtResource("2_g2els"), ExtResource("2_g2els")])

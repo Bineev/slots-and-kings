@@ -3,6 +3,9 @@ extends Node2D
 class_name SlotMachine
 
 
+@export var style_box_full : StyleBox
+@export var style_box_not_full : StyleBox
+
 @onready var first_column: SlotColumn = %first_column
 @onready var second_column: SlotColumn = %second_column
 @onready var third_column: SlotColumn = %third_column
@@ -11,18 +14,23 @@ class_name SlotMachine
 @onready var castle_unit_factory: Node2D = %CastleUnitFactory
 @onready var spin_button: Button = %spin_button
 @onready var create_button: Button = %create_button
+@onready var bar_can_swap: ProgressBar = %bar_can_swap
+@onready var timer_can_swap: Timer = %timer_can_swap
 
 var slots : Array[Slot]
 var is_need_check : bool
 var is_already_created : bool
+var current_active_slots : Array[Slot]
 
 func _ready() -> void:
 	SignalManager.on_spin_end.connect(create_unit)
 	SignalManager.on_not_enough_food.connect(disable_create_button)
 	SignalManager.on_enough_food.connect(enable_create_button)
 	SignalManager.on_res_change.connect(update_buttons)
+	SignalManager.on_swap_done.connect(clear_bar_can_swap)
 	await get_tree().process_frame
 	Player.set_unit_factory(castle_unit_factory)
+	initialize()
 	#first_column.pre_spin()
 	#second_column.pre_spin()
 	#third_column.pre_spin()
@@ -37,6 +45,12 @@ func _process(delta: float) -> void:
 				spin_button.disabled = false
 			create_button.disabled = false
 			create_unit()
+
+
+func initialize():
+	await get_tree().process_frame
+	timer_can_swap.wait_time = Player.get_can_swap_time()
+	timer_can_swap.start()
 
 
 func spin_columns():
@@ -56,19 +70,30 @@ func get_active_slots():
 	new_slots.append_array(unit_slot)
 	new_slots.append_array(upgrade_slots)
 	new_slots.append_array(perc_slots)
+	for slot in new_slots:
+		slot.set_collision_layer_value(11, true)
+		slot.monitorable = true
 	return new_slots
 
 
 func create_unit():
+	if slots.size() > 0:
+		for slot in slots:
+			slot.stop_highlight()
 	slots = get_active_slots()
 	for slot in slots:
 		slot.highlight_slot()
 	var units_count : int = slots.filter(func(slot : Slot): return slot.slot_type == DataManager.SlotType.UNIT).size()
-	var unit_slot : Slot = slots.pop_front()
-	slots = slots.filter(func(slot : Slot): return slot.slot_type != DataManager.SlotType.UNIT)
-	slots.push_front(unit_slot)
+	var unit_slot : Slot = slots[0]
 	Player.set_units_count_for_next_create(units_count)
-	castle_unit_factory.choose_unit(slots)
+	print(slots.slice(0, 1))
+	print(slots.slice(units_count))
+	castle_unit_factory.choose_unit(slots.slice(0, 1) + slots.slice(units_count))
+
+#
+#func dehighlight_spots():
+	#for slot in current_active_slots:
+		#slot.stop_highlight()
 
 
 func check_is_spin_end():
@@ -120,3 +145,18 @@ func update_buttons(res_type : DataManager.ResType):
 
 func get_factory():
 	return castle_unit_factory
+
+
+func _on_timer_can_swap_timeout() -> void:
+	bar_can_swap.value += 1
+	if bar_can_swap.value == bar_can_swap.max_value:
+		timer_can_swap.stop()
+		bar_can_swap.add_theme_stylebox_override("fill", style_box_full)
+		Player.set_is_can_swap(true)
+
+
+func clear_bar_can_swap():
+	create_unit()
+	bar_can_swap.value = 0
+	bar_can_swap.add_theme_stylebox_override("fill", style_box_not_full)
+	timer_can_swap.start()
