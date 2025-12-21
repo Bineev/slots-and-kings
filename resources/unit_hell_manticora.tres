@@ -7,15 +7,15 @@
 [resource]
 script = ExtResource("1_gsm8m")
 unit_family = 1
-unit_tier = 9
+unit_tier = 5
 unit_types = Array[int]([0, 2])
-unit_cost = 3
+unit_cost = 2
 unit_sprite = ExtResource("3_bbtah")
 slot_name = "мантикора"
 slot_description = "кошку с рук не кормить"
 slot_sprite = ExtResource("2_pux8x")
 slot_type = 1
-entity_tier = 3
+entity_tier = 2
 health = 80.0
 armor = 20.0
 physical_attack = 30.0

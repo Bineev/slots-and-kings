@@ -8,6 +8,7 @@ class_name RemoverUI
 var is_should_start_wave : bool
 
 @onready var slots_container: GridContainer = %slots_container
+@onready var button_skip: Button = %button_skip
 
 
 func _ready() -> void:
@@ -54,4 +55,9 @@ func remove_slot(slot : Slot):
 	for item in slots:
 		item.is_on_remover_UI = false
 	Player.remove_slot_by_type(slot, slot.slot_type)
+	close_remover_UI()
+
+
+func _on_button_skip_pressed() -> void:
+	button_skip.disabled = true
 	close_remover_UI()
