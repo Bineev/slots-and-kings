@@ -122,6 +122,8 @@ func after_spin():
 
 
 func get_active_slot():
+	slots[1].set_collision_layer_value(11, true)
+	slots[1].monitorable = true
 	return slots[1]
 
 

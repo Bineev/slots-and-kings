@@ -24,6 +24,7 @@ var is_in_swap_state : bool
 var slot_for_swap : Slot
 var previous_z_index : int
 var is_can_swap : bool = true
+var current_swap_slots : Array[Slot]
 
 @onready var slot_sprite: AnimatedSprite2D = %slot_sprite
 @onready var slot_anim_player: AnimationPlayer = %slot_anim_player
@@ -33,6 +34,7 @@ var is_can_swap : bool = true
 
 func _process(delta: float) -> void:
 	if is_in_swap_state:
+		#global_position = Vector2(global_position.x, clampf(get_global_mouse_position().y, before_can_swap_position.y - 16, before_can_swap_position.y + 16))
 		global_position = Vector2(global_position.x, get_global_mouse_position().y)
 		#if slot_for_swap:
 			#if slot_for_swap.global_position.y + 12 < global_position.y:
@@ -146,7 +148,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				# Calculate the offset from the object's origin to the mouse position
 				#skill_zone.offset = get_global_mouse_position() - global_position
 		else:
-			if slot_for_swap:
+			if current_swap_slots.size() > 0:
 				is_in_swap_state = false
 				z_index = previous_z_index
 				move_slots()
@@ -161,21 +163,32 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	#if is_in_swap_state:
+		#var slot : Slot = area
+		#slot_for_swap = slot
+		#slot_for_swap.input_pickable = false
 	if is_in_swap_state:
 		var slot : Slot = area
-		slot_for_swap = slot
-		slot_for_swap.input_pickable = false
+		current_swap_slots.append(slot)
+		slot.input_pickable = false
+		print(current_swap_slots)
 
 
 func _on_area_exited(area: Area2D) -> void:
+	#if is_in_swap_state:
+		#var slot : Slot = area
+		#slot_for_swap.input_pickable = true
+		#slot_for_swap = null
 	if is_in_swap_state:
 		var slot : Slot = area
-		slot_for_swap.input_pickable = true
-		slot_for_swap = null
-
+		current_swap_slots.erase(slot)
+		slot.input_pickable = true
 
 func move_slots():
-	if slot_for_swap:
+	if current_swap_slots.size() > 0:
+		slot_for_swap = get_closest_swap_slot()
+		if not slot_for_swap:
+			return 
 		# просто перемещение
 		#slot_for_swap.global_position = before_can_swap_position
 		#slot_for_swap.z_index = 99
@@ -195,3 +208,11 @@ func move_slots():
 		slot_for_swap = null
 		Player.set_is_can_swap(false)
 		SignalManager.on_swap_done.emit()
+
+
+func get_closest_swap_slot():
+	if current_swap_slots.size() > 0:
+		current_swap_slots.sort_custom(func(a, b): return abs(a.global_position - global_position) < abs(b.global_position - global_position))
+		return current_swap_slots[0]
+	else:
+		return null

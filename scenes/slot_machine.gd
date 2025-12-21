@@ -70,9 +70,9 @@ func get_active_slots():
 	new_slots.append_array(unit_slot)
 	new_slots.append_array(upgrade_slots)
 	new_slots.append_array(perc_slots)
-	for slot in new_slots:
-		slot.set_collision_layer_value(11, true)
-		slot.monitorable = true
+	#for slot in new_slots:
+		#slot.set_collision_layer_value(11, true)
+		#slot.monitorable = true
 	return new_slots
 
 

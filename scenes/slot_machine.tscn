@@ -111,6 +111,7 @@ offset_right = 64.0
 offset_bottom = -7.0
 theme_override_styles/background = SubResource("StyleBoxFlat_dgsef")
 theme_override_styles/fill = ExtResource("11_r2p6a")
+value = 99.0
 fill_mode = 3
 show_percentage = false
 
