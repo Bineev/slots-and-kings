@@ -86,8 +86,6 @@ func create_unit():
 	var units_count : int = slots.filter(func(slot : Slot): return slot.slot_type == DataManager.SlotType.UNIT).size()
 	var unit_slot : Slot = slots[0]
 	Player.set_units_count_for_next_create(units_count)
-	print(slots.slice(0, 1))
-	print(slots.slice(units_count))
 	castle_unit_factory.choose_unit(slots.slice(0, 1) + slots.slice(units_count))
 
 #
@@ -115,6 +113,7 @@ func _on_create_button_pressed() -> void:
 	create_button.disabled = true
 	is_already_created = true
 	SignalManager.on_add_unit_on_field.emit()
+	SignalManager.on_cant_swap.emit()
 
 
 func enable_spin_button():
@@ -130,7 +129,8 @@ func disable_create_button():
 
 
 func enable_create_button():
-	create_button.disabled = false
+	if not is_already_created:
+		create_button.disabled = false
 
 
 func update_buttons(res_type : DataManager.ResType):

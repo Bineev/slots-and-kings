@@ -17,6 +17,7 @@ var spin_speed : float
 var spin_time : float
 
 func _ready() -> void:
+	SignalManager.on_cant_swap.connect(set_is_cant_swap)
 	spin_speed = DataManager.default_spin_speed * DataManager.action_speed_coeff
 
 
@@ -136,3 +137,8 @@ func spin_end():
 	is_spin_end = true
 	#slots[1].set_monitorable(true)
 	slots[1].input_pickable = true
+
+
+func set_is_cant_swap():
+	if slots.size() >= 2 and slots[1]:
+		slots[1].is_can_swap = false

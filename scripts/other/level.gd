@@ -383,7 +383,7 @@ func add_tooltip(object : Object, tooltip : Tooltip):
 		#tooltip.is_initialized = true
 	# здесь может быть баг
 	#await get_tree().process_frame
-	tooltip.global_position.y -= (tooltip.size.y + 20)
+	tooltip.global_position.y -= (tooltip.size.y + 30)
 
 
 func remove_tooltip(tooltip : Tooltip):

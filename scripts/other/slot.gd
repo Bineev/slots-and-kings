@@ -23,6 +23,7 @@ var is_on_remover_UI : bool
 var is_in_swap_state : bool
 var slot_for_swap : Slot
 var previous_z_index : int
+var is_can_swap : bool = true
 
 @onready var slot_sprite: AnimatedSprite2D = %slot_sprite
 @onready var slot_anim_player: AnimationPlayer = %slot_anim_player
@@ -130,6 +131,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_on_remover_UI:
 			SignalManager.on_choose_removed_slot.emit(self)
 		elif event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			if not is_can_swap:
+				return
 			if Player.get_is_can_swap():
 				hide_tooltip()
 				#input_pickable = false
