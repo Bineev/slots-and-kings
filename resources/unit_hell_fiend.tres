@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=4 format=3 uid="uid://cdn0wsfxvsnpr"]
+
+[ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_hdity"]
+[ext_resource type="Texture2D" uid="uid://cknvsdrjqtct" path="res://img/slots/hell_fiend_preview.png" id="2_2omlh"]
+[ext_resource type="Texture2D" uid="uid://b70qtn8py23uf" path="res://img/units/hell_fiend_anim.png" id="3_x5vxm"]
+
+[resource]
+script = ExtResource("1_hdity")
+unit_family = 1
+unit_types = Array[int]([0, 6])
+unit_cost = 1
+unit_sprite = ExtResource("3_x5vxm")
+slot_name = "бес"
+slot_description = "Представитель низшей касты"
+slot_sprite = ExtResource("2_2omlh")
+slot_type = 1
+health = 25.0
+hit_chance = 100.0
+attack_speed = 1.8
+move_speed = 25.0
+attack_range = 10.0
+true_damage = 8.0
+metadata/_custom_type_script = "uid://853hpku0xq1e"

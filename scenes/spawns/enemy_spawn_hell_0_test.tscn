@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://o11myk65kkml"]
 
 [ext_resource type="PackedScene" uid="uid://c7f3lowfcvk3k" path="res://scenes/enemy_spawn.tscn" id="1_tleui"]
-[ext_resource type="PackedScene" uid="uid://blb3uul4hoxcv" path="res://scenes/slots/slot_unit_hell_imp.tscn" id="2_ahtl6"]
+[ext_resource type="PackedScene" uid="uid://b5xkkh4hq86pm" path="res://scenes/slots/slot_unit_hell_fiend.tscn" id="2_tj87s"]
 [ext_resource type="PackedScene" uid="uid://dfnu88g2jfqmk" path="res://scenes/unit_factory_hell.tscn" id="4_x1y22"]
 
 [node name="EnemySpawnHell0Test" instance=ExtResource("1_tleui")]
-unit_slots_scenes = Array[PackedScene]([ExtResource("2_ahtl6"), ExtResource("2_ahtl6")])
+unit_slots_scenes = Array[PackedScene]([ExtResource("2_tj87s"), ExtResource("2_tj87s"), ExtResource("2_tj87s"), ExtResource("2_tj87s"), ExtResource("2_tj87s")])
 unit_factory_scene = ExtResource("4_x1y22")
 time_to_next_spawn = 30
 time_between_units = 0.3

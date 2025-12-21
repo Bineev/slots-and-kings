@@ -326,7 +326,8 @@ func show_reward():
 
 func get_free_random_fight_point():
 	if free_fight_points.size() == 0:
-		clear_player_spawns()
+		#clear_player_spawns()
+		clear_fight_points()
 	var point = free_fight_points.pick_random()
 	if not point:
 		clear_fight_points()

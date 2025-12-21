@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5xkkh4hq86pm"]
+
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="1_indsc"]
+[ext_resource type="Resource" uid="uid://cdn0wsfxvsnpr" path="res://resources/unit_hell_fiend.tres" id="2_vo8fq"]
+
+[node name="SlotUnitHellFiend" instance=ExtResource("1_indsc")]
+slot_type = 1
+slot_res = ExtResource("2_vo8fq")
