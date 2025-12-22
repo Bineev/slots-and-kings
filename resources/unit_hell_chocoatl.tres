@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=5 format=3 uid="uid://8g1sorkttmby"]
+
+[ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_o2n85"]
+[ext_resource type="Texture2D" uid="uid://bjrrkb0vfkoaw" path="res://img/slots/hell_chocoatl_preview.png" id="2_go4xv"]
+[ext_resource type="Texture2D" uid="uid://b7012ugx682gr" path="res://img/projectile_chocoatl.png" id="3_mslb4"]
+[ext_resource type="Texture2D" uid="uid://cmb2n4t2b7i2l" path="res://img/units/hell_chocoatl_anim.png" id="4_r86iu"]
+
+[resource]
+script = ExtResource("1_o2n85")
+unit_family = 1
+unit_tier = 10
+unit_types = Array[int]([1, 2, 7])
+unit_cost = 3
+unit_sprite = ExtResource("4_r86iu")
+unit_attack_type = 1
+unit_projectile_texture = ExtResource("3_mslb4")
+slot_name = "чокоатль"
+slot_description = "Не трогайте меня. Я мирный."
+slot_sprite = ExtResource("2_go4xv")
+slot_type = 1
+entity_tier = 3
+health = 100.0
+magic_defence = 30.0
+physical_attack = 30.0
+hit_chance = 100.0
+attack_speed = 1.8
+move_speed = 20.0
+attack_range = 90.0
+projectile_speed = 150.0
+projectile_attack_range = 30.0
+metadata/_custom_type_script = "uid://853hpku0xq1e"
