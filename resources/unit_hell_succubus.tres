@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=4 format=3 uid="uid://p3kfa0pb5srh"]
+
+[ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_cwnen"]
+[ext_resource type="Texture2D" uid="uid://cu6le6eq80mew" path="res://img/slots/hell_succubus_preview.png" id="2_ek67p"]
+[ext_resource type="Texture2D" uid="uid://d1i1y6ynuunq6" path="res://img/units/hell_succubus_anim.png" id="3_cusl5"]
+
+[resource]
+script = ExtResource("1_cwnen")
+unit_family = 1
+unit_tier = 9
+unit_types = Array[int]([0, 2])
+unit_cost = 3
+unit_sprite = ExtResource("3_cusl5")
+slot_name = "суккуб"
+slot_description = "Сложно найти и легко потерять"
+slot_sprite = ExtResource("2_ek67p")
+slot_type = 1
+entity_tier = 3
+health = 100.0
+physical_attack = 40.0
+hit_chance = 100.0
+crit_chance = 40.0
+crit_attack = 25.0
+evade = 30.0
+attack_speed = 1.7
+move_speed = 35.0
+attack_range = 25.0
+health_regen = 5.0
+health_regen_interval = 5.0
+metadata/_custom_type_script = "uid://853hpku0xq1e"

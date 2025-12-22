@@ -157,6 +157,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					global_position = before_can_swap_position
 					is_in_swap_state = false
 					z_index = previous_z_index
+					Player.set_is_can_swap(true)
 			# вернуть зону в неактивное состояние
 			# запустить КД скилла
 			# Optional: Add logic here to "drop" the object or apply momentum

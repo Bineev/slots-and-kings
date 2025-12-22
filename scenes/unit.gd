@@ -743,6 +743,8 @@ func _on_timer_regen_timeout() -> void:
 
 
 func apply_regen():
+	if unit_state == DataManager.UnitState.DIED or unit_state == DataManager.UnitState.DEAD:
+		return  
 	if current_health_regen < 0:
 		get_damage(-current_health_regen, self)
 		return
