@@ -36,6 +36,11 @@ func _process(delta: float) -> void:
 	if is_in_swap_state:
 		#global_position = Vector2(global_position.x, clampf(get_global_mouse_position().y, before_can_swap_position.y - 16, before_can_swap_position.y + 16))
 		global_position = Vector2(global_position.x, get_global_mouse_position().y)
+		if get_global_mouse_position().x > global_position.x + 8 or get_global_mouse_position().x < global_position.x - 8:
+			is_in_swap_state = false
+			current_swap_slots.clear()
+			global_position = before_can_swap_position
+			Player.set_is_can_swap(true)
 		#if slot_for_swap:
 			#if slot_for_swap.global_position.y + 12 < global_position.y:
 				#move_slots()

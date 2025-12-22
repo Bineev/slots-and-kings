@@ -146,6 +146,7 @@ func _process(delta: float) -> void:
 
 	match unit_state:
 		DataManager.UnitState.WALK:
+			current_target = get_enemy_on_field()
 			if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 				var direction : Vector2 = (current_target.global_position - global_position).normalized()
 				velocity = current_move_speed * direction * DataManager.action_speed_coeff
@@ -346,7 +347,7 @@ func apply_state():
 			unit_anim_player.play('walk')
 			unit_anim_player.speed_scale = current_move_speed / 30 * DataManager.action_speed_coeff
 		DataManager.UnitState.ATTACK:
-			unit_anim_player.stop()
+			#unit_anim_player.stop()
 			unit_anim_player.play('attack')
 		DataManager.UnitState.DIED:
 			#unit_anim_player.stop()
@@ -664,6 +665,8 @@ func show_blood():
 	
 
 func add_slot_res(new_slot_res : Resource):
+	if new_slot_res.slot_name == 'Зеро':
+		return
 	slot_resources.append(new_slot_res)
 
 
