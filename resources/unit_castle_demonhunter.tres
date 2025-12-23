@@ -21,7 +21,6 @@ health = 130.0
 physical_attack = 60.0
 hit_chance = 100.0
 crit_chance = 30.0
-crit_attack = 50.0
 evade = 20.0
 attack_speed = 1.6
 move_speed = 40.0

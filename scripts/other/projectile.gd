@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		queue_free()
 		return
 	var direction = global_position.direction_to(target.global_position)
-	global_position += direction * projectile_speed * delta
+	global_position += direction * projectile_speed * DataManager.action_speed_coeff * delta
 	if is_hit and (abs(global_position.x - target.global_position.x) < 2):
 		projectile_speed = 0
 

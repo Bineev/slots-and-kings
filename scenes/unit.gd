@@ -224,8 +224,8 @@ func apply_stats():
 	current_inc_damage_mult_vs_castle = stats.inc_damage_mult_vs_castle
 	current_inc_damage_mult_vs_hell = stats.inc_damage_mult_vs_hell
 	current_inc_damage_mult_vs_forest = stats.inc_damage_mult_vs_forest
-	current_projectile_speed = stats.projectile_speed
-	current_projectile_attack_range = stats.projectile_attack_range
+	current_projectile_speed = stats.projectile_speed * stats.projectile_speed_mult
+	current_projectile_attack_range = stats.projectile_attack_range * stats.projectile_attack_range_mult
 
 
 func initialize(slot : Slot, owner : DataManager.UnitOwner):
