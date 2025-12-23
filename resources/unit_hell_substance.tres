@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=5 format=3 uid="uid://dsfu8s6lpyaax"]
+
+[ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_t0iet"]
+[ext_resource type="Texture2D" uid="uid://b37rnx1qhc2mr" path="res://img/slots/castle_substance_preview.png" id="2_4h6pe"]
+[ext_resource type="Texture2D" uid="uid://cf173emgsg0kq" path="res://img/projectile_substance.png" id="3_vwo3a"]
+[ext_resource type="Texture2D" uid="uid://c5sbs8caui5yc" path="res://img/units/hell_substance_anim.png" id="4_v4nmr"]
+
+[resource]
+script = ExtResource("1_t0iet")
+unit_family = 1
+unit_tier = 14
+unit_types = Array[int]([1, 3])
+unit_cost = 4
+unit_sprite = ExtResource("4_v4nmr")
+unit_projectile_texture = ExtResource("3_vwo3a")
+slot_name = "субстанция"
+slot_description = "В некоторых странах это деликатес"
+slot_sprite = ExtResource("2_4h6pe")
+slot_type = 1
+entity_tier = 4
+health = 110.0
+armor = 15.0
+magic_defence = 15.0
+magical_attack = 100.0
+hit_chance = 100.0
+attack_speed = 2.0
+move_speed = 25.0
+attack_range = 100.0
+health_regen = 20.0
+health_regen_interval = 1.0
+projectile_speed = 250.0
+metadata/_custom_type_script = "uid://853hpku0xq1e"
