@@ -1,25 +1,40 @@
-[gd_scene load_steps=21 format=3 uid="uid://b2n1x2qfrsxyl"]
+[gd_scene load_steps=36 format=3 uid="uid://b2n1x2qfrsxyl"]
 
 [ext_resource type="Script" uid="uid://3w73b74vo6kv" path="res://scripts/global/player_manager.gd" id="1_3vyb7"]
-[ext_resource type="PackedScene" uid="uid://bg3vp2ptjf3a4" path="res://scenes/slots/slot_unit_castle_villein.tscn" id="2_g2els"]
-[ext_resource type="PackedScene" uid="uid://b1btvd7ns3ahd" path="res://scenes/slots/slot_upgrade_hitchance_20_neg.tscn" id="3_qlg0r"]
-[ext_resource type="PackedScene" uid="uid://dfdig27dtf8o8" path="res://scenes/slots/slot_upgrade_hp_10.tscn" id="4_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="4_i4ail"]
 [ext_resource type="PackedScene" uid="uid://npurki3d253k" path="res://scenes/slots/slot_upgrade_empty.tscn" id="5_fjrip"]
-[ext_resource type="PackedScene" uid="uid://bd4b7uafi2nsi" path="res://scenes/slots/slot_perc_burly.tscn" id="6_ur7pv"]
+[ext_resource type="Resource" uid="uid://0ajf3d4b3ckq" path="res://resources/unit_castle_villein.tres" id="5_fulsm"]
+[ext_resource type="Resource" uid="uid://sxoa7kpjidf4" path="res://resources/empty_upgrade.tres" id="6_bj30b"]
+[ext_resource type="Resource" uid="uid://ou85bbbd7mbo" path="res://resources/upgrade_movespeed_15.tres" id="7_jc3p3"]
 [ext_resource type="PackedScene" uid="uid://edd44jk248hq" path="res://scenes/slots/slot_perc_empty.tscn" id="8_60mlk"]
-[ext_resource type="PackedScene" uid="uid://3yk161ockgpn" path="res://scenes/slots/slot_perc_possessed.tscn" id="9_3v2ag"]
-[ext_resource type="PackedScene" uid="uid://mvvj3yfoxi8q" path="res://scenes/slots/slot_unit_castle_fyrd.tscn" id="10_d2wvv"]
-[ext_resource type="PackedScene" uid="uid://ckf1qc2vw4805" path="res://scenes/slots/slot_unit_castle_yeomen.tscn" id="11_3v2ag"]
-[ext_resource type="PackedScene" uid="uid://dcq3h6v07qail" path="res://scenes/slots/slot_unit_castle_warlock.tscn" id="12_a8ls1"]
-[ext_resource type="PackedScene" uid="uid://k503csgfo6f1" path="res://scenes/slots/slot_upgrade_aspd_20.tscn" id="12_f1ej7"]
-[ext_resource type="PackedScene" uid="uid://v2ecx68fo8rt" path="res://scenes/slots/slot_upgrade_mvspd_20.tscn" id="13_oprun"]
-[ext_resource type="PackedScene" uid="uid://cdpqewontsc8j" path="res://scenes/slots/slot_unit_castle_knight.tscn" id="13_qfm1y"]
-[ext_resource type="PackedScene" uid="uid://b0njh3b7sguke" path="res://scenes/slots/slot_upgrade_critchance_10.tscn" id="14_a8ls1"]
-[ext_resource type="PackedScene" uid="uid://46qnruei11m6" path="res://scenes/slots/slot_unit_castle_cutthroat.tscn" id="14_fulsm"]
-[ext_resource type="PackedScene" uid="uid://ccd6xj0dxfi4s" path="res://scenes/slots/slot_unit_castle_inquisitor.tscn" id="15_4r5pv"]
-[ext_resource type="PackedScene" uid="uid://br7kam8kvrkth" path="res://scenes/slots/slot_unit_castle_demonhunter.tscn" id="16_60mlk"]
+[ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="8_hax0n"]
+[ext_resource type="Resource" uid="uid://rnvj53a8u0gp" path="res://resources/perc_burly.tres" id="9_t4otl"]
+[ext_resource type="Resource" uid="uid://f8pvkffrpq72" path="res://resources/unit_castle_fyrd.tres" id="10_j2b1d"]
+[ext_resource type="Resource" uid="uid://23tjxjxh002g" path="res://resources/unit_castle_yeomen.tres" id="11_cs1tg"]
+[ext_resource type="Resource" uid="uid://h4dlt5axqlsb" path="res://resources/unit_castle_warlock.tres" id="12_2dvfe"]
+[ext_resource type="Resource" uid="uid://d62nskxn4g5g" path="res://resources/unit_castle_cutthroat.tres" id="13_giy8y"]
+[ext_resource type="Resource" uid="uid://dnbgdqcd4bfnl" path="res://resources/unit_castle_knight.tres" id="14_fdfoy"]
+[ext_resource type="Resource" uid="uid://cnk4yhlg10440" path="res://resources/unit_castle_inquisitor.tres" id="15_hhpqf"]
 [ext_resource type="PackedScene" uid="uid://de20ijshf3iqc" path="res://scenes/hero_factory_castle.tscn" id="16_a8ls1"]
-[ext_resource type="PackedScene" uid="uid://b63vkmuix1glq" path="res://scenes/slots/slot_unit_castle_sun_priest.tscn" id="17_i4ail"]
+[ext_resource type="Resource" uid="uid://7pmxvr6da48b" path="res://resources/unit_castle_sun_priest.tres" id="16_g5jhy"]
+[ext_resource type="Resource" uid="uid://dcv6n8g7fx1qh" path="res://resources/unit_castle_demonhunter.tres" id="17_holxr"]
+[ext_resource type="Resource" uid="uid://cfpwvb842xqxh" path="res://resources/upgrade_mdef_15.tres" id="18_mx1m4"]
+[ext_resource type="Resource" uid="uid://k4piu3ruf0ah" path="res://resources/upgrade_armor_15.tres" id="19_4gjji"]
+[ext_resource type="Resource" uid="uid://ujeebt0iwr20" path="res://resources/upgrade_evade_15.tres" id="20_u2ulf"]
+[ext_resource type="Resource" uid="uid://dbnbyyfwoq76o" path="res://resources/upgrade_damage_10.tres" id="21_6e8lb"]
+[ext_resource type="Resource" uid="uid://b6rnvvrt23ec8" path="res://resources/upgrade_pattack_20.tres" id="22_2gdjj"]
+[ext_resource type="Resource" uid="uid://ucn2n2kbgw18" path="res://resources/upgrade_health_20.tres" id="23_sc3ue"]
+[ext_resource type="Resource" uid="uid://o6yes6k2q74f" path="res://resources/upgrade_attackspeed_0.2.tres" id="24_lxlsd"]
+[ext_resource type="Resource" uid="uid://cwy1gjlsinelc" path="res://resources/upgrade_critchance_15.tres" id="25_ha2mi"]
+[ext_resource type="Resource" uid="uid://5d7e4x3a7q1g" path="res://resources/upgrade_critattack_35.tres" id="26_apa73"]
+[ext_resource type="Resource" uid="uid://g1balh7h5u5g" path="res://resources/upgrade_regen.tres" id="27_74r1k"]
+[ext_resource type="Resource" uid="uid://b7ypu117dtmuy" path="res://resources/upgrade_lifesteal_10.tres" id="28_8svfe"]
+[ext_resource type="Resource" uid="uid://dtoai7ayl4kov" path="res://resources/upgrade_mattack_20.tres" id="29_2a3c5"]
+[ext_resource type="Resource" uid="uid://b4hgg0rssvudv" path="res://resources/upgrade_tattack_20.tres" id="30_42b1b"]
+[ext_resource type="Resource" uid="uid://bjm4d3ocgqtkl" path="res://resources/upgrade_range.tres" id="31_h7ic4"]
+[ext_resource type="Resource" uid="uid://cg2i6usnlw27n" path="res://resources/perc_bessoted.tres" id="32_au7lq"]
+[ext_resource type="Resource" uid="uid://cr5mao2m8gv1q" path="res://resources/perc_possessed.tres" id="33_nubpm"]
+[ext_resource type="Resource" uid="uid://buv3t8va4ttwk" path="res://resources/perc_scribe.tres" id="34_ua5cf"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3vyb7")
@@ -31,12 +46,14 @@ crystals = 100
 can_swap_time = 0.05
 empty_perc_scene = ExtResource("8_60mlk")
 empty_upgrade_scene = ExtResource("5_fjrip")
-base_units_deck = Array[PackedScene]([ExtResource("2_g2els"), ExtResource("2_g2els"), ExtResource("2_g2els"), ExtResource("2_g2els")])
-base_upgrades_deck = Array[PackedScene]([ExtResource("3_qlg0r"), ExtResource("5_fjrip"), ExtResource("5_fjrip"), ExtResource("13_oprun")])
-base_percs_deck = Array[PackedScene]([ExtResource("6_ur7pv"), ExtResource("9_3v2ag"), ExtResource("8_60mlk"), ExtResource("8_60mlk")])
-units_T1_pool = Array[PackedScene]([ExtResource("10_d2wvv"), ExtResource("11_3v2ag")])
-units_T2_pool = Array[PackedScene]([ExtResource("12_a8ls1"), ExtResource("14_fulsm")])
-units_T3_pool = Array[PackedScene]([ExtResource("13_qfm1y"), ExtResource("15_4r5pv")])
-units_T4_pool = Array[PackedScene]([ExtResource("16_60mlk"), ExtResource("17_i4ail")])
-upgrades_T1_pool = Array[PackedScene]([ExtResource("12_f1ej7"), ExtResource("13_oprun"), ExtResource("14_a8ls1"), ExtResource("4_tuyoq")])
+slot_scene = ExtResource("4_i4ail")
+base_units_reses = Array[Resource]([ExtResource("5_fulsm"), ExtResource("5_fulsm"), ExtResource("5_fulsm"), ExtResource("5_fulsm")])
+base_upgrades_reses = Array[Resource]([ExtResource("6_bj30b"), ExtResource("6_bj30b"), ExtResource("6_bj30b"), ExtResource("7_jc3p3")])
+base_percs_reses = Array[Resource]([ExtResource("8_hax0n"), ExtResource("8_hax0n"), ExtResource("8_hax0n"), ExtResource("9_t4otl")])
+units_T1_pool = Array[Resource]([ExtResource("10_j2b1d"), ExtResource("11_cs1tg")])
+units_T2_pool = Array[Resource]([ExtResource("12_2dvfe"), ExtResource("13_giy8y")])
+units_T3_pool = Array[Resource]([ExtResource("14_fdfoy"), ExtResource("15_hhpqf")])
+units_T4_pool = Array[Resource]([ExtResource("16_g5jhy"), ExtResource("17_holxr")])
+upgrades_T1_pool = Array[Resource]([ExtResource("18_mx1m4"), ExtResource("19_4gjji"), ExtResource("20_u2ulf"), ExtResource("21_6e8lb"), ExtResource("22_2gdjj"), ExtResource("23_sc3ue"), ExtResource("24_lxlsd"), ExtResource("25_ha2mi"), ExtResource("26_apa73"), ExtResource("7_jc3p3"), ExtResource("27_74r1k"), ExtResource("28_8svfe"), ExtResource("29_2a3c5"), ExtResource("30_42b1b"), ExtResource("31_h7ic4")])
+percs_T1_pool = Array[Resource]([ExtResource("32_au7lq"), ExtResource("33_nubpm"), ExtResource("34_ua5cf")])
 hero_factory_scene = ExtResource("16_a8ls1")

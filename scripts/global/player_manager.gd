@@ -1,5 +1,6 @@
 extends Node
 
+
 @export var current_king : DataManager.UnitFamily
 @export var health : int
 @export var gold : int
@@ -12,25 +13,29 @@ extends Node
 @export var wave_rewards : Array[DataManager.RewardType]
 @export var empty_perc_scene : PackedScene
 @export var empty_upgrade_scene : PackedScene
+@export var slot_scene : PackedScene
 
+@export var base_units_reses : Array[Resource]
+@export var base_upgrades_reses : Array[Resource]
+@export var base_percs_reses : Array[Resource]
 @export var base_units_deck : Array[PackedScene]
 @export var base_upgrades_deck : Array[PackedScene]
 @export var base_percs_deck : Array[PackedScene]
 
-@export var units_T1_pool : Array[PackedScene]
-@export var units_T2_pool : Array[PackedScene]
-@export var units_T3_pool : Array[PackedScene]
-@export var units_T4_pool : Array[PackedScene]
+@export var units_T1_pool : Array[Resource]
+@export var units_T2_pool : Array[Resource]
+@export var units_T3_pool : Array[Resource]
+@export var units_T4_pool : Array[Resource]
 
-@export var upgrades_T1_pool : Array[PackedScene]
-@export var upgrades_T2_pool : Array[PackedScene]
-@export var upgrades_T3_pool : Array[PackedScene]
-@export var upgrades_T4_pool : Array[PackedScene]
+@export var upgrades_T1_pool : Array[Resource]
+@export var upgrades_T2_pool : Array[Resource]
+@export var upgrades_T3_pool : Array[Resource]
+@export var upgrades_T4_pool : Array[Resource]
 
-@export var percs_T4_pool : Array[PackedScene]
-@export var percs_T1_pool : Array[PackedScene]
-@export var percs_T2_pool : Array[PackedScene]
-@export var percs_T3_pool : Array[PackedScene]
+@export var percs_T4_pool : Array[Resource]
+@export var percs_T1_pool : Array[Resource]
+@export var percs_T2_pool : Array[Resource]
+@export var percs_T3_pool : Array[Resource]
 
 @export var hero_factory_scene : PackedScene
 
@@ -62,36 +67,37 @@ func initialize():
 	current_food = food
 	current_crystals = crystals
 	hero_factory = hero_factory_scene.instantiate()
+	generate_base_decks()
 
 
 func get_random_upgrades(tier : DataManager.EntityTier, amount : int):
-	var upgrade_scenes : Array[PackedScene]
+	var upgrade_reses : Array[Resource]
 	match tier:
 		DataManager.EntityTier.T1:
-			upgrade_scenes = upgrades_T1_pool
+			upgrade_reses = upgrades_T1_pool
 		DataManager.EntityTier.T2:
-			upgrade_scenes = upgrades_T2_pool
+			upgrade_reses = upgrades_T2_pool
 		DataManager.EntityTier.T3:
-			upgrade_scenes = upgrades_T3_pool
+			upgrade_reses = upgrades_T3_pool
 		DataManager.EntityTier.T4:
-			upgrade_scenes = upgrades_T4_pool
+			upgrade_reses = upgrades_T4_pool
 	
-	return get_unique_entities(upgrade_scenes, amount)
+	return get_unique_entities(upgrade_reses, amount)
 
 
 func get_random_units(tier : DataManager.EntityTier, amount : int):
-	var unit_scenes : Array[PackedScene]
+	var unit_reses : Array[Resource]
 	match tier:
 		DataManager.EntityTier.T1:
-			unit_scenes = units_T1_pool
+			unit_reses = units_T1_pool
 		DataManager.EntityTier.T2:
-			unit_scenes = units_T2_pool
+			unit_reses = units_T2_pool
 		DataManager.EntityTier.T3:
-			unit_scenes = units_T3_pool
+			unit_reses = units_T3_pool
 		DataManager.EntityTier.T4:
-			unit_scenes = units_T4_pool
+			unit_reses = units_T4_pool
 	
-	return get_unique_entities(unit_scenes, amount)
+	return get_unique_entities(unit_reses, amount)
 
 
 func get_random_percs(tier : DataManager.EntityTier, amount : int):
@@ -102,14 +108,24 @@ func get_random_heroes(tier : DataManager.EntityTier, amount : int):
 	pass
 
 
-func get_unique_entities(entities : Array[PackedScene], amount : int):
+func get_unique_entities(entities : Array[Resource], amount : int):
+	#var unique_array : Array[PackedScene]
+	#entities.shuffle()
+	#var count : int
+	#for entity in entities:
+		#if count >= amount:
+			#break
+		#unique_array.append(entity)
+		#count += 1
+#
+	#return unique_array
 	var unique_array : Array[PackedScene]
 	entities.shuffle()
 	var count : int
 	for entity in entities:
 		if count >= amount:
 			break
-		unique_array.append(entity)
+		unique_array.append(create_slot_scene(entity))
 		count += 1
 
 	return unique_array
@@ -345,3 +361,22 @@ func set_is_can_swap(new_is_can_swap : bool):
 
 func get_is_can_swap():
 	return is_can_swap
+
+
+func create_slot_scene(res : SlotRes):
+	var slot : Slot = slot_scene.instantiate()
+	slot.slot_res = res
+	slot.set_meta('slot_name', res.slot_name)
+	var smth : PackedScene = PackedScene.new()
+	smth.pack(slot)
+	#smth.set_meta('slot_name', res.slot_name)
+	return smth
+
+
+func generate_base_decks():
+	for res in base_upgrades_reses:
+		base_upgrades_deck.append(create_slot_scene(res))
+	for res in base_units_reses:
+		base_units_deck.append(create_slot_scene(res))
+	for res in base_percs_reses:
+		base_percs_deck.append(create_slot_scene(res))

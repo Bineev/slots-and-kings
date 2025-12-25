@@ -2,6 +2,22 @@ extends Area2D
 
 class_name Slot
 
+@export var back_upgrades_dict : Dictionary = {
+	DataManager.EntityTier.T0 : preload('res://img/slots/upgrade_back_T1.png'),
+	DataManager.EntityTier.T1 : preload('res://img/slots/upgrade_back_T1.png'),
+	DataManager.EntityTier.T2 : preload('res://img/slots/upgrade_back_T2.png'),
+	DataManager.EntityTier.T3 : preload('res://img/slots/upgrade_back_T3.png'),
+	DataManager.EntityTier.T4 : preload('res://img/slots/upgrade_back_T4.png'),
+}
+
+@export var back_perc_dict : Dictionary = {
+	DataManager.EntityTier.T0 : preload('res://img/slots/perc_back_T1.png'),
+	DataManager.EntityTier.T1 : preload('res://img/slots/perc_back_T1.png'),
+	DataManager.EntityTier.T2 : preload('res://img/slots/perc_back_T2.png'),
+	DataManager.EntityTier.T3 : preload('res://img/slots/perc_back_T3.png'),
+	DataManager.EntityTier.T4 : preload('res://img/slots/perc_back_T4.png'),
+}
+
 @export var slot_type : DataManager.SlotType
 @export var slot_res : SlotRes
 @export var slot_content_scene : PackedScene
@@ -30,6 +46,7 @@ var current_swap_slots : Array[Slot]
 @onready var slot_anim_player: AnimationPlayer = %slot_anim_player
 @onready var highlight_sprite: Sprite2D = %highlight_sprite
 @onready var shader_rect: ColorRect = %shader_rect
+@onready var slot_back_sprite: Sprite2D = %slot_back_sprite
 
 
 func _process(delta: float) -> void:
@@ -50,7 +67,11 @@ func initialize():
 	slot_name = slot_res.slot_name
 	slot_description = slot_res.slot_description
 	entity_tier = slot_res.entity_tier
-	# баз возник когда добавил апгрейды к спавну
+	slot_type = slot_res.slot_type
+	if slot_type == DataManager.SlotType.UPGRADE:
+		slot_back_sprite.texture = back_upgrades_dict[entity_tier]
+	if slot_type == DataManager.SlotType.PERC:
+		slot_back_sprite.texture = back_perc_dict[entity_tier]
 	slot_sprite.sprite_frames = SpriteFrames.new()
 	slot_sprite.sprite_frames.add_frame("default", slot_res.slot_sprite)
 	if slot_type == DataManager.SlotType.UNIT and slot_res is SlotUnitRes:
