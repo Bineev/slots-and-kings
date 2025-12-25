@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://m5mh0jt4jh8s"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_0l68a"]
+[ext_resource type="Texture2D" uid="uid://ws7f8npu1uxq" path="res://img/slots/upgrade_attack_speed_+.png" id="2_a441t"]
+
+[resource]
+script = ExtResource("1_0l68a")
+slot_name = "скорость атаки -0.6"
+slot_description = "Скорость атаки быстрее на 0.6с"
+slot_sprite = ExtResource("2_a441t")
+entity_tier = 4
+attack_speed = -0.6
+metadata/_custom_type_script = "uid://ckeieckjuifia"

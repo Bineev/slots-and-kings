@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://b516xhwhqgplu"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_4531n"]
+[ext_resource type="Texture2D" uid="uid://c5mwog7prntj8" path="res://img/slots/upgrade_true_attack.png" id="2_f7tsx"]
+
+[resource]
+script = ExtResource("1_4531n")
+slot_name = "чистая атака 40%"
+slot_description = "Повышает чистую атаку на 40%"
+slot_sprite = ExtResource("2_f7tsx")
+entity_tier = 2
+true_damage_mult = 1.4
+metadata/_custom_type_script = "uid://ckeieckjuifia"

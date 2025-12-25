@@ -1,12 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://o11myk65kkml"]
+[gd_scene load_steps=21 format=3 uid="uid://o11myk65kkml"]
 
 [ext_resource type="PackedScene" uid="uid://c7f3lowfcvk3k" path="res://scenes/enemy_spawn.tscn" id="1_tleui"]
+[ext_resource type="PackedScene" uid="uid://blb3uul4hoxcv" path="res://scenes/slots/slot_unit_hell_imp.tscn" id="2_7qny7"]
 [ext_resource type="PackedScene" uid="uid://dnlyu165j6thy" path="res://scenes/slots/slot_unit_hell_substance.tscn" id="2_tj87s"]
+[ext_resource type="PackedScene" uid="uid://b5xkkh4hq86pm" path="res://scenes/slots/slot_unit_hell_fiend.tscn" id="3_04pst"]
+[ext_resource type="PackedScene" uid="uid://mvvj3yfoxi8q" path="res://scenes/slots/slot_unit_castle_fyrd.tscn" id="4_oovuk"]
 [ext_resource type="PackedScene" uid="uid://dfnu88g2jfqmk" path="res://scenes/unit_factory_hell.tscn" id="4_x1y22"]
+[ext_resource type="PackedScene" uid="uid://d3qvam4lawli2" path="res://scenes/slots/slot_unit_hell_cultist.tscn" id="5_ldmk0"]
+[ext_resource type="PackedScene" uid="uid://cdpqewontsc8j" path="res://scenes/slots/slot_unit_castle_knight.tscn" id="6_7oavw"]
+[ext_resource type="PackedScene" uid="uid://ckf1qc2vw4805" path="res://scenes/slots/slot_unit_castle_yeomen.tscn" id="7_sjkg3"]
+[ext_resource type="PackedScene" uid="uid://feea2xhvsrp5" path="res://scenes/slots/slot_unit_hell_accursed.tscn" id="8_k4tsm"]
+[ext_resource type="PackedScene" uid="uid://dcngqdm5tmmiq" path="res://scenes/slots/slot_unit_hell_chocoatl.tscn" id="9_14vjn"]
+[ext_resource type="PackedScene" uid="uid://dyk5po3q0bq4l" path="res://scenes/slots/slot_unit_hell_succubus.tscn" id="10_bqp0t"]
+[ext_resource type="PackedScene" uid="uid://dcq3h6v07qail" path="res://scenes/slots/slot_unit_castle_warlock.tscn" id="11_tdulm"]
+[ext_resource type="PackedScene" uid="uid://cohxs6dnbcss8" path="res://scenes/slots/slot_unit_hell_manticore.tscn" id="12_ohk8b"]
+[ext_resource type="PackedScene" uid="uid://46qnruei11m6" path="res://scenes/slots/slot_unit_castle_cutthroat.tscn" id="14_ivyjd"]
+[ext_resource type="PackedScene" uid="uid://dt6ca1xtvlrka" path="res://scenes/slots/slot_unit_hell_bloodsucker.tscn" id="15_eisjm"]
+[ext_resource type="PackedScene" uid="uid://ccd6xj0dxfi4s" path="res://scenes/slots/slot_unit_castle_inquisitor.tscn" id="16_u8v2n"]
+[ext_resource type="PackedScene" uid="uid://b63vkmuix1glq" path="res://scenes/slots/slot_unit_castle_sun_priest.tscn" id="17_rkxrs"]
+[ext_resource type="PackedScene" uid="uid://br7kam8kvrkth" path="res://scenes/slots/slot_unit_castle_demonhunter.tscn" id="18_s4dwu"]
+[ext_resource type="PackedScene" uid="uid://bg3vp2ptjf3a4" path="res://scenes/slots/slot_unit_castle_villein.tscn" id="19_04pst"]
 
 [node name="EnemySpawnHell0Test" instance=ExtResource("1_tleui")]
 unit_family = 1
-unit_slots_scenes = Array[PackedScene]([ExtResource("2_tj87s")])
+unit_slots_scenes = Array[PackedScene]([ExtResource("2_7qny7"), ExtResource("3_04pst"), ExtResource("4_oovuk"), ExtResource("5_ldmk0"), ExtResource("6_7oavw"), ExtResource("7_sjkg3"), ExtResource("8_k4tsm"), ExtResource("9_14vjn"), ExtResource("10_bqp0t"), ExtResource("11_tdulm"), ExtResource("12_ohk8b"), ExtResource("2_tj87s"), ExtResource("14_ivyjd"), ExtResource("15_eisjm"), ExtResource("16_u8v2n"), ExtResource("17_rkxrs"), ExtResource("18_s4dwu"), ExtResource("19_04pst")])
 unit_factory_scene = ExtResource("4_x1y22")
 time_to_next_spawn = 30
 time_between_units = 0.3

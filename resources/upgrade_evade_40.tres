@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://ca27aphb0ornl"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_hjj8d"]
+[ext_resource type="Texture2D" uid="uid://cfr21w7bqkpvd" path="res://img/slots/upgrade_evade+.png" id="2_d8sn0"]
+
+[resource]
+script = ExtResource("1_hjj8d")
+slot_name = "уворот 40%"
+slot_description = "Шанс увернуться от физ атаки повышен на 40%"
+slot_sprite = ExtResource("2_d8sn0")
+entity_tier = 3
+evade = 40.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

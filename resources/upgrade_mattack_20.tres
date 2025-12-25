@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://dtoai7ayl4kov"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_5b2rm"]
+[ext_resource type="Texture2D" uid="uid://bk2q7ndp3j0ns" path="res://img/slots/upgrade_mag_attack.png" id="2_kgyfx"]
+
+[resource]
+script = ExtResource("1_5b2rm")
+slot_name = "маг атака 20%"
+slot_description = "Повышает магическую атаку на 20%"
+slot_sprite = ExtResource("2_kgyfx")
+entity_tier = 1
+magical_attack_mult = 1.2
+metadata/_custom_type_script = "uid://ckeieckjuifia"

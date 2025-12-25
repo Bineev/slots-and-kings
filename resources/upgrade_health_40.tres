@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://qv5pd5k8c4ma"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_s7bce"]
+[ext_resource type="Texture2D" uid="uid://dnyd0dwty1cvo" path="res://img/slots/upgrade_HP_+.png" id="2_akcma"]
+
+[resource]
+script = ExtResource("1_s7bce")
+slot_name = "здоровье 40%"
+slot_description = "Очки здоровья увеличены на 40%"
+slot_sprite = ExtResource("2_akcma")
+entity_tier = 2
+health_mult = 1.4
+metadata/_custom_type_script = "uid://ckeieckjuifia"

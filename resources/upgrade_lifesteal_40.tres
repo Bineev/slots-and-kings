@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://k50m5v3xe20k"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_o3dnn"]
+[ext_resource type="Texture2D" uid="uid://dm4n57hynwd6f" path="res://img/slots/upgrade_lifesteal.png" id="2_n1m5k"]
+
+[resource]
+script = ExtResource("1_o3dnn")
+slot_name = "лайфстил 40%"
+slot_description = "Повышает лайфстил на 40%"
+slot_sprite = ExtResource("2_n1m5k")
+entity_tier = 4
+life_steal = 40.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

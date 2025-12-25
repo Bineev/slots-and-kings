@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://ce2ntdxm6dxgh"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_yno2a"]
+[ext_resource type="Texture2D" uid="uid://b40eci6winkjf" path="res://img/slots/upgrade_crit_att2.png" id="2_xe7ay"]
+
+[resource]
+script = ExtResource("1_yno2a")
+slot_name = "крит атака 125%"
+slot_description = "Критическая атака увеличина на 125%"
+slot_sprite = ExtResource("2_xe7ay")
+entity_tier = 4
+crit_attack = 125.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=2 format=3 uid="uid://drcca17f76jju"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_scr4x"]
+
+[resource]
+script = ExtResource("1_scr4x")
+metadata/_custom_type_script = "uid://ckeieckjuifia"

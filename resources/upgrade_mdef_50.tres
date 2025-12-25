@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=2 format=3 uid="uid://c4fjugpw35jbd"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_4nec8"]
+
+[resource]
+script = ExtResource("1_4nec8")
+slot_name = "маг защита 50%"
+slot_description = "Защита от маг атаки повышена на 50%"
+entity_tier = 4
+magic_defence = 50.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

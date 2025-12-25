@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://dcnl1tkkjwxxv"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_otk8f"]
+[ext_resource type="Texture2D" uid="uid://bau8ely2a606e" path="res://img/slots/upgrade_regen.png" id="2_vyd5g"]
+
+[resource]
+script = ExtResource("1_otk8f")
+slot_name = "регенерация +20"
+slot_description = "Восстанавливает 20 здоровья раз в 8 с"
+slot_sprite = ExtResource("2_vyd5g")
+entity_tier = 4
+health_regen = 20.0
+health_regen_interval = 8.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://bwungclyl202l"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_186e4"]
+[ext_resource type="Texture2D" uid="uid://542y2oyxnmu1" path="res://img/slots/upgrade_all_damage.png" id="2_rn0np"]
+
+[resource]
+script = ExtResource("1_186e4")
+slot_name = "урон 30%"
+slot_description = "Повышает общий урон на 30%"
+slot_sprite = ExtResource("2_rn0np")
+entity_tier = 3
+damage_mult_vs_all = 1.3
+metadata/_custom_type_script = "uid://ckeieckjuifia"

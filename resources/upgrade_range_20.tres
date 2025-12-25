@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://dldc0ba4s4xnb"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_qs1x5"]
+[ext_resource type="Texture2D" uid="uid://ml1mlr8f3w4c" path="res://img/slots/upgrade_range.png" id="2_ahl77"]
+
+[resource]
+script = ExtResource("1_qs1x5")
+slot_name = "дальность +20"
+slot_description = "Повышает дальность атаки на 20"
+slot_sprite = ExtResource("2_ahl77")
+entity_tier = 2
+attack_range = 20.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

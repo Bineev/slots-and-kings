@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://g1balh7h5u5g"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_rxwx1"]
+[ext_resource type="Texture2D" uid="uid://bau8ely2a606e" path="res://img/slots/upgrade_regen.png" id="2_gjmmx"]
+
+[resource]
+script = ExtResource("1_rxwx1")
+slot_name = "регенерация +5"
+slot_description = "Восстанавливает 5 здоровья раз в 5 с"
+slot_sprite = ExtResource("2_gjmmx")
+entity_tier = 1
+health_regen = 5.0
+health_regen_interval = 5.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

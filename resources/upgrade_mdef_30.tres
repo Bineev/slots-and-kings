@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://bshemnygoxlah"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_2r0qa"]
+[ext_resource type="Texture2D" uid="uid://ishkwjmvu6ue" path="res://img/slots/upgrade_mdef+.png" id="2_tvybx"]
+
+[resource]
+script = ExtResource("1_2r0qa")
+slot_name = "маг защита 30%"
+slot_description = "Защита от маг атаки повышена на 30%"
+slot_sprite = ExtResource("2_tvybx")
+entity_tier = 2
+magic_defence = 30.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

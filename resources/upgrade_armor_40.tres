@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://c7pe5lk4b5i1d"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_2h23j"]
+[ext_resource type="Texture2D" uid="uid://co806winc1mr8" path="res://img/slots/upgrade_armor+.png" id="2_ch8f5"]
+
+[resource]
+script = ExtResource("1_2h23j")
+slot_description = "Защита от физ атаки повышена на 40%"
+slot_sprite = ExtResource("2_ch8f5")
+entity_tier = 3
+armor = 40.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

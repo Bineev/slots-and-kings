@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://dc5l7qa04224d"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_tk3al"]
+[ext_resource type="Texture2D" uid="uid://x73o1xrolp8p" path="res://img/slots/upgrade_phys_attack.png" id="2_4d15x"]
+
+[resource]
+script = ExtResource("1_tk3al")
+slot_name = "физ атака 40%"
+slot_description = "Повышает физическую атаку на 40%"
+slot_sprite = ExtResource("2_4d15x")
+entity_tier = 2
+physical_attack_mult = 1.4
+metadata/_custom_type_script = "uid://ckeieckjuifia"

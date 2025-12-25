@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://ou85bbbd7mbo"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_q6wsq"]
+[ext_resource type="Texture2D" uid="uid://m6dfiv365y6w" path="res://img/slots/upgrade_movement_speed_+-export.png" id="2_2yw8v"]
+
+[resource]
+script = ExtResource("1_q6wsq")
+slot_name = "скорость +15"
+slot_description = "Скорость движения увеличена на 15"
+slot_sprite = ExtResource("2_2yw8v")
+entity_tier = 1
+move_speed = 15.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

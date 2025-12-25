@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://pqmkvevl6qka"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_tdlbd"]
+[ext_resource type="Texture2D" uid="uid://dt4msa3kwaypr" path="res://img/slots/upgrade_crit_chance_+.png" id="2_45ngf"]
+
+[resource]
+script = ExtResource("1_tdlbd")
+slot_name = "крит шанс 30%"
+slot_description = "Шанс критической атаки повышен на 30%"
+slot_sprite = ExtResource("2_45ngf")
+entity_tier = 2
+crit_chance = 30.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"
