@@ -38,6 +38,7 @@
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3vyb7")
+current_king = 1
 health = 1000
 gold = 1000000
 tokens = 100

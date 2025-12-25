@@ -46,6 +46,10 @@ enum UnitType {
 	MELEE, RANGE, PHYS, MAGE, SUPPORT, TANK, ASSASSIN, AOE
 }
 
+enum DifficultyType {
+	TUTORIAL, LVL1, LVL2, LVL3, LVL4, LVL5, LVL6, LVL7, LVL8, LVL9, LVL10
+}
+
 enum TargetSetting {
 	CLOSEST, MAX_HP, LOW_HP
 }

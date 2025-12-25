@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 DataManager="*res://scripts/global/data_manager.gd"
 SignalManager="*res://scripts/global/signal_manager.gd"
 UtilsManager="*res://scripts/global/utils_manager.gd"
+ProgressManager="*res://scenes/progress_manager.tscn"
 Player="*res://scenes/player.tscn"
 
 [display]

@@ -39,6 +39,7 @@ extends Node
 
 @export var hero_factory_scene : PackedScene
 
+var current_progress : PlayerProgress
 var current_health : int
 var current_gold : int
 var current_tokens : int
@@ -61,6 +62,7 @@ func _ready() -> void:
 
 
 func initialize():
+	current_progress = ProgressManager.get_current_progress_by_family(current_king)
 	current_health = health
 	current_gold = gold
 	current_tokens = tokens
@@ -74,13 +76,13 @@ func get_random_upgrades(tier : DataManager.EntityTier, amount : int):
 	var upgrade_reses : Array[Resource]
 	match tier:
 		DataManager.EntityTier.T1:
-			upgrade_reses = upgrades_T1_pool
+			upgrade_reses = current_progress.upgrades_T1_pool
 		DataManager.EntityTier.T2:
-			upgrade_reses = upgrades_T2_pool
+			upgrade_reses = current_progress.upgrades_T2_pool
 		DataManager.EntityTier.T3:
-			upgrade_reses = upgrades_T3_pool
+			upgrade_reses = current_progress.upgrades_T3_pool
 		DataManager.EntityTier.T4:
-			upgrade_reses = upgrades_T4_pool
+			upgrade_reses = current_progress.upgrades_T4_pool
 	
 	return get_unique_entities(upgrade_reses, amount)
 
@@ -89,13 +91,13 @@ func get_random_units(tier : DataManager.EntityTier, amount : int):
 	var unit_reses : Array[Resource]
 	match tier:
 		DataManager.EntityTier.T1:
-			unit_reses = units_T1_pool
+			unit_reses = current_progress.units_T1_pool
 		DataManager.EntityTier.T2:
-			unit_reses = units_T2_pool
+			unit_reses = current_progress.units_T2_pool
 		DataManager.EntityTier.T3:
-			unit_reses = units_T3_pool
+			unit_reses = current_progress.units_T3_pool
 		DataManager.EntityTier.T4:
-			unit_reses = units_T4_pool
+			unit_reses = current_progress.units_T4_pool
 	
 	return get_unique_entities(unit_reses, amount)
 
@@ -143,12 +145,12 @@ func add_item_to_deck(slot_scene : PackedScene, slot_type : DataManager.SlotType
 
 func add_unit_slot_to_deck(slot_scene : PackedScene):
 	var slot : Slot
-	for item in base_units_deck:
+	for item in current_progress.base_units_deck:
 		slot = item.instantiate()
 		if slot.slot_res.unit_tier == DataManager.UnitTier.T0:
-			base_units_deck.erase(item)
+			current_progress.base_units_deck.erase(item)
 			break
-	base_units_deck.append(slot_scene)
+	current_progress.base_units_deck.append(slot_scene)
 
 
 func add_upgrade_slot_to_deck(slot_scene : PackedScene):
@@ -258,6 +260,7 @@ func set_player_units_not_in_fight():
 	for unit in player_units:
 		if unit and is_instance_valid(unit) and unit.unit_state != DataManager.UnitState.DIED and unit.unit_state != DataManager.UnitState.DEAD:
 			unit.is_in_fight = false
+
 
 func check_enemies(unit_owner : DataManager.UnitOwner):
 	return is_enemies_alive() if unit_owner == DataManager.UnitOwner.PLAYER else is_player_units_alive()
@@ -374,9 +377,9 @@ func create_slot_scene(res : SlotRes):
 
 
 func generate_base_decks():
-	for res in base_upgrades_reses:
+	for res in current_progress.base_upgrades_reses:
 		base_upgrades_deck.append(create_slot_scene(res))
-	for res in base_units_reses:
+	for res in current_progress.base_units_reses:
 		base_units_deck.append(create_slot_scene(res))
-	for res in base_percs_reses:
+	for res in current_progress.base_percs_reses:
 		base_percs_deck.append(create_slot_scene(res))

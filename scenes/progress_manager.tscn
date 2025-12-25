@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxv5k47jri70s"]
+
+[ext_resource type="Script" uid="uid://djqyd6m0g5hcu" path="res://scripts/global/progress_manager.gd" id="1_4gtih"]
+[ext_resource type="Resource" uid="uid://tt3xywwnolmu" path="res://resources/progress_empire.tres" id="2_pl50u"]
+[ext_resource type="Resource" uid="uid://dp2vwtfce543t" path="res://resources/progress_hell.tres" id="3_3vfay"]
+
+[node name="ProgressManager" type="Node"]
+script = ExtResource("1_4gtih")
+base_progress_empire = ExtResource("2_pl50u")
+base_progress_hell = ExtResource("3_3vfay")

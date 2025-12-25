@@ -1,0 +1,99 @@
+[gd_resource type="Resource" script_class="PlayerProgress" load_steps=74 format=3 uid="uid://dp2vwtfce543t"]
+
+[ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="1_573vi"]
+[ext_resource type="Script" uid="uid://bly0r5htgro0a" path="res://resources/progress.gd" id="1_m0umr"]
+[ext_resource type="Resource" uid="uid://cf8q6y24cl7j3" path="res://resources/unit_hell_imp.tres" id="2_40ppw"]
+[ext_resource type="Resource" uid="uid://o6yes6k2q74f" path="res://resources/upgrade_attackspeed_0.2.tres" id="2_c7gjj"]
+[ext_resource type="Resource" uid="uid://cr5mao2m8gv1q" path="res://resources/perc_possessed.tres" id="2_y7cce"]
+[ext_resource type="Resource" uid="uid://cfb6xhmomw62e" path="res://resources/upgrade_attackspeed_0.4.tres" id="3_7heu3"]
+[ext_resource type="Resource" uid="uid://dbnfyb2dh6w01" path="res://resources/unit_hell_cultist.tres" id="3_60h0u"]
+[ext_resource type="Resource" uid="uid://cdn0wsfxvsnpr" path="res://resources/unit_hell_fiend.tres" id="3_e3df7"]
+[ext_resource type="Resource" uid="uid://sxoa7kpjidf4" path="res://resources/empty_upgrade.tres" id="4_6iyvu"]
+[ext_resource type="Resource" uid="uid://b507x12mrluyd" path="res://resources/unit_hell_manticora.tres" id="4_l3em6"]
+[ext_resource type="Resource" uid="uid://bxlnd3ngp723x" path="res://resources/upgrade_attackspeed_0.5.tres" id="4_ucm0k"]
+[ext_resource type="Resource" uid="uid://m5mh0jt4jh8s" path="res://resources/upgrade_attackspeed_0.6.tres" id="5_f1reh"]
+[ext_resource type="Resource" uid="uid://b6gadta00cpv" path="res://resources/unit_hell_bloodsucker.tres" id="5_i14cy"]
+[ext_resource type="Resource" uid="uid://cwy1gjlsinelc" path="res://resources/upgrade_critchance_15.tres" id="6_573vi"]
+[ext_resource type="Resource" uid="uid://p3kfa0pb5srh" path="res://resources/unit_hell_succubus.tres" id="6_dm07n"]
+[ext_resource type="Resource" uid="uid://8g1sorkttmby" path="res://resources/unit_hell_chocoatl.tres" id="7_ccsic"]
+[ext_resource type="Resource" uid="uid://pqmkvevl6qka" path="res://resources/upgrade_critchance_30.tres" id="7_y7cce"]
+[ext_resource type="Resource" uid="uid://347uobv8t51l" path="res://resources/unit_hell_accursed.tres" id="8_3fnmh"]
+[ext_resource type="Resource" uid="uid://ir3mrhkfep7d" path="res://resources/upgrade_critchance_40.tres" id="8_e3df7"]
+[ext_resource type="Resource" uid="uid://crhywc0f66oi8" path="res://resources/upgrade_critchance_50.tres" id="9_6iyvu"]
+[ext_resource type="Resource" uid="uid://dsfu8s6lpyaax" path="res://resources/unit_hell_substance.tres" id="9_d4ayi"]
+[ext_resource type="Resource" uid="uid://5d7e4x3a7q1g" path="res://resources/upgrade_critattack_35.tres" id="10_1bnls"]
+[ext_resource type="Resource" uid="uid://dyjdhwvhcysyt" path="res://resources/upgrade_critattack_70.tres" id="11_jwetk"]
+[ext_resource type="Resource" uid="uid://cw3xvx403gm8n" path="res://resources/upgrade_critattack_100.tres" id="12_6hmkm"]
+[ext_resource type="Resource" uid="uid://ce2ntdxm6dxgh" path="res://resources/upgrade_critattack_125.tres" id="13_0dmjv"]
+[ext_resource type="Resource" uid="uid://bjm4d3ocgqtkl" path="res://resources/upgrade_range.tres" id="14_x6cvo"]
+[ext_resource type="Resource" uid="uid://dldc0ba4s4xnb" path="res://resources/upgrade_range_20.tres" id="15_vcf1e"]
+[ext_resource type="Resource" uid="uid://brsef0opm8j3c" path="res://resources/upgrade_range_30.tres" id="16_n4dxb"]
+[ext_resource type="Resource" uid="uid://cafepvrf7mf8n" path="res://resources/upgrade_range_40.tres" id="17_6p46m"]
+[ext_resource type="Resource" uid="uid://dbnbyyfwoq76o" path="res://resources/upgrade_damage_10.tres" id="18_xkdsm"]
+[ext_resource type="Resource" uid="uid://cwsxhh4bvo0rb" path="res://resources/upgrade_damage_20.tres" id="19_fnqjg"]
+[ext_resource type="Resource" uid="uid://bwungclyl202l" path="res://resources/upgrade_damage_30.tres" id="20_3tlvx"]
+[ext_resource type="Resource" uid="uid://ba0lfpanmyffh" path="res://resources/upgrade_damage_40.tres" id="21_q8mfq"]
+[ext_resource type="Resource" uid="uid://b6rnvvrt23ec8" path="res://resources/upgrade_pattack_20.tres" id="22_5hnid"]
+[ext_resource type="Resource" uid="uid://dc5l7qa04224d" path="res://resources/upgrade_pattack_40.tres" id="23_gu8l1"]
+[ext_resource type="Resource" uid="uid://dnr77dj47al36" path="res://resources/upgrade_pattack_60.tres" id="24_j3hvn"]
+[ext_resource type="Resource" uid="uid://yevvp12f84vx" path="res://resources/upgrade_pattack_80.tres" id="25_yclp3"]
+[ext_resource type="Resource" uid="uid://dtoai7ayl4kov" path="res://resources/upgrade_mattack_20.tres" id="26_ogqw7"]
+[ext_resource type="Resource" uid="uid://cmkolxfbtlst6" path="res://resources/upgrade_mattack_40.tres" id="27_boghf"]
+[ext_resource type="Resource" uid="uid://btvd1hh87i27b" path="res://resources/upgrade_mattack_60.tres" id="28_llt25"]
+[ext_resource type="Resource" uid="uid://dhyprj51oqsus" path="res://resources/upgrade_mattack_80.tres" id="29_sgvr2"]
+[ext_resource type="Resource" uid="uid://b4hgg0rssvudv" path="res://resources/upgrade_tattack_20.tres" id="30_6qkrc"]
+[ext_resource type="Resource" uid="uid://b516xhwhqgplu" path="res://resources/upgrade_tattack_40.tres" id="31_8nai4"]
+[ext_resource type="Resource" uid="uid://onueq6gpmlta" path="res://resources/upgrade_tattack_60.tres" id="32_odbd6"]
+[ext_resource type="Resource" uid="uid://ba4688633h3de" path="res://resources/upgrade_tattack_80.tres" id="33_kirv3"]
+[ext_resource type="Resource" uid="uid://ucn2n2kbgw18" path="res://resources/upgrade_health_20.tres" id="34_nqgyo"]
+[ext_resource type="Resource" uid="uid://qv5pd5k8c4ma" path="res://resources/upgrade_health_40.tres" id="35_p83ig"]
+[ext_resource type="Resource" uid="uid://bfrkrpb27lrlr" path="res://resources/upgrade_health_60.tres" id="36_1oeqw"]
+[ext_resource type="Resource" uid="uid://b56dn0ndjxcpo" path="res://resources/upgrade_health_80.tres" id="37_58bh6"]
+[ext_resource type="Resource" uid="uid://ou85bbbd7mbo" path="res://resources/upgrade_movespeed_15.tres" id="46_se32d"]
+[ext_resource type="Resource" uid="uid://cfpwvb842xqxh" path="res://resources/upgrade_mdef_15.tres" id="47_rpmxx"]
+[ext_resource type="Resource" uid="uid://k4piu3ruf0ah" path="res://resources/upgrade_armor_15.tres" id="48_qr822"]
+[ext_resource type="Resource" uid="uid://ujeebt0iwr20" path="res://resources/upgrade_evade_15.tres" id="49_gvheg"]
+[ext_resource type="Resource" uid="uid://b7ypu117dtmuy" path="res://resources/upgrade_lifesteal_10.tres" id="50_j2s6k"]
+[ext_resource type="Resource" uid="uid://g1balh7h5u5g" path="res://resources/upgrade_regen.tres" id="51_w8b7r"]
+[ext_resource type="Resource" uid="uid://codtsdnasqp0i" path="res://resources/upgrade_movespeed_30.tres" id="52_lyfyj"]
+[ext_resource type="Resource" uid="uid://bshemnygoxlah" path="res://resources/upgrade_mdef_30.tres" id="53_cfuwf"]
+[ext_resource type="Resource" uid="uid://dnb1t2rvkkhuc" path="res://resources/upgrade_armor_30.tres" id="54_pn4cc"]
+[ext_resource type="Resource" uid="uid://cgaauiiq08fgd" path="res://resources/upgrade_evade_30.tres" id="55_i1jy2"]
+[ext_resource type="Resource" uid="uid://2kq3jdrcpw66" path="res://resources/upgrade_lifesteal_20.tres" id="56_hr410"]
+[ext_resource type="Resource" uid="uid://c7jjgpyybyqln" path="res://resources/upgrade_regen_10.tres" id="57_p4lfu"]
+[ext_resource type="Resource" uid="uid://brcqckwqllyle" path="res://resources/upgrade_movespeed_45.tres" id="58_myped"]
+[ext_resource type="Resource" uid="uid://bxvkbma0e1yd5" path="res://resources/upgrade_mdef_40.tres" id="59_m4rdr"]
+[ext_resource type="Resource" uid="uid://c7pe5lk4b5i1d" path="res://resources/upgrade_armor_40.tres" id="60_rlidt"]
+[ext_resource type="Resource" uid="uid://ca27aphb0ornl" path="res://resources/upgrade_evade_40.tres" id="61_rrxxg"]
+[ext_resource type="Resource" uid="uid://cvv3jhvasdkep" path="res://resources/upgrade_lifesteal_30.tres" id="62_4p1b4"]
+[ext_resource type="Resource" uid="uid://bp7vrjm2wyyal" path="res://resources/upgrade_regen_15.tres" id="63_62sie"]
+[ext_resource type="Resource" uid="uid://blaclrv2daxqi" path="res://resources/upgrade_movespeed_60.tres" id="64_3a4di"]
+[ext_resource type="Resource" uid="uid://c4fjugpw35jbd" path="res://resources/upgrade_mdef_50.tres" id="65_n0n0q"]
+[ext_resource type="Resource" uid="uid://cn8qhk1ng1vma" path="res://resources/upgrade_armor_50.tres" id="66_ascy4"]
+[ext_resource type="Resource" uid="uid://c1wbnffp5h6sa" path="res://resources/upgrade_evade_50.tres" id="67_32cra"]
+[ext_resource type="Resource" uid="uid://k50m5v3xe20k" path="res://resources/upgrade_lifesteal_40.tres" id="68_hrk1v"]
+[ext_resource type="Resource" uid="uid://dcnl1tkkjwxxv" path="res://resources/upgrade_regen_20.tres" id="69_vaeub"]
+
+[resource]
+script = ExtResource("1_m0umr")
+family = 1
+difficulty = null
+base_units_reses = Array[Resource]([ExtResource("3_e3df7"), ExtResource("3_e3df7"), ExtResource("3_e3df7"), ExtResource("3_e3df7")])
+base_upgrades_reses = Array[Resource]([ExtResource("4_6iyvu"), ExtResource("4_6iyvu"), ExtResource("4_6iyvu"), ExtResource("46_se32d")])
+base_percs_reses = Array[Resource]([ExtResource("1_573vi"), ExtResource("1_573vi"), ExtResource("1_573vi"), ExtResource("2_y7cce")])
+special_units_reses = null
+special_upgrades_reses = Array[Resource]([ExtResource("2_c7gjj"), ExtResource("3_7heu3"), ExtResource("4_ucm0k"), ExtResource("5_f1reh"), ExtResource("6_573vi"), ExtResource("7_y7cce"), ExtResource("8_e3df7"), ExtResource("9_6iyvu"), ExtResource("10_1bnls"), ExtResource("11_jwetk"), ExtResource("12_6hmkm"), ExtResource("13_0dmjv"), ExtResource("14_x6cvo"), ExtResource("15_vcf1e"), ExtResource("16_n4dxb"), ExtResource("17_6p46m"), ExtResource("18_xkdsm"), ExtResource("19_fnqjg"), ExtResource("20_3tlvx"), ExtResource("21_q8mfq"), ExtResource("22_5hnid"), ExtResource("23_gu8l1"), ExtResource("24_j3hvn"), ExtResource("25_yclp3"), ExtResource("26_ogqw7"), ExtResource("27_boghf"), ExtResource("28_llt25"), ExtResource("29_sgvr2"), ExtResource("30_6qkrc"), ExtResource("31_8nai4"), ExtResource("32_odbd6"), ExtResource("33_kirv3"), ExtResource("34_nqgyo"), ExtResource("35_p83ig"), ExtResource("36_1oeqw"), ExtResource("37_58bh6")])
+special_percs_reses = null
+units_T1_pool = Array[Resource]([ExtResource("2_40ppw"), ExtResource("3_60h0u")])
+units_T2_pool = Array[Resource]([ExtResource("4_l3em6"), ExtResource("5_i14cy")])
+units_T3_pool = Array[Resource]([ExtResource("6_dm07n"), ExtResource("7_ccsic")])
+units_T4_pool = Array[Resource]([ExtResource("8_3fnmh"), ExtResource("9_d4ayi")])
+upgrades_T1_pool = Array[Resource]([ExtResource("46_se32d"), ExtResource("47_rpmxx"), ExtResource("48_qr822"), ExtResource("49_gvheg"), ExtResource("50_j2s6k"), ExtResource("51_w8b7r")])
+upgrades_T2_pool = Array[Resource]([ExtResource("52_lyfyj"), ExtResource("53_cfuwf"), ExtResource("54_pn4cc"), ExtResource("55_i1jy2"), ExtResource("56_hr410"), ExtResource("57_p4lfu")])
+upgrades_T3_pool = Array[Resource]([ExtResource("58_myped"), ExtResource("59_m4rdr"), ExtResource("60_rlidt"), ExtResource("61_rrxxg"), ExtResource("62_4p1b4"), ExtResource("63_62sie")])
+upgrades_T4_pool = Array[Resource]([ExtResource("64_3a4di"), ExtResource("65_n0n0q"), ExtResource("66_ascy4"), ExtResource("67_32cra"), ExtResource("68_hrk1v"), ExtResource("69_vaeub")])
+percs_T4_pool = null
+percs_T1_pool = null
+percs_T2_pool = null
+percs_T3_pool = null
+metadata/_custom_type_script = "uid://bly0r5htgro0a"
