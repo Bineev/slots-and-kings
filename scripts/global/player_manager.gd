@@ -39,6 +39,8 @@ extends Node
 
 @export var hero_factory_scene : PackedScene
 
+var bonus_dict : Dictionary
+
 var current_progress : PlayerProgress
 var current_health : int
 var current_gold : int
@@ -54,6 +56,7 @@ var current_wave_count : int
 var next_create_units_count : int
 var hero_factory : HeroFactory
 var unit_factory : UnitFactory
+
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
@@ -145,12 +148,12 @@ func add_item_to_deck(slot_scene : PackedScene, slot_type : DataManager.SlotType
 
 func add_unit_slot_to_deck(slot_scene : PackedScene):
 	var slot : Slot
-	for item in current_progress.base_units_deck:
+	for item in base_units_deck:
 		slot = item.instantiate()
 		if slot.slot_res.unit_tier == DataManager.UnitTier.T0:
-			current_progress.base_units_deck.erase(item)
+			base_units_deck.erase(item)
 			break
-	current_progress.base_units_deck.append(slot_scene)
+	base_units_deck.append(slot_scene)
 
 
 func add_upgrade_slot_to_deck(slot_scene : PackedScene):
@@ -383,3 +386,22 @@ func generate_base_decks():
 		base_units_deck.append(create_slot_scene(res))
 	for res in current_progress.base_percs_reses:
 		base_percs_deck.append(create_slot_scene(res))
+
+
+func get_random_week_bonus():
+	var pool : Array[Resource] = current_progress.units_T1_pool + current_progress.units_T2_pool + current_progress.units_T3_pool + current_progress.units_T4_pool
+	var current_res : Resource = pool.pick_random()
+	var count : int = randi_range(1, 3)
+	update_bonus(current_res.slot_name, count)
+	return [current_res.slot_name, count]
+	
+	
+func update_bonus(slot_name : String, count : int):
+	bonus_dict.clear()
+	bonus_dict[slot_name] = count
+
+
+func get_current_bonus(slot_name : Resource):
+	if not bonus_dict.has(slot_name):
+		return 0
+	return bonus_dict[slot_name]

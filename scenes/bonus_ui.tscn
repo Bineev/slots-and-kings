@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjmohtwyt7heq"]
+
+[ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_wdyqu"]
+[ext_resource type="Script" uid="uid://dofcfxrwsalkh" path="res://scripts/other/bonus_ui.gd" id="2_573wx"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_wdyqu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_573wx"]
+font = ExtResource("3_wdyqu")
+font_size = 6
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+
+[node name="BonusUI" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_wdyqu")
+script = ExtResource("2_573wx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="label_bonus" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_573wx")
+autowrap_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

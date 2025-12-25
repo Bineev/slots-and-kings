@@ -8,6 +8,7 @@ class_name Level
 @export var first_wave_timer : float
 @export var wave_rewards : Array[DataManager.RewardType]
 @export var wave_reward_UI_scene : PackedScene
+@export var bonus_ui_scene : PackedScene
 
 var is_need_def_of_loop : bool
 var free_spawners : Array[Spawner]
@@ -20,6 +21,8 @@ var wave_reward_UI : RewardAfterWaveUI
 var free_fight_points : Array[FightPoint]
 var current_tooltip : Control
 var heroes_slots_points : Array[Spawner]
+var current_bonus_name : String
+var current_bonus_count : int
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -91,7 +94,10 @@ func start_waves():
 
 
 func add_player_unit():
-	for i in range(Player.get_units_count_for_next_create()):
+	var is_actually_bonus : bool = current_unit.slots[0].slot_name == current_bonus_name
+	var units_count_default : int = Player.get_units_count_for_next_create() 
+	var actually_units_count = units_count_default + current_bonus_count if is_actually_bonus else units_count_default
+	for i in range(actually_units_count):
 		if Player.check_res(current_unit.unit_cost, DataManager.ResType.FOOD):
 			Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
 			create_unit_from_scratch()
@@ -289,6 +295,8 @@ func create_wave():
 
 func start_next_wave_countdown():
 	unpause_timers()
+	if Player.get_current_wave_count() >= 1:
+		get_tree().create_timer(0.5).timeout.connect(show_bonus_UI)
 	var next_wave_scene : PackedScene = waves_scenes.pop_front()
 	if not next_wave_scene:
 		timer_to_next_wave.stop()
@@ -472,3 +480,16 @@ func cancel_attack():
 		unit.change_state(DataManager.UnitState.IDLE)
 		unit.is_can_attack = true
 		unit.is_in_fight = false
+
+
+func show_bonus_UI():
+	var bonus_ui : BonusUI = bonus_ui_scene.instantiate()
+	var bonus_data = Player.get_random_week_bonus()
+	current_bonus_name = bonus_data[0]
+	current_bonus_count = bonus_data[01]
+	bonus_ui.set_bonus_count(current_bonus_count)
+	bonus_ui.set_bonus_name(current_bonus_name)
+	ui.add_child(bonus_ui)
+	bonus_ui.initialize()
+	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(bonus_ui))
+	get_tree().create_timer(5).timeout.connect(bonus_ui.queue_free)
