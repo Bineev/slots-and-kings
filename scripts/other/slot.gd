@@ -112,9 +112,15 @@ func generate_unit_stats():
 			if stat.contains('attack_speed') or stat.contains('mult'):
 				if slot_type == DataManager.SlotType.PERC:
 					if DataManager.default_stats[stat] < slot_res.get(stat):
-						unit_stats += ('[color=#25562e]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+						if not stat.contains('attack_speed'):
+							unit_stats += ('[color=#25562e]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+						else:
+							unit_stats += ('[color=#a53030]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
 					elif DataManager.default_stats[stat] > slot_res.get(stat):
-						unit_stats += ('[color=#a53030]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+						if not stat.contains('attack_speed'):
+							unit_stats += ('[color=#a53030]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+						else:
+							unit_stats += ('[color=#25562e]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
 					else:
 						unit_stats += ('%s %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
 				else:

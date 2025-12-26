@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://1hqslg77hnly"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_ciypi"]
+[ext_resource type="Texture2D" uid="uid://b2e6meeick3ww" path="res://img/slots/perc_thug.png" id="2_abhuu"]
+
+[resource]
+script = ExtResource("1_ciypi")
+slot_name = "громила"
+slot_description = "Вы любите ломать черепушки, но медленно двигаетесь."
+slot_sprite = ExtResource("2_abhuu")
+slot_type = 2
+entity_tier = 1
+physical_attack_mult = 1.5
+move_speed_mult = 0.7
+metadata/_custom_type_script = "uid://ckeieckjuifia"

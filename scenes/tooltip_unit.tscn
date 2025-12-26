@@ -25,6 +25,9 @@ preview_texture = null
 unit_types = ""
 stats = ""
 
+[node name="label_name" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="0"]
+uppercase = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
 layout_mode = 2
 
