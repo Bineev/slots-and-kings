@@ -19,7 +19,7 @@ func set_bonus_count(new_bonus_count : int):
 
 func initialize():
 	await get_tree().process_frame
-	label_bonus.text = 'Астрологи объявили неделю %s. Количесто создаваемых %s увеличено на %d' % [bonus_name, bonus_name, bonus_count]
+	label_bonus.text = 'Астрологи объявили неделю %s. Количество призываемых %s увеличено на %d' % [bonus_name, bonus_name, bonus_count]
 
 
 func _on_gui_input(event: InputEvent) -> void:

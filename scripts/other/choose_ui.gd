@@ -41,7 +41,7 @@ func initialize():
 		choose_item.set_slot_res(slot_res)
 		choose_item.set_choose_UI(self)
 		choose_item.initialize()
-	#SignalManager.on_ready_choose_ui.emit(self)
+	SignalManager.on_ready_choose_ui.emit(self)
 
 
 func close_choose_UI(item : ChooseItem):

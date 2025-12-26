@@ -71,7 +71,7 @@ func _ready() -> void:
 	SignalManager.on_add_unit_from_skill.connect(add_unit_from_skill)
 	SignalManager.on_player_get_health.connect(update_hp_bar)
 	SignalManager.on_create_projectile.connect(create_projectile)
-	#SignalManager.on_ready_choose_ui.connect(align_popup)
+	SignalManager.on_ready_choose_ui.connect(align_popup)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
@@ -192,14 +192,14 @@ func add_building_menu_UI(building : Building, menu_UI : Control):
 	ui.add_child(menu_UI)
 	menu_UI.initialize()
 	menu_UI.global_position = building.global_position
-	get_tree().create_timer(0.01).timeout.connect(align_popup.bind(menu_UI))
+	#get_tree().create_timer(0.05).timeout.connect(align_popup.bind(menu_UI))
 
 
 func add_choose_UI(building : Building, chooseUI : ChooseUI):
 	ui.add_child(chooseUI)
 	chooseUI.initialize()
 	chooseUI.global_position = building.global_position
-	get_tree().create_timer(0.01).timeout.connect(align_popup.bind(chooseUI))
+	#get_tree().create_timer(0.01).timeout.connect(align_popup.bind(chooseUI))
 
 
 func add_choose_UI_in_center(chooseUI : Control):
@@ -486,10 +486,10 @@ func show_bonus_UI():
 	var bonus_ui : BonusUI = bonus_ui_scene.instantiate()
 	var bonus_data = Player.get_random_week_bonus()
 	current_bonus_name = bonus_data[0]
-	current_bonus_count = bonus_data[01]
+	current_bonus_count = bonus_data[1]
 	bonus_ui.set_bonus_count(current_bonus_count)
 	bonus_ui.set_bonus_name(current_bonus_name)
 	ui.add_child(bonus_ui)
 	bonus_ui.initialize()
 	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(bonus_ui))
-	get_tree().create_timer(5).timeout.connect(bonus_ui.queue_free)
+	get_tree().create_timer(7).timeout.connect(bonus_ui.queue_free)

@@ -391,7 +391,7 @@ func generate_base_decks():
 func get_random_week_bonus():
 	var pool : Array[Resource] = current_progress.units_T1_pool + current_progress.units_T2_pool + current_progress.units_T3_pool + current_progress.units_T4_pool
 	var current_res : Resource = pool.pick_random()
-	var count : int = randi_range(1, 3)
+	var count : int = randi_range(1, 2)
 	update_bonus(current_res.slot_name, count)
 	return [current_res.slot_name, count]
 	

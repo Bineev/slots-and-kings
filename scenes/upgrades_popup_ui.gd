@@ -29,6 +29,7 @@ func initialize():
 	button_buy.text = str(next_tier_cost)
 	if not Player.check_res(next_tier_cost, upgrade_tier_res):
 		button_buy.disabled = true
+	SignalManager.on_ready_choose_ui.emit(self)
 
 
 func set_data(new_current_tier : DataManager.EntityTier, new_next_tier_cost : int, new_upgrade_tier_res : DataManager.ResType, new_building_owner : Building):
