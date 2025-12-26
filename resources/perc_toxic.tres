@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://dvd4gympqdbnh"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_r21ey"]
+[ext_resource type="Texture2D" uid="uid://c68xpbhixxhj8" path="res://img/slots/perc_toxic.png" id="2_0enf3"]
+
+[resource]
+script = ExtResource("1_r21ey")
+slot_name = "токсик"
+slot_description = "Вы наносите больше урона, но страдаете от яда"
+slot_sprite = ExtResource("2_0enf3")
+slot_type = 2
+entity_tier = 2
+health_regen = -3.0
+health_regen_interval = 10.0
+damage_mult_vs_all = 1.5
+metadata/_custom_type_script = "uid://ckeieckjuifia"

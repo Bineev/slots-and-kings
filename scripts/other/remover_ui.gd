@@ -46,7 +46,9 @@ func initialize():
 func close_remover_UI():
 	if is_should_start_wave:
 		SignalManager.on_new_wave_start.emit()
-	get_tree().create_timer(0.5).timeout.connect(self.queue_free)
+	#get_tree().create_timer(0.5).timeout.connect(self.queue_free)
+	self.queue_free()
+	SignalManager.on_clear_tooltips.emit()
 	#hide()
 
 

@@ -72,6 +72,7 @@ func _ready() -> void:
 	SignalManager.on_player_get_health.connect(update_hp_bar)
 	SignalManager.on_create_projectile.connect(create_projectile)
 	SignalManager.on_ready_choose_ui.connect(align_popup)
+	SignalManager.on_clear_tooltips.connect(clear_tooltips)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
@@ -493,3 +494,13 @@ func show_bonus_UI():
 	bonus_ui.initialize()
 	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(bonus_ui))
 	get_tree().create_timer(7).timeout.connect(bonus_ui.queue_free)
+
+
+func clear_tooltips():
+	if current_tooltip and is_instance_valid(current_tooltip):
+		current_tooltip.queue_free()
+	#for item in ui.get_children():
+		#print(item.get_class())
+		#if item and is_instance_valid(item) and item is Tooltip:
+			#item.hide()
+			#item.queue_free()

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://bij1snp1bqw1f"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_jqx7n"]
+[ext_resource type="Texture2D" uid="uid://bx46qg1clvk1s" path="res://img/slots/perc_dastard.png" id="2_y0t6k"]
+
+[resource]
+script = ExtResource("1_jqx7n")
+slot_name = "подлец"
+slot_description = "У вас увеличенный чистый урон, но слабое здоровье"
+slot_sprite = ExtResource("2_y0t6k")
+slot_type = 2
+entity_tier = 1
+health_mult = 0.7
+true_damage_mult = 1.5
+metadata/_custom_type_script = "uid://ckeieckjuifia"

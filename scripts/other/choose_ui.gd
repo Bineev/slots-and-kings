@@ -49,3 +49,4 @@ func close_choose_UI(item : ChooseItem):
 		building_owner.start_produce()
 	if is_should_start_wave:
 		SignalManager.on_new_wave_start.emit()
+		
