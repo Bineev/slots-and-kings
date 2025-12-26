@@ -44,6 +44,8 @@ func generate_stats():
 		if stat == 'crit_attack' and slot_res.get(stat) == 50:
 			continue 
 		if DataManager.default_stats[stat] != slot_res.get(stat):
+			if stat.contains('hit_chance') and slot_res.get(stat) == 0:
+				continue
 			if stat.contains('attack_speed') or stat.contains('mult'):
 				unit_stats += ('%s: %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
 			else:

@@ -152,7 +152,7 @@ func add_item_to_deck(slot_scene : PackedScene, slot_type : DataManager.SlotType
 		DataManager.SlotType.UPGRADE:
 			add_upgrade_slot_to_deck(slot_scene)
 		DataManager.SlotType.PERC:
-			base_percs_deck.append(slot_scene)
+			add_perc_slot_to_deck(slot_scene)
 		DataManager.SlotType.UNIT: 
 			add_unit_slot_to_deck(slot_scene)
 
@@ -171,10 +171,20 @@ func add_upgrade_slot_to_deck(slot_scene : PackedScene):
 	var slot : Slot
 	for item in base_upgrades_deck:
 		slot = item.instantiate()
-		if slot.get_meta('slot_name') == 'empty':
+		if slot.get_meta('slot_name') == 'Зеро':
 			base_upgrades_deck.erase(item)
 			break
 	base_upgrades_deck.append(slot_scene)
+
+
+func add_perc_slot_to_deck(slot_scene : PackedScene):
+	var slot : Slot
+	for item in base_percs_deck:
+		slot = item.instantiate()
+		if slot.get_meta('slot_name') == 'Зеро':
+			base_percs_deck.erase(item)
+			break
+	base_percs_deck.append(slot_scene)
 
 
 func get_deck_by_slot_type(slot_type : DataManager.SlotType):
