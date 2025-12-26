@@ -30,7 +30,7 @@ func initialize():
 	choose_button.text = 'ВЫБРАТЬ'
 	item_texture.texture = slot_res.slot_sprite
 	slot_type = slot_res.slot_type
-	if slot_res.slot_type == DataManager.SlotType.UNIT:
+	if slot_res.slot_type == DataManager.SlotType.UNIT or slot_res.slot_type == DataManager.SlotType.PERC:
 		label_item_stats.text = generate_stats()
 	else:
 		label_item_stats.hide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://w4c2mrw01hig"]
+[gd_scene load_steps=5 format=3 uid="uid://w4c2mrw01hig"]
 
 [ext_resource type="PackedScene" uid="uid://byte4klk87mh0" path="res://scenes/tooltip.tscn" id="1_wdujg"]
 [ext_resource type="Script" uid="uid://b8qt5yn1np3g2" path="res://scripts/other/tooltip_slot.gd" id="2_0nmuw"]
@@ -9,26 +9,20 @@ font = ExtResource("3_q4gru")
 font_size = 5
 font_color = Color(0.0627451, 0.078431375, 0.12156863, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_xuyhc"]
-line_spacing = 1.0
-font = ExtResource("3_q4gru")
-font_size = 5
-font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-
 [node name="TooltipSlot" instance=ExtResource("1_wdujg")]
-offset_left = -102.0
-offset_right = 102.0
 script = ExtResource("2_0nmuw")
 slot_res = null
 stats = ""
 
-[node name="PanelContainer" parent="HBoxContainer" index="0"]
-custom_minimum_size = Vector2(100, 0)
-
 [node name="label_desc" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1"]
 label_settings = SubResource("LabelSettings_q4gru")
 
-[node name="label_stats" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+[node name="label_stats" type="RichTextLabel" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
 unique_name_in_owner = true
 layout_mode = 2
-label_settings = SubResource("LabelSettings_xuyhc")
+theme_override_colors/default_color = Color(0.25490198, 0.11372549, 0.19215687, 1)
+theme_override_fonts/normal_font = ExtResource("3_q4gru")
+theme_override_font_sizes/normal_font_size = 5
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

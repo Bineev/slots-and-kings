@@ -107,11 +107,30 @@ func generate_unit_stats():
 		if stat == 'crit_attack' and slot_res.get(stat) == 50:
 			continue 
 		if DataManager.default_stats[stat] != slot_res.get(stat):
+			if (stat.contains('hit_chance') or stat.contains('crit_attack')) and slot_type == DataManager.SlotType.PERC:
+				continue
 			if stat.contains('attack_speed') or stat.contains('mult'):
-				unit_stats += ('%s: %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+				if slot_type == DataManager.SlotType.PERC:
+					if DataManager.default_stats[stat] < slot_res.get(stat):
+						unit_stats += ('[color=#25562e]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+					elif DataManager.default_stats[stat] > slot_res.get(stat):
+						unit_stats += ('[color=#a53030]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+					else:
+						unit_stats += ('%s %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+				else:
+					unit_stats += ('%s %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
 			else:
-				unit_stats += ('%s: %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
-	
+				if slot_type == DataManager.SlotType.PERC:
+					if DataManager.default_stats[stat] < slot_res.get(stat):
+						unit_stats += ('[color=#25562e]%s %d\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+					elif DataManager.default_stats[stat] > slot_res.get(stat):
+						unit_stats += ('[color=#a53030]%s %d\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+					else:
+						unit_stats += ('%s %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+				else:
+					unit_stats += ('%s %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+				#unit_stats += ('%s %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+
 	return unit_stats
 
 
@@ -122,7 +141,7 @@ func create_tooltip():
 	tooltip.set_entity_tier(entity_tier)
 	tooltip.set_tooltip_owner(self)
 	tooltip.set_slot_res(slot_res)
-	if slot_type == DataManager.SlotType.UNIT:
+	if slot_type == DataManager.SlotType.UNIT or slot_type == DataManager.SlotType.PERC:
 		tooltip.set_stats(generate_unit_stats())
 	#tooltip.visible = false
 

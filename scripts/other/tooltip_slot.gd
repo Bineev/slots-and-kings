@@ -6,7 +6,7 @@ class_name TooltipSlot
 @export var slot_res : SlotRes
 @export var stats : String
 
-@onready var label_stats: Label = %label_stats
+@onready var label_stats: RichTextLabel = %label_stats
 
 
 func initialize():
