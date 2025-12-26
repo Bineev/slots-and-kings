@@ -106,7 +106,18 @@ func get_random_units(tier : DataManager.EntityTier, amount : int):
 
 
 func get_random_percs(tier : DataManager.EntityTier, amount : int):
-	pass
+	var perc_reses : Array[Resource]
+	match tier:
+		DataManager.EntityTier.T1:
+			perc_reses = current_progress.percs_T1_pool
+		DataManager.EntityTier.T2:
+			perc_reses = current_progress.percs_T2_pool
+		DataManager.EntityTier.T3:
+			perc_reses = current_progress.percs_T3_pool
+		DataManager.EntityTier.T4:
+			perc_reses = current_progress.percs_T4_pool
+	
+	return get_unique_entities(perc_reses, amount)
 
 
 func get_random_heroes(tier : DataManager.EntityTier, amount : int):

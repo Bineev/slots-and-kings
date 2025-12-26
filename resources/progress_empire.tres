@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerProgress" load_steps=79 format=3 uid="uid://tt3xywwnolmu"]
+[gd_resource type="Resource" script_class="PlayerProgress" load_steps=93 format=3 uid="uid://tt3xywwnolmu"]
 
 [ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="1_hdwo2"]
 [ext_resource type="Script" uid="uid://bly0r5htgro0a" path="res://resources/progress.gd" id="1_w8t7g"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://cwy1gjlsinelc" path="res://resources/upgrade_critchance_15.tres" id="6_hdwo2"]
 [ext_resource type="Resource" uid="uid://cnk4yhlg10440" path="res://resources/unit_castle_inquisitor.tres" id="6_peilv"]
 [ext_resource type="Resource" uid="uid://pqmkvevl6qka" path="res://resources/upgrade_critchance_30.tres" id="7_2wd87"]
+[ext_resource type="Resource" uid="uid://buv3t8va4ttwk" path="res://resources/perc_scribe.tres" id="7_lhe1p"]
 [ext_resource type="Resource" uid="uid://bxeoom8rd3ad4" path="res://resources/perc_scholar.tres" id="7_sf6q5"]
 [ext_resource type="Resource" uid="uid://dnbgdqcd4bfnl" path="res://resources/unit_castle_knight.tres" id="7_xmb1i"]
 [ext_resource type="Resource" uid="uid://7pmxvr6da48b" path="res://resources/unit_castle_sun_priest.tres" id="8_4uyiw"]
@@ -27,25 +28,38 @@
 [ext_resource type="Resource" uid="uid://dcv6n8g7fx1qh" path="res://resources/unit_castle_demonhunter.tres" id="9_oceh7"]
 [ext_resource type="Resource" uid="uid://5d7e4x3a7q1g" path="res://resources/upgrade_critattack_35.tres" id="10_b333a"]
 [ext_resource type="Resource" uid="uid://d7km51osiml4" path="res://resources/perc_atheist.tres" id="10_brj8e"]
+[ext_resource type="Resource" uid="uid://dc3j4kxhjdsc8" path="res://resources/perc_sharpshooter.tres" id="10_di60n"]
 [ext_resource type="Resource" uid="uid://ou85bbbd7mbo" path="res://resources/upgrade_movespeed_15.tres" id="10_j0jjq"]
 [ext_resource type="Resource" uid="uid://cfpwvb842xqxh" path="res://resources/upgrade_mdef_15.tres" id="11_5sxex"]
 [ext_resource type="Resource" uid="uid://dyjdhwvhcysyt" path="res://resources/upgrade_critattack_70.tres" id="11_brj8e"]
+[ext_resource type="Resource" uid="uid://cg2i6usnlw27n" path="res://resources/perc_bessoted.tres" id="11_qkkhw"]
 [ext_resource type="Resource" uid="uid://cw3xvx403gm8n" path="res://resources/upgrade_critattack_100.tres" id="12_m6kss"]
 [ext_resource type="Resource" uid="uid://k4piu3ruf0ah" path="res://resources/upgrade_armor_15.tres" id="12_vv8np"]
+[ext_resource type="Resource" uid="uid://l7fchhlhunt1" path="res://resources/perc_ghoul.tres" id="13_2al3k"]
 [ext_resource type="Resource" uid="uid://ujeebt0iwr20" path="res://resources/upgrade_evade_15.tres" id="13_2ym33"]
 [ext_resource type="Resource" uid="uid://ce2ntdxm6dxgh" path="res://resources/upgrade_critattack_125.tres" id="13_ilteq"]
 [ext_resource type="Resource" uid="uid://b7ypu117dtmuy" path="res://resources/upgrade_lifesteal_10.tres" id="14_bfr11"]
 [ext_resource type="Resource" uid="uid://bjm4d3ocgqtkl" path="res://resources/upgrade_range.tres" id="14_qho7k"]
+[ext_resource type="Resource" uid="uid://cvedbwoduro38" path="res://resources/perc_myopic.tres" id="15_elri8"]
 [ext_resource type="Resource" uid="uid://g1balh7h5u5g" path="res://resources/upgrade_regen.tres" id="15_lptcy"]
 [ext_resource type="Resource" uid="uid://dldc0ba4s4xnb" path="res://resources/upgrade_range_20.tres" id="15_n1iqn"]
 [ext_resource type="Resource" uid="uid://brsef0opm8j3c" path="res://resources/upgrade_range_30.tres" id="16_cxm55"]
+[ext_resource type="Resource" uid="uid://dtok62hm1o2qf" path="res://resources/perc_devout.tres" id="16_odfdr"]
+[ext_resource type="Resource" uid="uid://c00es4ri5bv54" path="res://resources/perc_keensighted.tres" id="17_3sngm"]
 [ext_resource type="Resource" uid="uid://cafepvrf7mf8n" path="res://resources/upgrade_range_40.tres" id="17_4c3d5"]
+[ext_resource type="Resource" uid="uid://b87bbmiu0cggk" path="res://resources/perc_peaceful.tres" id="18_8bau0"]
 [ext_resource type="Resource" uid="uid://dbnbyyfwoq76o" path="res://resources/upgrade_damage_10.tres" id="18_yhtj2"]
 [ext_resource type="Resource" uid="uid://cwsxhh4bvo0rb" path="res://resources/upgrade_damage_20.tres" id="19_j0for"]
+[ext_resource type="Resource" uid="uid://cj4u1hs4l1yie" path="res://resources/perc_risky.tres" id="19_j7qrr"]
 [ext_resource type="Resource" uid="uid://bwungclyl202l" path="res://resources/upgrade_damage_30.tres" id="20_gu4si"]
+[ext_resource type="Resource" uid="uid://bm8h5dpygch7e" path="res://resources/perc_squint.tres" id="20_id3r6"]
+[ext_resource type="Resource" uid="uid://h8tk8vuv4vem" path="res://resources/perc_giant.tres" id="21_g21fy"]
 [ext_resource type="Resource" uid="uid://ba0lfpanmyffh" path="res://resources/upgrade_damage_40.tres" id="21_pynln"]
+[ext_resource type="Resource" uid="uid://q0syi1sdifce" path="res://resources/perc_lucky.tres" id="22_8kslp"]
 [ext_resource type="Resource" uid="uid://b6rnvvrt23ec8" path="res://resources/upgrade_pattack_20.tres" id="22_ghedn"]
+[ext_resource type="Resource" uid="uid://cr5mao2m8gv1q" path="res://resources/perc_possessed.tres" id="23_jriot"]
 [ext_resource type="Resource" uid="uid://dc5l7qa04224d" path="res://resources/upgrade_pattack_40.tres" id="23_rgw2m"]
+[ext_resource type="Resource" uid="uid://bi0syxh8ica07" path="res://resources/perc_puny.tres" id="24_cdw33"]
 [ext_resource type="Resource" uid="uid://dnr77dj47al36" path="res://resources/upgrade_pattack_60.tres" id="24_fs40g"]
 [ext_resource type="Resource" uid="uid://yevvp12f84vx" path="res://resources/upgrade_pattack_80.tres" id="25_lhe1p"]
 [ext_resource type="Resource" uid="uid://dtoai7ayl4kov" path="res://resources/upgrade_mattack_20.tres" id="26_di60n"]
@@ -83,7 +97,7 @@
 script = ExtResource("1_w8t7g")
 base_units_reses = Array[Resource]([ExtResource("3_sf6q5"), ExtResource("3_sf6q5"), ExtResource("3_sf6q5"), ExtResource("3_sf6q5")])
 base_upgrades_reses = Array[Resource]([ExtResource("12_vv8np"), ExtResource("5_34q24"), ExtResource("5_34q24"), ExtResource("5_34q24")])
-base_percs_reses = Array[Resource]([ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("9_b333a")])
+base_percs_reses = Array[Resource]([ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("2_2wd87")])
 special_upgrades_reses = Array[Resource]([ExtResource("2_18758"), ExtResource("3_xn1vv"), ExtResource("4_3mp13"), ExtResource("5_7xldq"), ExtResource("6_hdwo2"), ExtResource("7_2wd87"), ExtResource("8_sf6q5"), ExtResource("9_34q24"), ExtResource("10_b333a"), ExtResource("11_brj8e"), ExtResource("12_m6kss"), ExtResource("13_ilteq"), ExtResource("14_qho7k"), ExtResource("15_n1iqn"), ExtResource("16_cxm55"), ExtResource("17_4c3d5"), ExtResource("18_yhtj2"), ExtResource("19_j0for"), ExtResource("20_gu4si"), ExtResource("21_pynln"), ExtResource("22_ghedn"), ExtResource("23_rgw2m"), ExtResource("24_fs40g"), ExtResource("25_lhe1p"), ExtResource("26_di60n"), ExtResource("27_qkkhw"), ExtResource("28_2al3k"), ExtResource("29_elri8"), ExtResource("30_odfdr"), ExtResource("31_3sngm"), ExtResource("32_8bau0"), ExtResource("33_j7qrr"), ExtResource("34_id3r6"), ExtResource("35_g21fy"), ExtResource("36_8kslp"), ExtResource("37_jriot")])
 units_T1_pool = Array[Resource]([ExtResource("2_byyse"), ExtResource("3_hjbb2")])
 units_T2_pool = Array[Resource]([ExtResource("4_sklat"), ExtResource("5_e4xc5")])
@@ -93,6 +107,8 @@ upgrades_T1_pool = Array[Resource]([ExtResource("10_j0jjq"), ExtResource("11_5sx
 upgrades_T2_pool = Array[Resource]([ExtResource("52_cdw33"), ExtResource("53_8nta1"), ExtResource("54_msydu"), ExtResource("55_2o1ni"), ExtResource("56_5wk7d"), ExtResource("57_nngd6")])
 upgrades_T3_pool = Array[Resource]([ExtResource("58_h04bn"), ExtResource("59_h3ft0"), ExtResource("60_wu4b2"), ExtResource("61_6gdh5"), ExtResource("62_h5d2m"), ExtResource("63_vfqql")])
 upgrades_T4_pool = Array[Resource]([ExtResource("64_byong"), ExtResource("65_mly8r"), ExtResource("66_kotsb"), ExtResource("67_wdv8i"), ExtResource("68_rwnh0"), ExtResource("69_wh6ku")])
-percs_T1_pool = Array[Resource]([ExtResource("2_hdwo2"), ExtResource("2_2wd87"), ExtResource("7_sf6q5"), ExtResource("2_34q24"), ExtResource("10_brj8e")])
-percs_T2_pool = Array[Resource]([ExtResource("9_b333a")])
+percs_T4_pool = Array[Resource]([ExtResource("21_g21fy"), ExtResource("22_8kslp"), ExtResource("23_jriot"), ExtResource("24_cdw33"), ExtResource("9_b333a")])
+percs_T1_pool = Array[Resource]([ExtResource("10_brj8e"), ExtResource("7_lhe1p"), ExtResource("2_2wd87"), ExtResource("2_hdwo2"), ExtResource("10_di60n")])
+percs_T2_pool = Array[Resource]([ExtResource("11_qkkhw"), ExtResource("2_34q24"), ExtResource("13_2al3k"), ExtResource("7_sf6q5"), ExtResource("15_elri8")])
+percs_T3_pool = Array[Resource]([ExtResource("16_odfdr"), ExtResource("17_3sngm"), ExtResource("18_8bau0"), ExtResource("19_j7qrr"), ExtResource("20_id3r6")])
 metadata/_custom_type_script = "uid://bly0r5htgro0a"

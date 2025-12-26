@@ -6,10 +6,10 @@
 [resource]
 script = ExtResource("1_2wcke")
 slot_name = "фартовый"
-slot_description = "шанс крита повышен, но чистая атака понижена"
+slot_description = "Ваш шанс крита повышен, но чистая атака понижена"
 slot_sprite = ExtResource("2_a78bv")
 slot_type = 2
-entity_tier = 3
+entity_tier = 4
 crit_chance = 20.0
 crit_chance_mult = 1.5
 true_damage_mult = 0.7

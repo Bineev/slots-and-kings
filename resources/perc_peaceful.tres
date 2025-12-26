@@ -6,10 +6,10 @@
 [resource]
 script = ExtResource("1_ce6k2")
 slot_name = "мирный"
-slot_description = "вы получаете меньше урона, но часто промахиваетесь"
+slot_description = "Вы получаете меньше урона, но часто промахиваетесь"
 slot_sprite = ExtResource("2_bbwf2")
 slot_type = 2
-entity_tier = 2
-hit_chance_mult = 0.5
+entity_tier = 3
+hit_chance_mult = 0.6
 inc_damage_mult_vs_all = 1.5
 metadata/_custom_type_script = "uid://ckeieckjuifia"
