@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://d7km51osiml4"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_kgums"]
+[ext_resource type="Texture2D" uid="uid://dshglhfnmi84f" path="res://img/slots/perc_atheist.png" id="2_parq4"]
+
+[resource]
+script = ExtResource("1_kgums")
+slot_name = "атеист"
+slot_description = "У вас повешанный иммунитет к магии, но и колдуете вы слабо"
+slot_sprite = ExtResource("2_parq4")
+slot_type = 2
+entity_tier = 1
+magic_defence_mult = 1.5
+magical_attack_mult = 0.5
+metadata/_custom_type_script = "uid://ckeieckjuifia"

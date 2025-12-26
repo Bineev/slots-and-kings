@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://q0syi1sdifce"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_2wcke"]
+[ext_resource type="Texture2D" uid="uid://b8l4hmrjd1oxw" path="res://img/slots/perc_lucky.png" id="2_a78bv"]
+
+[resource]
+script = ExtResource("1_2wcke")
+slot_name = "фартовый"
+slot_description = "шанс крита повышен, но чистая атака понижена"
+slot_sprite = ExtResource("2_a78bv")
+slot_type = 2
+entity_tier = 3
+crit_chance = 20.0
+crit_chance_mult = 1.5
+true_damage_mult = 0.7
+metadata/_custom_type_script = "uid://ckeieckjuifia"

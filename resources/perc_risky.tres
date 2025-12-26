@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://cj4u1hs4l1yie"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_2rm8e"]
+[ext_resource type="Texture2D" uid="uid://uh2truqste70" path="res://img/slots/perc_risky.png" id="2_iomq1"]
+
+[resource]
+script = ExtResource("1_2rm8e")
+slot_name = "рисковый"
+slot_description = "Ваша крит атак увеличена, но физ урон уменьшен"
+slot_sprite = ExtResource("2_iomq1")
+slot_type = 2
+entity_tier = 2
+physical_attack_mult = 0.7
+crit_attack = 150.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"

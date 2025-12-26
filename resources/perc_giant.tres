@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://h8tk8vuv4vem"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_6sofe"]
+[ext_resource type="Texture2D" uid="uid://cm6a73ro20y6x" path="res://img/slots/perc_giant.png" id="2_1nsfu"]
+
+[resource]
+script = ExtResource("1_6sofe")
+slot_name = "великан"
+slot_description = "Ваше здоровье повышено, но со скоростью беда"
+slot_sprite = ExtResource("2_1nsfu")
+slot_type = 2
+entity_tier = 3
+health_mult = 2.0
+move_speed_mult = 0.4
+metadata/_custom_type_script = "uid://ckeieckjuifia"

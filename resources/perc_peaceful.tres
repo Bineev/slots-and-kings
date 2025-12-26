@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://b87bbmiu0cggk"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_ce6k2"]
+[ext_resource type="Texture2D" uid="uid://r5gonjcgj43v" path="res://img/slots/perc_peaceful.png" id="2_bbwf2"]
+
+[resource]
+script = ExtResource("1_ce6k2")
+slot_name = "мирный"
+slot_description = "вы получаете меньше урона, но часто промахиваетесь"
+slot_sprite = ExtResource("2_bbwf2")
+slot_type = 2
+entity_tier = 2
+hit_chance_mult = 0.5
+inc_damage_mult_vs_all = 1.5
+metadata/_custom_type_script = "uid://ckeieckjuifia"

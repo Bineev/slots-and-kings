@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://buv3t8va4ttwk"]
 
 [ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_hx86b"]
-[ext_resource type="Texture2D" uid="uid://datke7ov2ucdw" path="res://img/slots/perc_scribe.png" id="2_tqe6y"]
+[ext_resource type="Texture2D" uid="uid://bqonfwemxvkic" path="res://img/slots/perc_coenobite.png" id="2_tqe6y"]
 
 [resource]
 script = ExtResource("1_hx86b")
-slot_name = "книжник"
-slot_description = "мечи и алебарды для холопов. Маг атака +30%. Физ атака -50%"
+slot_name = "монах"
+slot_description = "Ваша магия сильнее, но другие виды атаки атрофированы"
 slot_sprite = ExtResource("2_tqe6y")
 slot_type = 2
-entity_tier = 1
+entity_tier = 3
 physical_attack_mult = 0.5
-magical_attack_mult = 1.3
+magical_attack_mult = 2.0
+true_damage_mult = 0.5
 metadata/_custom_type_script = "uid://ckeieckjuifia"

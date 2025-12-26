@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://cvedbwoduro38"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_bdxj1"]
+[ext_resource type="Texture2D" uid="uid://cm6i4qsql7l2f" path="res://img/slots/perc_myopic.png" id="2_76sev"]
+
+[resource]
+script = ExtResource("1_bdxj1")
+slot_name = "близорукий"
+slot_description = "Ваш урон повышен, но дальность атаки сокращается"
+slot_sprite = ExtResource("2_76sev")
+slot_type = 2
+entity_tier = 2
+attack_range_mult = 0.7
+damage_mult_vs_all = 1.5
+metadata/_custom_type_script = "uid://ckeieckjuifia"

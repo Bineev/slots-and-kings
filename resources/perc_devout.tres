@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://dtok62hm1o2qf"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_n1vee"]
+[ext_resource type="Texture2D" uid="uid://d2glos7ibu8ug" path="res://img/slots/perc_devout.png" id="2_jrb25"]
+
+[resource]
+script = ExtResource("1_n1vee")
+slot_name = "набожный"
+slot_description = "Вы постоянно восстанавливаете здоровье, но атакующие силы ослаблены"
+slot_sprite = ExtResource("2_jrb25")
+slot_type = 2
+entity_tier = 2
+physical_attack_mult = 0.7
+magical_attack_mult = 0.7
+health_regen = 5.0
+health_regen_mult = 2.0
+true_damage_mult = 0.7
+metadata/_custom_type_script = "uid://ckeieckjuifia"

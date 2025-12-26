@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://bi0syxh8ica07"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_06hj2"]
+[ext_resource type="Texture2D" uid="uid://c3qkv4alnbgci" path="res://img/slots/perc_puny.png" id="2_nyv8y"]
+
+[resource]
+script = ExtResource("1_06hj2")
+slot_name = "тщедушный"
+slot_description = "Вы неплохо уворачиваетесь, но защита так себе"
+slot_sprite = ExtResource("2_nyv8y")
+slot_type = 2
+entity_tier = 2
+armor_mult = 0.7
+magic_defence_mult = 0.7
+evade = 20.0
+evade_mult = 1.5
+metadata/_custom_type_script = "uid://ckeieckjuifia"

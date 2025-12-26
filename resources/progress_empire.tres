@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerProgress" load_steps=78 format=3 uid="uid://tt3xywwnolmu"]
+[gd_resource type="Resource" script_class="PlayerProgress" load_steps=79 format=3 uid="uid://tt3xywwnolmu"]
 
 [ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="1_hdwo2"]
 [ext_resource type="Script" uid="uid://bly0r5htgro0a" path="res://resources/progress.gd" id="1_w8t7g"]
@@ -26,6 +26,7 @@
 [ext_resource type="Resource" uid="uid://dvd4gympqdbnh" path="res://resources/perc_toxic.tres" id="9_b333a"]
 [ext_resource type="Resource" uid="uid://dcv6n8g7fx1qh" path="res://resources/unit_castle_demonhunter.tres" id="9_oceh7"]
 [ext_resource type="Resource" uid="uid://5d7e4x3a7q1g" path="res://resources/upgrade_critattack_35.tres" id="10_b333a"]
+[ext_resource type="Resource" uid="uid://d7km51osiml4" path="res://resources/perc_atheist.tres" id="10_brj8e"]
 [ext_resource type="Resource" uid="uid://ou85bbbd7mbo" path="res://resources/upgrade_movespeed_15.tres" id="10_j0jjq"]
 [ext_resource type="Resource" uid="uid://cfpwvb842xqxh" path="res://resources/upgrade_mdef_15.tres" id="11_5sxex"]
 [ext_resource type="Resource" uid="uid://dyjdhwvhcysyt" path="res://resources/upgrade_critattack_70.tres" id="11_brj8e"]
@@ -92,6 +93,6 @@ upgrades_T1_pool = Array[Resource]([ExtResource("10_j0jjq"), ExtResource("11_5sx
 upgrades_T2_pool = Array[Resource]([ExtResource("52_cdw33"), ExtResource("53_8nta1"), ExtResource("54_msydu"), ExtResource("55_2o1ni"), ExtResource("56_5wk7d"), ExtResource("57_nngd6")])
 upgrades_T3_pool = Array[Resource]([ExtResource("58_h04bn"), ExtResource("59_h3ft0"), ExtResource("60_wu4b2"), ExtResource("61_6gdh5"), ExtResource("62_h5d2m"), ExtResource("63_vfqql")])
 upgrades_T4_pool = Array[Resource]([ExtResource("64_byong"), ExtResource("65_mly8r"), ExtResource("66_kotsb"), ExtResource("67_wdv8i"), ExtResource("68_rwnh0"), ExtResource("69_wh6ku")])
-percs_T1_pool = Array[Resource]([ExtResource("2_hdwo2"), ExtResource("2_2wd87"), ExtResource("7_sf6q5"), ExtResource("2_34q24")])
+percs_T1_pool = Array[Resource]([ExtResource("2_hdwo2"), ExtResource("2_2wd87"), ExtResource("7_sf6q5"), ExtResource("2_34q24"), ExtResource("10_brj8e")])
 percs_T2_pool = Array[Resource]([ExtResource("9_b333a")])
 metadata/_custom_type_script = "uid://bly0r5htgro0a"

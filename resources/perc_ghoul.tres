@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://l7fchhlhunt1"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_m87f4"]
+[ext_resource type="Texture2D" uid="uid://cgsq834vw1vrn" path="res://img/slots/perc_ghoul.png" id="2_um0rn"]
+
+[resource]
+script = ExtResource("1_m87f4")
+slot_name = "упырь"
+slot_description = "Вы лечитесь от нанесенного урона, но здоровье страдает"
+slot_sprite = ExtResource("2_um0rn")
+slot_type = 2
+entity_tier = 2
+health_mult = 0.7
+life_steal = 50.0
+metadata/_custom_type_script = "uid://ckeieckjuifia"
