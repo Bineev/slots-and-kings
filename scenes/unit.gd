@@ -170,6 +170,9 @@ func _process(delta: float) -> void:
 				if not check_is_on_point():
 					change_state(DataManager.UnitState.WALK_TO_CASTLE)
 		DataManager.UnitState.WALK_TO_CASTLE:
+			if Player.check_enemies(unit_owner) or check_is_on_point():
+				change_state(DataManager.UnitState.IDLE)
+				return
 			var direction : Vector2
 			if unit_owner == DataManager.UnitOwner.ENEMY:
 				direction = (fight_point.global_position - global_position).normalized()
@@ -180,8 +183,7 @@ func _process(delta: float) -> void:
 			move_and_slide()
 			unit_sprite.flip_h = fight_point and fight_point.global_position.x < global_position.x
 			# здесь баг?
-			if Player.check_enemies(unit_owner) or check_is_on_point():
-				change_state(DataManager.UnitState.IDLE)
+
 
 
 func generate_drop_chances():
