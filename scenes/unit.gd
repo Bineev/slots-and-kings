@@ -173,9 +173,10 @@ func _process(delta: float) -> void:
 			var direction : Vector2
 			if unit_owner == DataManager.UnitOwner.ENEMY:
 				direction = (fight_point.global_position - global_position).normalized()
+				velocity = current_move_speed * direction * DataManager.action_speed_coeff * DataManager.move_speed_coeff
 			else:
 				direction = (fight_point.global_position - global_position).normalized()
-			velocity = current_move_speed * direction * DataManager.action_speed_coeff
+				velocity = current_move_speed * direction * DataManager.action_speed_coeff
 			move_and_slide()
 			unit_sprite.flip_h = fight_point and fight_point.global_position.x < global_position.x
 			# здесь баг?

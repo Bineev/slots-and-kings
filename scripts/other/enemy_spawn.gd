@@ -4,8 +4,8 @@ class_name EnemySpawn
 
 
 @export var unit_family : DataManager.UnitFamily
-@export var unit_slots_scenes : Array[PackedScene]
-@export var upgrades_scenes : Array[PackedScene]
+@export var unit_reses : Array[Resource]
+@export var upgrades_reses : Array[Resource]
 @export var unit_factory_scene : PackedScene
 @export var spawn_weight : int
 @export var time_to_next_spawn : int
@@ -30,19 +30,21 @@ func _on_unit_spawn_timer_timeout() -> void:
 
 
 func spawn_unit():
-	var slots_scene : PackedScene = unit_slots_scenes.pop_front()
-	if not slots_scene:
+	var unit_res : Resource = unit_reses.pop_front()
+	if not unit_res:
 		unit_spawn_timer.stop()
 		get_tree().create_timer(0.5).timeout.connect(destroy)
 		return
+	var unit_slot_scene : PackedScene = Player.create_slot_scene(unit_res)
 	var slots : Array[Slot]
-	var slot : Slot = slots_scene.instantiate()
+	var slot : Slot = unit_slot_scene.instantiate()
 	add_child(slot)
 	slot.visible = false
 	slot.initialize()
 	slots.append(slot)
-	for scene in upgrades_scenes:
-		var upgrade_slot : Slot = scene.instantiate()
+	for res in upgrades_reses:
+		var slot_scene : PackedScene = Player.create_slot_scene(res)
+		var upgrade_slot : Slot = slot_scene.instantiate()
 		upgrade_slot.hide()
 		add_child(upgrade_slot)
 		upgrade_slot.initialize()

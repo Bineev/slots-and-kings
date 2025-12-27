@@ -98,18 +98,22 @@ func set_resorces_count_by_wave_count():
 	if wave_count >=DataManager.T4_transition:
 		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 4
 		resources_dict[DataManager.ResType.CRYSTAL] = DataManager.default_crystal_reward * 4
+		resources_dict[DataManager.ResType.FOOD] = DataManager.default_food_reward * 4
 		return
-	if wave_count >= DataManager.T3_transition:
+	elif wave_count >= DataManager.T3_transition:
 		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 3
 		resources_dict[DataManager.ResType.CRYSTAL] = DataManager.default_crystal_reward * 3
+		resources_dict[DataManager.ResType.FOOD] = DataManager.default_food_reward * 3
 		return
-	if wave_count >= DataManager.T2_transition:
+	elif wave_count >= DataManager.T2_transition:
 		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 2
 		resources_dict[DataManager.ResType.CRYSTAL] = DataManager.default_crystal_reward * 2
+		resources_dict[DataManager.ResType.FOOD] = DataManager.default_food_reward * 2
 		return
-	resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward
-	resources_dict[DataManager.ResType.CRYSTAL] = DataManager.default_crystal_reward
-	resources_dict[DataManager.ResType.FOOD] = DataManager.default_food_reward
+	else:
+		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward
+		resources_dict[DataManager.ResType.CRYSTAL] = DataManager.default_crystal_reward
+		resources_dict[DataManager.ResType.FOOD] = DataManager.default_food_reward
 
 
 func set_wave_count(new_wave_count : int):

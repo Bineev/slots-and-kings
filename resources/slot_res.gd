@@ -9,16 +9,26 @@ class_name SlotRes
 @export var entity_tier : DataManager.EntityTier
 
 # stats and multiplicators
+@export var physical_attack : float = 0
+@export var physical_attack_mult : float = 1
+@export var magical_attack : float = 0
+@export var magical_attack_mult : float = 1
+@export var true_damage : float = 0
+@export var true_damage_mult : float = 1
 @export var health : float = 0
 @export var health_mult : float = 1
 @export var armor : float = 0
 @export var armor_mult : float = 1
 @export var magic_defence : float = 0
 @export var magic_defence_mult : float = 1
-@export var physical_attack : float = 0
-@export var physical_attack_mult : float = 1
-@export var magical_attack : float = 0
-@export var magical_attack_mult : float = 1
+@export var attack_speed : float = 0
+@export var attack_speed_mult : float = 1
+@export var life_steal : float = 0
+@export var life_steal_mult : float = 1
+@export var health_regen : float = 0
+@export var health_regen_mult : float = 1
+@export var health_regen_interval : float = INF
+@export var health_regen_interval_mult : float = 1
 @export var hit_chance : float = 0
 @export var hit_chance_mult : float = 1
 @export var crit_chance : float = 0
@@ -29,20 +39,12 @@ class_name SlotRes
 @export var evade_mult : float = 1
 @export var shield : float = 0
 @export var shield_mult : float = 1
-@export var attack_speed : float = 0
-@export var attack_speed_mult : float = 1
+
 @export var move_speed : float = 0
 @export var move_speed_mult : float = 1
 @export var attack_range : float = 0
 @export var attack_range_mult : float = 1
-@export var life_steal : float = 0
-@export var life_steal_mult : float = 1
-@export var health_regen : float = 0
-@export var health_regen_mult : float = 1
-@export var health_regen_interval : float = INF
-@export var health_regen_interval_mult : float = 1
-@export var true_damage : float = 0
-@export var true_damage_mult : float = 1
+
 @export var scout_range : float = 0
 @export var scout_range_mult : float = 1
 @export var damage_mult_vs_all : float = 1

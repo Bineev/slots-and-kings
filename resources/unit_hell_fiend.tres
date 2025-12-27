@@ -19,5 +19,5 @@ hit_chance = 100.0
 attack_speed = 1.8
 move_speed = 25.0
 attack_range = 10.0
-true_damage = 8.0
+true_damage = 4.0
 metadata/_custom_type_script = "uid://853hpku0xq1e"
