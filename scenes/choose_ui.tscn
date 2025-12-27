@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b74xvtvkdied4"]
 
 [ext_resource type="Script" uid="uid://d2ongxyew3kh0" path="res://scripts/other/choose_ui.gd" id="1_2rsac"]
-[ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_i2pct"]
+[ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_i2pct"]
 [ext_resource type="PackedScene" uid="uid://j7uwrhnjvs6d" path="res://scenes/choose_item.tscn" id="2_20bt8"]
 
 [node name="ChooseUI" type="PanelContainer"]

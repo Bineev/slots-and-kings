@@ -51,7 +51,7 @@ enum DifficultyType {
 }
 
 enum TargetSetting {
-	CLOSEST, MAX_HP, LOW_HP
+	CLOSEST, MAX_HP, LOW_HP, CLOSEST_Y
 }
 
 enum HeroClass {
@@ -140,6 +140,8 @@ var default_food_reward : int = 3
 
 #var action_speed_coeff : float = 1.5
 var action_speed_coeff : float = 1.5
+
+var move_speed_coeff : float = 1.5
 
 var min_damage_mult : float = 0.3
 

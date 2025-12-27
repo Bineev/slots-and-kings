@@ -146,10 +146,14 @@ func _process(delta: float) -> void:
 
 	match unit_state:
 		DataManager.UnitState.WALK:
+			if enemies_in_range.size() > 0:
+				if is_in_fight and is_can_attack:
+					fight()
+					return
 			current_target = get_enemy_on_field()
 			if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 				var direction : Vector2 = (current_target.global_position - global_position).normalized()
-				velocity = current_move_speed * direction * DataManager.action_speed_coeff
+				velocity = current_move_speed * direction * DataManager.action_speed_coeff * DataManager.move_speed_coeff
 				move_and_slide()
 				unit_sprite.flip_h = current_target and current_target.global_position.x < global_position.x
 				# возможно здесь косяк
@@ -264,6 +268,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 		z_index = 3
 	elif unit_owner == DataManager.UnitOwner.ENEMY:
 		z_index = 2
+	setup_target_setting_by_type()
 	set_unit_collistion_params()
 	set_shadow()
 	#parse_stats()
@@ -443,24 +448,29 @@ func get_target_by_setting():
 	var targets : Array[Unit]
 	# понадобится проверка на освобожден
 	for unit in enemies_in_range:
-		if unit.get_state() != DataManager.UnitState.DIED and unit.get_state() != DataManager.UnitState.DEAD:
+		if unit.unit_state != DataManager.UnitState.DIED and unit.unit_state != DataManager.UnitState.DEAD:
 			targets.append(unit)
 	if targets.size() == 0:
 		return null
 		
-	match get_target_setting:
-		DataManager.TargetSetting.CLOSEST:
-			targets.sort_custom(custom_sort_closest)
-		DataManager.TargetSetting.MAX_HP:
-			targets.sort_custom(custom_sort_max_hp)
-		DataManager.TargetSetting.LOW_HP:
-			targets.sort_custom(custom_sort_low_hp)
+	#match get_target_setting:
+		#DataManager.TargetSetting.CLOSEST:
+			#targets.sort_custom(custom_sort_closest)
+		#DataManager.TargetSetting.MAX_HP:
+			#targets.sort_custom(custom_sort_max_hp)
+		#DataManager.TargetSetting.LOW_HP:
+			#targets.sort_custom(custom_sort_low_hp)
+	targets.shuffle()
 	
 	return targets[0]
 
 
 func custom_sort_closest(a : Unit, b : Unit):
 	return abs(global_position.distance_to(a.global_position)) < abs(global_position.distance_to(b.global_position))
+
+
+func custom_sort_closest_y(a : Unit, b : Unit):
+	return abs(global_position.y - a.global_position.y) < abs(global_position.y - b.global_position.y)
 
 
 func custom_sort_max_hp(a : Unit, b : Unit):
@@ -471,12 +481,33 @@ func custom_sort_low_hp(a : Unit, b : Unit):
 	return a.current_health < b.current_health
 
 
+func setup_target_setting_by_type():
+	if unit_types.has(DataManager.UnitType.RANGE):
+		get_target_setting = DataManager.TargetSetting.CLOSEST
+	elif unit_types.has(DataManager.UnitType.MELEE):
+		if randf() < 0.3:
+			get_target_setting = DataManager.TargetSetting.MAX_HP
+		else:
+			get_target_setting = DataManager.TargetSetting.CLOSEST_Y
+	elif unit_types.has(DataManager.UnitType.TANK):
+		get_target_setting = DataManager.TargetSetting.LOW_HP
+
+
 func get_enemy_on_field():
 	var targets : Array[Unit] = Player.get_enemies() if unit_owner == DataManager.UnitOwner.PLAYER else Player.get_player_units()
 	if targets.size() == 0:
 		return null
 	# потом можно через match и target_setting
-	targets.sort_custom(custom_sort_closest)
+	match get_target_setting:
+		DataManager.TargetSetting.CLOSEST:
+			targets.sort_custom(custom_sort_closest)
+		DataManager.TargetSetting.MAX_HP:
+			targets.sort_custom(custom_sort_max_hp)
+		DataManager.TargetSetting.LOW_HP:
+			targets.sort_custom(custom_sort_low_hp)
+		DataManager.TargetSetting.CLOSEST_Y:
+			targets.sort_custom(custom_sort_closest_y)
+
 	return targets[0]
 
 
