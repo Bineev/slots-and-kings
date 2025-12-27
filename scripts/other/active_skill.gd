@@ -196,6 +196,11 @@ func start_skill():
 	is_on_cd = true
 	label_cd.show()
 	rect_cd_overlay.show()
+	if is_trap and targets.size() > 0:
+		timer_skill_delay.stop()
+		is_trap = false
+		was_trap = true
+		activate()
 
 
 func _on_timer_skill_delay_timeout() -> void:

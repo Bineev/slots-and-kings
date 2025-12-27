@@ -66,6 +66,7 @@ func _on_body_entered(body: Node2D) -> void:
 		var unit : Unit = body
 		skill.add_target(unit)
 		# если войд зона, то применяем баф/дебафф при входе
+		# если входит новый юнит (а нужно извне, если юниты уже есть)
 		if skill.is_trap and is_stopped:
 			skill.activate()
 			skill.timer_skill_delay.stop()
