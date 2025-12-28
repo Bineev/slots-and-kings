@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwrt5w7q3wbfy"]
+[gd_scene load_steps=16 format=3 uid="uid://dwrt5w7q3wbfy"]
 
 [ext_resource type="Texture2D" uid="uid://fns4xm0r5vtw" path="res://img/slot-machine.png" id="1_xixe3"]
 [ext_resource type="Script" uid="uid://bno6cf315is3a" path="res://scenes/slot_machine.gd" id="1_xjw1r"]
@@ -25,6 +25,11 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgsef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r2p6a"]
+font = ExtResource("8_dgsef")
+font_size = 4
+font_color = Color(0.3764706, 0.17254902, 0.17254902, 1)
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_xjw1r")
@@ -58,10 +63,10 @@ unique_name_in_owner = true
 
 [node name="spin_button" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = -54.0
-offset_top = -3.0
-offset_right = -14.0
-offset_bottom = 14.0
+offset_left = -47.0
+offset_top = 1.0
+offset_right = -7.0
+offset_bottom = 18.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
@@ -81,10 +86,10 @@ text = "КРУТИТЬ"
 
 [node name="create_button" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 10.0
-offset_top = -3.0
-offset_right = 52.0
-offset_bottom = 14.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 49.0
+offset_bottom = 18.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
@@ -118,6 +123,22 @@ show_percentage = false
 [node name="timer_can_swap" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 1000.0
+
+[node name="spin_keybind" type="Label" parent="."]
+offset_left = -37.0
+offset_top = 12.0
+offset_right = -15.0
+offset_bottom = 19.0
+text = "SPACE"
+label_settings = SubResource("LabelSettings_r2p6a")
+
+[node name="create_keybind" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 13.0
+offset_right = 32.0
+offset_bottom = 20.0
+text = "F"
+label_settings = SubResource("LabelSettings_r2p6a")
 
 [connection signal="pressed" from="spin_button" to="." method="_on_spin_button_pressed"]
 [connection signal="pressed" from="create_button" to="." method="_on_create_button_pressed"]

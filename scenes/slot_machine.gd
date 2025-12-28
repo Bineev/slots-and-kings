@@ -102,6 +102,10 @@ func check_is_spin_end():
 
 
 func _on_spin_button_pressed() -> void:
+	press_spin_button()
+
+
+func press_spin_button():
 	is_already_created = false
 	Player.get_res(DataManager.ResType.SPIN_TOKEN, -1)
 	spin_button.disabled = true
@@ -110,6 +114,10 @@ func _on_spin_button_pressed() -> void:
 
 
 func _on_create_button_pressed() -> void:
+	press_create_button()
+
+
+func press_create_button():
 	create_button.disabled = true
 	is_already_created = true
 	SignalManager.on_add_unit_on_field.emit()

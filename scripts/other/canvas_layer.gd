@@ -15,11 +15,10 @@ func _ready() -> void:
 
 func _process(delta):
 	curStrength = max(curStrength - delta, 0)
-	if is_should_shake or Input.is_action_just_pressed("SpaceBar"):
+	if is_should_shake:
 		curStrength = strength;
 		$rect_shake_shader.material.set_shader_parameter('ShakeStrength', max(curStrength,0))
-	if Input.is_action_just_released("SpaceBar"):
-		$rect_shake_shader.material.set_shader_parameter('ShakeStrength', 0)
+
 
 func shake():
 	is_should_shake = true

@@ -86,6 +86,15 @@ func _ready() -> void:
 	start_waves()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("spin"):
+		if not slot_machine.spin_button.disabled:
+			slot_machine.press_spin_button()
+	if event.is_action_pressed("create"):
+		if not slot_machine.create_button.disabled:
+			slot_machine.press_create_button()
+
+
 func start_waves():
 	await self.ready
 	initialize_hp_bar()

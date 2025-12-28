@@ -147,13 +147,13 @@ var min_damage_mult : float = 0.3
 
 var empty_slot_name : String = 'Зеро'
 
-var movement_offset_min : float = -0.5
+var movement_offset_min : float = -0.3
 
-var movement_offset_max : float = 0.5
+var movement_offset_max : float = 0.3
 
-var upper_fight_limit : float = 170
+var upper_fight_limit : float = 160
 
-var bottom_fight_limit : float = 270
+var bottom_fight_limit : float = 280
 
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
