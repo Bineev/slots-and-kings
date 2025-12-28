@@ -120,6 +120,8 @@ var current_projectile_attack_range : float
 
 var actual_health : float
 
+var movement_offset : Vector2
+
 @onready var attack_range_collision: CollisionShape2D = %attack_range_collision
 @onready var unit_anim_player: AnimationPlayer = %unit_anim_player
 @onready var scout_range_collision: CollisionShape2D = %scout_range_collision
@@ -150,10 +152,12 @@ func _process(delta: float) -> void:
 				if is_in_fight and is_can_attack:
 					fight()
 					return
+			if global_position.y < DataManager.upper_fight_limit or global_position.y > DataManager.bottom_fight_limit:
+				movement_offset *= -1 
 			current_target = get_enemy_on_field()
 			if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 				var direction : Vector2 = (current_target.global_position - global_position).normalized()
-				velocity = current_move_speed * direction * DataManager.action_speed_coeff * DataManager.move_speed_coeff
+				velocity = current_move_speed * (direction + movement_offset) * DataManager.action_speed_coeff * DataManager.move_speed_coeff
 				move_and_slide()
 				unit_sprite.flip_h = current_target and current_target.global_position.x < global_position.x
 				# возможно здесь косяк
@@ -274,6 +278,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	setup_target_setting_by_type()
 	set_unit_collistion_params()
 	set_shadow()
+	movement_offset = Vector2(0, randf_range(DataManager.movement_offset_min, DataManager.movement_offset_max))
 	#parse_stats()
 	#create_tooltip()
 	# can be bug
