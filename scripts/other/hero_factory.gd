@@ -71,3 +71,7 @@ func create_hero(hero_type : DataManager.HeroType, hero_level : int):
 
 func get_hero_res_by_type(hero_type : DataManager.HeroType):
 	return hero_resources[hero_type]
+
+
+func create_skill():
+	pass

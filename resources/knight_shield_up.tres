@@ -10,7 +10,7 @@ skill_name = "поднять щиты"
 skill_desc = "Комманда подководца временно повышает броню и макс здоровье выбранным юнитам"
 skill_preview = ExtResource("2_24qut")
 skill_buff_stats = Array[Dictionary]([{
-"stat_change_amount": 10.0,
+"stat_change_amount": 20.0,
 "stat_change_type": 0,
 "stat_name": "health"
 }, {
@@ -21,5 +21,6 @@ skill_buff_stats = Array[Dictionary]([{
 skill_delay = 0.1
 skill_cooldown = 40.0
 skill_duration = 8.0
+skill_flat_heal = 20
 skill_range = 25.0
 metadata/_custom_type_script = "uid://htmox0cey8gh"

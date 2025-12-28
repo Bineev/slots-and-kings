@@ -9,8 +9,8 @@ class_name Hero
 @export var hero_level : int
 @export var hero_gender : DataManager.HeroGender
 @export var hero_portrait : Texture2D
-@export var passives_scenes : Array[PackedScene]
-@export var actives_scenes : Array[PackedScene]
+@export var passives_reses : Array[Resource]
+@export var actives_reses : Array[Resource]
 
 var passives : Array[PassiveSkill]
 var actives : Array[ActiveSkill]
@@ -45,14 +45,15 @@ func initialize():
 	rect_hero_portrait.texture = hero_portrait
 	label_hero_class.text = DataManager.hero_classes_table[hero_class]
 	# добавляем скиллы
-	for scene in passives_scenes:
-		var passive : PassiveSkill = scene.instantiate()
+	# скорректировать
+	for res in passives_reses:
+		var passive : PassiveSkill = Player.create_passive_skill(res)
 		# установить нужные данные для скилла
 		passive_container.add_child(passive)
 		passive.set_skill_owner(self)
 		passive.initialize()
-	for scene in actives_scenes:
-		var active : ActiveSkill = scene.instantiate()
+	for res in actives_reses:
+		var active : ActiveSkill = Player.create_active_skill(res)
 		# установить нужные данные для скилла
 		active_container.add_child(active)
 		active.set_skill_owner(self)
@@ -100,12 +101,12 @@ func add_active_skill(new_skill : Skill):
 	actives.append(new_skill)
 
 
-func add_passive_scenes(new_skill_scene : PackedScene):
-	passives_scenes.append(new_skill_scene)
+func add_passive_reses(new_skill_res : Resource):
+	passives_reses.append(new_skill_res)
 
 
-func add_active_scenes(new_skill_scene : PackedScene):
-	actives_scenes.append(new_skill_scene)
+func add_active_reses(new_skill_res : Resource):
+	actives_reses.append(new_skill_res)
 
 
 func set_hero_name(new_hero_name : String):

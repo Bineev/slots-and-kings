@@ -14,6 +14,8 @@ extends Node
 @export var empty_perc_scene : PackedScene
 @export var empty_upgrade_scene : PackedScene
 @export var slot_scene : PackedScene
+@export var passive_skill_scene : PackedScene
+@export var active_skill_scene : PackedScene
 
 @export var base_units_reses : Array[Resource]
 @export var base_upgrades_reses : Array[Resource]
@@ -37,6 +39,9 @@ extends Node
 @export var percs_T2_pool : Array[Resource]
 @export var percs_T3_pool : Array[Resource]
 
+@export var hero_family : DataManager.UnitFamily
+@export var hero_scene : PackedScene
+@export var hero_resources : Array[HeroStatRes]
 @export var hero_factory_scene : PackedScene
 
 var bonus_dict : Dictionary
@@ -71,7 +76,6 @@ func initialize():
 	current_tokens = tokens
 	current_food = food
 	current_crystals = crystals
-	hero_factory = hero_factory_scene.instantiate()
 	generate_base_decks()
 
 
@@ -118,10 +122,6 @@ func get_random_percs(tier : DataManager.EntityTier, amount : int):
 			perc_reses = current_progress.percs_T4_pool
 	
 	return get_unique_entities(perc_reses, amount)
-
-
-func get_random_heroes(tier : DataManager.EntityTier, amount : int):
-	pass
 
 
 func get_unique_entities(entities : Array[Resource], amount : int):
@@ -335,12 +335,6 @@ func get_units_count_for_next_create():
 	return next_create_units_count
 
 
-func get_random_hero(hero_level : int):
-	var hero : Hero = hero_factory.get_random_hero(hero_level)
-	heroes.append(hero)
-	SignalManager.on_add_hero_to_field.emit(hero)
-
-
 func set_unit_factory(new_unit_factory : UnitFactory):
 	unit_factory = new_unit_factory
 
@@ -426,3 +420,128 @@ func get_current_bonus(slot_name : Resource):
 	if not bonus_dict.has(slot_name):
 		return 0
 	return bonus_dict[slot_name]
+
+
+func get_random_heroes(heroes_count : int, heroes_level : int):
+	var heroes : Array[Hero]
+	current_progress.hero_reses.shuffle()
+	var counter : int
+	var inner_counter : int
+	var reses_size : int = current_progress.hero_classes.size()
+	while counter < heroes_count:
+		var hero_class : DataManager.HeroClass = current_progress.hero_classes[inner_counter]
+		var hero : Hero = get_hero_by_class(hero_class, heroes_level)
+		heroes.append(hero)
+		counter += 1
+		inner_counter += 1
+		if inner_counter >= reses_size:
+			inner_counter = 0
+	return heroes
+
+
+func get_random_hero(hero_level : int):
+	var hero_class : DataManager.HeroClass = current_progress.hero_classes.pick_random()
+	var hero : Hero = create_hero(hero_class, hero_level)
+
+	return hero
+
+
+func get_hero_by_class(hero_class : DataManager.HeroClass, hero_level : int):
+	return create_hero(hero_class, hero_level)
+
+
+func get_passive_res_by_class_and_level(hero : Hero, hero_class : DataManager.HeroClass, hero_level : int):
+	var skill_grade : DataManager.SkillGrade
+	if hero_level >= 6:
+		skill_grade = DataManager.SkillGrade.EPIC
+	elif hero_level >=3:
+		skill_grade = DataManager.SkillGrade.RARE
+	else:
+		skill_grade = DataManager.SkillGrade.BASE
+		
+	var skill_reses : Array = current_progress.base_pskills_dict[hero_class][skill_grade].duplicate()
+	skill_reses.shuffle()
+	for res in skill_reses:
+		if not hero.passives_reses.has(res):
+			return res
+
+
+func get_active_res_by_class_and_level(hero : Hero, hero_class : DataManager.HeroClass, hero_level : int):
+	var skill_grade : DataManager.SkillGrade
+	if hero_level >= 6:
+		skill_grade = DataManager.SkillGrade.EPIC
+	elif hero_level >=3:
+		skill_grade = DataManager.SkillGrade.RARE
+	else:
+		skill_grade = DataManager.SkillGrade.BASE
+		
+	var skill_reses : Array = current_progress.base_askills_dict[hero_class][skill_grade].duplicate()
+	skill_reses.shuffle()
+	for res in skill_reses:
+		if not hero.actives_reses.has(res):
+			return res
+
+
+func create_hero(hero_class : DataManager.HeroClass, hero_level : int):
+	var hero_stat_res : HeroStatRes = get_hero_res_by_class(hero_class)
+	# устанавливаем дефолтные значения для уровня 1
+	var hero : Hero = hero_scene.instantiate()
+	hero.set_hero_level(hero_level)
+	hero.set_stats(hero_stat_res.power, hero_stat_res.quickness, hero_stat_res.mastery, hero_stat_res.grace)
+	hero.set_portrait(hero_stat_res.portraits_pool.pick_random())
+	hero.set_hero_family(hero_stat_res.hero_family)
+	hero.set_hero_class(hero_stat_res.hero_class)
+	hero.set_hero_gender(hero_stat_res.hero_gender)
+	# открыть когда появятся скиллы
+	hero.add_passive_reses(get_passive_res_by_class_and_level(hero, hero.hero_class, 1))
+	hero.add_active_reses(get_active_res_by_class_and_level(hero, hero.hero_class, 1))
+	hero.set_hero_name(hero_stat_res.hero_names_pool.pick_random())
+	
+	# левел апаемся
+	for i in range(hero_level + 1):
+		if i <= 1:
+			continue
+		# мы дошли до уровня 2
+		var up_type : DataManager.HeroUpType = DataManager.default_hero_up_order[i - 2]
+		match up_type:
+			DataManager.HeroUpType.STAT:
+				var random = randf()
+				if random < 0.25:
+					hero.power += 1
+				elif random < 0.5:
+					hero.quickness += 1
+				elif random < 0.75:
+					hero.mastery += 1
+				elif random < 1:
+					hero.grace += 1
+			DataManager.HeroUpType.PASSIVE:
+				if i < 5:
+					hero.add_passive_reses(get_passive_res_by_class_and_level(hero, hero.hero_class, hero.hero_level))
+				elif i < 8:
+					hero.add_passive_reses(get_passive_res_by_class_and_level(hero, hero.hero_class, hero.hero_level))
+			DataManager.HeroUpType.ACTIVE:
+				if i < 5:
+					hero.add_active_reses(get_active_res_by_class_and_level(hero, hero.hero_class, hero.hero_level))
+				elif i < 8:
+					hero.add_active_reses(get_active_res_by_class_and_level(hero, hero.hero_class, hero.hero_level))
+	
+	return hero
+
+
+func get_hero_res_by_class(hero_class : DataManager.HeroClass):
+	for res in current_progress.hero_reses:
+		if res.hero_class == hero_class:
+			return res
+	return current_progress.hero_reses[0]
+
+
+func create_active_skill(skill_res : Resource):
+	var skill : ActiveSkill = active_skill_scene.instantiate()
+	skill.skill_res = skill_res
+	return skill
+
+
+func create_passive_skill(skill_res : Resource):
+	var skill : PassiveSkill = passive_skill_scene.instantiate()
+	skill.skill_res = skill_res
+	return skill

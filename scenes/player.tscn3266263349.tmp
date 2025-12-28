@@ -40,14 +40,16 @@
 [ext_resource type="PackedScene" uid="uid://bo4875f2g4u0n" path="res://scenes/hero.tscn" id="37_t4otl"]
 
 [node name="Player" type="Node2D"]
-visible = false
 script = ExtResource("1_3vyb7")
+current_king = null
 health = 1000
 gold = 1000000
 tokens = 100
 food = 100
 crystals = 100
 can_swap_time = 0.05
+is_can_swap = null
+wave_rewards = null
 empty_perc_scene = ExtResource("8_60mlk")
 empty_upgrade_scene = ExtResource("5_fjrip")
 slot_scene = ExtResource("4_i4ail")
@@ -56,11 +58,22 @@ active_skill_scene = ExtResource("6_t4otl")
 base_units_reses = Array[Resource]([ExtResource("5_fulsm"), ExtResource("5_fulsm"), ExtResource("5_fulsm"), ExtResource("5_fulsm")])
 base_upgrades_reses = Array[Resource]([ExtResource("6_bj30b"), ExtResource("6_bj30b"), ExtResource("6_bj30b"), ExtResource("7_jc3p3")])
 base_percs_reses = Array[Resource]([ExtResource("8_hax0n"), ExtResource("8_hax0n"), ExtResource("8_hax0n"), ExtResource("9_t4otl")])
+base_units_deck = null
+base_upgrades_deck = null
+base_percs_deck = null
 units_T1_pool = Array[Resource]([ExtResource("10_j2b1d"), ExtResource("11_cs1tg")])
 units_T2_pool = Array[Resource]([ExtResource("12_2dvfe"), ExtResource("13_giy8y")])
 units_T3_pool = Array[Resource]([ExtResource("14_fdfoy"), ExtResource("15_hhpqf")])
 units_T4_pool = Array[Resource]([ExtResource("16_g5jhy"), ExtResource("17_holxr")])
 upgrades_T1_pool = Array[Resource]([ExtResource("18_mx1m4"), ExtResource("19_4gjji"), ExtResource("20_u2ulf"), ExtResource("21_6e8lb"), ExtResource("22_2gdjj"), ExtResource("23_sc3ue"), ExtResource("24_lxlsd"), ExtResource("25_ha2mi"), ExtResource("26_apa73"), ExtResource("7_jc3p3"), ExtResource("27_74r1k"), ExtResource("28_8svfe"), ExtResource("29_2a3c5"), ExtResource("30_42b1b"), ExtResource("31_h7ic4")])
+upgrades_T2_pool = null
+upgrades_T3_pool = null
+upgrades_T4_pool = null
+percs_T4_pool = null
 percs_T1_pool = Array[Resource]([ExtResource("32_au7lq"), ExtResource("33_nubpm"), ExtResource("34_ua5cf")])
+percs_T2_pool = null
+percs_T3_pool = null
+hero_family = null
 hero_scene = ExtResource("37_t4otl")
+hero_resources = null
 hero_factory_scene = ExtResource("16_a8ls1")

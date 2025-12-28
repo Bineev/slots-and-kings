@@ -107,6 +107,24 @@ var current_health_regen : float
 var current_health_regen_interval : float
 var current_true_damage : float
 var current_scout_range : float
+var current_health_mult : float
+var current_armor_mult : float
+var current_magic_defence_mult : float
+var current_physical_attack_mult : float
+var current_magical_attack_mult : float
+var current_hit_chance_mult : float
+var current_crit_chance_mult : float
+var current_crit_attack_mult : float
+var current_evade_mult : float
+var current_shield_mult : float
+var current_attack_speed_mult : float
+var current_move_speed_mult : float
+var current_attack_range_mult : float
+var current_life_steal_mult : float
+var current_health_regen_mult : float
+var current_health_regen_interval_mult : float
+var current_true_damage_mult : float
+var current_scout_range_mult : float
 var current_damage_mult_vs_all : float
 var current_damage_mult_vs_castle : float
 var current_damage_mult_vs_hell : float
@@ -237,6 +255,24 @@ func apply_stats():
 	current_inc_damage_mult_vs_forest = stats.inc_damage_mult_vs_forest
 	current_projectile_speed = stats.projectile_speed * stats.projectile_speed_mult
 	current_projectile_attack_range = stats.projectile_attack_range * stats.projectile_attack_range_mult
+	current_health_mult = stats.health_mult
+	current_armor_mult = stats.armor_mult
+	current_magic_defence_mult = stats.magic_defence_mult
+	current_physical_attack_mult = stats.physical_attack_mult
+	current_magical_attack_mult = stats.magical_attack_mult
+	current_hit_chance_mult = stats.hit_chance_mult
+	current_crit_chance_mult = stats.crit_chance_mult
+	current_crit_attack_mult = stats.crit_attack_mult
+	current_evade_mult = stats.evade_mult
+	current_shield_mult = stats.shield_mult
+	current_attack_speed_mult = stats.attack_speed_mult
+	current_move_speed_mult = stats.move_speed_mult
+	current_attack_range_mult = stats.attack_range_mult
+	current_life_steal_mult = stats.life_steal_mult
+	current_health_regen_mult = stats.health_regen_mult
+	current_health_regen_interval_mult = stats.health_regen_interval_mult
+	current_true_damage_mult = stats.true_damage_mult
+	current_scout_range_mult = stats.scout_range_mult
 
 
 func initialize(slot : Slot, owner : DataManager.UnitOwner):

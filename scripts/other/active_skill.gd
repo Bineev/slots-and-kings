@@ -354,6 +354,7 @@ func apply_change_stat(current_unit : Unit):
 		if dict.stat_change_type == 0:
 			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
 		elif dict.stat_change_type == 1:
+			#current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
 			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
 
 
@@ -362,6 +363,7 @@ func back_stat_to_default(current_unit : Unit):
 		if dict.stat_change_type == 0:
 			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) - dict.stat_change_amount)
 		elif dict.stat_change_type == 1:
+			#current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) / dict.stat_change_amount)
 			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) / dict.stat_change_amount)
 
 

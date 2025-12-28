@@ -55,7 +55,7 @@ enum TargetSetting {
 }
 
 enum HeroClass {
-	ENGINEER, PRIEST, MAGE, SCOUT, KNIGHT
+	ENGINEER, PRIEST, MAGE, SCOUT, COMMANDER
 }
 
 enum RewardType {
@@ -89,6 +89,12 @@ enum AttackType {
 enum PassiveSkillType {
 	RES_BY_WAVE, HEALTH_BY_WAVE, RES_BY_TIME, HEALTH_BY_TIME, UNIT_NAME, UNIT_TYPE
 }
+
+
+enum SkillGrade {
+	BASE, RARE, EPIC
+}
+
 
 var default_hero_up_order : Array[HeroUpType] = [HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT]
 
@@ -291,7 +297,7 @@ var hero_classes_table : Dictionary = {
 	HeroClass.PRIEST : 'священник',
 	HeroClass.MAGE : 'волшебник',
 	HeroClass.SCOUT : 'следопыт',
-	HeroClass.KNIGHT : 'полководец'
+	HeroClass.COMMANDER : 'полководец'
 }
 
 var unit_type_to_damage_type_table : Dictionary = {

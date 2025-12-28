@@ -82,7 +82,6 @@ func _ready() -> void:
 	for spawner in heroes_slots.get_children():
 		heroes_slots_points.append(spawner)
 	Player.set_wave_rewards(wave_rewards)
-	Player.get_random_hero(1)
 	start_waves()
 
 
@@ -98,6 +97,9 @@ func _input(event: InputEvent) -> void:
 func start_waves():
 	await self.ready
 	initialize_hp_bar()
+	var hero = Player.get_random_hero(1)
+	SignalManager.on_add_hero_to_field.emit(hero)
+	Player.heroes.append(hero)
 	next_wave_ui.set_timer(timer_to_next_wave)
 	start_next_wave_countdown()
 	# установить false когда последний спавн и врагов на карте не осталось

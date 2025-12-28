@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=3 format=3 uid="uid://dqcbe5onbvomh"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_jishc"]
+[ext_resource type="Texture2D" uid="uid://bwopdv2xjdk4q" path="res://img/skills/active_skill_charge.png" id="2_ky45k"]
+
+[resource]
+script = ExtResource("1_jishc")
+skill_name = "прорыв"
+skill_desc = "Дарует скорость движения и маг защиту в бойцам в области "
+skill_preview = ExtResource("2_ky45k")
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 50,
+"stat_change_type": 0,
+"stat_name": "magic_defence"
+}, {
+"stat_change_amount": 2.0,
+"stat_change_type": 1,
+"stat_name": "move_speed_mult"
+}])
+skill_delay = 0.1
+skill_cooldown = 40.0
+skill_duration = 5.0
+skill_range = 30.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

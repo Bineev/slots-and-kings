@@ -9,12 +9,6 @@ class_name HeroStatRes
 @export var hero_family : DataManager.UnitFamily
 
 @export var portraits_pool : Array[Texture2D]
-@export var first_passive_skill_pool : Array[PackedScene]
-@export var second_passive_skill_pool : Array[PackedScene]
-@export var third_passive_skill_pool : Array[PackedScene]
-@export var first_active_skill_pool : Array[PackedScene]
-@export var second_active_skill_pool : Array[PackedScene]
-@export var third_active_skill_pool : Array[PackedScene]
 @export var hero_names_pool : Array[String]
 # мощь атакующих заклинаний
 # урон заклинания = базовый урон + базовый урон / 4 * power
