@@ -32,29 +32,40 @@ var was_trap : bool
 @onready var timer_deactivate: Timer = %timer_deactivate
 @onready var timer_tick: Timer = %timer_tick
 
-@export var unit_slots_scenes : Array[PackedScene]
+@export var unit_slots_scenes : Array[Array]
 
 var slots : Array[Slot]
-var unit : Unit
+var units : Array[Unit]
 
 
 func create_entity():
 	var factory : UnitFactory = Player.get_unit_factory()
-	for slot_scene in unit_slots_scenes:
-		var slot : Slot = slot_scene.instantiate()
-		add_child(slot)
-		slot.hide()
-		slot.initialize()
-		slots.append(slot)
-	await get_tree().process_frame
-	unit = factory.get_unit(slots)
-	SignalManager.on_add_unit_from_skill.emit(unit, skill_zone.global_position)
-	get_tree().create_timer(1).timeout.connect(remove_slots)
+	var current_offset : Vector2
+	for unit_pack in unit_slots_scenes:
+		for slot_res in unit_pack:
+			var slot : Slot = Player.create_slot_scene(slot_res).instantiate()
+			add_child(slot)
+			slot.hide()
+			slot.initialize()
+			slots.append(slot)
+		await get_tree().process_frame
+		var unit : Unit = factory.get_unit(slots)
+		units.append(unit)
+		var unit_position : Vector2
+		if unit_slots_scenes.size() == 1:
+			unit_position =  skill_zone.global_position
+		else:
+			unit_position = skill_zone.global_position + current_offset
+			current_offset = Vector2(randf_range(-skill_range / 2, -skill_range / 2), randf_range(--skill_range / 2, -skill_range / 2))
+		SignalManager.on_add_unit_from_skill.emit(unit, unit_position)
+		slots.clear()
+		#get_tree().create_timer(1).timeout.connect(remove_slots)
 
 
 func remove_slots():
 	for slot in slots:
-		slot.queue_free()
+		if slot and is_instance_valid(slot):
+			slot.queue_free()
 
 
 func initialize():
@@ -329,8 +340,10 @@ func deactivate():
 	skill_anim.hide()
 	skill_zone.stop_working()
 	# если создавался юнит, но удалить
-	if unit and is_instance_valid(unit):
-		unit.get_damage(1000000, skill_owner)
+	for unit in units:
+		if unit and is_instance_valid(unit):
+			unit.get_damage(1000000, skill_owner)
+	units.clear()
 	# если не войд зона и менялись статы, то вернуть как было
 	# если это была единоразовая акция, то возвращаем статы из старых таргетов
 	# если это была войд зона, то на момент отключения таргеты будут верные (если не будет делэев)
@@ -391,3 +404,7 @@ func back_stats(target : Unit):
 		#target.hide_tooltip()
 		#target.parse_stats()
 		#target.create_tooltip()
+
+
+func _on_skill_anim_player_animation_finished(anim_name: StringName) -> void:
+	skill_anim_player.play("RESET")

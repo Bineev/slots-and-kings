@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=6 format=3 uid="uid://u0pg38a6khoj"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_cr2ge"]
+[ext_resource type="Texture2D" uid="uid://dcc3fknak4ayu" path="res://img/skills/active_skill_reinforcement_anim.png" id="2_pmo2e"]
+[ext_resource type="Texture2D" uid="uid://btvb328jaqbji" path="res://img/skills/active_skill_reinforcement.png" id="3_tfjea"]
+[ext_resource type="Resource" uid="uid://23tjxjxh002g" path="res://resources/unit_castle_yeomen.tres" id="4_nc2kx"]
+[ext_resource type="Resource" uid="uid://f8pvkffrpq72" path="res://resources/unit_castle_fyrd.tres" id="5_5smlr"]
+
+[resource]
+script = ExtResource("1_cr2ge")
+skill_tier = 2
+skill_name = "подкрепление"
+skill_desc = "Призывает отряд из лучников и ополценцев"
+skill_preview = ExtResource("3_tfjea")
+skill_anim = ExtResource("2_pmo2e")
+skill_slot_scenes = Array[Array]([[ExtResource("4_nc2kx")], [ExtResource("4_nc2kx")], [ExtResource("4_nc2kx")], [ExtResource("5_5smlr")], [ExtResource("5_5smlr")]])
+skill_delay = 0.3
+skill_cooldown = 150.0
+skill_duration = 60.0
+skill_range = 30.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"
