@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://btjckwh3ss6mg"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_5xu8o"]
+[ext_resource type="Texture2D" uid="uid://b5aqixywrb775" path="res://img/skills/active_skill_justice_anim.png" id="2_rjfup"]
+[ext_resource type="Texture2D" uid="uid://b0b00lo44d5hx" path="res://img/skills/active_skill_justice.png" id="3_h50w0"]
+
+[resource]
+script = ExtResource("1_5xu8o")
+skill_tier = 3
+skill_name = "правосудие"
+skill_desc = "Воинственный клич снижает защиту противников от любых источников урона"
+skill_preview = ExtResource("3_h50w0")
+skill_anim = ExtResource("2_rjfup")
+skill_target_type = 1
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 0.3,
+"stat_change_type": 1,
+"stat_name": "inc_damage_mult_vs_all"
+}])
+skill_delay = 0.1
+skill_cooldown = 50.0
+skill_duration = 6.0
+skill_range = 40.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

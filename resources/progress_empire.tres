@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerProgress" load_steps=104 format=3 uid="uid://tt3xywwnolmu"]
+[gd_resource type="Resource" script_class="PlayerProgress" load_steps=106 format=3 uid="uid://tt3xywwnolmu"]
 
 [ext_resource type="Resource" uid="uid://bhv4mcelc2yxr" path="res://resources/knight_shield_up.tres" id="1_8kslp"]
 [ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="1_hdwo2"]
@@ -24,10 +24,12 @@
 [ext_resource type="Resource" uid="uid://cwy1gjlsinelc" path="res://resources/upgrade_critchance_15.tres" id="6_hdwo2"]
 [ext_resource type="Resource" uid="uid://cnk4yhlg10440" path="res://resources/unit_castle_inquisitor.tres" id="6_peilv"]
 [ext_resource type="Resource" uid="uid://pqmkvevl6qka" path="res://resources/upgrade_critchance_30.tres" id="7_2wd87"]
+[ext_resource type="Resource" uid="uid://4pa24vfsk1hm" path="res://resources/askill_banquet.tres" id="7_jriot"]
 [ext_resource type="Resource" uid="uid://buv3t8va4ttwk" path="res://resources/perc_scribe.tres" id="7_lhe1p"]
 [ext_resource type="Resource" uid="uid://bxeoom8rd3ad4" path="res://resources/perc_scholar.tres" id="7_sf6q5"]
 [ext_resource type="Resource" uid="uid://dnbgdqcd4bfnl" path="res://resources/unit_castle_knight.tres" id="7_xmb1i"]
 [ext_resource type="Resource" uid="uid://7pmxvr6da48b" path="res://resources/unit_castle_sun_priest.tres" id="8_4uyiw"]
+[ext_resource type="Resource" uid="uid://btjckwh3ss6mg" path="res://resources/askill_justice.tres" id="8_cdw33"]
 [ext_resource type="Resource" uid="uid://ir3mrhkfep7d" path="res://resources/upgrade_critchance_40.tres" id="8_sf6q5"]
 [ext_resource type="Resource" uid="uid://eoj7jwndo6xy" path="res://resources/pskill_supplier.tres" id="9_5wk7d"]
 [ext_resource type="Resource" uid="uid://crhywc0f66oi8" path="res://resources/upgrade_critchance_50.tres" id="9_34q24"]
@@ -118,7 +120,7 @@ base_pskills_dict = Dictionary[int, Array]({
 base_askills_dict = Dictionary[int, Array]({
 0: [[ExtResource("3_cdw33"), ExtResource("4_8nta1")], null, null],
 2: [[ExtResource("5_msydu"), ExtResource("6_2o1ni")], null, null],
-4: [[ExtResource("1_8kslp"), ExtResource("2_jriot")], null, null]
+4: [[ExtResource("1_8kslp"), ExtResource("2_jriot"), ExtResource("7_jriot"), ExtResource("8_cdw33")], null, null]
 })
 special_upgrades_reses = Array[Resource]([ExtResource("2_18758"), ExtResource("3_xn1vv"), ExtResource("4_3mp13"), ExtResource("5_7xldq"), ExtResource("6_hdwo2"), ExtResource("7_2wd87"), ExtResource("8_sf6q5"), ExtResource("9_34q24"), ExtResource("10_b333a"), ExtResource("11_brj8e"), ExtResource("12_m6kss"), ExtResource("13_ilteq"), ExtResource("14_qho7k"), ExtResource("15_n1iqn"), ExtResource("16_cxm55"), ExtResource("17_4c3d5"), ExtResource("18_yhtj2"), ExtResource("19_j0for"), ExtResource("20_gu4si"), ExtResource("21_pynln"), ExtResource("22_ghedn"), ExtResource("23_rgw2m"), ExtResource("24_fs40g"), ExtResource("25_lhe1p"), ExtResource("26_di60n"), ExtResource("27_qkkhw"), ExtResource("28_2al3k"), ExtResource("29_elri8"), ExtResource("30_odfdr"), ExtResource("31_3sngm"), ExtResource("32_8bau0"), ExtResource("33_j7qrr"), ExtResource("34_id3r6"), ExtResource("35_g21fy"), ExtResource("36_8kslp"), ExtResource("37_jriot")])
 units_T1_pool = Array[Resource]([ExtResource("2_byyse"), ExtResource("3_hjbb2")])

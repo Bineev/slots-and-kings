@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="SkillRes" load_steps=3 format=3 uid="uid://dqcbe5onbvomh"]
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://dqcbe5onbvomh"]
 
 [ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_jishc"]
 [ext_resource type="Texture2D" uid="uid://bwopdv2xjdk4q" path="res://img/skills/active_skill_charge.png" id="2_ky45k"]
+[ext_resource type="Texture2D" uid="uid://bml60axdekv8o" path="res://img/skills/active_skill_charge_anim.png" id="2_r4i2o"]
 
 [resource]
 script = ExtResource("1_jishc")
 skill_name = "прорыв"
 skill_desc = "Дарует скорость движения и маг защиту в бойцам в области "
 skill_preview = ExtResource("2_ky45k")
+skill_anim = ExtResource("2_r4i2o")
 skill_buff_stats = Array[Dictionary]([{
 "stat_change_amount": 50,
 "stat_change_type": 0,
@@ -15,7 +17,7 @@ skill_buff_stats = Array[Dictionary]([{
 }, {
 "stat_change_amount": 2.0,
 "stat_change_type": 1,
-"stat_name": "move_speed_mult"
+"stat_name": "move_speed"
 }])
 skill_delay = 0.1
 skill_cooldown = 40.0

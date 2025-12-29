@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://4pa24vfsk1hm"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_pfgvj"]
+[ext_resource type="Texture2D" uid="uid://ewqs1wuxpnff" path="res://img/skills/active_skill_banquet_anim.png" id="2_jlmby"]
+[ext_resource type="Texture2D" uid="uid://banhq5icqmt21" path="res://img/skills/active_skill_banquet.png" id="3_nuprs"]
+
+[resource]
+script = ExtResource("1_pfgvj")
+skill_tier = 2
+skill_name = "банкет"
+skill_desc = "Пир посреди боя восстанавливает здоровье с определенным интервалом"
+skill_preview = ExtResource("3_nuprs")
+skill_anim = ExtResource("2_jlmby")
+is_void_zone = true
+skill_delay = 0.1
+skill_cooldown = 60.0
+skill_tick_interval = 2
+skill_duration = 8.0
+skill_tick_heal = 20
+skill_range = 30.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"
