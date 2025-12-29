@@ -102,8 +102,8 @@ func _process(delta: float) -> void:
 
 func recalculate_stats():
 	skill_cooldown = skill_res.skill_cooldown - skill_res.skill_cooldown / 20 * skill_owner.quickness
-	skill_flat_damage = skill_res.skill_flat_damage + skill_res.skill_flat_damage / 4 * skill_owner.power 
-	skill_tick_damage = skill_res.skill_tick_damage + skill_res.skill_tick_damage / 4 * skill_owner.power 
+	skill_flat_damage = skill_res.skill_flat_damage + skill_res.skill_flat_damage / 6 * skill_owner.power 
+	skill_tick_damage = skill_res.skill_tick_damage + skill_res.skill_tick_damage / 6 * skill_owner.power 
 	skill_tick_interval = skill_res.skill_tick_interval - skill_res.skill_tick_interval / 10 * skill_owner.quickness
 	skill_duration = skill_res.skill_duration + skill_res.skill_duration / 10 * skill_owner.grace
 	#skill_res.skill_buff_amount + skill_res.skill_buff_amount / 15 * skill_owner.grace
@@ -115,8 +115,8 @@ func recalculate_stats():
 				dict.stat_change_amount = dict.stat_change_amount + dict.stat_change_amount / 15 * skill_owner.grace
 			else:
 				dict.stat_change_amount = dict.stat_change_amount - dict.stat_change_amount / 15 * skill_owner.grace
-	skill_flat_heal = skill_res.skill_flat_heal + skill_res.skill_flat_heal / 4 * skill_owner.grace
-	skill_tick_heal = skill_res.skill_tick_heal + skill_res.skill_tick_heal / 4 * skill_owner.grace
+	skill_flat_heal = skill_res.skill_flat_heal + skill_res.skill_flat_heal / 6 * skill_owner.grace
+	skill_tick_heal = skill_res.skill_tick_heal + skill_res.skill_tick_heal / 6 * skill_owner.grace
 	skill_range = skill_res.skill_range + skill_res.skill_range / 8 * skill_owner.mastery
 
 

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=8 format=3 uid="uid://cvus1qxjucqd3"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_sjn45"]
+[ext_resource type="Texture2D" uid="uid://dcc3fknak4ayu" path="res://img/skills/active_skill_reinforcement_anim.png" id="2_puvmp"]
+[ext_resource type="Texture2D" uid="uid://dq6olfrck03nx" path="res://img/skills/active_skill_summon_demonhunter.png" id="3_y2gdp"]
+[ext_resource type="Resource" uid="uid://dcv6n8g7fx1qh" path="res://resources/unit_castle_demonhunter.tres" id="4_kpylr"]
+[ext_resource type="Resource" uid="uid://c00es4ri5bv54" path="res://resources/perc_keensighted.tres" id="5_dg7rn"]
+[ext_resource type="Resource" uid="uid://cwsxhh4bvo0rb" path="res://resources/upgrade_damage_20.tres" id="6_kpk52"]
+[ext_resource type="Resource" uid="uid://qv5pd5k8c4ma" path="res://resources/upgrade_health_40.tres" id="7_06vjw"]
+
+[resource]
+script = ExtResource("1_sjn45")
+skill_tier = 3
+skill_name = "призыв Охотника на демонов"
+skill_desc = "Призывает в бой элитного Охотника на демонов"
+skill_preview = ExtResource("3_y2gdp")
+skill_anim = ExtResource("2_puvmp")
+skill_slot_scenes = Array[Array]([[ExtResource("4_kpylr"), ExtResource("5_dg7rn"), ExtResource("6_kpk52"), ExtResource("7_06vjw")]])
+skill_delay = 0.3
+skill_cooldown = 150.0
+skill_duration = 60.0
+skill_range = 20.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

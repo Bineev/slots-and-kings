@@ -118,7 +118,7 @@ func after_spin():
 		tween.tween_callback(set_default_position_for_slots).set_delay(0.5)
 	else:
 		tween.tween_callback(set_new_position_for_slots).set_delay(0.5)
-	tween.tween_callback(spin_end).set_delay(1)
+	tween.tween_callback(spin_end).set_delay(0.6)
 
 
 func get_active_slot():

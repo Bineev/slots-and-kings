@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerProgress" load_steps=103 format=3 uid="uid://tt3xywwnolmu"]
+[gd_resource type="Resource" script_class="PlayerProgress" load_steps=104 format=3 uid="uid://tt3xywwnolmu"]
 
 [ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="1_hdwo2"]
 [ext_resource type="Script" uid="uid://bly0r5htgro0a" path="res://resources/progress.gd" id="1_w8t7g"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://u0pg38a6khoj" path="res://resources/askill_reinforcement.tres" id="5_g21fy"]
 [ext_resource type="Resource" uid="uid://deb4a0alkunfi" path="res://resources/skill_knight_summon_knight.tres" id="5_msydu"]
 [ext_resource type="Resource" uid="uid://bb4oj37i6m4ru" path="res://resources/skill_castle_knight_burning_tar.tres" id="6_2o1ni"]
+[ext_resource type="Resource" uid="uid://busyqwiketxta" path="res://resources/askill_volley.tres" id="6_8kslp"]
 [ext_resource type="Resource" uid="uid://cwy1gjlsinelc" path="res://resources/upgrade_critchance_15.tres" id="6_hdwo2"]
 [ext_resource type="Resource" uid="uid://cnk4yhlg10440" path="res://resources/unit_castle_inquisitor.tres" id="6_peilv"]
 [ext_resource type="Resource" uid="uid://pqmkvevl6qka" path="res://resources/upgrade_critchance_30.tres" id="7_2wd87"]
@@ -117,7 +118,7 @@ base_pskills_dict = Dictionary[int, Array]({
 base_askills_dict = Dictionary[int, Array]({
 0: [[ExtResource("3_cdw33"), ExtResource("4_8nta1")], null, null],
 2: [[ExtResource("5_msydu"), ExtResource("6_2o1ni")], null, null],
-4: [[ExtResource("5_g21fy"), ExtResource("5_g21fy")], null, null]
+4: [[ExtResource("5_g21fy"), ExtResource("6_8kslp")], null, null]
 })
 special_upgrades_reses = Array[Resource]([ExtResource("2_18758"), ExtResource("3_xn1vv"), ExtResource("4_3mp13"), ExtResource("5_7xldq"), ExtResource("6_hdwo2"), ExtResource("7_2wd87"), ExtResource("8_sf6q5"), ExtResource("9_34q24"), ExtResource("10_b333a"), ExtResource("11_brj8e"), ExtResource("12_m6kss"), ExtResource("13_ilteq"), ExtResource("14_qho7k"), ExtResource("15_n1iqn"), ExtResource("16_cxm55"), ExtResource("17_4c3d5"), ExtResource("18_yhtj2"), ExtResource("19_j0for"), ExtResource("20_gu4si"), ExtResource("21_pynln"), ExtResource("22_ghedn"), ExtResource("23_rgw2m"), ExtResource("24_fs40g"), ExtResource("25_lhe1p"), ExtResource("26_di60n"), ExtResource("27_qkkhw"), ExtResource("28_2al3k"), ExtResource("29_elri8"), ExtResource("30_odfdr"), ExtResource("31_3sngm"), ExtResource("32_8bau0"), ExtResource("33_j7qrr"), ExtResource("34_id3r6"), ExtResource("35_g21fy"), ExtResource("36_8kslp"), ExtResource("37_jriot")])
 units_T1_pool = Array[Resource]([ExtResource("2_byyse"), ExtResource("3_hjbb2")])

@@ -82,7 +82,8 @@ func create_unit():
 			slot.stop_highlight()
 	slots = get_active_slots()
 	for slot in slots:
-		slot.highlight_slot()
+		if slot.slot_name != DataManager.empty_slot_name:
+			slot.highlight_slot()
 	var units_count : int = slots.filter(func(slot : Slot): return slot.slot_type == DataManager.SlotType.UNIT).size()
 	var unit_slot : Slot = slots[0]
 	Player.set_units_count_for_next_create(units_count)
