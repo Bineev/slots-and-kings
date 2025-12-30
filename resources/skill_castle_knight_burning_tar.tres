@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_pqbtm")
-skill_tier = 2
+skill_tier = 3
 skill_name = "горящая смола"
 skill_desc = "разливает на поле горящую смолу. Наносит урон с интервалом и замедляет."
 skill_preview = ExtResource("2_c2e2p")

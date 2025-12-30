@@ -21,6 +21,7 @@ class_name ActiveSkill
 
 var is_on_cd : bool
 var was_trap : bool
+var unit_stat_changes_dict : Dictionary[Unit, Dictionary]
 
 @onready var timer_skill_delay: Timer = %timer_skill_delay
 @onready var skill_zone: SkillZone = %SkillZone
@@ -243,7 +244,7 @@ func create_tooltip():
 	var skill_stats : String
 	# генерируем инфу
 	if skill_cooldown > 0:
-		skill_stats += 'откат: %dс\n' % skill_cooldown
+		skill_stats += 'откат: %d с\n' % skill_cooldown
 	if skill_flat_damage > 0:
 		skill_stats += 'урон: %d\n' % skill_flat_damage
 	if skill_tick_damage > 0:
@@ -259,14 +260,14 @@ func create_tooltip():
 	#if skill_buff_amount > 0:
 		#skill_stats += 'величина бафа: %.1f%\n' % ((skill_buff_amount - 1) * 100)
 	if skill_duration > 0:
-		skill_stats += 'длительность: %.1fс\n' % skill_duration
+		skill_stats += 'длительность: %.1f с\n' % skill_duration
 	for dict in skill_buff_stats:
 		var stat_info : String = DataManager.default_stats_to_rus[dict.stat_name] + ': '
 		if dict.stat_change_type == 0:
 			if skill_target_type == DataManager.UnitOwner.PLAYER:
 				stat_info += '+%s' % str(int(dict.stat_change_amount))
 			if skill_target_type == DataManager.UnitOwner.ENEMY:
-				stat_info += '-%s' % str(int(dict.stat_change_amount))
+				stat_info += '%s' % str(int(dict.stat_change_amount))
 		elif dict.stat_change_type == 1:
 			if skill_target_type == DataManager.UnitOwner.PLAYER:
 				stat_info += '+%s%%' % str(int(dict.stat_change_amount * 100))
@@ -354,6 +355,7 @@ func deactivate():
 	# остановить тик таймер
 	timer_tick.stop()
 	clear_targets()
+	unit_stat_changes_dict.clear()
 	if was_trap:
 		is_trap = true
 
@@ -364,20 +366,43 @@ func _on_timer_deactivate_timeout() -> void:
 
 func apply_change_stat(current_unit : Unit):
 	for dict in skill_buff_stats:
+		var current_stat_amount = current_unit.get('current_%s' % dict.stat_name)
 		if dict.stat_change_type == 0:
-			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
+			var change_amount = current_stat_amount + dict.stat_change_amount
+			# защита от отрицательных значений
+			if change_amount < 0:
+				change_amount = -current_stat_amount
+			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + change_amount)
+			if not unit_stat_changes_dict.get(current_unit):
+				unit_stat_changes_dict.set(current_unit, {dict.stat_name : change_amount})
+			else:
+				unit_stat_changes_dict[current_unit].set(dict.stat_name, change_amount)
 		elif dict.stat_change_type == 1:
-			#current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
 			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) * dict.stat_change_amount)
+			if dict.stat_change_amount != 0:
+				if not unit_stat_changes_dict.get(current_unit):
+					unit_stat_changes_dict.set(current_unit, {dict.stat_name : dict.stat_change_amount})
+				else:
+					unit_stat_changes_dict[current_unit].set(dict.stat_name, dict.stat_change_amount)
+			else:
+				if not unit_stat_changes_dict.get(current_unit):
+					unit_stat_changes_dict.set(current_unit, {dict.stat_name : current_stat_amount})
+				else:
+					unit_stat_changes_dict[current_unit].set(dict.stat_name, current_stat_amount)
 
 
 func back_stat_to_default(current_unit : Unit):
 	for dict in skill_buff_stats:
+		if not unit_stat_changes_dict.has(current_unit) or not unit_stat_changes_dict[current_unit].has(dict.stat_name):
+			continue
 		if dict.stat_change_type == 0:
-			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) - dict.stat_change_amount)
+			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) - unit_stat_changes_dict[current_unit][dict.stat_name])
 		elif dict.stat_change_type == 1:
-			#current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) / dict.stat_change_amount)
-			current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) / dict.stat_change_amount)
+			if dict.stat_change_amount == 0:
+				current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + unit_stat_changes_dict[current_unit][dict.stat_name])
+			else:
+				current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) / unit_stat_changes_dict[current_unit][dict.stat_name])
+		unit_stat_changes_dict[current_unit].erase(dict.stat_name)
 
 
 func _on_timer_tick_timeout() -> void:

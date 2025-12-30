@@ -14,8 +14,8 @@ skill_anim = ExtResource("2_wr0ei")
 skill_target_type = 1
 skill_damage_type = 2
 skill_buff_stats = Array[Dictionary]([{
-"stat_change_amount": -10.0,
-"stat_change_type": 0,
+"stat_change_amount": 0.5,
+"stat_change_type": 1,
 "stat_name": "move_speed"
 }])
 is_void_zone = true
