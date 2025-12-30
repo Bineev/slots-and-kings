@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://o11myk65kkml"]
+[gd_scene load_steps=7 format=3 uid="uid://o11myk65kkml"]
 
 [ext_resource type="PackedScene" uid="uid://c7f3lowfcvk3k" path="res://scenes/enemy_spawn.tscn" id="1_tleui"]
 [ext_resource type="Resource" uid="uid://cdn0wsfxvsnpr" path="res://resources/unit_hell_fiend.tres" id="2_tj87s"]
 [ext_resource type="Resource" uid="uid://cf8q6y24cl7j3" path="res://resources/unit_hell_imp.tres" id="3_w823h"]
+[ext_resource type="Resource" uid="uid://b507x12mrluyd" path="res://resources/unit_hell_manticora.tres" id="4_w823h"]
 [ext_resource type="PackedScene" uid="uid://dfnu88g2jfqmk" path="res://scenes/unit_factory_hell.tscn" id="4_x1y22"]
+[ext_resource type="Resource" uid="uid://dsfu8s6lpyaax" path="res://resources/unit_hell_substance.tres" id="5_x1y22"]
 
 [node name="EnemySpawnHell0Test" instance=ExtResource("1_tleui")]
 unit_family = 1
-unit_reses = Array[Resource]([ExtResource("3_w823h"), ExtResource("3_w823h"), ExtResource("2_tj87s"), ExtResource("2_tj87s")])
+unit_reses = Array[Resource]([ExtResource("3_w823h"), ExtResource("3_w823h"), ExtResource("2_tj87s"), ExtResource("2_tj87s"), ExtResource("4_w823h"), ExtResource("5_x1y22")])
 unit_factory_scene = ExtResource("4_x1y22")
 time_to_next_spawn = 60
 time_between_units = 0.2
