@@ -145,9 +145,9 @@ var default_crystal_reward : int = 1
 var default_food_reward : int = 3
 
 #var action_speed_coeff : float = 1.5
-var action_speed_coeff : float = 1.8
+var action_speed_coeff : float = 1.5
 
-var move_speed_coeff : float = 1.5
+var move_speed_coeff : float = 1.3
 
 var min_damage_mult : float = 0.3
 

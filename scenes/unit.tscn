@@ -172,7 +172,7 @@ texture = ExtResource("2_1jvru")
 unique_name_in_owner = true
 hframes = 5
 vframes = 5
-frame = 5
+frame = 10
 
 [node name="unit_status_sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true

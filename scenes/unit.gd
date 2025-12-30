@@ -295,7 +295,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	#var sr_shape = RectangleShape2D.new()
 	#sr_shape.size = Vector2(stats.scout_range, 50)
 	#scout_range_collision.shape  = sr_shape
-	unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_LINEAR
+	#unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_LINEAR
 	change_state(DataManager.UnitState.ATTACK)
 	if unit_owner == DataManager.UnitOwner.ENEMY:
 		unit_sprite.flip_h = true
@@ -328,8 +328,9 @@ func get_state() -> DataManager.UnitState:
 func set_active():
 	await get_tree().process_frame
 	is_active = true
-	change_state(DataManager.UnitState.IDLE)
+	unit_anim_player.stop()
 	unit_anim_player.get_animation("attack").loop_mode = Animation.LOOP_NONE
+	change_state(DataManager.UnitState.IDLE)
 	timer_regen.wait_time = current_health_regen_interval
 	timer_regen.start()
 
@@ -484,7 +485,6 @@ func attack_castle():
 	elif unit_types.has(DataManager.UnitType.PHYS):
 		attack = current_physical_attack
 	Player.get_damage(round(attack))
-	print('hui')
 	
 	
 
@@ -663,7 +663,7 @@ func apply_damage(new_current_target : Unit):
 	if not current_target or not is_instance_valid(current_target):
 		return
 	# применить урон к цели
-	print('%s наносит %f урона %s' % [self.unit_name, attack, current_target.unit_name])
+	#print('%s наносит %f урона %s' % [self.unit_name, attack, current_target.unit_name])
 	if current_life_steal > 0 and current_target and is_instance_valid(current_target) and current_target.get_state() != DataManager.UnitState.DIED and current_target.get_state() != DataManager.UnitState.DEAD:
 		get_health(round(attack / 100 * current_life_steal))
 	current_target.get_damage(round(attack), self, is_crit)

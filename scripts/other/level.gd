@@ -467,7 +467,9 @@ func sort_enemy_units():
 	var units : Array[Unit] = Player.get_enemies()
 	if units.size() == 0:
 		return
-	units.sort_custom(func(a, b): return a.global_position.y + a.unit_sprite.texture.get_height() / 5 / 2 < b.global_position.y + b.unit_sprite.texture.get_height() / 5 / 2)
+	# баг (текстура не успевает показаться)
+	
+	units.sort_custom(func(a : Unit, b : Unit): return a.global_position.y + a.slot_unit_res.unit_sprite.get_height() / 5 / 2 < b.global_position.y + b.slot_unit_res.unit_sprite.get_height() / 5 / 2)
 	var base_ordering : int = 3
 	for unit in units:
 		base_ordering += 1

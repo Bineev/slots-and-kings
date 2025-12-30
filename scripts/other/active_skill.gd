@@ -56,7 +56,7 @@ func create_entity():
 			unit_position =  skill_zone.global_position
 		else:
 			unit_position = skill_zone.global_position + current_offset
-			current_offset = Vector2(randf_range(-skill_range / 2, -skill_range / 2), randf_range(--skill_range / 2, -skill_range / 2))
+			current_offset = Vector2(randf_range(-skill_range / 2, skill_range / 2), randf_range(-skill_range / 2, skill_range / 2))
 		SignalManager.on_add_unit_from_skill.emit(unit, unit_position)
 		slots.clear()
 		#get_tree().create_timer(1).timeout.connect(remove_slots)
@@ -288,7 +288,7 @@ func create_tooltip():
 func set_anim_scale_by_range():
 	if not skill_anim_player.get_animation("skill") or not skill_anim.texture:
 		return
-	var current_scale : float = skill_range / skill_res.skill_anim.get_height() * 1.5
+	var current_scale : float = skill_range * 2 / skill_res.skill_anim.get_height()
 	skill_anim.scale = Vector2(current_scale, current_scale)
 
 

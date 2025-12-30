@@ -55,6 +55,7 @@ func initialize():
 
 func spin_columns():
 	SignalManager.spin_columns.emit()
+	SignalManager.on_clear_tooltips.emit()
 	first_column.set_carousels_spin_start()
 	second_column.set_carousels_spin_start()
 	third_column.set_carousels_spin_start()
