@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://b6aqsq0yi8fh"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_qot8y"]
+[ext_resource type="Texture2D" uid="uid://bftxxww7wund3" path="res://img/skills/active_skill_icefall.png" id="2_kx82w"]
+[ext_resource type="Texture2D" uid="uid://cubm5oxunvdqo" path="res://img/skills/active_skill_icefall_preview.png" id="3_skdej"]
+
+[resource]
+script = ExtResource("1_qot8y")
+skill_tier = 3
+skill_name = "ледопад"
+skill_desc = "Потоки ледяных осколков наносят урон в области и снижают скорость атаки"
+skill_preview = ExtResource("3_skdej")
+skill_anim = ExtResource("2_kx82w")
+skill_target_type = 1
+skill_damage_type = 3
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 2.0,
+"stat_change_type": 1,
+"stat_name": "attack_speed"
+}])
+is_void_zone = true
+skill_delay = 0.1
+skill_cooldown = 60.0
+skill_tick_damage = 15
+skill_tick_interval = 1
+skill_duration = 4.0
+skill_range = 35.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"
