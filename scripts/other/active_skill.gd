@@ -197,14 +197,18 @@ func apply_tick(target : Unit):
 
 
 func start_skill():
+	if not is_trap:
+		skill_anim.hframes = 6
 	timer_skill_delay.wait_time = skill_delay
 	timer_skill_delay.start()
 	skill_anim.global_position = skill_zone.global_position
 	set_anim_scale_by_range()
 	if skill_anim_player.get_animation('skill'):
-		skill_anim_player.play('skill')
-		if is_trap:
-			skill_anim.modulate = Color(1, 1, 1, 0.1)
+		if is_trap and skill_anim_player.get_animation('trap'):
+			skill_anim.modulate = Color(1, 1, 1, 0.5)
+			skill_anim_player.play('trap')
+		else:
+			skill_anim_player.play('skill')
 	skill_zone.hide()
 	skill_zone.set_is_stopped(true)
 	timer_cd.start()
@@ -215,6 +219,8 @@ func start_skill():
 		timer_skill_delay.stop()
 		is_trap = false
 		was_trap = true
+		if skill_anim_player.get_animation('skill'):
+			skill_anim_player.play('skill')
 		activate()
 
 

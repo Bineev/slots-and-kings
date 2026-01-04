@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://diap4c60rngap"]
+[gd_scene load_steps=10 format=3 uid="uid://diap4c60rngap"]
 
 [ext_resource type="PackedScene" uid="uid://cmmit0t3sbl2v" path="res://scenes/skill.tscn" id="1_t3d48"]
 [ext_resource type="Script" uid="uid://cxx5tpkk2231t" path="res://scripts/other/active_skill.gd" id="2_r7nbd"]
@@ -62,10 +62,39 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_avxi3"]
+resource_name = "trap"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("skill_anim:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("skill_anim:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_avxi3"]
 _data = {
 &"RESET": SubResource("Animation_ehogu"),
-&"skill": SubResource("Animation_hh2ii")
+&"skill": SubResource("Animation_hh2ii"),
+&"trap": SubResource("Animation_avxi3")
 }
 
 [node name="ActiveSkill" instance=ExtResource("1_t3d48")]
@@ -99,7 +128,7 @@ one_shot = true
 unique_name_in_owner = true
 visible = false
 z_as_relative = false
-hframes = 6
+hframes = 7
 
 [node name="skill_anim_player" type="AnimationPlayer" parent="." index="3"]
 unique_name_in_owner = true
