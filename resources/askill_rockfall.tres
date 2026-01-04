@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://ce3uiljm1qg2t"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_wsc4v"]
+[ext_resource type="Texture2D" uid="uid://bvilgr0u0hdbm" path="res://img/skills/active_skill_rockfall_anim.png" id="2_hid5f"]
+[ext_resource type="Texture2D" uid="uid://cwcpjhyoc56qv" path="res://img/skills/active_skill_rockfall.png" id="3_s464v"]
+
+[resource]
+script = ExtResource("1_wsc4v")
+skill_tier = 2
+skill_name = "Камнепад"
+skill_desc = "Каменые глыбы падают в области и наносят магический урон "
+skill_preview = ExtResource("3_s464v")
+skill_anim = ExtResource("2_hid5f")
+skill_target_type = 1
+skill_damage_type = 3
+skill_delay = 0.3
+skill_cooldown = 70.0
+skill_flat_damage = 40
+skill_range = 25.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"
