@@ -61,6 +61,7 @@ var current_wave_count : int
 var next_create_units_count : int
 var hero_factory : HeroFactory
 var unit_factory : UnitFactory
+var current_units_coeff : int = 10
 
 
 func _ready() -> void:
