@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=4 format=3 uid="uid://cxb6c2cfkrrpo"]
+
+[ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_tr0j5"]
+[ext_resource type="Texture2D" uid="uid://dlmuvwuqkaw4q" path="res://img/projectile_ballista.png" id="2_vxhqd"]
+[ext_resource type="Texture2D" uid="uid://dmto8xic4s7o6" path="res://img/units/castle_ballista_anim.png" id="3_a20s7"]
+
+[resource]
+script = ExtResource("1_tr0j5")
+unit_tier = 15
+unit_types = Array[int]([2, 1])
+unit_cost = 4
+unit_sprite = ExtResource("3_a20s7")
+unit_attack_type = 1
+unit_projectile_texture = ExtResource("2_vxhqd")
+slot_name = "баллиста"
+slot_description = "Главное - развернуть в нужную сторону"
+slot_type = 1
+entity_tier = 4
+physical_attack = 60.0
+health = 150.0
+armor = 20.0
+magic_defence = 50.0
+attack_speed = 4.0
+hit_chance = 100.0
+attack_range = 180.0
+projectile_speed = 250.0
+projectile_attack_range = 40.0
+metadata/_custom_type_script = "uid://853hpku0xq1e"

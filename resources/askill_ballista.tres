@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=5 format=3 uid="uid://chwoa4rbqyocq"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_beu5q"]
+[ext_resource type="Texture2D" uid="uid://bewyyprtao8db" path="res://img/skills/active_skill_building_anim.png" id="2_p3t08"]
+[ext_resource type="Texture2D" uid="uid://j4kc4yrfbgek" path="res://img/skills/active_skill_ballista.png" id="3_bkhn8"]
+[ext_resource type="Resource" uid="uid://cxb6c2cfkrrpo" path="res://resources/unit_castle_ballista.tres" id="4_qy1ma"]
+
+[resource]
+script = ExtResource("1_beu5q")
+skill_tier = 3
+skill_name = "тяжелое вооружение"
+skill_desc = "Устанавливает на поле боя временную баллисту"
+skill_preview = ExtResource("3_bkhn8")
+skill_anim = ExtResource("2_p3t08")
+skill_damage_type = 2
+skill_slot_scenes = Array[Array]([[ExtResource("4_qy1ma")]])
+skill_delay = 1.0
+skill_cooldown = 150.0
+skill_duration = 60.0
+skill_range = 30.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

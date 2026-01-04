@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="1_hdwo2"]
 [ext_resource type="Script" uid="uid://bly0r5htgro0a" path="res://resources/progress.gd" id="1_w8t7g"]
 [ext_resource type="Resource" uid="uid://c4igk5wjkmn8l" path="res://resources/perc_stocky.tres" id="2_2wd87"]
-[ext_resource type="Resource" uid="uid://bx4r812615do8" path="res://resources/askill_boiled_dung.tres" id="2_8kslp"]
+[ext_resource type="Resource" uid="uid://chwoa4rbqyocq" path="res://resources/askill_ballista.tres" id="2_8kslp"]
 [ext_resource type="Resource" uid="uid://bij1snp1bqw1f" path="res://resources/perc_dastard.tres" id="2_34q24"]
 [ext_resource type="Resource" uid="uid://o6yes6k2q74f" path="res://resources/upgrade_attackspeed_0.2.tres" id="2_18758"]
 [ext_resource type="Resource" uid="uid://f8pvkffrpq72" path="res://resources/unit_castle_fyrd.tres" id="2_byyse"]
