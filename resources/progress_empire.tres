@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://0ajf3d4b3ckq" path="res://resources/unit_castle_villein.tres" id="3_sf6q5"]
 [ext_resource type="Resource" uid="uid://cfb6xhmomw62e" path="res://resources/upgrade_attackspeed_0.4.tres" id="3_xn1vv"]
 [ext_resource type="Resource" uid="uid://bxlnd3ngp723x" path="res://resources/upgrade_attackspeed_0.5.tres" id="4_3mp13"]
-[ext_resource type="Resource" uid="uid://dkl5jgk4lmpb1" path="res://resources/askill_fear.tres" id="4_8kslp"]
+[ext_resource type="Resource" uid="uid://b0dr6ovj0fl31" path="res://resources/askill_meteor.tres" id="4_8kslp"]
 [ext_resource type="Resource" uid="uid://dw33qs0caq3yd" path="res://resources/knight_skill_cannonball.tres" id="4_8nta1"]
 [ext_resource type="Resource" uid="uid://h4dlt5axqlsb" path="res://resources/unit_castle_warlock.tres" id="4_sklat"]
 [ext_resource type="Resource" uid="uid://m5mh0jt4jh8s" path="res://resources/upgrade_attackspeed_0.6.tres" id="5_7xldq"]
