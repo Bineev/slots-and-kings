@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://dfu06u5josk2r"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_rqpk7"]
+[ext_resource type="Texture2D" uid="uid://dlwnwa2hs2rmy" path="res://img/skills/active_skill_ice_pillar_anim.png" id="2_hhh5r"]
+[ext_resource type="Texture2D" uid="uid://5uvnqjftqpah" path="res://img/skills/active_skill_ice_pillar.png" id="3_jedoi"]
+
+[resource]
+script = ExtResource("1_rqpk7")
+skill_tier = 1
+skill_name = "ледяной столп"
+skill_desc = "Поднимает из земли ледяной столп. Наносит урон и замораживает противников"
+skill_preview = ExtResource("3_jedoi")
+skill_anim = ExtResource("2_hhh5r")
+skill_target_type = 1
+skill_damage_type = 3
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 0.0,
+"stat_change_type": 1,
+"stat_name": "move_speed"
+}])
+skill_delay = 0.3
+skill_cooldown = 50.0
+skill_flat_damage = 30
+skill_duration = 4.0
+skill_range = 25.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

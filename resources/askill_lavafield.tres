@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://cwsy1keiaopcv"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_45cu7"]
+[ext_resource type="Texture2D" uid="uid://dfdd3ae0n015u" path="res://img/skills/active_skill_lava_field_anim.png" id="2_3a31m"]
+[ext_resource type="Texture2D" uid="uid://dnef2nlb06agx" path="res://img/skills/active_skill_lava_field.png" id="3_3mlt2"]
+
+[resource]
+script = ExtResource("1_45cu7")
+skill_tier = 3
+skill_name = "Поле лавы"
+skill_desc = "Создает область раскаленной лавы, наносящей урон и снижающей регенерацию противников"
+skill_preview = ExtResource("3_3mlt2")
+skill_anim = ExtResource("2_3a31m")
+skill_target_type = 1
+skill_damage_type = 3
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 0,
+"stat_change_type": 1,
+"stat_name": "health_regen"
+}])
+is_void_zone = true
+skill_delay = 0.1
+skill_cooldown = 80.0
+skill_tick_damage = 30
+skill_tick_interval = 2
+skill_duration = 8.0
+skill_range = 30.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

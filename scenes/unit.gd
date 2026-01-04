@@ -830,7 +830,7 @@ func apply_regen():
 
 
 func get_health(health_amount : int):
-	if actual_health >= current_health:
+	if actual_health >= current_health or health_amount == 0:
 		return
 	var actual_health_amount : int = health_amount if actual_health + health_amount <= current_health else current_health - actual_health
 	actual_health += actual_health_amount
