@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://dl6oep4hwmcwj"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_vmxd4"]
+[ext_resource type="Texture2D" uid="uid://0qaje4v33oeu" path="res://img/skills/active_skill_earthly_thunder_anim.png" id="2_lardy"]
+[ext_resource type="Texture2D" uid="uid://bt0yoh23ure20" path="res://img/skills/active_skill_earthly_thunder.png" id="3_t841y"]
+
+[resource]
+script = ExtResource("1_vmxd4")
+skill_tier = 2
+skill_name = "земной огонь"
+skill_desc = "Минирует область, которая деторирует при приближении врага"
+skill_preview = ExtResource("3_t841y")
+skill_anim = ExtResource("2_lardy")
+skill_target_type = 1
+skill_damage_type = 2
+is_trap = true
+skill_delay = 10000000.0
+skill_cooldown = 75.0
+skill_flat_damage = 50
+skill_range = 25.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

@@ -69,9 +69,14 @@ func _on_body_entered(body: Node2D) -> void:
 		# если входит новый юнит (а нужно извне, если юниты уже есть)
 		if skill.is_trap and is_stopped:
 			if skill.skill_anim_player.get_animation('skill'):
+				skill.skill_anim.modulate = Color(1, 1, 1, 0.8)
 				skill.skill_anim_player.play('skill')
-			skill.activate()
 			skill.timer_skill_delay.stop()
+			if skill.is_trap and not skill.is_void_zone:
+				skill.timer_skill_delay.wait_time = 0.5
+				skill.timer_skill_delay.start()
+			else:
+				skill.activate()
 			skill.is_trap = false
 			skill.was_trap = true
 		if skill.is_void_zone and skill.skill_buff_stats.size() > 0 and is_stopped:

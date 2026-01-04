@@ -216,12 +216,14 @@ func start_skill():
 	label_cd.show()
 	rect_cd_overlay.show()
 	if is_trap and targets.size() > 0:
+		if skill_anim_player.get_animation('skill'):
+			skill_anim.modulate = Color(1, 1, 1, 0.8)
+			skill_anim_player.play('skill')
 		timer_skill_delay.stop()
+		timer_skill_delay.wait_time = 0.5
+		timer_skill_delay.start()
 		is_trap = false
 		was_trap = true
-		if skill_anim_player.get_animation('skill'):
-			skill_anim_player.play('skill')
-		activate()
 
 
 func _on_timer_skill_delay_timeout() -> void:
