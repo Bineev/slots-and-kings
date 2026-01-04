@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://bx4r812615do8"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_k6j7s"]
+[ext_resource type="Texture2D" uid="uid://we45x1fffsjf" path="res://img/skills/active_skill_boiled_dung_anim.png" id="2_uo22x"]
+[ext_resource type="Texture2D" uid="uid://dj23vnlt11gov" path="res://img/skills/active_skill_boilded_dung.png" id="3_vmfp5"]
+
+[resource]
+script = ExtResource("1_k6j7s")
+skill_tier = 1
+skill_name = "кипящее дерьмо"
+skill_desc = "При приближении врага взрывает чан с кипящим дерьмом. Наносит урон и понижает всю защиту, скорость атаки, движения и точность противника"
+skill_preview = ExtResource("3_vmfp5")
+skill_anim = ExtResource("2_uo22x")
+skill_target_type = 1
+skill_damage_type = 2
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 0.3,
+"stat_change_type": 1,
+"stat_name": "armor"
+}, {
+"stat_change_amount": 0.3,
+"stat_change_type": 1,
+"stat_name": "magic_defence"
+}, {
+"stat_change_amount": 0.3,
+"stat_change_type": 1,
+"stat_name": "evade"
+}, {
+"stat_change_amount": 0.7,
+"stat_change_type": 1,
+"stat_name": "hit_chance"
+}, {
+"stat_change_amount": 0.7,
+"stat_change_type": 1,
+"stat_name": "move_speed"
+}, {
+"stat_change_amount": 1.6,
+"stat_change_type": 1,
+"stat_name": "attack_speed"
+}])
+is_trap = true
+skill_delay = 10000000.0
+skill_cooldown = 45.0
+skill_flat_damage = 20
+skill_duration = 6.0
+skill_range = 30.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

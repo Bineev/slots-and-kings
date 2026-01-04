@@ -92,12 +92,11 @@ func initialize():
 	skill_zone.initialize()
 	#create_tooltip()
 	if is_void_zone or is_trap:
-		skill_anim.z_index = 0
+		skill_anim.z_index
+	if is_void_zone:
 		if skill_anim_player.get_animation('skill'):
 			skill_anim_player.get_animation("skill").loop_mode = Animation.LOOP_LINEAR
-	else:
-		pass
-		#skill_anim.z_index = 299
+
 
 
 func _process(delta: float) -> void:
