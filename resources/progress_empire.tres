@@ -13,7 +13,8 @@
 [ext_resource type="Resource" uid="uid://0ajf3d4b3ckq" path="res://resources/unit_castle_villein.tres" id="3_sf6q5"]
 [ext_resource type="Resource" uid="uid://cfb6xhmomw62e" path="res://resources/upgrade_attackspeed_0.4.tres" id="3_xn1vv"]
 [ext_resource type="Resource" uid="uid://bxlnd3ngp723x" path="res://resources/upgrade_attackspeed_0.5.tres" id="4_3mp13"]
-[ext_resource type="Resource" uid="uid://b0dr6ovj0fl31" path="res://resources/askill_meteor.tres" id="4_8kslp"]
+[ext_resource type="Resource" uid="uid://btjckwh3ss6mg" path="res://resources/askill_justice.tres" id="4_8nta1"]
+[ext_resource type="Resource" uid="uid://dq0k8fyepwj88" path="res://resources/pskill_warlock_aoe_critchance.tres" id="4_cdw33"]
 [ext_resource type="Resource" uid="uid://h4dlt5axqlsb" path="res://resources/unit_castle_warlock.tres" id="4_sklat"]
 [ext_resource type="Resource" uid="uid://m5mh0jt4jh8s" path="res://resources/upgrade_attackspeed_0.6.tres" id="5_7xldq"]
 [ext_resource type="Resource" uid="uid://sxoa7kpjidf4" path="res://resources/empty_upgrade.tres" id="5_34q24"]
@@ -40,7 +41,6 @@
 [ext_resource type="Resource" uid="uid://cdeogyfkycky7" path="res://resources/pskill_archer_pattack_hp.tres" id="10_jriot"]
 [ext_resource type="Resource" uid="uid://cfpwvb842xqxh" path="res://resources/upgrade_mdef_15.tres" id="11_5sxex"]
 [ext_resource type="Resource" uid="uid://dyjdhwvhcysyt" path="res://resources/upgrade_critattack_70.tres" id="11_brj8e"]
-[ext_resource type="Resource" uid="uid://bh4pn84n3bhnr" path="res://resources/pskill_fyrd_regen_mdef.tres" id="11_cdw33"]
 [ext_resource type="Resource" uid="uid://cg2i6usnlw27n" path="res://resources/perc_bessoted.tres" id="11_qkkhw"]
 [ext_resource type="Resource" uid="uid://cm5hi7wlp2kt4" path="res://resources/pskill_fyrd_pattack_armor.tres" id="12_cdw33"]
 [ext_resource type="Resource" uid="uid://cw3xvx403gm8n" path="res://resources/upgrade_critattack_100.tres" id="12_m6kss"]
@@ -114,12 +114,12 @@ base_upgrades_reses = Array[Resource]([ExtResource("12_vv8np"), ExtResource("5_3
 base_percs_reses = Array[Resource]([ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("2_2wd87")])
 base_pskills_dict = Dictionary[int, Array]({
 0: [[ExtResource("9_5wk7d"), ExtResource("10_jriot")], null, null],
-2: [[ExtResource("9_5wk7d"), ExtResource("11_cdw33")], null, null],
+2: [[ExtResource("9_5wk7d"), ExtResource("4_cdw33")], null, null],
 4: [[ExtResource("9_5wk7d"), ExtResource("12_cdw33")], [], []]
 })
 base_askills_dict = Dictionary[int, Array]({
 0: [[ExtResource("3_cdw33"), ExtResource("2_8kslp")], null, null],
-2: [[ExtResource("5_msydu"), ExtResource("4_8kslp")], null, null, null],
+2: [[ExtResource("5_msydu"), ExtResource("4_8nta1")], null, null, null],
 4: [[ExtResource("5_g21fy"), ExtResource("6_8kslp")], null, null]
 })
 special_upgrades_reses = Array[Resource]([ExtResource("2_18758"), ExtResource("3_xn1vv"), ExtResource("4_3mp13"), ExtResource("5_7xldq"), ExtResource("6_hdwo2"), ExtResource("7_2wd87"), ExtResource("8_sf6q5"), ExtResource("9_34q24"), ExtResource("10_b333a"), ExtResource("11_brj8e"), ExtResource("12_m6kss"), ExtResource("13_ilteq"), ExtResource("14_qho7k"), ExtResource("15_n1iqn"), ExtResource("16_cxm55"), ExtResource("17_4c3d5"), ExtResource("18_yhtj2"), ExtResource("19_j0for"), ExtResource("20_gu4si"), ExtResource("21_pynln"), ExtResource("22_ghedn"), ExtResource("23_rgw2m"), ExtResource("24_fs40g"), ExtResource("25_lhe1p"), ExtResource("26_di60n"), ExtResource("27_qkkhw"), ExtResource("28_2al3k"), ExtResource("29_elri8"), ExtResource("30_odfdr"), ExtResource("31_3sngm"), ExtResource("32_8bau0"), ExtResource("33_j7qrr"), ExtResource("34_id3r6"), ExtResource("35_g21fy"), ExtResource("36_8kslp"), ExtResource("37_jriot")])

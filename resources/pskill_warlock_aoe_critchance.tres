@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://dq0k8fyepwj88"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_dci4e"]
+[ext_resource type="Texture2D" uid="uid://bj36kdia7xn0x" path="res://img/skills/passive_skill_warlock_aoe_critchance.png" id="2_si8ew"]
+
+[resource]
+script = ExtResource("1_dci4e")
+skill_passive_type = 4
+skill_tier = 2
+skill_name = "колдун - мастерство"
+skill_desc = "Боец \"Колдун\" повышает размер АОЕ и шанс крита"
+skill_preview = ExtResource("2_si8ew")
+skill_unit_name = "колдун"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "projectile_attack_range"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "crit_chance"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
