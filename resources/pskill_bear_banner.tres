@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://dnnjcigsehnki"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_23vsf"]
+[ext_resource type="Texture2D" uid="uid://c4354hkr5yeas" path="res://img/skills/passive_skill_bear_banner.png" id="2_8r0tc"]
+
+[resource]
+script = ExtResource("1_23vsf")
+skill_passive_type = 5
+skill_tier = 3
+skill_name = "баннер медведя"
+skill_desc = "Все физы получают бонус к урону"
+skill_preview = ExtResource("2_8r0tc")
+skill_damage_type = 2
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 1.5,
+"stat_change_type": 1,
+"stat_name": "physical_attack"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

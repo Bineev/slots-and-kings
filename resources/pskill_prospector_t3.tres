@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://doin4mgtqms3j"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_qksj3"]
+[ext_resource type="Texture2D" uid="uid://dngvm18djhs4s" path="res://img/skills/passive_skill_prospector_t3.png" id="2_28it5"]
+
+[resource]
+script = ExtResource("1_qksj3")
+skill_passive_type = 2
+skill_tier = 2
+skill_name = "старатель - 3 мин"
+skill_desc = "Дает 1000 золота каждые 3 минуты"
+skill_preview = ExtResource("2_28it5")
+skill_resources = Array[int]([0])
+skill_resources_amounts = Array[int]([1000])
+get_something_time = 180
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

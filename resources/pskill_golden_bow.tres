@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://bwa6btgm80f1l"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_oes2l"]
+[ext_resource type="Texture2D" uid="uid://dt6er388y0mxp" path="res://img/skills/passive_skill_golden_bow.png" id="2_kn67f"]
+
+[resource]
+script = ExtResource("1_oes2l")
+skill_passive_type = 5
+skill_tier = 2
+skill_name = "золотой лук"
+skill_desc = "Все ренжи получают скорость атаки и дальность"
+skill_preview = ExtResource("2_kn67f")
+skill_damage_type = 1
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 1.25,
+"stat_change_type": 1,
+"stat_name": "attack_range"
+}, {
+"stat_change_amount": -0.3,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

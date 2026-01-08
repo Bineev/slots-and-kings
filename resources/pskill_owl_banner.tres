@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://b4qn7rmn7kcjr"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_3vtp4"]
+[ext_resource type="Texture2D" uid="uid://d2b5kkpfi3ll4" path="res://img/skills/passive_skill_owl_banner.png" id="2_iohfd"]
+
+[resource]
+script = ExtResource("1_3vtp4")
+skill_passive_type = 5
+skill_tier = 3
+skill_name = "баннер совы"
+skill_desc = "Все маги получают бонус к урону"
+skill_preview = ExtResource("2_iohfd")
+skill_damage_type = 3
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 1.5,
+"stat_change_type": 1,
+"stat_name": "magical_attack"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

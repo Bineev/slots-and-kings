@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://bkkjw1uj4kkxe"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_u1as3"]
+[ext_resource type="Texture2D" uid="uid://bak0xusnv8opr" path="res://img/skills/passive_skill_orcish_axe.png" id="2_cfuf1"]
+
+[resource]
+script = ExtResource("1_u1as3")
+skill_passive_type = 5
+skill_tier = 2
+skill_name = "орочья секира"
+skill_desc = "Все мили получают скорость атаки и крит шанс"
+skill_preview = ExtResource("2_cfuf1")
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 0.7,
+"stat_change_type": 1,
+"stat_name": "attack_speed"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "crit_chance"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

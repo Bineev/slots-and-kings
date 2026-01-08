@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://c8kkon6q5nk2t"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_joyrn"]
+[ext_resource type="Texture2D" uid="uid://cltg4haq2u07o" path="res://img/skills/passive_skill_jeweler_t3.png" id="2_dby0q"]
+
+[resource]
+script = ExtResource("1_joyrn")
+skill_passive_type = 2
+skill_tier = 1
+skill_name = "ювелир - 3 мин"
+skill_desc = "Дает 1 кристалл каждые 3 минуты"
+skill_preview = ExtResource("2_dby0q")
+skill_resources = Array[int]([3])
+skill_resources_amounts = Array[int]([1])
+get_something_time = 180
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

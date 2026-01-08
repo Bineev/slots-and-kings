@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://dfm2wlpsn7dte"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_bfb1p"]
+[ext_resource type="Texture2D" uid="uid://bofmsa8twr6ki" path="res://img/skills/passive_skill_jeweler_w3.png" id="2_oheg4"]
+
+[resource]
+script = ExtResource("1_bfb1p")
+skill_tier = 2
+skill_name = "ювелир - 3 волны"
+skill_desc = "Дает 2 кристалла каждые 3 волны"
+skill_preview = ExtResource("2_oheg4")
+skill_resources = Array[int]([3])
+skill_resources_amounts = Array[int]([2])
+skill_wave_count = 3
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

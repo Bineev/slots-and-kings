@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://wxnytdqewprw"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_jj7lu"]
+[ext_resource type="Texture2D" uid="uid://pvjooio8l5xh" path="res://img/skills/passive_skill_prospector_w3.png" id="2_5ujr1"]
+
+[resource]
+script = ExtResource("1_jj7lu")
+skill_tier = 2
+skill_name = "старатель - 3 волны"
+skill_desc = "Дает 1100 золота каждые 3 волы"
+skill_preview = ExtResource("2_5ujr1")
+skill_resources = Array[int]([0])
+skill_resources_amounts = Array[int]([1100])
+skill_wave_count = 3
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

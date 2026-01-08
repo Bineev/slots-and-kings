@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://drf4nmkrixc1u"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_14j6b"]
+[ext_resource type="Texture2D" uid="uid://ct24q8pmlc1ix" path="res://img/skills/passive_skill_artisan_w1.png" id="2_jhc7q"]
+
+[resource]
+script = ExtResource("1_14j6b")
+skill_tier = 1
+skill_name = "мастеровой - 1 волна"
+skill_desc = "Дает 4 токена после каждой волны"
+skill_preview = ExtResource("2_jhc7q")
+skill_resources = Array[int]([2])
+skill_resources_amounts = Array[int]([4])
+skill_wave_count = 1
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

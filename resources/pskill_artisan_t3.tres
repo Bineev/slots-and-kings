@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://28aj1s1df7uc"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_gth8s"]
+[ext_resource type="Texture2D" uid="uid://d38663840w5hm" path="res://img/skills/passive_skill_artisan_t3.png" id="2_ndfrf"]
+
+[resource]
+script = ExtResource("1_gth8s")
+skill_passive_type = 2
+skill_tier = 2
+skill_name = "мастеровой - 3 мин"
+skill_desc = "Дает 12 токенов каждые 3 минуты"
+skill_preview = ExtResource("2_ndfrf")
+skill_resources = Array[int]([2])
+skill_resources_amounts = Array[int]([12])
+get_something_time = 180
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

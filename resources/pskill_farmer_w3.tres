@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://83xig3dt7c6u"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_dvhmy"]
+[ext_resource type="Texture2D" uid="uid://cvuehhywsg4cw" path="res://img/skills/passive_skill_farmer_w3.png" id="2_jhs8h"]
+
+[resource]
+script = ExtResource("1_dvhmy")
+skill_tier = 2
+skill_name = "фермер - 3 волны"
+skill_desc = "Дает 12 еды каждую третью волню"
+skill_preview = ExtResource("2_jhs8h")
+skill_resources = Array[int]([1])
+skill_resources_amounts = Array[int]([12])
+skill_wave_count = 3
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

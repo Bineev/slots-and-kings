@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://dvvbsjgypaqgy"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_7aanu"]
+[ext_resource type="Texture2D" uid="uid://c0e1p3vihm3sd" path="res://img/skills/passive_skill_artisan_w3.png" id="2_tkclf"]
+
+[resource]
+script = ExtResource("1_7aanu")
+skill_name = "мастеровой - 3 волны"
+skill_desc = "Дает 15 токенов после каждой третьей волны"
+skill_preview = ExtResource("2_tkclf")
+skill_resources = Array[int]([2])
+skill_resources_amounts = Array[int]([15])
+skill_wave_count = 3
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

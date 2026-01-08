@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://c32koje6af55r"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_gh2p6"]
+[ext_resource type="Texture2D" uid="uid://b7xv1h4ntgyrg" path="res://img/skills/passive_skill_fox_banner.png" id="2_2yko0"]
+
+[resource]
+script = ExtResource("1_gh2p6")
+skill_passive_type = 5
+skill_tier = 3
+skill_name = "баннер лисы"
+skill_desc = "Всю убийцы получать бонус к урону"
+skill_preview = ExtResource("2_2yko0")
+skill_damage_type = 6
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 1.5,
+"stat_change_type": 1,
+"stat_name": "true_damage"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
