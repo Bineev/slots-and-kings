@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://w3lhemek26tk"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_dox07"]
+[ext_resource type="Texture2D" uid="uid://dtsli2t34ll34" path="res://img/skills/passive_skill_cutthroat_aspd_trueattack.png" id="2_hu6lp"]
+
+[resource]
+script = ExtResource("1_dox07")
+skill_passive_type = 4
+skill_tier = 2
+skill_name = "головорез - ярость"
+skill_desc = "Боец \"Головорез\" повышает чистый урон и скорость атаки"
+skill_preview = ExtResource("2_hu6lp")
+skill_unit_name = "головорез"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 7.0,
+"stat_change_type": 0,
+"stat_name": "true_damage"
+}, {
+"stat_change_amount": -0.4,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

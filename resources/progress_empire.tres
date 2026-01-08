@@ -36,9 +36,9 @@
 [ext_resource type="Resource" uid="uid://dcv6n8g7fx1qh" path="res://resources/unit_castle_demonhunter.tres" id="9_oceh7"]
 [ext_resource type="Resource" uid="uid://5d7e4x3a7q1g" path="res://resources/upgrade_critattack_35.tres" id="10_b333a"]
 [ext_resource type="Resource" uid="uid://d7km51osiml4" path="res://resources/perc_atheist.tres" id="10_brj8e"]
+[ext_resource type="Resource" uid="uid://w3lhemek26tk" path="res://resources/pskill_cutthroat_aspd_tattack.tres" id="10_cdw33"]
 [ext_resource type="Resource" uid="uid://dc3j4kxhjdsc8" path="res://resources/perc_sharpshooter.tres" id="10_di60n"]
 [ext_resource type="Resource" uid="uid://ou85bbbd7mbo" path="res://resources/upgrade_movespeed_15.tres" id="10_j0jjq"]
-[ext_resource type="Resource" uid="uid://cdeogyfkycky7" path="res://resources/pskill_archer_pattack_hp.tres" id="10_jriot"]
 [ext_resource type="Resource" uid="uid://cfpwvb842xqxh" path="res://resources/upgrade_mdef_15.tres" id="11_5sxex"]
 [ext_resource type="Resource" uid="uid://dyjdhwvhcysyt" path="res://resources/upgrade_critattack_70.tres" id="11_brj8e"]
 [ext_resource type="Resource" uid="uid://cg2i6usnlw27n" path="res://resources/perc_bessoted.tres" id="11_qkkhw"]
@@ -113,7 +113,7 @@ base_units_reses = Array[Resource]([ExtResource("3_sf6q5"), ExtResource("3_sf6q5
 base_upgrades_reses = Array[Resource]([ExtResource("12_vv8np"), ExtResource("5_34q24"), ExtResource("5_34q24"), ExtResource("5_34q24")])
 base_percs_reses = Array[Resource]([ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("2_2wd87")])
 base_pskills_dict = Dictionary[int, Array]({
-0: [[ExtResource("9_5wk7d"), ExtResource("10_jriot")], null, null],
+0: [[ExtResource("9_5wk7d"), ExtResource("10_cdw33")], null, null],
 2: [[ExtResource("9_5wk7d"), ExtResource("4_cdw33")], null, null],
 4: [[ExtResource("9_5wk7d"), ExtResource("12_cdw33")], [], []]
 })

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://lab88xgp14mx"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_kqaiw"]
+[ext_resource type="Texture2D" uid="uid://bcpdppuvc8pxj" path="res://img/skills/passive_skill_cutthroat_evade_mspd.png" id="2_cuprc"]
+
+[resource]
+script = ExtResource("1_kqaiw")
+skill_passive_type = 4
+skill_tier = 2
+skill_name = "головорез - дисциплина"
+skill_desc = "Боец \"Головорез\" повышает скорость движения и уворот"
+skill_preview = ExtResource("2_cuprc")
+skill_unit_name = "головорез"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "move_speed"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "evade"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
