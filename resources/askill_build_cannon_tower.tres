@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=5 format=3 uid="uid://c86hn1h03hops"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_y2jjp"]
+[ext_resource type="Texture2D" uid="uid://bewyyprtao8db" path="res://img/skills/active_skill_building_anim.png" id="2_um7w3"]
+[ext_resource type="Texture2D" uid="uid://2fcu3g60274p" path="res://img/skills/active_skill_cannon_tower.png" id="3_xc7o3"]
+[ext_resource type="Resource" uid="uid://dcb68xsox7whr" path="res://resources/unit_castle_cannon_tower.tres" id="4_bjqp0"]
+
+[resource]
+script = ExtResource("1_y2jjp")
+skill_tier = 3
+skill_name = "построить Оружейную башню"
+skill_desc = "Возводит в области башню, стреляющую шрапнелью"
+skill_preview = ExtResource("3_xc7o3")
+skill_anim = ExtResource("2_um7w3")
+skill_target_type = 1
+skill_damage_type = 2
+skill_slot_scenes = Array[Array]([[ExtResource("4_bjqp0")]])
+skill_delay = 0.5
+skill_cooldown = 180.0
+skill_duration = 60.0
+skill_range = 20.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

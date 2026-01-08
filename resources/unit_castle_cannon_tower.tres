@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SlotUnitRes" load_steps=5 format=3 uid="uid://dcb68xsox7whr"]
+
+[ext_resource type="Script" uid="uid://853hpku0xq1e" path="res://resources/slot_unit_res.gd" id="1_meeox"]
+[ext_resource type="Texture2D" uid="uid://13gjwm0n7ym8" path="res://img/slots/castle_cannon_tower_preview.png" id="2_2rx05"]
+[ext_resource type="Texture2D" uid="uid://dnriaget5qu7e" path="res://img/projectile_cannon_tower.png" id="3_b4d0i"]
+[ext_resource type="Texture2D" uid="uid://b1h6awukwn8p8" path="res://img/units/castle_cannon_tower_anim.png" id="4_kjcyo"]
+
+[resource]
+script = ExtResource("1_meeox")
+unit_tier = 16
+unit_types = Array[int]([1, 2])
+unit_cost = 4
+unit_sprite = ExtResource("4_kjcyo")
+unit_attack_type = 1
+unit_projectile_texture = ExtResource("3_b4d0i")
+slot_name = "оружейная башня"
+slot_description = "Начинена пушками по самое не балуй"
+slot_sprite = ExtResource("2_2rx05")
+slot_type = 1
+entity_tier = 4
+physical_attack = 20.0
+health = 220.0
+armor = 50.0
+magic_defence = 50.0
+attack_speed = 2.0
+hit_chance = 100.0
+crit_chance = 30.0
+attack_range = 80.0
+projectile_speed = 300.0
+projectile_attack_range = 40.0
+metadata/_custom_type_script = "uid://853hpku0xq1e"
