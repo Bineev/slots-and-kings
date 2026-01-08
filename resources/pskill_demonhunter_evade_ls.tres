@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://cuf2m2v578g6m"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_5pn5p"]
+[ext_resource type="Texture2D" uid="uid://rw316hmafkdm" path="res://img/skills/passive_skill_demonhunter_evade_ls.png" id="2_b51vs"]
+
+[resource]
+script = ExtResource("1_5pn5p")
+skill_passive_type = 4
+skill_tier = 4
+skill_name = "охотник на демонов - дисциплина"
+skill_desc = "Боец \"Охотник на демонов\" повышает уворот и лайстил"
+skill_preview = ExtResource("2_b51vs")
+skill_unit_name = "охотник на демонов"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "evade"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "life_steal"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

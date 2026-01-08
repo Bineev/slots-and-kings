@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://cikpjktqei828"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_ebp6r"]
+[ext_resource type="Texture2D" uid="uid://bqg003ehvaajh" path="res://img/skills/passive_skill_demonhunter_pattack_critchance.png" id="2_0htpy"]
+
+[resource]
+script = ExtResource("1_ebp6r")
+skill_passive_type = 4
+skill_tier = 4
+skill_name = "охотник на демонов - мастерство"
+skill_desc = "Боец \"Охотник на демонов\" повышает физ атаку и шанс крита"
+skill_preview = ExtResource("2_0htpy")
+skill_unit_name = "охотник на демонов"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 15.0,
+"stat_change_type": 0,
+"stat_name": "physical_attack"
+}, {
+"stat_change_amount": 15.0,
+"stat_change_type": 0,
+"stat_name": "crit_chance"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

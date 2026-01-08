@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://cro1p7dw8bv16"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_gc0wu"]
+[ext_resource type="Texture2D" uid="uid://cc1c5kx3xjjsl" path="res://img/skills/passive_skill_demonhunter_range_critattack.png" id="2_1apum"]
+
+[resource]
+script = ExtResource("1_gc0wu")
+skill_passive_type = 4
+skill_tier = 4
+skill_name = "охотник на демонов - ярость"
+skill_desc = "Боец \"Охотник на демонов\" повышает крит атаку и дальность"
+skill_preview = ExtResource("2_1apum")
+skill_unit_name = "охотник на демонов"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "attack_range"
+}, {
+"stat_change_amount": 50.0,
+"stat_change_type": 0,
+"stat_name": "crit_attack"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

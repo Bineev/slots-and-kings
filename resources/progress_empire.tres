@@ -35,7 +35,7 @@
 [ext_resource type="Resource" uid="uid://dcv6n8g7fx1qh" path="res://resources/unit_castle_demonhunter.tres" id="9_oceh7"]
 [ext_resource type="Resource" uid="uid://5d7e4x3a7q1g" path="res://resources/upgrade_critattack_35.tres" id="10_b333a"]
 [ext_resource type="Resource" uid="uid://d7km51osiml4" path="res://resources/perc_atheist.tres" id="10_brj8e"]
-[ext_resource type="Resource" uid="uid://cs1jrw5ldq335" path="res://resources/pskill_knight_mspd_range.tres" id="10_cdw33"]
+[ext_resource type="Resource" uid="uid://cikpjktqei828" path="res://resources/pskill_demonhunter_pattack_critchance.tres" id="10_cdw33"]
 [ext_resource type="Resource" uid="uid://dc3j4kxhjdsc8" path="res://resources/perc_sharpshooter.tres" id="10_di60n"]
 [ext_resource type="Resource" uid="uid://ou85bbbd7mbo" path="res://resources/upgrade_movespeed_15.tres" id="10_j0jjq"]
 [ext_resource type="Resource" uid="uid://cfpwvb842xqxh" path="res://resources/upgrade_mdef_15.tres" id="11_5sxex"]
