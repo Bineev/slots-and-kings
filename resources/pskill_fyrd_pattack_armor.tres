@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://cm5hi7wlp2kt4"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_33m6b"]
+[ext_resource type="Texture2D" uid="uid://dx5mmuotcd22k" path="res://img/skills/passive_skill_fyrd_pattack_armor.png" id="2_4rbvs"]
+
+[resource]
+script = ExtResource("1_33m6b")
+skill_passive_type = 4
+skill_tier = 1
+skill_name = "ополченец - мастерство"
+skill_desc = "Боец \"Ополченец\" повышает физ атаку и броню"
+skill_preview = ExtResource("2_4rbvs")
+skill_unit_name = "ополченец"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 8.0,
+"stat_change_type": 0,
+"stat_name": "physical_attack"
+}, {
+"stat_change_amount": 15.0,
+"stat_change_type": 0,
+"stat_name": "armor"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

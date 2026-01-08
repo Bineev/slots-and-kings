@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://chty7v5vbdpy3"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_507lf"]
+[ext_resource type="Texture2D" uid="uid://cpkrd466gea2f" path="res://img/skills/passive_skill_fyrd_mspd_aspd.png" id="2_w2kdg"]
+
+[resource]
+script = ExtResource("1_507lf")
+skill_passive_type = 4
+skill_tier = 1
+skill_name = "ополченец - ярость"
+skill_desc = "Боец \"Ополченец\" повышает скорость атаки и движения"
+skill_preview = ExtResource("2_w2kdg")
+skill_unit_name = "ополченец"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 15.0,
+"stat_change_type": 0,
+"stat_name": "move_speed"
+}, {
+"stat_change_amount": -0.5,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
