@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://crxmv7m3haq71"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_glx2v"]
+[ext_resource type="Texture2D" uid="uid://bey3goyli4up4" path="res://img/skills/passive_skill_knight_aspd_critchance.png" id="2_0nfki"]
+
+[resource]
+script = ExtResource("1_glx2v")
+skill_passive_type = 4
+skill_tier = 3
+skill_name = "рыцарь - мастерство"
+skill_desc = "Боец \"Рыцарь\" повышает скорость атаки и шанс крита"
+skill_preview = ExtResource("2_0nfki")
+skill_unit_name = "рыцарь"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": -0.4,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}, {
+"stat_change_amount": 30.0,
+"stat_change_type": 0,
+"stat_name": "crit_chance"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://cs1jrw5ldq335"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_u516b"]
+[ext_resource type="Texture2D" uid="uid://bxitjk86b8vht" path="res://img/skills/passive_skill_knight_mspd_range.png" id="2_ulaat"]
+
+[resource]
+script = ExtResource("1_u516b")
+skill_passive_type = 4
+skill_tier = 3
+skill_name = "рыцарь - ярость"
+skill_desc = "Боец \"Рыцарь\" повышает скорость движения и дальность"
+skill_preview = ExtResource("2_ulaat")
+skill_unit_name = "рыцарь"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "move_speed"
+}, {
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "attack_range"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
