@@ -40,7 +40,7 @@
 [ext_resource type="Resource" uid="uid://ou85bbbd7mbo" path="res://resources/upgrade_movespeed_15.tres" id="10_j0jjq"]
 [ext_resource type="Resource" uid="uid://cfpwvb842xqxh" path="res://resources/upgrade_mdef_15.tres" id="11_5sxex"]
 [ext_resource type="Resource" uid="uid://dyjdhwvhcysyt" path="res://resources/upgrade_critattack_70.tres" id="11_brj8e"]
-[ext_resource type="Resource" uid="uid://duxabmiifxohi" path="res://resources/pskill_inq_mattack_range.tres" id="11_cdw33"]
+[ext_resource type="Resource" uid="uid://bnn54bb38nahi" path="res://resources/pskill_sunpriest_range_tattack.tres" id="11_cdw33"]
 [ext_resource type="Resource" uid="uid://cg2i6usnlw27n" path="res://resources/perc_bessoted.tres" id="11_qkkhw"]
 [ext_resource type="Resource" uid="uid://crxmv7m3haq71" path="res://resources/pskill_knight_aspd_critchance.tres" id="12_cdw33"]
 [ext_resource type="Resource" uid="uid://cw3xvx403gm8n" path="res://resources/upgrade_critattack_100.tres" id="12_m6kss"]

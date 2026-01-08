@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://bnn54bb38nahi"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_40idi"]
+[ext_resource type="Texture2D" uid="uid://dlkuc7s323ul4" path="res://img/skills/passive_skill_sunpriest_tattack_range.png" id="2_c0h00"]
+
+[resource]
+script = ExtResource("1_40idi")
+skill_passive_type = 4
+skill_tier = 4
+skill_name = "жрец солнца - мастерство"
+skill_desc = "Боец \"Жрец солнца\" повышает чистый урон и дальность"
+skill_preview = ExtResource("2_c0h00")
+skill_unit_name = "жрец солнца"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 30.0,
+"stat_change_type": 0,
+"stat_name": "attack_range"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "true_damage"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
