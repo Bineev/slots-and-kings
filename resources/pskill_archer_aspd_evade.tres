@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://dbkw12g7k07k0"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_5l4b0"]
+[ext_resource type="Texture2D" uid="uid://jl33sg7d2fkw" path="res://img/skills/passive_skill_archer_aspd_evade.png" id="2_fj3yp"]
+
+[resource]
+script = ExtResource("1_5l4b0")
+skill_passive_type = 4
+skill_tier = 1
+skill_name = "лучник - дисциплина"
+skill_desc = "Боец \"Лучник\" увеличивает скорость атаки и уворот"
+skill_preview = ExtResource("2_fj3yp")
+skill_unit_name = "лучник"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "evade"
+}, {
+"stat_change_amount": -0.5,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

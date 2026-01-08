@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://qhigut50qdjm"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_h1f2i"]
+[ext_resource type="Texture2D" uid="uid://csgf7phae0ih1" path="res://img/skills/passive_skill_archer_mvspd_range.png" id="2_rjl5q"]
+
+[resource]
+script = ExtResource("1_h1f2i")
+skill_passive_type = 4
+skill_tier = 1
+skill_name = "лучник - ярость"
+skill_desc = "Боец \"Лучник\" увеличивает скорость движения и дальность атаки"
+skill_preview = ExtResource("2_rjl5q")
+skill_unit_name = "лучник"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "move_speed"
+}, {
+"stat_change_amount": 50.0,
+"stat_change_type": 0,
+"stat_name": "attack_range"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

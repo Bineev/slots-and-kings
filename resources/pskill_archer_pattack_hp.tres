@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://cdeogyfkycky7"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_joamy"]
+[ext_resource type="Texture2D" uid="uid://7s66lly7dm82" path="res://img/skills/passive_skill_archer_pattack_hp.png" id="2_onbw6"]
+
+[resource]
+script = ExtResource("1_joamy")
+skill_passive_type = 4
+skill_tier = 1
+skill_name = "лучник - мастерство"
+skill_desc = "Боец \"Лучник\" увеличивает урон и шанс крита"
+skill_preview = ExtResource("2_onbw6")
+skill_unit_name = "лучник"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 4.0,
+"stat_change_type": 0,
+"stat_name": "physical_attack"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "crit_chance"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
