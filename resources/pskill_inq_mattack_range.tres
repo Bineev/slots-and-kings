@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://duxabmiifxohi"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_rn1ou"]
+[ext_resource type="Texture2D" uid="uid://3y2avm2qs31v" path="res://img/skills/passive_skill_inq_mattack_range.png" id="2_oqyv5"]
+
+[resource]
+script = ExtResource("1_rn1ou")
+skill_passive_type = 4
+skill_tier = 3
+skill_name = "инквизитор - мастерство"
+skill_desc = "Боец \"Инквизитор\" повышает маг атаку и дальность"
+skill_preview = ExtResource("2_oqyv5")
+skill_unit_name = "инквизитор"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 12.0,
+"stat_change_type": 0,
+"stat_name": "magical_attack"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "attack_range"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

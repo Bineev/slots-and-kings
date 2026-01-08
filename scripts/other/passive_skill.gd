@@ -126,10 +126,10 @@ func apply_stat(current_unit : Unit):
 	for dict in skill_buff_stats:
 		if dict.stat_change_type == 0:
 			if dict.stat_name == 'health_regen_interval':
-				if current_unit.get('current_%s' % dict.stat_name) == INF:
+				if current_unit.get('current_%s' % dict.stat_name) > dict.stat_change_amount:
 					current_unit.set('current_%s' % dict.stat_name, dict.stat_change_amount)
-				else:
-					current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
+				#else:
+					#current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)
 				current_unit.update_health_regen_interval()
 			else:
 				current_unit.set('current_%s' % dict.stat_name, current_unit.get('current_%s' % dict.stat_name) + dict.stat_change_amount)

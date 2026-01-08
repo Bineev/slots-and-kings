@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://b1s050c886c15"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_1dsm4"]
+[ext_resource type="Texture2D" uid="uid://diuw1lhxgsgqg" path="res://img/skills/passive_skill_inq_regen_armor.png" id="2_cmpjy"]
+
+[resource]
+script = ExtResource("1_1dsm4")
+skill_passive_type = 4
+skill_tier = 3
+skill_name = "инквизитор - дисциплина"
+skill_desc = "Боец \"Инквизитор\" повышает регенерацию и броню"
+skill_preview = ExtResource("2_cmpjy")
+skill_unit_name = "инквизитор"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 15.0,
+"stat_change_type": 0,
+"stat_name": "health_regen"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "armor"
+}, {
+"stat_change_amount": 4.0,
+"stat_change_type": 0,
+"stat_name": "health_regen_interval"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
