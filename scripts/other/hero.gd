@@ -47,17 +47,21 @@ func initialize():
 	# добавляем скиллы
 	# скорректировать
 	for res in passives_reses:
-		var passive : PassiveSkill = Player.create_passive_skill(res)
+		var passive : Skill = Player.create_passive_skill(res)
 		# установить нужные данные для скилла
 		passive_container.add_child(passive)
 		passive.set_skill_owner(self)
 		passive.initialize()
+		#passives.append(passive)
+		add_passive_skill(passive)
 	for res in actives_reses:
-		var active : ActiveSkill = Player.create_active_skill(res)
+		var active : Skill = Player.create_active_skill(res)
 		# установить нужные данные для скилла
 		active_container.add_child(active)
 		active.set_skill_owner(self)
 		active.initialize()
+		add_active_skill(active)
+		#actives.append(active)
 	is_active = true
 
 
@@ -115,3 +119,8 @@ func set_hero_name(new_hero_name : String):
 
 func level_up():
 	pass
+
+
+func set_skills_is_active():
+	for active in actives:
+		active.set_is_active(true)

@@ -40,3 +40,4 @@ signal on_choose_removed_slot(slot : Slot)
 signal on_swap_done
 signal on_cant_swap
 signal on_clear_tooltips
+signal on_hero_choose_done(hero : Hero)

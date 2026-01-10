@@ -37,6 +37,7 @@ var unit_stat_changes_dict : Dictionary[Unit, Dictionary]
 
 var slots : Array[Slot]
 var units : Array[Unit]
+var is_active : bool = false
 
 
 func create_entity():
@@ -133,7 +134,7 @@ func set_skill_delay(new_skill_delay : float):
 
 
 func _on_gui_input(event: InputEvent) -> void:
-	if is_on_cd:
+	if is_on_cd or not is_active:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -445,3 +446,7 @@ func back_stats(target : Unit):
 
 func _on_skill_anim_player_animation_finished(anim_name: StringName) -> void:
 	skill_anim_player.play("RESET")
+
+
+func set_is_active(new_is_active : bool):
+	is_active = new_is_active

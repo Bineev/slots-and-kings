@@ -73,6 +73,7 @@ func _ready() -> void:
 	SignalManager.on_create_projectile.connect(create_projectile)
 	SignalManager.on_ready_choose_ui.connect(align_popup)
 	SignalManager.on_clear_tooltips.connect(clear_tooltips)
+	SignalManager.on_hero_choose_done.connect(add_hero_to_field)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
@@ -418,9 +419,14 @@ func remove_tooltip(tooltip : Tooltip):
 func add_hero_to_field(hero : Hero):
 	var hero_slot : Spawner = heroes_slots_points.pop_front()
 	hero_slot.is_filled = true
-	heroes.add_child(hero)
+	if hero.get_parent():
+		hero.reparent(heroes)
+	else:
+		heroes.add_child(hero)
+		hero.initialize()
 	hero.global_position = hero_slot.global_position
-	hero.initialize()
+	hero.is_active = true
+	get_tree().create_timer(0.5).timeout.connect(hero.set_skills_is_active)
 
 
 func _on_is_in_fight_timer_timeout() -> void:

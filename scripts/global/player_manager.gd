@@ -9,6 +9,7 @@ extends Node
 @export var crystals : int
 @export var can_swap_time : float
 @export var is_can_swap : bool
+@export var heroes_choose_count : int = 2
 
 @export var wave_rewards : Array[DataManager.RewardType]
 @export var empty_perc_scene : PackedScene
@@ -546,3 +547,7 @@ func create_passive_skill(skill_res : Resource):
 	var skill : PassiveSkill = passive_skill_scene.instantiate()
 	skill.skill_res = skill_res
 	return skill
+
+
+func get_heroes_choose_count():
+	return heroes_choose_count

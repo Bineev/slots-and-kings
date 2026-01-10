@@ -300,7 +300,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	if unit_owner == DataManager.UnitOwner.ENEMY:
 		unit_sprite.flip_h = true
 	set_collisions_by_owner()
-	Player.apply_heroes_skills(self)
+	#Player.apply_heroes_skills(self)
 	apply_stats()
 	generate_drop_chances()
 	var ar_shape = CircleShape2D.new()
