@@ -440,6 +440,9 @@ func pause_timers():
 	var timers : Array[Timer]
 	recursive_find(self, Timer, timers)
 	for timer in timers:
+		print(timer.name)
+		if timer.name == 'timer_deactivate' or timer.name == 'timer_skill_delay' or timer.name == 'timer_deactivate':
+			continue
 		timer.paused = true
 
 
@@ -447,7 +450,8 @@ func unpause_timers():
 	var timers : Array[Timer]
 	recursive_find(self, Timer, timers)
 	for timer in timers:
-		timer.paused = false
+		if timer.paused:
+			timer.paused = false
 
 
 func recursive_find(node, target_type, result_array):

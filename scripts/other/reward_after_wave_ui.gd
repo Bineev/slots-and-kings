@@ -52,7 +52,7 @@ func show_choose_UI():
 			choose_hero_UI.set_heroes_count(heroes_count)
 			choose_hero_UI.set_heroes_level(wave_count)
 			# поменять если нужно повышать уровень с прогрессом волн
-			choose_hero_UI.set_heroes(Player.get_random_heroes(heroes_count, 1))
+			choose_hero_UI.set_heroes(Player.get_random_heroes(heroes_count, 10))
 			#choose_hero_UI.initialize()
 			SignalManager.on_show_choose_UI_after_wave.emit(choose_hero_UI)
 			return

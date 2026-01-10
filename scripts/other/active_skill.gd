@@ -86,6 +86,7 @@ func initialize():
 	# инициализируем статы
 	# пересчитываем исходя из стат героя
 	recalculate_stats()
+	skill_anim_player.get_animation("skill").loop_mode = Animation.LOOP_NONE
 	texture = skill_res.skill_preview
 	skill_anim.texture = skill_res.skill_anim
 	timer_cd.wait_time = skill_cooldown
@@ -97,7 +98,7 @@ func initialize():
 	if is_void_zone:
 		if skill_anim_player.get_animation('skill'):
 			skill_anim_player.get_animation("skill").loop_mode = Animation.LOOP_LINEAR
-	skill_anim_player.speed_scale = DataManager.action_speed_coeff
+	#skill_anim_player.speed_scale = DataManager.action_speed_coeff
 
 
 
@@ -348,8 +349,8 @@ func apply_damage(current_target : Unit):
 
 
 func deactivate():
-	if skill_anim_player.get_animation('skill') and skill_anim_player.get_animation('skill').loop_mode != Animation.LOOP_NONE:
-		skill_anim_player.stop()
+	if skill_anim_player.get_animation('skill'):
+		#skill_anim_player.stop()
 		skill_anim_player.play("RESET")
 	#skill_anim.hide()
 	skill_zone.stop_working()
@@ -445,7 +446,8 @@ func back_stats(target : Unit):
 
 
 func _on_skill_anim_player_animation_finished(anim_name: StringName) -> void:
-	skill_anim_player.play("RESET")
+	if anim_name == 'skill':
+		skill_anim_player.play("RESET")
 
 
 func set_is_active(new_is_active : bool):
