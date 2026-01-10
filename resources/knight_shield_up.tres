@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="SkillRes" load_steps=3 format=3 uid="uid://bhv4mcelc2yxr"]
+[gd_resource type="Resource" script_class="SkillRes" load_steps=4 format=3 uid="uid://bhv4mcelc2yxr"]
 
 [ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_0o04m"]
 [ext_resource type="Texture2D" uid="uid://bua8po4uqirbi" path="res://img/skills/active_skill_stat_shield_up.png" id="2_24qut"]
+[ext_resource type="Texture2D" uid="uid://bml60axdekv8o" path="res://img/skills/active_skill_charge_anim.png" id="2_qk0j2"]
 
 [resource]
 script = ExtResource("1_0o04m")
@@ -9,6 +10,7 @@ skill_tier = 1
 skill_name = "поднять щиты"
 skill_desc = "Комманда подководца временно повышает броню и макс здоровье выбранным юнитам"
 skill_preview = ExtResource("2_24qut")
+skill_anim = ExtResource("2_qk0j2")
 skill_buff_stats = Array[Dictionary]([{
 "stat_change_amount": 20.0,
 "stat_change_type": 0,

@@ -96,6 +96,7 @@ func initialize():
 	if is_void_zone:
 		if skill_anim_player.get_animation('skill'):
 			skill_anim_player.get_animation("skill").loop_mode = Animation.LOOP_LINEAR
+	skill_anim_player.speed_scale = DataManager.action_speed_coeff
 
 
 
