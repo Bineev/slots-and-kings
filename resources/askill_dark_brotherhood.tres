@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=5 format=3 uid="uid://c5oyc5f8i10pe"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_rxygg"]
+[ext_resource type="Texture2D" uid="uid://dcc3fknak4ayu" path="res://img/skills/active_skill_reinforcement_anim.png" id="2_25ai6"]
+[ext_resource type="Texture2D" uid="uid://oyf7ksb2dh02" path="res://img/skills/active_skill_dark_brotherhood.png" id="3_bm40m"]
+[ext_resource type="Resource" uid="uid://d62nskxn4g5g" path="res://resources/unit_castle_cutthroat.tres" id="4_m8jgn"]
+
+[resource]
+script = ExtResource("1_rxygg")
+skill_tier = 2
+skill_name = "темное братство"
+skill_desc = "Призывает в бой группу головорезов"
+skill_preview = ExtResource("3_bm40m")
+skill_anim = ExtResource("2_25ai6")
+skill_slot_scenes = Array[Array]([[ExtResource("4_m8jgn")], [ExtResource("4_m8jgn")], [ExtResource("4_m8jgn")]])
+skill_delay = 0.5
+skill_cooldown = 180.0
+skill_duration = 45.0
+skill_range = 30.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

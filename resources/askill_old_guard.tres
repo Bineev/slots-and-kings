@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=7 format=3 uid="uid://ck3t316e3jp5w"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_dp0dv"]
+[ext_resource type="Texture2D" uid="uid://dcc3fknak4ayu" path="res://img/skills/active_skill_reinforcement_anim.png" id="2_yu663"]
+[ext_resource type="Texture2D" uid="uid://bjof33bupt5eo" path="res://img/skills/active_skill_old_guard.png" id="3_ewhut"]
+[ext_resource type="Resource" uid="uid://dnbgdqcd4bfnl" path="res://resources/unit_castle_knight.tres" id="4_wadu0"]
+[ext_resource type="Resource" uid="uid://bwungclyl202l" path="res://resources/upgrade_damage_30.tres" id="5_ya557"]
+[ext_resource type="Resource" uid="uid://bfrkrpb27lrlr" path="res://resources/upgrade_health_60.tres" id="6_4g3xb"]
+
+[resource]
+script = ExtResource("1_dp0dv")
+skill_tier = 4
+skill_name = "старая гвардия"
+skill_desc = "Призывает в бой отряд элитных рыцарей"
+skill_preview = ExtResource("3_ewhut")
+skill_anim = ExtResource("2_yu663")
+skill_slot_scenes = Array[Array]([[ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")], [ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")], [ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")], [ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")], [ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")]])
+skill_delay = 0.5
+skill_cooldown = 150.0
+skill_duration = 60.0
+skill_range = 40.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

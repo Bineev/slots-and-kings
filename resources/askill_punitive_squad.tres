@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=5 format=3 uid="uid://db6ikvqea11cr"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_ssnd6"]
+[ext_resource type="Texture2D" uid="uid://dcc3fknak4ayu" path="res://img/skills/active_skill_reinforcement_anim.png" id="2_hde8j"]
+[ext_resource type="Texture2D" uid="uid://clnbdfxwaka62" path="res://img/skills/active_skill_elderly_squad.png" id="3_yfm5g"]
+[ext_resource type="Resource" uid="uid://h4dlt5axqlsb" path="res://resources/unit_castle_warlock.tres" id="4_84ux5"]
+
+[resource]
+script = ExtResource("1_ssnd6")
+skill_tier = 2
+skill_name = "пожилой отряд"
+skill_desc = "Призывает на поле боя группу колдунов"
+skill_preview = ExtResource("3_yfm5g")
+skill_anim = ExtResource("2_hde8j")
+skill_slot_scenes = Array[Array]([[ExtResource("4_84ux5")], [ExtResource("4_84ux5")], [ExtResource("4_84ux5")]])
+skill_delay = 0.5
+skill_cooldown = 220.0
+skill_duration = 60.0
+skill_range = 25.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"

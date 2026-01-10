@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SkillRes" load_steps=7 format=3 uid="uid://byvka5ithuew8"]
+
+[ext_resource type="Script" uid="uid://htmox0cey8gh" path="res://resources/skill_res.gd" id="1_0w8gs"]
+[ext_resource type="Texture2D" uid="uid://dcc3fknak4ayu" path="res://img/skills/active_skill_reinforcement_anim.png" id="2_3ax7l"]
+[ext_resource type="Texture2D" uid="uid://tbygfh3kbge5" path="res://img/skills/active_skill_sun_cult.png" id="3_7t8wx"]
+[ext_resource type="Resource" uid="uid://7pmxvr6da48b" path="res://resources/unit_castle_sun_priest.tres" id="4_7wiu3"]
+[ext_resource type="Resource" uid="uid://b516xhwhqgplu" path="res://resources/upgrade_tattack_40.tres" id="5_elokx"]
+[ext_resource type="Resource" uid="uid://bfrkrpb27lrlr" path="res://resources/upgrade_health_60.tres" id="6_jdkjm"]
+
+[resource]
+script = ExtResource("1_0w8gs")
+skill_tier = 4
+skill_name = "культ солнца"
+skill_desc = "Призывает в бой группу элитных жрецов солнца"
+skill_preview = ExtResource("3_7t8wx")
+skill_anim = ExtResource("2_3ax7l")
+skill_slot_scenes = Array[Array]([[ExtResource("4_7wiu3"), ExtResource("5_elokx"), ExtResource("6_jdkjm")], [ExtResource("4_7wiu3"), ExtResource("5_elokx"), ExtResource("6_jdkjm")], [ExtResource("4_7wiu3"), ExtResource("5_elokx"), ExtResource("6_jdkjm")]])
+skill_delay = 0.5
+skill_cooldown = 150.0
+skill_duration = 60.0
+skill_range = 40.0
+metadata/_custom_type_script = "uid://htmox0cey8gh"
