@@ -223,7 +223,6 @@ func _on_area_entered(area: Area2D) -> void:
 		var slot : Slot = area
 		current_swap_slots.append(slot)
 		slot.input_pickable = false
-		print(current_swap_slots)
 
 
 func _on_area_exited(area: Area2D) -> void:

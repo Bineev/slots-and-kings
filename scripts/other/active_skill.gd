@@ -86,7 +86,7 @@ func initialize():
 	# инициализируем статы
 	# пересчитываем исходя из стат героя
 	recalculate_stats()
-	skill_anim_player.get_animation("skill").loop_mode = Animation.LOOP_NONE
+	skill_anim_player.get_animation('skill').loop_mode = Animation.LOOP_NONE
 	texture = skill_res.skill_preview
 	skill_anim.texture = skill_res.skill_anim
 	timer_cd.wait_time = skill_cooldown
@@ -97,9 +97,15 @@ func initialize():
 		skill_anim.z_index
 	if is_void_zone:
 		if skill_anim_player.get_animation('skill'):
-			skill_anim_player.get_animation("skill").loop_mode = Animation.LOOP_LINEAR
+			skill_anim_player.get_animation('skill').loop_mode = Animation.LOOP_LINEAR
 	#skill_anim_player.speed_scale = DataManager.action_speed_coeff
 
+
+func reinit():
+	skill_anim_player.get_animation('skill').loop_mode = Animation.LOOP_NONE
+	if is_void_zone:
+		if skill_anim_player.get_animation('skill'):
+			skill_anim_player.get_animation('skill').loop_mode = Animation.LOOP_LINEAR
 
 
 func _process(delta: float) -> void:
@@ -456,3 +462,8 @@ func _on_skill_anim_player_animation_finished(anim_name: StringName) -> void:
 
 func set_is_active(new_is_active : bool):
 	is_active = new_is_active
+
+
+func _on_skill_anim_player_animation_started(anim_name: StringName) -> void:
+	print(anim_name)
+	print(skill_anim_player.get_animation(anim_name).loop_mode)

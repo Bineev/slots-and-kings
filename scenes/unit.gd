@@ -390,7 +390,6 @@ func apply_state():
 			if unit_state != DataManager.UnitState.DIED and unit_state != DataManager.UnitState.DEAD:
 				#unit_anim_player.stop()
 				unit_anim_player.play('idle')
-				print(unit_name + ' idle')
 				unit_anim_player.speed_scale = DataManager.action_speed_coeff
 		DataManager.UnitState.WALK:
 			#unit_anim_player.stop()

@@ -8,13 +8,13 @@
 script = ExtResource("1_0o04m")
 skill_tier = 1
 skill_name = "поднять щиты"
-skill_desc = "Комманда подководца временно повышает броню и макс здоровье выбранным юнитам"
+skill_desc = "Комманда подководца временно повышает броню и уворот выбранным юнитам, также восстанавливает здоровье"
 skill_preview = ExtResource("2_24qut")
 skill_anim = ExtResource("2_qk0j2")
 skill_buff_stats = Array[Dictionary]([{
 "stat_change_amount": 20.0,
 "stat_change_type": 0,
-"stat_name": "health"
+"stat_name": "evade"
 }, {
 "stat_change_amount": 20,
 "stat_change_type": 0,

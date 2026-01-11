@@ -419,7 +419,12 @@ func add_hero_to_field(hero : Hero):
 	var hero_slot : Spawner = heroes_slots_points.pop_front()
 	hero_slot.is_filled = true
 	if hero.get_parent():
+		for skill in hero.actives:
+			print(skill.skill_anim_player.get_animation('skill').loop_mode)
 		hero.reparent(heroes)
+		for skill in hero.actives:
+			print(skill.skill_anim_player.get_animation('skill').loop_mode)
+			skill.reinit()
 	else:
 		heroes.add_child(hero)
 		hero.initialize()
@@ -431,6 +436,9 @@ func add_hero_to_field(hero : Hero):
 func return_hero_to_field(hero : Hero):
 	if hero.get_parent():
 		hero.reparent(heroes)
+		for skill in hero.actives:
+			print(skill.skill_anim_player.get_animation('skill').loop_mode)
+			skill.reinit()
 	hero.global_position = hero.previous_position
 
 
@@ -445,8 +453,8 @@ func pause_timers():
 	var timers : Array[Timer]
 	recursive_find(self, Timer, timers)
 	for timer in timers:
-		print(timer.name)
-		if timer.name == 'timer_deactivate' or timer.name == 'timer_skill_delay' or timer.name == 'timer_deactivate':
+		#print(timer.name)
+		if timer.name == 'timer_tick' or timer.name == 'timer_skill_delay' or timer.name == 'timer_deactivate':
 			continue
 		timer.paused = true
 
