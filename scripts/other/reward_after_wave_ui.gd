@@ -10,6 +10,7 @@ class_name RewardAfterWaveUI
 @export var choose_UI : ChooseUI
 @export var remover_slot_UI_scene : PackedScene
 @export var remover_slot_UI : RemoverUI
+@export var level_up_UI_scene : PackedScene
 
 
 @export var wave_count : int
@@ -52,9 +53,17 @@ func show_choose_UI():
 			choose_hero_UI.set_heroes_count(heroes_count)
 			choose_hero_UI.set_heroes_level(wave_count)
 			# поменять если нужно повышать уровень с прогрессом волн
-			choose_hero_UI.set_heroes(Player.get_random_heroes(heroes_count, 10))
+			choose_hero_UI.set_heroes(Player.get_random_heroes(heroes_count, 1))
 			#choose_hero_UI.initialize()
 			SignalManager.on_show_choose_UI_after_wave.emit(choose_hero_UI)
+			return
+		DataManager.RewardType.LEVEL_UP:
+			var level_up : LevelUpUI = level_up_UI_scene.instantiate()
+			var hero : Hero = Player.get_hero_for_level_up()
+			hero.level_up()
+			hero.previous_position = hero.global_position
+			level_up.set_hero(hero)
+			SignalManager.on_show_choose_UI_after_wave.emit(level_up)
 			return
 	choose_UI.set_choose_scenes(choose_scenes)
 	choose_UI.set_is_should_start_wave(true)

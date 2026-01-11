@@ -6,7 +6,7 @@ class_name Hero
 @export var hero_name : String
 @export var hero_family : DataManager.UnitFamily
 @export var hero_class : DataManager.HeroClass
-@export var hero_level : int
+@export var hero_level : int = 1
 @export var hero_gender : DataManager.HeroGender
 @export var hero_portrait : Texture2D
 @export var passives_reses : Array[Resource]
@@ -15,6 +15,7 @@ class_name Hero
 var passives : Array[PassiveSkill]
 var actives : Array[ActiveSkill]
 var is_active : bool
+var previous_position : Vector2
 
 # мощь атакующих заклинаний
 # урон заклинания = базовый урон + базовый урон / 4 * power
@@ -118,9 +119,14 @@ func set_hero_name(new_hero_name : String):
 
 
 func level_up():
-	pass
+	hero_level += 1
 
 
 func set_skills_is_active():
 	for active in actives:
 		active.set_is_active(true)
+
+
+func set_skills_is_inactive():
+	for active in actives:
+		active.set_is_active(false)

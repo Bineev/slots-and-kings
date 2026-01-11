@@ -106,6 +106,10 @@ func _process(delta: float) -> void:
 	update_label_cd()
 
 
+func after_level_up_stat():
+	pass
+
+
 func recalculate_stats():
 	skill_cooldown = skill_res.skill_cooldown - skill_res.skill_cooldown / 20 * skill_owner.quickness
 	skill_flat_damage = skill_res.skill_flat_damage + skill_res.skill_flat_damage / 6 * skill_owner.power 

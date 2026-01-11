@@ -41,3 +41,6 @@ signal on_swap_done
 signal on_cant_swap
 signal on_clear_tooltips
 signal on_hero_choose_done(hero : Hero)
+signal on_choose_skill_done(skill : Skill)
+signal on_choose_stat_done(stat : String, amount : int)
+signal on_hero_return(hero : Hero)

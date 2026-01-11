@@ -74,6 +74,7 @@ func _ready() -> void:
 	SignalManager.on_ready_choose_ui.connect(align_popup)
 	SignalManager.on_clear_tooltips.connect(clear_tooltips)
 	SignalManager.on_hero_choose_done.connect(add_hero_to_field)
+	SignalManager.on_hero_return.connect(return_hero_to_field)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
@@ -98,9 +99,6 @@ func _input(event: InputEvent) -> void:
 func start_waves():
 	await self.ready
 	initialize_hp_bar()
-	var hero = Player.get_random_hero(1)
-	SignalManager.on_add_hero_to_field.emit(hero)
-	Player.heroes.append(hero)
 	next_wave_ui.set_timer(timer_to_next_wave)
 	start_next_wave_countdown()
 	# установить false когда последний спавн и врагов на карте не осталось
@@ -417,6 +415,7 @@ func remove_tooltip(tooltip : Tooltip):
 
 
 func add_hero_to_field(hero : Hero):
+	Player.add_hero(hero)
 	var hero_slot : Spawner = heroes_slots_points.pop_front()
 	hero_slot.is_filled = true
 	if hero.get_parent():
@@ -427,6 +426,12 @@ func add_hero_to_field(hero : Hero):
 	hero.global_position = hero_slot.global_position
 	hero.is_active = true
 	get_tree().create_timer(0.5).timeout.connect(hero.set_skills_is_active)
+
+
+func return_hero_to_field(hero : Hero):
+	if hero.get_parent():
+		hero.reparent(heroes)
+	hero.global_position = hero.previous_position
 
 
 func _on_is_in_fight_timer_timeout() -> void:

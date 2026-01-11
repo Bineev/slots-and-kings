@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cndgsot5m7anv"]
+[gd_scene load_steps=9 format=3 uid="uid://cndgsot5m7anv"]
 
 [ext_resource type="PackedScene" uid="uid://cipb8j58qxkob" path="res://scenes/reward_ui.tscn" id="1_mjbqy"]
 [ext_resource type="Script" uid="uid://0afo8d7wgnc5" path="res://scripts/other/reward_after_wave_ui.gd" id="2_40566"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cyg6rxhjn5too" path="res://scenes/choose_hero_ui.tscn" id="5_78wk1"]
 [ext_resource type="PackedScene" uid="uid://b74xvtvkdied4" path="res://scenes/choose_ui.tscn" id="5_coqgu"]
 [ext_resource type="PackedScene" uid="uid://dlkuko2amrh3t" path="res://scenes/remover_ui.tscn" id="6_miii6"]
+[ext_resource type="PackedScene" uid="uid://tnspad6yon1b" path="res://scenes/level_up_ui.tscn" id="8_b77ol"]
 
 [node name="RewardAfterWaveUI" instance=ExtResource("1_mjbqy")]
 z_index = 1000
@@ -27,4 +28,5 @@ action_reward_item_scene = ExtResource("4_pamyy")
 choose_hero_UI_scene = ExtResource("5_78wk1")
 choose_UI_scene = ExtResource("5_coqgu")
 remover_slot_UI_scene = ExtResource("6_miii6")
+level_up_UI_scene = ExtResource("8_b77ol")
 wave_count = 0

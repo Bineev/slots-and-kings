@@ -10,6 +10,8 @@ extends Node
 @export var can_swap_time : float
 @export var is_can_swap : bool
 @export var heroes_choose_count : int = 2
+@export var stats_choose_count : int = 2
+@export var skill_choose_count : int = 2
 
 @export var wave_rewards : Array[DataManager.RewardType]
 @export var empty_perc_scene : PackedScene
@@ -454,34 +456,61 @@ func get_hero_by_class(hero_class : DataManager.HeroClass, hero_level : int):
 
 func get_passive_res_by_class_and_level(hero : Hero, hero_class : DataManager.HeroClass, hero_level : int):
 	var skill_grade : DataManager.SkillGrade
-	if hero_level >= 6:
+	if hero_level >= 9:
 		skill_grade = DataManager.SkillGrade.EPIC
-	elif hero_level >=3:
+	elif hero_level >= 6:
 		skill_grade = DataManager.SkillGrade.RARE
+	elif hero_level >= 3:
+		skill_grade = DataManager.SkillGrade.UNCOMMON
 	else:
 		skill_grade = DataManager.SkillGrade.BASE
 		
 	var skill_reses : Array = current_progress.base_pskills_dict[hero_class][skill_grade].duplicate()
 	skill_reses.shuffle()
-	for res in skill_reses:
-		if not hero.passives_reses.has(res):
-			return res
+	return skill_reses[0]
+
+
+func get_random_passive_reses_by_count(hero : Hero, hero_class : DataManager.HeroClass, hero_level : int, res_count : int):
+	var reses : Array
+	var res = get_passive_res_by_class_and_level(hero, hero_class, hero_level)
+	reses.append(res)
+	res_count -= 1
+	while res_count > 0:
+		res = get_passive_res_by_class_and_level(hero, hero_class, hero_level)
+		if not reses.has(res):
+			reses.append(res)
+			res_count -= 1
+	return reses
+
+
+func get_random_active_reses_by_count(hero : Hero, hero_class : DataManager.HeroClass, hero_level : int, res_count : int):
+	var reses : Array
+	var res = get_active_res_by_class_and_level(hero, hero_class, hero_level)
+	reses.append(res)
+	res_count -= 1
+	while res_count > 0:
+		res = get_active_res_by_class_and_level(hero, hero_class, hero_level)
+		if not reses.has(res):
+			reses.append(res)
+			res_count -= 1
+	return reses
+
 
 
 func get_active_res_by_class_and_level(hero : Hero, hero_class : DataManager.HeroClass, hero_level : int):
 	var skill_grade : DataManager.SkillGrade
-	if hero_level >= 6:
+	if hero_level >= 10:
 		skill_grade = DataManager.SkillGrade.EPIC
-	elif hero_level >=3:
+	elif hero_level >= 7:
 		skill_grade = DataManager.SkillGrade.RARE
+	elif hero_level >= 4:
+		skill_grade = DataManager.SkillGrade.UNCOMMON
 	else:
 		skill_grade = DataManager.SkillGrade.BASE
 		
 	var skill_reses : Array = current_progress.base_askills_dict[hero_class][skill_grade].duplicate()
 	skill_reses.shuffle()
-	for res in skill_reses:
-		if not hero.actives_reses.has(res):
-			return res
+	return skill_reses[0]
 
 
 func create_hero(hero_class : DataManager.HeroClass, hero_level : int):
@@ -551,3 +580,22 @@ func create_passive_skill(skill_res : Resource):
 
 func get_heroes_choose_count():
 	return heroes_choose_count
+
+
+func get_stats_choose_count():
+	return stats_choose_count
+
+
+func get_skill_choose_count():
+	return skill_choose_count
+
+
+func add_hero(new_hero : Hero):
+	if not heroes.has(new_hero):
+		heroes.append(new_hero)
+
+
+func get_hero_for_level_up():
+	heroes.sort_custom(func(hero_a : Hero, hero_b : Hero): return hero_a.hero_level <= hero_b.hero_level)
+	if heroes.size() > 0:
+		return heroes[0]

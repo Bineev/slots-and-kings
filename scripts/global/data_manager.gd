@@ -59,7 +59,7 @@ enum HeroClass {
 }
 
 enum RewardType {
-	EMPTY, UNIT, UPGRADE, PERC, HERO, REMOVER, MARKET, BLACK_MARKET
+	EMPTY, UNIT, UPGRADE, PERC, HERO, LEVEL_UP, REMOVER, MARKET, BLACK_MARKET
 }
 
 enum RelateType {
@@ -92,7 +92,7 @@ enum PassiveSkillType {
 
 
 enum SkillGrade {
-	BASE, RARE, EPIC
+	BASE, UNCOMMON, RARE, EPIC
 }
 
 
@@ -286,11 +286,35 @@ var default_stats_to_rus : Dictionary = {
 
 
 var hero_stats_to_rus : Dictionary = {
-	'power' : 'мощь',
-	'quiqness' : 'проворство',
+	'power' : 'могущество',
+	'quickness' : 'проворство',
 	'mastery' : 'мастерство',
 	'grace' : 'благородство'
 }
+
+# мощь атакующих заклинаний
+# урон заклинания = базовый урон + базовый урон / 4 * power
+@export var power : int
+# скорость восстановления заклинаний
+# кд = базовый кд = базовый кд / 20 * quickness
+@export var quickness : int
+# размер зоны
+# базовый радиус = базовый радиус + базовый радиус / 10 * mastery
+@export var mastery : int
+# сила бафов / лечения и продолжительность 
+# размер лечения = базовое лечение + базовое лечение / 4 * grace
+# размер бафа = базовый баф + базовый баф / 10 * grade (может быть 10 = 15)
+# длительность бафа = базовая длительность + базовая длительность / 10
+@export var grace : int
+
+
+var hero_stats_desc_dict : Dictionary = {
+	'power' : 'мощь атакующих умений +\n',
+	'quickness' : 'скорость восстановления умений +\n',
+	'mastery' : 'размер области +\n',
+	'grace' : 'длительность умений +\nсила лечения +\nсила бафов/дебафов +\n'
+}
+
 
 var hero_classes_table : Dictionary = {
 	HeroClass.ENGINEER : 'инженер',
