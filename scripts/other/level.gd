@@ -9,6 +9,10 @@ class_name Level
 @export var wave_rewards : Array[DataManager.RewardType]
 @export var wave_reward_UI_scene : PackedScene
 @export var bonus_ui_scene : PackedScene
+@export var difficulty_count : int
+@export var level_name : String
+@export var level_desc : String
+@export var rewards : Array[Resource]
 
 var is_need_def_of_loop : bool
 var free_spawners : Array[Spawner]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerProgress" load_steps=165 format=3 uid="uid://tt3xywwnolmu"]
+[gd_resource type="Resource" script_class="PlayerProgress" load_steps=166 format=3 uid="uid://tt3xywwnolmu"]
 
 [ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="1_hdwo2"]
 [ext_resource type="Script" uid="uid://bly0r5htgro0a" path="res://resources/progress.gd" id="1_w8t7g"]
@@ -164,6 +164,7 @@
 [ext_resource type="Resource" uid="uid://c1wbnffp5h6sa" path="res://resources/upgrade_evade_50.tres" id="67_wdv8i"]
 [ext_resource type="Resource" uid="uid://k50m5v3xe20k" path="res://resources/upgrade_lifesteal_40.tres" id="68_rwnh0"]
 [ext_resource type="Resource" uid="uid://dcnl1tkkjwxxv" path="res://resources/upgrade_regen_20.tres" id="69_wh6ku"]
+[ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="76_oiipg"]
 
 [resource]
 script = ExtResource("1_w8t7g")
@@ -195,4 +196,5 @@ percs_T1_pool = Array[Resource]([ExtResource("10_brj8e"), ExtResource("7_lhe1p")
 percs_T2_pool = Array[Resource]([ExtResource("11_qkkhw"), ExtResource("2_34q24"), ExtResource("13_2al3k"), ExtResource("7_sf6q5"), ExtResource("15_elri8")])
 percs_T3_pool = Array[Resource]([ExtResource("16_odfdr"), ExtResource("17_3sngm"), ExtResource("18_8bau0"), ExtResource("19_j7qrr"), ExtResource("20_id3r6")])
 hero_reses = Array[Resource]([ExtResource("14_h04bn"), ExtResource("15_h3ft0"), ExtResource("16_wu4b2")])
+level_scenes = Array[PackedScene]([ExtResource("76_oiipg"), ExtResource("76_oiipg"), ExtResource("76_oiipg")])
 metadata/_custom_type_script = "uid://bly0r5htgro0a"

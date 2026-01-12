@@ -615,3 +615,7 @@ func get_hero_for_level_up():
 	heroes.sort_custom(func(hero_a : Hero, hero_b : Hero): return hero_a.hero_level <= hero_b.hero_level)
 	if heroes.size() > 0:
 		return heroes[0]
+
+
+func get_level_by_diff(difficulty_count : int):
+	return current_progress.level_scenes[difficulty_count]

@@ -1,0 +1,318 @@
+[gd_scene load_steps=23 format=3 uid="uid://f2cu5p2ncjgg"]
+
+[ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_h8njc"]
+[ext_resource type="Script" uid="uid://4vf8rxu2foyv" path="res://scripts/other/main_menu_ui.gd" id="2_np0fa"]
+[ext_resource type="Texture2D" uid="uid://dn060854hlspj" path="res://img/castle_back_3.png" id="3_gn2ln"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_qooff"]
+[ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="4_mwf8v"]
+[ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="5_mtm5c"]
+[ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="6_sbo6t"]
+[ext_resource type="Texture2D" uid="uid://fns4xm0r5vtw" path="res://img/slot-machine.png" id="8_2tv7h"]
+[ext_resource type="Texture2D" uid="uid://cc0y4rlm7e1ah" path="res://img/wave_icon.png" id="9_p3tah"]
+[ext_resource type="Texture2D" uid="uid://cm5d82tgu1k56" path="res://img/buildings/building_barracks_T1.png" id="10_iudnm"]
+[ext_resource type="Texture2D" uid="uid://b2ixcd5klp7by" path="res://img/buildings/building_empty.png" id="11_6ru4n"]
+[ext_resource type="Texture2D" uid="uid://dvhn0urjfhqy2" path="res://img/buildings/building_farm.png" id="12_5slqs"]
+[ext_resource type="Texture2D" uid="uid://biec54adsv0i1" path="res://img/skills/active_skill_meteor_anim.png" id="13_gn2ln"]
+[ext_resource type="Texture2D" uid="uid://cv6g24t85mj12" path="res://img/buildings/building_training_camp.png" id="13_hehjc"]
+[ext_resource type="Texture2D" uid="uid://dmto8xic4s7o6" path="res://img/units/castle_ballista_anim.png" id="14_pi6li"]
+[ext_resource type="Texture2D" uid="uid://cix8pted4wep" path="res://img/units/hell_accursed_anim.png" id="15_b0ev8"]
+[ext_resource type="Texture2D" uid="uid://dj6r3jmry6rne" path="res://img/units/hell_bloodsucker_anim.png" id="16_xolnk"]
+[ext_resource type="Texture2D" uid="uid://b70qtn8py23uf" path="res://img/units/hell_fiend_anim.png" id="17_bx3vy"]
+[ext_resource type="Texture2D" uid="uid://banhq5icqmt21" path="res://img/skills/active_skill_banquet.png" id="18_qqn4a"]
+[ext_resource type="Texture2D" uid="uid://2fcu3g60274p" path="res://img/skills/active_skill_cannon_tower.png" id="19_rqmqu"]
+[ext_resource type="Texture2D" uid="uid://oyf7ksb2dh02" path="res://img/skills/active_skill_dark_brotherhood.png" id="20_53oru"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5tirf"]
+font = ExtResource("3_qooff")
+font_size = 37
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+
+[node name="MainMenuUI" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_h8njc")
+script = ExtResource("2_np0fa")
+
+[node name="CastleBack3" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("3_gn2ln")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_h8njc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="label_name" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SLOTS  KINGS"
+label_settings = SubResource("LabelSettings_5tirf")
+
+[node name="filler" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="buttons" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="play_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_qooff")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_mwf8v")
+theme_override_styles/pressed = ExtResource("4_mwf8v")
+theme_override_styles/hover = ExtResource("5_mtm5c")
+theme_override_styles/disabled = ExtResource("6_sbo6t")
+theme_override_styles/focus = ExtResource("4_mwf8v")
+text = "Новая игра"
+
+[node name="continue_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_qooff")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_mwf8v")
+theme_override_styles/pressed = ExtResource("4_mwf8v")
+theme_override_styles/hover = ExtResource("5_mtm5c")
+theme_override_styles/disabled = ExtResource("6_sbo6t")
+theme_override_styles/focus = ExtResource("4_mwf8v")
+text = "Продолжить"
+
+[node name="options_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_qooff")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_mwf8v")
+theme_override_styles/pressed = ExtResource("4_mwf8v")
+theme_override_styles/hover = ExtResource("5_mtm5c")
+theme_override_styles/disabled = ExtResource("6_sbo6t")
+theme_override_styles/focus = ExtResource("4_mwf8v")
+text = "Настройки"
+
+[node name="exit_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_qooff")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_mwf8v")
+theme_override_styles/pressed = ExtResource("4_mwf8v")
+theme_override_styles/hover = ExtResource("5_mtm5c")
+theme_override_styles/disabled = ExtResource("6_sbo6t")
+theme_override_styles/focus = ExtResource("4_mwf8v")
+text = "Выйти из игры"
+
+[node name="SlotMachine" type="Sprite2D" parent="CenterContainer/PanelContainer"]
+position = Vector2(-136, 116)
+texture = ExtResource("8_2tv7h")
+
+[node name="WaveIcon" type="Sprite2D" parent="."]
+position = Vector2(487, 188)
+texture = ExtResource("9_p3tah")
+
+[node name="HellBloodsuckerAnim" type="Sprite2D" parent="WaveIcon"]
+position = Vector2(316, 43)
+texture = ExtResource("16_xolnk")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="BuildingBarracksT1" type="Sprite2D" parent="."]
+position = Vector2(877, 62)
+texture = ExtResource("10_iudnm")
+
+[node name="BuildingEmpty" type="Sprite2D" parent="."]
+position = Vector2(752, 480)
+texture = ExtResource("11_6ru4n")
+
+[node name="ActiveSkillMeteorAnim" type="Sprite2D" parent="."]
+position = Vector2(814, 243)
+texture = ExtResource("13_gn2ln")
+hframes = 6
+frame = 2
+
+[node name="BuildingEmpty2" type="Sprite2D" parent="."]
+position = Vector2(147, 466)
+texture = ExtResource("11_6ru4n")
+
+[node name="BuildingEmpty3" type="Sprite2D" parent="."]
+position = Vector2(566, 57)
+texture = ExtResource("11_6ru4n")
+
+[node name="BuildingFarm" type="Sprite2D" parent="."]
+position = Vector2(446, 466)
+texture = ExtResource("12_5slqs")
+
+[node name="BuildingTrainingCamp" type="Sprite2D" parent="."]
+position = Vector2(256, 62)
+texture = ExtResource("13_hehjc")
+
+[node name="CastleBallistaAnim" type="Sprite2D" parent="."]
+position = Vector2(734, 192)
+texture = ExtResource("14_pi6li")
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="HellAccursedAnim" type="Sprite2D" parent="."]
+position = Vector2(913, 212)
+texture = ExtResource("15_b0ev8")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 10
+
+[node name="HellBloodsuckerAnim2" type="Sprite2D" parent="."]
+position = Vector2(765, 247)
+texture = ExtResource("16_xolnk")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellBloodsuckerAnim3" type="Sprite2D" parent="."]
+position = Vector2(808, 194)
+texture = ExtResource("16_xolnk")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellFiendAnim" type="Sprite2D" parent="."]
+position = Vector2(844, 214)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellFiendAnim2" type="Sprite2D" parent="."]
+position = Vector2(843, 242)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellFiendAnim3" type="Sprite2D" parent="."]
+position = Vector2(817, 261)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellFiendAnim4" type="Sprite2D" parent="."]
+position = Vector2(844, 266)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellFiendAnim5" type="Sprite2D" parent="."]
+position = Vector2(852, 192)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellFiendAnim6" type="Sprite2D" parent="."]
+position = Vector2(870, 229)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellFiendAnim7" type="Sprite2D" parent="."]
+position = Vector2(785, 271)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellFiendAnim8" type="Sprite2D" parent="."]
+position = Vector2(813, 285)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="HellFiendAnim9" type="Sprite2D" parent="."]
+position = Vector2(876, 296)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 6
+
+[node name="HellFiendAnim10" type="Sprite2D" parent="."]
+position = Vector2(903, 274)
+texture = ExtResource("17_bx3vy")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 8
+
+[node name="ActiveSkillBanquet" type="Sprite2D" parent="."]
+position = Vector2(97, 262)
+texture = ExtResource("18_qqn4a")
+
+[node name="ActiveSkillCannonTower" type="Sprite2D" parent="."]
+position = Vector2(156, 262)
+texture = ExtResource("19_rqmqu")
+
+[node name="ActiveSkillDarkBrotherhood" type="Sprite2D" parent="."]
+position = Vector2(126, 262)
+texture = ExtResource("20_53oru")

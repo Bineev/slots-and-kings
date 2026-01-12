@@ -36,3 +36,5 @@ class_name PlayerProgress
 @export var percs_T3_pool : Array[Resource]
 
 @export var hero_reses : Array[Resource]
+
+@export var level_scenes : Array[PackedScene]
