@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfdg26lcoxnrr"]
+
+[ext_resource type="Script" uid="uid://byld5b7nj6q4c" path="res://scripts/other/barracks_popup_ui.gd" id="1_0rs0x"]
+[ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_m3pen"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="1_ra3b0"]
+[ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="2_0rs0x"]
+[ext_resource type="StyleBox" uid="uid://dw720nyndbg14" path="res://styles/button_shrink_with_padding.tres" id="3_m3pen"]
+[ext_resource type="StyleBox" uid="uid://ioi72a1daiqu" path="res://styles/button_shrink_with_padding_hover.tres" id="4_cpwni"]
+[ext_resource type="StyleBox" uid="uid://btnh0woblwfm1" path="res://styles/button_shrink_with_padding_disable.tres" id="5_xgq6g"]
+[ext_resource type="Texture2D" uid="uid://c1l22ye0qntep" path="res://img/res_crystal.png" id="6_mm8m6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ddiya"]
+font = ExtResource("1_ra3b0")
+font_size = 5
+font_color = Color(0.6784314, 0.46666667, 0.34117648, 1)
+
+[node name="BarracksPopupUI" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_m3pen")
+script = ExtResource("1_0rs0x")
+current_count = 1
+upgrade_tier_res = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="label_close" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ПКМ - закрыть"
+label_settings = SubResource("LabelSettings_ddiya")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Текущее количество призываемых бойцов"
+label_settings = ExtResource("2_0rs0x")
+horizontal_alignment = 1
+
+[node name="label_curent_tier" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("2_0rs0x")
+horizontal_alignment = 1
+
+[node name="filler" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="label_next_tier" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Увеличить количество до "
+label_settings = ExtResource("2_0rs0x")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="button_buy" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_constants/h_separation = 8
+theme_override_fonts/font = ExtResource("1_ra3b0")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("3_m3pen")
+theme_override_styles/pressed = ExtResource("4_cpwni")
+theme_override_styles/hover = ExtResource("4_cpwni")
+theme_override_styles/hover_pressed = ExtResource("4_cpwni")
+theme_override_styles/disabled = ExtResource("5_xgq6g")
+theme_override_styles/focus = ExtResource("3_m3pen")
+icon = ExtResource("6_mm8m6")
+alignment = 0
+icon_alignment = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/button_buy" to="." method="_on_button_buy_pressed"]

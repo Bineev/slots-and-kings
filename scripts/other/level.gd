@@ -105,15 +105,20 @@ func start_waves():
 
 
 func add_player_unit():
-	var is_actually_bonus : bool = current_unit.slots[0].slot_name == current_bonus_name
+	if not current_unit:
+		return
 	var units_count_default : int = Player.get_units_count_for_next_create() 
-	var actually_units_count = units_count_default + current_bonus_count if is_actually_bonus else units_count_default
-	for i in range(actually_units_count * Player.current_units_coeff):
+	var bonus_dict = Player.get_bonus_dict()
+	var bonus_count = 0
+	if bonus_dict.keys().has(current_unit.slots[0].slot_name):
+		bonus_count = bonus_dict[current_unit.slots[0].slot_name]
+	for i in range(units_count_default * Player.current_units_coeff + bonus_count):
 		if Player.check_res(current_unit.unit_cost, DataManager.ResType.FOOD):
 			Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
 			create_unit_from_scratch()
+	# здесь сидит баг
 	await get_tree().process_frame
-	current_unit.queue_free()
+	current_unit.get_parent().remove_child(current_unit)
 	current_unit = null
 
 
@@ -525,6 +530,7 @@ func cancel_attack():
 
 func show_bonus_UI():
 	var bonus_ui : BonusUI = bonus_ui_scene.instantiate()
+	Player.remove_bonus()
 	var bonus_data = Player.get_random_week_bonus()
 	current_bonus_name = bonus_data[0]
 	current_bonus_count = bonus_data[1]

@@ -6,6 +6,7 @@ var slot_scene : PackedScene
 var slot_res : SlotRes
 var slot_type : DataManager.SlotType
 var chooseUI : ChooseUI
+var building_owner : Building
 
 @onready var label_item_name: Label = %label_item_name
 @onready var item_texture: TextureRect = %item_texture
@@ -71,6 +72,8 @@ func set_choose_UI(new_choose_UI : ChooseUI):
 func _on_choose_button_pressed() -> void:
 	SignalManager.on_choice_done.emit(self)
 	SignalManager.on_choose_item.emit(slot_scene, slot_type)
+	if slot_res.slot_type == DataManager.SlotType.UNIT:
+		building_owner.current_unit_slot_name = slot_res.slot_name
 
 
 func on_choose_done(chooseItem : ChooseItem):

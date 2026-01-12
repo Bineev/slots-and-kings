@@ -64,7 +64,8 @@ var current_wave_count : int
 var next_create_units_count : int
 var hero_factory : HeroFactory
 var unit_factory : UnitFactory
-var current_units_coeff : int = 10
+var current_units_coeff : int = 1
+var current_bonus_slot_name : String
 
 
 func _ready() -> void:
@@ -81,6 +82,7 @@ func initialize():
 	current_food = food
 	current_crystals = crystals
 	generate_base_decks()
+	generate_bonus_dict()
 
 
 func get_random_upgrades(tier : DataManager.EntityTier, amount : int):
@@ -407,17 +409,31 @@ func generate_base_decks():
 		base_percs_deck.append(create_slot_scene(res))
 
 
-func get_random_week_bonus():
+func generate_bonus_dict():
 	var pool : Array[Resource] = current_progress.units_T1_pool + current_progress.units_T2_pool + current_progress.units_T3_pool + current_progress.units_T4_pool
-	var current_res : Resource = pool.pick_random()
-	var count : int = randi_range(1, 2)
-	update_bonus(current_res.slot_name, count)
-	return [current_res.slot_name, count]
-	
-	
+	for res in pool:
+		bonus_dict[res.slot_name] = 0
+
+
+func get_random_week_bonus():
+	var slot_name = bonus_dict.keys().pick_random()
+	var count : int = 1
+	current_bonus_slot_name = slot_name
+	bonus_dict[slot_name] += count
+	return [slot_name, count]
+
+
+func get_bonus_dict():
+	return bonus_dict
+
+
 func update_bonus(slot_name : String, count : int):
-	bonus_dict.clear()
-	bonus_dict[slot_name] = count
+	bonus_dict[slot_name] += count
+
+
+func remove_bonus():
+	if current_bonus_slot_name:
+		bonus_dict[current_bonus_slot_name] -= 1
 
 
 func get_current_bonus(slot_name : Resource):

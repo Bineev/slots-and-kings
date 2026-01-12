@@ -40,6 +40,7 @@ func initialize():
 		choose_item.set_slot_scene(scene)
 		choose_item.set_slot_res(slot_res)
 		choose_item.set_choose_UI(self)
+		choose_item.building_owner = building_owner
 		choose_item.initialize()
 	SignalManager.on_ready_choose_ui.emit(self)
 

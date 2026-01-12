@@ -231,7 +231,7 @@ var default_stats : Dictionary = {
 	'projectile_attack_range_mult' : 1,
 }
 
-var max_entity_tier : int = 4
+var max_entity_tier : int = 5
 
 var default_stats_to_rus : Dictionary = {
 	'health' : 'здоровье',

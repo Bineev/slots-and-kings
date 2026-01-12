@@ -44,7 +44,7 @@ func start_produce():
 func tier_up():
 	if entity_tier <= DataManager.max_entity_tier:
 		entity_tier += 1
-	upgrade_tier_cost *= 2
+	upgrade_tier_cost *= 3
 
 
 func show_ui():
