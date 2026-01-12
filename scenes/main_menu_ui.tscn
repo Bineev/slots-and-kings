@@ -40,129 +40,9 @@ script = ExtResource("2_np0fa")
 position = Vector2(480, 270)
 texture = ExtResource("3_gn2ln")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_h8njc")
-
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="label_name" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "SLOTS  KINGS"
-label_settings = SubResource("LabelSettings_5tirf")
-
-[node name="filler" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="buttons" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 10
-
-[node name="play_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
-theme_override_fonts/font = ExtResource("3_qooff")
-theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = ExtResource("4_mwf8v")
-theme_override_styles/pressed = ExtResource("4_mwf8v")
-theme_override_styles/hover = ExtResource("5_mtm5c")
-theme_override_styles/disabled = ExtResource("6_sbo6t")
-theme_override_styles/focus = ExtResource("4_mwf8v")
-text = "Новая игра"
-
-[node name="continue_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
-theme_override_fonts/font = ExtResource("3_qooff")
-theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = ExtResource("4_mwf8v")
-theme_override_styles/pressed = ExtResource("4_mwf8v")
-theme_override_styles/hover = ExtResource("5_mtm5c")
-theme_override_styles/disabled = ExtResource("6_sbo6t")
-theme_override_styles/focus = ExtResource("4_mwf8v")
-text = "Продолжить"
-
-[node name="options_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
-theme_override_fonts/font = ExtResource("3_qooff")
-theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = ExtResource("4_mwf8v")
-theme_override_styles/pressed = ExtResource("4_mwf8v")
-theme_override_styles/hover = ExtResource("5_mtm5c")
-theme_override_styles/disabled = ExtResource("6_sbo6t")
-theme_override_styles/focus = ExtResource("4_mwf8v")
-text = "Настройки"
-
-[node name="exit_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
-theme_override_fonts/font = ExtResource("3_qooff")
-theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = ExtResource("4_mwf8v")
-theme_override_styles/pressed = ExtResource("4_mwf8v")
-theme_override_styles/hover = ExtResource("5_mtm5c")
-theme_override_styles/disabled = ExtResource("6_sbo6t")
-theme_override_styles/focus = ExtResource("4_mwf8v")
-text = "Выйти из игры"
-
-[node name="SlotMachine" type="Sprite2D" parent="CenterContainer/PanelContainer"]
-position = Vector2(-136, 116)
+[node name="SlotMachine" type="Sprite2D" parent="."]
+position = Vector2(124, 244)
 texture = ExtResource("8_2tv7h")
-
-[node name="WaveIcon" type="Sprite2D" parent="."]
-position = Vector2(487, 188)
-texture = ExtResource("9_p3tah")
-
-[node name="HellBloodsuckerAnim" type="Sprite2D" parent="WaveIcon"]
-position = Vector2(316, 43)
-texture = ExtResource("16_xolnk")
-flip_h = true
-hframes = 5
-vframes = 5
-frame = 11
 
 [node name="BuildingBarracksT1" type="Sprite2D" parent="."]
 position = Vector2(877, 62)
@@ -316,3 +196,128 @@ texture = ExtResource("19_rqmqu")
 [node name="ActiveSkillDarkBrotherhood" type="Sprite2D" parent="."]
 position = Vector2(126, 262)
 texture = ExtResource("20_53oru")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_h8njc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="label_name" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SLOTS  KINGS"
+label_settings = SubResource("LabelSettings_5tirf")
+
+[node name="filler" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="buttons" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="play_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_qooff")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_mwf8v")
+theme_override_styles/pressed = ExtResource("4_mwf8v")
+theme_override_styles/hover = ExtResource("5_mtm5c")
+theme_override_styles/disabled = ExtResource("6_sbo6t")
+theme_override_styles/focus = ExtResource("4_mwf8v")
+text = "Новая игра"
+
+[node name="continue_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_qooff")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_mwf8v")
+theme_override_styles/pressed = ExtResource("4_mwf8v")
+theme_override_styles/hover = ExtResource("5_mtm5c")
+theme_override_styles/disabled = ExtResource("6_sbo6t")
+theme_override_styles/focus = ExtResource("4_mwf8v")
+text = "Продолжить"
+
+[node name="options_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_qooff")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_mwf8v")
+theme_override_styles/pressed = ExtResource("4_mwf8v")
+theme_override_styles/hover = ExtResource("5_mtm5c")
+theme_override_styles/disabled = ExtResource("6_sbo6t")
+theme_override_styles/focus = ExtResource("4_mwf8v")
+text = "Настройки"
+
+[node name="exit_button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_qooff")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_mwf8v")
+theme_override_styles/pressed = ExtResource("4_mwf8v")
+theme_override_styles/hover = ExtResource("5_mtm5c")
+theme_override_styles/disabled = ExtResource("6_sbo6t")
+theme_override_styles/focus = ExtResource("4_mwf8v")
+text = "Выйти из игры"
+
+[node name="WaveIcon" type="Sprite2D" parent="CenterContainer/PanelContainer/MarginContainer"]
+position = Vector2(227, 60)
+texture = ExtResource("9_p3tah")
+
+[node name="HellBloodsuckerAnim" type="Sprite2D" parent="CenterContainer/PanelContainer/MarginContainer/WaveIcon"]
+position = Vector2(316, 43)
+texture = ExtResource("16_xolnk")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 11
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/continue_button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/exit_button" to="." method="_on_exit_button_pressed"]

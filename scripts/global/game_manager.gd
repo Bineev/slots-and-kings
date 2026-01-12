@@ -1,11 +1,16 @@
 extends Node
 
-@export var main_menu_scene : PackedScene
+@export var main_menu_scene : PackedScene = preload('res://scenes/main_menu_ui.tscn')
 @export var options_scene : PackedScene
+@export var lobby_scene : PackedScene
 
 var main_menu_UI : MainMenuUI
-var options_UI : OptionsUI
+var options_UI : Control
 var current_level : Level
+
+
+func _ready() -> void:
+	start_game()
 
 
 func start_game():
@@ -45,4 +50,8 @@ func exit():
 
 
 func get_rewards():
+	pass
+
+
+func show_lobby():
 	pass
