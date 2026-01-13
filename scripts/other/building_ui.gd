@@ -22,6 +22,7 @@ func _input(event):
 		return
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+			get_tree().paused = false
 			visible = false
 			is_should_check_input = false
 			var tween = get_tree().create_tween()
@@ -35,6 +36,7 @@ func initialize():
 		buildings_container.add_child(building)
 		building.initialize()
 	update_gold()
+	get_tree().paused = true
 
 
 func destroy():
@@ -42,6 +44,7 @@ func destroy():
 
 
 func choose_building(building_scene : PackedScene):
+	get_tree().paused = false
 	SignalManager.on_build_building.emit(building_scene, prebuilding)
 	visible = false
 	var tween = get_tree().create_tween()
