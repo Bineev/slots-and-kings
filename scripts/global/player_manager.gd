@@ -77,7 +77,7 @@ func _ready() -> void:
 
 
 func initialize():
-	current_progress = ProgressManager.get_current_progress_by_family(current_king)
+	current_progress = ProgressManager.get_base_progress_by_family(current_king)
 	current_health = health
 	current_gold = gold
 	current_tokens = tokens
@@ -93,7 +93,18 @@ func clear_after_result():
 	is_dead = false
 	heroes.clear()
 	current_wave_count = 0
-	initialize()
+	current_health = health
+	current_gold = gold
+	current_tokens = tokens
+	current_food = food
+	current_crystals = crystals
+	generate_base_decks()
+	generate_bonus_dict()
+
+
+func initialize_with_data():
+	current_progress = ProgressManager.get_current_progress_by_family(current_king)
+	clear_after_result()
 
 
 func get_random_upgrades(tier : DataManager.EntityTier, amount : int):
@@ -664,10 +675,14 @@ func add_rewards_to_progress(rewards : Array[Resource]):
 		if res.slot_type == DataManager.SlotType.UPGRADE:
 			match res.entity_tier:
 				DataManager.EntityTier.T1:
-					current_progress.upgrades_T1_pool.append(res)
+					if not current_progress.upgrades_T1_pool.has(res):
+						current_progress.upgrades_T1_pool.append(res)
 				DataManager.EntityTier.T2:
-					current_progress.upgrades_T2_pool.append(res)
+					if not current_progress.upgrades_T2_pool.has(res):
+						current_progress.upgrades_T2_pool.append(res)
 				DataManager.EntityTier.T3:
-					current_progress.upgrades_T3_pool.append(res)
+					if not current_progress.upgrades_T3_pool.has(res):
+						current_progress.upgrades_T3_pool.append(res)
 				DataManager.EntityTier.T4:
-					current_progress.upgrades_T4_pool.append(res)
+					if not current_progress.upgrades_T4_pool.has(res):
+						current_progress.upgrades_T4_pool.append(res)

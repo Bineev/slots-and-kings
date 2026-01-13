@@ -8,6 +8,8 @@ func _ready() -> void:
 
 
 func _on_play_button_pressed() -> void:
+	Player.clear_after_result()
+	Player.initialize()
 	GameManager.show_lobby()
 
 

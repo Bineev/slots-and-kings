@@ -21,9 +21,9 @@ func get_current_progress_by_family(family : DataManager.UnitFamily):
 func get_base_progress_by_family(family : DataManager.UnitFamily):
 	match family:
 		DataManager.UnitFamily.CASTLE:
-			return base_progress_empire.duplicate()
+			return base_progress_empire.duplicate(true)
 		DataManager.UnitFamily.HELL:
-			return base_progress_hell.duplicate()
+			return base_progress_hell.duplicate(true)
 
 
 func save_progress_by_family(family : DataManager.UnitFamily):

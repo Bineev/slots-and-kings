@@ -44,7 +44,7 @@ func hide_options():
 
 
 func start_level():
-	clear_scene()
+	#clear_scene()
 	if lobby:
 		lobby.queue_free()
 	get_tree().root.add_child(current_level)
