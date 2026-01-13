@@ -95,6 +95,10 @@ enum SkillGrade {
 	BASE, UNCOMMON, RARE, EPIC
 }
 
+enum SoundType {
+	RANGE, MAGE, MELEE, HIT_SELF, HIT_ENEMY, WALK, DIED_SELF, DIED_ENEMNY, UI, START_WAVE, END_WAVE
+}
+
 
 var default_hero_up_order : Array[HeroUpType] = [HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT]
 
@@ -294,6 +298,19 @@ var hero_stats_to_rus : Dictionary = {
 	'grace' : 'благородство'
 }
 
+var sound_dict : Dictionary[SoundType, Resource] = {
+	SoundType.RANGE : preload('res://scenes/active_skill.tscn'),
+	 SoundType.MAGE : preload('res://scenes/active_skill.tscn'),
+	 SoundType.MELEE : preload('res://scenes/active_skill.tscn'),
+	 SoundType.HIT_SELF : preload('res://scenes/active_skill.tscn'),
+	 SoundType.HIT_ENEMY : preload('res://scenes/active_skill.tscn'),
+	 SoundType.WALK : preload('res://scenes/active_skill.tscn'),
+	 SoundType.DIED_SELF : preload('res://scenes/active_skill.tscn'),
+	 SoundType.DIED_ENEMNY : preload('res://scenes/active_skill.tscn'),
+	 SoundType.UI : preload('res://scenes/active_skill.tscn'),
+	 SoundType.START_WAVE : preload('res://scenes/active_skill.tscn'),
+	 SoundType.END_WAVE : preload('res://scenes/active_skill.tscn')
+}
 # мощь атакующих заклинаний
 # урон заклинания = базовый урон + базовый урон / 4 * power
 @export var power : int

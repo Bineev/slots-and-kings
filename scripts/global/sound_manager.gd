@@ -1,6 +1,6 @@
 extends Node
 
-
+var sound : AudioStreamPlayer
 #const UI_HOVER : AudioStream = preload("res://sound/ui.wav")
 #const ARROW = preload("res://sound/arrow.wav")
 #const HIT_1 = preload("res://sound/hit1.wav")
@@ -10,7 +10,9 @@ extends Node
 
 
 func play(source : Node, stream : AudioStream):
-	var sound : AudioStreamPlayer = AudioStreamPlayer.new()
+	if sound.playing:
+		return
+	sound = AudioStreamPlayer.new()
 	source.add_child(sound)
 	sound.bus = "SFX"
 	sound.stream = stream
