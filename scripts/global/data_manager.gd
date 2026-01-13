@@ -324,6 +324,13 @@ var hero_classes_table : Dictionary = {
 	HeroClass.COMMANDER : 'полководец'
 }
 
+
+var castle_name_table : Dictionary = {
+	UnitFamily.CASTLE : 'Империя',
+	UnitFamily.HELL : 'Бездна',
+	UnitFamily.FOREST : 'Чаща'
+}
+
 var unit_type_to_damage_type_table : Dictionary = {
 	UnitType.PHYS : 'физический',
 	UnitType.MAGE : 'магический',

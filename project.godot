@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="slots-and-kings"
-run/main_scene="uid://rl65frn0ke4w"
+run/main_scene="uid://f2cu5p2ncjgg"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]

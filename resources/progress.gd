@@ -6,6 +6,7 @@ class_name PlayerProgress
 @export var family : DataManager.UnitFamily
 @export var difficulty : DataManager.DifficultyType
 @export var hero_classes : Array[DataManager.HeroClass]
+@export var levels_done : Array[int]
 
 @export var base_units_reses : Array[Resource]
 @export var base_upgrades_reses : Array[Resource]

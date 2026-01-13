@@ -619,3 +619,20 @@ func get_hero_for_level_up():
 
 func get_level_by_diff(difficulty_count : int):
 	return current_progress.level_scenes[difficulty_count]
+
+
+func add_level_as_done(level_difficulty : int):
+	if not current_progress.levels_done.has(level_difficulty):
+		current_progress.levels_done.append(level_difficulty)
+
+
+func check_is_level_done(level_difficulty : int):
+	return current_progress.levels_done.has(level_difficulty)
+
+
+func get_castle_name():
+	return DataManager.castle_name_table[current_king]
+
+
+func get_level_scenes():
+	return current_progress.level_scenes

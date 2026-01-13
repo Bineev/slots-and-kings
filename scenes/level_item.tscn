@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://o5k7j3e2hpng"]
+
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="1_sdepi"]
+[ext_resource type="StyleBox" uid="uid://cv04p4n21vr5r" path="res://styles/panel_blue.tres" id="1_xwwko"]
+[ext_resource type="Script" uid="uid://cy0ecqdes6eb2" path="res://scripts/other/level_item.gd" id="2_8rjrl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xwwko"]
+line_spacing = 0.0
+font = ExtResource("1_sdepi")
+font_size = 10
+font_color = Color(0.08235294, 0.11372549, 0.15686275, 1)
+
+[node name="LevelItem" type="PanelContainer"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_xwwko")
+script = ExtResource("2_8rjrl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="label_reward_info" type="Label" parent="MarginContainer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_xwwko")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
