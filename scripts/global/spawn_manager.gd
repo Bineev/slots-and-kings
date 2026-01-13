@@ -17,4 +17,5 @@ func _ready() -> void:
 
 func create_wave_by_wave_count(wave_count : int, diff_count : int):
 	# исходя из уровня волны и уровня сложности, генерируем волну
+	# нужна функция, которая будет регулировать сложность
 	pass
