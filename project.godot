@@ -21,6 +21,7 @@ SignalManager="*res://scripts/global/signal_manager.gd"
 UtilsManager="*res://scripts/global/utils_manager.gd"
 ProgressManager="*res://scenes/progress_manager.tscn"
 SoundManager="*res://scripts/global/sound_manager.gd"
+SpawnManager="*res://scripts/global/spawn_manager.gd"
 Player="*res://scenes/player.tscn"
 GameManager="*res://scripts/global/game_manager.gd"
 
