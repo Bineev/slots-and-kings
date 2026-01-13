@@ -12,7 +12,9 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_continue_button_pressed() -> void:
-	pass # Replace with function body.
+	ProgressManager.load_progress_from_file_by_family(Player.current_king)
+	Player.clear_after_result()
+	GameManager.show_lobby()
 
 
 func _on_options_button_pressed() -> void:

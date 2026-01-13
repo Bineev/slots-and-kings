@@ -39,3 +39,5 @@ class_name PlayerProgress
 @export var hero_reses : Array[Resource]
 
 @export var level_scenes : Array[PackedScene]
+
+@export var save_path : String

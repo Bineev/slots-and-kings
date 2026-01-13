@@ -198,4 +198,5 @@ percs_T2_pool = Array[Resource]([ExtResource("11_qkkhw"), ExtResource("2_34q24")
 percs_T3_pool = Array[Resource]([ExtResource("16_odfdr"), ExtResource("17_3sngm"), ExtResource("18_8bau0"), ExtResource("19_j7qrr"), ExtResource("20_id3r6")])
 hero_reses = Array[Resource]([ExtResource("14_h04bn"), ExtResource("15_h3ft0"), ExtResource("16_wu4b2")])
 level_scenes = Array[PackedScene]([ExtResource("76_oiipg"), ExtResource("77_psowy")])
+save_path = "user://progress_empire.tres"
 metadata/_custom_type_script = "uid://bly0r5htgro0a"

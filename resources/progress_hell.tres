@@ -96,13 +96,10 @@
 [resource]
 script = ExtResource("1_m0umr")
 family = 1
-difficulty = null
 base_units_reses = Array[Resource]([ExtResource("3_e3df7"), ExtResource("3_e3df7"), ExtResource("3_e3df7"), ExtResource("3_e3df7")])
 base_upgrades_reses = Array[Resource]([ExtResource("4_6iyvu"), ExtResource("4_6iyvu"), ExtResource("4_6iyvu"), ExtResource("46_se32d")])
 base_percs_reses = Array[Resource]([ExtResource("1_573vi"), ExtResource("1_573vi"), ExtResource("1_573vi"), ExtResource("6_yclp3")])
-special_units_reses = null
 special_upgrades_reses = Array[Resource]([ExtResource("2_c7gjj"), ExtResource("3_7heu3"), ExtResource("4_ucm0k"), ExtResource("5_f1reh"), ExtResource("6_573vi"), ExtResource("7_y7cce"), ExtResource("8_e3df7"), ExtResource("9_6iyvu"), ExtResource("10_1bnls"), ExtResource("11_jwetk"), ExtResource("12_6hmkm"), ExtResource("13_0dmjv"), ExtResource("14_x6cvo"), ExtResource("15_vcf1e"), ExtResource("16_n4dxb"), ExtResource("17_6p46m"), ExtResource("18_xkdsm"), ExtResource("19_fnqjg"), ExtResource("20_3tlvx"), ExtResource("21_q8mfq"), ExtResource("22_5hnid"), ExtResource("23_gu8l1"), ExtResource("24_j3hvn"), ExtResource("25_yclp3"), ExtResource("26_ogqw7"), ExtResource("27_boghf"), ExtResource("28_llt25"), ExtResource("29_sgvr2"), ExtResource("30_6qkrc"), ExtResource("31_8nai4"), ExtResource("32_odbd6"), ExtResource("33_kirv3"), ExtResource("34_nqgyo"), ExtResource("35_p83ig"), ExtResource("36_1oeqw"), ExtResource("37_58bh6")])
-special_percs_reses = null
 units_T1_pool = Array[Resource]([ExtResource("2_40ppw"), ExtResource("3_60h0u")])
 units_T2_pool = Array[Resource]([ExtResource("4_l3em6"), ExtResource("5_i14cy")])
 units_T3_pool = Array[Resource]([ExtResource("6_dm07n"), ExtResource("7_ccsic")])
@@ -115,4 +112,5 @@ percs_T4_pool = Array[Resource]([ExtResource("21_qr822"), ExtResource("22_gvheg"
 percs_T1_pool = Array[Resource]([ExtResource("6_yclp3"), ExtResource("7_ogqw7"), ExtResource("8_boghf"), ExtResource("9_llt25"), ExtResource("10_sgvr2")])
 percs_T2_pool = Array[Resource]([ExtResource("11_6qkrc"), ExtResource("12_8nai4"), ExtResource("13_odbd6"), ExtResource("14_kirv3"), ExtResource("15_nqgyo")])
 percs_T3_pool = Array[Resource]([ExtResource("16_p83ig"), ExtResource("17_1oeqw"), ExtResource("18_58bh6"), ExtResource("19_se32d"), ExtResource("20_rpmxx")])
+save_path = "user://progress_hell.tres"
 metadata/_custom_type_script = "uid://bly0r5htgro0a"

@@ -671,4 +671,3 @@ func add_rewards_to_progress(rewards : Array[Resource]):
 					current_progress.upgrades_T3_pool.append(res)
 				DataManager.EntityTier.T4:
 					current_progress.upgrades_T4_pool.append(res)
-	
