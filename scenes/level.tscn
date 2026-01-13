@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=38 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -58,6 +58,11 @@ font = ExtResource("14_wc255")
 font_size = 4
 font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_556r4"]
+font = ExtResource("14_wc255")
+font_size = 25
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_arp2o"]
 shader = ExtResource("15_wc255")
 shader_parameter/resolution = Vector2(1920, 1080)
@@ -88,7 +93,7 @@ fill_from = Vector2(0.4957265, 0.508547)
 [node name="Level" type="Node2D"]
 script = ExtResource("1_klq6b")
 unit_preview_scene = ExtResource("2_klq6b")
-waves_scenes = Array[PackedScene]([ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q"), ExtResource("3_8c41q")])
+waves_scenes = Array[PackedScene]([ExtResource("3_8c41q")])
 first_wave_timer = 3.0
 wave_rewards = Array[int]([4, 5, 5, 5, 5, 2, 1, 5, 3, 2, 1, 5])
 wave_reward_UI_scene = ExtResource("4_olg7q")
@@ -386,9 +391,11 @@ vertical_alignment = 1
 
 [node name="NextWaveUI" parent="UI" instance=ExtResource("15_arp2o")]
 unique_name_in_owner = true
+visible = false
 
 [node name="panel_in_fight" type="PanelContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 1, 1, 0.7254902)
 offset_left = 218.0
 offset_top = 228.00002
@@ -401,6 +408,36 @@ theme_override_styles/panel = ExtResource("16_82cfe")
 layout_mode = 2
 texture = ExtResource("16_ux5qa")
 stretch_mode = 3
+
+[node name="result_panel" type="PanelContainer" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("16_82cfe")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/result_panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="label_result" type="Label" parent="UI/result_panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_556r4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false

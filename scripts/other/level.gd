@@ -47,6 +47,8 @@ var current_bonus_count : int
 @onready var heroes: Node2D = %heroes
 @onready var heroes_slots: Node2D = %heroes_slots
 @onready var projectiles: Node2D = %projectiles
+@onready var label_result: Label = %label_result
+@onready var result_panel: PanelContainer = $UI/result_panel
 
 
 func _ready() -> void:
@@ -106,6 +108,7 @@ func start_waves():
 	await self.ready
 	initialize_hp_bar()
 	next_wave_ui.set_timer(timer_to_next_wave)
+	next_wave_ui.set_remaining_waves(get_waves_remaining())
 	start_next_wave_countdown()
 	# установить false когда последний спавн и врагов на карте не осталось
 
@@ -328,6 +331,7 @@ func start_next_wave_countdown():
 	timer_to_next_wave.wait_time = next_wave.time_to_next_wave
 	timer_to_next_wave.start()
 	next_wave_ui.is_should_update_label = true
+	next_wave_ui.set_remaining_waves(get_waves_remaining())
 	next_wave_ui.visible = true
 
 
@@ -556,3 +560,30 @@ func clear_tooltips():
 		#if item and is_instance_valid(item) and item is Tooltip:
 			#item.hide()
 			#item.queue_free()
+
+
+func get_waves_remaining():
+	return waves_scenes.size() + 1
+
+
+func show_win_label():
+	label_result.text = 'ПОБЕДА!'
+	#result_panel.global_position = get_viewport_rect().get_center()
+	var tween : Tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
+	tween.tween_callback(GameManager.stop_all).set_delay(3)
+	tween.tween_callback(GameManager.show_lobby).set_delay(3.5)
+	tween.tween_callback(queue_free).set_delay(4)
+
+func show_loose_label():
+	label_result.text = 'ПОРАЖЕНИЕ!'
+	#result_panel.global_position = get_viewport_rect().get_center()
+	var tween : Tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
+	tween.tween_callback(GameManager.stop_all).set_delay(3)
+	tween.tween_callback(GameManager.show_lobby).set_delay(3.5)
+	tween.tween_callback(queue_free).set_delay(4)

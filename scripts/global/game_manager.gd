@@ -45,6 +45,8 @@ func hide_options():
 
 func start_level():
 	clear_scene()
+	if lobby:
+		lobby.queue_free()
 	get_tree().root.add_child(current_level)
 	main_menu_UI = null
 
@@ -66,6 +68,9 @@ func get_rewards():
 
 
 func show_lobby():
+	get_tree().paused = false
+	if Player.current_runs_count > 0:
+		Player.clear_after_result()
 	hide_options()
 	clear_scene()
 	lobby = lobby_scene.instantiate()
@@ -85,3 +90,26 @@ func set_main_menu(new_main_menu_UI):
 func correct_options():
 	if main_menu_UI:
 		options_UI.hide_to_lobby_button()
+
+
+func win():
+	Player.current_runs_count += 1
+	Player.add_rewards_to_progress(current_level.rewards)
+	Player.add_level_as_done(current_level.difficulty_count)
+	current_level.show_win_label()
+	ProgressManager.save_progress_by_family(Player.current_king)
+
+
+func loose():
+	Player.current_runs_count += 1
+	current_level.show_loose_label()
+
+
+func stop_all():
+	get_tree().paused = true
+
+
+func remove_current_level():
+	if current_level:
+		current_level.queue_free()
+		current_level = null

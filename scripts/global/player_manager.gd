@@ -66,6 +66,8 @@ var hero_factory : HeroFactory
 var unit_factory : UnitFactory
 var current_units_coeff : int = 1
 var current_bonus_slot_name : String
+var is_dead : bool
+var current_runs_count : int
 
 
 func _ready() -> void:
@@ -83,6 +85,15 @@ func initialize():
 	current_crystals = crystals
 	generate_base_decks()
 	generate_bonus_dict()
+
+
+
+func clear_after_result():
+	clear_base_decks()
+	is_dead = false
+	heroes.clear()
+	current_wave_count = 0
+	initialize()
 
 
 func get_random_upgrades(tier : DataManager.EntityTier, amount : int):
@@ -318,9 +329,12 @@ func get_wave_rewards():
 
 
 func get_damage(damage : float):
+	if is_dead:
+		return
 	current_health = clamp(current_health - damage, 0, health)
 	if current_health <= 0:
-		print("DIE")
+		Player.is_dead = true
+		GameManager.loose()
 	SignalManager.on_player_get_hit.emit()
 	# тряска
 
@@ -407,6 +421,12 @@ func generate_base_decks():
 		base_units_deck.append(create_slot_scene(res))
 	for res in current_progress.base_percs_reses:
 		base_percs_deck.append(create_slot_scene(res))
+
+
+func clear_base_decks():
+	base_upgrades_deck.clear()
+	base_units_deck.clear()
+	base_percs_deck.clear()
 
 
 func generate_bonus_dict():
@@ -636,3 +656,19 @@ func get_castle_name():
 
 func get_level_scenes():
 	return current_progress.level_scenes
+
+
+func add_rewards_to_progress(rewards : Array[Resource]):
+	for reward in rewards:
+		var res : SlotRes = reward
+		if res.slot_type == DataManager.SlotType.UPGRADE:
+			match res.entity_tier:
+				DataManager.EntityTier.T1:
+					current_progress.upgrades_T1_pool.append(res)
+				DataManager.EntityTier.T2:
+					current_progress.upgrades_T2_pool.append(res)
+				DataManager.EntityTier.T3:
+					current_progress.upgrades_T3_pool.append(res)
+				DataManager.EntityTier.T4:
+					current_progress.upgrades_T4_pool.append(res)
+	
