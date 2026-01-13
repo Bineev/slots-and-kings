@@ -15,6 +15,7 @@ var levels : Array[Level]
 @onready var label_level_name: Label = %label_level_name
 @onready var label_level_desc: Label = %label_level_desc
 @onready var rewards_container: HBoxContainer = %rewards_container
+@onready var start_button: Button = %start_button
 
 
 func initialize():
@@ -62,3 +63,7 @@ func add_rewards(slot_scenes : Array[PackedScene]):
 		theme.set_color('font_color', 'TooltipLabel', Color8(52, 28, 39, 255))
 		texture_rect.theme = theme
 		rewards_container.add_child(texture_rect)
+
+
+func show_start_button():
+	start_button.visible = true

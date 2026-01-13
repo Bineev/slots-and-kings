@@ -1,0 +1,124 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtaed2yr7lnbr"]
+
+[ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_g5hix"]
+[ext_resource type="Script" uid="uid://bbe55tfx8g882" path="res://scripts/other/options_menu.gd" id="1_gyu1t"]
+[ext_resource type="LabelSettings" uid="uid://cjxq87g1sh7c8" path="res://styles/10_dark.tres" id="2_g5hix"]
+[ext_resource type="PackedScene" uid="uid://l65ew7fmjgdj" path="res://scenes/VolumeSlider.tscn" id="3_rftt1"]
+[ext_resource type="Texture2D" uid="uid://bbqacpur6vcsn" path="res://img/slider_hand_def.png" id="4_0un6s"]
+[ext_resource type="Texture2D" uid="uid://bee7vh5wepttx" path="res://img/slider_hand.png" id="5_kywri"]
+[ext_resource type="StyleBox" uid="uid://cungdvas3ty4f" path="res://resources/slider_back_dark.tres" id="7_g5hix"]
+[ext_resource type="StyleBox" uid="uid://r07twlselrl1" path="res://resources/slider_fill_gold.tres" id="8_rftt1"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="8_tvlg4"]
+[ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="9_ojp2k"]
+[ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="10_lxxms"]
+[ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="11_jcqpe"]
+
+[node name="Options" type="PanelContainer"]
+process_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -77.5
+offset_right = 70.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_g5hix")
+script = ExtResource("1_gyu1t")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="to_lobby_button" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("8_tvlg4")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("9_ojp2k")
+theme_override_styles/pressed = ExtResource("9_ojp2k")
+theme_override_styles/hover = ExtResource("10_lxxms")
+theme_override_styles/disabled = ExtResource("11_jcqpe")
+theme_override_styles/focus = ExtResource("9_ojp2k")
+text = "Выход"
+
+[node name="filler2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Музыка"
+label_settings = ExtResource("2_g5hix")
+
+[node name="MusicSlider" parent="MarginContainer/VBoxContainer/Buttons" instance=ExtResource("3_rftt1")]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_0un6s")
+theme_override_icons/grabber_highlight = ExtResource("5_kywri")
+theme_override_styles/slider = ExtResource("7_g5hix")
+theme_override_styles/grabber_area = ExtResource("8_rftt1")
+theme_override_styles/grabber_area_highlight = ExtResource("8_rftt1")
+value = 0.1
+audio_bus_name = "Music"
+
+[node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Звуки"
+label_settings = ExtResource("2_g5hix")
+
+[node name="SFXSlider" parent="MarginContainer/VBoxContainer/Buttons" instance=ExtResource("3_rftt1")]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_0un6s")
+theme_override_icons/grabber_highlight = ExtResource("5_kywri")
+theme_override_styles/slider = ExtResource("7_g5hix")
+theme_override_styles/grabber_area = ExtResource("8_rftt1")
+theme_override_styles/grabber_area_highlight = ExtResource("8_rftt1")
+audio_bus_name = "SFX"
+
+[node name="filler" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="close_button" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("8_tvlg4")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("9_ojp2k")
+theme_override_styles/pressed = ExtResource("9_ojp2k")
+theme_override_styles/hover = ExtResource("10_lxxms")
+theme_override_styles/disabled = ExtResource("11_jcqpe")
+theme_override_styles/focus = ExtResource("9_ojp2k")
+text = "Закрыть"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/to_lobby_button" to="." method="_on_to_lobby_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/close_button" to="." method="_on_close_button_pressed"]

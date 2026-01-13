@@ -11,6 +11,7 @@ font_size = 7
 font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [node name="Hero" type="PanelContainer"]
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("1_yvbpl")
 script = ExtResource("1_3uyx6")
 
@@ -46,6 +47,7 @@ layout_mode = 2
 [node name="rect_hero_portrait" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 
 [node name="skills" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true

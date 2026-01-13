@@ -3,6 +3,10 @@ extends PanelContainer
 class_name MainMenuUI
 
 
+func _ready() -> void:
+	GameManager.set_main_menu(self)
+
+
 func _on_play_button_pressed() -> void:
 	GameManager.show_lobby()
 

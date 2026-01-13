@@ -64,6 +64,7 @@ func _process(delta: float) -> void:
 
 
 func initialize():
+	await get_tree().process_frame
 	slot_name = slot_res.slot_name
 	slot_description = slot_res.slot_description
 	entity_tier = slot_res.entity_tier

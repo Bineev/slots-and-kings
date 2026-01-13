@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://84j5n8m7uy0m" path="res://scripts/other/skill.gd" id="1_hfop6"]
 
 [node name="Skill" type="TextureRect"]
+mouse_filter = 0
 stretch_mode = 3
 script = ExtResource("1_hfop6")
 

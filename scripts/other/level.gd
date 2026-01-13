@@ -98,6 +98,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("create"):
 		if not slot_machine.create_button.disabled:
 			slot_machine.press_create_button()
+	if event.is_action_pressed("options"):
+		GameManager.show_options()
 
 
 func start_waves():

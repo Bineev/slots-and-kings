@@ -49,6 +49,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			generate_rewards()
 			GameManager.set_current_level(level)
 			add_theme_stylebox_override('panel', stylebox_active)
+			lobby.show_start_button()
 			SignalManager.on_level_click.emit(self)
 
 

@@ -1,11 +1,11 @@
 extends Node2D
 
 @export var main_menu_scene : PackedScene = preload('res://scenes/main_menu_ui.tscn')
-@export var options_scene : PackedScene = preload("res://scenes/options_ui.tscn")
+@export var options_scene : PackedScene = preload("res://scenes/options.tscn")
 @export var lobby_scene : PackedScene = preload("res://scenes/lobby_ui.tscn")
 
 var main_menu_UI : MainMenuUI
-var options_UI : Control
+var options_UI : OptionsMenu
 var current_level : Level
 var lobby : LobbyUI
 
@@ -33,16 +33,20 @@ func show_options():
 		options_UI = options_scene.instantiate()
 	get_tree().paused = true
 	get_tree().root.add_child(options_UI)
+	options_UI.initialize()
 
 
 func hide_options():
-	get_tree().root.remove_child(options_UI)
-	get_tree().paused = false
+	if options_UI:
+		get_tree().root.remove_child(options_UI)
+		options_UI = null
+		get_tree().paused = false
 
 
 func start_level():
 	clear_scene()
 	get_tree().root.add_child(current_level)
+	main_menu_UI = null
 
 
 
@@ -54,7 +58,7 @@ func end_level():
 
 
 func exit():
-	queue_free()
+	get_tree().quit()
 
 
 func get_rewards():
@@ -62,6 +66,7 @@ func get_rewards():
 
 
 func show_lobby():
+	hide_options()
 	clear_scene()
 	lobby = lobby_scene.instantiate()
 	lobby.set_data(Player.get_level_scenes())
@@ -71,3 +76,12 @@ func show_lobby():
 
 func set_current_level(level : Level):
 	current_level = level
+
+
+func set_main_menu(new_main_menu_UI):
+	main_menu_UI = new_main_menu_UI
+
+
+func correct_options():
+	if main_menu_UI:
+		options_UI.hide_to_lobby_button()
