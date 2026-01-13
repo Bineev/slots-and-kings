@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://crvk6xm8j6anl"]
+
+[ext_resource type="PackedScene" uid="uid://c7f3lowfcvk3k" path="res://scenes/enemy_spawn.tscn" id="1_t68xp"]
+[ext_resource type="Resource" uid="uid://cf8q6y24cl7j3" path="res://resources/unit_hell_imp.tres" id="2_cdo2p"]
+[ext_resource type="Resource" uid="uid://dbnfyb2dh6w01" path="res://resources/unit_hell_cultist.tres" id="3_3oaca"]
+
+[node name="EnemySpawnHell_1_3" instance=ExtResource("1_t68xp")]
+unit_family = 1
+unit_reses = Array[Resource]([ExtResource("2_cdo2p"), ExtResource("3_3oaca"), ExtResource("3_3oaca")])
+time_to_next_spawn = 10
+time_between_units = 0.1

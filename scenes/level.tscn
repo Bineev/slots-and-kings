@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=41 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -6,12 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://cypodhfnqqklh" path="res://img/castle_UI.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dwrt5w7q3wbfy" path="res://scenes/slot_machine.tscn" id="2_w8frs"]
 [ext_resource type="PackedScene" uid="uid://dc735g5w8l21r" path="res://scenes/waves/wave_1_diff_1.tscn" id="3_8c41q"]
+[ext_resource type="PackedScene" uid="uid://creadqwrdaeib" path="res://scenes/waves/wave_1_1.tscn" id="4_7agi7"]
 [ext_resource type="PackedScene" uid="uid://cndgsot5m7anv" path="res://scenes/reward_after_wave_ui.tscn" id="4_olg7q"]
 [ext_resource type="PackedScene" uid="uid://cjmohtwyt7heq" path="res://scenes/bonus_ui.tscn" id="5_8gofh"]
+[ext_resource type="PackedScene" uid="uid://0q5aqt6ljcl1" path="res://scenes/waves/wave_1_2.tscn" id="5_kih21"]
 [ext_resource type="PackedScene" uid="uid://ht8303wxnf5o" path="res://scenes/spawner.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://hcjh0c5pnpmr" path="res://scenes/building_empty.tscn" id="6_2r41h"]
 [ext_resource type="Resource" uid="uid://bjm4d3ocgqtkl" path="res://resources/upgrade_range.tres" id="6_556r4"]
 [ext_resource type="PackedScene" uid="uid://dawq8kdhvtnp2" path="res://scenes/resources_ui.tscn" id="6_b121j"]
+[ext_resource type="PackedScene" uid="uid://v5p8mlxcerdv" path="res://scenes/waves/wave_1_3.tscn" id="6_w3o6u"]
 [ext_resource type="Resource" uid="uid://o6yes6k2q74f" path="res://resources/upgrade_attackspeed_0.2.tres" id="6_wu01b"]
 [ext_resource type="Resource" uid="uid://cfb6xhmomw62e" path="res://resources/upgrade_attackspeed_0.4.tres" id="7_3ies3"]
 [ext_resource type="Resource" uid="uid://dldc0ba4s4xnb" path="res://resources/upgrade_range_20.tres" id="7_7agi7"]
@@ -93,7 +96,7 @@ fill_from = Vector2(0.4957265, 0.508547)
 [node name="Level" type="Node2D"]
 script = ExtResource("1_klq6b")
 unit_preview_scene = ExtResource("2_klq6b")
-waves_scenes = Array[PackedScene]([ExtResource("3_8c41q")])
+waves_scenes = Array[PackedScene]([ExtResource("3_8c41q"), ExtResource("4_7agi7"), ExtResource("5_kih21"), ExtResource("6_w3o6u")])
 first_wave_timer = 3.0
 wave_rewards = Array[int]([4, 5, 5, 5, 5, 2, 1, 5, 3, 2, 1, 5])
 wave_reward_UI_scene = ExtResource("4_olg7q")
@@ -392,6 +395,7 @@ vertical_alignment = 1
 [node name="NextWaveUI" parent="UI" instance=ExtResource("15_arp2o")]
 unique_name_in_owner = true
 visible = false
+offset_bottom = 328.0
 
 [node name="panel_in_fight" type="PanelContainer" parent="UI"]
 unique_name_in_owner = true

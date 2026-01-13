@@ -14,6 +14,8 @@ class_name PassiveSkill
 @export var skill_wave_count : int
 @export var get_something_time : int
 
+var is_active : bool = true
+
 @onready var timer_get_res: Timer = %timer_get_res
 @onready var timer_get_health: Timer = %timer_get_health
 
@@ -38,7 +40,8 @@ func initialize():
 	recalculate_stats()
 	texture = skill_res.skill_preview
 	#create_tooltip()
-	parse_skill()
+	if is_active:
+		parse_skill()
 
 
 func recalculate_stats():

@@ -42,12 +42,11 @@
 [node name="Player" type="Node2D"]
 visible = false
 script = ExtResource("1_3vyb7")
-health = 100
-gold = 1000000
-tokens = 100
-food = 100
-crystals = 100
-can_swap_time = 0.05
+health = 500
+gold = 1500
+tokens = 5
+food = 5
+can_swap_time = 0.4
 empty_perc_scene = ExtResource("8_60mlk")
 empty_upgrade_scene = ExtResource("5_fjrip")
 slot_scene = ExtResource("4_i4ail")

@@ -6,5 +6,5 @@
 [node name="BuildingEcoFactory" instance=ExtResource("1_50q6t")]
 res_type = 2
 res_amount = 1
-get_res_interval = 10.0
+get_res_interval = 7.0
 building_res = ExtResource("2_3l077")

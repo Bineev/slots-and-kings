@@ -6,5 +6,5 @@
 [node name="BuildingEcoCrystalMine" instance=ExtResource("1_hak5g")]
 res_type = 3
 res_amount = 1
-get_res_interval = 30.0
+get_res_interval = 50.0
 building_res = ExtResource("2_jh54g")

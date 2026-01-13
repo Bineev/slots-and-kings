@@ -4,7 +4,6 @@
 [ext_resource type="Resource" uid="uid://qc2robn6jjdp" path="res://resources/building_gold.tres" id="2_1v0ob"]
 
 [node name="BuildingEcoGoldMine" instance=ExtResource("1_ko7j8")]
-res_type = 0
-res_amount = 10
+res_amount = 30
 get_res_interval = 10.0
 building_res = ExtResource("2_1v0ob")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://creadqwrdaeib"]
+
+[ext_resource type="PackedScene" uid="uid://bs3hmeek3f233" path="res://scenes/wave.tscn" id="1_mqcec"]
+[ext_resource type="PackedScene" uid="uid://buvj62lkmaa5v" path="res://scenes/enemy_spawns/enemy_spawn_hell_1_1.tscn" id="2_0kbmn"]
+[ext_resource type="PackedScene" uid="uid://de5id4ss61ox0" path="res://scenes/enemy_spawns/enemy_spawn_hell_1_2.tscn" id="3_j1i5k"]
+[ext_resource type="PackedScene" uid="uid://crvk6xm8j6anl" path="res://scenes/enemy_spawns/enemy_spawn_hell_1_3.tscn" id="4_0kbmn"]
+
+[node name="wave_1_1" instance=ExtResource("1_mqcec")]
+enemy_spawn_scenes = Array[PackedScene]([ExtResource("2_0kbmn"), ExtResource("3_j1i5k"), ExtResource("4_0kbmn")])
+time_to_next_wave = 30.0
+time_to_next_spawn = 20.0

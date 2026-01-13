@@ -18,7 +18,7 @@ var unit_factory : UnitFactory
 
 func start_spawn():
 	await get_tree().process_frame
-	unit_factory = unit_factory_scene.instantiate()
+	unit_factory = Player.get_unit_factory().duplicate()
 	unit_factory.set_unit_owner(DataManager.UnitOwner.ENEMY)
 	SignalManager.on_start_spawn.emit()
 	unit_spawn_timer.wait_time = time_between_units

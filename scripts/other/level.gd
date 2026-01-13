@@ -320,11 +320,12 @@ func create_wave():
 
 func start_next_wave_countdown():
 	unpause_timers()
-	if Player.get_current_wave_count() >= 1:
+	if Player.get_current_wave_count() >= 1 and waves_scenes.size() > 0:
 		get_tree().create_timer(0.5).timeout.connect(show_bonus_UI)
 	var next_wave_scene : PackedScene = waves_scenes.pop_front()
 	if not next_wave_scene:
 		timer_to_next_wave.stop()
+		GameManager.win()
 		return
 	next_wave = next_wave_scene.instantiate()
 	waves.add_child(next_wave)
