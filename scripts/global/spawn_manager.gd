@@ -39,23 +39,76 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	
 	# сделать более плавное усиление врагов (менять проценты появления
 	# топ тир врагов постепенно
+	
+	
+	var T4_limit : float = 0
+	var T3_limit : float = 0
+	var T2_limit : float = 0
+	var T1_limit : float = 0.3
+	var T0_limit : float = 1
+	
 	if wave_count >= 28:
-		var T4_limit : float = 0.3
-		var T3_limit : float = 0.6
-		var T2_limit : float = 1
-		var upgrade_reses : Array[Resource] 
-		for i in range(enemies_count):
-			var unit_res : Resource
-			# выбираем из какого пула юнит
-			var chance : float = randf()
-			if chance <= T4_limit + diff_coeff * diff_count / 100:
-				unit_res = T4_units_pool.pick_random()
-			elif chance <= T3_limit + diff_coeff * diff_count / 100:
-				unit_res = T3_units_pool.pick_random()
-			else:
-				unit_res = T2_units_pool.pick_random()
-			spawn.unit_reses.append(unit_res)
-		# добавляем апгрейды если надо
+		T4_limit = 0.4
+		T3_limit = 0.8
+		T2_limit = 1
+	elif wave_count >= 25:
+		T4_limit = 0.3
+		T3_limit = 0.7
+		T2_limit = 1
+	elif wave_count >= 22:
+		T4_limit = 0.2
+		T3_limit = 0.6
+		T2_limit = 1
+	elif wave_count >= 19:
+		T4_limit = 0.1
+		T3_limit = 0.5
+		T2_limit = 0.8
+		T1_limit = 1
+	elif wave_count >= 16:
+		T4_limit = 0
+		T3_limit = 0.4
+		T2_limit = 0.7
+		T1_limit = 1
+	elif wave_count >= 13:
+		T4_limit = 0
+		T3_limit = 0.3
+		T2_limit = 0.6
+		T1_limit = 1
+	elif wave_count >= 10:
+		T4_limit = 0
+		T3_limit = 0.2
+		T2_limit = 0.5
+		T1_limit = 0.9
+	elif wave_count >= 7:
+		T4_limit = 0
+		T3_limit = 0.1
+		T2_limit = 0.4
+		T1_limit = 0.8
+	elif wave_count >= 4:
+		T4_limit = 0
+		T3_limit = 0
+		T2_limit = 0.2
+		T1_limit = 0.5
+
+	
+	
+	for i in range(enemies_count):
+		var unit_res : Resource
+		var chance : float = randf()
+		if chance <= T4_limit:
+			unit_res = T4_units_pool.pick_random()
+		elif chance <= T3_limit:
+			unit_res = T3_units_pool.pick_random()
+		elif chance <= T2_limit:
+			unit_res = T2_units_pool.pick_random()
+		elif chance <= T1_limit:
+			unit_res = T1_units_pool.pick_random()
+		elif chance <= T0_limit:
+			unit_res = T0_units_pool.pick_random()
+		spawn.unit_reses.append(unit_res)
+	var upgrade_reses : Array[Resource] 
+
+	if wave_count >= 28:
 		if diff_count >= 8:
 			var rand : float = randf()
 			if rand < T4_limit + diff_coeff * diff_count / 100:
@@ -82,24 +135,6 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 				upgrade_reses.append(T3_upgrades_pool.pick_random())
 		spawn.upgrades_reses = upgrade_reses
 	elif wave_count >= 21:
-		var T4_limit : float = 0
-		if diff_count > 6:
-			T4_limit = 0.01
-		var T3_limit : float = 0.2
-		var T2_limit : float = 1
-		var upgrade_reses : Array[Resource] 
-		for i in range(enemies_count):
-			var unit_res : Resource
-			# выбираем из какого пула юнит
-			var chance : float = randf()
-			if chance <= T4_limit + diff_coeff * diff_count * T4_limit:
-				unit_res = T4_units_pool.pick_random()
-			elif chance <= T3_limit + diff_coeff * diff_count / 100:
-				unit_res = T3_units_pool.pick_random()
-			else:
-				unit_res = T2_units_pool.pick_random()
-			spawn.unit_reses.append(unit_res)
-		# добавляем апгрейды если надо
 		if diff_count >= 8:
 			var rand : float = randf()
 			if rand < T4_limit + diff_coeff * diff_count / 100:
@@ -126,24 +161,6 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 				upgrade_reses.append(T3_upgrades_pool.pick_random())
 		spawn.upgrades_reses = upgrade_reses
 	elif wave_count >= 14:
-		var T4_limit : float = 0
-		if diff_count > 6:
-			T4_limit = 0.01
-		var T3_limit : float = 0.2
-		var T2_limit : float = 1
-		var upgrade_reses : Array[Resource] 
-		for i in range(enemies_count):
-			var unit_res : Resource
-			# выбираем из какого пула юнит
-			var chance : float = randf()
-			if chance <= T4_limit + diff_coeff * diff_count * T4_limit:
-				unit_res = T4_units_pool.pick_random()
-			elif chance <= T3_limit + diff_coeff * diff_count / 100:
-				unit_res = T3_units_pool.pick_random()
-			else:
-				unit_res = T2_units_pool.pick_random()
-			spawn.unit_reses.append(unit_res)
-		# добавляем апгрейды если надо
 		if diff_count >= 8:
 			var rand : float = randf()
 			if rand < T4_limit + diff_coeff * diff_count / 100:
@@ -170,24 +187,6 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 				upgrade_reses.append(T3_upgrades_pool.pick_random())
 		spawn.upgrades_reses = upgrade_reses
 	elif wave_count >=7:
-		var T3_limit : float = 0
-		if diff_count > 6:
-			T3_limit = 0.01
-		var T2_limit : float = 0.2
-		var T1_limit : float = 1
-		var upgrade_reses : Array[Resource] 
-		for i in range(enemies_count):
-			var unit_res : Resource
-			# выбираем из какого пула юнит
-			var chance : float = randf()
-			if chance <= T3_limit + diff_coeff * diff_count * T3_limit:
-				unit_res = T3_units_pool.pick_random()
-			elif chance <= T2_limit + diff_coeff * diff_count / 100:
-				unit_res = T2_units_pool.pick_random()
-			else:
-				unit_res = T1_units_pool.pick_random()
-			spawn.unit_reses.append(unit_res)
-		# добавляем апгрейды если надо
 		if diff_count >= 8:
 			var rand : float = randf()
 			if rand < T3_limit + diff_coeff * diff_count / 100:
@@ -214,24 +213,6 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 				upgrade_reses.append(T2_upgrades_pool.pick_random())
 		spawn.upgrades_reses = upgrade_reses
 	else:
-		var T2_limit : float = 0
-		if diff_count > 6:
-			T2_limit = 0.01
-		var T1_limit : float = 0.3
-		var T0_limit : float = 1
-		var upgrade_reses : Array[Resource] 
-		for i in range(enemies_count):
-			var unit_res : Resource
-			# выбираем из какого пула юнит
-			var chance : float = randf()
-			if chance <= T2_limit + diff_coeff * diff_count * T2_limit:
-				unit_res = T2_units_pool.pick_random()
-			elif chance <= T1_limit + diff_coeff * diff_count / 100:
-				unit_res = T1_units_pool.pick_random()
-			else:
-				unit_res = T0_units_pool.pick_random()
-			spawn.unit_reses.append(unit_res)
-		# добавляем апгрейды если надо
 		if diff_count >= 8:
 			for i in range(3):
 				var rand : float = randf()
