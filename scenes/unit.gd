@@ -463,6 +463,7 @@ func attack():
 	change_state(DataManager.UnitState.ATTACK)
 	is_can_attack = false
 	if unit_types.has(DataManager.UnitType.MELEE):
+		SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.MELEE])
 		if unit_attack_type == DataManager.AttackType.AOE:
 			var enemies : Array[Unit] = enemies_in_range.duplicate()
 			for target in enemies:
@@ -470,6 +471,7 @@ func attack():
 		else:
 			apply_damage(current_target)
 	elif unit_types.has(DataManager.UnitType.RANGE):
+		SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.RANGE])
 		create_projectile(current_target)
 	timer_aspd.wait_time = current_attack_speed / DataManager.action_speed_coeff
 	timer_aspd.start()
@@ -559,7 +561,13 @@ func get_damage(damage : int, damage_owner : Object, is_crit : bool = false):
 		return
 	show_damage(damage, is_crit)
 	show_blood()
+	if unit_owner == DataManager.UnitOwner.PLAYER:
+		SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.HIT_SELF])
+	else:
+		SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.HIT_ENEMY])
 	if actual_health - damage <= 0:
+		if unit_owner == DataManager.UnitOwner.PLAYER:
+			SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.DIED_SELF])
 		actual_health = 0
 		timer_aspd.stop()
 		timer_regen.stop()

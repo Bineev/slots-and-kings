@@ -44,6 +44,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 			is_checked = true
 			lobby.change_level_data(level_name, level_desc)
 			generate_rewards()

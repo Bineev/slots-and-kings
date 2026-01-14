@@ -38,6 +38,7 @@ func initialize():
 
 
 func choose_building():
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SWAP])
 	SignalManager.on_choose_building.emit(building_scene)
 
 

@@ -43,6 +43,7 @@ func initialize():
 		choose_item.building_owner = building_owner
 		choose_item.initialize()
 	SignalManager.on_ready_choose_ui.emit(self)
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SHOW_REWARDS])
 
 
 func close_choose_UI(item : ChooseItem):

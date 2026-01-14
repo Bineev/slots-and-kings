@@ -54,6 +54,7 @@ func initialize():
 
 
 func spin_columns():
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SLOTS_START])
 	SignalManager.spin_columns.emit()
 	SignalManager.on_clear_tooltips.emit()
 	first_column.set_carousels_spin_start()
@@ -78,6 +79,7 @@ func get_active_slots():
 
 
 func create_unit():
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SLOTS_END])
 	if slots.size() > 0:
 		for slot in slots:
 			slot.stop_highlight()

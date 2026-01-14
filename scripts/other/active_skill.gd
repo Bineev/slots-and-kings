@@ -163,6 +163,7 @@ func activate():
 	if not is_void_zone and unit_slots_scenes.size() == 0 and targets.size() == 0:
 		skill_zone.stop_working()
 		return
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.MAGE])
 	skill_anim.modulate = Color(1, 1, 1, 0.8)
 	# проверяем, продолжительный ли это скилл
 	if skill_duration > 0:

@@ -40,6 +40,7 @@ func set_data(new_current_tier : DataManager.EntityTier, new_next_tier_cost : in
 
 
 func _on_button_buy_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.GET_REWARDS])
 	Player.get_res(upgrade_tier_res, -next_tier_cost)
 	building_owner.tier_up()
 	button_buy.disabled = true

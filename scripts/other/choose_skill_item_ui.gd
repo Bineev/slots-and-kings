@@ -20,9 +20,11 @@ func initialize():
 		skill.is_active = false
 	skill.initialize()
 	skill.scale = Vector2(2, 2)
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SHOW_REWARDS])
 
 
 func _on_choose_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.GET_REWARDS])
 	SignalManager.on_choose_skill_done.emit(skill)
 	if skill is PassiveSkill:
 		skill.parse_skill()

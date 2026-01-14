@@ -78,6 +78,7 @@ func _ready() -> void:
 
 
 func initialize():
+	clear_base_decks()
 	is_dead = false
 	heroes.clear()
 	buildings.clear()
@@ -196,11 +197,20 @@ func add_item_to_deck(slot_scene : PackedScene, slot_type : DataManager.SlotType
 
 func add_unit_slot_to_deck(slot_scene : PackedScene):
 	var slot : Slot
-	for item in base_units_deck:
-		slot = item.instantiate()
-		if slot.slot_res.unit_tier == DataManager.UnitTier.T0:
-			base_units_deck.erase(item)
-			break
+	var T0_count : int
+	var T0_index : int
+	for i in range(base_units_deck.size()):
+		slot = base_units_deck[i].instantiate()
+		if slot.slot_res.entity_tier == DataManager.EntityTier.T0:
+			T0_count += 1
+			T0_index = i
+			#base_units_deck.erase(item)
+			#break
+	if T0_count > 3:
+		base_units_deck.erase(base_units_deck[T0_index])
+	#var slot_temp : Slot = slot_scene.instantiate()
+	#if T0_count > 2 and slot_temp.slot_res.entity_tier == 1:
+		#base_units_deck.append(slot_scene)
 	base_units_deck.append(slot_scene)
 
 
@@ -485,6 +495,7 @@ func get_current_bonus(slot_name : Resource):
 func get_random_heroes(heroes_count : int, heroes_level : int):
 	var heroes : Array[Hero]
 	current_progress.hero_reses.shuffle()
+	current_progress.hero_classes.shuffle()
 	var counter : int
 	var inner_counter : int
 	var reses_size : int = current_progress.hero_classes.size()

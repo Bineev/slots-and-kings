@@ -40,10 +40,12 @@ func change_level_data(level_name : String, level_desc : String):
 
 
 func _on_start_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.END_WAVE])
 	GameManager.start_level()
 
 
 func _on_back_to_menu_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	GameManager.show_menu()
 
 

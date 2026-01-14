@@ -96,7 +96,7 @@ enum SkillGrade {
 }
 
 enum SoundType {
-	RANGE, MAGE, MELEE, HIT_SELF, HIT_ENEMY, WALK, DIED_SELF, DIED_ENEMNY, UI, START_WAVE, END_WAVE
+	RANGE, MAGE, MELEE, HIT_SELF, HIT_ENEMY, WALK, DIED_SELF, DIED_ENEMNY, UI, START_WAVE, END_WAVE, SLOTS_START, SLOTS_END, CREATE_UNIT, SHOW_REWARDS, GET_REWARDS, SWAP, CASTLE_HIT, SLOTS_SPIN, MAKE_CHOISE, NICE, HERO
 }
 
 
@@ -339,17 +339,28 @@ var hero_stats_to_rus : Dictionary = {
 }
 
 var sound_dict : Dictionary[SoundType, Resource] = {
-	SoundType.RANGE : preload('res://scenes/active_skill.tscn'),
-	 SoundType.MAGE : preload('res://scenes/active_skill.tscn'),
-	 SoundType.MELEE : preload('res://scenes/active_skill.tscn'),
-	 SoundType.HIT_SELF : preload('res://scenes/active_skill.tscn'),
-	 SoundType.HIT_ENEMY : preload('res://scenes/active_skill.tscn'),
-	 SoundType.WALK : preload('res://scenes/active_skill.tscn'),
-	 SoundType.DIED_SELF : preload('res://scenes/active_skill.tscn'),
-	 SoundType.DIED_ENEMNY : preload('res://scenes/active_skill.tscn'),
-	 SoundType.UI : preload('res://scenes/active_skill.tscn'),
-	 SoundType.START_WAVE : preload('res://scenes/active_skill.tscn'),
-	 SoundType.END_WAVE : preload('res://scenes/active_skill.tscn')
+	SoundType.RANGE : preload("res://sounds/sword.wav"),
+	 SoundType.MAGE : preload("res://sounds/magic.wav"),
+	 SoundType.MELEE : preload("res://sounds/melee.wav"),
+	 SoundType.HIT_SELF : preload("res://sounds/hit.wav"),
+	 SoundType.HIT_ENEMY : preload("res://sounds/hit.wav"),
+	 SoundType.WALK : preload("res://sounds/steps.wav"),
+	 SoundType.DIED_SELF : preload("res://sounds/died_or_hit.wav"),
+	 SoundType.DIED_ENEMNY : preload("res://sounds/melee2.wav"),
+	 SoundType.UI : preload("res://sounds/smth.wav"),
+	 SoundType.START_WAVE : preload("res://sounds/start_wave2.wav"),
+	 SoundType.END_WAVE : preload("res://sounds/slots_end4.wav"),
+	 SoundType.SLOTS_START : preload("res://sounds/slots_swap.mp3"),
+	 SoundType.SLOTS_END : preload("res://sounds/slots_end9.mp3"),
+	 SoundType.CREATE_UNIT : preload("res://sounds/slots_end.wav"),
+	 SoundType.SHOW_REWARDS : preload("res://sounds/rewards.wav"),
+	 SoundType.GET_REWARDS : preload("res://sounds/slots_end4.wav"),
+	 SoundType.SWAP : preload("res://sounds/for_slots1.wav"),
+	 SoundType.CASTLE_HIT : preload("res://sounds/hit.wav"),
+	 SoundType.SLOTS_SPIN : preload("res://sounds/slots_swap.mp3"),
+	 SoundType.MAKE_CHOISE : preload("res://sounds/slots_end9.mp3"),
+	 SoundType.NICE : preload("res://sounds/slots_end3.wav"),
+	 SoundType.HERO : preload("res://sounds/died.wav")
 }
 # мощь атакующих заклинаний
 # урон заклинания = базовый урон + базовый урон / 4 * power

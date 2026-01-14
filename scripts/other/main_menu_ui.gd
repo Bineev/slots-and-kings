@@ -8,20 +8,24 @@ func _ready() -> void:
 
 
 func _on_play_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	Player.clear_after_result()
 	Player.initialize()
 	GameManager.show_lobby()
 
 
 func _on_continue_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	ProgressManager.load_progress_from_file_by_family(Player.current_king)
 	Player.clear_after_result()
 	GameManager.show_lobby()
 
 
 func _on_options_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	GameManager.show_options()
 
 
 func _on_exit_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	GameManager.exit()

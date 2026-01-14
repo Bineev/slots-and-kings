@@ -17,4 +17,5 @@ func set_hero(new_hero : Hero):
 
 
 func _on_choose_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.HERO])
 	SignalManager.on_hero_choose_done.emit(hero)

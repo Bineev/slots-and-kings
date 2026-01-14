@@ -24,6 +24,7 @@ func initialize():
 		choose_item_hero.set_hero(hero)
 		heroes_container.add_child(choose_item_hero)
 		choose_item_hero.initialize()
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.GET_REWARDS])
 
 
 func after_choice_done(new_hero : Hero):

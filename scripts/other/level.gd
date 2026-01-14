@@ -89,6 +89,7 @@ func _ready() -> void:
 		free_fight_points.append(point)
 	for spawner in heroes_slots.get_children():
 		heroes_slots_points.append(spawner)
+	wave_rewards = DataManager.default_reward_progression
 	Player.set_wave_rewards(wave_rewards)
 	start_waves()
 
@@ -125,6 +126,7 @@ func add_player_unit():
 		if Player.check_res(current_unit.unit_cost, DataManager.ResType.FOOD):
 			Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
 			create_unit_from_scratch()
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.CREATE_UNIT])
 	# здесь сидит баг
 	await get_tree().process_frame
 	current_unit.get_parent().remove_child(current_unit)
@@ -310,6 +312,7 @@ func _on_timer_to_next_wave_timeout() -> void:
 	
 	
 func create_wave():
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.START_WAVE])
 	panel_in_fight.visible = true
 	next_wave_ui.next_wave_anim_player.stop()
 	next_wave_ui.visible = false

@@ -24,6 +24,7 @@ func initialize():
 	generate_reward_header()
 	generate_reward_info()
 	generate_reward_container()
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.NICE])
 
 
 func show_popup_UI():
@@ -38,6 +39,7 @@ func show_popup_UI():
 
 
 func show_choose_UI():
+	#SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SHOW_REWARDS])
 	choose_UI = choose_UI_scene.instantiate()
 	var choose_scenes : Array[PackedScene]
 	match reward_type:

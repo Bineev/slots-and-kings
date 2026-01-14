@@ -39,6 +39,7 @@ func set_data(new_building_owner : Building, new_upgrade_tier_cost : int, new_cu
 
 
 func _on_button_buy_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.GET_REWARDS])
 	tier_up()
 	button_buy.disabled = true
 	var tween = get_tree().create_tween()

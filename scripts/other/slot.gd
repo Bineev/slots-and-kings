@@ -260,6 +260,7 @@ func move_slots():
 		slot_for_swap = null
 		Player.set_is_can_swap(false)
 		SignalManager.on_swap_done.emit()
+		#SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SWAP])
 
 
 func get_closest_swap_slot():

@@ -37,6 +37,7 @@ func initialize():
 		building.initialize()
 	update_gold()
 	get_tree().paused = true
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 
 
 func destroy():

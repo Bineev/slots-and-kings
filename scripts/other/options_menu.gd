@@ -12,11 +12,13 @@ func initialize():
 
 
 func _on_close_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	GameManager.hide_options()
 
 
 func _on_to_lobby_button_pressed() -> void:
 	Player.clear_after_result()
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	get_tree().paused = true
 	GameManager.current_level.queue_free()
 	GameManager.show_lobby()
