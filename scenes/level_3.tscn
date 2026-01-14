@@ -1,0 +1,13 @@
+[gd_scene load_steps=6 format=3 uid="uid://j0ma0aggvqpt"]
+
+[ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="1_ah8om"]
+[ext_resource type="Resource" uid="uid://b4hgg0rssvudv" path="res://resources/upgrade_tattack_20.tres" id="2_p6vls"]
+[ext_resource type="Resource" uid="uid://b516xhwhqgplu" path="res://resources/upgrade_tattack_40.tres" id="3_hhfj6"]
+[ext_resource type="Resource" uid="uid://onueq6gpmlta" path="res://resources/upgrade_tattack_60.tres" id="4_wae8j"]
+[ext_resource type="Resource" uid="uid://ba4688633h3de" path="res://resources/upgrade_tattack_80.tres" id="5_ha73p"]
+
+[node name="Level3" instance=ExtResource("1_ah8om")]
+difficulty_count = 3
+level_name = "Сложность 3"
+level_desc = "Врагов утомило соседство с вашим замком. Волны врагов усилены. Враги бывают с улучшениями."
+rewards = Array[Resource]([ExtResource("2_p6vls"), ExtResource("3_hhfj6"), ExtResource("4_wae8j"), ExtResource("5_ha73p")])

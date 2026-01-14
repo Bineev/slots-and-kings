@@ -36,7 +36,7 @@ func initialize():
 		buildings_container.add_child(building)
 		building.initialize()
 	update_gold()
-	get_tree().paused = true
+	#get_tree().paused = true
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 
 
@@ -45,7 +45,7 @@ func destroy():
 
 
 func choose_building(building_scene : PackedScene):
-	get_tree().paused = false
+	#get_tree().paused = false
 	SignalManager.on_build_building.emit(building_scene, prebuilding)
 	visible = false
 	var tween = get_tree().create_tween()

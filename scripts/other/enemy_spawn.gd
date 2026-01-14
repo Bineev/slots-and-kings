@@ -10,6 +10,7 @@ class_name EnemySpawn
 @export var spawn_weight : int
 @export var time_to_next_spawn : int
 @export var time_between_units : float
+@export var diff_count : int
 
 var unit_factory : UnitFactory
 
@@ -43,6 +44,9 @@ func spawn_unit():
 	slot.initialize()
 	slots.append(slot)
 	for res in upgrades_reses:
+		var rand : float = randf()
+		if rand > diff_count / 10:
+			continue
 		var slot_scene : PackedScene = Player.create_slot_scene(res)
 		var upgrade_slot : Slot = slot_scene.instantiate()
 		upgrade_slot.hide()

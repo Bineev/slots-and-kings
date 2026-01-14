@@ -116,22 +116,22 @@ func set_entity_tier_by_wave_count():
 
 func set_resorces_count_by_wave_count():
 	if wave_count >=DataManager.T4_transition:
-		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 4
+		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 2.5
 		resources_dict[DataManager.ResType.CRYSTAL] = DataManager.default_crystal_reward * 4
 		resources_dict[DataManager.ResType.FOOD] = DataManager.default_food_reward * 4
-		resources_dict[DataManager.ResType.SPIN_TOKEN] = DataManager.default_spin_reward * 4
+		resources_dict[DataManager.ResType.SPIN_TOKEN] = DataManager.default_spin_reward
 		return
 	elif wave_count >= DataManager.T3_transition:
-		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 3
+		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 2
 		resources_dict[DataManager.ResType.CRYSTAL] = DataManager.default_crystal_reward * 3
 		resources_dict[DataManager.ResType.FOOD] = DataManager.default_food_reward * 3
-		resources_dict[DataManager.ResType.SPIN_TOKEN] = DataManager.default_spin_reward * 3
+		resources_dict[DataManager.ResType.SPIN_TOKEN] = DataManager.default_spin_reward
 		return
 	elif wave_count >= DataManager.T2_transition:
-		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 2
+		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 1.5
 		resources_dict[DataManager.ResType.CRYSTAL] = DataManager.default_crystal_reward * 2
 		resources_dict[DataManager.ResType.FOOD] = DataManager.default_food_reward * 2
-		resources_dict[DataManager.ResType.SPIN_TOKEN] = DataManager.default_spin_reward * 2
+		resources_dict[DataManager.ResType.SPIN_TOKEN] = DataManager.default_spin_reward
 		return
 	else:
 		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward

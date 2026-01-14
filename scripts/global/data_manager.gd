@@ -168,7 +168,7 @@ var default_spin_speed : float = 0.1
 
 var max_armor : float = 80
 
-var gold_drop_default : int = 10
+var gold_drop_default : int = 15
 
 var tokens_drop_chance : float = 0.3
 

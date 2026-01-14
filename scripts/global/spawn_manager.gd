@@ -20,7 +20,7 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	spawn.time_between_units = 0.1
 	spawn.unit_factory = Player.get_unit_factory().duplicate()
 	var progress : PlayerProgress = ProgressManager.get_base_progress_by_family(DataManager.UnitFamily.HELL)
-	var enemies_count : int = wave_count * 2.5 + diff_count
+	var enemies_count : int = wave_count * 2 + diff_count
 	var spawn_coeff : int = diff_count if diff_count != 0 else 1
 	
 	var T0_units_pool : Array[Resource] = progress.units_T0_pool.duplicate(true)
@@ -35,18 +35,188 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	var special_pool : Array[Resource] = progress.special_upgrades_reses.duplicate(true)
 
 	
-	var diff_coeff : float = 3
+	var diff_coeff : float = 2
 	
+	# сделать более плавное усиление врагов (менять проценты появления
+	# топ тир врагов постепенно
 	if wave_count >= 28:
-		pass
+		var T4_limit : float = 0.3
+		var T3_limit : float = 0.6
+		var T2_limit : float = 1
+		var upgrade_reses : Array[Resource] 
+		for i in range(enemies_count):
+			var unit_res : Resource
+			# выбираем из какого пула юнит
+			var chance : float = randf()
+			if chance <= T4_limit + diff_coeff * diff_count / 100:
+				unit_res = T4_units_pool.pick_random()
+			elif chance <= T3_limit + diff_coeff * diff_count / 100:
+				unit_res = T3_units_pool.pick_random()
+			else:
+				unit_res = T2_units_pool.pick_random()
+			spawn.unit_reses.append(unit_res)
+		# добавляем апгрейды если надо
+		if diff_count >= 8:
+			var rand : float = randf()
+			if rand < T4_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+		elif diff_count >= 6:
+			var rand : float = randf()
+			if rand < T4_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+		elif diff_count >= 4:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T3_upgrades_pool.pick_random())
+		elif diff_count >= 2:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T4_upgrades_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T3_upgrades_pool.pick_random())
+		spawn.upgrades_reses = upgrade_reses
 	elif wave_count >= 21:
-		pass
+		var T4_limit : float = 0
+		if diff_count > 6:
+			T4_limit = 0.01
+		var T3_limit : float = 0.2
+		var T2_limit : float = 1
+		var upgrade_reses : Array[Resource] 
+		for i in range(enemies_count):
+			var unit_res : Resource
+			# выбираем из какого пула юнит
+			var chance : float = randf()
+			if chance <= T4_limit + diff_coeff * diff_count * T4_limit:
+				unit_res = T4_units_pool.pick_random()
+			elif chance <= T3_limit + diff_coeff * diff_count / 100:
+				unit_res = T3_units_pool.pick_random()
+			else:
+				unit_res = T2_units_pool.pick_random()
+			spawn.unit_reses.append(unit_res)
+		# добавляем апгрейды если надо
+		if diff_count >= 8:
+			var rand : float = randf()
+			if rand < T4_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+		elif diff_count >= 6:
+			var rand : float = randf()
+			if rand < T4_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T4_upgrades_pool.pick_random())
+		elif diff_count >= 4:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T4_upgrades_pool.pick_random())
+		elif diff_count >= 2:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T4_upgrades_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T3_upgrades_pool.pick_random())
+		spawn.upgrades_reses = upgrade_reses
 	elif wave_count >= 14:
-		pass
+		var T4_limit : float = 0
+		if diff_count > 6:
+			T4_limit = 0.01
+		var T3_limit : float = 0.2
+		var T2_limit : float = 1
+		var upgrade_reses : Array[Resource] 
+		for i in range(enemies_count):
+			var unit_res : Resource
+			# выбираем из какого пула юнит
+			var chance : float = randf()
+			if chance <= T4_limit + diff_coeff * diff_count * T4_limit:
+				unit_res = T4_units_pool.pick_random()
+			elif chance <= T3_limit + diff_coeff * diff_count / 100:
+				unit_res = T3_units_pool.pick_random()
+			else:
+				unit_res = T2_units_pool.pick_random()
+			spawn.unit_reses.append(unit_res)
+		# добавляем апгрейды если надо
+		if diff_count >= 8:
+			var rand : float = randf()
+			if rand < T4_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+		elif diff_count >= 6:
+			var rand : float = randf()
+			if rand < T4_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T4_upgrades_pool.pick_random())
+		elif diff_count >= 4:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T3_upgrades_pool.pick_random())
+		elif diff_count >= 2:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T4_upgrades_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T3_upgrades_pool.pick_random())
+		spawn.upgrades_reses = upgrade_reses
 	elif wave_count >=7:
-		pass
+		var T3_limit : float = 0
+		if diff_count > 6:
+			T3_limit = 0.01
+		var T2_limit : float = 0.2
+		var T1_limit : float = 1
+		var upgrade_reses : Array[Resource] 
+		for i in range(enemies_count):
+			var unit_res : Resource
+			# выбираем из какого пула юнит
+			var chance : float = randf()
+			if chance <= T3_limit + diff_coeff * diff_count * T3_limit:
+				unit_res = T3_units_pool.pick_random()
+			elif chance <= T2_limit + diff_coeff * diff_count / 100:
+				unit_res = T2_units_pool.pick_random()
+			else:
+				unit_res = T1_units_pool.pick_random()
+			spawn.unit_reses.append(unit_res)
+		# добавляем апгрейды если надо
+		if diff_count >= 8:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+		elif diff_count >= 6:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T3_upgrades_pool.pick_random())
+		elif diff_count >= 4:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(special_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T2_upgrades_pool.pick_random())
+		elif diff_count >= 2:
+			var rand : float = randf()
+			if rand < T3_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T3_upgrades_pool.pick_random())
+			elif rand < T2_limit + diff_coeff * diff_count / 100:
+				upgrade_reses.append(T2_upgrades_pool.pick_random())
+		spawn.upgrades_reses = upgrade_reses
 	else:
-		var T2_limit : float = 0.03
+		var T2_limit : float = 0
+		if diff_count > 6:
+			T2_limit = 0.01
 		var T1_limit : float = 0.3
 		var T0_limit : float = 1
 		var upgrade_reses : Array[Resource] 
@@ -54,7 +224,7 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 			var unit_res : Resource
 			# выбираем из какого пула юнит
 			var chance : float = randf()
-			if chance <= T2_limit + diff_coeff * diff_count / 100:
+			if chance <= T2_limit + diff_coeff * diff_count * T2_limit:
 				unit_res = T2_units_pool.pick_random()
 			elif chance <= T1_limit + diff_coeff * diff_count / 100:
 				unit_res = T1_units_pool.pick_random()
@@ -63,29 +233,31 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 			spawn.unit_reses.append(unit_res)
 		# добавляем апгрейды если надо
 		if diff_count >= 8:
-			var rand : float = randf()
-			if rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool)
-			elif rand < T1_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool)
+			for i in range(3):
+				var rand : float = randf()
+				if rand < T2_limit + diff_coeff * diff_count / 100:
+					upgrade_reses.append(special_pool.pick_random())
+				elif rand < T1_limit + diff_coeff * diff_count / 100:
+					upgrade_reses.append(special_pool.pick_random())
 		elif diff_count >= 6:
-			var rand : float = randf()
-			if rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool)
-			elif rand < T1_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T2_upgrades_pool)
+			for i in range(2):
+				var rand : float = randf()
+				if rand < T2_limit + diff_coeff * diff_count / 100:
+					upgrade_reses.append(special_pool.pick_random())
+				elif rand < T1_limit + diff_coeff * diff_count / 100:
+					upgrade_reses.append(T2_upgrades_pool.pick_random())
 		elif diff_count >= 4:
 			var rand : float = randf()
 			if rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool)
+				upgrade_reses.append(special_pool.pick_random())
 			elif rand < T1_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T1_upgrades_pool)
+				upgrade_reses.append(T1_upgrades_pool.pick_random())
 		elif diff_count >= 2:
 			var rand : float = randf()
 			if rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T2_upgrades_pool)
+				upgrade_reses.append(T2_upgrades_pool.pick_random())
 			elif rand < T1_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T1_upgrades_pool)
+				upgrade_reses.append(T1_upgrades_pool.pick_random())
 		spawn.upgrades_reses = upgrade_reses
 	
 	var new_spawn_scene : PackedScene = PackedScene.new()
@@ -99,13 +271,13 @@ func get_waves_by_diff_and_count(difficulty_count : int, waves_count : int):
 	var spawn_count : int
 	var time_between_waves: int
 	if difficulty_count >= 8:
-		spawn_count = 5
+		spawn_count = 4
 		time_between_waves = 30
 	elif difficulty_count >= 4:
-		spawn_count = 4
+		spawn_count = 3
 		time_between_waves = 35
 	else:
-		spawn_count = 3
+		spawn_count = 2
 		time_between_waves = 40
 	for i in range(1, waves_count + 1):
 		var wave : Wave = wave_scene.instantiate()
