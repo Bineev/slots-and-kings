@@ -184,7 +184,7 @@ var T4_transition : int = 17
 
 var default_gold_reward : int = 400
 
-var default_crystal_reward : int = 2
+var default_crystal_reward : int = 1
 
 var default_food_reward : int = 5
 
@@ -207,7 +207,7 @@ var upper_fight_limit : float = 160
 
 var bottom_fight_limit : float = 280
 
-var default_damage_to_base : int = 30
+var default_damage_to_base : int = 20
 
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',

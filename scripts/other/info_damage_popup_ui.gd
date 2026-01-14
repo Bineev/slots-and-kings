@@ -28,7 +28,8 @@ func set_action_type(new_action_type : DataManager.ActionType):
 
 
 func initialize():
-	await get_tree().process_frame
+	if is_inside_tree():
+		await get_tree().process_frame
 	match unit_owner:
 		DataManager.UnitOwner.PLAYER:
 			label_amount.label_settings = player_label_settings
