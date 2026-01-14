@@ -463,7 +463,7 @@ func attack():
 	change_state(DataManager.UnitState.ATTACK)
 	is_can_attack = false
 	if unit_types.has(DataManager.UnitType.MELEE):
-		SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.MELEE])
+		SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.MELEE])
 		if unit_attack_type == DataManager.AttackType.AOE:
 			var enemies : Array[Unit] = enemies_in_range.duplicate()
 			for target in enemies:
@@ -471,7 +471,7 @@ func attack():
 		else:
 			apply_damage(current_target)
 	elif unit_types.has(DataManager.UnitType.RANGE):
-		SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.RANGE])
+		SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.RANGE])
 		create_projectile(current_target)
 	timer_aspd.wait_time = current_attack_speed / DataManager.action_speed_coeff
 	timer_aspd.start()

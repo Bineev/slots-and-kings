@@ -19,6 +19,7 @@ extends Node
 @export var slot_scene : PackedScene
 @export var passive_skill_scene : PackedScene
 @export var active_skill_scene : PackedScene
+@export var unit_factory_scene : PackedScene
 
 @export var base_units_reses : Array[Resource]
 @export var base_upgrades_reses : Array[Resource]
@@ -79,6 +80,7 @@ func _ready() -> void:
 
 func initialize():
 	clear_base_decks()
+	unit_factory = unit_factory_scene.instantiate()
 	is_dead = false
 	heroes.clear()
 	buildings.clear()

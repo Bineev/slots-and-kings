@@ -40,8 +40,8 @@ func initialize():
 	recalculate_stats()
 	texture = skill_res.skill_preview
 	#create_tooltip()
-	if is_active:
-		parse_skill()
+	#if is_active:
+		#parse_skill()
 
 
 func recalculate_stats():

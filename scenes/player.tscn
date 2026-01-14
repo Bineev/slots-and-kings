@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b2n1x2qfrsxyl"]
+[gd_scene load_steps=40 format=3 uid="uid://b2n1x2qfrsxyl"]
 
 [ext_resource type="Script" uid="uid://3w73b74vo6kv" path="res://scripts/global/player_manager.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://cluryhbmp3j2a" path="res://scenes/slot.tscn" id="4_i4ail"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ci3dmlfk4dtx6" path="res://scenes/passive_skill.tscn" id="5_hax0n"]
 [ext_resource type="Resource" uid="uid://sxoa7kpjidf4" path="res://resources/empty_upgrade.tres" id="6_bj30b"]
 [ext_resource type="PackedScene" uid="uid://diap4c60rngap" path="res://scenes/active_skill.tscn" id="6_t4otl"]
+[ext_resource type="PackedScene" uid="uid://d1bv4n8c15lwr" path="res://scenes/unit_factory.tscn" id="7_j2b1d"]
 [ext_resource type="Resource" uid="uid://ou85bbbd7mbo" path="res://resources/upgrade_movespeed_15.tres" id="7_jc3p3"]
 [ext_resource type="PackedScene" uid="uid://edd44jk248hq" path="res://scenes/slots/slot_perc_empty.tscn" id="8_60mlk"]
 [ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="8_hax0n"]
@@ -43,7 +44,7 @@
 visible = false
 script = ExtResource("1_3vyb7")
 health = 500
-gold = 1500
+gold = 2000
 tokens = 5
 food = 5
 can_swap_time = 0.3
@@ -52,6 +53,7 @@ empty_upgrade_scene = ExtResource("5_fjrip")
 slot_scene = ExtResource("4_i4ail")
 passive_skill_scene = ExtResource("5_hax0n")
 active_skill_scene = ExtResource("6_t4otl")
+unit_factory_scene = ExtResource("7_j2b1d")
 base_units_reses = Array[Resource]([ExtResource("5_fulsm"), ExtResource("5_fulsm"), ExtResource("5_fulsm"), ExtResource("5_fulsm")])
 base_upgrades_reses = Array[Resource]([ExtResource("6_bj30b"), ExtResource("6_bj30b"), ExtResource("6_bj30b"), ExtResource("7_jc3p3")])
 base_percs_reses = Array[Resource]([ExtResource("8_hax0n"), ExtResource("8_hax0n"), ExtResource("8_hax0n"), ExtResource("9_t4otl")])

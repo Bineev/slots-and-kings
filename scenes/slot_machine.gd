@@ -29,7 +29,7 @@ func _ready() -> void:
 	SignalManager.on_res_change.connect(update_buttons)
 	SignalManager.on_swap_done.connect(clear_bar_can_swap)
 	await get_tree().process_frame
-	Player.set_unit_factory(castle_unit_factory)
+	#Player.set_unit_factory(castle_unit_factory)
 	initialize()
 	#first_column.pre_spin()
 	#second_column.pre_spin()

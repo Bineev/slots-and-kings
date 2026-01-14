@@ -10,14 +10,14 @@ var sound : AudioStreamPlayer
 
 
 func play(source : Node, stream : AudioStream):
-	if sound and sound.playing:
-		sound.stop()
+	#if sound and sound.playing:
+		#sound.stop()
 	sound = AudioStreamPlayer.new()
 	sound.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(sound)
 	sound.bus = "SFX"
 	sound.stream = stream
-	#sound.volume_db = -20
+	sound.volume_db = -25
 	sound.connect("finished", sound.queue_free)
 	#sound.volume_db = -15
 	sound.stream = stream
@@ -26,7 +26,7 @@ func play(source : Node, stream : AudioStream):
 
 func play_local(sound_local : AudioStreamPlayer2D, stream : AudioStream):
 	if is_instance_valid(sound_local):
-		sound_local.volume_db = -15
+		sound_local.volume_db = -2
 		sound_local.stream = stream
 		sound_local.play()
 
@@ -37,7 +37,7 @@ func play_ui(source : Node, stream : AudioStream):
 	add_child(sound_temp)
 	sound_temp.bus = "SFX"
 	sound_temp.stream = stream
-	#sound_temp.volume_db = -20
+	sound_temp.volume_db = -15
 	sound_temp.connect("finished", sound_temp.queue_free)
 	#sound.volume_db = -15
 	sound_temp.stream = stream

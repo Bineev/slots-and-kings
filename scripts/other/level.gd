@@ -13,6 +13,7 @@ class_name Level
 @export var level_name : String
 @export var level_desc : String
 @export var rewards : Array[Resource]
+@export var waves_count : int = 10
 
 var is_need_def_of_loop : bool
 var free_spawners : Array[Spawner]
@@ -91,6 +92,8 @@ func _ready() -> void:
 		heroes_slots_points.append(spawner)
 	wave_rewards = DataManager.default_reward_progression
 	Player.set_wave_rewards(wave_rewards)
+	waves_count = difficulty_count * 3 + 10
+	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
 	start_waves()
 
 
@@ -445,6 +448,8 @@ func add_hero_to_field(hero : Hero):
 		for skill in hero.actives:
 			print(skill.skill_anim_player.get_animation('skill').loop_mode)
 			skill.reinit()
+		for skill in hero.passives:
+			skill.is_active = true
 	else:
 		heroes.add_child(hero)
 		hero.initialize()

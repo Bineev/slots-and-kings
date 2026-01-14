@@ -21,6 +21,7 @@ class_name PlayerProgress
 @export var special_pskills_dict : Dictionary
 @export var special_askills_dict : Dictionary
 
+@export var units_T0_pool : Array[Resource]
 @export var units_T1_pool : Array[Resource]
 @export var units_T2_pool : Array[Resource]
 @export var units_T3_pool : Array[Resource]
