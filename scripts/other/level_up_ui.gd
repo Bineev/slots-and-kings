@@ -72,6 +72,7 @@ func add_skill_to_hero(new_skill : Skill):
 	if new_skill is PassiveSkill:
 		hero.add_passive_skill(new_skill)
 		new_skill.reparent(hero.passive_container)
+		new_skill.parse_skill()
 	elif new_skill is ActiveSkill:
 		hero.add_active_skill(new_skill)
 		new_skill.reparent(hero.active_container)

@@ -26,5 +26,3 @@ func initialize():
 func _on_choose_button_pressed() -> void:
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.GET_REWARDS])
 	SignalManager.on_choose_skill_done.emit(skill)
-	if skill is PassiveSkill:
-		skill.parse_skill()

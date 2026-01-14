@@ -450,6 +450,7 @@ func add_hero_to_field(hero : Hero):
 			skill.reinit()
 		for skill in hero.passives:
 			skill.is_active = true
+			skill.parse_skill()
 	else:
 		heroes.add_child(hero)
 		hero.initialize()
