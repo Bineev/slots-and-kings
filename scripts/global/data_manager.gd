@@ -176,19 +176,19 @@ var food_drop_chance : float = 0.2
 
 var crystals_drop_chance : float = 0.06
 
-var T2_transition : int = 6
+var T2_transition : int = 5
 
-var T3_transition : int = 12
+var T3_transition : int = 11
 
-var T4_transition : int = 18
+var T4_transition : int = 17
 
 var default_gold_reward : int = 400
 
-var default_crystal_reward : int = 1
+var default_crystal_reward : int = 2
 
 var default_food_reward : int = 5
 
-var default_spin_reward : int = 5
+var default_spin_reward : int = 7
 
 #var action_speed_coeff : float = 1.5
 var action_speed_coeff : float = 1.7
@@ -206,6 +206,8 @@ var movement_offset_max : float = 0.3
 var upper_fight_limit : float = 160
 
 var bottom_fight_limit : float = 280
+
+var default_damage_to_base : int = 30
 
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',

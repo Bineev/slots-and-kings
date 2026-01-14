@@ -102,7 +102,7 @@ func generate_reward_container():
 
 
 func set_entity_tier_by_wave_count():
-	if wave_count >=DataManager.T4_transition:
+	if wave_count >= DataManager.T4_transition:
 		entity_tier = DataManager.EntityTier.T4
 		return
 	if wave_count >= DataManager.T3_transition:

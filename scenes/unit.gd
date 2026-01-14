@@ -485,7 +485,7 @@ func attack_castle():
 		attack = current_true_damage
 	elif unit_types.has(DataManager.UnitType.PHYS):
 		attack = current_physical_attack
-	Player.get_damage(round(attack))
+	Player.get_damage(DataManager.default_damage_to_base)
 	
 	
 
