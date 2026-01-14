@@ -69,6 +69,8 @@ func get_rewards():
 
 func show_lobby():
 	get_tree().paused = false
+	if lobby:
+		lobby.queue_free()
 	if Player.current_runs_count > 0:
 		Player.clear_after_result()
 	hide_options()

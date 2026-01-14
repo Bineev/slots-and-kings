@@ -103,6 +103,46 @@ enum SoundType {
 var default_hero_up_order : Array[HeroUpType] = [HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT]
 
 
+var default_reward_progression : Array[RewardType] = [
+	RewardType.HERO,
+	RewardType.UPGRADE,
+	RewardType.LEVEL_UP,
+	RewardType.UNIT,
+	RewardType.LEVEL_UP,
+	RewardType.PERC,
+	RewardType.LEVEL_UP,
+	RewardType.HERO,
+	RewardType.UPGRADE,
+	RewardType.LEVEL_UP,
+	RewardType.UNIT,
+	RewardType.LEVEL_UP,
+	RewardType.PERC,
+	RewardType.LEVEL_UP,
+	RewardType.HERO,
+	RewardType.UPGRADE,
+	RewardType.LEVEL_UP,
+	RewardType.UNIT,
+	RewardType.LEVEL_UP,
+	RewardType.PERC,
+	RewardType.LEVEL_UP,
+	RewardType.HERO,
+	RewardType.UPGRADE,
+	RewardType.LEVEL_UP,
+	RewardType.UNIT,
+	RewardType.LEVEL_UP,
+	RewardType.PERC,
+	RewardType.LEVEL_UP,
+	RewardType.HERO,
+	RewardType.UPGRADE,
+	RewardType.LEVEL_UP,
+	RewardType.UNIT,
+	RewardType.LEVEL_UP,
+	RewardType.PERC,
+	RewardType.LEVEL_UP,
+]
+
+
+
 var unit_types_table : Dictionary = {
 	UnitType.MELEE : 'мили',
 	UnitType.RANGE : 'ренж',
@@ -122,27 +162,27 @@ var started_indexes : Vector2 = Vector2(1, 0)
 
 var min_spin_time : float = 1.5
 
-var max_spin_time : float = 3
+var max_spin_time : float = 2.5
 
 var default_spin_speed : float = 0.1
 
-var max_armor : float = 70
+var max_armor : float = 80
 
 var gold_drop_default : int = 10
 
-var tokens_drop_chance : float = 0.2
+var tokens_drop_chance : float = 0.3
 
-var food_drop_chance : float = 0.1
+var food_drop_chance : float = 0.2
 
-var crystals_drop_chance : float = 0.03
+var crystals_drop_chance : float = 0.06
 
-var T2_transition : int = 4
+var T2_transition : int = 6
 
-var T3_transition : int = 8
+var T3_transition : int = 12
 
-var T4_transition : int = 12
+var T4_transition : int = 18
 
-var default_gold_reward : int = 300
+var default_gold_reward : int = 400
 
 var default_crystal_reward : int = 1
 

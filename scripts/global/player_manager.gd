@@ -68,6 +68,7 @@ var current_units_coeff : int = 1
 var current_bonus_slot_name : String
 var is_dead : bool
 var current_runs_count : int
+var buildings : Array[Building]
 
 
 func _ready() -> void:
@@ -77,6 +78,11 @@ func _ready() -> void:
 
 
 func initialize():
+	is_dead = false
+	heroes.clear()
+	buildings.clear()
+	enemy_units.clear()
+	player_units.clear()
 	current_progress = ProgressManager.get_base_progress_by_family(current_king)
 	current_health = health
 	current_gold = gold
@@ -92,6 +98,9 @@ func clear_after_result():
 	clear_base_decks()
 	is_dead = false
 	heroes.clear()
+	buildings.clear()
+	enemy_units.clear()
+	player_units.clear()
 	current_wave_count = 0
 	current_health = health
 	current_gold = gold
@@ -686,3 +695,12 @@ func add_rewards_to_progress(rewards : Array[Resource]):
 				DataManager.EntityTier.T4:
 					if not current_progress.upgrades_T4_pool.has(res):
 						current_progress.upgrades_T4_pool.append(res)
+
+
+func get_buildings_count(building_name : String):
+	var count : int
+	for building in buildings:
+		if building.building_name == building_name:
+			count += 1
+	
+	return count

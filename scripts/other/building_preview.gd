@@ -25,7 +25,9 @@ func initialize():
 	await self.ready
 	building_name = building_res.building_name
 	building_desc = building_res.building_desc
-	building_cost = building_res.building_cost
+	var same_buildings_count : int = Player.get_buildings_count(building_name)
+	var cost_coeff : float = 1 + same_buildings_count * 0.5
+	building_cost = building_res.building_cost * cost_coeff
 	#building_scene = building_res.building_scene
 	label_building_name.text = building_name
 	label_building_desc.text = building_desc

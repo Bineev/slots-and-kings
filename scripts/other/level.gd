@@ -242,6 +242,7 @@ func build_building(building_scene : PackedScene, prebuilding : Building):
 	var new_building = building_scene.instantiate()
 	buildings.add_child(new_building)
 	new_building.global_position = prebuilding.global_position
+	Player.buildings.append(new_building)
 	new_building.initialize()
 	buildings.remove_child(prebuilding)
 	prebuilding.queue_free()

@@ -16,6 +16,9 @@ func _on_close_button_pressed() -> void:
 
 
 func _on_to_lobby_button_pressed() -> void:
+	Player.clear_after_result()
+	get_tree().paused = true
+	GameManager.current_level.queue_free()
 	GameManager.show_lobby()
 
 

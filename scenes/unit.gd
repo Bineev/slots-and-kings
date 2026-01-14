@@ -210,13 +210,13 @@ func _process(delta: float) -> void:
 
 func generate_drop_chances():
 	var drop_gold : int = entity_tier * DataManager.gold_drop_default + DataManager.gold_drop_default
-	var drop_gold_chance : int = 100
+	var drop_gold_chance : float = 100
 	var drop_tokens : int = 1
-	var drop_tokens_chance : int = DataManager.tokens_drop_chance
+	var drop_tokens_chance : float = DataManager.tokens_drop_chance
 	var drop_food : int = 1
-	var drop_food_chance : int = DataManager.food_drop_chance
+	var drop_food_chance : float = DataManager.food_drop_chance
 	var drop_crystals : int = 1
-	var drop_crystals_chance : int = DataManager.crystals_drop_chance * entity_tier
+	var drop_crystals_chance : float = DataManager.crystals_drop_chance * entity_tier
 	drop_chances['drop_gold'] = drop_gold
 	drop_chances['drop_gold_chance'] = drop_gold_chance
 	drop_chances['drop_tokens'] = drop_tokens
@@ -437,13 +437,13 @@ func fight():
 	current_target = get_target_by_setting()
 	# если есть живой таргет в ренже атаки
 
-	if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
+	if current_target and is_instance_valid(current_target) and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 		attack()
 		return
 	else:
 		current_target = get_enemy_on_field()
 	# если есть живой таргет на поле, то идем к нему, пока не дойдем в ренж атаки
-	if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
+	if current_target and is_instance_valid(current_target) and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 		change_state(DataManager.UnitState.WALK)
 	# если живого таргета нет, встаем в idle
 	else:
