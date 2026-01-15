@@ -22,6 +22,7 @@ func initialize():
 	await get_tree().process_frame
 	hero.reparent(hero_container)
 	hero.set_skills_is_inactive()
+	hero.update_hero_level()
 	if hero.hero_level > 10 or hero.hero_level == 2 or hero.hero_level == 5 or hero.hero_level == 8:
 		# показать меню стат ап
 		var stats : Array[String] = ['power', 'quickness', 'mastery', 'grace']

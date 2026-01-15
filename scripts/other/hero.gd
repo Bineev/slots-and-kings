@@ -38,6 +38,7 @@ var previous_position : Vector2
 @onready var active_container: HBoxContainer = %active_container
 @onready var passive_container: HBoxContainer = %passive_container
 @onready var label_hero_class: Label = %label_hero_class
+@onready var label_hero_level: Label = %label_hero_level
 
 
 func initialize():
@@ -45,6 +46,7 @@ func initialize():
 	label_hero_name.text = hero_name
 	rect_hero_portrait.texture = hero_portrait
 	label_hero_class.text = DataManager.hero_classes_table[hero_class]
+	update_hero_level()
 	# добавляем скиллы
 	# скорректировать
 	for res in passives_reses:
@@ -130,3 +132,8 @@ func set_skills_is_active():
 func set_skills_is_inactive():
 	for active in actives:
 		active.set_is_active(false)
+
+
+func update_hero_level():
+	label_hero_level.text = 'уровень %d' % hero_level
+	
