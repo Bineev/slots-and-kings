@@ -7,9 +7,9 @@
 script = ExtResource("1_bfb1p")
 skill_tier = 2
 skill_name = "ювелир - 3 волны"
-skill_desc = "Дает 2 кристалла каждые 3 волны"
+skill_desc = "Дает 5 кристаллов каждые 3 волны"
 skill_preview = ExtResource("2_oheg4")
 skill_resources = Array[int]([3])
-skill_resources_amounts = Array[int]([2])
+skill_resources_amounts = Array[int]([5])
 skill_wave_count = 3
 metadata/_custom_type_script = "uid://b3vicwaw2fcer"

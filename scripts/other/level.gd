@@ -403,9 +403,9 @@ func update_hp_bar():
 func show_damage_ui(unit : Unit, info_damage_popup_ui : InfoDamagePopupUI):
 	ui.add_child(info_damage_popup_ui)
 	if info_damage_popup_ui.action_type == DataManager.ActionType.DAMAGE:
-		info_damage_popup_ui.global_position = unit.global_position + Vector2(0, -32)
+		info_damage_popup_ui.global_position = unit.global_position + Vector2(0, -40)
 	if info_damage_popup_ui.action_type == DataManager.ActionType.HEAL:
-		info_damage_popup_ui.global_position = unit.global_position + Vector2(-24, -32)
+		info_damage_popup_ui.global_position = unit.global_position + Vector2(-24, -40)
 	info_damage_popup_ui.initialize()
 	await get_tree().process_frame
 	var tween = get_tree().create_tween()

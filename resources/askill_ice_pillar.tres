@@ -19,7 +19,7 @@ skill_buff_stats = Array[Dictionary]([{
 "stat_name": "move_speed"
 }])
 skill_delay = 0.3
-skill_cooldown = 50.0
+skill_cooldown = 75.0
 skill_flat_damage = 30
 skill_duration = 4.0
 skill_range = 25.0

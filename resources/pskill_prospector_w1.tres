@@ -7,9 +7,9 @@
 script = ExtResource("1_owo78")
 skill_tier = 1
 skill_name = "старатель - 1 волна"
-skill_desc = "Дает 300 золота после каждой волны"
+skill_desc = "Дает 200 золота после каждой волны"
 skill_preview = ExtResource("2_mllly")
 skill_resources = Array[int]([0])
-skill_resources_amounts = Array[int]([300])
+skill_resources_amounts = Array[int]([200])
 skill_wave_count = 1
 metadata/_custom_type_script = "uid://b3vicwaw2fcer"
