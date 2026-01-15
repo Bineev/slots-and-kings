@@ -25,3 +25,4 @@ func _on_choose_button_pressed() -> void:
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.GET_REWARDS])
 	choose_button.disabled = true
 	SignalManager.on_choose_stat_done.emit(stat, 1)
+	SignalManager.on_choose_reward_item.emit()

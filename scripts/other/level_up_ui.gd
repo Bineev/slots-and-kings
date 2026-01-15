@@ -64,7 +64,7 @@ func set_hero(new_hero : Hero):
 func close_level_up():
 	visible = false
 	SignalManager.on_hero_return.emit(hero)
-	SignalManager.on_new_wave_start.emit()
+	#SignalManager.on_new_wave_start.emit()
 	get_tree().create_timer(1).timeout.connect(queue_free)
 
 

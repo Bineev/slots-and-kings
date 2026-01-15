@@ -6,7 +6,7 @@ class_name Level
 @export var unit_preview_scene : PackedScene
 @export var waves_scenes : Array[PackedScene]
 @export var first_wave_timer : float
-@export var wave_rewards : Array[DataManager.RewardType]
+@export var wave_rewards : Array[Array]
 @export var wave_reward_UI_scene : PackedScene
 @export var bonus_ui_scene : PackedScene
 @export var difficulty_count : int
@@ -359,10 +359,10 @@ func show_reward():
 	var wave_count : int = Player.get_current_wave_count()
 	wave_reward_UI = wave_reward_UI_scene.instantiate()
 	wave_reward_UI.set_wave_count(wave_count)
-	var reward_type = Player.get_wave_rewards().pop_front()
-	if not reward_type:
+	var reward_types = Player.get_wave_rewards().pop_front()
+	if reward_types.size() == 0:
 		return
-	wave_reward_UI.set_reward_type(reward_type)
+	wave_reward_UI.set_reward_types(reward_types)
 	ui.add_child(wave_reward_UI)
 	wave_reward_UI.initialize()
 	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(wave_reward_UI))

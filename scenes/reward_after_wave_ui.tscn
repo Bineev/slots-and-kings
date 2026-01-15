@@ -29,4 +29,5 @@ choose_hero_UI_scene = ExtResource("5_78wk1")
 choose_UI_scene = ExtResource("5_coqgu")
 remover_slot_UI_scene = ExtResource("6_miii6")
 level_up_UI_scene = ExtResource("8_b77ol")
+current_reward_type = 0
 wave_count = 0

@@ -13,7 +13,7 @@ extends Node
 @export var stats_choose_count : int = 2
 @export var skill_choose_count : int = 2
 
-@export var wave_rewards : Array[DataManager.RewardType]
+@export var wave_rewards : Array[Array]
 @export var empty_perc_scene : PackedScene
 @export var empty_upgrade_scene : PackedScene
 @export var slot_scene : PackedScene
@@ -352,7 +352,7 @@ func increment_current_wave_count():
 	current_wave_count += 1
 
 
-func set_wave_rewards(new_wave_rewards : Array[DataManager.RewardType]):
+func set_wave_rewards(new_wave_rewards : Array[Array]):
 	wave_rewards = new_wave_rewards
 
 

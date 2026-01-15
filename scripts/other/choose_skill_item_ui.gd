@@ -26,3 +26,4 @@ func initialize():
 func _on_choose_button_pressed() -> void:
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.GET_REWARDS])
 	SignalManager.on_choose_skill_done.emit(skill)
+	SignalManager.on_choose_reward_item.emit()

@@ -29,7 +29,7 @@ func initialize():
 
 func after_choice_done(new_hero : Hero):
 	visible = false
-	SignalManager.on_new_wave_start.emit()
+	#SignalManager.on_new_wave_start.emit()
 	var tween : Tween = get_tree().create_tween()
 	tween.tween_callback(queue_free).set_delay(1)
 

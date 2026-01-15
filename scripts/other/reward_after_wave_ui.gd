@@ -11,10 +11,14 @@ class_name RewardAfterWaveUI
 @export var remover_slot_UI_scene : PackedScene
 @export var remover_slot_UI : RemoverUI
 @export var level_up_UI_scene : PackedScene
+@export var current_reward_type : DataManager.RewardType
 
 
 @export var wave_count : int
 
+
+func _ready() -> void:
+	SignalManager.on_choose_reward_item.connect(show_next_choose_UI)
 
 
 func initialize():
@@ -28,21 +32,19 @@ func initialize():
 
 
 func show_popup_UI():
-	if reward_type == DataManager.RewardType.REMOVER:
+	if current_reward_type == DataManager.RewardType.REMOVER:
 		show_slot_remover()
 		return
-	if reward_type != DataManager.RewardType.MARKET and reward_type != DataManager.RewardType.BLACK_MARKET:
+	if current_reward_type != DataManager.RewardType.MARKET and current_reward_type != DataManager.RewardType.BLACK_MARKET:
 		show_choose_UI()
 		return
-	else:
-		pass
 
 
 func show_choose_UI():
 	#SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SHOW_REWARDS])
 	choose_UI = choose_UI_scene.instantiate()
 	var choose_scenes : Array[PackedScene]
-	match reward_type:
+	match current_reward_type:
 		DataManager.RewardType.UNIT:
 			choose_scenes = Player.get_random_units(entity_tier, DataManager.default_choose_amount)
 		DataManager.RewardType.UPGRADE:
@@ -93,12 +95,13 @@ func generate_reward_container():
 		reward_item_res.set_res_type(int(res))
 		rewards_container.add_child(reward_item_res)
 		reward_item_res.initialize()
-	var reward_item_action = action_reward_item_scene.instantiate()
-	if reward_type == DataManager.RewardType.EMPTY:
-		return
-	reward_item_action.set_reward_type(reward_type)
-	rewards_container.add_child(reward_item_action)
-	reward_item_action.initialize()
+	for reward_type in reward_types:
+		var reward_item_action = action_reward_item_scene.instantiate()
+		if reward_type == DataManager.RewardType.EMPTY:
+			continue
+		reward_item_action.set_reward_type(reward_type)
+		rewards_container.add_child(reward_item_action)
+		reward_item_action.initialize()
 
 
 func set_entity_tier_by_wave_count():
@@ -155,3 +158,13 @@ func show_slot_remover():
 	remover_slot_UI.set_slot_scenes(slot_scenes)
 	remover_slot_UI.set_is_should_start_wave(true)
 	SignalManager.on_show_choose_UI_after_wave.emit(remover_slot_UI)
+
+
+func show_next_choose_UI():
+	if reward_types.size() == 0:
+		get_tree().create_timer(1).timeout.connect(queue_free)
+		SignalManager.on_new_wave_start.emit()
+		return
+	current_reward_type = reward_types.pop_front()
+	show_popup_UI()
+	

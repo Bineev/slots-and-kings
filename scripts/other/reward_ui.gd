@@ -5,7 +5,7 @@ class_name RewardUI
 
 @export var popup_UI_scene : PackedScene
 @export var popup_UI : Control
-@export var reward_type : DataManager.RewardType
+@export var reward_types : Array
 @export var entity_tier : DataManager.EntityTier
 @export var resources_dict : Dictionary = {
 	DataManager.ResType.GOLD : 0,
@@ -46,16 +46,20 @@ func generate_reward_container():
 
 func _on_button_take_rewards_pressed() -> void:
 	add_resources()
-	show_popup_UI()
+	show_next_choose_UI()
 	visible = false
-	get_tree().create_timer(1).timeout.connect(queue_free)
 
 
-func set_reward_type(new_reward_type : DataManager.RewardType):
-	reward_type = new_reward_type
+
+func set_reward_types(new_reward_types : Array):
+	reward_types = new_reward_types
 
 
 func add_resources():
 	for res in resources_dict.keys():
 		if resources_dict[res] != 0:
 			Player.get_res(res, resources_dict[res])
+
+
+func show_next_choose_UI():
+	pass

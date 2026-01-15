@@ -73,6 +73,7 @@ func _on_choose_button_pressed() -> void:
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.GET_REWARDS])
 	SignalManager.on_choice_done.emit(self)
 	SignalManager.on_choose_item.emit(slot_scene, slot_type)
+	SignalManager.on_choose_reward_item.emit()
 	if slot_res.slot_type == DataManager.SlotType.UNIT and building_owner:
 		building_owner.current_unit_slot_name = slot_res.slot_name
 
