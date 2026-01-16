@@ -107,7 +107,7 @@ enum MetaType {
 var default_hero_up_order : Array[HeroUpType] = [HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT]
 
 
-var default_reward_progression : Array[Array] = [
+var default_reward_progression : Array = [
 	[RewardType.HERO],
 	[RewardType.LEVEL_UP, RewardType.UPGRADE],
 	[RewardType.LEVEL_UP, RewardType.UNIT],
@@ -227,6 +227,8 @@ var bottom_fight_limit : float = 280
 var default_damage_to_base : int = 20
 
 var meta_price_coeff : float = 1.5
+
+var default_souls_inc : int = 100
 
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',

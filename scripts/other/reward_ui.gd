@@ -12,6 +12,7 @@ class_name RewardUI
 	DataManager.ResType.FOOD : 0,
 	DataManager.ResType.SPIN_TOKEN : 0,
 	DataManager.ResType.CRYSTAL : 0,
+	DataManager.ResType.SOULS : 0,
 }
 
 @onready var label_reward_header: Label = %label_reward_header

@@ -6,7 +6,7 @@ class_name Level
 @export var unit_preview_scene : PackedScene
 @export var waves_scenes : Array[PackedScene]
 @export var first_wave_timer : float
-@export var wave_rewards : Array[Array]
+@export var wave_rewards : Array
 @export var wave_reward_UI_scene : PackedScene
 @export var bonus_ui_scene : PackedScene
 @export var difficulty_count : int
@@ -28,6 +28,7 @@ var current_tooltip : Control
 var heroes_slots_points : Array[Spawner]
 var current_bonus_name : String
 var current_bonus_count : int
+var is_result : bool
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -90,7 +91,7 @@ func _ready() -> void:
 		free_fight_points.append(point)
 	for spawner in heroes_slots.get_children():
 		heroes_slots_points.append(spawner)
-	wave_rewards = DataManager.default_reward_progression
+	wave_rewards = DataManager.default_reward_progression.duplicate(true)
 	Player.set_wave_rewards(wave_rewards)
 	waves_count = difficulty_count * 3 + 10
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
@@ -550,6 +551,8 @@ func cancel_attack():
 
 
 func show_bonus_UI():
+	if is_result:
+		return
 	var bonus_ui : BonusUI = bonus_ui_scene.instantiate()
 	Player.remove_bonus()
 	var bonus_data = Player.get_random_week_bonus()
@@ -598,3 +601,7 @@ func show_loose_label():
 	tween.tween_callback(GameManager.stop_all).set_delay(3)
 	tween.tween_callback(GameManager.show_lobby).set_delay(3.5)
 	tween.tween_callback(queue_free).set_delay(4)
+
+
+func hide_bonus_ui():
+	show_bonus_UI()

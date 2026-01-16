@@ -21,6 +21,11 @@ class_name MetaItemUI
 @onready var button_buy: Button = %button_buy
 @onready var meta_item_texture: TextureRect = %meta_item_texture
 
+
+func _ready() -> void:
+	SignalManager.on_buy_meta.connect(disable_if_not_enough_souls)
+
+
 func initialize():
 	await get_tree().process_frame
 	meta_stats = Player.get_meta_stats()
@@ -30,9 +35,11 @@ func initialize():
 	if item_value == item_default_value:
 		item_level = 1
 	else:
-		item_level = abs((item_value - item_default_value) / item_up_value)
+		item_level = 1 + abs((item_value - item_default_value) / item_up_value)
 	item_up_cost = item_up_default_cost * item_level
 	button_buy.text = str(int(item_up_cost))
+	if item_value == item_max_value:
+		button_buy.text = 'макс'
 	tooltip_text = item_desc
 	var new_theme = Theme.new()
 	new_theme.set_stylebox('panel', 'TooltipPanel', stylebox_tooltip)
@@ -41,6 +48,7 @@ func initialize():
 	new_theme.set_color('font_color', 'TooltipLabel', Color8(52, 28, 39, 255))
 	theme = new_theme
 	meta_item_texture.texture = item_texture
+	disable_if_not_enough_souls()
 
 
 func change_meta_stat():
@@ -53,4 +61,12 @@ func _on_button_buy_pressed() -> void:
 		button_buy.disabled = true
 		change_meta_stat()
 		initialize()
+		button_buy.disabled = false
+		SignalManager.on_buy_meta.emit()
+
+
+func disable_if_not_enough_souls():
+	if Player.current_souls < item_up_cost:
+		button_buy.disabled = true
+	else:
 		button_buy.disabled = false

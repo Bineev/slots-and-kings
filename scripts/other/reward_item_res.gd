@@ -9,6 +9,7 @@ class_name RewardItemRes
 @export var res_texture_food : Texture2D
 @export var res_texture_tokens : Texture2D
 @export var res_texture_crystal : Texture2D
+@export var res_texture_souls : Texture2D
 
 @onready var label_res_count: Label = %label_res_count
 @onready var rect_res: TextureRect = %rect_res
@@ -26,6 +27,8 @@ func initialize():
 			rect_res.texture = res_texture_tokens
 		DataManager.ResType.CRYSTAL:
 			rect_res.texture = res_texture_crystal
+		DataManager.ResType.SOULS:
+			rect_res.texture = res_texture_souls
 
 
 func set_res_type(new_res_type : DataManager.ResType):

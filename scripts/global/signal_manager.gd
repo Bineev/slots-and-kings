@@ -46,3 +46,4 @@ signal on_choose_stat_done(stat : String, amount : int)
 signal on_hero_return(hero : Hero)
 signal on_level_click(level_item : LevelItem)
 signal on_choose_reward_item
+signal on_buy_meta

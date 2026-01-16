@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://gr7t83y4f1qt"]
+[gd_scene load_steps=11 format=3 uid="uid://gr7t83y4f1qt"]
 
 [ext_resource type="PackedScene" uid="uid://bvaunp0kqa8m6" path="res://scenes/reward_item.tscn" id="1_avj8r"]
 [ext_resource type="Script" uid="uid://bdmmfn4fq3k3r" path="res://scripts/other/reward_item_res.gd" id="2_s6ilc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d4bwygy7kyw3p" path="res://img/res_food.png" id="4_swa8a"]
 [ext_resource type="Texture2D" uid="uid://cmrgge0sgfm6f" path="res://img/res_token.png" id="5_lq8a7"]
 [ext_resource type="Texture2D" uid="uid://c1l22ye0qntep" path="res://img/res_crystal.png" id="6_31wmv"]
+[ext_resource type="Texture2D" uid="uid://4tbudvi8d0vs" path="res://img/res_soul.png" id="8_lq8a7"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="8_swa8a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lq8a7"]
@@ -26,6 +27,7 @@ res_texture_gold = ExtResource("3_0mkso")
 res_texture_food = ExtResource("4_swa8a")
 res_texture_tokens = ExtResource("5_lq8a7")
 res_texture_crystal = ExtResource("6_31wmv")
+res_texture_souls = ExtResource("8_lq8a7")
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="0"]
 layout_mode = 2

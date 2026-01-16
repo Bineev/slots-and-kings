@@ -14,7 +14,7 @@ extends Node
 @export var stats_choose_count : int = 2
 @export var skill_choose_count : int = 2
 
-@export var wave_rewards : Array[Array]
+@export var wave_rewards : Array
 @export var empty_perc_scene : PackedScene
 @export var empty_upgrade_scene : PackedScene
 @export var slot_scene : PackedScene
@@ -109,7 +109,8 @@ func clear_after_result():
 	enemy_units.clear()
 	player_units.clear()
 	current_wave_count = 0
-	current_health = health
+	current_health = health * current_progress.meta_stats[DataManager.MetaType.BASE_HP]
+	DataManager.default_damage_to_base * current_progress.meta_stats[DataManager.MetaType.BASE_DAMAGE]
 	current_gold = gold
 	current_tokens = tokens
 	current_food = food
@@ -254,15 +255,35 @@ func get_deck_by_slot_type(slot_type : DataManager.SlotType):
 
 
 func get_res(res_type : DataManager.ResType, res_amount : int):
+	var bonus_res : int = 0
+	var rand : float = randf()
+	
 	match res_type:
 		DataManager.ResType.GOLD:
-			current_gold += res_amount
+			if res_amount >= 0:
+				current_gold += res_amount * Player.current_progress.meta_stats[DataManager.MetaType.GOLD_INC]
+			else:
+				current_gold += res_amount
 		DataManager.ResType.SPIN_TOKEN:
-			current_tokens += res_amount
+			if rand <= 1 - Player.current_progress.meta_stats[DataManager.MetaType.TOKEN_INC]:
+				bonus_res = 1
+			if res_amount < 0:
+				bonus_res = 0
+			current_tokens += res_amount + bonus_res
 		DataManager.ResType.CRYSTAL:
-			current_crystals += res_amount
+			if rand <= 1 - Player.current_progress.meta_stats[DataManager.MetaType.CRYSTAL_INC]:
+				bonus_res = 1
+			if res_amount < 0:
+				bonus_res = 0
+			current_crystals += res_amount + bonus_res
 		DataManager.ResType.FOOD:
-			current_food += res_amount
+			if rand <= 1 - Player.current_progress.meta_stats[DataManager.MetaType.FOOD_INC]:
+				bonus_res = 1
+			if res_amount < 0:
+				bonus_res = 0
+			current_food += res_amount + bonus_res
+		DataManager.ResType.SOULS:
+			current_souls += res_amount
 	SignalManager.on_res_change.emit(res_type)
 
 
@@ -358,7 +379,7 @@ func increment_current_wave_count():
 	current_wave_count += 1
 
 
-func set_wave_rewards(new_wave_rewards : Array[Array]):
+func set_wave_rewards(new_wave_rewards : Array):
 	wave_rewards = new_wave_rewards
 
 
