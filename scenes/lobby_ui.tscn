@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhkj2rgutbqo5"]
+[gd_scene load_steps=17 format=3 uid="uid://bhkj2rgutbqo5"]
 
 [ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_5vpyn"]
 [ext_resource type="Script" uid="uid://dx7qhf584us1x" path="res://scripts/other/lobby_ui.gd" id="2_hphob"]
@@ -11,6 +11,7 @@
 [ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="8_kmds0"]
 [ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="9_e3wjx"]
 [ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="10_ifn6l"]
+[ext_resource type="PackedScene" uid="uid://dl7yvb67j0c5e" path="res://scenes/shader_layer.tscn" id="12_ifn6l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ifn6l"]
 line_spacing = 0.0
@@ -203,6 +204,8 @@ theme_override_styles/hover = ExtResource("9_e3wjx")
 theme_override_styles/disabled = ExtResource("10_ifn6l")
 theme_override_styles/focus = ExtResource("8_kmds0")
 text = "В МЕНЮ"
+
+[node name="ShaderLayer" parent="." instance=ExtResource("12_ifn6l")]
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/back_to_menu_button" to="." method="_on_back_to_menu_button_pressed"]

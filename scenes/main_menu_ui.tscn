@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://f2cu5p2ncjgg"]
+[gd_scene load_steps=24 format=3 uid="uid://f2cu5p2ncjgg"]
 
 [ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_h8njc"]
 [ext_resource type="Script" uid="uid://4vf8rxu2foyv" path="res://scripts/other/main_menu_ui.gd" id="2_np0fa"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://banhq5icqmt21" path="res://img/skills/active_skill_banquet.png" id="18_qqn4a"]
 [ext_resource type="Texture2D" uid="uid://2fcu3g60274p" path="res://img/skills/active_skill_cannon_tower.png" id="19_rqmqu"]
 [ext_resource type="Texture2D" uid="uid://oyf7ksb2dh02" path="res://img/skills/active_skill_dark_brotherhood.png" id="20_53oru"]
+[ext_resource type="PackedScene" uid="uid://dl7yvb67j0c5e" path="res://scenes/shader_layer.tscn" id="22_2tv7h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5tirf"]
 font = ExtResource("3_qooff")
@@ -316,6 +317,8 @@ flip_h = true
 hframes = 5
 vframes = 5
 frame = 11
+
+[node name="ShaderLayer" parent="." instance=ExtResource("22_2tv7h")]
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/continue_button" to="." method="_on_continue_button_pressed"]

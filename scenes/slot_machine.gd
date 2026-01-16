@@ -172,3 +172,25 @@ func clear_bar_can_swap():
 	bar_can_swap.value = 0
 	bar_can_swap.add_theme_stylebox_override("fill", style_box_not_full)
 	timer_can_swap.start()
+
+
+func swap_down():
+	var target_slot : Slot = third_column.slot_carousel_top.slots[1]
+	target_slot.before_can_swap_position = target_slot.global_position
+	var change_slot : Slot = third_column.slot_carousel_mid.slots[1]
+	if Player.is_can_swap:
+		target_slot.current_swap_slots.append(change_slot)
+		target_slot.move_slots()
+		#change_slot.global_position = target_slot.before_can_swap_position
+		change_slot.z_index = 100
+
+
+func swap_up():
+	var target_slot : Slot = third_column.slot_carousel_bot.slots[1]
+	target_slot.before_can_swap_position = target_slot.global_position
+	var change_slot : Slot = third_column.slot_carousel_mid.slots[1]
+	if Player.is_can_swap:
+		target_slot.current_swap_slots.append(change_slot)
+		target_slot.move_slots()
+		#change_slot.global_position = target_slot.before_can_swap_position
+		change_slot.z_index = 100

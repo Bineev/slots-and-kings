@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=43 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -27,10 +27,13 @@
 [ext_resource type="Script" uid="uid://vhv5wnnl5o3b" path="res://scripts/other/canvas_layer.gd" id="13_fpun6"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="14_wc255"]
 [ext_resource type="PackedScene" uid="uid://d26mxn681r4pd" path="res://scenes/next_wave_ui.tscn" id="15_arp2o"]
-[ext_resource type="Shader" uid="uid://bik2ofmudh5u4" path="res://shaders/ctr.gdshader" id="15_wc255"]
 [ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="16_82cfe"]
 [ext_resource type="Texture2D" uid="uid://cc0y4rlm7e1ah" path="res://img/wave_icon.png" id="16_ux5qa"]
 [ext_resource type="Script" uid="uid://dl4s2yfpgmxi0" path="res://scenes/spawner.gd" id="19_gunhw"]
+[ext_resource type="PackedScene" uid="uid://dl7yvb67j0c5e" path="res://scenes/shader_layer.tscn" id="30_v3why"]
+[ext_resource type="Texture2D" uid="uid://ydpupk1dhkwt" path="res://img/arrow_down.png" id="32_v3why"]
+[ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="33_asl66"]
+[ext_resource type="Texture2D" uid="uid://bfvcg6sehc778" path="res://img/arrow_help.png" id="34_2jdvr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
 shader = ExtResource("13_64w2a")
@@ -66,23 +69,6 @@ font = ExtResource("14_wc255")
 font_size = 25
 font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_arp2o"]
-shader = ExtResource("15_wc255")
-shader_parameter/resolution = Vector2(1920, 1080)
-shader_parameter/scan_line_amount = 0.10000000475
-shader_parameter/warp_amount = 0.030000001425
-shader_parameter/noise_amount = 0.050000002375
-shader_parameter/interference_amount = 0.0
-shader_parameter/grille_amount = 0.050000002375
-shader_parameter/grille_size = 1.0
-shader_parameter/vignette_amount = 0.150000007125
-shader_parameter/vignette_intensity = 0.30000001425
-shader_parameter/aberation_amount = 0.0
-shader_parameter/roll_line_amount = 0.0
-shader_parameter/roll_speed = -8.0
-shader_parameter/scan_line_strength = -8.0
-shader_parameter/pixel_strength = -2.0
-
 [sub_resource type="Gradient" id="Gradient_5f2j7"]
 colors = PackedColorArray(0.7411765, 0.7411765, 0.7411765, 1, 0, 0, 0, 1)
 
@@ -98,7 +84,6 @@ script = ExtResource("1_klq6b")
 unit_preview_scene = ExtResource("2_klq6b")
 waves_scenes = Array[PackedScene]([ExtResource("3_8c41q"), ExtResource("4_7agi7"), ExtResource("5_kih21"), ExtResource("6_w3o6u")])
 first_wave_timer = 3.0
-wave_rewards = Array[int]([4, 5, 5, 5, 5, 2, 1, 5, 3, 2, 1, 5])
 wave_reward_UI_scene = ExtResource("4_olg7q")
 bonus_ui_scene = ExtResource("5_8gofh")
 level_name = "Обучение"
@@ -106,6 +91,7 @@ level_desc = "Освойте основы игры. Волны врагов не
 rewards = Array[Resource]([ExtResource("6_556r4"), ExtResource("7_7agi7"), ExtResource("8_kih21"), ExtResource("9_w3o6u"), ExtResource("6_wu01b"), ExtResource("7_3ies3"), ExtResource("8_xy2fk"), ExtResource("9_cmcjb")])
 
 [node name="shaders_layer" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_scale = 0.001
 script = ExtResource("13_fpun6")
 
@@ -189,6 +175,66 @@ position = Vector2(55, 59)
 [node name="Spawner20" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(83, 59)
 
+[node name="Spawner21" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(12, 0)
+
+[node name="Spawner22" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(39, 0)
+
+[node name="Spawner23" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(66, 0)
+
+[node name="Spawner24" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(94, 0)
+
+[node name="Spawner25" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(22, -31)
+
+[node name="Spawner26" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(49, -31)
+
+[node name="Spawner27" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(76, -31)
+
+[node name="Spawner28" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(104, -31)
+
+[node name="Spawner29" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(23, 30)
+
+[node name="Spawner30" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(50, 30)
+
+[node name="Spawner31" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(77, 30)
+
+[node name="Spawner32" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(105, 30)
+
+[node name="Spawner33" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(11, -59)
+
+[node name="Spawner34" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(38, -59)
+
+[node name="Spawner35" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(65, -59)
+
+[node name="Spawner36" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(93, -59)
+
+[node name="Spawner37" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(13, 59)
+
+[node name="Spawner38" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(40, 59)
+
+[node name="Spawner39" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(67, 59)
+
+[node name="Spawner40" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(95, 59)
+
 [node name="enemy_spawners" type="Node2D" parent="."]
 unique_name_in_owner = true
 
@@ -248,6 +294,63 @@ position = Vector2(842, 225)
 
 [node name="Spawner19" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(842, 194)
+
+[node name="Spawner20" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(954, 190)
+
+[node name="Spawner21" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(955, 220)
+
+[node name="Spawner22" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(954, 249)
+
+[node name="Spawner23" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(954, 279)
+
+[node name="Spawner24" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(954, 309)
+
+[node name="Spawner25" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(923, 296)
+
+[node name="Spawner26" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(923, 258)
+
+[node name="Spawner27" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(922, 226)
+
+[node name="Spawner28" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(921, 194)
+
+[node name="Spawner29" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(889, 308)
+
+[node name="Spawner30" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(891, 272)
+
+[node name="Spawner31" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(892, 237)
+
+[node name="Spawner32" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(891, 205)
+
+[node name="Spawner33" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(891, 178)
+
+[node name="Spawner34" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(859, 318)
+
+[node name="Spawner35" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(859, 286)
+
+[node name="Spawner36" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(858, 252)
+
+[node name="Spawner37" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(858, 221)
+
+[node name="Spawner38" parent="enemy_spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(858, 190)
 
 [node name="buildings" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -447,17 +550,6 @@ vertical_alignment = 1
 visible = false
 color = Color(0.34117648, 0.44705883, 0.46666667, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_arp2o")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="lights" type="Node2D" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -600,6 +692,32 @@ autostart = true
 
 [node name="projectiles" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(207, 191)
+texture = ExtResource("32_v3why")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -3.0
+offset_top = 7.0
+offset_right = 37.0
+offset_bottom = 30.0
+text = "S"
+label_settings = ExtResource("33_asl66")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(40, 221)
+texture = ExtResource("34_2jdvr")
+
+[node name="Label2" type="Label" parent="Sprite2D2"]
+offset_left = -3.0
+offset_top = -15.0
+offset_right = 37.0
+offset_bottom = 8.0
+text = "W"
+label_settings = ExtResource("33_asl66")
+
+[node name="ShaderLayer" parent="." instance=ExtResource("30_v3why")]
 
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
 [connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]

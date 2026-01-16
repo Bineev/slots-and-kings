@@ -228,7 +228,7 @@ var default_damage_to_base : int = 20
 
 var meta_price_coeff : float = 1.5
 
-var default_souls_inc : int = 100
+var default_souls_inc : int = 10
 
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
