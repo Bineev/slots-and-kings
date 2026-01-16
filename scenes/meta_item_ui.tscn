@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbbl6p5gmr4e7"]
+
+[ext_resource type="Script" uid="uid://b7hbhfyexxfhe" path="res://scripts/other/meta_item_ui.gd" id="1_5xpki"]
+[ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_uv1vp"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="2_uv1vp"]
+[ext_resource type="StyleBox" uid="uid://dw720nyndbg14" path="res://styles/button_shrink_with_padding.tres" id="3_876jp"]
+[ext_resource type="StyleBox" uid="uid://ioi72a1daiqu" path="res://styles/button_shrink_with_padding_hover.tres" id="4_2m83h"]
+[ext_resource type="StyleBox" uid="uid://btnh0woblwfm1" path="res://styles/button_shrink_with_padding_disable.tres" id="5_q07e6"]
+[ext_resource type="Texture2D" uid="uid://4tbudvi8d0vs" path="res://img/res_soul.png" id="7_876jp"]
+
+[node name="MetaItemUI" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_uv1vp")
+script = ExtResource("1_5xpki")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="meta_item_texture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+stretch_mode = 3
+
+[node name="button_buy" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_constants/h_separation = 8
+theme_override_fonts/font = ExtResource("2_uv1vp")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("3_876jp")
+theme_override_styles/pressed = ExtResource("4_2m83h")
+theme_override_styles/hover = ExtResource("4_2m83h")
+theme_override_styles/hover_pressed = ExtResource("4_2m83h")
+theme_override_styles/disabled = ExtResource("5_q07e6")
+theme_override_styles/focus = ExtResource("3_876jp")
+icon = ExtResource("7_876jp")
+alignment = 0
+icon_alignment = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/button_buy" to="." method="_on_button_buy_pressed"]

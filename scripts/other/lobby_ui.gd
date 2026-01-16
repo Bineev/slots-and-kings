@@ -16,6 +16,7 @@ var levels : Array[Level]
 @onready var label_level_desc: Label = %label_level_desc
 @onready var rewards_container: HBoxContainer = %rewards_container
 @onready var start_button: Button = %start_button
+@onready var meta_shop: MetaShop = $MarginContainer/HBoxContainer/VBoxContainer/MetaShop
 
 
 func initialize():
@@ -23,11 +24,13 @@ func initialize():
 	label_castle_name.text = Player.get_castle_name()
 	for scene in level_scenes:
 		# создать левел итем, при нажатии на который будет меняться представление
+		# здесь баг
 		var level : Level = scene.instantiate()
 		var level_item : LevelItem = level_item_scene.instantiate()
 		level_item.set_data(level, self)
 		levels_container.add_child(level_item)
 		level_item.initialize()
+	meta_shop.initialize()
 
 
 func set_data(new_level_scenes : Array[PackedScene]):

@@ -7,6 +7,7 @@ extends Node
 @export var tokens : int
 @export var food : int
 @export var crystals : int
+@export var souls : int
 @export var can_swap_time : float
 @export var is_can_swap : bool
 @export var heroes_choose_count : int = 2
@@ -56,6 +57,7 @@ var current_gold : int
 var current_tokens : int
 var current_food : int
 var current_crystals : int
+var current_souls : int
 var enemy_units : Array[Unit]
 var player_units : Array[Unit]
 var dead_enemy_units : Array[Unit]
@@ -87,11 +89,13 @@ func initialize():
 	enemy_units.clear()
 	player_units.clear()
 	current_progress = ProgressManager.get_base_progress_by_family(current_king)
+	current_progress.meta_stats = DataManager.meta_stats_dict
 	current_health = health
 	current_gold = gold
 	current_tokens = tokens
 	current_food = food
 	current_crystals = crystals
+	current_souls = souls
 	generate_base_decks()
 	generate_bonus_dict()
 
@@ -288,6 +292,8 @@ func check_res(amount : int, res_type : DataManager.ResType):
 			return current_crystals - amount >= 0
 		DataManager.ResType.FOOD:
 			return current_food - amount >= 0
+		DataManager.ResType.SOULS:
+			return current_souls - amount >= 0
 
 
 func add_unit_to_player_units(unit : Unit):
@@ -717,3 +723,11 @@ func get_buildings_count(building_name : String):
 			count += 1
 	
 	return count
+
+
+func change_meta_stat(meta_type : DataManager.MetaType, item_up_value : float):
+	current_progress.meta_stats[meta_type] = current_progress.meta_stats[meta_type] + item_up_value
+
+
+func get_meta_stats():
+	return current_progress.meta_stats

@@ -39,7 +39,7 @@ enum UnitOwner {
 }
 
 enum ResType {
-	GOLD, FOOD, SPIN_TOKEN, CRYSTAL
+	GOLD, FOOD, SPIN_TOKEN, CRYSTAL, SOULS
 }
 
 enum UnitType {
@@ -97,6 +97,10 @@ enum SkillGrade {
 
 enum SoundType {
 	RANGE, MAGE, MELEE, HIT_SELF, HIT_ENEMY, WALK, DIED_SELF, DIED_ENEMNY, UI, START_WAVE, END_WAVE, SLOTS_START, SLOTS_END, CREATE_UNIT, SHOW_REWARDS, GET_REWARDS, SWAP, CASTLE_HIT, SLOTS_SPIN, MAKE_CHOISE, NICE, HERO
+}
+
+enum MetaType {
+	GOLD_INC, TOKEN_INC, FOOD_INC, CRYSTAL_INC, GOLD_START, TOKEN_START, FOOD_START, CRYSTAL_START, BASE_HP, BASE_DAMAGE, T1_CREATE_COEFF, T2_CREATE_COEFF, T3_CREATE_COEFF, T4_CREATE_COEFF,
 }
 
 
@@ -165,6 +169,8 @@ var unit_types_table : Dictionary = {
 	UnitType.AOE : 'АОЕ',
 }
 
+
+
 var default_choose_amount : int = 2
 
 var slot_size : Vector2 = Vector2(16, 16)
@@ -219,6 +225,8 @@ var upper_fight_limit : float = 160
 var bottom_fight_limit : float = 280
 
 var default_damage_to_base : int = 20
+
+var meta_price_coeff : float = 1.5
 
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
@@ -375,20 +383,24 @@ var sound_dict : Dictionary[SoundType, Resource] = {
 	 SoundType.NICE : preload("res://sounds/slots_end3.wav"),
 	 SoundType.HERO : preload("res://sounds/died.wav")
 }
-# мощь атакующих заклинаний
-# урон заклинания = базовый урон + базовый урон / 4 * power
-@export var power : int
-# скорость восстановления заклинаний
-# кд = базовый кд = базовый кд / 20 * quickness
-@export var quickness : int
-# размер зоны
-# базовый радиус = базовый радиус + базовый радиус / 10 * mastery
-@export var mastery : int
-# сила бафов / лечения и продолжительность 
-# размер лечения = базовое лечение + базовое лечение / 4 * grace
-# размер бафа = базовый баф + базовый баф / 10 * grade (может быть 10 = 15)
-# длительность бафа = базовая длительность + базовая длительность / 10
-@export var grace : int
+
+
+var meta_stats_dict : Dictionary[MetaType, float] = {
+	MetaType.GOLD_INC : 1,
+	MetaType.TOKEN_INC : 1,
+	MetaType.FOOD_INC : 1,
+	MetaType.CRYSTAL_INC : 1,
+	MetaType.GOLD_START : 1,
+	MetaType.TOKEN_START : 1,
+	MetaType.FOOD_START : 1,
+	MetaType.CRYSTAL_START : 1,
+	MetaType.BASE_HP : 1,
+	MetaType.BASE_DAMAGE : 1,
+	MetaType.T1_CREATE_COEFF : 1,
+	MetaType.T2_CREATE_COEFF : 1,
+	MetaType.T3_CREATE_COEFF : 1,
+	MetaType.T4_CREATE_COEFF : 1,
+}
 
 
 var hero_stats_desc_dict : Dictionary = {
