@@ -1,0 +1,181 @@
+[gd_scene load_steps=13 format=3 uid="uid://b00tj7spoec3l"]
+
+[ext_resource type="Script" uid="uid://dq2ownoukvkf8" path="res://scripts/other/market.gd" id="1_aifk4"]
+[ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_iks0y"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_d6tgm"]
+[ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="4_ygeob"]
+[ext_resource type="Texture2D" uid="uid://jnyjnlacm5c5" path="res://img/res_gold.png" id="5_co8of"]
+[ext_resource type="Texture2D" uid="uid://bphjn6n8ab36c" path="res://img/res_up.png" id="5_ennqm"]
+[ext_resource type="Texture2D" uid="uid://c40g8rl2xk1gk" path="res://img/res_down.png" id="7_hvm52"]
+[ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="8_4msli"]
+[ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="9_wa5cj"]
+[ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="10_k7ps5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4msli"]
+font = ExtResource("3_d6tgm")
+font_size = 4
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ennqm"]
+line_spacing = 0.0
+font = ExtResource("3_d6tgm")
+font_size = 7
+font_color = Color(0.08235294, 0.11372549, 0.15686275, 1)
+
+[node name="Market" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_iks0y")
+script = ExtResource("1_aifk4")
+
+[node name="label_close" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "ПКМ - закрыть"
+label_settings = SubResource("LabelSettings_4msli")
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "ресурсы игрока"
+label_settings = SubResource("LabelSettings_ennqm")
+
+[node name="filler" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "рынок"
+label_settings = SubResource("LabelSettings_ennqm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="label_res_source" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 22)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+label_settings = ExtResource("4_ygeob")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="change_res_up_button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("5_ennqm")
+stretch_mode = 3
+
+[node name="rect_res_source" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("5_co8of")
+stretch_mode = 2
+
+[node name="change_res_down_button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("7_hvm52")
+stretch_mode = 3
+
+[node name="filler" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="target_res_up_button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("5_ennqm")
+stretch_mode = 3
+
+[node name="label_res_target" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 22)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+label_settings = ExtResource("4_ygeob")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="target_res_down_button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("7_hvm52")
+stretch_mode = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="change_target_res_up_button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("5_ennqm")
+stretch_mode = 3
+
+[node name="rect_res_target" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("5_co8of")
+stretch_mode = 2
+
+[node name="change_target_res_down_button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("7_hvm52")
+stretch_mode = 3
+
+[node name="filler" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="choose_button" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_d6tgm")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("8_4msli")
+theme_override_styles/pressed = ExtResource("8_4msli")
+theme_override_styles/hover = ExtResource("9_wa5cj")
+theme_override_styles/disabled = ExtResource("10_k7ps5")
+theme_override_styles/focus = ExtResource("8_4msli")
+text = "По рукам"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/change_res_up_button" to="." method="_on_change_res_up_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/change_res_down_button" to="." method="_on_change_res_down_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/target_res_up_button" to="." method="_on_target_res_up_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/target_res_down_button" to="." method="_on_target_res_down_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/change_target_res_up_button" to="." method="_on_change_target_res_up_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/change_target_res_down_button" to="." method="_on_change_target_res_down_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/choose_button" to="." method="_on_choose_button_pressed"]

@@ -230,6 +230,20 @@ var meta_price_coeff : float = 1.5
 
 var default_souls_inc : int = 10
 
+var market_res_chain : Array[ResType] = [ResType.GOLD, ResType.SPIN_TOKEN, ResType.FOOD, ResType.CRYSTAL]
+
+var default_market_coeffs_dict : Dictionary[ResType, int] = {
+	ResType.GOLD : 1,
+	ResType.SPIN_TOKEN : 50,
+	ResType.FOOD : 100,
+	ResType.CRYSTAL : 400
+}
+
+	#ResType.GOLD : [1, 50, 100, 300],
+	#ResType.SPIN_TOKEN : [0.02, 2, 6],
+	#ResType.FOOD : [0.01, 0.5, 1, 3],
+	#ResType.CRYSTAL : [0.003, 0.17]
+
 var male_names = [
 	'Aaron', 'Abraham', 'Adalhelm', 'Agbert', 'Aldrich',
 	'Bernard', 'Baldo', 'Bran', 'Benedict', 'Bert',

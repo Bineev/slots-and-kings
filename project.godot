@@ -24,7 +24,6 @@ SoundManager="*res://scripts/global/sound_manager.gd"
 SpawnManager="*res://scripts/global/spawn_manager.gd"
 Player="*res://scenes/player.tscn"
 GameManager="*res://scripts/global/game_manager.gd"
-ShaderLayer="res://scenes/shader_layer.tscn"
 
 [display]
 

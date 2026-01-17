@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://da0towqgwdttl"]
+
+[ext_resource type="PackedScene" uid="uid://l2eh1ynjfw06" path="res://scenes/building.tscn" id="1_i6pq6"]
+[ext_resource type="Resource" uid="uid://dg3s1syiujg71" path="res://resources/building_market.tres" id="2_2q0yi"]
+[ext_resource type="Script" uid="uid://b1tbrsqg5ct0" path="res://scripts/other/building_market_1.gd" id="2_toheu"]
+[ext_resource type="PackedScene" uid="uid://b00tj7spoec3l" path="res://scenes/market.tscn" id="3_d8oc0"]
+
+[node name="BuildingMarket1" instance=ExtResource("1_i6pq6")]
+script = ExtResource("2_toheu")
+market_ui_scene = ExtResource("3_d8oc0")
+building_res = ExtResource("2_2q0yi")
+pop_up_ui_scene = ExtResource("3_d8oc0")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

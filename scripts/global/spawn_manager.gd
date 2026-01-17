@@ -20,7 +20,7 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	spawn.time_between_units = 0.1
 	spawn.unit_factory = Player.get_unit_factory().duplicate()
 	var progress : PlayerProgress = ProgressManager.get_base_progress_by_family(DataManager.UnitFamily.HELL)
-	var enemies_count : int = wave_count * 2 + diff_count
+	var enemies_count : int = clampf(wave_count * 1.5 + 1 + diff_count, 3, 10 + diff_count)
 	var spawn_coeff : int = diff_count if diff_count != 0 else 1
 	
 	var T0_units_pool : Array[Resource] = progress.units_T0_pool.duplicate(true)
@@ -49,47 +49,46 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	
 	if wave_count >= 28:
 		T4_limit = 0.3
-		T3_limit = 0.6
+		T3_limit = 0.6 + diff_count * diff_coeff / 100
 		T2_limit = 1
 	elif wave_count >= 25:
 		T4_limit = 0.2
-		T3_limit = 0.5
+		T3_limit = 0.5 + diff_count * diff_coeff / 100
 		T2_limit = 1
 	elif wave_count >= 22:
 		T4_limit = 0.15
-		T3_limit = 0.4
+		T3_limit = 0.4 + diff_count * diff_coeff / 100
 		T2_limit = 1
 	elif wave_count >= 19:
 		T4_limit = 0.1
-		T3_limit = 0.35
+		T3_limit = 0.35 + diff_count * diff_coeff / 100
 		T2_limit = 0.7
 		T1_limit = 1
 	elif wave_count >= 16:
 		T4_limit = 0
-		T3_limit = 0.35
+		T3_limit = 0.35 + diff_count * diff_coeff / 100
 		T2_limit = 0.6
 		T1_limit = 1
 	elif wave_count >= 13:
 		T4_limit = 0
-		T3_limit = 0.25
+		T3_limit = 0.25 + diff_count * diff_coeff / 100
 		T2_limit = 0.5
 		T1_limit = 1
 	elif wave_count >= 10:
 		T4_limit = 0
-		T3_limit = 0.15
+		T3_limit = 0.15 + diff_count * diff_coeff / 100
 		T2_limit = 0.4
 		T1_limit = 0.9
 	elif wave_count >= 7:
 		T4_limit = 0
-		T3_limit = 0.05
-		T2_limit = 0.3
+		T3_limit = 0.05 + diff_count * diff_coeff / 100 
+		T2_limit = 0.2
 		T1_limit = 0.8
 	elif wave_count >= 4:
 		T4_limit = 0
 		T3_limit = 0
-		T2_limit = 0.2
+		T2_limit = 0.15
 		T1_limit = 0.5
-
 	
 	
 	for i in range(enemies_count):

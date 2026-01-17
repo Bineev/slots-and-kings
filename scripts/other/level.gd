@@ -591,9 +591,9 @@ func show_win_label():
 	tween.set_parallel()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
-	tween.tween_callback(GameManager.stop_all).set_delay(3)
-	tween.tween_callback(GameManager.show_lobby).set_delay(3.5)
-	tween.tween_callback(queue_free).set_delay(4)
+	tween.tween_callback(GameManager.stop_all).set_delay(2.5)
+	tween.tween_callback(GameManager.show_lobby).set_delay(3)
+	tween.tween_callback(queue_free).set_delay(3)
 
 func show_loose_label():
 	label_result.text = 'ПОРАЖЕНИЕ!'
@@ -602,9 +602,9 @@ func show_loose_label():
 	tween.set_parallel()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
-	tween.tween_callback(GameManager.stop_all).set_delay(3)
-	tween.tween_callback(GameManager.show_lobby).set_delay(3.5)
-	tween.tween_callback(queue_free).set_delay(4)
+	tween.tween_callback(GameManager.stop_all).set_delay(2.5)
+	tween.tween_callback(GameManager.show_lobby).set_delay(3)
+	tween.tween_callback(queue_free).set_delay(3)
 
 
 func hide_bonus_ui():

@@ -69,6 +69,8 @@ func set_collision_by_owner():
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if is_hit:
+		return
 	var unit : Unit = body
 	if unit != target:
 		return
