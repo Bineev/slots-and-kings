@@ -36,6 +36,7 @@ func initialize():
 	target_res = DataManager.ResType.FOOD
 	set_icons_by_res()
 	setup_min_target_res_count()
+	target_res_count = target_res_min_count
 	calculate()
 	update_res_counts_ui()
 
@@ -56,7 +57,7 @@ func change_target_res():
 
 func deal():
 	Player.get_res(target_res, target_res_count)
-	Player.get_res(-source_res, source_res_count)
+	Player.get_res(source_res, -source_res_count)
 	update_res_counts_ui()
 
 
@@ -67,6 +68,8 @@ func increase():
 
 
 func decrease():
+	if target_res_count == 0:
+		return
 	target_res_count -= target_res_min_count
 	calculate()
 	update_res_counts_ui()
@@ -78,23 +81,23 @@ func set_icons_by_res():
 
 
 func swap_source_res_up():
-	setup_min_target_res_count()
-	if source_res == DataManager.market_res_chain.size():
+	#setup_min_target_res_count()
+	if source_res == DataManager.market_res_chain.size() - 1:
 		source_res = DataManager.market_res_chain[0]
 	else:
 		source_res = DataManager.market_res_chain[source_res + 1]
 
 
 func swap_target_res_up():
-	setup_min_target_res_count()
-	if target_res == DataManager.market_res_chain.size():
+	#setup_min_target_res_count()
+	if target_res == DataManager.market_res_chain.size() - 1:
 		target_res = DataManager.market_res_chain[0]
 	else:
 		target_res = DataManager.market_res_chain[target_res + 1]
 
 
 func swap_source_res_down():
-	setup_min_target_res_count()
+	#setup_min_target_res_count()
 	if source_res == 0:
 		source_res = DataManager.market_res_chain[DataManager.market_res_chain.size() - 1]
 	else:
@@ -102,7 +105,7 @@ func swap_source_res_down():
 
 
 func swap_target_res_down():
-	setup_min_target_res_count()
+	#setup_min_target_res_count()
 	if target_res == 0:
 		target_res = DataManager.market_res_chain[DataManager.market_res_chain.size() - 1]
 	else:
@@ -113,7 +116,9 @@ func setup_min_target_res_count():
 	if DataManager.default_market_coeffs_dict[target_res] > DataManager.default_market_coeffs_dict[source_res]:
 		target_res_min_count = 1
 	else:
-		target_res_count = DataManager.default_market_coeffs_dict[source_res] / DataManager.default_market_coeffs_dict[target_res]
+		print(DataManager.default_market_coeffs_dict[source_res])
+		print(DataManager.default_market_coeffs_dict[target_res])
+		target_res_min_count = DataManager.default_market_coeffs_dict[source_res] / DataManager.default_market_coeffs_dict[target_res]
 
 
 func calculate():
@@ -138,10 +143,20 @@ func _on_choose_button_pressed() -> void:
 
 func _on_change_res_up_button_pressed() -> void:
 	swap_source_res_up()
+	set_icons_by_res()
+	setup_min_target_res_count()
+	target_res_count = target_res_min_count
+	calculate()
+	update_res_counts_ui()
 
 
 func _on_change_res_down_button_pressed() -> void:
 	swap_source_res_down()
+	set_icons_by_res()
+	setup_min_target_res_count()
+	target_res_count = target_res_min_count
+	calculate()
+	update_res_counts_ui()
 
 
 func _on_target_res_up_button_pressed() -> void:
@@ -154,10 +169,20 @@ func _on_target_res_down_button_pressed() -> void:
 
 func _on_change_target_res_up_button_pressed() -> void:
 	swap_target_res_up()
+	set_icons_by_res()
+	setup_min_target_res_count()
+	target_res_count = target_res_min_count
+	calculate()
+	update_res_counts_ui()
 
 
 func _on_change_target_res_down_button_pressed() -> void:
 	swap_target_res_down()
+	set_icons_by_res()
+	setup_min_target_res_count()
+	target_res_count = target_res_min_count
+	calculate()
+	update_res_counts_ui()
 
 
 func _input(event):

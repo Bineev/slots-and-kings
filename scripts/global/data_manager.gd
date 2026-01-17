@@ -39,7 +39,7 @@ enum UnitOwner {
 }
 
 enum ResType {
-	GOLD, FOOD, SPIN_TOKEN, CRYSTAL, SOULS
+	GOLD, SPIN_TOKEN, FOOD, CRYSTAL, SOULS
 }
 
 enum UnitType {
