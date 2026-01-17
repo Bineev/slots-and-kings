@@ -105,6 +105,7 @@ layout_mode = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 1
 
 [node name="target_res_up_button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 unique_name_in_owner = true
@@ -118,8 +119,9 @@ custom_minimum_size = Vector2(36, 22)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_constants/line_spacing = 0
+text = "1"
 label_settings = ExtResource("4_ygeob")
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="target_res_down_button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
