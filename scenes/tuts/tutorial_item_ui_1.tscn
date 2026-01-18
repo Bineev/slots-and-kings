@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c24hqfrjnq4hi"]
 
 [ext_resource type="PackedScene" uid="uid://ctxccjw50pnm6" path="res://scenes/tutorial_item_ui.tscn" id="1_uk8ky"]
-[ext_resource type="Texture2D" uid="uid://djhx2hdxkw47c" path="res://img/tuts/tut_slot_1.png" id="2_qtxga"]
+[ext_resource type="Texture2D" uid="uid://s0u2ndva7x2p" path="res://img/tuts/1.png" id="2_qtxga"]
 
 [node name="TutorialItemUI1" instance=ExtResource("1_uk8ky")]
-tutorial_desc_1 = "Добро пожаловать в Slot Kings!\\n В этой игре вам предстоит отбиваться от волна врагов и защищать свой замок.\\n Бойцы создаются с помощью магической слот-машины."
-tutorial_desc_2 = "Кнопка \"крутить\" (Пробел) запускает машину.\\n Когда вращение остановится, кнопка \"создать\" (F) поместит бойцов на поле."
+tutorial_desc_1 = "Добро пожаловать в Slots Kings! В этой игре вам предстоит отбиваться от волн врагов и защищать свой замок. Бойцы создаются с помощью магической слот-машины."
+tutorial_desc_2 = "Кнопка \"крутить\" (Space) запускает машину. Когда вращение остановится, кнопка \"создать\" (F) поместит бойцов на поле."
 tutorial_desc_3 = "Машина берет слоты из средней линии, а также одинаковые по вертикали. В примере выше будут созданы три крестьянина."
 tutorial_texture2 = ExtResource("2_qtxga")

@@ -43,11 +43,16 @@ func start_produce():
 
 
 func show_ui():
+	if Player.is_tutorial and not Player.level.is_tutorial_4_done:
+		return
 	if is_in_reward_state:
 		return
 	pop_up_ui = pop_up_ui_scene.instantiate()
 	pop_up_ui.set_data(self, upgrade_tier_cost, current_tier)
 	SignalManager.on_open_building_menu.emit(self, pop_up_ui)
+	if Player.is_tutorial and not Player.level.is_tutorial_5_done:
+		Player.level.is_tutorial_5_done = true
+		get_tree().create_timer(5).timeout.connect(Player.show_tutorial)
 
 
 func _on_mouse_entered() -> void:

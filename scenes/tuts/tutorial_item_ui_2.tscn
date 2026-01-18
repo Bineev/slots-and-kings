@@ -6,7 +6,8 @@
 
 [node name="TutorialItemUI2" instance=ExtResource("1_03l8y")]
 tutorial_desc_1 = "Для запуска машины необходим 1 жетон"
-tutorial_desc_2 = "Для создания бойцов тратится еда"
-tutorial_desc_3 = "Чем выше тир бойца, тем больше еды он требует для создания.\\n Кстати, на одних крестьянах далеко не уедешь, поэтому время построить первые казармы."
+tutorial_desc_2 = "Для создания бойцов тратится еда. Чем выше тир бойца, тем больше еды он требует для создания. "
+tutorial_desc_3 = "Кстати, на одних крестьянах далеко не уедешь, поэтому время построить первые казармы."
 tutorial_texture = ExtResource("2_b2olp")
 tutorial_texture2 = ExtResource("3_dngvp")
+tutorial_step_count = 2

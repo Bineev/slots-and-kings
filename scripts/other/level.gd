@@ -4,6 +4,7 @@ class_name Level
 
 
 @export var unit_preview_scene : PackedScene
+@export var tutorial_scenes : Array[PackedScene]
 @export var waves_scenes : Array[PackedScene]
 @export var first_wave_timer : float
 @export var wave_rewards : Array
@@ -29,6 +30,15 @@ var heroes_slots_points : Array[Spawner]
 var current_bonus_name : String
 var current_bonus_count : int
 var is_result : bool
+var tutorial_item : TutorialItemUI
+var is_tutorial_1_done : bool
+var is_tutorial_2_done : bool
+var is_tutorial_3_done : bool
+var is_tutorial_4_done : bool
+var is_tutorial_5_done : bool
+var is_tutorial_6_done : bool
+var is_tutorial_7_done : bool
+var is_tutorial_8_done : bool
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -84,6 +94,7 @@ func _ready() -> void:
 	SignalManager.on_hero_choose_done.connect(add_hero_to_field)
 	SignalManager.on_hero_return.connect(return_hero_to_field)
 	SignalManager.on_change_reward_state.connect(set_buildings_reward_state)
+	SignalManager.on_show_next_tutorial.connect(show_tutorial_item)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
@@ -94,6 +105,7 @@ func _ready() -> void:
 		heroes_slots_points.append(spawner)
 	wave_rewards = DataManager.default_reward_progression.duplicate(true)
 	Player.set_wave_rewards(wave_rewards)
+	Player.level = self
 	if difficulty_count == 0:
 		Player.is_tutorial = true
 	else:
@@ -124,6 +136,8 @@ func start_waves():
 	next_wave_ui.set_timer(timer_to_next_wave)
 	next_wave_ui.set_remaining_waves(get_waves_remaining())
 	start_next_wave_countdown()
+	if Player.is_tutorial:
+		get_tree().create_timer(1).timeout.connect(show_tutorial_item)
 	# установить false когда последний спавн и врагов на карте не осталось
 
 
@@ -144,6 +158,9 @@ func add_player_unit():
 	await get_tree().process_frame
 	current_unit.get_parent().remove_child(current_unit)
 	current_unit = null
+	if Player.is_tutorial and not is_tutorial_2_done:
+		is_tutorial_2_done = true
+		show_tutorial_item()
 
 
 func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
@@ -351,6 +368,9 @@ func start_next_wave_countdown():
 	next_wave_ui.is_should_update_label = true
 	next_wave_ui.set_remaining_waves(get_waves_remaining())
 	next_wave_ui.visible = true
+	if Player.is_tutorial and not is_tutorial_8_done:
+		is_tutorial_8_done = true
+		show_tutorial_item()
 
 
 func start_check_is_enemies_remaining():
@@ -467,6 +487,9 @@ func add_hero_to_field(hero : Hero):
 	hero.global_position = hero_slot.global_position
 	hero.is_active = true
 	get_tree().create_timer(0.5).timeout.connect(hero.set_skills_is_active)
+	if Player.is_tutorial and not is_tutorial_7_done:
+		is_tutorial_7_done = true
+		get_tree().create_timer(3).timeout.connect(show_tutorial_item)
 
 
 func return_hero_to_field(hero : Hero):
@@ -619,4 +642,14 @@ func hide_bonus_ui():
 func set_buildings_reward_state(is_in_reward_state : bool):
 	for building in buildings.get_children():
 		building.is_in_reward_state = is_in_reward_state
-	
+
+
+func show_tutorial_item():
+	if tutorial_scenes.size() == 0:
+		return
+	if tutorial_item:
+		ui.remove_child(tutorial_item)
+	tutorial_item = tutorial_scenes.pop_front().instantiate()
+	ui.add_child(tutorial_item)
+	tutorial_item.global_position = get_viewport_rect().get_center()
+	tutorial_item.initialize()

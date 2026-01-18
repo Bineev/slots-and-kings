@@ -1,14 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://v3l6kp3bik6u"]
+[gd_scene load_steps=3 format=3 uid="uid://v3l6kp3bik6u"]
 
 [ext_resource type="PackedScene" uid="uid://ctxccjw50pnm6" path="res://scenes/tutorial_item_ui.tscn" id="1_5fuik"]
 [ext_resource type="Texture2D" uid="uid://dppgxsyivuusk" path="res://img/tuts/tut_hero.png" id="2_kglwf"]
-[ext_resource type="Texture2D" uid="uid://0wiqtb4jagpq" path="res://img/tuts/tut_skill_pass.png" id="3_mw7wv"]
-[ext_resource type="Texture2D" uid="uid://bmmyxg4q6bmgx" path="res://img/tuts/tut_skill_act.png" id="4_4bhm4"]
 
 [node name="TutorialItemUI7" instance=ExtResource("1_5fuik")]
 tutorial_desc_1 = "Пришло время героев! Эти отчаянные бойцы обладают пассивными способностями и активными способностями"
 tutorial_desc_2 = "Пассивные способности (нижний ряд) влияют на характеристики бойцов или на получение ресурсов"
 tutorial_desc_3 = "Активные умения позволяют влиять на ход боя напрямую. Просто прочтите описание умения и перетащите его на арену, когда это потребуется."
 tutorial_texture = ExtResource("2_kglwf")
-tutorial_texture2 = ExtResource("3_mw7wv")
-tutorial_texture3 = ExtResource("4_4bhm4")
+tutorial_step_count = 7

@@ -73,6 +73,7 @@ var is_dead : bool
 var current_runs_count : int
 var buildings : Array[Building]
 var is_tutorial : bool
+var level : Level
 
 
 func _ready() -> void:
@@ -220,6 +221,9 @@ func add_unit_slot_to_deck(slot_scene : PackedScene):
 	#if T0_count > 2 and slot_temp.slot_res.entity_tier == 1:
 		#base_units_deck.append(slot_scene)
 	base_units_deck.append(slot_scene)
+	if is_tutorial and not level.is_tutorial_3_done:
+		level.is_tutorial_3_done = true
+		get_tree().create_timer(1).timeout.connect(level.show_tutorial_item)
 
 
 func add_upgrade_slot_to_deck(slot_scene : PackedScene):
@@ -754,3 +758,8 @@ func change_meta_stat(meta_type : DataManager.MetaType, item_up_value : float):
 
 func get_meta_stats():
 	return current_progress.meta_stats
+
+
+func show_tutorial():
+	if level:
+		level.show_tutorial_item()

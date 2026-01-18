@@ -10,13 +10,23 @@
 
 [node name="TutorialItemUI" type="PanelContainer"]
 process_mode = 3
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_0s8q3")
 script = ExtResource("2_slhuh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="show_tutorial_button" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -41,52 +51,60 @@ text = "Обучение"
 [node name="content_container" type="MarginContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="label_desc" type="Label" parent="VBoxContainer/content_container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/content_container"]
+layout_mode = 2
+
+[node name="label_desc" type="Label" parent="VBoxContainer/content_container/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 label_settings = ExtResource("7_kqhnh")
 autowrap_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/content_container"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/content_container/VBoxContainer"]
 layout_mode = 2
 
-[node name="texture_tutorial" type="TextureRect" parent="VBoxContainer/content_container/CenterContainer"]
+[node name="texture_tutorial" type="TextureRect" parent="VBoxContainer/content_container/VBoxContainer/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+expand_mode = 2
 
-[node name="label_desc2" type="Label" parent="VBoxContainer/content_container"]
-unique_name_in_owner = true
-layout_mode = 2
-label_settings = ExtResource("7_kqhnh")
-autowrap_mode = 2
-
-[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/content_container"]
-layout_mode = 2
-
-[node name="texture_tutorial2" type="TextureRect" parent="VBoxContainer/content_container/CenterContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="label_desc3" type="Label" parent="VBoxContainer/content_container"]
+[node name="label_desc2" type="Label" parent="VBoxContainer/content_container/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 label_settings = ExtResource("7_kqhnh")
 autowrap_mode = 2
 
-[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/content_container"]
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/content_container/VBoxContainer"]
 layout_mode = 2
 
-[node name="texture_tutorial3" type="TextureRect" parent="VBoxContainer/content_container/CenterContainer3"]
+[node name="texture_tutorial2" type="TextureRect" parent="VBoxContainer/content_container/VBoxContainer/CenterContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+expand_mode = 2
+
+[node name="label_desc3" type="Label" parent="VBoxContainer/content_container/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+label_settings = ExtResource("7_kqhnh")
+autowrap_mode = 2
 
-[node name="hide_tutorial_button" type="Button" parent="VBoxContainer/content_container"]
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/content_container/VBoxContainer"]
+layout_mode = 2
+
+[node name="texture_tutorial3" type="TextureRect" parent="VBoxContainer/content_container/VBoxContainer/CenterContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 2
+
+[node name="hide_tutorial_button" type="Button" parent="VBoxContainer/content_container/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
@@ -107,4 +125,4 @@ theme_override_styles/focus = ExtResource("4_od5v6")
 text = "Попробовать"
 
 [connection signal="pressed" from="VBoxContainer/show_tutorial_button" to="." method="_on_show_tutorial_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/content_container/hide_tutorial_button" to="." method="_on_hide_tutorial_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/content_container/VBoxContainer/hide_tutorial_button" to="." method="_on_hide_tutorial_button_pressed"]

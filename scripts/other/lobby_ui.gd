@@ -43,6 +43,7 @@ func change_level_data(level_name : String, level_desc : String):
 
 
 func _on_start_button_pressed() -> void:
+	start_button.disabled = true
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.END_WAVE])
 	GameManager.start_level()
 
