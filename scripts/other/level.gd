@@ -83,6 +83,7 @@ func _ready() -> void:
 	SignalManager.on_clear_tooltips.connect(clear_tooltips)
 	SignalManager.on_hero_choose_done.connect(add_hero_to_field)
 	SignalManager.on_hero_return.connect(return_hero_to_field)
+	SignalManager.on_change_reward_state.connect(set_buildings_reward_state)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
@@ -157,6 +158,7 @@ func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.Unit
 		unit_preview_UI.queue_free()
 	unit_preview_UI = unit_preview_scene.instantiate()
 	ui.add_child(unit_preview_UI)
+	unit_preview_UI.visible = false
 	unit_preview_UI.set_unit(unit)
 	unit_preview_UI.add_unit()
 	unit.initialize(slots[0], owner)
@@ -227,7 +229,7 @@ func add_building_menu_UI(building : Building, menu_UI : Control):
 	ui.add_child(menu_UI)
 	menu_UI.initialize()
 	menu_UI.global_position = building.global_position
-	#get_tree().create_timer(0.05).timeout.connect(align_popup.bind(menu_UI))
+	#get_tree().create_timer(1).timeout.connect(align_popup.bind(menu_UI))
 
 
 func add_choose_UI(building : Building, chooseUI : ChooseUI):
@@ -609,3 +611,9 @@ func show_loose_label():
 
 func hide_bonus_ui():
 	show_bonus_UI()
+
+
+func set_buildings_reward_state(is_in_reward_state : bool):
+	for building in buildings.get_children():
+		building.is_in_reward_state = is_in_reward_state
+	

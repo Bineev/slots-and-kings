@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://b3chhv0rjkh35" path="res://resources/building_farm.tres" id="2_rewbd"]
 
 [node name="BuildingEcoFarm" instance=ExtResource("1_6xw4s")]
-res_type = 1
+res_type = 2
 res_amount = 1
 get_res_interval = 12.0
 building_res = ExtResource("2_rewbd")

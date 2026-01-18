@@ -16,6 +16,8 @@ class_name SlotMachine
 @onready var create_button: Button = %create_button
 @onready var bar_can_swap: ProgressBar = %bar_can_swap
 @onready var timer_can_swap: Timer = %timer_can_swap
+@onready var label_bonus: Label = %label_bonus
+
 
 var slots : Array[Slot]
 var is_need_check : bool
@@ -28,6 +30,7 @@ func _ready() -> void:
 	SignalManager.on_enough_food.connect(enable_create_button)
 	SignalManager.on_res_change.connect(update_buttons)
 	SignalManager.on_swap_done.connect(clear_bar_can_swap)
+	SignalManager.on_update_bonus_week.connect(update_bonus_week)
 	await get_tree().process_frame
 	#Player.set_unit_factory(castle_unit_factory)
 	initialize()
@@ -194,3 +197,7 @@ func swap_up():
 		target_slot.move_slots()
 		#change_slot.global_position = target_slot.before_can_swap_position
 		change_slot.z_index = 100
+
+
+func update_bonus_week(slot_name : String):
+	label_bonus.text = 'Неделя: %s' % slot_name

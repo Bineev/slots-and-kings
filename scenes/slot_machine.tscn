@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwrt5w7q3wbfy"]
+[gd_scene load_steps=17 format=3 uid="uid://dwrt5w7q3wbfy"]
 
 [ext_resource type="Texture2D" uid="uid://fns4xm0r5vtw" path="res://img/slot-machine.png" id="1_xixe3"]
 [ext_resource type="Script" uid="uid://bno6cf315is3a" path="res://scenes/slot_machine.gd" id="1_xjw1r"]
@@ -30,6 +30,11 @@ animations = [{
 font = ExtResource("8_dgsef")
 font_size = 4
 font_color = Color(0.3764706, 0.17254902, 0.17254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bcb0g"]
+font = ExtResource("8_dgsef")
+font_size = 5
+font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_xjw1r")
@@ -68,6 +73,7 @@ offset_top = 1.0
 offset_right = -7.0
 offset_bottom = 18.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
@@ -91,6 +97,7 @@ offset_top = 1.0
 offset_right = 49.0
 offset_bottom = 18.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
@@ -139,6 +146,17 @@ offset_right = 32.0
 offset_bottom = 20.0
 text = "F"
 label_settings = SubResource("LabelSettings_r2p6a")
+
+[node name="label_bonus" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 0)
+offset_left = -66.0
+offset_top = 39.0
+offset_right = 64.0
+offset_bottom = 62.0
+label_settings = SubResource("LabelSettings_bcb0g")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="spin_button" to="." method="_on_spin_button_pressed"]
 [connection signal="pressed" from="create_button" to="." method="_on_create_button_pressed"]

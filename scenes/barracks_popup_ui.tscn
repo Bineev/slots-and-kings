@@ -15,8 +15,17 @@ font_size = 5
 font_color = Color(0.6784314, 0.46666667, 0.34117648, 1)
 
 [node name="BarracksPopupUI" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -53.0
+offset_right = 138.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_m3pen")
 script = ExtResource("1_0rs0x")
 current_count = 1

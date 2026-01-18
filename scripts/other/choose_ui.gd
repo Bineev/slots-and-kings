@@ -44,11 +44,12 @@ func initialize():
 		choose_item.initialize()
 	SignalManager.on_ready_choose_ui.emit(self)
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SHOW_REWARDS])
+	get_tree().paused = true
 
 
 func close_choose_UI(item : ChooseItem):
 	if building_owner:
 		building_owner.start_produce()
-	if is_should_start_wave:
-		SignalManager.on_new_wave_start.emit()
+	#if is_should_start_wave:
+		#SignalManager.on_new_wave_start.emit()
 		

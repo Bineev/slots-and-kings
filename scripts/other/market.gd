@@ -39,6 +39,8 @@ func initialize():
 	target_res_count = target_res_min_count
 	calculate()
 	update_res_counts_ui()
+	SignalManager.on_ready_choose_ui.emit(self)
+	get_tree().paused = true
 
 
 func change_source_res():
@@ -138,10 +140,12 @@ func check_is_enough():
 
 
 func _on_choose_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	deal()
 
 
 func _on_change_res_up_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	swap_source_res_up()
 	set_icons_by_res()
 	setup_min_target_res_count()
@@ -151,6 +155,7 @@ func _on_change_res_up_button_pressed() -> void:
 
 
 func _on_change_res_down_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	swap_source_res_down()
 	set_icons_by_res()
 	setup_min_target_res_count()
@@ -160,14 +165,17 @@ func _on_change_res_down_button_pressed() -> void:
 
 
 func _on_target_res_up_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	increase()
 
 
 func _on_target_res_down_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	decrease()
 
 
 func _on_change_target_res_up_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	swap_target_res_up()
 	set_icons_by_res()
 	setup_min_target_res_count()
@@ -177,6 +185,7 @@ func _on_change_target_res_up_button_pressed() -> void:
 
 
 func _on_change_target_res_down_button_pressed() -> void:
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	swap_target_res_down()
 	set_icons_by_res()
 	setup_min_target_res_count()
@@ -191,4 +200,5 @@ func _input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 			get_tree().paused = false
 			visible = false
+			get_tree().paused = false
 			queue_free()

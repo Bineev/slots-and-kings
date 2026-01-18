@@ -7,5 +7,4 @@
 
 [node name="BuildingCreatorCastleT1" instance=ExtResource("1_1ub1b")]
 entity_pool = Array[PackedScene]([ExtResource("2_qlo87"), ExtResource("3_ciq41")])
-current_unit_slot_name = ""
 building_res = ExtResource("2_jqta0")

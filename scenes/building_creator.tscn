@@ -19,3 +19,6 @@ pop_up_ui_scene = ExtResource("4_syyne")
 
 [node name="generate_timer" parent="." index="4"]
 wait_time = 10000.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

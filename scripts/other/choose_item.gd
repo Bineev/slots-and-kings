@@ -70,6 +70,7 @@ func set_choose_UI(new_choose_UI : ChooseUI):
 
 
 func _on_choose_button_pressed() -> void:
+	get_tree().paused = false
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.GET_REWARDS])
 	SignalManager.on_choice_done.emit(self)
 	SignalManager.on_choose_item.emit(slot_scene, slot_type)

@@ -28,6 +28,7 @@ func initialize():
 	generate_reward_header()
 	generate_reward_info()
 	generate_reward_container()
+	SignalManager.on_change_reward_state.emit(true)
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.NICE])
 
 
@@ -164,6 +165,7 @@ func show_slot_remover():
 func show_next_choose_UI():
 	if reward_types.size() == 0:
 		get_tree().create_timer(1).timeout.connect(queue_free)
+		SignalManager.on_change_reward_state.emit(false)
 		SignalManager.on_new_wave_start.emit()
 		return
 	current_reward_type = reward_types.pop_front()

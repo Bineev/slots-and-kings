@@ -498,6 +498,7 @@ func get_random_week_bonus():
 	var slot_name = bonus_dict.keys().pick_random()
 	var count : int = 1
 	current_bonus_slot_name = slot_name
+	SignalManager.on_update_bonus_week.emit(current_bonus_slot_name)
 	bonus_dict[slot_name] += count
 	return [slot_name, count]
 

@@ -47,3 +47,5 @@ signal on_hero_return(hero : Hero)
 signal on_level_click(level_item : LevelItem)
 signal on_choose_reward_item
 signal on_buy_meta
+signal on_change_reward_state(is_in_reward_state : bool)
+signal on_update_bonus_week(slot_name : String)

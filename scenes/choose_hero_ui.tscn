@@ -6,8 +6,17 @@
 [ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="4_16iqo"]
 
 [node name="ChooseHeroUI" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -73.5
+offset_right = 20.0
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_rrd0p")
 script = ExtResource("2_yfd4e")
 choose_item_hero_scene = ExtResource("3_y6vm4")

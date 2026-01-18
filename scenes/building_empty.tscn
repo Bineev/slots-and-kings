@@ -9,3 +9,6 @@
 script = ExtResource("2_50na4")
 building_res = ExtResource("3_h13ar")
 pop_up_ui_scene = ExtResource("3_pn5wu")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

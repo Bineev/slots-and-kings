@@ -9,6 +9,7 @@ class_name Building
 @export var pop_up_ui_scene : PackedScene
 
 var pop_up_ui : Control
+var is_in_reward_state : bool
 
 @onready var building_sprite: AnimatedSprite2D = %building_sprite
 @onready var building_progress_bar: ProgressBar = %building_progress_bar
