@@ -1,7 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dx6ov8oew7u8y"]
 
 [ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_k1tds"]
-[ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="2_itvcx"]
 [ext_resource type="Script" uid="uid://qbs5malhnbqn" path="res://scenes/upgrades_popup_ui.gd" id="2_sdoyh"]
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_sdoyh"]
 [ext_resource type="StyleBox" uid="uid://dw720nyndbg14" path="res://styles/button_shrink_with_padding.tres" id="5_sdoyh"]
@@ -13,6 +12,11 @@
 font = ExtResource("3_sdoyh")
 font_size = 5
 font_color = Color(0.6784314, 0.46666667, 0.34117648, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sdoyh"]
+font = ExtResource("3_sdoyh")
+font_size = 6
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [node name="UpgradesPopupUI" type="PanelContainer"]
 z_index = 99
@@ -48,13 +52,13 @@ label_settings = SubResource("LabelSettings_itvcx")
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Текущий уровень улучшений "
-label_settings = ExtResource("2_itvcx")
+label_settings = SubResource("LabelSettings_sdoyh")
 horizontal_alignment = 1
 
 [node name="label_curent_tier" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-label_settings = ExtResource("2_itvcx")
+label_settings = SubResource("LabelSettings_sdoyh")
 horizontal_alignment = 1
 
 [node name="filler" type="Control" parent="MarginContainer/VBoxContainer"]
@@ -66,7 +70,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Повысить до "
-label_settings = ExtResource("2_itvcx")
+label_settings = SubResource("LabelSettings_sdoyh")
 horizontal_alignment = 1
 autowrap_mode = 2
 

@@ -6,7 +6,11 @@
 [ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="4_od5v6"]
 [ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="5_kk11r"]
 [ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="6_1rl6t"]
-[ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="7_kqhnh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b68a5"]
+font = ExtResource("3_22ex5")
+font_size = 6
+font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [node name="TutorialItemUI" type="PanelContainer"]
 process_mode = 3
@@ -64,7 +68,7 @@ layout_mode = 2
 [node name="label_desc" type="Label" parent="VBoxContainer/content_container/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-label_settings = ExtResource("7_kqhnh")
+label_settings = SubResource("LabelSettings_b68a5")
 autowrap_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/content_container/VBoxContainer"]
@@ -78,7 +82,7 @@ expand_mode = 2
 [node name="label_desc2" type="Label" parent="VBoxContainer/content_container/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-label_settings = ExtResource("7_kqhnh")
+label_settings = SubResource("LabelSettings_b68a5")
 autowrap_mode = 2
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/content_container/VBoxContainer"]
@@ -93,7 +97,7 @@ expand_mode = 2
 [node name="label_desc3" type="Label" parent="VBoxContainer/content_container/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-label_settings = ExtResource("7_kqhnh")
+label_settings = SubResource("LabelSettings_b68a5")
 autowrap_mode = 2
 
 [node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/content_container/VBoxContainer"]
