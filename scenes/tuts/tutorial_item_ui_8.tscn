@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc51x6lairqdx"]
+
+[ext_resource type="PackedScene" uid="uid://ctxccjw50pnm6" path="res://scenes/tutorial_item_ui.tscn" id="1_rwe78"]
+[ext_resource type="Texture2D" uid="uid://og267asly61h" path="res://img/tuts/tut_bar4.png" id="2_t4udh"]
+
+[node name="TutorialItemUI8" instance=ExtResource("1_rwe78")]
+tutorial_desc_1 = "Враги усиляются с каждой волной. Чтобы не отстать, стройте более дорогие казармы. Чем лучше казармы, тем сильнее бойцы добавятся в слот-машину."
+tutorial_desc_2 = "Задача - пережить все волны. К счастью, после каждой волны вам будут предоставляться различные улучшения и бонусы"
+tutorial_texture = ExtResource("2_t4udh")

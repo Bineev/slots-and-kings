@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1ujaxbb8rv3c"]
+
+[ext_resource type="PackedScene" uid="uid://ctxccjw50pnm6" path="res://scenes/tutorial_item_ui.tscn" id="1_03l8y"]
+[ext_resource type="Texture2D" uid="uid://c4uvnbfep4wqq" path="res://img/tuts/tut_res_token.png" id="2_b2olp"]
+[ext_resource type="Texture2D" uid="uid://dejehpv8kbtya" path="res://img/tuts/tut_res_food.png" id="3_dngvp"]
+
+[node name="TutorialItemUI2" instance=ExtResource("1_03l8y")]
+tutorial_desc_1 = "Для запуска машины необходим 1 жетон"
+tutorial_desc_2 = "Для создания бойцов тратится еда"
+tutorial_desc_3 = "Чем выше тир бойца, тем больше еды он требует для создания.\\n Кстати, на одних крестьянах далеко не уедешь, поэтому время построить первые казармы."
+tutorial_texture = ExtResource("2_b2olp")
+tutorial_texture2 = ExtResource("3_dngvp")

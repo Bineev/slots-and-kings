@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://crg6t448758fq"]
+
+[ext_resource type="PackedScene" uid="uid://ctxccjw50pnm6" path="res://scenes/tutorial_item_ui.tscn" id="1_i0ppv"]
+[ext_resource type="Texture2D" uid="uid://blhmtj200072g" path="res://img/tuts/8.png" id="2_l362i"]
+
+[node name="TutorialItemUI6" instance=ExtResource("1_i0ppv")]
+tutorial_desc_1 = "Чтобы получить информацию о любом бойце на поле боя, просто кликните на него. Чтобы закрыть подсказку, просто кликните по ней еще раз."
+tutorial_desc_2 = "У всех юнитов разные характеристики, которые определяют стиль боя определяет стиль боя. В примере выше боей \"Лучник\" наносит физический урон, атакует издалека и не обладает никакими защитами."
+tutorial_desc_3 = "Характеристики взаимодействуют друг с другом. Например, магическая атака игнорирует уворот, а Чистая атака не обращает внимание на показатель брони."
+tutorial_texture = ExtResource("2_l362i")

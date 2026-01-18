@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5sxid7rhrl8t"]
+
+[ext_resource type="PackedScene" uid="uid://ctxccjw50pnm6" path="res://scenes/tutorial_item_ui.tscn" id="1_k7spf"]
+[ext_resource type="Texture2D" uid="uid://yptpwdgio1s6" path="res://img/tuts/4.png" id="2_7q8ht"]
+[ext_resource type="Texture2D" uid="uid://th2hk278kdmy" path="res://img/tuts/3.png" id="3_5ktgf"]
+
+[node name="TutorialItemUI3" instance=ExtResource("1_k7spf")]
+tutorial_desc_1 = "Чтобы построить здание, нужно кликнуть на пустеющий участок"
+tutorial_desc_2 = "Откроектся меню строительства, в которой можно выбрать необходимую постройку"
+tutorial_desc_3 = "Для покупки зданий требуется золото. Здания бывают добывающие и функционалные. Например, фабрика создает жетоны, ферма производит еду, а на рынке можно обменять ресурсы. Без производящих зданий вы в какой-то момент можете оказаться без нужных ресурсов."
+tutorial_texture = ExtResource("2_7q8ht")
+tutorial_texture2 = ExtResource("3_5ktgf")

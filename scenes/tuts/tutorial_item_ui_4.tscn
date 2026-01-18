@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0k8gncge82r7"]
+
+[ext_resource type="PackedScene" uid="uid://ctxccjw50pnm6" path="res://scenes/tutorial_item_ui.tscn" id="1_up0dg"]
+[ext_resource type="Texture2D" uid="uid://o62whvstcye0" path="res://img/tuts/slot_2.png" id="2_8n8lk"]
+
+[node name="TutorialItemUI4" instance=ExtResource("1_up0dg")]
+tutorial_desc_1 = "Слот-машина - штука коварная. Нужные бойцы никак не хотят докрутиться до средней линии.\\nК счастью, наши инженеры добавили кое-что интересное."
+tutorial_desc_2 = "Когда шкала справа заполняется и становится зеленый, появляется возможность обмануть систему."
+tutorial_desc_3 = "Просто перетащите нужный слот по вертикали.\\n Или используйте клавиши S (опустить слот из верхней линии), W (поднять слот из нижней линии)."
+tutorial_texture = ExtResource("2_8n8lk")

@@ -72,6 +72,7 @@ var current_bonus_slot_name : String
 var is_dead : bool
 var current_runs_count : int
 var buildings : Array[Building]
+var is_tutorial : bool
 
 
 func _ready() -> void:

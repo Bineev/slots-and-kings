@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctxccjw50pnm6"]
+
+[ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_0s8q3"]
+[ext_resource type="Script" uid="uid://c3cfktrstxdgl" path="res://scripts/other/tutorial_item_ui.gd" id="2_slhuh"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="3_22ex5"]
+[ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="4_od5v6"]
+[ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="5_kk11r"]
+[ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="6_1rl6t"]
+[ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="7_kqhnh"]
+
+[node name="TutorialItemUI" type="PanelContainer"]
+process_mode = 3
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_0s8q3")
+script = ExtResource("2_slhuh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="show_tutorial_button" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_22ex5")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_od5v6")
+theme_override_styles/pressed = ExtResource("4_od5v6")
+theme_override_styles/hover = ExtResource("5_kk11r")
+theme_override_styles/disabled = ExtResource("6_1rl6t")
+theme_override_styles/focus = ExtResource("4_od5v6")
+text = "Обучение"
+
+[node name="content_container" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="label_desc" type="Label" parent="VBoxContainer/content_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("7_kqhnh")
+autowrap_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/content_container"]
+layout_mode = 2
+
+[node name="texture_tutorial" type="TextureRect" parent="VBoxContainer/content_container/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="label_desc2" type="Label" parent="VBoxContainer/content_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("7_kqhnh")
+autowrap_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/content_container"]
+layout_mode = 2
+
+[node name="texture_tutorial2" type="TextureRect" parent="VBoxContainer/content_container/CenterContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="label_desc3" type="Label" parent="VBoxContainer/content_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("7_kqhnh")
+autowrap_mode = 2
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/content_container"]
+layout_mode = 2
+
+[node name="texture_tutorial3" type="TextureRect" parent="VBoxContainer/content_container/CenterContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="hide_tutorial_button" type="Button" parent="VBoxContainer/content_container"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_22ex5")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("4_od5v6")
+theme_override_styles/pressed = ExtResource("4_od5v6")
+theme_override_styles/hover = ExtResource("5_kk11r")
+theme_override_styles/disabled = ExtResource("6_1rl6t")
+theme_override_styles/focus = ExtResource("4_od5v6")
+text = "Попробовать"
+
+[connection signal="pressed" from="VBoxContainer/show_tutorial_button" to="." method="_on_show_tutorial_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/content_container/hide_tutorial_button" to="." method="_on_hide_tutorial_button_pressed"]

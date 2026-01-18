@@ -113,12 +113,13 @@ func set_new_position_for_slots():
 
 
 func after_spin():
+	# DANGER
 	var tween = get_tree().create_tween()
 	if slots[0].position.y < DataManager.slot_size.y / 2:
-		tween.tween_callback(set_default_position_for_slots).set_delay(0.5)
+		tween.tween_callback(set_default_position_for_slots).set_delay(0.25)
 	else:
-		tween.tween_callback(set_new_position_for_slots).set_delay(0.5)
-	tween.tween_callback(spin_end).set_delay(0.6)
+		tween.tween_callback(set_new_position_for_slots).set_delay(0.25)
+	tween.tween_callback(spin_end).set_delay(0.3)
 
 
 func get_active_slot():

@@ -94,6 +94,10 @@ func _ready() -> void:
 		heroes_slots_points.append(spawner)
 	wave_rewards = DataManager.default_reward_progression.duplicate(true)
 	Player.set_wave_rewards(wave_rewards)
+	if difficulty_count == 0:
+		Player.is_tutorial = true
+	else:
+		Player.is_tutorial = false
 	waves_count = difficulty_count * 3 + 10
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
 	start_waves()
@@ -158,12 +162,11 @@ func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.Unit
 		unit_preview_UI.queue_free()
 	unit_preview_UI = unit_preview_scene.instantiate()
 	ui.add_child(unit_preview_UI)
-	unit_preview_UI.visible = false
 	unit_preview_UI.set_unit(unit)
 	unit_preview_UI.add_unit()
 	unit.initialize(slots[0], owner)
 	unit_preview_UI.initialize()
-	unit_preview_UI.global_position = Vector2(57, 262)
+	unit_preview_UI.global_position = Vector2(57, 310)
 	current_unit = unit
 	# может быть баг
 	await get_tree().process_frame
