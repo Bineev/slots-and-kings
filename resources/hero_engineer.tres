@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="HeroStatRes" load_steps=3 format=3 uid="uid://bnife27ehmh3j"]
 
 [ext_resource type="Script" uid="uid://1x2ug41h1aiq" path="res://resources/hero_stat_res.gd" id="1_3eopu"]
-[ext_resource type="Texture2D" uid="uid://lm6yxbajv2oi" path="res://img/heroes/hero_castle_knight.png" id="1_kulyh"]
+[ext_resource type="Texture2D" uid="uid://bdnxv7dmmm50u" path="res://img/heroes/hero_castle_engineer.png" id="1_kulyh"]
 
 [resource]
 script = ExtResource("1_3eopu")

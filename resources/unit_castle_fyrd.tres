@@ -8,7 +8,7 @@
 script = ExtResource("1_bb1el")
 unit_tier = 1
 unit_types = Array[int]([0, 2])
-unit_cost = 1
+unit_cost = 2
 unit_sprite = ExtResource("3_od3s6")
 slot_name = "ополченец"
 slot_description = "больше драки любит только пьянку"
