@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cndgsot5m7anv"]
+[gd_scene load_steps=10 format=3 uid="uid://cndgsot5m7anv"]
 
 [ext_resource type="PackedScene" uid="uid://cipb8j58qxkob" path="res://scenes/reward_ui.tscn" id="1_mjbqy"]
 [ext_resource type="Script" uid="uid://0afo8d7wgnc5" path="res://scripts/other/reward_after_wave_ui.gd" id="2_40566"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b74xvtvkdied4" path="res://scenes/choose_ui.tscn" id="5_coqgu"]
 [ext_resource type="PackedScene" uid="uid://dlkuko2amrh3t" path="res://scenes/remover_ui.tscn" id="6_miii6"]
 [ext_resource type="PackedScene" uid="uid://tnspad6yon1b" path="res://scenes/level_up_ui.tscn" id="8_b77ol"]
+[ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="9_w26ks"]
 
 [node name="RewardAfterWaveUI" instance=ExtResource("1_mjbqy")]
 z_index = 1000
@@ -31,3 +32,7 @@ remover_slot_UI_scene = ExtResource("6_miii6")
 level_up_UI_scene = ExtResource("8_b77ol")
 current_reward_type = 0
 wave_count = 0
+
+[node name="label_reward_info" parent="MarginContainer/VBoxContainer" index="1"]
+label_settings = ExtResource("9_w26ks")
+horizontal_alignment = 0

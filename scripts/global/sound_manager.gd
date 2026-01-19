@@ -47,7 +47,7 @@ func play_ui(source : Node, stream : AudioStream):
 
 
 
-func play_music():
+func play_music(current_delay : int):
 	#if sound and sound.playing:
 		#sound.stop()
 	if music:
@@ -58,7 +58,7 @@ func play_music():
 	add_child(music)
 	music.bus = "Music"
 	music.stream = main_theme
-	music.volume_db = -5
+	#music.volume_db = -5
 	#music.connect("finished", music.queue_free)
 	#sound.volume_db = -15
-	music.play()
+	get_tree().create_timer(current_delay).timeout.connect(music.play)

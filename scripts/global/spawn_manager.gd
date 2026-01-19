@@ -47,6 +47,9 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	var T1_limit : float = 0.3
 	var T0_limit : float = 1
 	
+	# замедлить появление злых
+	# возможно, уменьшить кол-во юнитова
+	# возможно, оставить один спавн
 	if wave_count >= 28:
 		T4_limit = 0.3 + diff_count * diff_coeff / 100
 		T3_limit = 0.6 + diff_count * diff_coeff / 100

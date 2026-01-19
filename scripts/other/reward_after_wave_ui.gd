@@ -80,7 +80,7 @@ func close_popup_UI():
 
 
 func generate_reward_info():
-	label_reward_info.text = 'Здесь будет статистика'
+	label_reward_info.text = 'Потеряно бойцов: %d\nУничтожено врагов: %d' % [Player.get_player_die_count(), Player.get_enemy_die_count()]
 
 
 func generate_reward_header():

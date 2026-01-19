@@ -189,9 +189,9 @@ var default_evade : float = 50
 
 var gold_drop_default : int = 13
 
-var tokens_drop_chance : float = 0.25
+var tokens_drop_chance : float = 0.3
 
-var food_drop_chance : float = 0.15
+var food_drop_chance : float = 0.2
 
 var crystals_drop_chance : float = 0.03
 
@@ -205,9 +205,9 @@ var default_gold_reward : int = 400
 
 var default_crystal_reward : int = 1
 
-var default_food_reward : int = 5
+var default_food_reward : int = 7
 
-var default_spin_reward : int = 5
+var default_spin_reward : int = 4
 
 #var action_speed_coeff : float = 1.5
 var action_speed_coeff : float = 1.55

@@ -113,7 +113,7 @@ func _ready() -> void:
 	waves_count = difficulty_count * 3 + 10
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
 	start_waves()
-	SoundManager.play_music()
+	SoundManager.play_music(3)
 
 
 func _input(event: InputEvent) -> void:
@@ -492,7 +492,7 @@ func add_hero_to_field(hero : Hero):
 	get_tree().create_timer(0.5).timeout.connect(hero.set_skills_is_active)
 	if Player.is_tutorial and not is_tutorial_7_done:
 		is_tutorial_7_done = true
-		get_tree().create_timer(3).timeout.connect(show_tutorial_item)
+		get_tree().create_timer(10).timeout.connect(show_tutorial_item)
 
 
 func return_hero_to_field(hero : Hero):
@@ -598,7 +598,7 @@ func show_bonus_UI():
 	ui.add_child(bonus_ui)
 	bonus_ui.initialize()
 	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(bonus_ui))
-	get_tree().create_timer(7).timeout.connect(bonus_ui.queue_free)
+	get_tree().create_timer(5).timeout.connect(bonus_ui.queue_free)
 
 
 func clear_tooltips():

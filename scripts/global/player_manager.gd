@@ -74,6 +74,8 @@ var current_runs_count : int
 var buildings : Array[Building]
 var is_tutorial : bool
 var level : Level
+var player_die_count : int
+var enemy_die_count : int
 
 
 func _ready() -> void:
@@ -399,6 +401,7 @@ func get_damage(damage : float):
 	if current_health <= 0:
 		Player.is_dead = true
 		GameManager.loose()
+	Player.enemy_die_count = clamp(Player.enemy_die_count - 1, 0, 1000000)
 	SignalManager.on_player_get_hit.emit()
 	# тряска
 
@@ -763,3 +766,24 @@ func get_meta_stats():
 func show_tutorial():
 	if level:
 		level.show_tutorial_item()
+
+
+func update_statistics(unit_owner : DataManager.UnitOwner):
+	match unit_owner:
+		DataManager.UnitOwner.PLAYER:
+			player_die_count += 1
+		DataManager.UnitOwner.ENEMY:
+			enemy_die_count += 1
+
+
+func clear_statistics():
+	player_die_count = 0
+	enemy_die_count = 0
+
+
+func get_player_die_count():
+	return player_die_count
+
+
+func get_enemy_die_count():
+	return enemy_die_count

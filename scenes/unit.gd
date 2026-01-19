@@ -568,6 +568,7 @@ func get_damage(damage : int, damage_owner : Object, is_crit : bool = false):
 	if actual_health - damage <= 0:
 		if unit_owner == DataManager.UnitOwner.PLAYER:
 			SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.DIED_SELF])
+		Player.update_statistics(unit_owner)
 		actual_health = 0
 		timer_aspd.stop()
 		timer_regen.stop()
