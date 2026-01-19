@@ -177,7 +177,8 @@ frame = 10
 [node name="unit_status_sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
-position = Vector2(0, -12)
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(0, -24)
 texture = ExtResource("8_oee7j")
 hframes = 2
 

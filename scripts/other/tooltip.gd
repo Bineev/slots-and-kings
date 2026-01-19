@@ -19,7 +19,10 @@ var is_initialized : bool
 
 func initialize():
 	await get_tree().process_frame
-	label_name.text = '(T%d) %s' % [entity_tier, entity_name]
+	if tooltip_owner is not Skill:
+		label_name.text = '(T%d) %s' % [entity_tier, entity_name]
+	else:
+		label_name.text = entity_name
 	label_desc.text = entity_desc
 	for subtooltip in subtooltips:
 		sub_tooltips_container.add_child(subtooltip)

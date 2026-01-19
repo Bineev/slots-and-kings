@@ -98,6 +98,8 @@ func initialize():
 	if is_void_zone:
 		if skill_anim_player.get_animation('skill'):
 			skill_anim_player.get_animation('skill').loop_mode = Animation.LOOP_LINEAR
+	if is_trap:
+		skill_delay = skill_cooldown
 	#skill_anim_player.speed_scale = DataManager.action_speed_coeff
 
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerProgress" load_steps=169 format=3 uid="uid://tt3xywwnolmu"]
+[gd_resource type="Resource" script_class="PlayerProgress" load_steps=170 format=3 uid="uid://tt3xywwnolmu"]
 
 [ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="1_hdwo2"]
 [ext_resource type="Script" uid="uid://bly0r5htgro0a" path="res://resources/progress.gd" id="1_w8t7g"]
@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://d62nskxn4g5g" path="res://resources/unit_castle_cutthroat.tres" id="5_e4xc5"]
 [ext_resource type="Resource" uid="uid://u0pg38a6khoj" path="res://resources/askill_reinforcement.tres" id="5_g21fy"]
 [ext_resource type="Resource" uid="uid://deb4a0alkunfi" path="res://resources/skill_knight_summon_knight.tres" id="5_msydu"]
+[ext_resource type="Resource" uid="uid://bb4oj37i6m4ru" path="res://resources/skill_castle_knight_burning_tar.tres" id="5_p7uig"]
 [ext_resource type="Resource" uid="uid://chwoa4rbqyocq" path="res://resources/askill_ballista.tres" id="6_1f56r"]
 [ext_resource type="Resource" uid="uid://busyqwiketxta" path="res://resources/askill_volley.tres" id="6_8kslp"]
 [ext_resource type="Resource" uid="uid://cwy1gjlsinelc" path="res://resources/upgrade_critchance_15.tres" id="6_hdwo2"]
@@ -181,7 +182,7 @@ base_pskills_dict = Dictionary[int, Array]({
 4: [[ExtResource("31_slwq3"), ExtResource("32_p7uig"), ExtResource("12_qd5ac"), ExtResource("44_apfw8"), ExtResource("45_aoiq7"), ExtResource("46_l7vdw")], [ExtResource("47_tk7vt"), ExtResource("9_5wk7d"), ExtResource("17_pxmyw"), ExtResource("16_cqfvd"), ExtResource("20_x1p8r"), ExtResource("46_l7vdw")], [ExtResource("49_7s01t"), ExtResource("50_7w8kf"), ExtResource("12_cdw33"), ExtResource("26_5fpdd"), ExtResource("30_1fran"), ExtResource("23_3nc7l")], [ExtResource("52_gp2n1"), ExtResource("12_cdw33"), ExtResource("23_3nc7l"), ExtResource("30_1fran"), ExtResource("22_fc2pu"), ExtResource("41_0q3vj")]]
 })
 base_askills_dict = Dictionary[int, Array]({
-0: [[ExtResource("3_cdw33"), ExtResource("6_8kslp")], [ExtResource("3_fc2pu"), ExtResource("4_luevp")], [ExtResource("2_8kslp"), ExtResource("5_3nc7l")], [ExtResource("6_1f56r"), ExtResource("7_5fpdd")]],
+0: [[ExtResource("3_cdw33"), ExtResource("6_8kslp")], [ExtResource("3_fc2pu"), ExtResource("4_luevp"), ExtResource("5_p7uig")], [ExtResource("2_8kslp"), ExtResource("5_3nc7l")], [ExtResource("6_1f56r"), ExtResource("7_5fpdd")]],
 2: [[ExtResource("8_luevp"), ExtResource("9_oiipg")], [ExtResource("10_psowy"), ExtResource("12_oiipg")], [ExtResource("11_1fran"), ExtResource("12_slwq3")], [ExtResource("13_p7uig"), ExtResource("16_psowy")]],
 4: [[ExtResource("6_8kslp"), ExtResource("14_xd7qb"), ExtResource("5_msydu")], [ExtResource("5_g21fy"), ExtResource("17_s0mbw")], [ExtResource("4_8nta1"), ExtResource("19_qd2sf")], [ExtResource("20_x4gee"), ExtResource("24_1fran")]]
 })
