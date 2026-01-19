@@ -50,6 +50,9 @@ func play_ui(source : Node, stream : AudioStream):
 func play_music():
 	#if sound and sound.playing:
 		#sound.stop()
+	if music:
+		music.stop()
+		music.queue_free()
 	music = AudioStreamPlayer.new()
 	music.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music)

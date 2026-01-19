@@ -20,7 +20,7 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	spawn.time_between_units = 0.1
 	spawn.unit_factory = Player.get_unit_factory().duplicate()
 	var progress : PlayerProgress = ProgressManager.get_base_progress_by_family(DataManager.UnitFamily.HELL)
-	var enemies_count : int = clampf(wave_count * 1.5 + 3 + diff_count, 4, 16 + diff_count)
+	var enemies_count : int = clampf(wave_count + 3 + diff_count, 4, 16 + diff_count)
 	var spawn_coeff : int = diff_count if diff_count != 0 else 1
 	
 	var T0_units_pool : Array[Resource] = progress.units_T0_pool.duplicate(true)
