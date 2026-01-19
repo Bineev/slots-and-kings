@@ -8,7 +8,7 @@
 script = ExtResource("1_ikb1m")
 unit_tier = 10
 unit_types = Array[int]([0, 3, 5])
-unit_cost = 3
+unit_cost = 4
 unit_sprite = ExtResource("2_i4xjh")
 slot_name = "инквизитор"
 slot_description = "В ваших интересах покаяться"

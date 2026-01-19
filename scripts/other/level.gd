@@ -385,6 +385,8 @@ func _on_timer_between_check_enemies_timeout() -> void:
 
 
 func show_reward():
+	if waves_scenes.size() == 0:
+		return
 	panel_in_fight.visible = false
 	var wave_count : int = Player.get_current_wave_count()
 	wave_reward_UI = wave_reward_UI_scene.instantiate()

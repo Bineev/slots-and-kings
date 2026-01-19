@@ -203,12 +203,12 @@ var default_gold_reward : int = 400
 
 var default_crystal_reward : int = 1
 
-var default_food_reward : int = 5
+var default_food_reward : int = 4
 
 var default_spin_reward : int = 7
 
 #var action_speed_coeff : float = 1.5
-var action_speed_coeff : float = 1.7
+var action_speed_coeff : float = 1.55
 
 var move_speed_coeff : float = 1.3
 
