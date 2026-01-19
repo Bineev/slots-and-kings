@@ -113,6 +113,7 @@ func _ready() -> void:
 	waves_count = difficulty_count * 3 + 10
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
 	start_waves()
+	SoundManager.play_music()
 
 
 func _input(event: InputEvent) -> void:

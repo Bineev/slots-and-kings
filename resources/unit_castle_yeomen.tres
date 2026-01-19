@@ -9,7 +9,7 @@
 script = ExtResource("1_r4xqq")
 unit_tier = 2
 unit_types = Array[int]([1, 2, 0])
-unit_cost = 1
+unit_cost = 2
 unit_sprite = ExtResource("3_2xb3e")
 unit_projectile_texture = ExtResource("3_kapcn")
 slot_name = "лучник"

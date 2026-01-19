@@ -1,6 +1,8 @@
 extends Node
 
 var sound : AudioStreamPlayer
+var music : AudioStreamPlayer
+var main_theme = preload('res://sounds/2025-12-26 SLOTS&KINGS.mp3')
 #const UI_HOVER : AudioStream = preload("res://sound/ui.wav")
 #const ARROW = preload("res://sound/arrow.wav")
 #const HIT_1 = preload("res://sound/hit1.wav")
@@ -20,7 +22,6 @@ func play(source : Node, stream : AudioStream):
 	sound.volume_db = -25
 	sound.connect("finished", sound.queue_free)
 	#sound.volume_db = -15
-	sound.stream = stream
 	sound.play()
 
 
@@ -42,3 +43,19 @@ func play_ui(source : Node, stream : AudioStream):
 	#sound.volume_db = -15
 	sound_temp.stream = stream
 	sound_temp.play()
+
+
+
+
+func play_music():
+	#if sound and sound.playing:
+		#sound.stop()
+	music = AudioStreamPlayer.new()
+	music.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(music)
+	music.bus = "Music"
+	music.stream = main_theme
+	music.volume_db = -5
+	#music.connect("finished", music.queue_free)
+	#sound.volume_db = -15
+	music.play()
