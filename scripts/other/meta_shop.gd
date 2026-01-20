@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func initialize():
 	await get_tree().process_frame
-	if Player.current_souls == 0:
+	if Player.current_runs_count == 0:
 		modulate = Color8(0, 0, 0, 0)
 	label_res_souls.text = str(Player.current_souls)
 	for item in meta_items_container.get_children():

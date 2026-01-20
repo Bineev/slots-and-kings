@@ -8,7 +8,7 @@ extends Node
 @export var food : int
 @export var crystals : int
 @export var souls : int
-@export var can_swap_time : float
+@export var default_can_swap_time : float
 @export var is_can_swap : bool
 @export var heroes_choose_count : int = 2
 @export var stats_choose_count : int = 2
@@ -52,6 +52,7 @@ extends Node
 var bonus_dict : Dictionary
 
 var current_progress : PlayerProgress
+var can_swap_time : float
 var current_health : int
 var current_gold : int
 var current_tokens : int
@@ -100,6 +101,8 @@ func initialize():
 	current_food = food
 	current_crystals = crystals
 	current_souls = souls
+	can_swap_time = default_can_swap_time
+	current_runs_count = 0
 	generate_base_decks()
 	generate_bonus_dict()
 
@@ -115,10 +118,11 @@ func clear_after_result():
 	current_wave_count = 0
 	current_health = health * current_progress.meta_stats[DataManager.MetaType.BASE_HP]
 	DataManager.default_damage_to_base * current_progress.meta_stats[DataManager.MetaType.BASE_DAMAGE]
-	current_gold = gold
+	current_gold = gold * current_progress.meta_stats[DataManager.MetaType.GOLD_START]
 	current_tokens = tokens
 	current_food = food
 	current_crystals = crystals
+	can_swap_time = default_can_swap_time * current_progress.meta_stats[DataManager.MetaType.SWAP_TIME]
 	generate_base_decks()
 	generate_bonus_dict()
 

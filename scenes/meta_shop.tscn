@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp51qffdo2x1t"]
+[gd_scene load_steps=16 format=3 uid="uid://dp51qffdo2x1t"]
 
 [ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_063hh"]
 [ext_resource type="PackedScene" uid="uid://bbbl6p5gmr4e7" path="res://scenes/meta_item_ui.tscn" id="1_ltp34"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://pqji8s3dyky2" path="res://img/meta/meta_item_crystall_inc.png" id="6_ois0k"]
 [ext_resource type="Texture2D" uid="uid://cb1ohnb1vj1dg" path="res://img/meta/meta_item_health.png" id="7_ois0k"]
 [ext_resource type="Texture2D" uid="uid://cnkuywfi3fbwp" path="res://img/meta/meta_item_defence.png" id="8_8lj8s"]
+[ext_resource type="Texture2D" uid="uid://cx6ihoyyfqbnr" path="res://img/meta/meta_item_gold_start.png" id="13_c7qtr"]
+[ext_resource type="Texture2D" uid="uid://chgybvkatuagt" path="res://img/meta/meta_item_swap_time.png" id="14_id3s8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_va85u"]
 line_spacing = 0.0
@@ -69,7 +71,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
-columns = 2
+columns = 3
 
 [node name="MetaItemUI" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
 layout_mode = 2
@@ -147,3 +149,30 @@ item_up_value = -0.1
 item_up_cost = 150.0
 item_up_default_cost = 150.0
 meta_type = 9
+
+[node name="MetaItemUI7" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
+layout_mode = 2
+item_texture = ExtResource("13_c7qtr")
+item_name = "Золото старт"
+item_desc = "Увеличивает стартовое золото"
+item_default_value = 1.0
+item_value = 1.0
+item_max_value = 2.0
+item_up_value = 0.1
+item_up_cost = 100.0
+item_up_default_cost = 100.0
+meta_type = 4
+
+[node name="MetaItemUI8" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
+layout_mode = 2
+item_texture = ExtResource("14_id3s8")
+item_name = "Ускоренный свап"
+item_desc = "Ускоряет откат свапа слотов"
+is_increment = false
+item_default_value = 1.0
+item_value = 1.0
+item_max_value = 0.3
+item_up_value = -0.1
+item_up_cost = 150.0
+item_up_default_cost = 150.0
+meta_type = 14

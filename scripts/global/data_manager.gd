@@ -100,7 +100,7 @@ enum SoundType {
 }
 
 enum MetaType {
-	GOLD_INC, TOKEN_INC, FOOD_INC, CRYSTAL_INC, GOLD_START, TOKEN_START, FOOD_START, CRYSTAL_START, BASE_HP, BASE_DAMAGE, T1_CREATE_COEFF, T2_CREATE_COEFF, T3_CREATE_COEFF, T4_CREATE_COEFF,
+	GOLD_INC, TOKEN_INC, FOOD_INC, CRYSTAL_INC, GOLD_START, TOKEN_START, FOOD_START, CRYSTAL_START, BASE_HP, BASE_DAMAGE, T1_CREATE_COEFF, T2_CREATE_COEFF, T3_CREATE_COEFF, T4_CREATE_COEFF, SWAP_TIME
 }
 
 
@@ -230,7 +230,7 @@ var default_damage_to_base : int = 20
 
 var meta_price_coeff : float = 1.5
 
-var default_souls_inc : int = 10
+var default_souls_inc : int = 15
 
 var market_res_chain : Array[ResType] = [ResType.GOLD, ResType.SPIN_TOKEN, ResType.FOOD, ResType.CRYSTAL]
 
@@ -418,6 +418,7 @@ var meta_stats_dict : Dictionary[MetaType, float] = {
 	MetaType.T2_CREATE_COEFF : 1,
 	MetaType.T3_CREATE_COEFF : 1,
 	MetaType.T4_CREATE_COEFF : 1,
+	MetaType.SWAP_TIME : 1,
 }
 
 
