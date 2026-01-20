@@ -66,7 +66,7 @@ var player_units : Array[Unit]
 var dead_enemy_units : Array[Unit]
 var dead_player_units : Array[Unit]
 var heroes : Array[Hero]
-var current_wave_count : int
+var current_wave_count : int = 1
 var next_create_units_count : int
 var hero_factory : HeroFactory
 var unit_factory : UnitFactory
@@ -104,7 +104,8 @@ func initialize():
 	current_crystals = crystals
 	current_souls = souls
 	can_swap_time = default_can_swap_time
-	current_runs_count = 0
+	current_wave_count = 1
+	current_bonus_slot_name = ''
 	generate_base_decks()
 	generate_bonus_dict()
 
@@ -117,7 +118,7 @@ func clear_after_result():
 	buildings.clear()
 	enemy_units.clear()
 	player_units.clear()
-	current_wave_count = 0
+	current_wave_count = 1
 	current_health = health * current_progress.meta_stats[DataManager.MetaType.BASE_HP]
 	DataManager.default_damage_to_base * current_progress.meta_stats[DataManager.MetaType.BASE_DAMAGE]
 	current_gold = gold * current_progress.meta_stats[DataManager.MetaType.GOLD_START]
@@ -125,6 +126,7 @@ func clear_after_result():
 	current_food = food
 	current_crystals = crystals
 	can_swap_time = default_can_swap_time * current_progress.meta_stats[DataManager.MetaType.SWAP_TIME]
+	current_bonus_slot_name = ''
 	generate_base_decks()
 	generate_bonus_dict()
 
@@ -210,6 +212,18 @@ func add_item_to_deck(slot_scene : PackedScene, slot_type : DataManager.SlotType
 			add_perc_slot_to_deck(slot_scene)
 		DataManager.SlotType.UNIT: 
 			add_unit_slot_to_deck(slot_scene)
+		DataManager.SlotType.ULT: 
+			add_ult_slot_to_deck(slot_scene)
+
+
+func add_ult_slot_to_deck(slot_scene : PackedScene):
+	var slot : Slot
+	for item in base_ults_deck:
+		slot = item.instantiate()
+		if slot.get_meta('slot_name') == 'Зеро':
+			base_ults_deck.erase(item)
+			break
+	base_ults_deck.append(slot_scene)
 
 
 func add_unit_slot_to_deck(slot_scene : PackedScene):
@@ -530,7 +544,7 @@ func update_bonus(slot_name : String, count : int):
 
 
 func remove_bonus():
-	if current_bonus_slot_name:
+	if current_bonus_slot_name != '':
 		bonus_dict[current_bonus_slot_name] -= 1
 
 

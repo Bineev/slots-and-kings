@@ -73,7 +73,7 @@ func _on_body_entered(body: Node2D) -> void:
 				skill.skill_anim_player.play('skill')
 			skill.timer_skill_delay.stop()
 			if skill.is_trap and not skill.is_void_zone:
-				skill.timer_skill_delay.wait_time = 0.5
+				skill.timer_skill_delay.wait_time = 0.8
 				skill.timer_skill_delay.start()
 			else:
 				skill.activate()
