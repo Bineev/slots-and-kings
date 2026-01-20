@@ -12,5 +12,5 @@ building_desc = "С определенным интервалом создает
 building_cost = 1500
 building_sprite = ExtResource("1_3n0n1")
 produce_amount = 1
-produce_interval = 120.0
+produce_interval = 100.0
 metadata/_custom_type_script = "uid://ebjnjxcsijom"

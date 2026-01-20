@@ -478,14 +478,14 @@ func attack():
 
 
 func attack_castle():
-	var attack : float
-	if unit_types.has(DataManager.UnitType.MAGE):
-		attack = current_magical_attack
-	elif unit_types.has(DataManager.UnitType.ASSASSIN):
-		attack = current_true_damage
-	elif unit_types.has(DataManager.UnitType.PHYS):
-		attack = current_physical_attack
-	Player.get_damage(DataManager.default_damage_to_base)
+	#var attack : float
+	#if unit_types.has(DataManager.UnitType.MAGE):
+		#attack = current_magical_attack
+	#elif unit_types.has(DataManager.UnitType.ASSASSIN):
+		#attack = current_true_damage
+	#elif unit_types.has(DataManager.UnitType.PHYS):
+		#attack = current_physical_attack
+	Player.get_damage(ceil(DataManager.default_damage_to_base / (5 - entity_tier)))
 	
 	
 

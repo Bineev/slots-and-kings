@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerProgress" load_steps=170 format=3 uid="uid://tt3xywwnolmu"]
+[gd_resource type="Resource" script_class="PlayerProgress" load_steps=171 format=3 uid="uid://tt3xywwnolmu"]
 
 [ext_resource type="Resource" uid="uid://w2fxdrg77urg" path="res://resources/empty_perc.tres" id="1_hdwo2"]
 [ext_resource type="Script" uid="uid://bly0r5htgro0a" path="res://resources/progress.gd" id="1_w8t7g"]
@@ -165,6 +165,7 @@
 [ext_resource type="Resource" uid="uid://c1wbnffp5h6sa" path="res://resources/upgrade_evade_50.tres" id="67_wdv8i"]
 [ext_resource type="Resource" uid="uid://k50m5v3xe20k" path="res://resources/upgrade_lifesteal_40.tres" id="68_rwnh0"]
 [ext_resource type="Resource" uid="uid://dcnl1tkkjwxxv" path="res://resources/upgrade_regen_20.tres" id="69_wh6ku"]
+[ext_resource type="Resource" uid="uid://da3442vfbsrnf" path="res://resources/ult_empty.tres" id="72_xd7qb"]
 [ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="76_oiipg"]
 [ext_resource type="PackedScene" uid="uid://d34fbn78sawc1" path="res://scenes/level1.tscn" id="77_psowy"]
 [ext_resource type="PackedScene" uid="uid://g1a5yw2a03b3" path="res://scenes/level_2.tscn" id="78_1fran"]
@@ -176,6 +177,7 @@ hero_classes = Array[int]([4, 2, 0])
 base_units_reses = Array[Resource]([ExtResource("3_sf6q5"), ExtResource("3_sf6q5"), ExtResource("3_sf6q5"), ExtResource("3_sf6q5")])
 base_upgrades_reses = Array[Resource]([ExtResource("5_34q24"), ExtResource("5_34q24"), ExtResource("5_34q24"), ExtResource("5_34q24")])
 base_percs_reses = Array[Resource]([ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("1_hdwo2"), ExtResource("1_hdwo2")])
+base_ults_reses = Array[Resource]([ExtResource("72_xd7qb"), ExtResource("72_xd7qb"), ExtResource("72_xd7qb"), ExtResource("72_xd7qb")])
 base_pskills_dict = Dictionary[int, Array]({
 0: [[ExtResource("8_f3qgj"), ExtResource("9_g5fw2"), ExtResource("10_hnemy"), ExtResource("11_aphx6"), ExtResource("12_qd5ac"), ExtResource("13_4n8jh")], [ExtResource("14_ck3k0"), ExtResource("15_mxkvc"), ExtResource("16_cqfvd"), ExtResource("17_pxmyw"), ExtResource("18_562m4"), ExtResource("19_w48uh"), ExtResource("20_x1p8r")], [ExtResource("21_gkku6"), ExtResource("22_fc2pu"), ExtResource("23_3nc7l"), ExtResource("9_8nta1"), ExtResource("25_1f56r"), ExtResource("26_5fpdd")], [ExtResource("25_1f56r"), ExtResource("27_luevp"), ExtResource("28_oiipg"), ExtResource("29_psowy"), ExtResource("30_1fran"), ExtResource("9_8nta1")]],
 2: [[ExtResource("9_g5fw2"), ExtResource("31_slwq3"), ExtResource("12_qd5ac"), ExtResource("32_p7uig"), ExtResource("8_f3qgj"), ExtResource("13_4n8jh")], [ExtResource("33_xd7qb"), ExtResource("34_s0mbw"), ExtResource("26_5fpdd"), ExtResource("35_qd2sf"), ExtResource("17_pxmyw"), ExtResource("15_mxkvc")], [ExtResource("26_5fpdd"), ExtResource("36_x4gee"), ExtResource("37_fckf8"), ExtResource("38_c632e"), ExtResource("35_qd2sf"), ExtResource("10_msydu")], [ExtResource("40_gwdlk"), ExtResource("41_0q3vj"), ExtResource("42_o2lp7"), ExtResource("13_msydu"), ExtResource("23_3nc7l"), ExtResource("38_c632e")]],

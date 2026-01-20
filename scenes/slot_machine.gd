@@ -10,6 +10,7 @@ class_name SlotMachine
 @onready var second_column: SlotColumn = %second_column
 @onready var third_column: SlotColumn = %third_column
 @onready var fourth_column: SlotColumn = %fourth_column
+@onready var fifth_column: SlotColumn = %fifth_column
 @onready var columns: Node2D = $columns
 @onready var castle_unit_factory: Node2D = %CastleUnitFactory
 @onready var spin_button: Button = %spin_button

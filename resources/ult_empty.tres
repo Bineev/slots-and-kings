@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SlotRes" load_steps=3 format=3 uid="uid://da3442vfbsrnf"]
+
+[ext_resource type="Script" uid="uid://ckeieckjuifia" path="res://resources/slot_res.gd" id="1_y7a40"]
+[ext_resource type="Texture2D" uid="uid://quu2815n3u7o" path="res://img/slots/ult_empty.png" id="2_yoli6"]
+
+[resource]
+script = ExtResource("1_y7a40")
+slot_name = "Зеро"
+slot_description = "Пустой слот"
+slot_sprite = ExtResource("2_yoli6")
+slot_type = 3
+metadata/_custom_type_script = "uid://ckeieckjuifia"

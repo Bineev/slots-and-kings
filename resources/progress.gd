@@ -12,6 +12,7 @@ class_name PlayerProgress
 @export var base_units_reses : Array[Resource]
 @export var base_upgrades_reses : Array[Resource]
 @export var base_percs_reses : Array[Resource]
+@export var base_ults_reses : Array[Resource]
 # словарь вида UnitClass : Array[SkillRes]
 @export var base_pskills_dict : Dictionary[DataManager.HeroClass, Array]
 @export var base_askills_dict : Dictionary[DataManager.HeroClass, Array]
@@ -19,6 +20,7 @@ class_name PlayerProgress
 @export var special_units_reses : Array[Resource]
 @export var special_upgrades_reses : Array[Resource]
 @export var special_percs_reses : Array[Resource]
+@export var special_ults_reses : Array[Resource]
 @export var special_pskills_dict : Dictionary
 @export var special_askills_dict : Dictionary
 

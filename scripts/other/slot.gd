@@ -2,6 +2,10 @@ extends Area2D
 
 class_name Slot
 
+
+@export var highlight_texture : Texture2D = preload('res://img/slots/highlight_texture.png')
+@export var unit_back_texture : Texture2D = preload('res://img/slots/slot_back.png')
+
 @export var back_upgrades_dict : Dictionary = {
 	DataManager.EntityTier.T0 : preload('res://img/slots/upgrade_back_T1.png'),
 	DataManager.EntityTier.T1 : preload('res://img/slots/upgrade_back_T1.png'),
@@ -16,6 +20,14 @@ class_name Slot
 	DataManager.EntityTier.T2 : preload('res://img/slots/perc_back_T2.png'),
 	DataManager.EntityTier.T3 : preload('res://img/slots/perc_back_T3.png'),
 	DataManager.EntityTier.T4 : preload('res://img/slots/perc_back_T4.png'),
+}
+
+@export var back_ult_dict : Dictionary = {
+	DataManager.EntityTier.T0 : preload('res://img/slots/ult_back_T1.png'),
+	DataManager.EntityTier.T1 : preload('res://img/slots/ult_back_T1.png'),
+	DataManager.EntityTier.T2 : preload('res://img/slots/ult_back_T2.png'),
+	DataManager.EntityTier.T3 : preload('res://img/slots/ult_back_T3.png'),
+	DataManager.EntityTier.T4 : preload('res://img/slots/ult_back_T4.png'),
 }
 
 @export var slot_type : DataManager.SlotType
@@ -73,6 +85,8 @@ func initialize():
 		slot_back_sprite.texture = back_upgrades_dict[entity_tier]
 	if slot_type == DataManager.SlotType.PERC:
 		slot_back_sprite.texture = back_perc_dict[entity_tier]
+	if slot_type == DataManager.SlotType.ULT:
+		slot_back_sprite.texture = back_ult_dict[entity_tier]
 	slot_sprite.sprite_frames = SpriteFrames.new()
 	slot_sprite.sprite_frames.add_frame("default", slot_res.slot_sprite)
 	if slot_type == DataManager.SlotType.UNIT and slot_res is SlotUnitRes:
@@ -89,16 +103,25 @@ func set_is_on_remover_UI(new_is_on_remover_UI : bool):
 
 
 func highlight_slot():
-	slot_anim_player.play("highlight")
+	#slot_anim_player.play("highlight")
 	var shader_material = ShaderMaterial.new()
 	shader_material.shader = shader
 	shader_rect.material = shader_material
+	slot_back_sprite.texture = highlight_texture
 
 
 func stop_highlight():
-	slot_anim_player.stop()
+	#slot_anim_player.stop()
 	shader_rect.material = null
-
+	slot_back_sprite.texture = highlight_texture
+	if slot_type == DataManager.SlotType.UPGRADE:
+		slot_back_sprite.texture = back_upgrades_dict[entity_tier]
+	elif slot_type == DataManager.SlotType.PERC:
+		slot_back_sprite.texture = back_perc_dict[entity_tier]
+	elif slot_type == DataManager.SlotType.ULT:
+		slot_back_sprite.texture = back_ult_dict[entity_tier]
+	elif slot_type == DataManager.SlotType.UNIT:
+		slot_back_sprite.texture = unit_back_texture
 
 func generate_unit_stats():
 	var unit_stats : String

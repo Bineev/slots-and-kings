@@ -7,7 +7,7 @@
 script = ExtResource("2_epapv")
 slots_amount = 2
 entity_tier = 1
-building_name = "Т1 бараки"
+building_name = "Т1 казармы"
 building_desc = "Создает слот Т1 юнита для рулетки"
 building_cost = 1000
 building_sprite = ExtResource("1_hx2vd")

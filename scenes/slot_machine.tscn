@@ -63,6 +63,11 @@ position = Vector2(127, 66)
 unique_name_in_owner = true
 position = Vector2(148, 66)
 
+[node name="fifth_column" parent="columns" instance=ExtResource("4_puwce")]
+unique_name_in_owner = true
+position = Vector2(169, 66)
+slot_type = 3
+
 [node name="CastleUnitFactory" parent="." instance=ExtResource("6_puwce")]
 unique_name_in_owner = true
 

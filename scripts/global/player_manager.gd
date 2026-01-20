@@ -25,9 +25,11 @@ extends Node
 @export var base_units_reses : Array[Resource]
 @export var base_upgrades_reses : Array[Resource]
 @export var base_percs_reses : Array[Resource]
+@export var base_ults_reses : Array[Resource]
 @export var base_units_deck : Array[PackedScene]
 @export var base_upgrades_deck : Array[PackedScene]
 @export var base_percs_deck : Array[PackedScene]
+@export var base_ults_deck : Array[PackedScene]
 
 @export var units_T1_pool : Array[Resource]
 @export var units_T2_pool : Array[Resource]
@@ -261,6 +263,8 @@ func get_deck_by_slot_type(slot_type : DataManager.SlotType):
 			slots = base_percs_deck.duplicate()
 		DataManager.SlotType.UNIT:
 			slots = base_units_deck.duplicate()
+		DataManager.SlotType.ULT:
+			slots = base_ults_deck.duplicate()
 	slots.shuffle()
 	return slots
 
@@ -492,6 +496,8 @@ func generate_base_decks():
 		base_units_deck.append(create_slot_scene(res))
 	for res in current_progress.base_percs_reses:
 		base_percs_deck.append(create_slot_scene(res))
+	for res in current_progress.base_ults_reses:
+		base_ults_deck.append(create_slot_scene(res))
 
 
 func clear_base_decks():
