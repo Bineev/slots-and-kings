@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_hf5hr")
 unit_tier = 5
-unit_types = Array[int]([3, 1, 7, 0])
+unit_types = Array[int]([3, 1, 7])
 unit_cost = 3
 unit_sprite = ExtResource("3_nlatw")
 unit_attack_type = 1

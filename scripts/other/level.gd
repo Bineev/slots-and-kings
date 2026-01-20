@@ -372,7 +372,7 @@ func start_next_wave_countdown():
 	next_wave_ui.is_should_update_label = true
 	next_wave_ui.set_remaining_waves(get_waves_remaining())
 	next_wave_ui.visible = true
-	if Player.is_tutorial and not is_tutorial_8_done and Player.get_current_wave_count() > 4:
+	if Player.is_tutorial and not is_tutorial_8_done and Player.get_current_wave_count() == 4:
 		is_tutorial_8_done = true
 		show_tutorial_item()
 
@@ -390,6 +390,7 @@ func _on_timer_between_check_enemies_timeout() -> void:
 
 func show_reward():
 	if waves_scenes.size() == 0:
+		SignalManager.on_new_wave_start.emit()
 		return
 	panel_in_fight.visible = false
 	var wave_count : int = Player.get_current_wave_count()

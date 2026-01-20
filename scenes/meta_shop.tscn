@@ -101,6 +101,7 @@ layout_mode = 2
 item_texture = ExtResource("5_7jrn4")
 item_name = "Больше жетонов"
 item_desc = "Повышает количество получаемых жетонов"
+item_default_value = 1.0
 item_value = 1.0
 item_max_value = 2.0
 item_up_value = 0.1

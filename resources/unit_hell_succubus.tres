@@ -8,7 +8,7 @@
 script = ExtResource("1_cwnen")
 unit_family = 1
 unit_tier = 9
-unit_types = Array[int]([0, 2])
+unit_types = Array[int]([0, 6])
 unit_cost = 4
 unit_sprite = ExtResource("3_cusl5")
 slot_name = "суккуб"
@@ -16,7 +16,7 @@ slot_description = "Сложно найти и легко потерять"
 slot_sprite = ExtResource("2_ek67p")
 slot_type = 1
 entity_tier = 3
-physical_attack = 40.0
+true_damage = 40.0
 health = 110.0
 magic_defence = 10.0
 attack_speed = 1.7
