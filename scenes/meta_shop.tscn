@@ -117,8 +117,8 @@ item_default_value = 1.0
 item_value = 1.0
 item_max_value = 2.0
 item_up_value = 0.1
-item_up_cost = 100.0
-item_up_default_cost = 100.0
+item_up_cost = 150.0
+item_up_default_cost = 150.0
 
 [node name="MetaItemUI5" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
 layout_mode = 2

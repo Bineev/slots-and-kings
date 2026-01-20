@@ -99,7 +99,7 @@ func initialize():
 		if skill_anim_player.get_animation('skill'):
 			skill_anim_player.get_animation('skill').loop_mode = Animation.LOOP_LINEAR
 	if is_trap:
-		skill_delay = skill_cooldown
+		skill_delay = skill_cooldown - skill_duration - 1
 	#skill_anim_player.speed_scale = DataManager.action_speed_coeff
 
 
@@ -166,7 +166,10 @@ func activate():
 		skill_zone.stop_working()
 		return
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.MAGE])
-	skill_anim.modulate = Color(1, 1, 1, 1)
+	if is_void_zone:
+		skill_anim.modulate = Color(1, 1, 1, 0.8)
+	else:
+		skill_anim.modulate = Color(1, 1, 1, 1)
 	# проверяем, продолжительный ли это скилл
 	if skill_duration > 0:
 		timer_deactivate.wait_time = skill_duration

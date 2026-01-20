@@ -41,6 +41,7 @@ func initialize():
 		label_desc_2.text = tutorial_desc_2
 	if tutorial_desc_3 != '':
 		label_desc_3.text = tutorial_desc_3
+	content_container.custom_minimum_size = Vector2(400, 0)
 	_on_show_tutorial_button_pressed()
 
 
@@ -49,6 +50,7 @@ func _on_show_tutorial_button_pressed() -> void:
 	Player.get_tree().paused = true
 	show_tutorial_button.visible = false
 	content_container.visible = true
+	content_container.custom_minimum_size = Vector2(400, 0)
 	global_position = get_viewport_rect().get_center()
 
 
@@ -59,6 +61,8 @@ func _on_hide_tutorial_button_pressed() -> void:
 	global_position = Vector2(0, 0)
 	#content_container.custom_minimum_size = Vector2(0, 0)
 	#custom_minimum_size = Vector2(0, 0)
+	if tutorial_step_count == 3:
+		content_container.custom_minimum_size = Vector2(0, 0)
 	size = Vector2(0, 0)
 	if tutorial_step_count == 2:
 		SignalManager.on_show_next_tutorial.emit()

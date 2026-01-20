@@ -11,3 +11,9 @@ tutorial_desc_3 = "Для покупки зданий требуется зол�
 tutorial_texture = ExtResource("2_7q8ht")
 tutorial_texture2 = ExtResource("3_5ktgf")
 tutorial_step_count = 3
+
+[node name="show_tutorial_button" parent="VBoxContainer" index="0"]
+text = "ОБУЧЕНИЕ"
+
+[node name="VBoxContainer" parent="VBoxContainer/content_container" index="0"]
+theme_override_constants/separation = 5

@@ -110,7 +110,9 @@ func _ready() -> void:
 		Player.is_tutorial = true
 	else:
 		Player.is_tutorial = false
-	waves_count = difficulty_count * 3 + 10
+	waves_count = difficulty_count * 2 + 10
+	if Player.is_tutorial:
+		waves_count = 6
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
 	start_waves()
 	SoundManager.play_music(3)
@@ -358,6 +360,7 @@ func start_next_wave_countdown():
 	if Player.get_current_wave_count() >= 1 and waves_scenes.size() > 0:
 		get_tree().create_timer(0.5).timeout.connect(show_bonus_UI)
 	var next_wave_scene : PackedScene = waves_scenes.pop_front()
+	Player.clear_statistics()
 	if not next_wave_scene:
 		timer_to_next_wave.stop()
 		GameManager.win()
