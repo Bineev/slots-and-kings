@@ -246,7 +246,7 @@ func add_unit_slot_to_deck(slot_scene : PackedScene):
 	#if T0_count > 2 and slot_temp.slot_res.entity_tier == 1:
 		#base_units_deck.append(slot_scene)
 	base_units_deck.append(slot_scene)
-	if is_tutorial and not level.is_tutorial_3_done:
+	if is_tutorial and level.is_tutorial_2_done and not level.is_tutorial_3_done:
 		level.is_tutorial_3_done = true
 		get_tree().create_timer(1).timeout.connect(level.show_tutorial_item)
 
@@ -297,19 +297,19 @@ func get_res(res_type : DataManager.ResType, res_amount : int):
 			else:
 				current_gold += res_amount
 		DataManager.ResType.SPIN_TOKEN:
-			if rand <= 1 - Player.current_progress.meta_stats[DataManager.MetaType.TOKEN_INC]:
+			if rand <= abs(1 - Player.current_progress.meta_stats[DataManager.MetaType.TOKEN_INC]):
 				bonus_res = 1
 			if res_amount < 0:
 				bonus_res = 0
 			current_tokens += res_amount + bonus_res
 		DataManager.ResType.CRYSTAL:
-			if rand <= 1 - Player.current_progress.meta_stats[DataManager.MetaType.CRYSTAL_INC]:
+			if rand <= abs(1 - Player.current_progress.meta_stats[DataManager.MetaType.CRYSTAL_INC]):
 				bonus_res = 1
 			if res_amount < 0:
 				bonus_res = 0
 			current_crystals += res_amount + bonus_res
 		DataManager.ResType.FOOD:
-			if rand <= 1 - Player.current_progress.meta_stats[DataManager.MetaType.FOOD_INC]:
+			if rand <= abs(1 - Player.current_progress.meta_stats[DataManager.MetaType.FOOD_INC]):
 				bonus_res = 1
 			if res_amount < 0:
 				bonus_res = 0

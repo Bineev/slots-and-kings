@@ -372,7 +372,7 @@ func start_next_wave_countdown():
 	next_wave_ui.is_should_update_label = true
 	next_wave_ui.set_remaining_waves(get_waves_remaining())
 	next_wave_ui.visible = true
-	if Player.is_tutorial and not is_tutorial_8_done and Player.get_current_wave_count() == 4:
+	if Player.is_tutorial and is_tutorial_7_done and not is_tutorial_8_done and Player.get_current_wave_count() == 4:
 		is_tutorial_8_done = true
 		show_tutorial_item()
 

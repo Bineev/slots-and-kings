@@ -283,7 +283,7 @@ func move_slots():
 		slot_for_swap = null
 		Player.set_is_can_swap(false)
 		SignalManager.on_swap_done.emit()
-		if Player.is_tutorial and not Player.level.is_tutorial_4_done:
+		if Player.is_tutorial and Player.level.is_tutorial_3_done and not Player.level.is_tutorial_4_done:
 			Player.level.is_tutorial_4_done = true
 			get_tree().create_timer(1).timeout.connect(Player.show_tutorial)
 		#SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SWAP])
