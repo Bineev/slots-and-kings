@@ -79,11 +79,13 @@ var is_tutorial : bool
 var level : Level
 var player_die_count : int
 var enemy_die_count : int
+var is_should_shake : bool = true
 
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
 	SignalManager.on_get_res.connect(get_res)
+	SignalManager.on_toggle_shake.connect(toggle_shake)
 	initialize()
 
 
@@ -814,3 +816,9 @@ func get_player_die_count():
 
 func get_enemy_die_count():
 	return enemy_die_count
+
+
+func toggle_shake():
+	is_should_shake = not is_should_shake
+	if level:
+		level.update_shake(is_should_shake)

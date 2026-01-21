@@ -61,6 +61,7 @@ var is_tutorial_8_done : bool
 @onready var projectiles: Node2D = %projectiles
 @onready var label_result: Label = %label_result
 @onready var result_panel: PanelContainer = $UI/result_panel
+@onready var shaders_layer: ShadersLayer = %shaders_layer
 
 
 func _ready() -> void:
@@ -135,6 +136,7 @@ func _input(event: InputEvent) -> void:
 
 func start_waves():
 	await self.ready
+	update_shake(Player.is_should_shake)
 	initialize_hp_bar()
 	next_wave_ui.set_timer(timer_to_next_wave)
 	next_wave_ui.set_remaining_waves(get_waves_remaining())
@@ -271,6 +273,8 @@ func add_choose_UI_in_center(chooseUI : Control):
 func align_item_in_center(item : Control):
 	item.global_position.x = DataManager.viewport_size.x / 2 - item.size.x / 2
 	item.global_position.y = DataManager.viewport_size.y / 2 - item.size.y / 2
+	if item is BonusUI:
+		item.global_position.y = item.global_position.y - 200
 
 
 func build_building(building_scene : PackedScene, prebuilding : Building):
@@ -601,8 +605,11 @@ func show_bonus_UI():
 	bonus_ui.set_bonus_name(current_bonus_name)
 	ui.add_child(bonus_ui)
 	bonus_ui.initialize()
-	get_tree().create_timer(0.01).timeout.connect(align_item_in_center.bind(bonus_ui))
-	get_tree().create_timer(5).timeout.connect(bonus_ui.queue_free)
+	bonus_ui.global_position = get_viewport_rect().get_center()
+	var tween : Tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property(bonus_ui, 'global_position', bonus_ui.global_position + Vector2(0, -1000), 10)
+	tween.tween_callback(bonus_ui.queue_free).set_delay(11)
 
 
 func clear_tooltips():
@@ -660,3 +667,10 @@ func show_tutorial_item():
 	ui.add_child(tutorial_item)
 	tutorial_item.global_position = get_viewport_rect().get_center()
 	tutorial_item.initialize()
+
+
+func update_shake(is_should_shake : bool):
+	if is_should_shake and not SignalManager.on_player_get_hit.is_connected(shaders_layer.shake):
+		SignalManager.on_player_get_hit.connect(shaders_layer.shake)
+	elif not is_should_shake and SignalManager.on_player_get_hit.is_connected(shaders_layer.shake):
+		SignalManager.on_player_get_hit.disconnect(shaders_layer.shake)

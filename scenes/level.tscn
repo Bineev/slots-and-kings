@@ -100,6 +100,7 @@ level_desc = "Освойте основы игры. Волны врагов не
 rewards = Array[Resource]([ExtResource("6_556r4"), ExtResource("7_7agi7"), ExtResource("8_kih21"), ExtResource("9_w3o6u"), ExtResource("6_wu01b"), ExtResource("7_3ies3"), ExtResource("8_xy2fk"), ExtResource("9_cmcjb")])
 
 [node name="shaders_layer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 follow_viewport_scale = 0.001
 script = ExtResource("13_fpun6")

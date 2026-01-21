@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtaed2yr7lnbr"]
+[gd_scene load_steps=15 format=3 uid="uid://dtaed2yr7lnbr"]
 
 [ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_g5hix"]
 [ext_resource type="Script" uid="uid://bbe55tfx8g882" path="res://scripts/other/options_menu.gd" id="1_gyu1t"]
@@ -12,6 +12,9 @@
 [ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="9_ojp2k"]
 [ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="10_lxxms"]
 [ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="11_jcqpe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5hix"]
+bg_color = Color(0.84313726, 0.70980394, 0.5803922, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_g5hix"]
 font = ExtResource("8_tvlg4")
@@ -84,6 +87,26 @@ theme_override_styles/slider = ExtResource("7_g5hix")
 theme_override_styles/grabber_area = ExtResource("8_rftt1")
 theme_override_styles/grabber_area_highlight = ExtResource("8_rftt1")
 audio_bus_name = "SFX"
+
+[node name="shake_check" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/icon_normal_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/icon_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/icon_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_fonts/font = ExtResource("8_tvlg4")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_g5hix")
+theme_override_colors/checkbox_checked_color = Color(0.92156863, 0.92941177, 0.9137255, 1)
+theme_override_colors/checkbox_unchecked_color = Color(0.92156863, 0.92941177, 0.9137255, 1)
+text = "Тряска"
+alignment = 1
 
 [node name="filler" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -185,6 +208,7 @@ theme_override_styles/disabled = ExtResource("11_jcqpe")
 theme_override_styles/focus = ExtResource("9_ojp2k")
 text = "Остаюсь"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/shake_check" to="." method="_on_shake_check_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/close_button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/to_lobby_button" to="." method="_on_to_lobby_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/confirmed_container/hb/yes_button" to="." method="_on_yes_button_pressed"]
