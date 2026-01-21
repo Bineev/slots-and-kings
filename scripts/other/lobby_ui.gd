@@ -47,6 +47,7 @@ func _on_start_button_pressed() -> void:
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.END_WAVE])
 	Player.current_progress.current_souls_count = Player.current_souls
 	ProgressManager.save_progress_by_family(Player.current_king)
+	Player.clear_after_result()
 	GameManager.start_level()
 
 
