@@ -51,3 +51,4 @@ signal on_change_reward_state(is_in_reward_state : bool)
 signal on_update_bonus_week(slot_name : String)
 signal on_show_next_tutorial
 signal on_toggle_shake
+signal on_align_item(control : Control)

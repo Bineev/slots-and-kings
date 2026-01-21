@@ -1,0 +1,13 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvd2etwxn052a"]
+
+[ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="1_huvaw"]
+[ext_resource type="Resource" uid="uid://b6rnvvrt23ec8" path="res://resources/upgrade_pattack_20.tres" id="2_wom6i"]
+[ext_resource type="Resource" uid="uid://dc5l7qa04224d" path="res://resources/upgrade_pattack_40.tres" id="3_ycko3"]
+[ext_resource type="Resource" uid="uid://dnr77dj47al36" path="res://resources/upgrade_pattack_60.tres" id="4_x7blo"]
+[ext_resource type="Resource" uid="uid://yevvp12f84vx" path="res://resources/upgrade_pattack_80.tres" id="5_qsmat"]
+
+[node name="Level_4" instance=ExtResource("1_huvaw")]
+difficulty_count = 4
+level_name = "Сложность 4"
+level_desc = "Враги совсем распоясались. Волны врагов большие. Враги бывают с улучшениями."
+rewards = Array[Resource]([ExtResource("2_wom6i"), ExtResource("3_ycko3"), ExtResource("4_x7blo"), ExtResource("5_qsmat")])

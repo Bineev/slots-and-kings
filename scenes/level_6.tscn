@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxheioi8t2p8u"]
+
+[ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="1_wg3te"]
+
+[node name="Level_6" instance=ExtResource("1_wg3te")]
+difficulty_count = 6
+level_name = "Сложность 6"
+level_desc = "Ад начинается здесь. Волны врагов многочисленные. Враги часто с улучшениями."
+rewards = Array[Resource]([])

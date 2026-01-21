@@ -68,8 +68,18 @@ size_flags_vertical = 6
 label_settings = SubResource("LabelSettings_k45hk")
 autowrap_mode = 2
 
+[node name="label_open_stats" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+mouse_filter = 1
+text = "показать статы"
+label_settings = ExtResource("3_25v66")
+horizontal_alignment = 1
+
 [node name="label_item_stats" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 2
 label_settings = ExtResource("3_25v66")
@@ -93,4 +103,5 @@ theme_override_styles/hover = ExtResource("6_tq6oh")
 theme_override_styles/disabled = ExtResource("5_k45hk")
 theme_override_styles/focus = ExtResource("5_yflhg")
 
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/label_open_stats" to="." method="_on_label_open_stats_gui_input"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/choose_button" to="." method="_on_choose_button_pressed"]

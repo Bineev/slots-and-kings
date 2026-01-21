@@ -96,6 +96,7 @@ func _ready() -> void:
 	SignalManager.on_hero_return.connect(return_hero_to_field)
 	SignalManager.on_change_reward_state.connect(set_buildings_reward_state)
 	SignalManager.on_show_next_tutorial.connect(show_tutorial_item)
+	SignalManager.on_align_item.connect(align_popup2)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
@@ -291,6 +292,23 @@ func align_popup(popup : Control):
 	var window = DataManager.viewport_size
 	popup.global_position.x = popup.global_position.x - popup.size.x / 2 
 	popup.global_position.y = popup.global_position.y - popup.size.y / 2 
+	var popup_corrected_x : float = popup.global_position.x
+	var popup_corrected_y : float = popup.global_position.y
+	if popup_corrected_y < 0:
+		popup.global_position.y = 0
+	if popup_corrected_y + popup.size.y > window.y:
+		popup.global_position.y = window.y - popup.size.y
+	if popup_corrected_x < 0:
+		popup.global_position.x = 0
+	if popup_corrected_x + popup.size.x > window.x:
+		popup.global_position.x = window.x - popup.size.x
+
+
+func align_popup2(popup : Control):
+	var window = DataManager.viewport_size
+	#popup.global_position.x = popup.global_position.x - popup.size.x / 2 
+	#popup.global_position.y = popup.global_position.y - popup.size.y / 2 
+	await get_tree().process_frame
 	var popup_corrected_x : float = popup.global_position.x
 	var popup_corrected_y : float = popup.global_position.y
 	if popup_corrected_y < 0:

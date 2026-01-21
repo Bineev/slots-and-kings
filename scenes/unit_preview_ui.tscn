@@ -92,6 +92,7 @@ autowrap_mode = 2
 
 [node name="label_stats" type="RichTextLabel" parent="MarginContainer/container_unit_v"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_3h746")
 theme_override_font_sizes/normal_font_size = 5

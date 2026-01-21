@@ -13,6 +13,7 @@ var building_owner : Building
 @onready var label_item_desc: Label = %label_item_desc
 @onready var choose_button: Button = %choose_button
 @onready var label_item_stats: Label = %label_item_stats
+@onready var label_open_stats: Label = %label_open_stats
 
 
 func _ready() -> void:
@@ -35,6 +36,7 @@ func initialize():
 		label_item_stats.text = generate_stats()
 	else:
 		label_item_stats.hide()
+		label_open_stats.hide()
 
 
 func generate_stats():
@@ -85,3 +87,12 @@ func on_choose_done(chooseItem : ChooseItem):
 		var tween = get_tree().create_tween()
 		tween.tween_property(chooseUI, "scale", Vector2.ZERO, 0.3)
 		tween.tween_callback(chooseUI.queue_free).set_delay(0.4)
+
+
+func _on_label_open_stats_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				label_open_stats.hide()
+				label_item_stats.show()
+				SignalManager.on_align_item.emit(chooseUI)
