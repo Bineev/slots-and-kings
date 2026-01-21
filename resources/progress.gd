@@ -8,6 +8,8 @@ class_name PlayerProgress
 @export var hero_classes : Array[DataManager.HeroClass]
 @export var levels_done : Array[int]
 @export var meta_stats : Dictionary[DataManager.MetaType, float]
+@export var current_runs_count : int
+@export var current_souls_count : int
 
 @export var base_units_reses : Array[Resource]
 @export var base_upgrades_reses : Array[Resource]

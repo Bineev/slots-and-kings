@@ -105,6 +105,7 @@ func initialize():
 	current_souls = souls
 	can_swap_time = default_can_swap_time
 	current_wave_count = 1
+	current_runs_count = 0
 	current_bonus_slot_name = ''
 	generate_base_decks()
 	generate_bonus_dict()
@@ -122,11 +123,13 @@ func clear_after_result():
 	current_health = health * current_progress.meta_stats[DataManager.MetaType.BASE_HP]
 	DataManager.default_damage_to_base * current_progress.meta_stats[DataManager.MetaType.BASE_DAMAGE]
 	current_gold = gold * current_progress.meta_stats[DataManager.MetaType.GOLD_START]
+	current_souls = current_progress.current_souls_count
 	current_tokens = tokens
 	current_food = food
 	current_crystals = crystals
 	can_swap_time = default_can_swap_time * current_progress.meta_stats[DataManager.MetaType.SWAP_TIME]
 	current_bonus_slot_name = ''
+	current_runs_count = current_progress.current_runs_count
 	generate_base_decks()
 	generate_bonus_dict()
 

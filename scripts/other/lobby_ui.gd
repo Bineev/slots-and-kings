@@ -45,11 +45,15 @@ func change_level_data(level_name : String, level_desc : String):
 func _on_start_button_pressed() -> void:
 	start_button.disabled = true
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.END_WAVE])
+	Player.current_progress.current_souls_count = Player.current_souls
+	ProgressManager.save_progress_by_family(Player.current_king)
 	GameManager.start_level()
 
 
 func _on_back_to_menu_button_pressed() -> void:
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
+	Player.current_progress.current_souls_count = Player.current_souls
+	ProgressManager.save_progress_by_family(Player.current_king)
 	GameManager.show_menu()
 
 

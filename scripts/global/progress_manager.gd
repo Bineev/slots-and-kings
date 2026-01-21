@@ -9,12 +9,7 @@ extends Node
 
 
 func get_current_progress_by_family(family : DataManager.UnitFamily):
-	var progress : PlayerProgress
-	match family:
-		DataManager.UnitFamily.CASTLE:
-			progress = current_progress_empire if current_progress_empire else base_progress_empire
-		DataManager.UnitFamily.HELL:
-			progress = current_progress_hell if current_progress_hell else base_progress_hell
+	var progress : PlayerProgress = load_progress_from_file_by_family(family)
 	return progress.duplicate()
 
 
@@ -33,6 +28,7 @@ func save_progress_by_family(family : DataManager.UnitFamily):
 		DataManager.UnitFamily.HELL:
 			current_progress_hell = Player.current_progress
 	save_progress_to_file(Player.current_progress)
+
 
 func save_progress_to_file(progress : PlayerProgress):
 	var error = ResourceSaver.save(progress, progress.save_path)
@@ -59,3 +55,4 @@ func load_progress_from_file_by_family(family : DataManager.UnitFamily):
 					current_progress_hell = progress
 				else:
 					current_progress_hell = base_progress_empire
+	return progress
