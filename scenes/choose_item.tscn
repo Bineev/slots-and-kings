@@ -19,6 +19,7 @@ font_size = 6
 font_color = Color(0.0627451, 0.078431375, 0.12156863, 1)
 
 [node name="ChooseItem" type="PanelContainer"]
+process_mode = 3
 custom_minimum_size = Vector2(128, 0)
 anchors_preset = 8
 anchor_left = 0.5

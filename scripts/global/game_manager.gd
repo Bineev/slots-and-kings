@@ -10,6 +10,10 @@ var current_level : Level
 var lobby : LobbyUI
 
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+
 func clear_scene():
 	if current_level and current_level.get_parent():
 		get_tree().root.remove_child(current_level)
@@ -21,16 +25,26 @@ func clear_scene():
 		get_tree().root.remove_child(options_UI)
 
 
+
 func show_menu():
-	clear_scene()
-	if not main_menu_UI:
-		main_menu_UI = main_menu_scene.instantiate()
+	#clear_scene()
+	if lobby:
+		lobby.queue_free()
+	if main_menu_UI:
+		main_menu_UI.queue_free()
+	main_menu_UI = main_menu_scene.instantiate()
 	get_tree().root.add_child(main_menu_UI)
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("options"):
+		if options_UI and options_UI.is_opened:
+			GameManager.hide_options()
+		else:
+			GameManager.show_options()
+
 func show_options():
-	if not options_UI:
-		options_UI = options_scene.instantiate()
+	options_UI = options_scene.instantiate()
 	get_tree().paused = true
 	get_tree().root.add_child(options_UI)
 	options_UI.initialize()
@@ -69,12 +83,14 @@ func get_rewards():
 
 func show_lobby():
 	get_tree().paused = false
+	if main_menu_UI:
+		main_menu_UI.queue_free()
 	if lobby:
 		lobby.queue_free()
 	if Player.current_runs_count > 0:
 		Player.clear_after_result()
 	hide_options()
-	clear_scene()
+	#clear_scene()
 	lobby = lobby_scene.instantiate()
 	lobby.set_data(Player.get_level_scenes())
 	get_tree().root.add_child(lobby)

@@ -56,3 +56,14 @@ func load_progress_from_file_by_family(family : DataManager.UnitFamily):
 				else:
 					current_progress_hell = base_progress_empire
 	return progress
+
+
+func is_progress_exists():
+	var progress_empire : PlayerProgress
+	if ResourceLoader.exists(base_progress_empire.save_path):
+		progress_empire = ResourceLoader.load(base_progress_empire.save_path)
+	var progress_hell : PlayerProgress
+	if ResourceLoader.exists(base_progress_hell.save_path):
+		progress_hell = ResourceLoader.load(base_progress_hell.save_path)
+
+	return progress_empire or progress_hell

@@ -1,6 +1,6 @@
 shader_type canvas_item;
 uniform float ShakeStrength = 0;
-uniform vec2 FactorA  = vec2(100.0,100.0);
+uniform vec2 FactorA  = vec2(1000.0,1000.0);
 uniform vec2 FactorB  = vec2(1.0,1.0);
 uniform vec2 magnitude = vec2(0.05,0.05);
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;

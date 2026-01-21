@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="5_rf4lr"]
 
 [node name="ChooseItemHero" type="VBoxContainer"]
+process_mode = 3
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_gmj76")

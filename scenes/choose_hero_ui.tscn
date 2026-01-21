@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="4_16iqo"]
 
 [node name="ChooseHeroUI" type="PanelContainer"]
+process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

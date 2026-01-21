@@ -125,8 +125,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("create"):
 		if not slot_machine.create_button.disabled:
 			slot_machine.press_create_button()
-	if event.is_action_pressed("options"):
-		GameManager.show_options()
+	#if event.is_action_pressed("options"):
+		#GameManager.show_options()
 	if event.is_action_pressed("swap_down"):
 		slot_machine.swap_down()
 	if event.is_action_pressed("swap_up"):

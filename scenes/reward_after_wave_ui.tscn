@@ -11,6 +11,7 @@
 [ext_resource type="LabelSettings" uid="uid://cosyt0f1c5njp" path="res://styles/5_dark.tres" id="9_w26ks"]
 
 [node name="RewardAfterWaveUI" instance=ExtResource("1_mjbqy")]
+process_mode = 3
 z_index = 1000
 anchors_preset = 8
 anchor_left = 0.5

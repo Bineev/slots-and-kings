@@ -3,12 +3,18 @@ extends PanelContainer
 class_name OptionsMenu
 
 
+var is_opened : bool
+
 @onready var to_lobby_button: Button = %to_lobby_button
+@onready var confirmed_container: VBoxContainer = %confirmed_container
+@onready var yes_button: Button = %yes_button
+@onready var no_button: Button = %no_button
 
 
 func initialize():
 	await get_tree().process_frame
 	GameManager.correct_options()
+	is_opened = true
 
 
 func _on_close_button_pressed() -> void:
@@ -17,11 +23,8 @@ func _on_close_button_pressed() -> void:
 
 
 func _on_to_lobby_button_pressed() -> void:
-	Player.clear_after_result()
-	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
-	get_tree().paused = true
-	GameManager.current_level.queue_free()
-	GameManager.show_lobby()
+	show_confirmed()
+
 
 
 func show_to_lobby_button():
@@ -29,6 +32,31 @@ func show_to_lobby_button():
 		to_lobby_button.visible = true
 
 
+func show_confirmed():
+	hide_to_lobby_button()
+	confirmed_container.show()
+	
+
+
 func hide_to_lobby_button():
 	if to_lobby_button:
 		to_lobby_button.visible = false
+#
+#
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("options"):
+		#if is_opened:
+			#GameManager.hide_options()
+
+
+func _on_yes_button_pressed() -> void:
+	Player.clear_after_result()
+	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
+	get_tree().paused = true
+	GameManager.current_level.queue_free()
+	GameManager.show_lobby()
+
+
+func _on_no_button_pressed() -> void:
+	confirmed_container.hide()
+	to_lobby_button.show()
