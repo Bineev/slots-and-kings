@@ -43,7 +43,7 @@
 [node name="Player" type="Node2D"]
 visible = false
 script = ExtResource("1_3vyb7")
-health = 500
+health = 400
 gold = 2000
 tokens = 8
 food = 8
