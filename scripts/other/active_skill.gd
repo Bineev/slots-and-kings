@@ -93,8 +93,7 @@ func initialize():
 	skill_zone.set_skill(self)
 	skill_zone.initialize()
 	#create_tooltip()
-	if is_void_zone or is_trap:
-		skill_anim.z_index
+
 	if is_void_zone:
 		if skill_anim_player.get_animation('skill'):
 			skill_anim_player.get_animation('skill').loop_mode = Animation.LOOP_LINEAR
@@ -162,6 +161,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func activate():
+	reinit()
 	if not is_void_zone and unit_slots_scenes.size() == 0 and targets.size() == 0:
 		skill_zone.stop_working()
 		return
@@ -215,6 +215,7 @@ func apply_tick(target : Unit):
 
 
 func start_skill():
+	
 	if not is_trap:
 		skill_anim.hframes = 6
 	timer_skill_delay.wait_time = skill_delay

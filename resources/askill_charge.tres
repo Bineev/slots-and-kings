@@ -11,11 +11,11 @@ skill_desc = "Дарует скорость движения и маг защи�
 skill_preview = ExtResource("2_ky45k")
 skill_anim = ExtResource("2_r4i2o")
 skill_buff_stats = Array[Dictionary]([{
-"stat_change_amount": 50,
+"stat_change_amount": 30,
 "stat_change_type": 0,
 "stat_name": "magic_defence"
 }, {
-"stat_change_amount": 2.0,
+"stat_change_amount": 1.6,
 "stat_change_type": 1,
 "stat_name": "move_speed"
 }])
