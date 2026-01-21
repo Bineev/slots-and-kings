@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_1ep61")
-slot_name = "крит шанс 50%"
-slot_description = "Шанс критической атаки повышен на 50%"
+slot_name = "крит шанс 40%"
+slot_description = "Шанс критической атаки повышен на 40%"
 slot_sprite = ExtResource("2_3rbg0")
 entity_tier = 4
-crit_chance = 50.0
+crit_chance = 40.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"

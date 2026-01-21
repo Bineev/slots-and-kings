@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_edku0")
-slot_name = "маг защита 15%"
-slot_description = "Защита от маг атаки повышена на 15%"
+slot_name = "маг защита 10%"
+slot_description = "Защита от маг атаки повышена на 10%"
 slot_sprite = ExtResource("2_r7dek")
 entity_tier = 1
-magic_defence = 15.0
+magic_defence = 10.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"

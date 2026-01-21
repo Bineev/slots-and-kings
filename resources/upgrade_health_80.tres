@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_1gs6d")
-slot_name = "здоровье 80%"
-slot_description = "Очки здоровья увеличены на 80%"
+slot_name = "здоровье 50%"
+slot_description = "Очки здоровья увеличены на 50%"
 slot_sprite = ExtResource("2_yxfxm")
 entity_tier = 4
-health_mult = 1.8
+health_mult = 1.5
 metadata/_custom_type_script = "uid://ckeieckjuifia"

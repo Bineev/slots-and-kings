@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_ntlqo")
-slot_name = "уворот 15%"
-slot_description = "Шанс увернуться от физ атаки повышен на 15%"
+slot_name = "уворот 10%"
+slot_description = "Шанс увернуться от физ атаки повышен на 10%"
 slot_sprite = ExtResource("2_31d2n")
 entity_tier = 1
-evade = 20.0
+evade = 10.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"

@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_q6wsq")
-slot_name = "скорость +15"
-slot_description = "Скорость движения увеличена на 15"
+slot_name = "скорость +10"
+slot_description = "Скорость движения увеличена на 10"
 slot_sprite = ExtResource("2_2yw8v")
 entity_tier = 1
-move_speed = 15.0
+move_speed = 10.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"

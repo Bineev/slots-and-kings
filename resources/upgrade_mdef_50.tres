@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_4nec8")
-slot_name = "маг защита 50%"
-slot_description = "Защита от маг атаки повышена на 50%"
+slot_name = "маг защита 35%"
+slot_description = "Защита от маг атаки повышена на 35%"
 entity_tier = 4
-magic_defence = 50.0
+magic_defence = 35.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"

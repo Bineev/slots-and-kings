@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_uvf3e")
-slot_name = "броня 50%"
-slot_description = "Защита от физ атаки повышена на 50%"
+slot_name = "броня 35%"
+slot_description = "Защита от физ атаки повышена на 35%"
 slot_sprite = ExtResource("2_ek01r")
 entity_tier = 4
-armor = 50.0
+armor = 35.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"

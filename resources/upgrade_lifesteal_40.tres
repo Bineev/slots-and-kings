@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_o3dnn")
-slot_name = "лайфстил 40%"
-slot_description = "Повышает лайфстил на 40%"
+slot_name = "лайфстил 30%"
+slot_description = "Повышает лайфстил на 30%"
 slot_sprite = ExtResource("2_n1m5k")
 entity_tier = 4
-life_steal = 40.0
+life_steal = 30.0
 metadata/_custom_type_script = "uid://ckeieckjuifia"
