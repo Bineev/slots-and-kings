@@ -183,7 +183,7 @@ var max_spin_time : float = 2.5
 
 var default_spin_speed : float = 0.1
 
-var max_armor : float = 80
+var max_armor : float = 70
 
 var default_evade : float = 50
 

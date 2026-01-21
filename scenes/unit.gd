@@ -625,7 +625,7 @@ func apply_damage(new_current_target : Unit):
 	
 	
 	# проверка на хит (мдля маг урона не работает эвейд)
-	var hit_chance : float = (current_hit_chance - current_target.current_evade) / 100 if not unit_types.has(DataManager.UnitType.MAGE) else current_hit_chance / 100
+	var hit_chance : float = (current_hit_chance - current_target.current_evade if current_target.current_evade <= DataManager.default_evade else DataManager.default_evade) / 100 if not unit_types.has(DataManager.UnitType.MAGE) else current_hit_chance / 100
 	var hit_check : float = randf()
 	var is_hit : bool = hit_check <= hit_chance
 	if not is_hit:
