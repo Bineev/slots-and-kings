@@ -608,7 +608,7 @@ func show_bonus_UI():
 	bonus_ui.global_position = get_viewport_rect().get_center()
 	var tween : Tween = get_tree().create_tween()
 	tween.set_parallel()
-	tween.tween_property(bonus_ui, 'global_position', bonus_ui.global_position + Vector2(0, -1000), 10)
+	tween.tween_property(bonus_ui, 'global_position', bonus_ui.global_position + Vector2(0, -500), 10)
 	tween.tween_callback(bonus_ui.queue_free).set_delay(11)
 
 

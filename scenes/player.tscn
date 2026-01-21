@@ -44,7 +44,7 @@
 visible = false
 script = ExtResource("1_3vyb7")
 health = 400
-gold = 2000
+gold = 2500
 tokens = 8
 food = 8
 default_can_swap_time = 0.3

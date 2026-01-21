@@ -27,8 +27,8 @@ var current_active_slots : Array[Slot]
 
 func _ready() -> void:
 	SignalManager.on_spin_end.connect(create_unit)
-	SignalManager.on_not_enough_food.connect(disable_create_button)
-	SignalManager.on_enough_food.connect(enable_create_button)
+	SignalManager.on_not_enough_food.connect(disable_create_button_without_hide)
+	SignalManager.on_enough_food.connect(enable_create_button_without_hide)
 	SignalManager.on_res_change.connect(update_buttons)
 	SignalManager.on_swap_done.connect(clear_bar_can_swap)
 	SignalManager.on_update_bonus_week.connect(update_bonus_week)
@@ -41,6 +41,14 @@ func _ready() -> void:
 	#fourth_column.pre_spin()
 
 
+func disable_create_button_without_hide():
+	create_button.disabled = true
+
+
+func enable_create_button_without_hide():
+	create_button.disabled = false
+
+
 func _process(delta: float) -> void:
 	if is_need_check:
 		if check_is_spin_end():
@@ -48,6 +56,7 @@ func _process(delta: float) -> void:
 			if Player.check_res(1, DataManager.ResType.SPIN_TOKEN):
 				spin_button.disabled = false
 			create_button.disabled = false
+			create_button.show()
 			create_unit()
 
 
@@ -118,6 +127,7 @@ func press_spin_button():
 	Player.get_res(DataManager.ResType.SPIN_TOKEN, -1)
 	spin_button.disabled = true
 	create_button.disabled = true
+	create_button.hide()
 	spin_columns()
 
 
@@ -127,6 +137,7 @@ func _on_create_button_pressed() -> void:
 
 func press_create_button():
 	create_button.disabled = true
+	create_button.hide()
 	is_already_created = true
 	SignalManager.on_add_unit_on_field.emit()
 	SignalManager.on_cant_swap.emit()
@@ -142,11 +153,13 @@ func disable_spin_button():
 
 func disable_create_button():
 	create_button.disabled = true
+	create_button.hide()
 
 
 func enable_create_button():
 	if not is_already_created:
 		create_button.disabled = false
+		create_button.show()
 
 
 func update_buttons(res_type : DataManager.ResType):

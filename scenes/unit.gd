@@ -319,6 +319,9 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	#create_tooltip()
 	# can be bug
 	#slots.clear()
+	if entity_tier == DataManager.EntityTier.T3 or entity_tier == DataManager.EntityTier.T4:
+		if unit_name != 'баллиста' and unit_name != 'оружейная башня':
+			scale = Vector2(0.8, 0.8)
 
 
 func get_state() -> DataManager.UnitState:
@@ -911,12 +914,16 @@ func set_unit_collistion_params():
 	var frame_size : Vector2 = Vector2(unit_sprite.texture.get_height() / 5, unit_sprite.texture.get_height() / 5)
 	var capsule_shape = CapsuleShape2D.new()
 	# Ensure collision shape dimensions match the mesh dimensions
-	capsule_shape.radius = frame_size.x / 4
-	capsule_shape.height = frame_size.y * 2 / 3
+	var coeff : float = 1
+	if entity_tier == DataManager.EntityTier.T3 or entity_tier == DataManager.EntityTier.T4:
+		if unit_name != 'баллиста' and unit_name != 'оружейная башня':
+			coeff = 0.8
+	capsule_shape.radius = frame_size.x / 4 * coeff
+	capsule_shape.height = frame_size.y * 2 / 3 * coeff
 	unit_collision.shape = capsule_shape
-	unit_collision.position.y = frame_size.y / 6
+	unit_collision.position.y = frame_size.y / 6 * coeff
 
-
+ 
 func set_shadow():
 	var frame_size : Vector2 = Vector2(unit_sprite.texture.get_height() / 5, unit_sprite.texture.get_height() / 5)
 	unit_shadow_sprite.position.y = frame_size.y / 2 - frame_size.y / 100
