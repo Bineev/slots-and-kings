@@ -112,9 +112,9 @@ func _ready() -> void:
 		Player.is_tutorial = true
 	else:
 		Player.is_tutorial = false
-	waves_count = difficulty_count * 2 + 10
+	waves_count = difficulty_count * 2 + 6
 	if Player.is_tutorial:
-		waves_count = 6
+		waves_count = 5
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
 	start_waves()
 	SoundManager.play_music(3)

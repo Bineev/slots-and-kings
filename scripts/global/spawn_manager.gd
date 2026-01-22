@@ -20,7 +20,7 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	spawn.time_between_units = 0.1
 	spawn.unit_factory = Player.get_unit_factory().duplicate()
 	var progress : PlayerProgress = ProgressManager.get_base_progress_by_family(DataManager.UnitFamily.HELL)
-	var enemies_count : int = clampf(wave_count * 2 + floor(diff_count / 2), 4, 16 + diff_count)
+	var enemies_count : int = clampf(wave_count * 1.2 + floor(diff_count / 1.5), 5, 10 + diff_count)
 	var spawn_coeff : int = diff_count if diff_count != 0 else 1
 	
 	var T0_units_pool : Array[Resource] = progress.units_T0_pool.duplicate(true)
@@ -35,7 +35,7 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	var special_pool : Array[Resource] = progress.special_upgrades_reses.duplicate(true)
 
 	
-	var diff_coeff : float = 2
+	var diff_coeff : float = 1.5
 	
 	# сделать более плавное усиление врагов (менять проценты появления
 	# топ тир врагов постепенно
@@ -251,17 +251,8 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 
 func get_waves_by_diff_and_count(difficulty_count : int, waves_count : int):
 	var wave_scenes : Array[PackedScene]
-	var spawn_count : int
-	var time_between_waves: int
-	if difficulty_count >= 8:
-		spawn_count = 4
-		time_between_waves = 30
-	elif difficulty_count >= 4:
-		spawn_count = 3
-		time_between_waves = 35
-	else:
-		spawn_count = 2
-		time_between_waves = 40
+	var spawn_count : int = 2
+	var time_between_waves: int = 40
 	for i in range(1, waves_count + 1):
 		var wave : Wave = wave_scene.instantiate()
 		var regul_coeff : int

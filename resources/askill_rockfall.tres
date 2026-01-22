@@ -15,6 +15,6 @@ skill_target_type = 1
 skill_damage_type = 3
 skill_delay = 0.3
 skill_cooldown = 80.0
-skill_flat_damage = 25
+skill_flat_damage = 30
 skill_range = 25.0
 metadata/_custom_type_script = "uid://htmox0cey8gh"
