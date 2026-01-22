@@ -14,14 +14,14 @@ skill_anim = ExtResource("2_kx82w")
 skill_target_type = 1
 skill_damage_type = 3
 skill_buff_stats = Array[Dictionary]([{
-"stat_change_amount": 2.0,
+"stat_change_amount": 1.5,
 "stat_change_type": 1,
 "stat_name": "attack_speed"
 }])
 is_void_zone = true
 skill_delay = 0.1
 skill_cooldown = 80.0
-skill_tick_damage = 15
+skill_tick_damage = 13
 skill_tick_interval = 1
 skill_duration = 4.0
 skill_range = 35.0

@@ -22,7 +22,7 @@ font_size = 7
 font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 
 [node name="Options" type="PanelContainer"]
-process_mode = 2
+process_mode = 3
 z_index = 4000
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,8 +38,39 @@ grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_g5hix")
 script = ExtResource("1_gyu1t")
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="close_button" type="Button" parent="MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("8_tvlg4")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = ExtResource("9_ojp2k")
+theme_override_styles/pressed = ExtResource("9_ojp2k")
+theme_override_styles/hover = ExtResource("10_lxxms")
+theme_override_styles/disabled = ExtResource("11_jcqpe")
+theme_override_styles/focus = ExtResource("9_ojp2k")
+text = "X"
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
@@ -47,15 +78,18 @@ theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="filler2" type="Control" parent="MarginContainer/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 
 [node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
@@ -92,6 +126,7 @@ audio_bus_name = "SFX"
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_colors/font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 theme_override_colors/font_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
 theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
@@ -111,11 +146,13 @@ alignment = 1
 [node name="filler" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="to_lobby_button" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
@@ -135,6 +172,7 @@ text = "В лобби"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="label_confirmed" type="Label" parent="MarginContainer/VBoxContainer/confirmed_container"]
@@ -145,11 +183,13 @@ autowrap_mode = 2
 
 [node name="hb" type="HBoxContainer" parent="MarginContainer/VBoxContainer/confirmed_container"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="yes_button" type="Button" parent="MarginContainer/VBoxContainer/confirmed_container/hb"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
@@ -168,11 +208,13 @@ text = "Уверен"
 [node name="filler" type="Control" parent="MarginContainer/VBoxContainer/confirmed_container/hb"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="no_button" type="Button" parent="MarginContainer/VBoxContainer/confirmed_container/hb"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
@@ -188,36 +230,8 @@ theme_override_styles/disabled = ExtResource("11_jcqpe")
 theme_override_styles/focus = ExtResource("9_ojp2k")
 text = "Остаюсь"
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="close_button" type="Button" parent="MarginContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-focus_mode = 0
-theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
-theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
-theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
-theme_override_fonts/font = ExtResource("8_tvlg4")
-theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = ExtResource("9_ojp2k")
-theme_override_styles/pressed = ExtResource("9_ojp2k")
-theme_override_styles/hover = ExtResource("10_lxxms")
-theme_override_styles/disabled = ExtResource("11_jcqpe")
-theme_override_styles/focus = ExtResource("9_ojp2k")
-text = "X"
-
+[connection signal="pressed" from="MarginContainer2/close_button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/shake_check" to="." method="_on_shake_check_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/to_lobby_button" to="." method="_on_to_lobby_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/confirmed_container/hb/yes_button" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/confirmed_container/hb/no_button" to="." method="_on_no_button_pressed"]
-[connection signal="pressed" from="MarginContainer2/close_button" to="." method="_on_close_button_pressed"]

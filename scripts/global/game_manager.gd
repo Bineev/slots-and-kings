@@ -106,7 +106,7 @@ func set_main_menu(new_main_menu_UI):
 
 
 func correct_options():
-	if main_menu_UI:
+	if main_menu_UI or lobby:
 		options_UI.hide_to_lobby_button()
 
 

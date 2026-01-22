@@ -41,12 +41,6 @@ func show_confirmed():
 func hide_to_lobby_button():
 	if to_lobby_button:
 		to_lobby_button.visible = false
-#
-#
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("options"):
-		#if is_opened:
-			#GameManager.hide_options()
 
 
 func _on_yes_button_pressed() -> void:

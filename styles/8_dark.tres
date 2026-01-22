@@ -4,5 +4,4 @@
 
 [resource]
 font = ExtResource("1_balre")
-font_size = 8
 font_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
