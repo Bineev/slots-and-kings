@@ -5,6 +5,7 @@ class_name RemoverUI
 @export var slot_scenes : Array[PackedScene]
 @export var slots : Array[Slot]
 
+var max_remove_count : int = 1
 var is_should_start_wave : bool
 
 @onready var slots_container: GridContainer = %slots_container
@@ -25,6 +26,7 @@ func set_is_should_start_wave(new_is_should_start_wave : bool):
 
 func initialize():
 	await get_tree().process_frame
+	var wave_count : int = Player.get_current_wave_count()
 	for scene in slot_scenes:
 		var slot : Slot = scene.instantiate()
 		if slot.slot_res.slot_name == DataManager.empty_slot_name:
@@ -44,6 +46,8 @@ func initialize():
 
 
 func close_remover_UI():
+	for item in slots:
+		item.is_on_remover_UI = false
 	#if is_should_start_wave:
 		#SignalManager.on_new_wave_start.emit()
 	#get_tree().create_timer(0.5).timeout.connect(self.queue_free)
@@ -54,11 +58,11 @@ func close_remover_UI():
 
 
 func remove_slot(slot : Slot):
+	max_remove_count -= 1
 	slot.hide()
-	for item in slots:
-		item.is_on_remover_UI = false
 	Player.remove_slot_by_type(slot, slot.slot_type)
-	close_remover_UI()
+	if max_remove_count == 0:
+		close_remover_UI()
 
 
 func _on_button_skip_pressed() -> void:

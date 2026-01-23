@@ -108,6 +108,7 @@ func _ready() -> void:
 	wave_rewards = DataManager.default_reward_progression.duplicate(true)
 	Player.set_wave_rewards(wave_rewards)
 	Player.level = self
+	Player.diff_count = difficulty_count
 	if difficulty_count == 0:
 		Player.is_tutorial = true
 	else:
@@ -411,6 +412,8 @@ func _on_timer_between_check_enemies_timeout() -> void:
 
 
 func show_reward():
+	if is_result:
+		return
 	if waves_scenes.size() == 0:
 		SignalManager.on_new_wave_start.emit()
 		return

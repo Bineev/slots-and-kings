@@ -6,6 +6,7 @@ class_name Wave
 @export var wave_count : int
 @export var time_to_next_wave : float
 @export var time_to_next_spawn : float
+@export var diff_count : int
 
 @onready var timer_to_next_spawn: Timer = %timer_to_next_spawn
 
@@ -24,6 +25,7 @@ func spawn():
 		get_tree().create_timer(1).timeout.connect(destroy)
 		return
 	var spawn : EnemySpawn = spawn_scene.instantiate()
+	spawn.diff_count = Player.diff_count
 	add_child(spawn)
 	spawn.start_spawn()
 	# здесь поменять

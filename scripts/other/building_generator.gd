@@ -27,7 +27,7 @@ func initialize():
 
 func show_choose_UI():
 	choose_UI = choose_UI_scene.instantiate()
-	var upgrades : Array[PackedScene] = Player.get_random_upgrades(entity_tier, building_res.slots_amount)
+	var upgrades : Array[PackedScene] = Player.get_random_upgrades(entity_tier, Player.upgrades_choose_count)
 	choose_UI.set_choose_scenes(upgrades)
 	choose_UI.set_building_owner(self)
 	SignalManager.on_show_choose_UI.emit(self, choose_UI)
@@ -44,7 +44,7 @@ func start_produce():
 func tier_up():
 	if entity_tier <= DataManager.max_entity_tier:
 		entity_tier += 1
-	upgrade_tier_cost *= 3
+	upgrade_tier_cost *= 2.5
 
 
 func show_ui():

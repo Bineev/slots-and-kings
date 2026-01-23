@@ -28,7 +28,7 @@ func initialize():
 
 func show_choose_UI():
 	choose_UI = choose_UI_scene.instantiate()
-	var units : Array[PackedScene] = Player.get_random_units(entity_tier, building_res.slots_amount)
+	var units : Array[PackedScene] = Player.get_random_units(entity_tier, Player.units_choose_count)
 	choose_UI.set_choose_scenes(units)
 	choose_UI.set_building_owner(self)
 	SignalManager.on_show_choose_UI.emit(self, choose_UI)

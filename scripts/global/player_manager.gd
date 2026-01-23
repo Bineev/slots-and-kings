@@ -13,6 +13,9 @@ extends Node
 @export var heroes_choose_count : int = 2
 @export var stats_choose_count : int = 2
 @export var skill_choose_count : int = 2
+@export var units_choose_count : int = 2
+@export var upgrades_choose_count : int = 3
+@export var diff_count : int
 
 @export var wave_rewards : Array
 @export var empty_perc_scene : PackedScene
@@ -477,7 +480,9 @@ func remove_slot(deck : Array[PackedScene], slot : Slot):
 	for item in deck:
 		var item_instance : Slot = item.instantiate()
 		if item_instance.slot_res.slot_name == slot.slot_name:
-			if deck.size() == 4:
+			if deck.size() <= 4:
+				if slot.slot_type == DataManager.SlotType.UNIT:
+					return
 				deck.erase(item)
 				deck.append(empty_perc_scene if slot.slot_type == DataManager.SlotType.PERC else empty_upgrade_scene)
 				break

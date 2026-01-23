@@ -47,18 +47,21 @@ func show_choose_UI():
 	var choose_scenes : Array[PackedScene]
 	match current_reward_type:
 		DataManager.RewardType.UNIT:
-			choose_scenes = Player.get_random_units(entity_tier, DataManager.default_choose_amount)
+			choose_scenes = Player.get_random_units(entity_tier, Player.units_choose_count)
 		DataManager.RewardType.UPGRADE:
-			choose_scenes = Player.get_random_upgrades(entity_tier, DataManager.default_choose_amount)
+			choose_scenes = Player.get_random_upgrades(entity_tier, Player.upgrades_choose_count)
 		DataManager.RewardType.PERC:
-			choose_scenes = Player.get_random_percs(entity_tier, DataManager.default_choose_amount)
+			choose_scenes = Player.get_random_percs(entity_tier, Player.upgrades_choose_count)
 		DataManager.RewardType.HERO:
 			var choose_hero_UI : ChooseHeroUI = choose_hero_UI_scene.instantiate()
 			var heroes_count = Player.get_heroes_choose_count()
 			choose_hero_UI.set_heroes_count(heroes_count)
 			choose_hero_UI.set_heroes_level(wave_count)
 			# поменять если нужно повышать уровень с прогрессом волн
-			choose_hero_UI.set_heroes(Player.get_random_heroes(heroes_count, 1))
+			var hero_level : int = 1
+			if Player.heroes.size() > 0:
+				hero_level = Player.heroes[0].hero_level - 1
+			choose_hero_UI.set_heroes(Player.get_random_heroes(heroes_count, hero_level))
 			#choose_hero_UI.initialize()
 			SignalManager.on_show_choose_UI_after_wave.emit(choose_hero_UI)
 			return
@@ -151,9 +154,15 @@ func set_wave_count(new_wave_count : int):
 
 func show_slot_remover():
 	remover_slot_UI = remover_slot_UI_scene.instantiate()
+	if wave_count >= 16:
+		remover_slot_UI.max_remove_count = 4
+	elif wave_count >= 11:
+		remover_slot_UI.max_remove_count = 3
+	elif wave_count >= 7:
+		remover_slot_UI.max_remove_count = 2
 	var slot_scenes : Array[PackedScene]
 	var units : Array[PackedScene] = Player.get_deck_by_slot_type(DataManager.SlotType.UNIT)
-	if units.size() > 4:
+	if units.size() >= 4 + remover_slot_UI.max_remove_count:
 		slot_scenes.append_array(units)
 	slot_scenes.append_array(Player.get_deck_by_slot_type(DataManager.SlotType.UPGRADE))
 	slot_scenes.append_array(Player.get_deck_by_slot_type(DataManager.SlotType.PERC))

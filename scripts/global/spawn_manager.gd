@@ -34,6 +34,14 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	var T4_upgrades_pool : Array[Resource] = progress.upgrades_T4_pool.duplicate(true) 
 	var special_pool : Array[Resource] = progress.special_upgrades_reses.duplicate(true)
 
+	if diff_count > 2:
+		enemies_count += 1
+	elif diff_count > 5:
+		enemies_count += 2
+	elif diff_count > 7:
+		enemies_count += 3
+
+
 	
 	var diff_coeff : float = 1.5
 	

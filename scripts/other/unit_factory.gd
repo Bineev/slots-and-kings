@@ -22,9 +22,11 @@ func get_unit(slots : Array[Slot]):
 
 
 
-func create_unit(slots):
+func create_unit(slots : Array[Slot]):
 	#var new_unit = unit.instantiate()
 	var new_unit = unit_scene.instantiate()
+	for slot in slots:
+		slot.slot_type = slot.slot_res.slot_type
 	apply_slots(new_unit, slots)
 	if unit_owner == DataManager.UnitOwner.PLAYER:
 		SignalManager.on_create_unit.emit(new_unit, slots, unit_owner)
