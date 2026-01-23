@@ -45,7 +45,8 @@ func spawn_unit():
 	slots.append(slot)
 	for res in upgrades_reses:
 		var rand : float = randf()
-		if rand > diff_count / 10:
+		var result = float(diff_count) / 14
+		if rand >= result:
 			continue
 		var slot_scene : PackedScene = Player.create_slot_scene(res)
 		var upgrade_slot : Slot = slot_scene.instantiate()
@@ -53,6 +54,7 @@ func spawn_unit():
 		add_child(upgrade_slot)
 		upgrade_slot.initialize()
 		slots.append(upgrade_slot)
+	await get_tree().process_frame
 	unit_factory.choose_unit(slots)
 
 

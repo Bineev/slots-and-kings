@@ -226,7 +226,7 @@ var upper_fight_limit : float = 160
 
 var bottom_fight_limit : float = 280
 
-var default_damage_to_base : int = 30
+var default_damage_to_base : int = 20
 
 var meta_price_coeff : float = 1.5
 

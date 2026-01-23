@@ -117,140 +117,177 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 			unit_res = T0_units_pool.pick_random()
 		spawn.unit_reses.append(unit_res)
 	var upgrade_reses : Array[Resource] 
-
-	if wave_count >= 28:
-		if diff_count >= 8:
-			var rand : float = randf()
-			if rand < T4_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-		elif diff_count >= 6:
-			var rand : float = randf()
-			if rand < T4_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-		elif diff_count >= 4:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T3_upgrades_pool.pick_random())
-		elif diff_count >= 2:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T4_upgrades_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T3_upgrades_pool.pick_random())
-		spawn.upgrades_reses = upgrade_reses
-	elif wave_count >= 21:
-		if diff_count >= 8:
-			var rand : float = randf()
-			if rand < T4_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-		elif diff_count >= 6:
-			var rand : float = randf()
-			if rand < T4_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T4_upgrades_pool.pick_random())
-		elif diff_count >= 4:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T4_upgrades_pool.pick_random())
-		elif diff_count >= 2:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T4_upgrades_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T3_upgrades_pool.pick_random())
-		spawn.upgrades_reses = upgrade_reses
-	elif wave_count >= 14:
-		if diff_count >= 8:
-			var rand : float = randf()
-			if rand < T4_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-		elif diff_count >= 6:
-			var rand : float = randf()
-			if rand < T4_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T4_upgrades_pool.pick_random())
-		elif diff_count >= 4:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T3_upgrades_pool.pick_random())
-		elif diff_count >= 2:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T4_upgrades_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T3_upgrades_pool.pick_random())
-		spawn.upgrades_reses = upgrade_reses
-	elif wave_count >=7:
-		if diff_count >= 8:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-		elif diff_count >= 6:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T3_upgrades_pool.pick_random())
-		elif diff_count >= 4:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T2_upgrades_pool.pick_random())
-		elif diff_count >= 2:
-			var rand : float = randf()
-			if rand < T3_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T3_upgrades_pool.pick_random())
-			elif rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T2_upgrades_pool.pick_random())
-		spawn.upgrades_reses = upgrade_reses
-	else:
-		if diff_count >= 8:
-			for i in range(3):
-				var rand : float = randf()
-				if rand < T2_limit + diff_coeff * diff_count / 100:
-					upgrade_reses.append(special_pool.pick_random())
-				elif rand < T1_limit + diff_coeff * diff_count / 100:
-					upgrade_reses.append(special_pool.pick_random())
-		elif diff_count >= 6:
-			for i in range(2):
-				var rand : float = randf()
-				if rand < T2_limit + diff_coeff * diff_count / 100:
-					upgrade_reses.append(special_pool.pick_random())
-				elif rand < T1_limit + diff_coeff * diff_count / 100:
-					upgrade_reses.append(T2_upgrades_pool.pick_random())
-		elif diff_count >= 4:
-			var rand : float = randf()
-			if rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(special_pool.pick_random())
-			elif rand < T1_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T1_upgrades_pool.pick_random())
-		elif diff_count >= 2:
-			var rand : float = randf()
-			if rand < T2_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T2_upgrades_pool.pick_random())
-			elif rand < T1_limit + diff_coeff * diff_count / 100:
-				upgrade_reses.append(T1_upgrades_pool.pick_random())
-		spawn.upgrades_reses = upgrade_reses
 	
+	# закомментировать если переделаю
+	#if wave_count >= 28:
+		#if diff_count >= 8:
+			#var rand : float = randf()
+			#if rand < T4_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+		#elif diff_count >= 6:
+			#var rand : float = randf()
+			#if rand < T4_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+		#elif diff_count >= 4:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T3_upgrades_pool.pick_random())
+		#elif diff_count >= 2:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T4_upgrades_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T3_upgrades_pool.pick_random())
+		#spawn.upgrades_reses = upgrade_reses
+	#elif wave_count >= 21:
+		#if diff_count >= 8:
+			#var rand : float = randf()
+			#if rand < T4_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+		#elif diff_count >= 6:
+			#var rand : float = randf()
+			#if rand < T4_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T4_upgrades_pool.pick_random())
+		#elif diff_count >= 4:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T4_upgrades_pool.pick_random())
+		#elif diff_count >= 2:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T4_upgrades_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T3_upgrades_pool.pick_random())
+		#spawn.upgrades_reses = upgrade_reses
+	#elif wave_count >= 14:
+		#if diff_count >= 8:
+			#var rand : float = randf()
+			#if rand < T4_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+		#elif diff_count >= 6:
+			#var rand : float = randf()
+			#if rand < T4_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T4_upgrades_pool.pick_random())
+		#elif diff_count >= 4:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T3_upgrades_pool.pick_random())
+		#elif diff_count >= 2:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T4_upgrades_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T3_upgrades_pool.pick_random())
+		#spawn.upgrades_reses = upgrade_reses
+	#elif wave_count >=7:
+		#if diff_count >= 8:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+		#elif diff_count >= 6:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T3_upgrades_pool.pick_random())
+		#elif diff_count >= 4:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T2_upgrades_pool.pick_random())
+		#elif diff_count >= 2:
+			#var rand : float = randf()
+			#if rand < T3_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T3_upgrades_pool.pick_random())
+			#elif rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T2_upgrades_pool.pick_random())
+		#spawn.upgrades_reses = upgrade_reses
+	#else:
+		#if diff_count >= 8:
+			#for i in range(3):
+				#var rand : float = randf()
+				#if rand < T2_limit + diff_coeff * diff_count / 100:
+					#upgrade_reses.append(special_pool.pick_random())
+				#elif rand < T1_limit + diff_coeff * diff_count / 100:
+					#upgrade_reses.append(special_pool.pick_random())
+		#elif diff_count >= 6:
+			#for i in range(2):
+				#var rand : float = randf()
+				#if rand < T2_limit + diff_coeff * diff_count / 100:
+					#upgrade_reses.append(special_pool.pick_random())
+				#elif rand < T1_limit + diff_coeff * diff_count / 100:
+					#upgrade_reses.append(T2_upgrades_pool.pick_random())
+		#elif diff_count >= 4:
+			#var rand : float = randf()
+			#if rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(special_pool.pick_random())
+			#elif rand < T1_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T1_upgrades_pool.pick_random())
+		#elif diff_count >= 2:
+			#var rand : float = randf()
+			#if rand < T2_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T2_upgrades_pool.pick_random())
+			#elif rand < T1_limit + diff_coeff * diff_count / 100:
+				#upgrade_reses.append(T1_upgrades_pool.pick_random())
+		#spawn.upgrades_reses = upgrade_reses
+	# конец комментирования
+	
+	var upgrades_count : int
+	var default_upgrade_chance : float
+	if diff_count >= 8:
+		upgrades_count = 3
+		default_upgrade_chance = 1
+	elif diff_count >= 6:
+		upgrades_count = 2
+		default_upgrade_chance = 0.6
+	elif diff_count >= 4:
+		upgrades_count = 1
+		default_upgrade_chance = 0.2
+	elif diff_count >= 2:
+		upgrades_count = 1
+		default_upgrade_chance = 0.1
+	
+	
+	var rand : float = randf()
+	var chance : float = default_upgrade_chance + diff_coeff * wave_count / 100
+	var is_should_add_upgrade : bool = rand <= chance
+	var upgrade_pool : Array[Resource]
+	if wave_count >= 20:
+		upgrade_pool = special_pool + T4_upgrades_pool
+	elif wave_count >= 15:
+		upgrade_pool = T4_upgrades_pool + T3_upgrades_pool
+	elif wave_count >= 10:
+		upgrade_pool = T3_upgrades_pool + T2_upgrades_pool
+	elif wave_count >= 5:
+		upgrade_pool = T2_upgrades_pool + T1_upgrades_pool
+	else:
+		upgrade_pool = T1_upgrades_pool
+
+	if is_should_add_upgrade:
+		for i in range(upgrades_count):
+			upgrade_reses.append(upgrade_pool.pick_random())
+	spawn.upgrades_reses = upgrade_reses
 	var new_spawn_scene : PackedScene = PackedScene.new()
 	new_spawn_scene.pack(spawn)
 	
