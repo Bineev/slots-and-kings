@@ -226,7 +226,7 @@ var upper_fight_limit : float = 160
 
 var bottom_fight_limit : float = 280
 
-var default_damage_to_base : int = 20
+var default_damage_to_base : int = 25
 
 var meta_price_coeff : float = 1.5
 
@@ -391,11 +391,11 @@ var sound_dict : Dictionary[SoundType, Resource] = {
 	 SoundType.END_WAVE : preload("res://sounds/slots_end4.wav"),
 	 SoundType.SLOTS_START : preload("res://sounds/slots_swap.mp3"),
 	 SoundType.SLOTS_END : preload("res://sounds/slots_end9.mp3"),
-	 SoundType.CREATE_UNIT : preload("res://sounds/slots_end.wav"),
+	 SoundType.CREATE_UNIT : preload("res://sounds/slots_end7.mp3"),
 	 SoundType.SHOW_REWARDS : preload("res://sounds/rewards.wav"),
 	 SoundType.GET_REWARDS : preload("res://sounds/slots_end4.wav"),
 	 SoundType.SWAP : preload("res://sounds/for_slots1.wav"),
-	 SoundType.CASTLE_HIT : preload("res://sounds/hit1.wav"),
+	 SoundType.CASTLE_HIT : preload("res://sounds/slots_end.mp3"),
 	 SoundType.SLOTS_SPIN : preload("res://sounds/slots_swap.mp3"),
 	 SoundType.MAKE_CHOISE : preload("res://sounds/slots_end9.mp3"),
 	 SoundType.NICE : preload("res://sounds/slots_end3.wav"),

@@ -488,6 +488,7 @@ func attack_castle():
 		#attack = current_true_damage
 	#elif unit_types.has(DataManager.UnitType.PHYS):
 		#attack = current_physical_attack
+	SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.CASTLE_HIT])
 	Player.get_damage(ceil(DataManager.default_damage_to_base / (5 - entity_tier)))
 	
 	

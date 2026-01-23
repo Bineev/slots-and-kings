@@ -43,16 +43,22 @@ func _input(event: InputEvent) -> void:
 		else:
 			GameManager.show_options()
 
+
 func show_options():
 	options_UI = options_scene.instantiate()
 	get_tree().paused = true
-	get_tree().root.add_child(options_UI)
+	if current_level and is_instance_valid(current_level):
+		current_level.add_child(options_UI)
+	elif main_menu_UI and is_instance_valid(main_menu_UI):
+		main_menu_UI.add_child(options_UI)
+	elif lobby and is_instance_valid(lobby):
+		lobby.add_child(options_UI)
 	options_UI.initialize()
 
 
 func hide_options():
 	if options_UI:
-		get_tree().root.remove_child(options_UI)
+		options_UI.queue_free()
 		options_UI = null
 		get_tree().paused = false
 

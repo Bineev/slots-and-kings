@@ -17,6 +17,8 @@ func initialize():
 	GameManager.correct_options()
 	is_opened = true
 	shake_check.set_pressed_no_signal(Player.is_should_shake)
+	global_position = get_viewport_rect().get_center()
+	global_position -= Vector2(size.x / 2, size.y / 2)
 
 
 func _on_close_button_pressed() -> void:

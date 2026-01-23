@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3vafsqbdlmoo"
+path="res://.godot/imported/2026-01-23 SNC.mp3-aaef134a904f17fac2c6aa691b1bb3d8.mp3str"
+
+[deps]
+
+source_file="res://sounds/2026-01-23 SNC.mp3"
+dest_files=["res://.godot/imported/2026-01-23 SNC.mp3-aaef134a904f17fac2c6aa691b1bb3d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
