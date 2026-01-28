@@ -62,16 +62,27 @@ func create_projectile_collision():
 
 
 func set_collision_by_owner():
+	set_collision_mask_value(1, false)
+	set_collision_layer_value(1, false)
 	if projectile_owner.unit_owner == DataManager.UnitOwner.PLAYER:
 		set_collision_mask_value(3, true)
 	else:
 		set_collision_mask_value(2, true)
 
 
-func _on_body_entered(body: Node2D) -> void:
+func get_units_for_aoe(unit : Unit): 
+	if not unit or not is_instance_valid(unit) or unit.unit_state == DataManager.UnitState.DIED or unit.unit_state == DataManager.UnitState.DIED:
+		return false
+	var distance_x = unit.global_position.x - target.global_position.x
+	var distance_y = unit.global_position.y - target.global_position.y
+	return abs(distance_x) <= projectile_owner.current_projectile_attack_range and abs(distance_y) <= projectile_owner.current_projectile_attack_range
+	
+
+
+func _on_area_entered(area: Area2D) -> void:
 	if is_hit:
 		return
-	var unit : Unit = body
+	var unit : Unit = area
 	if unit != target:
 		return
 	if projectile_owner.unit_attack_type == DataManager.AttackType.AOE:
@@ -92,12 +103,3 @@ func _on_body_entered(body: Node2D) -> void:
 	tween.tween_property(self, 'modulate', Color(1, 1, 1, 0), 0.2)
 	tween.tween_callback(hide).set_delay(0.5)
 	get_tree().create_timer(3).timeout.connect(queue_free)
-
-
-func get_units_for_aoe(unit : Unit): 
-	if not unit or not is_instance_valid(unit) or unit.unit_state == DataManager.UnitState.DIED or unit.unit_state == DataManager.UnitState.DIED:
-		return false
-	var distance_x = unit.global_position.x - target.global_position.x
-	var distance_y = unit.global_position.y - target.global_position.y
-	return abs(distance_x) <= projectile_owner.current_projectile_attack_range and abs(distance_y) <= projectile_owner.current_projectile_attack_range
-	

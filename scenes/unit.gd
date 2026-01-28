@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 class_name Unit
 
@@ -175,8 +175,8 @@ func _process(delta: float) -> void:
 			current_target = get_enemy_on_field()
 			if current_target and current_target.unit_state != DataManager.UnitState.DIED and current_target.unit_state != DataManager.UnitState.DEAD:
 				var direction : Vector2 = (current_target.global_position - global_position).normalized()
-				velocity = current_move_speed * (direction + movement_offset) * DataManager.action_speed_coeff * DataManager.move_speed_coeff
-				move_and_slide()
+				global_position += current_move_speed * (direction + movement_offset) * DataManager.action_speed_coeff * DataManager.move_speed_coeff * delta
+				#move_and_slide()
 				unit_sprite.flip_h = current_target and current_target.global_position.x < global_position.x
 				# возможно здесь косяк
 				if enemies_in_range.has(current_target):
@@ -198,11 +198,11 @@ func _process(delta: float) -> void:
 			var direction : Vector2
 			if unit_owner == DataManager.UnitOwner.ENEMY:
 				direction = (fight_point.global_position - global_position).normalized()
-				velocity = current_move_speed * direction * DataManager.action_speed_coeff * DataManager.move_speed_coeff
+				global_position += current_move_speed * direction * DataManager.action_speed_coeff * DataManager.move_speed_coeff * delta
 			else:
 				direction = (fight_point.global_position - global_position).normalized()
-				velocity = current_move_speed * direction * DataManager.action_speed_coeff
-			move_and_slide()
+				global_position += current_move_speed * direction * DataManager.action_speed_coeff * DataManager.move_speed_coeff * delta
+			#move_and_slide()
 			unit_sprite.flip_h = fight_point and fight_point.global_position.x < global_position.x
 			# здесь баг?
 
@@ -877,38 +877,38 @@ func hide_status():
 	unit_status_sprite.hide()
 
 
-func _on_collide_range_area_entered(area: Area2D) -> void:
-	var new_velocity : Vector2
-	var new_unit_velocity : Vector2
-	var unit : Unit = area.get_parent()
-	# чекаем в какую сторону смотрим
-	var is_to_left = unit_sprite.flip_h
-	var unit_is_to_left = unit.unit_sprite.flip_h
-	# если мы смотрим в одну сторону
-	if is_to_left == unit_is_to_left:
-		# обрабатываем только когда отстаем
-		if is_to_left and global_position.x < unit.global_position.x:
-			return
-		if not is_to_left and global_position.x > unit.global_position.x:
-			return
-		# обработка
-		# чуть отскакиваем назад
-		if is_to_left:
-			new_velocity.x = current_move_speed * 3
-		else:
-			new_velocity.x = -current_move_speed * 3
-		if unit.unit_state != DataManager.UnitState.ATTACK:
-			new_unit_velocity.x = -new_velocity.x
-		# пытаемся обойти снизу
-		if global_position.y >= unit.global_position.y:
-			new_velocity.y = current_move_speed * 3
-		else:
-			new_velocity.y = -current_move_speed * 3
-
-	velocity = new_velocity
-	unit.velocity = new_unit_velocity
-	move_and_slide()
-	#unit.move_and_slide()
+#func _on_collide_range_area_entered(area: Area2D) -> void:
+	#var new_velocity : Vector2
+	#var new_unit_velocity : Vector2
+	#var unit : Unit = area.get_parent()
+	## чекаем в какую сторону смотрим
+	#var is_to_left = unit_sprite.flip_h
+	#var unit_is_to_left = unit.unit_sprite.flip_h
+	## если мы смотрим в одну сторону
+	#if is_to_left == unit_is_to_left:
+		## обрабатываем только когда отстаем
+		#if is_to_left and global_position.x < unit.global_position.x:
+			#return
+		#if not is_to_left and global_position.x > unit.global_position.x:
+			#return
+		## обработка
+		## чуть отскакиваем назад
+		#if is_to_left:
+			#new_velocity.x = current_move_speed * 3
+		#else:
+			#new_velocity.x = -current_move_speed * 3
+		#if unit.unit_state != DataManager.UnitState.ATTACK:
+			#new_unit_velocity.x = -new_velocity.x
+		## пытаемся обойти снизу
+		#if global_position.y >= unit.global_position.y:
+			#new_velocity.y = current_move_speed * 3
+		#else:
+			#new_velocity.y = -current_move_speed * 3
+#
+	#velocity = new_velocity
+	#unit.velocity = new_unit_velocity
+	#move_and_slide()
+	##unit.move_and_slide()
 
 
 func set_unit_collistion_params():
@@ -940,3 +940,18 @@ func create_projectile(target : Unit):
 	#var initial_offset = -unit_sprite.texture.get_width() / 2 if global_position.x >= target.global_position.x else unit_sprite.texture.get_width() / 2
 	var initial_offset = 0
 	SignalManager.on_create_projectile.emit(projectile, Vector2(global_position.x + initial_offset, global_position.y))
+
+
+func _on_attack_range_area_entered(area: Area2D) -> void:
+	var unit : Unit = area
+	if unit.unit_owner == unit_owner:
+		return
+	if not enemies_in_range.has(unit) and unit.get_state() != DataManager.UnitState.DIED and unit.get_state() != DataManager.UnitState.DEAD:
+		enemies_in_range.append(unit)
+
+
+func _on_attack_range_area_exited(area: Area2D) -> void:
+	var unit : Unit = area
+	if unit.unit_owner == unit_owner:
+		return
+	enemies_in_range.erase(unit)

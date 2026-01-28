@@ -49,8 +49,6 @@ func play_ui(source : Node, stream : AudioStream):
 	sound_temp.play()
 
 
-
-
 func play_music(current_delay : int = 0):
 	#if sound and sound.playing:
 		#sound.stop()

@@ -61,38 +61,6 @@ func create_collision():
 	skill_zone_collision.shape = shape
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if is_active:
-		var unit : Unit = body
-		skill.add_target(unit)
-		# если войд зона, то применяем баф/дебафф при входе
-		# если входит новый юнит (а нужно извне, если юниты уже есть)
-		if skill.is_trap and is_stopped:
-			if skill.skill_anim_player.get_animation('skill'):
-				skill.skill_anim.modulate = Color(1, 1, 1, 0.8)
-				skill.skill_anim_player.play('skill')
-			skill.timer_skill_delay.stop()
-			if skill.is_trap and not skill.is_void_zone:
-				skill.timer_skill_delay.wait_time = 0.8
-				skill.timer_skill_delay.start()
-			else:
-				skill.activate()
-			skill.is_trap = false
-			skill.was_trap = true
-		if skill.is_void_zone and skill.skill_buff_stats.size() > 0 and is_stopped:
-			skill.apply_stats(unit)
-
-
-func _on_body_exited(body: Node2D) -> void:
-	if is_active:
-		var unit : Unit = body
-		skill.remove_target(unit)
-		# если войд зона, то удаляем баф/дебафф при выходе
-
-		if skill.is_void_zone and skill.skill_buff_stats.size() > 0 and is_stopped:
-			skill.back_stats(unit)
-
-
 func set_active():
 	is_active = true
 
@@ -115,3 +83,35 @@ func stop_working():
 
 func set_is_stopped(new_state : bool):
 	is_stopped = new_state
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if is_active:
+		var unit : Unit = area
+		skill.add_target(unit)
+		# если войд зона, то применяем баф/дебафф при входе
+		# если входит новый юнит (а нужно извне, если юниты уже есть)
+		if skill.is_trap and is_stopped:
+			if skill.skill_anim_player.get_animation('skill'):
+				skill.skill_anim.modulate = Color(1, 1, 1, 0.8)
+				skill.skill_anim_player.play('skill')
+			skill.timer_skill_delay.stop()
+			if skill.is_trap and not skill.is_void_zone:
+				skill.timer_skill_delay.wait_time = 0.8
+				skill.timer_skill_delay.start()
+			else:
+				skill.activate()
+			skill.is_trap = false
+			skill.was_trap = true
+		if skill.is_void_zone and skill.skill_buff_stats.size() > 0 and is_stopped:
+			skill.apply_stats(unit)
+
+
+func _on_area_exited(area: Area2D) -> void:
+	if is_active:
+		var unit : Unit = area
+		skill.remove_target(unit)
+		# если войд зона, то удаляем баф/дебафф при выходе
+
+		if skill.is_void_zone and skill.skill_buff_stats.size() > 0 and is_stopped:
+			skill.back_stats(unit)

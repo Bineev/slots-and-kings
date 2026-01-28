@@ -5,6 +5,8 @@
 [node name="Projectile" type="Area2D"]
 modulate = Color(1, 1, 1, 0.70000005)
 z_index = 60
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_c8fcr")
 
 [node name="sprite_projectile" type="Sprite2D" parent="."]
@@ -13,4 +15,4 @@ unique_name_in_owner = true
 [node name="collision_projectile" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

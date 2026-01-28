@@ -6,8 +6,8 @@ class_name FightPoint
 @export var is_filled : bool
 
 
-func _on_body_entered(body: Node2D) -> void:
-	var unit : Unit = body
+func _on_area_entered(area: Area2D) -> void:
+	var unit : Unit = area
 	if unit.fight_point == self:
 		unit.change_state(DataManager.UnitState.ATTACK)
 		unit.timer_regen.stop()
