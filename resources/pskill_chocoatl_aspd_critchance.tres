@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://d052ofb1j4tk4"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_eohxg"]
+[ext_resource type="Texture2D" uid="uid://c0xg3kqld3mgm" path="res://img/skills/passive_skill_chocoatl_aspd_critchance.png" id="2_eohxg"]
+
+[resource]
+script = ExtResource("1_eohxg")
+skill_passive_type = 4
+skill_tier = 3
+skill_name = "чокоатль - мастерство"
+skill_desc = "Боец \"Чокоатль\" повышает скорость атаки и шанс крита"
+skill_preview = ExtResource("2_eohxg")
+skill_unit_name = "чокоатль"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": -0.4,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}, {
+"stat_change_amount": 30.0,
+"stat_change_type": 0,
+"stat_name": "crit_chance"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://m55e7n11ft53"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_ay2gc"]
+[ext_resource type="Texture2D" uid="uid://b5pbaxgke76wi" path="res://img/skills/passive_skill_chocoatl_mdef_ls.png" id="2_ay2gc"]
+
+[resource]
+script = ExtResource("1_ay2gc")
+skill_passive_type = 4
+skill_tier = 3
+skill_name = "чокоатль - дисциплина"
+skill_desc = "Боец \"Чокоатль\" повышает лайфстил и маг защиту"
+skill_preview = ExtResource("2_ay2gc")
+skill_unit_name = "чокоатль"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "magic_defence"
+}, {
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "life_steal"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

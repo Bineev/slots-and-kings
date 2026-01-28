@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://pn23p1qur8gi"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_onlek"]
+[ext_resource type="Texture2D" uid="uid://dubdm0gmmx0er" path="res://img/skills/passive_skill_imp_regen_mdef.png" id="2_onlek"]
+
+[resource]
+script = ExtResource("1_onlek")
+skill_passive_type = 4
+skill_name = "имп - дисциплина"
+skill_desc = "Боец \"Имп\" повышает регенерацию и маг ащиту"
+skill_preview = ExtResource("2_onlek")
+skill_unit_name = "имп"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "magic_defence"
+}, {
+"stat_change_amount": 5.0,
+"stat_change_type": 0,
+"stat_name": "health_regen"
+}, {
+"stat_change_amount": 3.0,
+"stat_change_type": 0,
+"stat_name": "health_regen_interval"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

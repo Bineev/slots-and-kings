@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://djjnwkjaft8f2"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_qcdid"]
+[ext_resource type="Texture2D" uid="uid://h5lrdpqx40my" path="res://img/skills/passive_skill_substance_evade_ls.png" id="2_qcdid"]
+
+[resource]
+script = ExtResource("1_qcdid")
+skill_passive_type = 4
+skill_tier = 4
+skill_name = "субстанция - дисциплина"
+skill_desc = "Боец \"Субстанция\" повышает уворот и лайстил"
+skill_preview = ExtResource("2_qcdid")
+skill_unit_name = "субстанция"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "evade"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "life_steal"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

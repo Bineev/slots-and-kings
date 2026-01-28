@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://cj64njkpjvlw"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_mg45c"]
+[ext_resource type="Texture2D" uid="uid://5r4fht6n6ep0" path="res://img/skills/passive_skill_succubus_regen_armor.png" id="2_mg45c"]
+
+[resource]
+script = ExtResource("1_mg45c")
+skill_passive_type = 4
+skill_tier = 3
+skill_name = "суккуб - дисциплина"
+skill_desc = "Боец \"Суккуб\" повышает регенерацию и броню"
+skill_preview = ExtResource("2_mg45c")
+skill_unit_name = "суккуб"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 15.0,
+"stat_change_type": 0,
+"stat_name": "health_regen"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "armor"
+}, {
+"stat_change_amount": 4.0,
+"stat_change_type": 0,
+"stat_name": "health_regen_interval"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

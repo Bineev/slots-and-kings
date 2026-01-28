@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://b5kx3rgo0dyrt"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_qy0f0"]
+[ext_resource type="Texture2D" uid="uid://cnx3vvgmxrpla" path="res://img/skills/passive_skill_substance_mattack_critchance.png" id="2_wa8ue"]
+
+[resource]
+script = ExtResource("1_qy0f0")
+skill_passive_type = 4
+skill_tier = 4
+skill_name = "субстанция - мастерство"
+skill_desc = "Боец \"Субстанция\" повышает маг атаку и шанс крита"
+skill_preview = ExtResource("2_wa8ue")
+skill_unit_name = "субстанция"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 30.0,
+"stat_change_type": 0,
+"stat_name": "magical_attack"
+}, {
+"stat_change_amount": 15.0,
+"stat_change_type": 0,
+"stat_name": "crit_chance"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

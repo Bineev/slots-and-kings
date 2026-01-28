@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://ds7iivdhujxo2"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_mo7yi"]
+[ext_resource type="Texture2D" uid="uid://jc3qsod55t56" path="res://img/skills/passive_skill_accursed_armor_mdef.png" id="2_mo7yi"]
+
+[resource]
+script = ExtResource("1_mo7yi")
+skill_passive_type = 4
+skill_tier = 4
+skill_name = "проклятый - дисциплина"
+skill_desc = "Боец \"Проклятый\" повышает броню и маг защиту"
+skill_preview = ExtResource("2_mo7yi")
+skill_unit_name = "проклятый"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "armor"
+}, {
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "magic_defence"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

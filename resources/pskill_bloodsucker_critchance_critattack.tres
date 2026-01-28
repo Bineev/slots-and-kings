@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://bbuw7stiwrvhl"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_b6j55"]
+[ext_resource type="Texture2D" uid="uid://b4ivfd01bndfe" path="res://img/skills/passive_skill_bloodsucker_critchance_critattack.png" id="2_b6j55"]
+
+[resource]
+script = ExtResource("1_b6j55")
+skill_passive_type = 4
+skill_tier = 2
+skill_name = "кровосос"
+skill_desc = "Боец \"Кровосос\" повышает шанс крита и крит урон"
+skill_preview = ExtResource("2_b6j55")
+skill_unit_name = "кровосос"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "crit_chance"
+}, {
+"stat_change_amount": 50.0,
+"stat_change_type": 0,
+"stat_name": "crit_attack"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

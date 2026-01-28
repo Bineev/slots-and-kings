@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://d04firhvmiaq5"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_om6hr"]
+[ext_resource type="Texture2D" uid="uid://bxxidc1c7gn4r" path="res://img/skills/passive_skill_bloodsucker_aspd_mattack.png" id="2_om6hr"]
+
+[resource]
+script = ExtResource("1_om6hr")
+skill_passive_type = 4
+skill_tier = 2
+skill_name = "кровосос - ярость"
+skill_desc = "Боец \"Кровосос\" повышает маг атаку и скорость атаки"
+skill_preview = ExtResource("2_om6hr")
+skill_unit_name = "кровосос"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 7.0,
+"stat_change_type": 0,
+"stat_name": "magical_attack"
+}, {
+"stat_change_amount": -0.4,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

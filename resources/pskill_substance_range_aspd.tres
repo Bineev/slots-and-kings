@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://b71rqgbopv4lc"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_4nx5a"]
+[ext_resource type="Texture2D" uid="uid://d23xdqtq788eg" path="res://img/skills/passive_skill_substance_range_aspd.png" id="2_4nx5a"]
+
+[resource]
+script = ExtResource("1_4nx5a")
+skill_passive_type = 4
+skill_tier = 4
+skill_name = "субстанция - ярость"
+skill_desc = "Боец \"Субстанция\" повышает скорость атаки и дальность"
+skill_preview = ExtResource("2_4nx5a")
+skill_unit_name = "субстанция"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "attack_range"
+}, {
+"stat_change_amount": -0.4,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

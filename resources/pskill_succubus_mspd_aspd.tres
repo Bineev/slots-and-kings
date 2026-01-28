@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://bgavso4gv083k"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_d7goh"]
+[ext_resource type="Texture2D" uid="uid://bckw3v1qmr4v7" path="res://img/skills/passive_skill_succubus_mspd_aspd.png" id="2_d7goh"]
+
+[resource]
+script = ExtResource("1_d7goh")
+skill_passive_type = 4
+skill_tier = 3
+skill_name = "суккуб - ярость"
+skill_desc = "Боец \"Суккуб\" повышает скорость движания и атаки"
+skill_preview = ExtResource("2_d7goh")
+skill_unit_name = "суккуб"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "move_speed"
+}, {
+"stat_change_amount": -0.4,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

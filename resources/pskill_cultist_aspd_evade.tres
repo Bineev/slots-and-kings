@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://by7veap127vbp"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_tj4qd"]
+[ext_resource type="Texture2D" uid="uid://dfoc6kxwktl34" path="res://img/skills/passive_skill_cultist_aspd_evade.png" id="2_tj4qd"]
+
+[resource]
+script = ExtResource("1_tj4qd")
+skill_passive_type = 4
+skill_tier = 1
+skill_name = "культист - дисциплина"
+skill_desc = "Боец \"Культист\" увеличивает скорость атаки и уворот"
+skill_preview = ExtResource("2_tj4qd")
+skill_unit_name = "культист"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "evade"
+}, {
+"stat_change_amount": -0.5,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

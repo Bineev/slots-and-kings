@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://khc210vkb8qj"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_eeivv"]
+[ext_resource type="Texture2D" uid="uid://do7lqqav3mbxv" path="res://img/skills/passive_skill_chocoatl_mspd_range.png" id="2_eeivv"]
+
+[resource]
+script = ExtResource("1_eeivv")
+skill_passive_type = 4
+skill_tier = 3
+skill_name = "чокоатль - ярость"
+skill_desc = "Боец \"Чокоатль\" повышает чистую атаку и дальность"
+skill_preview = ExtResource("2_eeivv")
+skill_unit_name = "чокоатль"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 20.0,
+"stat_change_type": 0,
+"stat_name": "move_speed"
+}, {
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "attack_range"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

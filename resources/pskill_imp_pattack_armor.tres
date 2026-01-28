@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://d0of2a6tg2hdu"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_74cwn"]
+[ext_resource type="Texture2D" uid="uid://cm5sqa6jcopgp" path="res://img/skills/passive_skill_imp_pattack_armor.png" id="2_74cwn"]
+
+[resource]
+script = ExtResource("1_74cwn")
+skill_passive_type = 4
+skill_tier = 1
+skill_name = "имп - мастерство"
+skill_desc = "Боец \"Имп\" повышает физ атаку и броню"
+skill_preview = ExtResource("2_74cwn")
+skill_unit_name = "имп"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 8.0,
+"stat_change_type": 0,
+"stat_name": "physical_attack"
+}, {
+"stat_change_amount": 15.0,
+"stat_change_type": 0,
+"stat_name": "armor"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"

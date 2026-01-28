@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PassiveSkillRes" load_steps=3 format=3 uid="uid://dgvy2pl2onw76"]
+
+[ext_resource type="Script" uid="uid://b3vicwaw2fcer" path="res://resources/passive_skill_res.gd" id="1_tdjw3"]
+[ext_resource type="Texture2D" uid="uid://cmtlp78sytf2e" path="res://img/skills/passive_skill_accursed_mspd_aspd.png" id="2_tdjw3"]
+
+[resource]
+script = ExtResource("1_tdjw3")
+skill_passive_type = 4
+skill_tier = 4
+skill_name = "проклятый - ярость"
+skill_desc = "Боец \"Проклятый\" повышает скорость атаки и движения"
+skill_preview = ExtResource("2_tdjw3")
+skill_unit_name = "проклятый"
+skill_buff_stats = Array[Dictionary]([{
+"stat_change_amount": 25.0,
+"stat_change_type": 0,
+"stat_name": "move_speed"
+}, {
+"stat_change_amount": -0.5,
+"stat_change_type": 0,
+"stat_name": "attack_speed"
+}])
+metadata/_custom_type_script = "uid://b3vicwaw2fcer"
