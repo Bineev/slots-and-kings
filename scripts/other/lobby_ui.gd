@@ -17,6 +17,7 @@ var levels : Array[Level]
 @onready var rewards_container: HBoxContainer = %rewards_container
 @onready var start_button: Button = %start_button
 @onready var meta_shop: MetaShop = $MarginContainer/HBoxContainer/VBoxContainer/MetaShop
+@onready var shader_layer: CanvasLayer = $ShaderLayer
 
 
 func initialize():
@@ -31,6 +32,8 @@ func initialize():
 		levels_container.add_child(level_item)
 		level_item.initialize()
 	meta_shop.initialize()
+	if not Player.is_should_shader_work:
+		disable_shader()
 
 
 func set_data(new_level_scenes : Array[PackedScene]):
@@ -78,3 +81,7 @@ func add_rewards(slot_scenes : Array[PackedScene]):
 
 func show_start_button():
 	start_button.visible = true
+
+
+func disable_shader():
+	shader_layer.hide()

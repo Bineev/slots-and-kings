@@ -62,6 +62,7 @@ var is_tutorial_8_done : bool
 @onready var label_result: Label = %label_result
 @onready var result_panel: PanelContainer = $UI/result_panel
 @onready var shaders_layer: ShadersLayer = %shaders_layer
+@onready var shader_layer: CanvasLayer = %ShaderLayer
 
 
 func _ready() -> void:
@@ -119,6 +120,8 @@ func _ready() -> void:
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
 	start_waves()
 	SoundManager.play_music(3)
+	if not Player.is_should_shader_work:
+		disable_shader()
 
 
 func _input(event: InputEvent) -> void:
@@ -695,3 +698,7 @@ func update_shake(is_should_shake : bool):
 		SignalManager.on_player_get_hit.connect(shaders_layer.shake)
 	elif not is_should_shake and SignalManager.on_player_get_hit.is_connected(shaders_layer.shake):
 		SignalManager.on_player_get_hit.disconnect(shaders_layer.shake)
+
+
+func disable_shader():
+	shader_layer.hide()

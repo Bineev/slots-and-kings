@@ -27,17 +27,14 @@ SoundManager="*res://scripts/global/sound_manager.gd"
 SpawnManager="*res://scripts/global/spawn_manager.gd"
 Player="*res://scenes/player.tscn"
 GameManager="*res://scripts/global/game_manager.gd"
+Screen="*res://scripts/global/screen.gd"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/size/mode=3
-window/size/resizable=false
-window/size/window_width_override=1920
-window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
 
 [importer_defaults]
 

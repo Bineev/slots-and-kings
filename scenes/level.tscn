@@ -730,6 +730,7 @@ text = "W"
 label_settings = ExtResource("33_asl66")
 
 [node name="ShaderLayer" parent="." instance=ExtResource("30_v3why")]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
 [connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]

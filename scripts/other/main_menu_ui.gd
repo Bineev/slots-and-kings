@@ -8,6 +8,7 @@ class_name MainMenuUI
 @onready var no_button: Button = %no_button
 @onready var play_button: Button = %play_button
 @onready var continue_button: Button = %continue_button
+@onready var shader_layer: CanvasLayer = $ShaderLayer
 
 
 func _ready() -> void:
@@ -20,6 +21,8 @@ func initialize():
 		continue_button.show()
 	else:
 		continue_button.hide()
+	if not Player.is_should_shader_work:
+		disable_shader()
 
 
 func _on_play_button_pressed() -> void:
@@ -62,3 +65,7 @@ func _on_no_button_pressed() -> void:
 func show_confirmed():
 	play_button.hide()
 	confirmed_container.show()
+
+
+func disable_shader():
+	shader_layer.hide()

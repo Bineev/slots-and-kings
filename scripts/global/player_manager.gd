@@ -83,7 +83,7 @@ var level : Level
 var player_die_count : int
 var enemy_die_count : int
 var is_should_shake : bool = true
-
+var is_should_shader_work : bool = true
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)

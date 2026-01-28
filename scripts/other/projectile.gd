@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	if not is_active:
 		return
 	if not target or not is_instance_valid(target) or target.unit_state == DataManager.UnitState.DIED or target.unit_state == DataManager.UnitState.DIED:
-		get_tree().create_timer(0.5).timeout.connect(queue_free)
+		queue_free()
 		return
 	var direction = global_position.direction_to(target.global_position)
 	global_position += direction * projectile_speed * DataManager.action_speed_coeff * delta
