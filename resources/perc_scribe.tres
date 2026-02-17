@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_hx86b")
-slot_name = "монах"
-slot_description = "Ваша магия сильнее, но другие виды атаки атрофированы"
+slot_name = "PERC_SCRIBE_NAME"
+slot_description = "PERC_SCRIBE_DESC"
 slot_sprite = ExtResource("2_tqe6y")
 slot_type = 2
 entity_tier = 3

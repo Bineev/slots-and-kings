@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_h2ncy")
-slot_name = "регенерация +10"
-slot_description = "Восстанавливает 10 здоровья раз в 6 с"
+slot_name = "UPGRADE_REGEN10_NAME"
+slot_description = "UPGRADE_REGEN10_DESC"
 slot_sprite = ExtResource("2_3iips")
 entity_tier = 2
 health_regen = 10.0

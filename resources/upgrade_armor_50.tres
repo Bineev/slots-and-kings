@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_uvf3e")
-slot_name = "броня 35%"
-slot_description = "Защита от физ атаки повышена на 35%"
+slot_name = "UPGRADE_ARMOR35_NAME"
+slot_description = "UPGRADE_ARMOR35_DESC"
 slot_sprite = ExtResource("2_ek01r")
 entity_tier = 4
 armor = 35.0

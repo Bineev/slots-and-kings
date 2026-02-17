@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_jqx7n")
-slot_name = "подлец"
-slot_description = "У вас увеличенный чистый урон, но слабое здоровье"
+slot_name = "PERC_DASTARD_NAME"
+slot_description = "PERC_DASTARD_DESC"
 slot_sprite = ExtResource("2_y0t6k")
 slot_type = 2
 entity_tier = 2
-health_mult = 0.7
 true_damage_mult = 1.5
+health_mult = 0.7
 metadata/_custom_type_script = "uid://ckeieckjuifia"

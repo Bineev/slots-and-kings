@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_0l68a")
-slot_name = "скорость атаки -0.6"
-slot_description = "Скорость атаки быстрее на 0.6с"
+slot_name = "UPGRADE_ASPD06_NAME"
+slot_description = "UPGRADE_ASPD06_DESC"
 slot_sprite = ExtResource("2_a441t")
 entity_tier = 4
 attack_speed = -0.6

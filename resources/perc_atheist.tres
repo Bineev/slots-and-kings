@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_kgums")
-slot_name = "атеист"
-slot_description = "У вас повышенный иммунитет к магии, но и колдуете вы слабо"
+slot_name = "PERC_ATHEIST_NAME"
+slot_description = "PERC_ATHEIST_DESC"
 slot_sprite = ExtResource("2_parq4")
 slot_type = 2
 entity_tier = 1
-magic_defence_mult = 1.5
 magical_attack_mult = 0.5
+magic_defence_mult = 1.5
 metadata/_custom_type_script = "uid://ckeieckjuifia"

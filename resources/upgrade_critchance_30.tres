@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_tdlbd")
-slot_name = "крит шанс 20%"
-slot_description = "Шанс критической атаки повышен на 20%"
+slot_name = "UPGRADE_CRITCH20_NAME"
+slot_description = "UPGRADE_CRITCH20_DESC"
 slot_sprite = ExtResource("2_45ngf")
 entity_tier = 2
 crit_chance = 20.0

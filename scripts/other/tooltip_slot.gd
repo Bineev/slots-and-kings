@@ -14,8 +14,15 @@ func initialize():
 	label_name.text = '(T%d) %s' % [entity_tier, entity_name]
 	if slot_res.slot_type == DataManager.SlotType.UNIT:
 		var types : String
+		var current_locale : String = TranslationServer.get_locale()
+		var curent_unit_types_table : Dictionary
+		match current_locale:
+			'en_US':
+				curent_unit_types_table = DataManager.unit_types_table_en
+			'ru_RU':
+				curent_unit_types_table = DataManager.unit_types_table
 		for item in slot_res.unit_types:
-			types += DataManager.unit_types_table[item] + '\n'
+			types += curent_unit_types_table[item] + '\n'
 		label_desc.text = types
 	else:
 		label_desc.text = entity_desc

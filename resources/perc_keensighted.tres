@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_ndcxk")
-slot_name = "зоркий"
-slot_description = "Ваша дальность атаки повышена, но скорость атаки снижена"
+slot_name = "PERC_KEENSIGHTED_NAME"
+slot_description = "PERC_KEENSIGHTED_DESC"
 slot_sprite = ExtResource("2_bcevn")
 slot_type = 2
 entity_tier = 3

@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_1ep61")
-slot_name = "крит шанс 40%"
-slot_description = "Шанс критической атаки повышен на 40%"
+slot_name = "UPGRADE_CRITCH40_NAME"
+slot_description = "UPGRADE_CRITCH40_DESC"
 slot_sprite = ExtResource("2_3rbg0")
 entity_tier = 4
 crit_chance = 40.0

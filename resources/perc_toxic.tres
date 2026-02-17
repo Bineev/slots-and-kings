@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_r21ey")
-slot_name = "токсик"
-slot_description = "Вы наносите больше урона, но страдаете от яда"
+slot_name = "PERC_TOXIC_NAME"
+slot_description = "PERC_TOXIC_DESC"
 slot_sprite = ExtResource("2_0enf3")
 slot_type = 2
 entity_tier = 4

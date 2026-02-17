@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_mgfkr")
-slot_name = "крит атака 100%"
-slot_description = "Критическая атака увеличина на 100%"
+slot_name = "UPGRADE_CRITATT100_NAME"
+slot_description = "UPGRADE_CRITATT100_DESC"
 slot_sprite = ExtResource("2_iulq2")
 entity_tier = 3
 crit_attack = 100.0

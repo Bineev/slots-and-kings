@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_ey0np")
-slot_name = "физ атака 20%"
-slot_description = "Повышает физическую атаку на 20%"
+slot_name = "UPGRADE_PATTACK20_NAME"
+slot_description = "UPGRADE_PATTACK20_DESC"
 slot_sprite = ExtResource("2_b5gh3")
 entity_tier = 1
 physical_attack_mult = 1.2

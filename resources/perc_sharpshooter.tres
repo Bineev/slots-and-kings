@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_rgvtn")
-slot_name = "снайпер"
-slot_description = "Ваша дальность атаки повышена, но скорость полета снаряда ниже"
+slot_name = "PERC_SHARPSHOOTER_NAME"
+slot_description = "PERC_SHARPSHOOTER_DESC"
 slot_sprite = ExtResource("2_4itc6")
 slot_type = 2
 entity_tier = 1

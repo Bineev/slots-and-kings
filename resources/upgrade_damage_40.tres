@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_602oh")
-slot_name = "урон 40%"
-slot_description = "Повышает общий урон на 40%"
+slot_name = "UPGRADE_DAMAGE40_NAME"
+slot_description = "UPGRADE_DAMAGE40_DESC"
 slot_sprite = ExtResource("2_sa6xc")
 entity_tier = 4
 damage_mult_vs_castle = 1.4

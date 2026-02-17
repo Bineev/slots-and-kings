@@ -77,8 +77,8 @@ func _process(delta: float) -> void:
 
 func initialize():
 	await get_tree().process_frame
-	slot_name = slot_res.slot_name
-	slot_description = slot_res.slot_description
+	slot_name = tr(slot_res.slot_name)
+	slot_description = tr(slot_res.slot_description)
 	entity_tier = slot_res.entity_tier
 	slot_type = slot_res.slot_type
 	if slot_type == DataManager.SlotType.UPGRADE:
@@ -131,34 +131,39 @@ func generate_unit_stats():
 		if stat == 'crit_attack' and slot_res.get(stat) == 50:
 			continue 
 		if DataManager.default_stats[stat] != slot_res.get(stat):
+			var current_locale : String = TranslationServer.get_locale()
+			var stat_name : String = DataManager.default_stats_to_rus[stat]
+			match current_locale:
+				'en_US':
+					stat_name = stat.replace('_', ' ')
 			if (stat.contains('hit_chance') or stat.contains('crit_attack')) and slot_type == DataManager.SlotType.PERC:
 				continue
 			if stat.contains('attack_speed') or stat.contains('mult'):
 				if slot_type == DataManager.SlotType.PERC:
 					if DataManager.default_stats[stat] < slot_res.get(stat):
 						if not stat.contains('attack_speed'):
-							unit_stats += ('[color=#25562e]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+							unit_stats += ('[color=#25562e]%s %.1f\n[/color]') % [stat_name, slot_res.get(stat)]
 						else:
-							unit_stats += ('[color=#a53030]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+							unit_stats += ('[color=#a53030]%s %.1f\n[/color]') % [stat_name, slot_res.get(stat)]
 					elif DataManager.default_stats[stat] > slot_res.get(stat):
 						if not stat.contains('attack_speed'):
-							unit_stats += ('[color=#a53030]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+							unit_stats += ('[color=#a53030]%s %.1f\n[/color]') % [stat_name, slot_res.get(stat)]
 						else:
-							unit_stats += ('[color=#25562e]%s %.1f\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+							unit_stats += ('[color=#25562e]%s %.1f\n[/color]') % [stat_name, slot_res.get(stat)]
 					else:
-						unit_stats += ('%s %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+						unit_stats += ('%s %.1f\n') % [stat_name, slot_res.get(stat)]
 				else:
-					unit_stats += ('%s %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+					unit_stats += ('%s %.1f\n') % [stat_name, slot_res.get(stat)]
 			else:
 				if slot_type == DataManager.SlotType.PERC:
 					if DataManager.default_stats[stat] < slot_res.get(stat):
-						unit_stats += ('[color=#25562e]%s %d\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+						unit_stats += ('[color=#25562e]%s %d\n[/color]') % [stat_name, slot_res.get(stat)]
 					elif DataManager.default_stats[stat] > slot_res.get(stat):
-						unit_stats += ('[color=#a53030]%s %d\n[/color]') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+						unit_stats += ('[color=#a53030]%s %d\n[/color]') % [stat_name, slot_res.get(stat)]
 					else:
-						unit_stats += ('%s %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+						unit_stats += ('%s %d\n') % [stat_name, slot_res.get(stat)]
 				else:
-					unit_stats += ('%s %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+					unit_stats += ('%s %d\n') % [stat_name, slot_res.get(stat)]
 				#unit_stats += ('%s %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
 
 	return unit_stats

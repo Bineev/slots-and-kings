@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_bdxj1")
-slot_name = "близорукий"
-slot_description = "Ваш урон повышен, но дальность атаки сокращается"
+slot_name = "PERC_MYOPIC_NAME"
+slot_description = "PERC_MYOPIC_DESC"
 slot_sprite = ExtResource("2_76sev")
 slot_type = 2
 entity_tier = 2

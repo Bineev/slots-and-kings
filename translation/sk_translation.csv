@@ -1,0 +1,205 @@
+key,ru,en
+UNIT_VILLEIN_NAME,Крестьянин,Villein
+UNIT_VILLEIN_DESC,Бестолочь с вилами,The oaf with the pitchfork
+UNIT_BALLISTA_NAME,Баллиста,Ballista
+UNIT_BALLISTA_DESC,Главное - развернуть в нужную сторону,The main thing is to turn it in the right direction
+UNIT_CANNONTOWER_NAME,Орудийная башня,Cannon tower
+UNIT_CANNONTOWER_DESC,"Бойниц не много, но в каждой по пушке","There aren't many loopholes, but each one has a cannon"
+UNIT_CUTTHROAT_NAME,Головорез,Cutthroat
+UNIT_CUTTHROAT_DESC,После встречи проверяйте карманы,Check your pockets after the meeting
+UNIT_DEMONHUNTER_NAME,Охотник на демонов,Demonhunter
+UNIT_DEMONHUNTER_DESC,Берегись стального болта,Beware of the steel bolt
+UNIT_FYRD_NAME,Ополченец,Fyrd
+UNIT_FYRD_DESC,Больше драки любит только пьянку,He loves drinking more than fighting
+UNIT_INQUISITOR_NAME,Инквизитор,Inquisitor
+UNIT_INQUISITOR_DESC,В ваших интересах покаяться,It is in your best interest to repent
+UNIT_KNIGHT_NAME,Рыцарь,Knight
+UNIT_KNIGHT_DESC,"Неказистый, но могучий воин",An unattractive but mighty warrior
+UNIT_SUNPRIEST_NAME,Жрец солнца,Sun priest
+UNIT_SUNPRIEST_DESC,Служение требует дисциплины и денег,Faith requires discipline and money
+UNIT_WARLOCK_NAME,Колдун,Warlock
+UNIT_WARLOCK_DESC,"Мог бы стать садовником, но выбрал колдовство","He could have become a gardener, but he chose witchcraft"
+UNIT_YEOMEN_NAME,Лучник,Yeomen
+UNIT_YEOMEN_DESC,"Убегает с поля боя быстрее, чем летит стрела",He runs away from the battlefield faster than an arrow flies
+UNIT_ACCURSED_NAME,Проклятый,Accursed
+UNIT_ACCURSED_DESC,Однажды выбрал не ту дорогу,"One day, he took the wrong path"
+UNIT_BLOODSUCKER_NAME,Кровосос,Bloodsucker
+UNIT_BLOODSUCKER_DESC,Не смотри в глаз. Если это глаз.,Don't make eye contact. If it's an eye
+UNIT_CHOCOATL_NAME,Чокоатль,Chocoatl
+UNIT_CHOCOATL_DESC,Не трогайте его. Он мирный.,Don't touch him. It's peaceful
+UNIT_CULTIST_NAME,Культист,Cultist
+UNIT_CULTIST_DESC,Предрасположен к вербовке,Predisposed to recruitment
+UNIT_FIEND_NAME,Бес,Fiend
+UNIT_FIEND_DESC,Представитель низшей касты,A representative of the lower caste
+UNIT_IMP_NAME,Имп,Imp
+UNIT_IMP_DESC,"Мелкое, но злобное существо",A small but vicious creature
+UNIT_MANTICORE_NAME,Мантикора,Manticore
+UNIT_MANTICORE_DESC,Кошку с рук не кормить,Do not feed the cat with your hands
+UNIT_SUBSTANCE_NAME,Субстанция,Substance
+UNIT_SUBSTANCE_DESC,В некоторых странах это деликатес,In some countries it is a delicacy
+UNIT_SUCCUBUS_NAME,Суккуб,Succubus
+UNIT_SUCCUBUS_DESC,Сложно найти и легко потерять,Look like a million sovereigns
+UPGRADE_ARMOR10_NAME,Броня 10%,Armor 10%
+UPGRADE_ARMOR10_DESC,Защита от физ атаки повышена на 10%,Physical attack defence increased by 10%
+UPGRADE_ARMOR20_NAME,Броня 20%,Armor 20%
+UPGRADE_ARMOR20_DESC,Защита от физ атаки повышена на 20%,Physical attack defence increased by 20%
+UPGRADE_ARMOR30_NAME,Броня 30%,Armor 30%
+UPGRADE_ARMOR30_DESC,Защита от физ атаки повышена на 30%,Physical attack defence increased by 30%
+UPGRADE_ARMOR35_NAME,Броня 35%,Armor 35%
+UPGRADE_ARMOR35_DESC,Защита от физ атаки повышена на 35%,Physical attack defence increased by 35%
+UPGRADE_ASPD02_NAME,Скорость атаки -0.2,Attack speed -0.2
+UPGRADE_ASPD02_DESC,Скорость атаки быстрее на 0.2с,Attack speed is faster by 0.2s
+UPGRADE_ASPD04_NAME,Скорость атаки -0.4,Attack speed -0.4
+UPGRADE_ASPD04_DESC,Скорость атаки быстрее на 0.4с,Attack speed is faster by 0.4s
+UPGRADE_ASPD05_NAME,Скорость атаки -0.5,Attack speed -0.5
+UPGRADE_ASPD05_DESC,Скорость атаки быстрее на 0.5с,Attack speed is faster by 0.5s
+UPGRADE_ASPD06_NAME,Скорость атаки -0.6,Attack speed -0.6
+UPGRADE_ASPD06_DESC,Скорость атаки быстрее на 0.6с,Attack speed is faster by 0.6s
+UPGRADE_CRITATT35_NAME,Крит атака 35%,Critical attack 35%
+UPGRADE_CRITATT35_DESC,Критическая атака увеличина на 35%,Critical attack increased by 35%
+UPGRADE_CRITATT70_NAME,Крит атака 70%,Critical attack 70%
+UPGRADE_CRITATT70_DESC,Критическая атака увеличина на 70%,Critical attack increased by 70%
+UPGRADE_CRITATT100_NAME,Крит атака 100%,Critical attack 100%
+UPGRADE_CRITATT100_DESC,Критическая атака увеличина на 100%,Critical attack increased by 100%
+UPGRADE_CRITATT125_NAME,Крит атака 125%,Critical attack 125%
+UPGRADE_CRITATT125_DESC,Критическая атака увеличина на 125%,Critical attack increased by 125%
+UPGRADE_CRITCH10_NAME,Крит шанс 10%,Critical chance 10%
+UPGRADE_CRITCH10_DESC,Шанс критической атаки повышен на 10%,Critical attack chance increased by 10%
+UPGRADE_CRITCH20_NAME,Крит шанс 20%,Critical chance 20%
+UPGRADE_CRITCH20_DESC,Шанс критической атаки повышен на 20%,Critical attack chance increased by 20%
+UPGRADE_CRITCH30_NAME,Крит шанс 30%,Critical chance 30%
+UPGRADE_CRITCH30_DESC,Шанс критической атаки повышен на 30%,Critical attack chance increased by 30%
+UPGRADE_CRITCH40_NAME,Крит шанс 40%,Critical chance 40%
+UPGRADE_CRITCH40_DESC,Шанс критической атаки повышен на 40%,Critical attack chance increased by 40%
+UPGRADE_DAMAGE10_NAME,Общий урон 10%,All damage 10%
+UPGRADE_DAMAGE10_DESC,Повышает общий урон на 10%,Increases all damage by 10%
+UPGRADE_DAMAGE20_NAME,Общий урон 20%,All damage 20%
+UPGRADE_DAMAGE20_DESC,Повышает общий урон на 20%,Increases all damage by 20%
+UPGRADE_DAMAGE30_NAME,Общий урон 30%,All damage 30%
+UPGRADE_DAMAGE30_DESC,Повышает общий урон на 30%,Increases all damage by 30%
+UPGRADE_DAMAGE40_NAME,Общий урон 40%,All damage 40%
+UPGRADE_DAMAGE40_DESC,Повышает общий урон на 40%,Increases all damage by 40%
+UPGRADE_DODGE10_NAME,Уворот 10%,Dodge 10%
+UPGRADE_DODGE10_DESC,Шанс увернуться от физ атаки повышен на 10%,The chance to dodge a physical attack increased by 10%
+UPGRADE_DODGE20_NAME,Уворот 20%,Dodge 20%
+UPGRADE_DODGE20_DESC,Шанс увернуться от физ атаки повышен на 20%,The chance to dodge a physical attack increased by 20%
+UPGRADE_DODGE30_NAME,Уворот 30%,Dodge 30%
+UPGRADE_DODGE30_DESC,Шанс увернуться от физ атаки повышен на 30%,The chance to dodge a physical attack increased by 30%
+UPGRADE_DODGE35_NAME,Уворот 35%,Dodge 35%
+UPGRADE_DODGE35_DESC,Шанс увернуться от физ атаки повышен на 35%,The chance to dodge a physical attack increased by 35%
+UPGRADE_HEALTH15_NAME,Здоровье 15%,HP 15%
+UPGRADE_HEALTH15_DESC,Очки здоровья увеличены на 15%,Health points increased by 15%
+UPGRADE_HEALTH30_NAME,Здоровье 30%,HP 30%
+UPGRADE_HEALTH30_DESC,Очки здоровья увеличены на 30%,Health points increased by 30%
+UPGRADE_HEALTH30_NAME,Здоровье 30%,HP 30%
+UPGRADE_HEALTH30_DESC,Очки здоровья увеличены на 30%,Health points increased by 30%
+UPGRADE_HEALTH40_NAME,Здоровье 40%,HP 40%
+UPGRADE_HEALTH40_DESC,Очки здоровья увеличены на 40%,Health points increased by 40%
+UPGRADE_HEALTH50_NAME,Здоровье 50%,HP 50%
+UPGRADE_HEALTH50_DESC,Очки здоровья увеличены на 50%,Health points increased by 50%
+UPGRADE_LS10_NAME,Вампиризм 10%,Lifesteal 10%
+UPGRADE_LS10_DESC,Повышает вампиризм на 10%,Lifesteal increased be 10%
+UPGRADE_LS20_NAME,Вампиризм 20%,Lifesteal 20%
+UPGRADE_LS20_DESC,Повышает вампиризм на 20%,Lifesteal increased be 20%
+UPGRADE_LS25_NAME,Вампиризм 25%,Lifesteal 25%
+UPGRADE_LS25_DESC,Повышает вампиризм на 25%,Lifesteal increased be 25%
+UPGRADE_LS30_NAME,Вампиризм 30%,Lifesteal 30%
+UPGRADE_LS30_DESC,Повышает вампиризм на 30%,Lifesteal increased be 30%
+UPGRADE_MATTACK20_NAME,Маг атака 20%,Magical attack 20%
+UPGRADE_MATTACK20_DESC,Повышает магическую атаку на 20%,Magic attack increased by 20%
+UPGRADE_MATTACK40_NAME,Маг атака 40%,Magical attack 40%
+UPGRADE_MATTACK40_DESC,Повышает магическую атаку на 40%,Magic attack increased by 40%
+UPGRADE_MATTACK60_NAME,Маг атака 60%,Magical attack 60%
+UPGRADE_MATTACK60_DESC,Повышает магическую атаку на 60%,Magic attack increased by 60%
+UPGRADE_MATTACK80_NAME,Маг атака 80%,Magical attack 80%
+UPGRADE_MATTACK80_DESC,Повышает магическую атаку на 80%,Magic attack increased by 80%
+UPGRADE_MDEF10_NAME,Маг защита 10%,Magic defence 10%
+UPGRADE_MDEF10_DESC,Защита от маг атаки повышена на 10%,Magical attack defence increased by 10%
+UPGRADE_MDEF20_NAME,Маг защита 20%,Magic defence 20%
+UPGRADE_MDEF20_DESC,Защита от маг атаки повышена на 20%,Magical attack defence increased by 20%
+UPGRADE_MDEF30_NAME,Маг защита 30%,Magic defence 30%
+UPGRADE_MDEF30_DESC,Защита от маг атаки повышена на 30%,Magical attack defence increased by 30%
+UPGRADE_MDEF35_NAME,Маг защита 35%,Magic defence 35%
+UPGRADE_MDEF35_DESC,Защита от маг атаки повышена на 35%,Magical attack defence increased by 35%
+UPGRADE_MSPD10_NAME,Скорость +10,Movespeed +10
+UPGRADE_MSPD10_DESC,Скорость движения увеличена на 10,Movement speed increased by 10
+UPGRADE_MSPD20_NAME,Скорость +20,Movespeed 20
+UPGRADE_MSPD20_DESC,Скорость движения увеличена на 20,Movement speed increased by 20
+UPGRADE_MSPD30_NAME,Скорость +30,Movespeed 30
+UPGRADE_MSPD30_DESC,Скорость движения увеличена на 30,Movement speed increased by 30
+UPGRADE_MSPD35_NAME,Скорость +35,Movespeed 35
+UPGRADE_MSPD35_DESC,Скорость движения увеличена на 35,Movement speed increased by 35
+UPGRADE_PATTACK20_NAME,Физ атака 20%,Phys attack 20%
+UPGRADE_PATTACK20_DESC,Повышает физическую атаку на 20%,Phys attack increased by 20%
+UPGRADE_PATTACK40_NAME,Физ атака 40%,Phys attack 40%
+UPGRADE_PATTACK40_DESC,Повышает физическую атаку на 40%,Phys attack increased by 40%
+UPGRADE_PATTACK60_NAME,Физ атака 60%,Phys attack 60%
+UPGRADE_PATTACK60_DESC,Повышает физическую атаку на 60%,Phys attack increased by 60%
+UPGRADE_PATTACK80_NAME,Физ атака 80%,Phys attack 80%
+UPGRADE_PATTACK80_DESC,Повышает физическую атаку на 80%,Phys attack increased by 80%
+UPGRADE_RANGE10_NAME,Дальность +10,Range +10
+UPGRADE_RANGE10_DESC,Повышает дальность атаки на 10,Attack range increased by 10
+UPGRADE_RANGE20_NAME,Дальность +20,Range +20
+UPGRADE_RANGE20_DESC,Повышает дальность атаки на 20,Attack range increased by 20
+UPGRADE_RANGE30_NAME,Дальность +30,Range +30
+UPGRADE_RANGE30_DESC,Повышает дальность атаки на 30,Attack range increased by 30
+UPGRADE_RANGE40_NAME,Дальность +40,Range +40
+UPGRADE_RANGE40_DESC,Повышает дальность атаки на 40,Attack range increased by 40
+UPGRADE_REGEN5_NAME,Регенерация +5,Regeneration +5
+UPGRADE_REGEN5_DESC,Восстанавливает 5 здоровья раз в 5с,Restores 5 health every 5s
+UPGRADE_REGEN10_NAME,Регенерация +10,Regeneration +10
+UPGRADE_REGEN10_DESC,Восстанавливает 10 здоровья раз в 6с,Restores 10 health every 6s
+UPGRADE_REGEN15_NAME,Регенерация +15,Regeneration +15
+UPGRADE_REGEN15_DESC,Восстанавливает 15 здоровья раз в 7с,Restores 15 health every 7s
+UPGRADE_REGEN20_NAME,Регенерация +20,Regeneration +20
+UPGRADE_REGEN20_DESC,Восстанавливает 20 здоровья раз в 8с,Restores 20 health every 8s
+UPGRADE_TATTACK20_NAME,Чистая атака 20%,Pure attack 20%
+UPGRADE_TATTACK20_DESC,Повышает чистую атаку на 20%,Pure attack increased by 20%
+UPGRADE_TATTACK40_NAME,Чистая атака 40%,Pure attack 40%
+UPGRADE_TATTACK40_DESC,Повышает чистую атаку на 40%,Pure attack increased by 40%
+UPGRADE_TATTACK60_NAME,Чистая атака 60%,Pure attack 60%
+UPGRADE_TATTACK60_DESC,Повышает чистую атаку на 60%,Pure attack increased by 60%
+UPGRADE_TATTACK80_NAME,Чистая атака 80%,Pure attack 80%
+UPGRADE_TATTACK80_DESC,Повышает чистую атаку на 80%,Pure attack increased by 80%
+PERC_ATHEIST_NAME,Атеист,Atheist
+PERC_ATHEIST_DESC,"У вас повышенный иммунитет к магии, но и колдуете вы слабо","You have increased magic defence, but you don't do much magic either"
+PERC_FREAKY_NAME,Шальной,Freaky
+PERC_FREAKY_DESC,"Ваша скорость атаки увеличена, но точность и скорость страдают","Your attack speed is increased, but your accuracy and speed suffer"
+PERC_BURLY_NAME,Тучный,Burly
+PERC_BURLY_DESC,Вы слегка полноваты. ХП: +20%. Скорость атаки: -30%,You're a little overweight. HP: +20%. Attack Speed: -30%
+PERC_DASTARD_NAME,Подлец,Dastard
+PERC_DASTARD_DESC,"У вас увеличенный чистый урон, но слабое здоровье","You have increased pure attack, but reduced health"
+PERC_DEVOUT_NAME,Набожный,Devout
+PERC_DEVOUT_DESC,"Вы постоянно восстанавливаете здоровье, но атакующие силы ослаблены","You're constantly regaining health, but your attacking powers are weakened"
+PERC_GHOUL_NAME,Упырь,Ghoul
+PERC_GHOUL_DESC,"Вы лечитесь от нанесенного урона, но здоровье страдает","Your lifesteal increased, but health suffers"
+PERC_GIANT_NAME,Великан,Giant
+PERC_GIANT_DESC,"Ваше здоровье повышено, но со скоростью беда","Your health is improved, but speed is a problem"
+PERC_KEENSIGHTED_NAME,Зоркий,Keensighted
+PERC_KEENSIGHTED_DESC,"Ваша дальность атаки повышена, но скорость атаки снижена","Your attack range  increased, but your attack speed reduced"
+PERC_LUCKY_NAME,Фартовый,Lucky
+PERC_LUCKY_DESC,"Ваш критический шанс повышен, но чистая атака понижена","Your critical chance increased, but your pure attack lowered"
+PERC_MYOPIC_NAME,Близорукий,Myopic
+PERC_MYOPIC_DESC,"Весь ваш урон повышен, но дальность атаки сокращается","All your damage is increased, but your attack range is reduced."
+PERC_PEACEFUL_NAME,Мирный,Peaceful
+PERC_PEACEFUL_DESC,"Вы получаете меньше урона, но часто промахиваетесь","You take less damage, but you miss a lot"
+PERC_POSSESSED_NAME,Помешанный,Possessed
+PERC_POSSESSED_DESC,"Ваша скорость повышена, но здоровье утекает","Your speed is increased, but your health is running out"
+PERC_PUNY_NAME,Тщедушный,Puny
+PERC_PUNY_DESC,"Вы неплохо уворачиваетесь, но защита так себе","You're good at dodging, but your defense is so-so"
+PERC_RISKY_NAME,Рисковый,Risky
+PERC_RISKY_DESC,"Ваша крит атак увеличена, но физ урон уменьшен","Your critical attack increased, but your physical damage reduced"
+PERC_SCHOLAR_NAME,Ученый,Scholar
+PERC_SCHOLAR_DESC,"Вы неплохо владете магией, но хиловаты","You're pretty good at magic, but you're a bit frail."
+PERC_SCRIBE_NAME,Монах,Scribe
+PERC_SCRIBE_DESC,"Ваша магия сильнее, но другие виды атаки атрофированы","Your magic is stronger, but other types of attacks are atrophied"
+PERC_SHARPSHOOTER_NAME,Снайпер,Sharpshooter
+PERC_SHARPSHOOTER_DESC,"Ваша дальность атаки повышена, но скорость полета снаряда ниже","Your attack range increased, but the projectile's flight speed is lower"
+PERC_SQUINT_NAME,Косой,Squint
+PERC_SQUINT_DESC,"У вас крепкая рука, но это надо еще попасть","You have a strong hand, but it still needs to be hit"
+PERC_STOCKY_NAME,Крепыш,Stocky
+PERC_STOCKY_DESC,"У вас хорошая защита и броня, но медленные руки","You have good protection and armor, but slow hands"
+PERC_THUG_NAME,Громила,Thug
+PERC_THUG_DESC,"Вы любите ломать черепушки, но медленно двигаетесь","ou like to break skulls, but you move slowly"
+PERC_TOXIC_NAME,Токсик,Toxic
+PERC_TOXIC_DESC,"Вы наносите больше урона, но страдаете от яда","You do more damage, but you suffer from poison"

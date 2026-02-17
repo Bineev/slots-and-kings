@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_2rm8e")
-slot_name = "рисковый"
-slot_description = "Ваша крит атак увеличена, но физ урон уменьшен"
+slot_name = "PERC_RISKY_NAME"
+slot_description = "PERC_RISKY_DESC"
 slot_sprite = ExtResource("2_iomq1")
 slot_type = 2
 entity_tier = 3

@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_ur4p3")
-slot_name = "ученый"
-slot_description = "Вы неплохо владете магией, но хиловаты"
+slot_name = "PERC_SCHOLAR_NAME"
+slot_description = "PERC_SCHOLAR_DESC"
 slot_sprite = ExtResource("2_33erl")
 slot_type = 2
 entity_tier = 2
-health_mult = 0.7
 magical_attack_mult = 1.5
+health_mult = 0.7
 metadata/_custom_type_script = "uid://ckeieckjuifia"

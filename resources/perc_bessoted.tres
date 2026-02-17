@@ -5,13 +5,13 @@
 
 [resource]
 script = ExtResource("1_hlyt6")
-slot_name = "шальной"
-slot_description = "Ваша скорость атаки увеличена, но точность и скорость страдают"
+slot_name = "PERC_FREAKY_NAME"
+slot_description = "PERC_FREAKY_DESC"
 slot_sprite = ExtResource("2_nhyh5")
 slot_type = 2
 entity_tier = 2
-hit_chance_mult = 0.8
 attack_speed_mult = 0.5
+hit_chance_mult = 0.8
 move_speed_mult = 0.7
 damage_mult_vs_all = 1.2
 metadata/_custom_type_script = "uid://ckeieckjuifia"

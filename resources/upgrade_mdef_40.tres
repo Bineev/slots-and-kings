@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_pggs3")
-slot_name = "маг защита 30%"
-slot_description = "Защита от маг атаки повышена на 30%"
+slot_name = "UPGRADE_MDEF30_NAME"
+slot_description = "UPGRADE_MDEF30_DESC"
 slot_sprite = ExtResource("2_3jfeg")
 entity_tier = 3
 magic_defence = 30.0

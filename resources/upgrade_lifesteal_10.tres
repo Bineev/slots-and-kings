@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_b8351")
-slot_name = "лайфстил 10%"
-slot_description = "Повышает лайфстил на 10%"
+slot_name = "UPGRADE_LS10_NAME"
+slot_description = "UPGRADE_LS10_DESC"
 slot_sprite = ExtResource("2_c2vi3")
 entity_tier = 1
 life_steal = 10.0

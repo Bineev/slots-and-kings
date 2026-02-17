@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_q6wsq")
-slot_name = "скорость +10"
-slot_description = "Скорость движения увеличена на 10"
+slot_name = "UPGRADE_MSPD10_NAME"
+slot_description = "UPGRADE_MSPD10_DESC"
 slot_sprite = ExtResource("2_2yw8v")
 entity_tier = 1
 move_speed = 10.0

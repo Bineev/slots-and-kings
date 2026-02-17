@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_b3bd4")
-slot_name = "тучный"
-slot_description = "Вы слегка полноваты. ХП: +20%. Скорость атаки: -30%"
+slot_name = "PERC_BURLY_NAME"
+slot_description = "PERC_BURLY_DESC"
 slot_sprite = ExtResource("2_pmoox")
 slot_type = 2
 entity_tier = 1

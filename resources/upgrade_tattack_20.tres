@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_kb0i0")
-slot_name = "чистая атака 20%"
-slot_description = "Повышает чистую атаку на 20%"
+slot_name = "UPGRADE_TATTACK20_NAME"
+slot_description = "UPGRADE_TATTACK20_DESC"
 slot_sprite = ExtResource("2_8qbhm")
 entity_tier = 1
 true_damage_mult = 1.2

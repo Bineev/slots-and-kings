@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_pepy7")
-slot_name = "здоровье 40%"
-slot_description = "Очки здоровья увеличены на 40%"
+slot_name = "UPGRADE_HEALTH40_NAME"
+slot_description = "UPGRADE_HEALTH40_DESC"
 slot_sprite = ExtResource("2_h2cdd")
 entity_tier = 3
 health_mult = 1.4

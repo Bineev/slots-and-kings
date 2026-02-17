@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_qejb0")
-slot_name = "уворот 20%"
-slot_description = "Шанс увернуться от физ атаки повышен на 20%"
+slot_name = "UPGRADE_DODGE20_NAME"
+slot_description = "UPGRADE_DODGE20_DESC"
 slot_sprite = ExtResource("2_lob5y")
 entity_tier = 2
 evade = 20.0

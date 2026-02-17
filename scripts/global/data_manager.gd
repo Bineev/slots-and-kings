@@ -169,6 +169,17 @@ var unit_types_table : Dictionary = {
 	UnitType.AOE : 'АОЕ',
 }
 
+var unit_types_table_en : Dictionary = {
+	UnitType.MELEE : 'MELEE',
+	UnitType.RANGE : 'RANGE',
+	UnitType.PHYS : 'PHYS',
+	UnitType.MAGE : 'MAGE',
+	UnitType.SUPPORT : 'SUPPORT',
+	UnitType.TANK : 'TANK',
+	UnitType.ASSASSIN : 'ASSASSIN',
+	UnitType.AOE : 'АОЕ',
+}
+
 
 
 var default_choose_amount : int = 2

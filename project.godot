@@ -97,7 +97,7 @@ swap_down={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://resources/slot_res.gd")
+locale/translations=PackedStringArray("res://translation/sk_translation.en.translation", "res://translation/sk_translation.ru.translation")
 
 [rendering]
 

@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_675sj")
-slot_name = "маг атака 40%"
-slot_description = "Повышает магическую атаку на 40%"
+slot_name = "UPGRADE_MATTACK40_NAME"
+slot_description = "UPGRADE_MATTACK40_DESC"
 slot_sprite = ExtResource("2_hvxga")
 entity_tier = 2
 magical_attack_mult = 1.4

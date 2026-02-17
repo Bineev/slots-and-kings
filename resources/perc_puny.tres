@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_06hj2")
-slot_name = "тщедушный"
-slot_description = "Вы неплохо уворачиваетесь, но защита так себе"
+slot_name = "PERC_PUNY_NAME"
+slot_description = "PERC_PUNY_DESC"
 slot_sprite = ExtResource("2_nyv8y")
 slot_type = 2
 entity_tier = 4

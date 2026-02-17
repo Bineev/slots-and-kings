@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_73mh6")
-slot_name = "дальность +10"
-slot_description = "Повышает дальность атаки на 10"
+slot_name = "UPGRADE_RANGE10_NAME"
+slot_description = "UPGRADE_RANGE10_DESC"
 slot_sprite = ExtResource("2_f2wjr")
 entity_tier = 1
 attack_range = 10.0
