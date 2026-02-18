@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_pfgvj")
 skill_tier = 2
-skill_name = "банкет"
-skill_desc = "Пир посреди боя восстанавливает здоровье с определенным интервалом"
+skill_name = "ASKILL_BANQUET_NAME"
+skill_desc = "ASKILL_BANQUET_DESC"
 skill_preview = ExtResource("3_nuprs")
 skill_anim = ExtResource("2_jlmby")
 is_void_zone = true

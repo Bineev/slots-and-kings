@@ -7,8 +7,8 @@
 script = ExtResource("1_6jicf")
 skill_passive_type = 4
 skill_tier = 1
-skill_name = "культист - мастерство"
-skill_desc = "Боец \"Культист\" увеличивает маш атаку и шанс крита"
+skill_name = "PSKILL_CULTISTM_NAME"
+skill_desc = "PSKILL_CULTISTM_DESC"
 skill_preview = ExtResource("2_6jicf")
 skill_unit_name = "культист"
 skill_buff_stats = Array[Dictionary]([{

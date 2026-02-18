@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_14j6b")
 skill_tier = 1
-skill_name = "мастеровой - 1 волна"
-skill_desc = "Дает 5 токенов после каждой волны"
+skill_name = "PSKILL_ARTISANW1_NAME"
+skill_desc = "PSKILL_ARTISANW1_DESC"
 skill_preview = ExtResource("2_jhc7q")
 skill_resources = Array[int]([1])
 skill_resources_amounts = Array[int]([5])

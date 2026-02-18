@@ -7,8 +7,8 @@
 script = ExtResource("1_dox07")
 skill_passive_type = 4
 skill_tier = 2
-skill_name = "головорез - ярость"
-skill_desc = "Боец \"Головорез\" повышает чистый урон и скорость атаки"
+skill_name = "PSKILL_CUTTHROATF_NAME"
+skill_desc = "PSKILL_CUTTHROATF_DESC"
 skill_preview = ExtResource("2_hu6lp")
 skill_unit_name = "головорез"
 skill_buff_stats = Array[Dictionary]([{

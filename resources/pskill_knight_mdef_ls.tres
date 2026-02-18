@@ -7,8 +7,8 @@
 script = ExtResource("1_qplkc")
 skill_passive_type = 4
 skill_tier = 3
-skill_name = "рыцарь - дисциплина"
-skill_desc = "Боец \"Рыцарь\" повышает лайфстил и маг защиту"
+skill_name = "PSKILL_KNIGHTD_NAME"
+skill_desc = "PSKILL_KNIGHTD_DESC"
 skill_preview = ExtResource("2_wngu2")
 skill_unit_name = "рыцарь"
 skill_buff_stats = Array[Dictionary]([{

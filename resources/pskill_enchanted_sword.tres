@@ -7,8 +7,8 @@
 script = ExtResource("1_6a0ip")
 skill_passive_type = 5
 skill_tier = 2
-skill_name = "зачарованный меч"
-skill_desc = "Все мили получают броню и скорость передвижения"
+skill_name = "PSKILL_ENCHSWORD_NAME"
+skill_desc = "PSKILL_ENCHSWORD_DESC"
 skill_preview = ExtResource("2_fwm0y")
 skill_buff_stats = Array[Dictionary]([{
 "stat_change_amount": 1.3,

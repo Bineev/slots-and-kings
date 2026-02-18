@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_k6j7s")
 skill_tier = 1
-skill_name = "кипящее дерьмо"
-skill_desc = "При приближении врага взрывает чан с кипящим дерьмом. Наносит урон и понижает всю защиту, скорость атаки, движения и точность противника"
+skill_name = "ASKILL_BOILEDDUNG_NAME"
+skill_desc = "ASKILL_BOILEDDUNG_DESC"
 skill_preview = ExtResource("3_vmfp5")
 skill_anim = ExtResource("2_uo22x")
 skill_target_type = 1

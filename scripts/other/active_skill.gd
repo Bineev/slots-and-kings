@@ -75,8 +75,8 @@ func initialize():
 	skill_tier = skill_res.skill_tier
 	skill_buff_stats = skill_res.skill_buff_stats
 	skill_preview = skill_res.skill_preview
-	skill_name = skill_res.skill_name
-	skill_desc = skill_res.skill_desc
+	skill_name = tr(skill_res.skill_name)
+	skill_desc = tr(skill_res.skill_desc)
 	skill_delay = skill_res.skill_delay
 	is_void_zone = skill_res.is_void_zone
 	is_trap = skill_res.is_trap
@@ -272,27 +272,42 @@ func create_tooltip():
 	tooltip.set_entity_desc(skill_desc)
 	tooltip.set_entity_tier(skill_tier)
 	var skill_stats : String
+	var current_locale : String = TranslationServer.get_locale()
+	var current_data_skill_table : Dictionary
+	var unit_type_to_damage_type_table : Dictionary
+	var default_stats_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_data_skill_table = DataManager.data_skill_table_en
+			unit_type_to_damage_type_table = DataManager.unit_type_to_damage_type_table_en
+			default_stats_table = DataManager.default_stats
+		'ru_RU':
+			current_data_skill_table = DataManager.data_skill_table_ru
+			unit_type_to_damage_type_table = DataManager.unit_type_to_damage_type_table
+			default_stats_table = DataManager.default_stats_to_rus
 	# генерируем инфу
 	if skill_cooldown > 0:
-		skill_stats += 'откат: %d с\n' % skill_cooldown
+		skill_stats += '%s: %d с\n' % [current_data_skill_table.cd, skill_cooldown]
 	if skill_flat_damage > 0:
-		skill_stats += 'урон: %d\n' % skill_flat_damage
+		skill_stats += '%s: %d\n' % [current_data_skill_table.damage, skill_flat_damage]
 	if skill_tick_damage > 0:
-		skill_stats += 'урон: %d\n' % skill_tick_damage
+		skill_stats += '%s: %d\n' % [current_data_skill_table.damage, skill_tick_damage]
 	if skill_flat_damage > 0 or skill_tick_damage > 0:
-		skill_stats += 'тип: %s\n' % DataManager.unit_type_to_damage_type_table[skill_damage_type]
+		skill_stats += '%s: %s\n' % [current_data_skill_table.type,unit_type_to_damage_type_table[skill_damage_type]]
 	if skill_flat_heal > 0:
-		skill_stats += 'лечение: %d\n' % skill_flat_heal
+		skill_stats += '%s: %d\n' % [current_data_skill_table.heal, skill_flat_heal]
 	if skill_tick_heal > 0:
-		skill_stats += 'лечение: %d\n' % skill_tick_heal
+		skill_stats += '%s: %d\n' % [current_data_skill_table.heal, skill_tick_heal]
 	if skill_tick_interval > 0:
-		skill_stats += 'интервал: %.1f\n' % skill_tick_interval
+		skill_stats += '%s: %.1f\n' % [current_data_skill_table.interval, skill_tick_interval]
 	#if skill_buff_amount > 0:
 		#skill_stats += 'величина бафа: %.1f%\n' % ((skill_buff_amount - 1) * 100)
 	if skill_duration > 0:
-		skill_stats += 'длительность: %.1f с\n' % skill_duration
+		skill_stats += '%s: %.1f с\n' % [current_data_skill_table.duration, skill_duration]
+
 	for dict in skill_buff_stats:
-		var stat_info : String = DataManager.default_stats_to_rus[dict.stat_name] + ': '
+		var stat_info : String = default_stats_table[dict.stat_name] + ': '
+		stat_info.replace('_', ' ')
 		if dict.stat_change_type == 0:
 			if skill_target_type == DataManager.UnitOwner.PLAYER:
 				stat_info += '+%s' % str(int(dict.stat_change_amount))

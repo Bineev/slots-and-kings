@@ -7,8 +7,8 @@
 script = ExtResource("1_mg45c")
 skill_passive_type = 4
 skill_tier = 3
-skill_name = "суккуб - дисциплина"
-skill_desc = "Боец \"Суккуб\" повышает регенерацию и броню"
+skill_name = "PSKILL_SUCCUBUSD_NAME"
+skill_desc = "PSKILL_SUCCUBUSD_DESC"
 skill_preview = ExtResource("2_mg45c")
 skill_unit_name = "суккуб"
 skill_buff_stats = Array[Dictionary]([{

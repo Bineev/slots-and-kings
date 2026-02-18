@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_onlek")
 skill_passive_type = 4
-skill_name = "имп - дисциплина"
-skill_desc = "Боец \"Имп\" повышает регенерацию и маг ащиту"
+skill_name = "PSKILL_IMPD_NAME"
+skill_desc = "PSKILL_IMPD_DESC"
 skill_preview = ExtResource("2_onlek")
 skill_unit_name = "имп"
 skill_buff_stats = Array[Dictionary]([{

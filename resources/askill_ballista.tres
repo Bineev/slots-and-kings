@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("1_beu5q")
 skill_tier = 3
-skill_name = "тяжелое вооружение"
-skill_desc = "Устанавливает на поле боя временную баллисту"
+skill_name = "ASKILL_BALLISTA_NAME"
+skill_desc = "ASKILL_BALLISTA_DESC"
 skill_preview = ExtResource("3_bkhn8")
 skill_anim = ExtResource("2_p3t08")
 skill_damage_type = 2

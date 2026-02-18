@@ -7,8 +7,8 @@
 script = ExtResource("1_5pn5p")
 skill_passive_type = 4
 skill_tier = 4
-skill_name = "охотник на демонов - дисциплина"
-skill_desc = "Боец \"Охотник на демонов\" повышает уворот и лайстил"
+skill_name = "PSKILL_DEMONHUNTERD_NAME"
+skill_desc = "PSKILL_DEMONHUNTERD_DESC"
 skill_preview = ExtResource("2_b51vs")
 skill_unit_name = "охотник на демонов"
 skill_buff_stats = Array[Dictionary]([{

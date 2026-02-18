@@ -7,8 +7,8 @@
 script = ExtResource("1_joamy")
 skill_passive_type = 4
 skill_tier = 1
-skill_name = "лучник - мастерство"
-skill_desc = "Боец \"Лучник\" увеличивает урон и шанс крита"
+skill_name = "PSKILL_YEOMENM_NAME"
+skill_desc = "PSKILL_YEOMENM_DESC"
 skill_preview = ExtResource("2_onbw6")
 skill_unit_name = "лучник"
 skill_buff_stats = Array[Dictionary]([{

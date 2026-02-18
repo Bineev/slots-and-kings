@@ -7,8 +7,8 @@
 script = ExtResource("1_jkgm0")
 skill_passive_type = 4
 skill_tier = 2
-skill_name = "мантикора - ярость"
-skill_desc = "Боец \"Мантикора\" повышает скорость атаки и дальность"
+skill_name = "PSKILL_MANTICOREF_NAME"
+skill_desc = "PSKILL_MANTICOREF_DESC"
 skill_preview = ExtResource("2_jkgm0")
 skill_unit_name = "мантикора"
 skill_buff_stats = Array[Dictionary]([{

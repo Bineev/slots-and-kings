@@ -7,8 +7,8 @@
 script = ExtResource("1_ot3fj")
 skill_passive_type = 2
 skill_tier = 1
-skill_name = "мастеровой - 1 мин"
-skill_desc = "Дает 3 токена каждую минуту"
+skill_name = "PSKILL_ARTISANT1_NAME"
+skill_desc = "PSKILL_ARTISANT1_DESC"
 skill_preview = ExtResource("2_sck7c")
 skill_resources = Array[int]([1])
 skill_resources_amounts = Array[int]([3])

@@ -7,8 +7,8 @@
 script = ExtResource("1_b6j55")
 skill_passive_type = 4
 skill_tier = 2
-skill_name = "кровосос"
-skill_desc = "Боец \"Кровосос\" повышает шанс крита и крит урон"
+skill_name = "PSKILL_BLOODSUCKERM_NAME"
+skill_desc = "PSKILL_BLOODSUCKERM_DESC"
 skill_preview = ExtResource("2_b6j55")
 skill_unit_name = "кровосос"
 skill_buff_stats = Array[Dictionary]([{

@@ -7,8 +7,8 @@
 script = ExtResource("1_507lf")
 skill_passive_type = 4
 skill_tier = 1
-skill_name = "ополченец - ярость"
-skill_desc = "Боец \"Ополченец\" повышает скорость атаки и движения"
+skill_name = "PSKILL_FYRDF_NAME"
+skill_desc = "PSKILL_FYRDF_DESC"
 skill_preview = ExtResource("2_w2kdg")
 skill_unit_name = "ополченец"
 skill_buff_stats = Array[Dictionary]([{

@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_vmxd4")
 skill_tier = 2
-skill_name = "земной огонь"
-skill_desc = "Минирует область, которая деторирует при приближении врага"
+skill_name = "ASKILL_EARTHLYTHUNDER_NAME"
+skill_desc = "ASKILL_EARTHLYTHUNDER_DESC"
 skill_preview = ExtResource("3_t841y")
 skill_anim = ExtResource("2_lardy")
 skill_target_type = 1

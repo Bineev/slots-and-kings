@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_rqpk7")
 skill_tier = 1
-skill_name = "ледяной столп"
-skill_desc = "Поднимает из земли ледяной столп. Наносит урон и замораживает противников"
+skill_name = "ASKILL_ICEPILLAR_NAME"
+skill_desc = "ASKILL_ICEPILLAR_DESC"
 skill_preview = ExtResource("3_jedoi")
 skill_anim = ExtResource("2_hhh5r")
 skill_target_type = 1

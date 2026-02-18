@@ -7,8 +7,8 @@
 script = ExtResource("1_mebdo")
 skill_passive_type = 4
 skill_tier = 2
-skill_name = "головорез"
-skill_desc = "Боец \"Головорез\" повышает шанс крита и крит урон"
+skill_name = "PSKILL_CUTTHROATM_NAME"
+skill_desc = "PSKILL_CUTTHROATM_DESC"
 skill_preview = ExtResource("2_rpd3k")
 skill_unit_name = "головорез"
 skill_buff_stats = Array[Dictionary]([{

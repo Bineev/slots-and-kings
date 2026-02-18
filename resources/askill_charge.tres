@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_jishc")
-skill_name = "прорыв"
-skill_desc = "Дарует скорость движения и маг защиту в бойцам в области "
+skill_name = "ASKILL_CHARGE_NAME"
+skill_desc = "ASKILL_CHARGE_DESC"
 skill_preview = ExtResource("2_ky45k")
 skill_anim = ExtResource("2_r4i2o")
 skill_buff_stats = Array[Dictionary]([{

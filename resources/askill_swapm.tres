@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_0nr4p")
 skill_tier = 2
-skill_name = "болото"
-skill_desc = "Создает болотистую область, замедляющую противников и снижающую точность"
+skill_name = "ASKILL_SWAMP_NAME"
+skill_desc = "ASKILL_SWAMP_DESC"
 skill_preview = ExtResource("3_20w0e")
 skill_anim = ExtResource("2_6pnxv")
 skill_target_type = 1

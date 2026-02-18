@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_d4atp")
-slot_name = "Зеро"
-slot_description = "Пустой слот"
+slot_name = "PERC_EMPTY_NAME"
+slot_description = "PERC_EMPTY_DESC"
 slot_sprite = ExtResource("2_bpake")
 slot_type = 2
 metadata/_custom_type_script = "uid://ckeieckjuifia"

@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("1_ssnd6")
 skill_tier = 2
-skill_name = "пожилой отряд"
-skill_desc = "Призывает на поле боя группу колдунов"
+skill_name = "ASKILL_PUNITIVESQ_NAME"
+skill_desc = "ASKILL_PUNITIVESQ_DESC"
 skill_preview = ExtResource("3_yfm5g")
 skill_anim = ExtResource("2_hde8j")
 skill_slot_scenes = Array[Array]([[ExtResource("4_84ux5")], [ExtResource("4_84ux5")], [ExtResource("4_84ux5")]])

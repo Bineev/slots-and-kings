@@ -7,8 +7,8 @@
 script = ExtResource("1_oes2l")
 skill_passive_type = 5
 skill_tier = 2
-skill_name = "золотой лук"
-skill_desc = "Все ренжи получают скорость атаки и дальность"
+skill_name = "PSKILL_GOLDENBOW_NAME"
+skill_desc = "PSKILL_GOLDENBOW_DESC"
 skill_preview = ExtResource("2_kn67f")
 skill_damage_type = 1
 skill_buff_stats = Array[Dictionary]([{

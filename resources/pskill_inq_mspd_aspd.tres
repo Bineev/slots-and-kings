@@ -7,8 +7,8 @@
 script = ExtResource("1_aqvw6")
 skill_passive_type = 4
 skill_tier = 3
-skill_name = "инквизитор - ярость"
-skill_desc = "Боец \"Инквизитор\" повышает скорость движания и атаки"
+skill_name = "PSKILL_INQF_NAME"
+skill_desc = "PSKILL_INQF_DESC"
 skill_preview = ExtResource("2_4tmwg")
 skill_unit_name = "инквизитор"
 skill_buff_stats = Array[Dictionary]([{

@@ -7,8 +7,8 @@
 script = ExtResource("1_r7kja")
 skill_passive_type = 4
 skill_tier = 2
-skill_name = "колдун - дисциплина"
-skill_desc = "Боец \"Колдун\" повышает маг атаку и скорость движения"
+skill_name = "PSKILL_WARLOCKD_NAME"
+skill_desc = "PSKILL_WARLOCKD_DESC"
 skill_preview = ExtResource("2_q5jaa")
 skill_unit_name = "колдун"
 skill_buff_stats = Array[Dictionary]([{

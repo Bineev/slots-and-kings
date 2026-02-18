@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_f2gcq")
-slot_name = "Зеро"
-slot_description = "Пустой слот"
+slot_name = "UPGRADE_EMPTY_NAME"
+slot_description = "UPGRADE_EMPTY_DESC"
 slot_sprite = ExtResource("2_r2xmd")
 metadata/_custom_type_script = "uid://ckeieckjuifia"

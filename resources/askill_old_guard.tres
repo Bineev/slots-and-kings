@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("1_dp0dv")
 skill_tier = 4
-skill_name = "старая гвардия"
-skill_desc = "Призывает в бой отряд элитных рыцарей"
+skill_name = "ASKILL_OLDGUARD_NAME"
+skill_desc = "ASKILL_OLDGUARD_DESC"
 skill_preview = ExtResource("3_ewhut")
 skill_anim = ExtResource("2_yu663")
 skill_slot_scenes = Array[Array]([[ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")], [ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")], [ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")], [ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")], [ExtResource("4_wadu0"), ExtResource("5_ya557"), ExtResource("6_4g3xb")]])

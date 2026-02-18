@@ -7,8 +7,8 @@
 script = ExtResource("1_kde6u")
 skill_passive_type = 5
 skill_tier = 2
-skill_name = "эльфийский лук"
-skill_desc = "Все ренжи получают скорость движения и уворот"
+skill_name = "PSKILL_ELVENBOW_NAME"
+skill_desc = "PSKILL_ELVENBOW_DESC"
 skill_preview = ExtResource("2_4p6e7")
 skill_damage_type = 1
 skill_buff_stats = Array[Dictionary]([{

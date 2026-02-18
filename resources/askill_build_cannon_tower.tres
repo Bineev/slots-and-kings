@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("1_y2jjp")
 skill_tier = 3
-skill_name = "построить Оружейную башню"
-skill_desc = "Возводит в области башню, стреляющую шрапнелью"
+skill_name = "ASKILL_CANNONTOWER_NAME"
+skill_desc = "ASKILL_CANNONTOWER_DESC"
 skill_preview = ExtResource("3_xc7o3")
 skill_anim = ExtResource("2_um7w3")
 skill_target_type = 1

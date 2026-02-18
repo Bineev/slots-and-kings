@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("1_rxygg")
 skill_tier = 2
-skill_name = "темное братство"
-skill_desc = "Призывает в бой группу головорезов"
+skill_name = "ASKILL_DARKBROS_NAME"
+skill_desc = "ASKILL_DARKBROS_DESC"
 skill_preview = ExtResource("3_bm40m")
 skill_anim = ExtResource("2_25ai6")
 skill_slot_scenes = Array[Array]([[ExtResource("4_m8jgn")], [ExtResource("4_m8jgn")], [ExtResource("4_m8jgn")]])

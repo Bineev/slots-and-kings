@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("1_0w8gs")
 skill_tier = 4
-skill_name = "культ солнца"
-skill_desc = "Призывает в бой группу элитных жрецов солнца"
+skill_name = "ASKILL_SUNCULT_NAME"
+skill_desc = "ASKILL_SUNCULT_DESC"
 skill_preview = ExtResource("3_7t8wx")
 skill_anim = ExtResource("2_3ax7l")
 skill_slot_scenes = Array[Array]([[ExtResource("4_7wiu3"), ExtResource("5_elokx"), ExtResource("6_jdkjm")], [ExtResource("4_7wiu3"), ExtResource("5_elokx"), ExtResource("6_jdkjm")], [ExtResource("4_7wiu3"), ExtResource("5_elokx"), ExtResource("6_jdkjm")]])

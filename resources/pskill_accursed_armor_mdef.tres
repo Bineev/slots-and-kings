@@ -7,8 +7,8 @@
 script = ExtResource("1_mo7yi")
 skill_passive_type = 4
 skill_tier = 4
-skill_name = "проклятый - дисциплина"
-skill_desc = "Боец \"Проклятый\" повышает броню и маг защиту"
+skill_name = "PSKILL_ACCURSEDD_NAME"
+skill_desc = "PSKILL_ACCURSEDD_DESC"
 skill_preview = ExtResource("2_mo7yi")
 skill_unit_name = "проклятый"
 skill_buff_stats = Array[Dictionary]([{

@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_jgqas")
 skill_tier = 2
-skill_name = "Залп"
-skill_desc = "Запускает залп стрел по области. Замедляет и наносит урон с итервалом"
+skill_name = "ASKILL_VOLLEY_NAME"
+skill_desc = "ASKILL_VOLLEY_DESC"
 skill_preview = ExtResource("3_owgsb")
 skill_anim = ExtResource("2_wr0ei")
 skill_target_type = 1

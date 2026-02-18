@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_jj7lu")
 skill_tier = 2
-skill_name = "старатель - 3 волны"
-skill_desc = "Дает 750 золота каждые 3 волны"
+skill_name = "PSKILL_PROSPECTORW3_NAME"
+skill_desc = "PSKILL_PROSPECTORW3_DESC"
 skill_preview = ExtResource("2_5ujr1")
 skill_resources = Array[int]([0])
 skill_resources_amounts = Array[int]([750])

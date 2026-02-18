@@ -25,8 +25,8 @@ func initialize():
 	skill_tier = skill_res.skill_tier
 	skill_buff_stats = skill_res.skill_buff_stats
 	skill_preview = skill_res.skill_preview
-	skill_name = skill_res.skill_name
-	skill_desc = skill_res.skill_desc
+	skill_name = tr(skill_res.skill_name)
+	skill_desc = tr(skill_res.skill_desc)
 	skill_damage_type = skill_res.skill_damage_type
 	skill_target_type = skill_res.skill_target_type
 	skill_resources = skill_res.skill_resources
@@ -124,7 +124,16 @@ func apply_stat(current_unit : Unit):
 		return
 	if skill_passive_type == DataManager.PassiveSkillType.UNIT_TYPE and not current_unit.unit_types.has(skill_damage_type):
 		return
-	if skill_passive_type == DataManager.PassiveSkillType.UNIT_NAME and not current_unit.unit_name == skill_unit_name:
+	# вот здесь нужна проверить имя, но учитывая локализацию
+	var current_locale : String = TranslationServer.get_locale()
+	var current_skill_unit_name : String
+	match current_locale:
+		'en_US':
+			current_skill_unit_name = DataManager.unit_name_ru_to_en[skill_unit_name]
+		'ru_RU':
+			current_skill_unit_name = skill_unit_name
+	
+	if skill_passive_type == DataManager.PassiveSkillType.UNIT_NAME and not current_unit.unit_name == current_skill_unit_name:
 		return
 	for dict in skill_buff_stats:
 		if dict.stat_change_type == 0:

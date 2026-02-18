@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_5xu8o")
 skill_tier = 3
-skill_name = "правосудие"
-skill_desc = "Воинственный клич снижает защиту противников от любых источников урона"
+skill_name = "ASKILL_JUSTICE_NAME"
+skill_desc = "ASKILL_JUSTICE_DESC"
 skill_preview = ExtResource("3_h50w0")
 skill_anim = ExtResource("2_rjfup")
 skill_target_type = 1

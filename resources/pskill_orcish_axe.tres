@@ -7,8 +7,8 @@
 script = ExtResource("1_u1as3")
 skill_passive_type = 5
 skill_tier = 2
-skill_name = "орочья секира"
-skill_desc = "Все мили получают скорость атаки и крит шанс"
+skill_name = "PSKILL_ORCISHAXE_NAME"
+skill_desc = "PSKILL_ORCISHAXE_DESC"
 skill_preview = ExtResource("2_cfuf1")
 skill_buff_stats = Array[Dictionary]([{
 "stat_change_amount": 0.7,

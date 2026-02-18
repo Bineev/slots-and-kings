@@ -7,8 +7,8 @@
 script = ExtResource("1_23vsf")
 skill_passive_type = 5
 skill_tier = 3
-skill_name = "баннер медведя"
-skill_desc = "Все физы получают бонус к урону"
+skill_name = "PSKILL_BEARBANNER_NAME"
+skill_desc = "PSKILL_BEARBANNER_DESC"
 skill_preview = ExtResource("2_8r0tc")
 skill_damage_type = 2
 skill_buff_stats = Array[Dictionary]([{

@@ -161,6 +161,8 @@ UPGRADE_TATTACK60_NAME,Чистая атака 60%,Pure attack 60%
 UPGRADE_TATTACK60_DESC,Повышает чистую атаку на 60%,Pure attack increased by 60%
 UPGRADE_TATTACK80_NAME,Чистая атака 80%,Pure attack 80%
 UPGRADE_TATTACK80_DESC,Повышает чистую атаку на 80%,Pure attack increased by 80%
+UPGRADE_EMPTY_NAME,Зеро,Zero
+UPGRADE_EMPTY_DESC,Пустой слот,Empty slot
 PERC_ATHEIST_NAME,Атеист,Atheist
 PERC_ATHEIST_DESC,"У вас повышенный иммунитет к магии, но и колдуете вы слабо","You have increased magic defence, but you don't do much magic either"
 PERC_FREAKY_NAME,Шальной,Freaky
@@ -203,3 +205,203 @@ PERC_THUG_NAME,Громила,Thug
 PERC_THUG_DESC,"Вы любите ломать черепушки, но медленно двигаетесь","ou like to break skulls, but you move slowly"
 PERC_TOXIC_NAME,Токсик,Toxic
 PERC_TOXIC_DESC,"Вы наносите больше урона, но страдаете от яда","You do more damage, but you suffer from poison"
+PERC_EMPTY_NAME,Зеро,Zero
+PERC_EMPTY_DESC,Пустой слот,Empty slot
+ASKILL_BALLISTA_NAME,Тяжелое вооружение,Ballista
+ASKILL_BALLISTA_DESC,Устанавливает на поле боя временную баллисту,Builds a temporary ballista on the battlefield
+ASKILL_BANQUET_NAME,Банкет,Banquet
+ASKILL_BANQUET_DESC,Пир посреди боя восстанавливает здоровье с определенным интервалом,Feasting in the middle of a fight restores health at a certain interval
+ASKILL_BOILEDDUNG_NAME,Кипящее дерьмо,Boiled dung
+ASKILL_BOILEDDUNG_DESC,"При приближении врага взрывает чан с кипящим дерьмом. Наносит урон и понижает всю защиту, скорость атаки, движения и точность противника","When an enemy approaches, it explodes a vat of boiling shit. Deals damage and lowers all defense, attack speed, movement, and accuracy of the opponent"
+ASKILL_CANNONTOWER_NAME,Орудийная башня,Cannon tower
+ASKILL_CANNONTOWER_DESC,"Возводит в области башню, стреляющую шрапнелью",Builds a shrapnel-firing tower in the area
+ASKILL_CHARGE_NAME,Прорыв,Charge
+ASKILL_CHARGE_DESC,Дарует скорость движения и маг защиту бойцам в области действия,Grants movement speed and magic protection to fighters in the area of action
+ASKILL_DARKBROS_NAME,Темное братство,Dark brotherhood
+ASKILL_DARKBROS_DESC,Призывает в бой группу головорезов,Summons a group of cutthroats into battle
+ASKILL_EARTHLYTHUNDER_NAME,Земной огонь,Earthly thunder
+ASKILL_EARTHLYTHUNDER_DESC,"Минирует область, которая деторирует при приближении врага",Mines an area that detonates when an enemy approaches
+ASKILL_FEAR_NAME,Страх,Fear
+ASKILL_FEAR_DESC,Создает жуткий образ в области. Пугает врагов и наносит урон,Creates a creepy image in the area. Scares enemies and causes damage
+ASKILL_ICEFALL_NAME,Ледопад,Icefall
+ASKILL_ICEFALL_DESC,Потоки ледяных осколков наносят урон в области и снижают скорость атаки,Streams of ice fragments deal damage in the area and reduce the attack speed
+ASKILL_ICEPILLAR_NAME,Ледяной столп,Ice pillar
+ASKILL_ICEPILLAR_DESC,Поднимает из земли ледяной столп. Наносит урон и замораживает противников,It raises an ice pillar from the ground. Deals damage and freezes opponents
+ASKILL_JUSTICE_NAME,Правосудие,Justice
+ASKILL_JUSTICE_DESC,Воинственный клич снижает защиту противников от любых источников урона,A war cry reduces the defense of opponents from any sources of damage
+ASKILL_LAVAFIELD_NAME,Поле лавы,Red-hot lava
+ASKILL_LAVAFIELD_DESC,"Создает область раскаленной лавы, наносящей урон и снижающей регенерацию противников",Creates an area of red-hot lava that causes damage and reduces the regeneration of opponents
+ASKILL_METEOR_NAME,Метеорит,Meteor
+ASKILL_METEOR_DESC,Обрушивает на область разрушительный метеорит,It brings down a devastating meteorite on the area
+ASKILL_OLDGUARD_NAME,Старая гвардия,Old guard
+ASKILL_OLDGUARD_DESC,Призывает в бой отряд элитных рыцарей,Summons a squad of elite knights to battle
+ASKILL_PUNITIVESQ_NAME,Пожилой отряд,Punitive squad
+ASKILL_PUNITIVESQ_DESC,Призывает на поле боя группу колдунов,Summons a group of warlocks to the battlefield
+ASKILL_REINFORCE_NAME,Подкрепление,Reinforcements
+ASKILL_REINFORCE_DESC,Призывает отряд из лучников и ополценцев,Summons a squad of yeomens and fyrds
+ASKILL_ROCKFALL_NAME,Камнепад,Rockfall
+ASKILL_ROCKFALL_DESC,Каменые глыбы падают в области и наносят магический урон ,Boulders fall into the area and deal magical damage
+ASKILL_SUMDH_NAME,призыв Охотник на демонов,Summoning Demonhunter
+ASKILL_SUMDH_DESC,Призывает в бой элитного Охотника на демонов,Summons an elite Demonhunter into battle
+ASKILL_SUNCULT_NAME,Культ солнца,Sun cult
+ASKILL_SUNCULT_DESC,Призывает в бой группу элитных Жрецов солнца,Rushes into battle a group of elite Sun priests
+ASKILL_SWAMP_NAME,Болото,Swamp
+ASKILL_SWAMP_DESC,"Создает болотистую область, замедляющую противников и снижающую точность",Creates a swampy area that slows down opponents and reduces accuracy
+ASKILL_VOLLEY_NAME,Залп,Volley
+ASKILL_VOLLEY_DESC,Запускает залп стрел по области. Замедляет и наносит урон с итервалом,Launches a volley of arrows at the area. Slows down and deals damage with an interval
+ASKILL_WORMBOX_NAME,Коробка со змеями,Worm box
+ASKILL_WORMBOX_DESC,"При активации выпускает змей, наносящих урон в течение определенного времени","When activated, it releases snakes that deal damage for a certain amount of time"
+ASKILL_SHIELDUP_NAME,Поднять щиты,Shields up
+ASKILL_SHIELDUP_DESC,"Команда подководца временно повышает броню и уворот выбранным юнитам, также восстанавливает здоровье","The commander's command temporarily increases the armor and dodge of selected units, and also restores health"
+ASKILL_CANNONBALL_NAME,Пушечное ядро,Cannonball
+ASKILL_CANNONBALL_DESC,Мощный выстрел в толпу,Powerful shot into the crowd
+ASKILL_BURNTAR_NAME,Горящая смола,Burning tar
+ASKILL_BURNTAR_DESC,Разливает на поле горящую смолу. Наносит урон с интервалом и замедляет,Pours burning tar onto the field. Deals damage at intervals and slows down
+ASKILL_SUMKNIGHT_NAME,призыв Рыцарь,Summoning Knight
+ASKILL_SUMKNIGHT_DESC,Временно призывает на поле боя Рыцаря,Temporarily summons a Knight to the battlefield
+PSKILL_GRABBER_NAME,Стяжатель,Grabber
+PSKILL_GRABBER_DESC,Каждую четную волну приносит 200 золота,Each even wave brings 200 gold
+PSKILL_ACCURSEDD_NAME,Проклятый - Дисциплина,Accursed - Discipline
+PSKILL_ACCURSEDD_DESC,"Боец ""Проклятый"" повышает броню и маг защиту",Accursed boosts armor and magic defence
+PSKILL_ACCURSEDF_NAME,Проклятый - Ярость,Accursed - Fury
+PSKILL_ACCURSEDF_DESC,"Боец ""Проклятый"" повышает скорость атаки и движения",Accursed boosts attack speed and movement speed
+PSKILL_ACCURSEDM_NAME,Проклятый - Мастерство,Accursed - Mastery
+PSKILL_ACCURSEDM_DESC,"Боец ""Проклятый"" повышает чистый урон и дальность",Accursed boosts pure attack and range
+PSKILL_YEOMEND_NAME,Лучник - Дисциплина,Yeomen - Discipline
+PSKILL_YEOMEND_DESC,"Боец ""Лучник"" увеличивает скорость атаки и уворот",Yeomen boosts attack speed and dodge
+PSKILL_YEOMENM_NAME,Лучник - Мастерство,Yeomen - Mastery
+PSKILL_YEOMENM_DESC,"Боец ""Лучник"" увеличивает урон и шанс крита",Yeomen boosts phys attack and critical chance
+PSKILL_YEOMENF_NAME,Лучник - Ярость,Yeomen - Fury
+PSKILL_YEOMENF_DESC,"Боец ""Лучник"" увеличивает скорость движения и дальность атаки",Yeomen boosts movement speed and range
+PSKILL_ARTISANT1_NAME,Мастеровой - 1м,Artisan - 1m
+PSKILL_ARTISANT1_DESC,Дает 3 жетона каждую минуту,Gives 3 tokens every minute
+PSKILL_ARTISANT3_NAME,Мастеровой - 3м,Artisan - 3m
+PSKILL_ARTISANT3_DESC,Дает 10 жетонов каждые 3 минуты,Gives 10 tokens every 3 minutes
+PSKILL_ARTISANW1_NAME,Мастеровой - 1 волна,Artisan - 1 wave
+PSKILL_ARTISANW1_DESC,Дает 5 жетонов после каждой волны,Gives 5 tokens after each wave
+PSKILL_ARTISANW3_NAME,Мастеровой - 3 волны,Artisan - 3 waves
+PSKILL_ARTISANW3_DESC,Дает 18 жетонов после каждой третьей волны,Gives 18 tokens after every third wave
+PSKILL_BEARBANNER_NAME,Баннер медведя,Bear banner
+PSKILL_BEARBANNER_DESC,Все бойцы с физ атакой получают бонус к урону,All fighters with a physical attack receive a damage bonus
+PSKILL_BLOODSUCKERF_NAME,Кровосос - Ярость,Bloodsucker - Fury
+PSKILL_BLOODSUCKERF_DESC,"Боец ""Кровосос"" повышает маг атаку и скорость атаки",Bloodsucker boosts magic attack and attack speed
+PSKILL_BLOODSUCKERM_NAME,Кровосос - Мастерство,Bloodsucker - Mastery
+PSKILL_BLOODSUCKERM_DESC,"Боец ""Кровосос"" повышает шанс крита и крит урон",Bloodsucker boosts critical chance and critical attack
+PSKILL_BLOODSUCKERD_NAME,Кровосос - Дисциплина,Bloodsucker - Discipline
+PSKILL_BLOODSUCKERD_DESC,"Боец ""Кровосос"" повышает скорость движения и уворот",Bloodsucker boosts movement speed and dodge
+PSKILL_CHAINMAIL_NAME,Кольчуга,Chain mail
+PSKILL_CHAINMAIL_DESC,Все мили юниты получают 20 армора,All melee units receive 20 armor
+PSKILL_CHOCOATLM_NAME,Чокоатль - Мастерство,Chocoatl - Mastery
+PSKILL_CHOCOATLM_DESC,"Боец ""Чокоатль"" повышает скорость атаки и шанс крита",Chocoatl boosts attack speed and critical chance
+PSKILL_CHOCOATLD_NAME,Чокоатль - Дисциплина,Chocoatl - Discipline
+PSKILL_CHOCOATLD_DESC,"Боец ""Чокоатль"" повышает вампиризм и маг защиту",Chocoatl boosts lifesteal and magic defence
+PSKILL_CHOCOATLF_NAME,Чокоатль - Ярость,Chocoatl - Fury
+PSKILL_CHOCOATLF_DESC,"Боец ""Чокоатль"" повышает скорость движения и дальность",Chocoatl boosts movement speed and range
+PSKILL_CULTISTD_NAME,Культист - Дисциплина,Cultist - Discipline
+PSKILL_CULTISTD_DESC,"Боец ""Культист"" увеличивает скорость атаки и уворот",Cultist boosts attack speed and dodge
+PSKILL_CULTISTM_NAME,Культист - Мастерство,Cultist - Mastery
+PSKILL_CULTISTM_DESC,"Боец ""Культист"" увеличивает маг атаку и шанс крита",Cultist boosts magic attack and critical chance
+PSKILL_CULTISTF_NAME,Культист - Ярость,Cultist - Fury
+PSKILL_CULTISTF_DESC,"Боец ""Культист"" увеличивает скорость движения и дальность атаки",Cultist boosts movement speed and range
+PSKILL_CUTTHROATF_NAME,Головорез - Ярость,Cutthroat - Fury
+PSKILL_CUTTHROATF_DESC,"Боец ""Головорез"" повышает чистый урон и скорость атаки",Cutthroat boosts pure attack and attack speed
+PSKILL_CUTTHROATM_NAME,Головорез - Мастерство,Cutthroat - Mastery
+PSKILL_CUTTHROATM_DESC,"Боец ""Головорез"" повышает шанс крита и крит урон",Cutthroat boosts critical chance and critical attack
+PSKILL_CUTTHROATD_NAME,Головорез - Дисциплина,Cutthroat - Discipline
+PSKILL_CUTTHROATD_DESC,"Боец ""Головорез"" повышает скорость движения и уворот",Cutthroat boosts movement speed and dodge
+PSKILL_DEMONHUNTERF_NAME,Охотник на демонов - Ярость,Demonhunter - Fury
+PSKILL_DEMONHUNTERF_DESC,"Боец ""Охотник на демонов"" повышает крит атаку и дальность",Demonhunter boosts critical attack and range
+PSKILL_DEMONHUNTERD_NAME,Охотник на демонов - Дисциплина,Demonhunter - Discipline
+PSKILL_DEMONHUNTERD_DESC,"Боец ""Охотник на демонов"" повышает уворот и вампиризм",Demonhunter boosts dodge and lifesteal
+PSKILL_DEMONHUNTERM_NAME,Охотник на демонов - Мастерство,Demonhunter - Mastery
+PSKILL_DEMONHUNTERM_DESC,"Боец ""Охотник на демонов"" повышает физ атаку и шанс крита",Demonhunter boosts phys attack and critical chance
+PSKILL_ELVENBOW_NAME,Эльфийский лук,Elven bow
+PSKILL_ELVENBOW_DESC,Все ренж бойцы получают скорость движения и уворот,All range fighters gain movement speed and dodge
+PSKILL_ENCHSWORD_NAME,Зачарованный меч,Enchanted sword
+PSKILL_ENCHSWORD_DESC,Все мили бойцы получают броню и скорость передвижения,All melee fighters gain armor and movement speed
+PSKILL_FARMERT1_NAME,Фермер - 1м,Farmer - 1m
+PSKILL_FARMERT1_DESC,Дает 2 еды каждую минуту,Gives 2 food every minute
+PSKILL_FARMERW1_NAME,Фермер - 1 волна,Farmer - 1 wave
+PSKILL_FARMERW1_DESC,Дает 3 еды после каждой волны,Gives 3 food after each wave
+PSKILL_FARMERW3_NAME,Фермер - 3 волны,Farmer - 3 waves
+PSKILL_FARMERW3_DESC,Дает 10 еды каждую третью волну,Gives 10 food every third wave
+PSKILL_FOXBANNER_NAME,Баннер лисы,Fox banner
+PSKILL_FOXBANNER_DESC,Всю убийцы получают бонус к урону,All assassines receive a damage bonus
+PSKILL_FYRDF_NAME,Ополченец - Ярость,Fyrd - Fury
+PSKILL_FYRDF_DESC,"Боец ""Ополченец"" повышает скорость атаки и скорость движения",Fyrd boosts attack speed and movement speed
+PSKILL_FYRDM_NAME,Ополченец - Мастерство,Fyrd - Mastery
+PSKILL_FYRDM_DESC,"Боец ""Ополченец"" повышает физ атаку и броню",Fyrd boosts phys attack and armor
+PSKILL_FYRDD_NAME,Ополченец - Дисциплина,Fyrd - Discipline
+PSKILL_FYRDD_DESC,"Боец ""Ополченец"" повышает регенерацию и маг ащиту",Fyrd boosts regeneration and magic defence
+PSKILL_GOLDENBOW_NAME,Золотой лук,Golden bow
+PSKILL_GOLDENBOW_DESC,Все ренж бойцы получают скорость атаки и дальность,All range fighters gain attack speed and range
+PSKILL_IMPF_NAME,Имп - Ярость,Imp - Fury
+PSKILL_IMPF_DESC,"Боец ""Имп"" повышает скорость атаки и скорость движения",Imp boosts attack speed and movement speed
+PSKILL_IMPM_NAME,Имп - Мастерство,Imp - Mastery
+PSKILL_IMPM_DESC,"Боец ""Имп"" повышает физ атаку и броню",Imp boosts phys attack and armor
+PSKILL_IMPD_NAME,Имп - Дисциплина,Imp - Discipline
+PSKILL_IMPD_DESC,"Боец ""Имп"" повышает регенерацию и маг ащиту",Imp boosts regeneration and magic defence
+PSKILL_INQM_NAME,Инквизитор - Мастерство,Inquisitor - Mastery
+PSKILL_INQM_DESC,"Боец ""Инквизитор"" повышает маг атаку и дальность",Inquisitor boosts magic attack and range
+PSKILL_INQF_NAME,Инквизитор - Ярость,Inquisitor - Fury
+PSKILL_INQF_DESC,"Боец ""Инквизитор"" повышает скорость движения и скорость атаки",Inquisitor boosts movement speed and attack speed
+PSKILL_INQD_NAME,Инквизитор - Дисциплина,Inquisitor - Discipline
+PSKILL_INQD_DESC,"Боец ""Инквизитор"" повышает регенерацию и броню",Inquisitor boosts regeneration and armor
+PSKILL_JEWELERT3_NAME,Ювелир - 3м,Jeweler - 3m
+PSKILL_JEWELERT3_DESC,Дает 2 кристалла каждые 3 минуты,Gives 2 crystals every 3 minutes
+PSKILL_JEWELERW3_NAME,Ювелир - 3 волны,Jeweler - 3 waves
+PSKILL_JEWELERW3_DESC,Дает 4 кристалла каждые 3 волны,Gives 4 crystals every 3 waves
+PSKILL_KNIGHTM_NAME,Рыцарь - Мастерство,Knight - Mastery
+PSKILL_KNIGHTM_DESC,"Боец ""Рыцарь"" повышает скорость атаки и шанс крита",Knight boosts attack speed and critical chance
+PSKILL_KNIGHTD_NAME,Рыцарь - Дисциплина,Knight - Discipline
+PSKILL_KNIGHTD_DESC,"Боец ""Рыцарь"" повышает вампиризм и маг защиту",Knight boosts lifesteal and magic defence
+PSKILL_KNIGHTF_NAME,Рыцарь - Ярость,Knight - Fury
+PSKILL_KNIGHTF_DESC,"Боец ""Рыцарь"" повышает скорость движения и дальность",Knight boosts movement speed and range
+PSKILL_MANTICOREF_NAME,Мантикора - Ярость,Manticore - Fury
+PSKILL_MANTICOREF_DESC,"Боец ""Мантикора"" повышает скорость атаки и дальность",Manticore boosts attack speed and range
+PSKILL_MANTICOREM_NAME,Мантикора - Мастерство,Manticore - Mastery
+PSKILL_MANTICOREM_DESC,"Боец ""Мантикора"" повышает крит атаку и шанс крита",Manticore boosts critical attack and critical chance
+PSKILL_MANTICORED_NAME,Мантикора - Дисциплина,Manticore - Discipline
+PSKILL_MANTICORED_DESC,"Боец ""Мантикора"" повышает физг атаку и скорость движения",Manticore boosts phys attack and movement speed
+PSKILL_ORCISHAXE_NAME,Орочья секира,Orcish axe
+PSKILL_ORCISHAXE_DESC,Все мили бойцы получают скорость атаки и крит шанс,All melee fighters gain attack speed and critical chance
+PSKILL_OWLBANNER_NAME,Баннер совы,Owl banner
+PSKILL_OWLBANNER_DESC,Все маги получают бонус к урону,All mages receive a damage bonus
+PSKILL_PROSPECTORT1_NAME,Старатель - 1м,Prospector - 1m
+PSKILL_PROSPECTORT1_DESC,Дает 150 золота каждую минуту,Gives 150 gold every minute
+PSKILL_PROSPECTORT3_NAME,Старатель - 3м,Prospector - 3m
+PSKILL_PROSPECTORT3_DESC,Дает 500 золота каждые 3 минуты,Gives 500 gold every 3 minutes
+PSKILL_PROSPECTORW1_NAME,Старатель - 1 волна,Prospector - 1 wave
+PSKILL_PROSPECTORW1_DESC,Дает 200 золота после каждой волны,Gives 200 gold after each wave
+PSKILL_PROSPECTORW3_NAME,Старатель - 3 волны,Prospector - 3 waves
+PSKILL_PROSPECTORW3_DESC,Дает 750 золота каждые 3 волны,Gives 750 gold every 3 waves
+PSKILL_REPAIRMAN_NAME,Ремонтник,Repairman
+PSKILL_REPAIRMAN_DESC,Восстанавливает 30 прочности каждую третью волну,Restores 30 fortress strength every third wave
+PSKILL_SUBSTANCED_NAME,Субстанция - Дисциплина,Substance - Discipline
+PSKILL_SUBSTANCED_DESC,"Боец ""Субстанция"" повышает уворот и вампиризм",Substance boosts dodge and lifesteal
+PSKILL_SUBSTANCEM_NAME,Субстанция - Мастерство,Substance - Mastery
+PSKILL_SUBSTANCEM_DESC,"Боец ""Субстанция"" повышает маг атаку и шанс крита",Substance boosts magic attack and critical chance
+PSKILL_SUBSTANCEF_NAME,Субстанция - Ярость,Substance - Fury
+PSKILL_SUBSTANCEF_DESC,"Боец ""Субстанция"" повышает скорость атаки и дальность",Substance boosts attack speed and range
+PSKILL_SUCCUBUSF_NAME,Суккуб - Ярость,Substance - Fury
+PSKILL_SUCCUBUSF_DESC,"Боец ""Суккуб"" повышает скорость движения и скорость атаки",Substance boosts attack speed and movement speed
+PSKILL_SUCCUBUSD_NAME,Суккуб - Дисциплина,Substance - Discipline
+PSKILL_SUCCUBUSD_DESC,"Боец ""Суккуб"" повышает регенерацию и броню",Substance boosts regeneration and armor
+PSKILL_SUCCUBUSM_NAME,Суккуб - Мастерство,Substance - Mastery
+PSKILL_SUCCUBUSM_DESC,"Боец ""Суккуб"" повышает чистый урон и дальность",Substance boosts pure attack and range
+PSKILL_SUNPRIESTD_NAME,Жрец солнца - Дисциплина,Sun priest - Discipline
+PSKILL_SUNPRIESTD_DESC,"Боец ""Жрец солнца"" повышает броню и маг защиту",Sun priest boosts armor and magic defence
+PSKILL_SUNPRIESTF_NAME,Жрец солнца - Ярость,Sun priest - Fury
+PSKILL_SUNPRIESTF_DESC,"Боец ""Жрец солнца"" повышает скорость атаки и скорость движения",Sun priest boosts attack speed and movement speed
+PSKILL_SUNPRIESTM_NAME,Жрец солнца - Мастерство,Sun priest - Mastery
+PSKILL_SUNPRIESTM_DESC,"Боец ""Жрец солнца"" повышает чистый урон и дальность",Sun priest boosts pure attack and range
+PSKILL_SUPPLIER_NAME,Снабженец,Supplier
+PSKILL_SUPPLIER_DESC,Дает 7 еды каждые 3 минуты,Gives 7 food every 3 minutes
+PSKILL_WARLOCKM_NAME,Колдун - Мастерство,Warlock - Mastery
+PSKILL_WARLOCKM_DESC,"Боец ""Колдун"" повышает размер АОЕ и шанс крита",Warlock boosts AOE size and critical chance
+PSKILL_WARLOCKF_NAME,Колдун - Ярость,Warlock - Fury
+PSKILL_WARLOCKF_DESC,"Боец ""Колдун"" повышает скорость атаки и дальность",Warlock boosts attack speed and range
+PSKILL_WARLOCKD_NAME,Колдун - Дисциплина,Warlock - Discipline
+PSKILL_WARLOCKD_DESC,"Боец ""Колдун"" повышает маг атаку и скорость движения",Warlock boosts magic attack and movement speed
+STATUS_EMPTY_NAME,Зеро,Zero
+STATUS_EMPTY_DESC,Пустой слот,Empty slot

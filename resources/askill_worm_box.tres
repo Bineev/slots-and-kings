@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_0xpb8")
 skill_tier = 3
-skill_name = "коробка со змеями"
-skill_desc = "При активации выпускает змей, наносящих урон в течение определенного времени."
+skill_name = "ASKILL_WORMBOX_NAME"
+skill_desc = "ASKILL_WORMBOX_DESC"
 skill_preview = ExtResource("3_h2jgb")
 skill_anim = ExtResource("2_1loax")
 skill_target_type = 1

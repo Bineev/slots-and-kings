@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_5duun")
 skill_tier = 1
-skill_name = "фермер - 1 волна"
-skill_desc = "Дает 3 еды после каждой волны"
+skill_name = "PSKILL_FARMERW1_NAME"
+skill_desc = "PSKILL_FARMERW1_DESC"
 skill_preview = ExtResource("2_pilso")
 skill_resources = Array[int]([2])
 skill_resources_amounts = Array[int]([3])

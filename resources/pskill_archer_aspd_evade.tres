@@ -7,8 +7,8 @@
 script = ExtResource("1_5l4b0")
 skill_passive_type = 4
 skill_tier = 1
-skill_name = "лучник - дисциплина"
-skill_desc = "Боец \"Лучник\" увеличивает скорость атаки и уворот"
+skill_name = "PSKILL_YEOMEND_NAME"
+skill_desc = "PSKILL_YEOMEND_DESC"
 skill_preview = ExtResource("2_fj3yp")
 skill_unit_name = "лучник"
 skill_buff_stats = Array[Dictionary]([{

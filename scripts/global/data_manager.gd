@@ -275,6 +275,25 @@ var male_names = [
 	'William', 'Warnhard', 
 ]
 
+	
+var data_skill_table_ru : Dictionary = {
+	'cd': 'откат',
+	'damage' : 'урон',
+	'type' : 'тип',
+	'heal' : 'лечение',
+	'interval' : 'интервал',
+	'duration' : 'длительность'
+} 
+	
+var data_skill_table_en : Dictionary = {
+	'cd': 'cd',
+	'damage' : 'damage',
+	'type' : 'type',
+	'heal' : 'heal',
+	'interval' : 'interval',
+	'duration' : 'duration'
+} 
+
 # переработать статы исходя из их логики и представления
 var default_stats : Dictionary = {
 	'physical_attack' : 0,
@@ -381,11 +400,42 @@ var default_stats_to_rus : Dictionary = {
 }
 
 
+var unit_name_ru_to_en : Dictionary = {
+	'Крестьянин' : 'Villein',
+	'Баллиста' : 'Ballista',
+	'Орудийная башня' : 'Cannon tower',
+	'Головорез' : 'Cutthroat',
+	'Охотник на демонов' : 'Demonhunter',
+	'Ополченец' : 'Fyrd',
+	'Инквизитор' : 'Inquisitor',
+	'Рыцарь' : 'Knight',
+	'Жрец солнца' : 'Sun priest',
+	'Колдун' : 'Warlock',
+	'Лучник' : 'Yeomen',
+	'Проклятый' : 'Accursed',
+	'Кровосос' : 'Bloodsucker',
+	'Чокоатль' : 'Chocoatl',
+	'Культист' : 'Cultist',
+	'Бес' : 'Fiend',
+	'Имп' : 'Imp',
+	'Мантикора' : 'Manticore',
+	'Субстанция' : 'Substance',
+	'Суккуб' : 'Succubus',
+}
+
+
 var hero_stats_to_rus : Dictionary = {
 	'power' : 'могущество',
 	'quickness' : 'проворство',
 	'mastery' : 'мастерство',
 	'grace' : 'благородство'
+}
+
+var hero_stats_to_en : Dictionary = {
+	'power' : 'power',
+	'quickness' : 'quickness',
+	'mastery' : 'mastery',
+	'grace' : 'grace'
 }
 
 var sound_dict : Dictionary[SoundType, Resource] = {
@@ -440,6 +490,13 @@ var hero_stats_desc_dict : Dictionary = {
 	'grace' : 'длительность умений +\nсила лечения +\nсила бафов/дебафов +\n'
 }
 
+var hero_stats_desc_dict_en : Dictionary = {
+	'power' : 'power of attacking skills +\n',
+	'quickness' : 'skill cooldown rate +\n',
+	'mastery' : 'skill area size +\n',
+	'grace' : 'skill duration +\nhealing power +\npower of buffs/debuffs +\n'
+}
+
 
 var hero_classes_table : Dictionary = {
 	HeroClass.ENGINEER : 'инженер',
@@ -449,6 +506,14 @@ var hero_classes_table : Dictionary = {
 	HeroClass.COMMANDER : 'полководец'
 }
 
+var hero_classes_table_en : Dictionary = {
+	HeroClass.ENGINEER : 'Engineer',
+	HeroClass.PRIEST : 'Priest',
+	HeroClass.MAGE : 'Sorcecer',
+	HeroClass.SCOUT : 'Scout',
+	HeroClass.COMMANDER : 'Commander'
+}
+
 
 var castle_name_table : Dictionary = {
 	UnitFamily.CASTLE : 'Империя',
@@ -456,8 +521,20 @@ var castle_name_table : Dictionary = {
 	UnitFamily.FOREST : 'Чаща'
 }
 
+var castle_name_table_en : Dictionary = {
+	UnitFamily.CASTLE : 'Empire',
+	UnitFamily.HELL : 'Abyss',
+	UnitFamily.FOREST : 'Bush'
+}
+
 var unit_type_to_damage_type_table : Dictionary = {
 	UnitType.PHYS : 'физический',
 	UnitType.MAGE : 'магический',
 	UnitType.ASSASSIN : 'чистый'
+}
+
+var unit_type_to_damage_type_table_en : Dictionary = {
+	UnitType.PHYS : 'phys',
+	UnitType.MAGE : 'mage',
+	UnitType.ASSASSIN : 'pure'
 }

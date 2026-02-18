@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("1_dttpx")
 skill_tier = 1
-skill_name = "призыв Рыцаря"
-skill_desc = "Временно призывает на поле боя Рыцаря "
+skill_name = "ASKILL_SUMKNIGHT_NAME"
+skill_desc = "ASKILL_SUMKNIGHT_DESC"
 skill_preview = ExtResource("2_1p40k")
 skill_anim = ExtResource("2_c34l8")
 skill_slot_scenes = Array[Array]([[ExtResource("3_cmmxk")]])

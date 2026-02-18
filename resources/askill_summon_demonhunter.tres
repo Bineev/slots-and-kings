@@ -11,8 +11,8 @@
 [resource]
 script = ExtResource("1_sjn45")
 skill_tier = 3
-skill_name = "призыв Охотника на демонов"
-skill_desc = "Призывает в бой элитного Охотника на демонов"
+skill_name = "ASKILL_SUMDH_NAME"
+skill_desc = "ASKILL_SUMDH_DESC"
 skill_preview = ExtResource("3_y2gdp")
 skill_anim = ExtResource("2_puvmp")
 skill_slot_scenes = Array[Array]([[ExtResource("4_kpylr"), ExtResource("5_dg7rn"), ExtResource("6_kpk52"), ExtResource("7_06vjw")]])

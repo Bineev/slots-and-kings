@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_wsc4v")
 skill_tier = 2
-skill_name = "Камнепад"
-skill_desc = "Каменые глыбы падают в области и наносят магический урон "
+skill_name = "ASKILL_ROCKFALL_NAME"
+skill_desc = "ASKILL_ROCKFALL_DESC"
 skill_preview = ExtResource("3_s464v")
 skill_anim = ExtResource("2_hid5f")
 skill_target_type = 1

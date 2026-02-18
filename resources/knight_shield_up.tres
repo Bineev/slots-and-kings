@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_0o04m")
 skill_tier = 1
-skill_name = "поднять щиты"
-skill_desc = "Комманда подководца временно повышает броню и уворот выбранным юнитам, также восстанавливает здоровье"
+skill_name = "ASKILL_SHIELDUP_NAME"
+skill_desc = "ASKILL_SHIELDUP_DESC"
 skill_preview = ExtResource("2_24qut")
 skill_anim = ExtResource("2_qk0j2")
 skill_buff_stats = Array[Dictionary]([{

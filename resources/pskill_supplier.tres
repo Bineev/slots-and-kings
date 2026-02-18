@@ -7,8 +7,8 @@
 script = ExtResource("1_8ow7r")
 skill_passive_type = 2
 skill_tier = 2
-skill_name = "снабженец"
-skill_desc = "дает 7 еды каждые 3 минуты"
+skill_name = "PSKILL_SUPPLIER_NAME"
+skill_desc = "PSKILL_SUPPLIER_DESC"
 skill_preview = ExtResource("2_4qhyx")
 skill_resources = Array[int]([1])
 skill_resources_amounts = Array[int]([7])

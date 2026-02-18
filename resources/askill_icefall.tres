@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_qot8y")
 skill_tier = 3
-skill_name = "ледопад"
-skill_desc = "Потоки ледяных осколков наносят урон в области и снижают скорость атаки"
+skill_name = "ASKILL_ICEFALL_NAME"
+skill_desc = "ASKILL_ICEFALL_DESC"
 skill_preview = ExtResource("3_skdej")
 skill_anim = ExtResource("2_kx82w")
 skill_target_type = 1

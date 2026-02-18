@@ -7,8 +7,8 @@
 script = ExtResource("1_yy6gc")
 skill_passive_type = 4
 skill_tier = 4
-skill_name = "жрец солнца - дисциплина"
-skill_desc = "Боец \"Жрец солнца\" повышает броню и маг защиту"
+skill_name = "PSKILL_SUNPRIESTD_NAME"
+skill_desc = "PSKILL_SUNPRIESTD_DESC"
 skill_preview = ExtResource("2_v6q0t")
 skill_unit_name = "жрец солнца"
 skill_buff_stats = Array[Dictionary]([{

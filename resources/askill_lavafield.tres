@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_45cu7")
 skill_tier = 3
-skill_name = "Поле лавы"
-skill_desc = "Создает область раскаленной лавы, наносящей урон и снижающей регенерацию противников"
+skill_name = "ASKILL_LAVAFIELD_NAME"
+skill_desc = "ASKILL_LAVAFIELD_DESC"
 skill_preview = ExtResource("3_3mlt2")
 skill_anim = ExtResource("2_3a31m")
 skill_target_type = 1

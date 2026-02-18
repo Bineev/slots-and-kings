@@ -7,8 +7,8 @@
 script = ExtResource("1_3vtp4")
 skill_passive_type = 5
 skill_tier = 3
-skill_name = "баннер совы"
-skill_desc = "Все маги получают бонус к урону"
+skill_name = "PSKILL_OWLBANNER_NAME"
+skill_desc = "PSKILL_OWLBANNER_DESC"
 skill_preview = ExtResource("2_iohfd")
 skill_damage_type = 3
 skill_buff_stats = Array[Dictionary]([{
