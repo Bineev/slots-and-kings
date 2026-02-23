@@ -405,3 +405,80 @@ PSKILL_WARLOCKD_NAME,Колдун - Дисциплина,Warlock - Discipline
 PSKILL_WARLOCKD_DESC,"Боец ""Колдун"" повышает маг атаку и скорость движения",Warlock boosts magic attack and movement speed
 STATUS_EMPTY_NAME,Зеро,Zero
 STATUS_EMPTY_DESC,Пустой слот,Empty slot
+BUILDING_FACTORY_NAME,Фабрика,Factory
+BUILDING_FACTORY_DESC,С определенным интервалом производит жетоны,It produces tokens at a certain interval
+BUILDING_EMPTY_NAME,Место под здание,Construction site
+BUILDING_EMPTY_DESC,При нажатии откроется меню строительства,Clicking opens the buildings menu
+BUILDING_FARM_NAME,Ферма,Farm
+BUILDING_FARM_DESC,С определенным интервалом производит еду,Produces food at a certain interval
+BUILDING_GOLD_NAME,Золотая шахта,Gold mine
+BUILDING_GOLD_DESC,С определенным интервалом производит золото,Produces gold at a certain interval
+BUILDING_MARKET_NAME,Рынок,Market
+BUILDING_MARKET_DESC,Позволяет обменивать ресурсы,Allows you to exchange resources
+BUILDING_CRYSTALL_NAME,Шахта кристаллов,Crystal mine
+BUILDING_CRYSTALL_DESC,С определенным интервалом производит кристаллы,Produces crystals at a certain interval
+BUILDING_TRAININGC_NAME,Тренировочный лагерь,Тренировочный лагерь
+BUILDING_TRAININGC_DESC,С определенным интервалом создает слоты улучшений для рулетки,Produces upgrade slots for roulette at a certain interval.
+BUILDING_BARRACKST1_NAME,Т1 Казармы,T1 Barracks
+BUILDING_BARRACKST1_DESC,Создает слот Т1 юнита для рулетки,Creates a T1 unit slot for roulette
+BUILDING_BARRACKST2_NAME,Т2 Казармы,T2 Barracks
+BUILDING_BARRACKST2_DESC,Создает слот Т2 юнита для рулетки,Creates a T2 unit slot for roulette
+BUILDING_BARRACKST3_NAME,Т3 Казармы,T3 Barracks
+BUILDING_BARRACKST3_DESC,Создает слот Т3 юнита для рулетки,Creates a T3 unit slot for roulette
+BUILDING_BARRACKST4_NAME,Т4 Казармы,T4 Barracks
+BUILDING_BARRACKST4_DESC,Создает слот Т4 юнита для рулетки,Creates a T4 unit slot for roulette
+UI_BTNSTART_NAME,Новая игра,New game
+UI_BTNCONTINUE_NAME,Продолжить,Continue
+UI_BTNOPTIONS_NAME,Настройки,Options
+UI_BTNEXIT_NAME,Выйти из игры,Leave
+UI_BTNYES_NAME,Да,Yes
+UI_BTNNO_NAME,Нет,No
+UI_STARTCONFIRMED_NAME,"Уверены, что хотите начать новую игру? Прогресс будет потерян",Are you sure you want to start a new game? The progress will be lost
+UI_CLOSE_NAME,X,X
+UI_TOLOBBY_NAME,В лобби,To lobby
+UI_MUSIC_NAME,Музыка,Music
+UI_SFX_NAME,Звуки,SFX
+UI_SHAKE_NAME,Тряска,Shake
+UI_EXITCONFIRMED_NAME,"Уверены, что хотите покинуть игру? Прогресс будет потерян.",Are you sure you want to go to the lobby? The progress will be lost
+UI_CASTLE_NAME,текущий замок,current castle
+UI_DIFF_NAME,выберите сложность,choose the difficulty
+UI_REWARDS_NAME,НАГРАДЫ,REWARDS
+UI_BTNTOMENU_NAME,В МЕНЮ,MENU
+UI_BTNTOGAME_NAME,В БОЙ,START RUN
+UI_METASHOP_NAME,ЛАВКА УЛУЧШЕНИЙ,SOUL SHOP
+UI_METAIGOLDINC_NAME,Больше золота,More gold
+UI_METAIGOLDINC_DESC,Повышает количество получаемого золота,Increases the amount of gold received
+UI_METAIFOODINC_NAME,Больше еды,More food
+UI_METAIFOODINC_DESC,Повышает количество получаемой еды,Increases the amount of food you receive
+UI_METAITOKENINC_NAME,Больше жетонов,More tokens
+UI_METAITOKENINC_DESC,Повышает количество получаемых жетонов,Increases the number of tokens received
+UI_METAICRYINC_NAME,Больше кристаллов,More crystals
+UI_METAICRYINC_DESC,Повышает количество получаемых кристаллов,Increases the number of crystals produced
+UI_METAIHPSTART_NAME,Больше прочность,More toughness
+UI_METAIHPSTART_DESC,Повышает количество стартовой прочности,Increases the amount of starting toughness
+UI_METAIDAMAGEINC_NAME,Меньше урона,Less damage
+UI_METAIDAMAGEINC_DESC,Уменьшает получаемый замком урон,Reduces the damage received by the castle
+UI_METAIGOLDSTART_NAME,Золото старт,Gold start
+UI_METAIGOLDSTART_DESC,Увеличивает стартовое золото,Increases the starting gold
+UI_METAISWAPTIME_NAME,Ускоренный свап,Swap time
+UI_METAISWAPTIME_DESC,Ускоряет откат свапа слотов,Accelerate swap time
+UI_BTNCHOOSE_NAME,ВЫБРАТЬ,CHOOSE
+UI_LEVELUP_NAME,Выберите путь развития героя,Choose the path of the hero
+LEVEL_E0_NAME,Обучение,Tutorial
+LEVEL_E0_DESC,Освойте основы игры. Волны врагов немногочисленные. Враги без улучшений.,Get to know the basics of the game
+LEVEL_E1_NAME,Сложность 1,Difficulty 1
+LEVEL_E1_DESC,Враги наступают. Волны врагов средние. Враги без улучшений.,The enemies are advancing. The waves of enemies are average. Enemies without upgrades.
+LEVEL_E2_NAME,Сложность 2,Difficulty 2
+LEVEL_E2_DESC,Враг усиливает натиск. Волны врагов средние. Могут попадаться враги с улучшениями,The enemy intensifies the onslaught. The waves of enemies are average. There may be enemies with upgrades
+LEVEL_E3_NAME,Сложность 3,Difficulty 3
+LEVEL_E3_DESC,Врагов утомило соседство с вашим замком. Волны врагов усилены. Враги бывают с улучшениями,The enemies are tired of the neighborhood of your castle. The waves of enemies are reinforced. Enemies come with upgrades
+LEVEL_E4_NAME,Сложность 4,Difficulty 4
+LEVEL_E4_DESC,Враги совсем распоясались. Волны врагов большие. Враги бывают с улучшениями,The enemies are completely out of control. The waves of enemies are big. Enemies come with upgrades
+LEVEL_E5_NAME,Сложность 5,Difficulty 5
+LEVEL_E5_DESC,Враги истекают слюной при виде вашего замка. Волны врагов большие. Враги часто с улучшениями,Enemies are salivating at the sight of your castle. The waves of enemies are big. Enemies are often upgraded
+LEVEL_E6_NAME,Сложность 6,Difficulty 6
+LEVEL_E6_DESC,Ад начинается здесь. Волны врагов многочисленные. Враги часто с улучшениями,Hell starts here. The waves of enemies are numerous. Enemies are often upgraded
+LEVEL_E7_NAME,Сложность 7,Difficulty 7
+LEVEL_E7_DESC,Дорога в пекло все еще открыта. Волны врагов многочисленные. Враги часто с улучшениями,The road to hell is still open. The waves of enemies are numerous. Enemies are often upgraded
+LEVEL_E8_NAME,Сложность 8,Difficulty 8
+LEVEL_E8_DESC,Конечная остановка. Волна врагов безумные. Враги редко без улучшений,The final stop. The wave of enemies are insane. Enemies are rarely without upgrades

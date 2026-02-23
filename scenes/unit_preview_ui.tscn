@@ -62,7 +62,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = -5
+theme_override_constants/separation = -10
 
 [node name="label_cost" type="Label" parent="MarginContainer/container_unit_v/container/container2"]
 unique_name_in_owner = true
@@ -72,7 +72,6 @@ size_flags_horizontal = 8
 label_settings = SubResource("LabelSettings_fw20q")
 horizontal_alignment = 1
 vertical_alignment = 2
-autowrap_mode = 2
 
 [node name="rect_res" type="TextureRect" parent="MarginContainer/container_unit_v/container/container2"]
 custom_minimum_size = Vector2(32, 24)

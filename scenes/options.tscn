@@ -68,7 +68,7 @@ theme_override_styles/pressed = ExtResource("9_ojp2k")
 theme_override_styles/hover = ExtResource("10_lxxms")
 theme_override_styles/disabled = ExtResource("11_jcqpe")
 theme_override_styles/focus = ExtResource("9_ojp2k")
-text = "X"
+text = "UI_CLOSE_NAME"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -96,7 +96,7 @@ mouse_filter = 2
 [node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Музыка"
+text = "UI_MUSIC_NAME"
 label_settings = ExtResource("2_g5hix")
 
 [node name="MusicSlider" parent="MarginContainer/VBoxContainer/Buttons" instance=ExtResource("3_rftt1")]
@@ -112,7 +112,7 @@ audio_bus_name = "Music"
 [node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Звуки"
+text = "UI_SFX_NAME"
 label_settings = ExtResource("2_g5hix")
 
 [node name="SFXSlider" parent="MarginContainer/VBoxContainer/Buttons" instance=ExtResource("3_rftt1")]
@@ -142,7 +142,7 @@ theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_g5hix")
 theme_override_colors/checkbox_checked_color = Color(0.92156863, 0.92941177, 0.9137255, 1)
 theme_override_colors/checkbox_unchecked_color = Color(0.92156863, 0.92941177, 0.9137255, 1)
-text = "Тряска"
+text = "UI_SHAKE_NAME"
 alignment = 1
 
 [node name="filler" type="Control" parent="MarginContainer/VBoxContainer"]
@@ -168,7 +168,7 @@ theme_override_styles/pressed = ExtResource("9_ojp2k")
 theme_override_styles/hover = ExtResource("10_lxxms")
 theme_override_styles/disabled = ExtResource("11_jcqpe")
 theme_override_styles/focus = ExtResource("9_ojp2k")
-text = "В лобби"
+text = "UI_TOLOBBY_NAME"
 
 [node name="confirmed_container" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -179,7 +179,7 @@ theme_override_constants/separation = 10
 
 [node name="label_confirmed" type="Label" parent="MarginContainer/VBoxContainer/confirmed_container"]
 layout_mode = 2
-text = "Уверены, что хотите покинуть игру? Прогресс будет потерян."
+text = "UI_EXITCONFIRMED_NAME"
 label_settings = SubResource("LabelSettings_g5hix")
 autowrap_mode = 2
 
@@ -205,7 +205,7 @@ theme_override_styles/pressed = ExtResource("9_ojp2k")
 theme_override_styles/hover = ExtResource("10_lxxms")
 theme_override_styles/disabled = ExtResource("11_jcqpe")
 theme_override_styles/focus = ExtResource("9_ojp2k")
-text = "Уверен"
+text = "UI_BTNYES_NAME"
 
 [node name="filler" type="Control" parent="MarginContainer/VBoxContainer/confirmed_container/hb"]
 layout_mode = 2
@@ -230,7 +230,7 @@ theme_override_styles/pressed = ExtResource("9_ojp2k")
 theme_override_styles/hover = ExtResource("10_lxxms")
 theme_override_styles/disabled = ExtResource("11_jcqpe")
 theme_override_styles/focus = ExtResource("9_ojp2k")
-text = "Остаюсь"
+text = "UI_BTNNO_NAME"
 
 [connection signal="pressed" from="MarginContainer2/close_button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/shake_check" to="." method="_on_shake_check_pressed"]

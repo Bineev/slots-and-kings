@@ -94,7 +94,7 @@ size_flags_horizontal = 3
 
 [node name="label_castle" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "текущий замок"
+text = "UI_CASTLE_NAME"
 label_settings = SubResource("LabelSettings_ifn6l")
 
 [node name="label_castle_name" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -110,7 +110,7 @@ layout_mode = 2
 
 [node name="label_diff" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "выберите сложность"
+text = "UI_DIFF_NAME"
 label_settings = SubResource("LabelSettings_1quoc")
 
 [node name="filler3" type="Control" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -145,7 +145,7 @@ layout_mode = 2
 [node name="label_level_rewards" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "НАГРАДЫ"
+text = "UI_REWARDS_NAME"
 label_settings = SubResource("LabelSettings_hphob")
 uppercase = true
 
@@ -178,7 +178,7 @@ theme_override_styles/pressed = ExtResource("8_kmds0")
 theme_override_styles/hover = ExtResource("9_e3wjx")
 theme_override_styles/disabled = ExtResource("10_ifn6l")
 theme_override_styles/focus = ExtResource("8_kmds0")
-text = "В МЕНЮ"
+text = "UI_BTNTOMENU_NAME"
 
 [node name="filler" type="Control" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -205,7 +205,7 @@ theme_override_styles/pressed = ExtResource("8_kmds0")
 theme_override_styles/hover = ExtResource("9_e3wjx")
 theme_override_styles/disabled = ExtResource("10_ifn6l")
 theme_override_styles/focus = ExtResource("8_kmds0")
-text = "В БОЙ"
+text = "UI_BTNTOGAME_NAME"
 
 [node name="ShaderLayer" parent="." instance=ExtResource("12_ifn6l")]
 

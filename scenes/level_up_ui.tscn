@@ -36,7 +36,7 @@ layout_mode = 2
 
 [node name="label_header" type="Label" parent="MarginContainer/data_container"]
 layout_mode = 2
-text = "Выберите путь развития героя"
+text = "UI_LEVELUP_NAME"
 label_settings = ExtResource("3_al3h0")
 horizontal_alignment = 1
 vertical_alignment = 1

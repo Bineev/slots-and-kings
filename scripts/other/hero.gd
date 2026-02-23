@@ -43,9 +43,16 @@ var previous_position : Vector2
 
 func initialize():
 	await get_tree().process_frame
+	var current_locale : String = TranslationServer.get_locale()
+	var current_hero_class_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_hero_class_table = DataManager.hero_classes_table_en
+		'ru_RU':
+			current_hero_class_table = DataManager.hero_classes_table
 	label_hero_name.text = hero_name
 	rect_hero_portrait.texture = hero_portrait
-	label_hero_class.text = DataManager.hero_classes_table[hero_class]
+	label_hero_class.text = current_hero_class_table[hero_class]
 	update_hero_level()
 	# добавляем скиллы
 	# скорректировать
@@ -135,5 +142,12 @@ func set_skills_is_inactive():
 
 
 func update_hero_level():
-	label_hero_level.text = 'уровень %d' % hero_level
+	var current_locale : String = TranslationServer.get_locale()
+	var level_prefix : String
+	match current_locale:
+		'en_US':
+			level_prefix = 'level %d'
+		'ru_RU':
+			level_prefix = 'уровень %d'
+	label_hero_level.text = level_prefix % hero_level
 	

@@ -35,6 +35,6 @@ theme_override_styles/pressed = ExtResource("3_ky7yf")
 theme_override_styles/hover = ExtResource("4_ibron")
 theme_override_styles/disabled = ExtResource("5_qdnc3")
 theme_override_styles/focus = ExtResource("3_ky7yf")
-text = "выбрать"
+text = "UI_BTNCHOOSE_NAME"
 
 [connection signal="pressed" from="choose_button" to="." method="_on_choose_button_pressed"]

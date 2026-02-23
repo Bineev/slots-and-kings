@@ -22,14 +22,20 @@ func _ready() -> void:
 
 func initialize():
 	label_item_name.text = slot_res.slot_name
+	var current_locale : String = TranslationServer.get_locale()
+	var current_unit_types_table : Dictionary
 	if slot_res.slot_type == DataManager.SlotType.UNIT:
 		var types : String
+		match current_locale:
+			'en_US':
+				current_unit_types_table = DataManager.unit_types_table_en
+			'ru_RU':
+				current_unit_types_table = DataManager.unit_types_table
 		for item in slot_res.unit_types:
-			types += DataManager.unit_types_table[item] + '\n'
+			types += current_unit_types_table[item] + '\n'
 		label_item_desc.text = types
 	else:
-		label_item_desc.text = slot_res.slot_description
-	choose_button.text = 'ВЫБРАТЬ'
+		label_item_desc.text = tr(slot_res.slot_description)
 	item_texture.texture = slot_res.slot_sprite
 	slot_type = slot_res.slot_type
 	if slot_res.slot_type == DataManager.SlotType.UNIT or slot_res.slot_type == DataManager.SlotType.PERC:
@@ -38,9 +44,16 @@ func initialize():
 		label_item_stats.hide()
 		label_open_stats.hide()
 
-
+#TODO
 func generate_stats():
 	var unit_stats : String
+	var current_locale : String = TranslationServer.get_locale()
+	var current_stats_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_stats_table = DataManager.default_stats_to_en
+		'ru_RU':
+			current_stats_table = DataManager.default_stats_to_rus
 	for stat in DataManager.default_stats.keys():
 		if stat.contains('scout'):
 			continue
@@ -52,9 +65,9 @@ func generate_stats():
 			if stat.contains('crit_attack') and slot_res.get(stat) == 0:
 				continue
 			if stat.contains('attack_speed') or stat.contains('mult'):
-				unit_stats += ('%s: %.1f\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+				unit_stats += ('%s: %.1f\n') % [current_stats_table[stat], slot_res.get(stat)]
 			else:
-				unit_stats += ('%s: %d\n') % [DataManager.default_stats_to_rus[stat], slot_res.get(stat)]
+				unit_stats += ('%s: %d\n') % [current_stats_table[stat], slot_res.get(stat)]
 	
 	return unit_stats
 

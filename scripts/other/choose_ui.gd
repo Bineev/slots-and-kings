@@ -33,6 +33,13 @@ func set_is_should_start_wave(new_is_should_start_wave : bool):
 func initialize():
 	await get_tree().process_frame
 	# здесь баг при установке казарм 2 уровня
+	var current_locale : String = TranslationServer.get_locale()
+	var current_choose_ui_name_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_choose_ui_name_table = DataManager.choose_name_table_en
+		'ru_RU':
+			current_choose_ui_name_table = DataManager.choose_name_table_ru
 	var slot_type : DataManager.SlotType
 	for scene in choose_scenes:
 		var new_choose_slot : Slot = scene.instantiate()
@@ -45,12 +52,7 @@ func initialize():
 		choose_item.set_choose_UI(self)
 		choose_item.building_owner = building_owner
 		choose_item.initialize()
-	if slot_type == DataManager.SlotType.UPGRADE:
-		label_header.text = 'Выберите улучшение для слот-машины'
-	elif slot_type == DataManager.SlotType.UNIT:
-		label_header.text = 'Выберите юнита для слот-машины'
-	elif slot_type == DataManager.SlotType.PERC:
-		label_header.text = 'Выберите перк для слот-машины'
+	label_header.text = current_choose_ui_name_table[slot_type]
 	SignalManager.on_ready_choose_ui.emit(self)
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SHOW_REWARDS])
 	get_tree().paused = true

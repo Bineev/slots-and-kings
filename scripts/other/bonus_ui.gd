@@ -19,7 +19,14 @@ func set_bonus_count(new_bonus_count : int):
 
 func initialize():
 	await get_tree().process_frame
-	label_bonus.text = 'Астрологи объявили неделю %s. Количество призываемых %s увеличено на %d' % [bonus_name, bonus_name, bonus_count]
+	var current_locale : String = TranslationServer.get_locale()
+	var bonus_prefix : String
+	match current_locale:
+		'en_US':
+			bonus_prefix = 'Astrologers proclaim the week of the %s. The number of summonable %s has been increased by %d'
+		'ru_RU':
+			bonus_prefix = 'Астрологи объявили неделю %s. Количество призываемых %s увеличено на %d'
+	label_bonus.text = bonus_prefix % [tr(bonus_name), tr(bonus_name), bonus_count]
 
 
 func _on_gui_input(event: InputEvent) -> void:

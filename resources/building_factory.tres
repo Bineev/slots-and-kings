@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_uupli")
-building_name = "фабрика"
-building_desc = "С определенным интервалом производит жетоны"
+building_name = "BUILDING_FACTORY_NAME"
+building_desc = "BUILDING_FACTORY_DESC"
 building_cost = 500
 building_sprite = ExtResource("1_jyygt")
 produce_amount = 1

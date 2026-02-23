@@ -95,8 +95,8 @@ waves_scenes = Array[PackedScene]([ExtResource("3_8c41q"), ExtResource("4_7agi7"
 first_wave_timer = 3.0
 wave_reward_UI_scene = ExtResource("4_olg7q")
 bonus_ui_scene = ExtResource("5_8gofh")
-level_name = "Обучение"
-level_desc = "Освойте основы игры. Волны врагов немногочисленные. Враги без улучшений."
+level_name = "LEVEL_E0_NAME"
+level_desc = "LEVEL_E0_DESC"
 rewards = Array[Resource]([ExtResource("6_556r4"), ExtResource("7_7agi7"), ExtResource("8_kih21"), ExtResource("9_w3o6u"), ExtResource("6_wu01b"), ExtResource("7_3ies3"), ExtResource("8_xy2fk"), ExtResource("9_cmcjb")])
 
 [node name="shaders_layer" type="CanvasLayer" parent="."]

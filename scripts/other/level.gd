@@ -154,12 +154,8 @@ func start_waves():
 func add_player_unit():
 	if not current_unit:
 		return
-	var units_count_default : int = Player.get_units_count_for_next_create() 
-	var bonus_dict = Player.get_bonus_dict()
-	var bonus_count = 0
-	if bonus_dict.keys().has(current_unit.slots[0].slot_name):
-		bonus_count = bonus_dict[current_unit.slots[0].slot_name]
-	for i in range(units_count_default * Player.current_units_coeff + bonus_count):
+
+	for i in range(Player.creates_unit_count):
 		if Player.check_res(current_unit.unit_cost, DataManager.ResType.FOOD):
 			Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
 			create_unit_from_scratch()
@@ -171,6 +167,15 @@ func add_player_unit():
 	if Player.is_tutorial and not is_tutorial_2_done:
 		is_tutorial_2_done = true
 		show_tutorial_item()
+
+
+func update_units_count():
+	var units_count_default : int = Player.get_units_count_for_next_create() 
+	var bonus_dict = Player.get_bonus_dict()
+	var bonus_count = 0
+	if bonus_dict.keys().has(current_unit.slots[0].slot_name):
+		bonus_count = bonus_dict[current_unit.slots[0].slot_name]
+	Player.creates_unit_count = units_count_default * Player.current_units_coeff + bonus_count
 
 
 func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
@@ -185,6 +190,8 @@ func add_enemy_unit(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOw
 
 
 func add_unit_preview(unit : Unit, slots : Array[Slot], owner : DataManager.UnitOwner):
+	current_unit = unit
+	update_units_count()
 	if unit_preview_UI:
 		unit_preview_UI.queue_free()
 	unit_preview_UI = unit_preview_scene.instantiate()

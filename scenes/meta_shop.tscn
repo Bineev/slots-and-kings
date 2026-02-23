@@ -41,7 +41,7 @@ layout_mode = 2
 [node name="label_level_rewards" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "ЛАВКА УЛУЧШЕНИЙ"
+text = "UI_METASHOP_NAME"
 label_settings = SubResource("LabelSettings_va85u")
 horizontal_alignment = 1
 uppercase = true
@@ -76,8 +76,8 @@ columns = 3
 [node name="MetaItemUI" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
 layout_mode = 2
 item_texture = ExtResource("3_br48c")
-item_name = "Больше золота"
-item_desc = "Повышает количество получаемого золота"
+item_name = "UI_METAIGOLDINC_NAME"
+item_desc = "UI_METAIGOLDINC_DESC"
 item_default_value = 1.0
 item_value = 1.0
 item_max_value = 2.0
@@ -88,8 +88,8 @@ item_up_default_cost = 50.0
 [node name="MetaItemUI2" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
 layout_mode = 2
 item_texture = ExtResource("4_fyl63")
-item_name = "Больше еды"
-item_desc = "Повышает количество получаемой еды"
+item_name = "UI_METAIFOODINC_NAME"
+item_desc = "UI_METAIFOODINC_DESC"
 item_default_value = 1.0
 item_value = 1.0
 item_max_value = 2.0
@@ -101,8 +101,8 @@ meta_type = 2
 [node name="MetaItemUI3" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
 layout_mode = 2
 item_texture = ExtResource("5_7jrn4")
-item_name = "Больше жетонов"
-item_desc = "Повышает количество получаемых жетонов"
+item_name = "UI_METAITOKENINC_NAME"
+item_desc = "UI_METAITOKENINC_DESC"
 item_default_value = 1.0
 item_value = 1.0
 item_max_value = 2.0
@@ -126,8 +126,8 @@ item_up_default_cost = 150.0
 [node name="MetaItemUI5" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
 layout_mode = 2
 item_texture = ExtResource("7_ois0k")
-item_name = "Больше здоровья"
-item_desc = "Повышает количество здоровья"
+item_name = "UI_METAIHPSTART_NAME"
+item_desc = "UI_METAIHPSTART_DESC"
 item_default_value = 1.0
 item_value = 1.0
 item_max_value = 2.0
@@ -139,8 +139,8 @@ meta_type = 8
 [node name="MetaItemUI6" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
 layout_mode = 2
 item_texture = ExtResource("8_8lj8s")
-item_name = "Меньше урона"
-item_desc = "Уменьшает получаемый замком урон"
+item_name = "UI_METAIDAMAGEINC_NAME"
+item_desc = "UI_METAIDAMAGEINC_DESC"
 is_increment = false
 item_default_value = 1.0
 item_value = 1.0
@@ -153,8 +153,8 @@ meta_type = 9
 [node name="MetaItemUI7" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
 layout_mode = 2
 item_texture = ExtResource("13_c7qtr")
-item_name = "Золото старт"
-item_desc = "Увеличивает стартовое золото"
+item_name = "UI_METAIGOLDSTART_NAME"
+item_desc = "UI_METAIGOLDSTART_DESC"
 item_default_value = 1.0
 item_value = 1.0
 item_max_value = 2.0
@@ -166,8 +166,8 @@ meta_type = 4
 [node name="MetaItemUI8" parent="MarginContainer/VBoxContainer/meta_items_container" instance=ExtResource("1_ltp34")]
 layout_mode = 2
 item_texture = ExtResource("14_id3s8")
-item_name = "Ускоренный свап"
-item_desc = "Ускоряет откат свапа слотов"
+item_name = "UI_METAISWAPTIME_NAME"
+item_desc = "UI_METAISWAPTIME_DESC"
 is_increment = false
 item_default_value = 1.0
 item_value = 1.0

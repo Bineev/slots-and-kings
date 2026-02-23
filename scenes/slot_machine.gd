@@ -214,4 +214,11 @@ func swap_up():
 
 
 func update_bonus_week(slot_name : String):
-	label_bonus.text = 'Неделя: %s' % slot_name
+	var current_locale : String = TranslationServer.get_locale()
+	var bonus_prefix : String
+	match current_locale:
+		'en_US':
+			bonus_prefix = 'Week: %s'
+		'ru_RU':
+			bonus_prefix = 'Неделя: %s'
+	label_bonus.text = bonus_prefix % tr(slot_name)

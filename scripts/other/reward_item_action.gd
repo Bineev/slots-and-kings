@@ -7,21 +7,12 @@ class_name RewardItemAction
 
 
 func initialize():
-	match reward_type:
-		DataManager.RewardType.UNIT:
-			label_reward_info.text = 'Выбор юнита'
-		DataManager.RewardType.UPGRADE:
-			label_reward_info.text = 'Выбор улучшения'
-		DataManager.RewardType.PERC:
-			label_reward_info.text = 'Выбор перка'
-		DataManager.RewardType.HERO:
-			label_reward_info.text = 'Выбор героя'
-		DataManager.RewardType.REMOVER:
-			label_reward_info.text = 'Удалить слот'
-		DataManager.RewardType.BLACK_MARKET:
-			label_reward_info.text = 'Черный рынок'
-		DataManager.RewardType.MARKET:
-			label_reward_info.text = 'Торговец'
-		DataManager.RewardType.LEVEL_UP:
-			label_reward_info.text = 'Левел-ап героя'
+	var current_locale : String = TranslationServer.get_locale()
+	var current_reward_action_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_reward_action_table = DataManager.reward_action_table_en
+		'ru_RU':
+			current_reward_action_table = DataManager.reward_action_table_ru
+	label_reward_info.text = current_reward_action_table[reward_type]
 	show()

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_ygal0")
-building_name = "Место под здание"
-building_desc = "При нажатии откроется меню строительства"
+building_name = "BUILDING_EMPTY_NAME"
+building_desc = "BUILDING_EMPTY_DESC"
 building_sprite = ExtResource("1_7twhw")
 metadata/_custom_type_script = "uid://ebjnjxcsijom"

@@ -74,6 +74,7 @@ var next_create_units_count : int
 var hero_factory : HeroFactory
 var unit_factory : UnitFactory
 var current_units_coeff : int = 1
+var creates_unit_count : int
 var current_bonus_slot_name : String
 var is_dead : bool
 var current_runs_count : int
@@ -533,7 +534,7 @@ func clear_base_decks():
 func generate_bonus_dict():
 	var pool : Array[Resource] = current_progress.units_T1_pool + current_progress.units_T2_pool + current_progress.units_T3_pool + current_progress.units_T4_pool
 	for res in pool:
-		bonus_dict[res.slot_name] = 0
+		bonus_dict[tr(res.slot_name)] = 0
 
 
 func get_random_week_bonus():
@@ -653,6 +654,13 @@ func get_active_res_by_class_and_level(hero : Hero, hero_class : DataManager.Her
 
 
 func create_hero(hero_class : DataManager.HeroClass, hero_level : int):
+	var current_locale : String = TranslationServer.get_locale()
+	var current_hero_names_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_hero_names_table = DataManager.hero_names_table_en
+		'ru_RU':
+			current_hero_names_table = DataManager.hero_names_table_ru
 	var hero_stat_res : HeroStatRes = get_hero_res_by_class(hero_class)
 	# устанавливаем дефолтные значения для уровня 1
 	var hero : Hero = hero_scene.instantiate()
@@ -665,7 +673,8 @@ func create_hero(hero_class : DataManager.HeroClass, hero_level : int):
 	# открыть когда появятся скиллы
 	hero.add_passive_reses(get_passive_res_by_class_and_level(hero, hero.hero_class, 1))
 	hero.add_active_reses(get_active_res_by_class_and_level(hero, hero.hero_class, 1))
-	hero.set_hero_name(hero_stat_res.hero_names_pool.pick_random())
+	# change name by locale
+	hero.set_hero_name(current_hero_names_table[hero_stat_res.hero_class].pick_random())
 	
 	# левел апаемся
 	for i in range(hero_level + 1):
@@ -754,7 +763,14 @@ func check_is_level_done(level_difficulty : int):
 
 
 func get_castle_name():
-	return DataManager.castle_name_table[current_king]
+	var current_locale : String = TranslationServer.get_locale()
+	var current_castle_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_castle_table = DataManager.castle_name_table_en
+		'ru_RU':
+			current_castle_table = DataManager.castle_name_table
+	return current_castle_table[current_king]
 
 
 func get_level_scenes():

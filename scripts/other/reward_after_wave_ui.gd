@@ -83,11 +83,25 @@ func close_popup_UI():
 
 
 func generate_reward_info():
-	label_reward_info.text = 'Потеряно бойцов: %d\nУничтожено врагов: %d' % [Player.get_player_die_count(), Player.get_enemy_die_count()]
+	var current_locale : String = TranslationServer.get_locale()
+	var reward_prefix : String
+	match current_locale:
+		'en_US':
+			reward_prefix = 'Units lost: %d\nEnemies destroyed: %d'
+		'ru_RU':
+			reward_prefix = 'Потеряно бойцов: %d\nУничтожено врагов: %d'
+	label_reward_info.text = reward_prefix % [Player.get_player_die_count(), Player.get_enemy_die_count()]
 
 
 func generate_reward_header():
-	label_reward_header.text = 'Волна %d пройдена!' % wave_count
+	var current_locale : String = TranslationServer.get_locale()
+	var reward_prefix : String
+	match current_locale:
+		'en_US':
+			reward_prefix = 'Wave %d done!'
+		'ru_RU':
+			reward_prefix = 'Волна %d пройдена!'
+	label_reward_header.text = reward_prefix % wave_count
 
 
 func generate_reward_container():

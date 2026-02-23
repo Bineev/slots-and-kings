@@ -280,7 +280,7 @@ func create_tooltip():
 		'en_US':
 			current_data_skill_table = DataManager.data_skill_table_en
 			unit_type_to_damage_type_table = DataManager.unit_type_to_damage_type_table_en
-			default_stats_table = DataManager.default_stats
+			default_stats_table = DataManager.default_stats_to_en
 		'ru_RU':
 			current_data_skill_table = DataManager.data_skill_table_ru
 			unit_type_to_damage_type_table = DataManager.unit_type_to_damage_type_table

@@ -127,9 +127,10 @@ func apply_stat(current_unit : Unit):
 	# вот здесь нужна проверить имя, но учитывая локализацию
 	var current_locale : String = TranslationServer.get_locale()
 	var current_skill_unit_name : String
+	# TODO имя к кому применяется не работает из=за локали
 	match current_locale:
 		'en_US':
-			current_skill_unit_name = DataManager.unit_name_ru_to_en[skill_unit_name]
+			current_skill_unit_name = DataManager.unit_name_ru_to_en[skill_unit_name.capitalize()]
 		'ru_RU':
 			current_skill_unit_name = skill_unit_name
 	

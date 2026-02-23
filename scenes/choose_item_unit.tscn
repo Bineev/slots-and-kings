@@ -6,5 +6,5 @@
 [node name="ChooseItemUnit" instance=ExtResource("1_2mae6")]
 script = ExtResource("2_luyd6")
 
-[node name="label_item_desc" parent="." index="2"]
-custom_minimum_size = Vector2(0, 40)
+[node name="choose_button" parent="MarginContainer/VBoxContainer" index="5"]
+text = "UI_BTNCHOOSE_NAME"

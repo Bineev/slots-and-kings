@@ -102,6 +102,7 @@ theme_override_styles/pressed = ExtResource("5_yflhg")
 theme_override_styles/hover = ExtResource("6_tq6oh")
 theme_override_styles/disabled = ExtResource("5_k45hk")
 theme_override_styles/focus = ExtResource("5_yflhg")
+text = "UI_BTNCHOOSE_NAME"
 
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/label_open_stats" to="." method="_on_label_open_stats_gui_input"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/choose_button" to="." method="_on_choose_button_pressed"]

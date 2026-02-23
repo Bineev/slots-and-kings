@@ -34,8 +34,8 @@ func initialize():
 func set_data(new_level : Level, new_lobby : LobbyUI):
 	level = new_level
 	level_difficulty = level.difficulty_count
-	level_name = level.level_name
-	level_desc = level.level_desc
+	level_name = tr(level.level_name)
+	level_desc = tr(level.level_desc)
 	lobby = new_lobby
 	rewards = level.rewards
 

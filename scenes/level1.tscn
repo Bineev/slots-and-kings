@@ -13,8 +13,8 @@
 
 [node name="Level" instance=ExtResource("1_conm7")]
 difficulty_count = 1
-level_name = "Сложность 1"
-level_desc = "Враги наступают.  Волны врагов средние. Враги без улучшений."
+level_name = "LEVEL_E1_NAME"
+level_desc = "LEVEL_E1_DESC"
 rewards = Array[Resource]([ExtResource("2_d3jkd"), ExtResource("3_u3awl"), ExtResource("4_2ku1j"), ExtResource("5_f31uk"), ExtResource("6_gnai3"), ExtResource("7_i8kv5"), ExtResource("8_dxn3v"), ExtResource("9_14jow")])
 
 [node name="label_result" parent="UI/result_panel/MarginContainer" index="0"]

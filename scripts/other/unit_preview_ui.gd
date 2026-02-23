@@ -21,9 +21,16 @@ func _ready() -> void:
 func initialize():
 	await get_tree().process_frame
 	label_unit_name.text = unit.unit_name.to_upper()
+	var current_locale : String = TranslationServer.get_locale()
+	var current_unit_types_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_unit_types_table = DataManager.unit_types_table_en
+		'ru_RU':
+			current_unit_types_table = DataManager.unit_types_table
 	var unit_types : String
 	for type in unit.unit_types:
-		unit_types += DataManager.unit_types_table[type]
+		unit_types += current_unit_types_table[type]
 		unit_types += '\n'
 	label_unit_tags.text = unit_types
 	var unique_stats : Dictionary = unit.parse_stats()
@@ -40,11 +47,13 @@ func initialize():
 			pre_string = '[color=#a53030]%s[/color]' % pre_string
 		unit_stats += pre_string + '\n'
 	label_stats.text = unit_stats
-	label_cost.text = str(unit.unit_cost)
+	#TODO показать текущее кол-во
+	label_cost.text = '%s x %s' % [Player.creates_unit_count, str(unit.unit_cost)]
 
 
 func set_unit(new_unit : Unit):
 	unit = new_unit
+
 
 func add_unit():
 	container.add_child(unit)

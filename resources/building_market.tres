@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_heiyy")
-building_name = "Рынок"
-building_desc = "Позволяет обменивать ресурсы"
+building_name = "BUILDING_MARKET_NAME"
+building_desc = "BUILDING_MARKET_DESC"
 building_cost = 1000
 building_sprite = ExtResource("1_sarde")
 metadata/_custom_type_script = "uid://ebjnjxcsijom"

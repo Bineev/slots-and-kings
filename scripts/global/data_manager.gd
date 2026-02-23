@@ -3,6 +3,7 @@ extends Node
 
 var viewport_size = Vector2(960, 540)
 
+
 enum SlotType {
 	UPGRADE, UNIT, PERC, ULT
 }
@@ -55,7 +56,7 @@ enum TargetSetting {
 }
 
 enum HeroClass {
-	ENGINEER, PRIEST, MAGE, SCOUT, COMMANDER
+	ENGINEER, PRIEST, MAGE, SCOUT, COMMANDER, DOMINATOR, LORD, TORTURER
 }
 
 enum RewardType {
@@ -229,6 +230,8 @@ var min_damage_mult : float = 0.3
 
 var empty_slot_name : String = 'Зеро'
 
+var empty_slot_name_en : String = 'Zero'
+
 var movement_offset_min : float = -0.3
 
 var movement_offset_max : float = 0.3
@@ -375,8 +378,8 @@ var default_stats_to_rus : Dictionary = {
 	'move_speed_mult' : 'ск. движения x',
 	'attack_range' : 'дальность атаки',
 	'attack_range_mult' : 'дальность атаки x',
-	'life_steal' : 'лайфстил',
-	'life_steal_mult' : 'лайфстил x',
+	'life_steal' : 'вампиризм',
+	'life_steal_mult' : 'вампиризм x',
 	'health_regen' : 'регенерация',
 	'health_regen_mult' : 'регенерация x',
 	'health_regen_interval' : "реген интервал",
@@ -397,6 +400,57 @@ var default_stats_to_rus : Dictionary = {
 	'projectile_speed_mult' : 'скорость снаряда x',
 	'projectile_attack_range' : 'радиус аое снаряда',
 	'projectile_attack_range_mult' : 'радиус аое снаряда x',
+}
+
+var default_stats_to_en : Dictionary = {
+	'health' : 'health',
+	'health_mult' : 'health x',
+	'armor' : 'armor',
+	'armor_mult' : 'armor x',
+	'magic_defence' : 'magic defence',
+	'magic_defence_mult' : 'magic defence x',
+	'physical_attack' : 'phys attack',
+	'physical_attack_mult' : 'phys attack x',
+	'magical_attack' : 'magic attack',
+	'magical_attack_mult' : 'magic attack x',
+	'hit_chance' : 'accuracy',
+	'hit_chance_mult' : 'accuracy x',
+	'crit_chance' : 'critical chance',
+	'crit_chance_mult' : 'critical chance x',
+	'crit_attack' : 'critical attack',
+	'crit_attack_mult' : 'critical attack x',
+	'evade' : 'dodge',
+	'evade_mult' : 'dodge x',
+	'shield' : 'shield',
+	'shield_mult' : 'shield x',
+	'attack_speed' : 'attack speed',
+	'attack_speed_mult' : 'attack speed x',
+	'move_speed' : 'movespeed',
+	'move_speed_mult' : 'movespeed x',
+	'attack_range' : 'range',
+	'attack_range_mult' : 'range x',
+	'life_steal' : 'lifesteal',
+	'life_steal_mult' : 'lifesteal x',
+	'health_regen' : 'regen',
+	'health_regen_mult' : 'regen x',
+	'health_regen_interval' : "regen interval",
+	'health_regen_interval_mult' : 'regen interval x',
+	'true_damage' : 'pure attack',
+	'true_damage_mult' : 'pure attack x',
+	'scout_range' : 'detection range',
+	'scout_range_mult' : 'detection range x',
+	'damage_mult_vs_all' : 'all damage x',
+	'damage_mult_vs_castle' : 'damage vs Empire x',
+	'damage_mult_vs_hell' : 'damage vs Abyss x',
+	'damage_mult_vs_forest' : 'damage vs Bush x',
+	'inc_damage_mult_vs_all' : 'damage reduce x',
+	'inc_damage_mult_vs_castle' : 'damage reduce vs Empire x',
+	'inc_damage_mult_vs_hell' : 'damage reduce vs Abyss x',
+	'inc_damage_mult_vs_forest' : 'damage reduce vs Bush x',
+	'projectile_speed' : 'projectile speed',
+	'projectile_speed_mult' : 'projectile speed x',
+	'projectile_attack_range' : 'AOE radius',
+	'projectile_attack_range_mult' : 'AOE radius x',
 }
 
 
@@ -521,11 +575,13 @@ var castle_name_table : Dictionary = {
 	UnitFamily.FOREST : 'Чаща'
 }
 
+
 var castle_name_table_en : Dictionary = {
 	UnitFamily.CASTLE : 'Empire',
 	UnitFamily.HELL : 'Abyss',
 	UnitFamily.FOREST : 'Bush'
 }
+
 
 var unit_type_to_damage_type_table : Dictionary = {
 	UnitType.PHYS : 'физический',
@@ -533,8 +589,71 @@ var unit_type_to_damage_type_table : Dictionary = {
 	UnitType.ASSASSIN : 'чистый'
 }
 
+
 var unit_type_to_damage_type_table_en : Dictionary = {
 	UnitType.PHYS : 'phys',
 	UnitType.MAGE : 'mage',
 	UnitType.ASSASSIN : 'pure'
+}
+
+
+var hero_names_table_en : Dictionary = {
+	HeroClass.ENGINEER : ['Henry', 'Norman', 'Eddrick', 'Osmond', 'Turbert', 'Godwin'],
+	HeroClass.PRIEST : ['Priest'],
+	HeroClass.MAGE : ['Augusta', 'Abra', 'Beatrice', 'Olivia', 'Sigrid'],
+	HeroClass.SCOUT : ['Scout'],
+	HeroClass.COMMANDER : ['Benedict', 'Ulrich', 'Arthur', 'Bernard', 'Guillaume'],
+	HeroClass.DOMINATOR : ['Nisrok', 'Ufir', 'Habaril', 'Xaphan', 'Verdelet'],
+	HeroClass.TORTURER : ['Morgana', 'Lilith', 'Empusa', 'Naama', 'Obizut'],
+	HeroClass.LORD : ['Flevreti', 'Sargatanas', 'Lucifuge', 'Acheron', 'Andras']
+}
+
+
+var hero_names_table_ru : Dictionary = {
+	HeroClass.ENGINEER : ['Генрих', 'Норман', 'Эддрик', 'Осмонд', 'Турберт', 'Годвин'],
+	HeroClass.PRIEST : ['Priest'],
+	HeroClass.MAGE : ['Августа', 'Абра', 'Беатрис', 'Оливия', 'Сигрид'],
+	HeroClass.SCOUT : ['Scout'],
+	HeroClass.COMMANDER : ['Бенедикт', 'Ульрих', 'Артур', 'Бернард', 'Гийом'],
+	HeroClass.DOMINATOR : ['Нисрок', 'Уфир', 'Хабарил', 'Ксафан', 'Верделет'],
+	HeroClass.TORTURER : ['Моргана', 'Лилит', 'Эмпуса', 'Наама', 'Обизут'],
+	HeroClass.LORD : ['Флеврети', 'Саргатанас', 'Люцифуг', 'Ахерон', 'Андрас']
+}
+
+
+var reward_action_table_ru : Dictionary = {
+	DataManager.RewardType.UNIT : 'Выбор юнита',
+	DataManager.RewardType.UPGRADE : 'Выбор улучшения',
+	DataManager.RewardType.PERC : 'Выбор перка',
+	DataManager.RewardType.HERO : 'Выбор героя',
+	DataManager.RewardType.REMOVER : 'Удалить слот',
+	DataManager.RewardType.BLACK_MARKET : 'Черный рынок',
+	DataManager.RewardType.MARKET : 'Торговец',
+	DataManager.RewardType.LEVEL_UP : 'Левел-ап героя'
+}
+
+
+var reward_action_table_en : Dictionary = {
+	DataManager.RewardType.UNIT : 'Choosing unit',
+	DataManager.RewardType.UPGRADE : 'Choosing upgrade',
+	DataManager.RewardType.PERC : 'Choosing perc',
+	DataManager.RewardType.HERO : 'Chooisng hero',
+	DataManager.RewardType.REMOVER : 'Remove slot',
+	DataManager.RewardType.BLACK_MARKET : 'Black market',
+	DataManager.RewardType.MARKET : 'Market',
+	DataManager.RewardType.LEVEL_UP : 'Level-up hero'
+}
+
+
+var choose_name_table_ru : Dictionary = {
+	SlotType.UPGRADE : 'Выберите улучшение для слот-машины',
+	SlotType.UNIT : 'Выберите юнита для слот-машины',
+	SlotType.PERC : 'Выберите перк для слот-машины'
+}
+
+
+var choose_name_table_en : Dictionary = {
+	SlotType.UPGRADE : 'Choose upgrade slot for the roulette',
+	SlotType.UNIT : 'Choose unit slot for the roulette',
+	SlotType.PERC : 'Choose perc slot for the roulette'
 }

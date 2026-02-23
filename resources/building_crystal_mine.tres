@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_8msq7")
-building_name = "шахта кристаллов"
-building_desc = "С определенным интервалом производит кристаллы"
+building_name = "BUILDING_CRYSTALL_NAME"
+building_desc = "BUILDING_CRYSTALL_DESC"
 building_cost = 2000
 building_sprite = ExtResource("1_lxdnj")
 produce_amount = 1

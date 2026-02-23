@@ -4,6 +4,6 @@
 
 [node name="Level_7" instance=ExtResource("1_huyg5")]
 difficulty_count = 7
-level_name = "Сложность 7"
-level_desc = "Дорога в пекло все еще открыта. Волны врагов многочисленные. Враги часто с улучшениями."
+level_name = "LEVEL_E7_NAME"
+level_desc = "LEVEL_E7_DESC"
 rewards = Array[Resource]([])

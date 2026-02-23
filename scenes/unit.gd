@@ -752,7 +752,7 @@ func show_blood():
 	
 
 func add_slot_res(new_slot_res : Resource):
-	if new_slot_res.slot_name == 'Зеро':
+	if new_slot_res.slot_name == DataManager.empty_slot_name or new_slot_res.slot_name == DataManager.empty_slot_name_en:
 		return
 	slot_resources.append(new_slot_res)
 

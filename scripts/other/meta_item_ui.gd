@@ -39,13 +39,16 @@ func initialize():
 	item_up_cost = item_up_default_cost * item_level
 	button_buy.text = str(int(item_up_cost))
 	if item_value == item_max_value:
-		button_buy.text = 'макс'
-	tooltip_text = item_desc
+		button_buy.text = 'max'
+	tooltip_text = tr(item_desc)
 	var new_theme = Theme.new()
-	new_theme.set_stylebox('panel', 'TooltipPanel', stylebox_tooltip)
+	var sb = stylebox_tooltip.duplicate()
+	sb.set_content_margin_all(10)
+	new_theme.set_stylebox('panel', 'TooltipPanel', sb)
 	new_theme.set_font('font', 'TooltipLabel', font_tooltip)
 	new_theme.set_font_size('font_size', 'TooltipLabel', 8)
 	new_theme.set_color('font_color', 'TooltipLabel', Color8(52, 28, 39, 255))
+	#var stylebox = new_theme.get_theme_stylebox('normal')
 	theme = new_theme
 	meta_item_texture.texture = item_texture
 	disable_if_not_enough_souls()
