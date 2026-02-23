@@ -25,7 +25,7 @@ func initialize():
 		button_buy.get_parent().remove_child(button_buy)
 		return
 	label_curent_tier.text = str(current_count)
-	label_next_tier.text += " " + str(current_count + 1)
+	label_next_tier.text = tr(label_next_tier.text) + " " + str(current_count + 1)
 	button_buy.text = str(next_tier_cost)
 	if not Player.check_res(next_tier_cost, upgrade_tier_res):
 		button_buy.disabled = true

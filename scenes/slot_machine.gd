@@ -18,6 +18,7 @@ class_name SlotMachine
 @onready var bar_can_swap: ProgressBar = %bar_can_swap
 @onready var timer_can_swap: Timer = %timer_can_swap
 @onready var label_bonus: Label = %label_bonus
+@onready var buttons_container: MarginContainer = %buttons_container
 
 
 var slots : Array[Slot]
@@ -62,6 +63,7 @@ func _process(delta: float) -> void:
 
 func initialize():
 	await get_tree().process_frame
+	buttons_container.size = Vector2.ZERO
 	timer_can_swap.wait_time = Player.get_can_swap_time()
 	timer_can_swap.start()
 

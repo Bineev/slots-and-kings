@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://f2cu5p2ncjgg"]
+[gd_scene load_steps=22 format=3 uid="uid://f2cu5p2ncjgg"]
 
 [ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_h8njc"]
 [ext_resource type="Script" uid="uid://4vf8rxu2foyv" path="res://scripts/other/main_menu_ui.gd" id="2_np0fa"]
@@ -18,9 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://cix8pted4wep" path="res://img/units/hell_accursed_anim.png" id="15_b0ev8"]
 [ext_resource type="Texture2D" uid="uid://dj6r3jmry6rne" path="res://img/units/hell_bloodsucker_anim.png" id="16_xolnk"]
 [ext_resource type="Texture2D" uid="uid://b70qtn8py23uf" path="res://img/units/hell_fiend_anim.png" id="17_bx3vy"]
-[ext_resource type="Texture2D" uid="uid://banhq5icqmt21" path="res://img/skills/active_skill_banquet.png" id="18_qqn4a"]
-[ext_resource type="Texture2D" uid="uid://2fcu3g60274p" path="res://img/skills/active_skill_cannon_tower.png" id="19_rqmqu"]
-[ext_resource type="Texture2D" uid="uid://oyf7ksb2dh02" path="res://img/skills/active_skill_dark_brotherhood.png" id="20_53oru"]
 [ext_resource type="PackedScene" uid="uid://dl7yvb67j0c5e" path="res://scenes/shader_layer.tscn" id="22_2tv7h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5tirf"]
@@ -45,10 +42,6 @@ script = ExtResource("2_np0fa")
 [node name="CastleBack3" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
 texture = ExtResource("3_gn2ln")
-
-[node name="SlotMachine" type="Sprite2D" parent="."]
-position = Vector2(124, 244)
-texture = ExtResource("8_2tv7h")
 
 [node name="BuildingBarracksT1" type="Sprite2D" parent="."]
 position = Vector2(877, 62)
@@ -190,18 +183,6 @@ flip_h = true
 hframes = 5
 vframes = 5
 frame = 8
-
-[node name="ActiveSkillBanquet" type="Sprite2D" parent="."]
-position = Vector2(97, 262)
-texture = ExtResource("18_qqn4a")
-
-[node name="ActiveSkillCannonTower" type="Sprite2D" parent="."]
-position = Vector2(156, 262)
-texture = ExtResource("19_rqmqu")
-
-[node name="ActiveSkillDarkBrotherhood" type="Sprite2D" parent="."]
-position = Vector2(126, 262)
-texture = ExtResource("20_53oru")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -386,6 +367,10 @@ vframes = 5
 frame = 11
 
 [node name="ShaderLayer" parent="." instance=ExtResource("22_2tv7h")]
+
+[node name="SlotMachine" type="Sprite2D" parent="."]
+position = Vector2(123, 244)
+texture = ExtResource("8_2tv7h")
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/confirmed_container/hb/yes_button" to="." method="_on_yes_button_pressed"]
