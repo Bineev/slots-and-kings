@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 func initialize():
-	label_item_name.text = slot_res.slot_name
+	label_item_name.text = tr(slot_res.slot_name)
 	var current_locale : String = TranslationServer.get_locale()
 	var current_unit_types_table : Dictionary
 	if slot_res.slot_type == DataManager.SlotType.UNIT:

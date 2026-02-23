@@ -29,7 +29,7 @@ func initialize():
 	var wave_count : int = Player.get_current_wave_count()
 	for scene in slot_scenes:
 		var slot : Slot = scene.instantiate()
-		if slot.slot_res.slot_name == DataManager.empty_slot_name or slot.slot_res.slot_name == DataManager.empty_slot_name_en:
+		if tr(slot.slot_res.slot_name) == DataManager.empty_slot_name or tr(slot.slot_res.slot_name) == DataManager.empty_slot_name_en:
 			continue
 		slot.set_is_on_remover_UI(true)
 		# создаем контейнер для слота

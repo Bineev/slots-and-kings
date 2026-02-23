@@ -207,7 +207,6 @@ func _process(delta: float) -> void:
 			# здесь баг?
 
 
-
 func generate_drop_chances():
 	var drop_gold : int = entity_tier * DataManager.gold_drop_default + DataManager.gold_drop_default
 	var drop_gold_chance : float = 100
@@ -225,6 +224,7 @@ func generate_drop_chances():
 	drop_chances['drop_food_chance'] = drop_food_chance
 	drop_chances['drop_crystals'] = drop_crystals
 	drop_chances['drop_crystals_chance'] = drop_crystals_chance
+
 
 func apply_stats():
 	current_health = stats.health * stats.health_mult
@@ -319,6 +319,7 @@ func initialize(slot : Slot, owner : DataManager.UnitOwner):
 	#create_tooltip()
 	# can be bug
 	#slots.clear()
+	# перевод?
 	if entity_tier == DataManager.EntityTier.T3 or entity_tier == DataManager.EntityTier.T4:
 		if unit_name != 'баллиста' and unit_name != 'оружейная башня':
 			scale = Vector2(0.8, 0.8)
@@ -356,28 +357,35 @@ func set_collisions_by_owner():
 
 
 func parse_stats():
+	var current_locale : String = TranslationServer.get_locale()
+	var current_stat_names_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_stat_names_table = DataManager.default_stats_to_en
+		'ru_RU':
+			current_stat_names_table = DataManager.default_stats_to_rus
 	unique_stats = {}
 	for stat in DataManager.default_stats.keys():
 		if get('current_' + stat) == DataManager.default_stats[stat] or stat.contains('mult') or stat.contains('scout'):
 			continue
-		generate_related_stats(stat, DataManager.default_stats_to_rus[stat])
-		unique_stats[DataManager.default_stats_to_rus[stat]] = get('current_' + stat) if stat.contains('attack_speed') else int(get('current_' + stat)) 
+		generate_related_stats(stat, current_stat_names_table)
+		unique_stats[current_stat_names_table[stat]] = get('current_' + stat) if stat.contains('attack_speed') else int(get('current_' + stat)) 
 	
 	return unique_stats
 
 
-func generate_related_stats(stat, stat_rus):
+func generate_related_stats(stat, current_stat_names_table):
 	if get('current_' + stat) == slot_unit_res[stat]:
-		unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.EQUAL
+		unique_stats_related[current_stat_names_table[stat]] = DataManager.RelateType.EQUAL
 	elif get('current_' + stat) > slot_unit_res[stat]:
-		unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.GREATER
+		unique_stats_related[current_stat_names_table[stat]] = DataManager.RelateType.GREATER
 	elif get('current_' + stat) < slot_unit_res[stat]:
-		unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.LESSER
+		unique_stats_related[current_stat_names_table[stat]] = DataManager.RelateType.LESSER
 	if stat == 'attack_speed':
-		if unique_stats_related[DataManager.default_stats_to_rus[stat]] == DataManager.RelateType.GREATER:
-			unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.LESSER
-		elif unique_stats_related[DataManager.default_stats_to_rus[stat]] == DataManager.RelateType.LESSER:
-			unique_stats_related[DataManager.default_stats_to_rus[stat]] = DataManager.RelateType.GREATER
+		if unique_stats_related[current_stat_names_table[stat]] == DataManager.RelateType.GREATER:
+			unique_stats_related[current_stat_names_table[stat]] = DataManager.RelateType.LESSER
+		elif unique_stats_related[current_stat_names_table[stat]] == DataManager.RelateType.LESSER:
+			unique_stats_related[current_stat_names_table[stat]] = DataManager.RelateType.GREATER
 			
 			
 func change_state(new_state : DataManager.UnitState):
@@ -752,7 +760,7 @@ func show_blood():
 	
 
 func add_slot_res(new_slot_res : Resource):
-	if new_slot_res.slot_name == DataManager.empty_slot_name or new_slot_res.slot_name == DataManager.empty_slot_name_en:
+	if tr(new_slot_res.slot_name) == DataManager.empty_slot_name or tr(new_slot_res.slot_name) == DataManager.empty_slot_name_en:
 		return
 	slot_resources.append(new_slot_res)
 
@@ -767,8 +775,18 @@ func create_tooltip():
 	tooltip.set_entity_tier(entity_tier)
 	# set unit types str
 	var unit_types_str : String
+	var current_locale : String = TranslationServer.get_locale()
+	var current_unit_types_table : Dictionary
+	var current_stats_table : Dictionary
+	match current_locale:
+		'en_US':
+			current_unit_types_table = DataManager.unit_types_table_en
+			current_stats_table = DataManager.default_stats_to_en
+		'ru_RU':
+			current_unit_types_table = DataManager.unit_types_table
+			current_stats_table = DataManager.default_stats_to_rus
 	for type in unit_types:
-		unit_types_str += DataManager.unit_types_table[type]
+		unit_types_str += current_unit_types_table[type]
 		unit_types_str += '\n'
 	tooltip.set_unit_types(unit_types_str)
 	# set preview texture
@@ -777,11 +795,11 @@ func create_tooltip():
 	var unit_stats : String
 	for stat in unique_stats.keys():
 		var pre_string : String
-		if stat.contains('здоровье'):
+		if stat.contains('здоровье') or stat.contains('health'):
 			pre_string = '%s %s/%s' % [stat.replace('_', ' '), int(actual_health), unique_stats[stat]]
 		else:
 			pre_string = '%s %s' % [stat.replace('_', ' '), unique_stats[stat]]
-		if stat.contains('точность') or stat.contains('шанс') or stat.contains('уворот'):
+		if stat.contains('точность') or stat.contains('шанс') or stat.contains('уворот') or stat.contains('chance') or stat.contains('accuracy') or stat.contains('dodge'):
 			pre_string += '%'
 		if unique_stats_related[stat] == DataManager.RelateType.EQUAL:
 			pre_string = '[color=#341c27]%s[/color]' % pre_string

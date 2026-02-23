@@ -17,7 +17,14 @@ func _process(delta: float) -> void:
 
 
 func set_remaining_waves(waves_remaining : int):
-	label_wave_remaining.text = 'Осталось пережить %s волн' % waves_remaining
+	var current_locale : String = TranslationServer.get_locale()
+	var rem_prefix : String
+	match current_locale:
+		'en_US':
+			rem_prefix = 'There are %s waves left to survive'
+		'ru_RU':
+			rem_prefix = 'Осталось пережить %s волн'
+	label_wave_remaining.text = rem_prefix % waves_remaining
 
 
 func update_label():

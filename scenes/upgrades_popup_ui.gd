@@ -19,9 +19,16 @@ func _ready() -> void:
 
 func initialize():
 	await get_tree().process_frame
+	var current_locale : String = TranslationServer.get_locale()
+	var upgrade_prefix : String
+	match current_locale:
+		'en_US':
+			upgrade_prefix = 'You have reached the maximum level of upgrades'
+		'ru_RU':
+			upgrade_prefix = 'Вы достигли максимального уровня улучшений'
 	if current_tier >= DataManager.max_entity_tier - 1:
 		label_curent_tier.text = DataManager.EntityTier.keys()[current_tier]
-		label_next_tier.text = 'Вы достигли максимального уровня улучшений'
+		label_next_tier.text = upgrade_prefix
 		button_buy.get_parent().remove_child(button_buy)
 		return
 	label_curent_tier.text = DataManager.EntityTier.keys()[current_tier]

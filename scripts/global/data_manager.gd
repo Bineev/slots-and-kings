@@ -224,7 +224,7 @@ var default_spin_reward : int = 5
 #var action_speed_coeff : float = 1.5
 var action_speed_coeff : float = 1.55
 
-var move_speed_coeff : float = 1
+var move_speed_coeff : float = 1.2
 
 var min_damage_mult : float = 0.3
 

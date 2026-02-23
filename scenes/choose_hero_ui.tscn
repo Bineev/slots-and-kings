@@ -34,7 +34,7 @@ layout_mode = 2
 
 [node name="label_header" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Выберите героя, который будет помогать вам отбиваться от врагов"
+text = "UI_CHOOSEHERO_NAME"
 label_settings = ExtResource("4_16iqo")
 horizontal_alignment = 1
 vertical_alignment = 1

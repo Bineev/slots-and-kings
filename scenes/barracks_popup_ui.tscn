@@ -57,12 +57,12 @@ layout_mode = 2
 
 [node name="label_close" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "ПКМ - закрыть"
+text = "UI_RMB_NAME"
 label_settings = SubResource("LabelSettings_ddiya")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Текущее количество призываемых бойцов"
+text = "UI_UNITBUILDING_NAME"
 label_settings = SubResource("LabelSettings_0rs0x")
 horizontal_alignment = 1
 
@@ -80,7 +80,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Увеличить количество до "
+text = "UI_UNITBUILDINGD_NAME"
 label_settings = SubResource("LabelSettings_cpwni")
 horizontal_alignment = 1
 autowrap_mode = 2

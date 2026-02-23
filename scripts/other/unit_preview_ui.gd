@@ -33,20 +33,20 @@ func initialize():
 		unit_types += current_unit_types_table[type]
 		unit_types += '\n'
 	label_unit_tags.text = unit_types
-	var unique_stats : Dictionary = unit.parse_stats()
-	var unit_stats : String
-	for stat in unique_stats.keys():
-		var pre_string : String = '%s %s' % [stat.replace('_', ' '), unique_stats[stat]]
-		if stat.contains('точность') or stat.contains('шанс') or stat.contains('уворот'):
-			pre_string += '%'
-		if unit.unique_stats_related[stat] == DataManager.RelateType.EQUAL:
-			pre_string = '[color=#341c27]%s[/color]' % pre_string
-		elif unit.unique_stats_related[stat] == DataManager.RelateType.GREATER:
-			pre_string = '[color=#25562e]%s[/color]' % pre_string
-		elif unit.unique_stats_related[stat] == DataManager.RelateType.LESSER:
-			pre_string = '[color=#a53030]%s[/color]' % pre_string
-		unit_stats += pre_string + '\n'
-	label_stats.text = unit_stats
+	#var unique_stats : Dictionary = unit.parse_stats()
+	#var unit_stats : String
+	#for stat in unique_stats.keys():
+		#var pre_string : String = '%s %s' % [stat.replace('_', ' '), unique_stats[stat]]
+		#if stat.contains('точность') or stat.contains('шанс') or stat.contains('уворот'):
+			#pre_string += '%'
+		#if unit.unique_stats_related[stat] == DataManager.RelateType.EQUAL:
+			#pre_string = '[color=#341c27]%s[/color]' % pre_string
+		#elif unit.unique_stats_related[stat] == DataManager.RelateType.GREATER:
+			#pre_string = '[color=#25562e]%s[/color]' % pre_string
+		#elif unit.unique_stats_related[stat] == DataManager.RelateType.LESSER:
+			#pre_string = '[color=#a53030]%s[/color]' % pre_string
+		#unit_stats += pre_string + '\n'
+	#label_stats.text = unit_stats
 	#TODO показать текущее кол-во
 	label_cost.text = '%s x %s' % [Player.creates_unit_count, str(unit.unit_cost)]
 

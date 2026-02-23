@@ -658,7 +658,14 @@ func get_waves_remaining():
 
 
 func show_win_label():
-	label_result.text = 'ПОБЕДА!'
+	var current_locale : String = TranslationServer.get_locale()
+	var result_text : String
+	match current_locale:
+		'en_US':
+			result_text = 'CONGRATULATIONS!'
+		'ru_RU':
+			result_text = 'ПОБЕДА!'
+	label_result.text = result_text
 	#result_panel.global_position = get_viewport_rect().get_center()
 	var tween : Tween = get_tree().create_tween()
 	tween.set_parallel()
@@ -669,7 +676,14 @@ func show_win_label():
 	tween.tween_callback(queue_free).set_delay(3)
 
 func show_loose_label():
-	label_result.text = 'ПОРАЖЕНИЕ!'
+	var current_locale : String = TranslationServer.get_locale()
+	var result_text : String
+	match current_locale:
+		'en_US':
+			result_text = 'DEFEAT!'
+		'ru_RU':
+			result_text = 'ПОРАЖЕНИЕ!'
+	label_result.text = result_text
 	#result_panel.global_position = get_viewport_rect().get_center()
 	var tween : Tween = get_tree().create_tween()
 	tween.set_parallel()

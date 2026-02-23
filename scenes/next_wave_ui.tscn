@@ -120,7 +120,7 @@ layout_mode = 2
 [node name="label_wave_header" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Враг атакует через"
+text = "UI_WVENEMY_NAME"
 label_settings = SubResource("LabelSettings_mc14f")
 horizontal_alignment = 1
 autowrap_mode = 2

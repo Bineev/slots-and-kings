@@ -63,6 +63,6 @@ theme_override_styles/pressed = ExtResource("4_pran7")
 theme_override_styles/hover = ExtResource("5_pp8kh")
 theme_override_styles/hover_pressed = ExtResource("5_pp8kh")
 theme_override_styles/disabled = ExtResource("6_cfkwr")
-text = "пропустить"
+text = "UI_BTNSKIP_NAME"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/button_skip" to="." method="_on_button_skip_pressed"]

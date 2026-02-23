@@ -126,13 +126,12 @@ func apply_stat(current_unit : Unit):
 		return
 	# вот здесь нужна проверить имя, но учитывая локализацию
 	var current_locale : String = TranslationServer.get_locale()
-	var current_skill_unit_name : String
-	# TODO имя к кому применяется не работает из=за локали
-	match current_locale:
-		'en_US':
-			current_skill_unit_name = DataManager.unit_name_ru_to_en[skill_unit_name.capitalize()]
-		'ru_RU':
-			current_skill_unit_name = skill_unit_name
+	var current_skill_unit_name : String = skill_unit_name
+	# TODO имя к кому применяется не работает из-за локали
+	if skill_unit_name != '':
+		match current_locale:
+			'en_US':
+				current_skill_unit_name = DataManager.unit_name_ru_to_en[skill_unit_name.capitalize()]
 	
 	if skill_passive_type == DataManager.PassiveSkillType.UNIT_NAME and not current_unit.unit_name == current_skill_unit_name:
 		return

@@ -417,7 +417,7 @@ BUILDING_MARKET_NAME,Рынок,Market
 BUILDING_MARKET_DESC,Позволяет обменивать ресурсы,Allows you to exchange resources
 BUILDING_CRYSTALL_NAME,Шахта кристаллов,Crystal mine
 BUILDING_CRYSTALL_DESC,С определенным интервалом производит кристаллы,Produces crystals at a certain interval
-BUILDING_TRAININGC_NAME,Тренировочный лагерь,Тренировочный лагерь
+BUILDING_TRAININGC_NAME,Тренировочный лагерь,Training camp
 BUILDING_TRAININGC_DESC,С определенным интервалом создает слоты улучшений для рулетки,Produces upgrade slots for roulette at a certain interval.
 BUILDING_BARRACKST1_NAME,Т1 Казармы,T1 Barracks
 BUILDING_BARRACKST1_DESC,Создает слот Т1 юнита для рулетки,Creates a T1 unit slot for roulette
@@ -464,6 +464,20 @@ UI_METAISWAPTIME_NAME,Ускоренный свап,Swap time
 UI_METAISWAPTIME_DESC,Ускоряет откат свапа слотов,Accelerate swap time
 UI_BTNCHOOSE_NAME,ВЫБРАТЬ,CHOOSE
 UI_LEVELUP_NAME,Выберите путь развития героя,Choose the path of the hero
+UI_BTNSPIN_NAME,КРУТИТЬ,SPIN
+UI_BTNCREATE_NAME,СОЗДАТЬ,CREATE
+UI_WVENEMY_NAME,Враг атакует через,The enemy attacks in
+UI_SHOWSTATS_NAME,показать статы,show stats
+UI_CHOOSEHERO_NAME,"Выберите героя, который будет помогать вам отбиваться от врагов",Choose a hero who will help you hold off your enemies
+UI_RMB_NAME,ПКМ - закрыть,RMB - close
+UI_BUILDING_NAME,СТРОИТЕЛЬСТВО,BUILDING
+UI_BTNGET_NAME,ПОЛУЧИТЬ,OBTAIN
+UI_BTNSKIP_NAME,ПРОПУСТИТЬ,SKIP
+UI_REMOVER_NAME,"Выберите слот, который хотите удалить из рулетки",Select the slot you want to remove from the roulette
+UI_UPGRBUILDING_NAME,Текущий уровень улучшений ,Current level of upgrades
+UI_UPGRBUILDINGD_NAME,Повысить до ,Upgrade to
+UI_UNITBUILDING_NAME,Текущее количество призываемых бойцов,The current number of fighters being created
+UI_UNITBUILDINGD_NAME,Увеличить количество до ,Increase the number to
 LEVEL_E0_NAME,Обучение,Tutorial
 LEVEL_E0_DESC,Освойте основы игры. Волны врагов немногочисленные. Враги без улучшений.,Get to know the basics of the game
 LEVEL_E1_NAME,Сложность 1,Difficulty 1

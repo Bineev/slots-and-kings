@@ -93,7 +93,7 @@ theme_override_styles/hover = ExtResource("10_r2p6a")
 theme_override_styles/hover_pressed = ExtResource("10_r2p6a")
 theme_override_styles/disabled = ExtResource("11_awi2f")
 theme_override_styles/focus = ExtResource("9_awi2f")
-text = "КРУТИТЬ"
+text = "UI_BTNSPIN_NAME"
 
 [node name="create_button" type="Button" parent="."]
 unique_name_in_owner = true
@@ -118,7 +118,7 @@ theme_override_styles/hover_pressed = ExtResource("10_r2p6a")
 theme_override_styles/disabled = ExtResource("11_awi2f")
 theme_override_styles/focus = ExtResource("9_awi2f")
 disabled = true
-text = "СОЗДАТЬ"
+text = "UI_BTNCREATE_NAME"
 
 [node name="bar_can_swap" type="ProgressBar" parent="."]
 unique_name_in_owner = true
