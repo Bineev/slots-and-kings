@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvlwchbofgxtf"]
+
+[ext_resource type="PackedScene" uid="uid://bgpebdd5p8tof" path="res://scenes/message_ui.tscn" id="1_8goh2"]
+
+[node name="MessageUIEnemyComing" instance=ExtResource("1_8goh2")]
+text1 = "Sire, the enemy is coming.[br]Click [b]'Spin'[/b] on roulette or press [b]'Space'[/b] key to start creating an army"

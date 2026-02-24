@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://eh3obs0w61pb"]
+
+[ext_resource type="PackedScene" uid="uid://bgpebdd5p8tof" path="res://scenes/message_ui.tscn" id="1_3wg1k"]
+
+[node name="MessageUICreateFighters" instance=ExtResource("1_3wg1k")]
+text1 = "One token[img]res://img/res_token.png[/img] is spent on spin.[br]Food [img]res://img/res_food.png[/img]is needed to create fighters.[br]Click the \"Create\" button on the roulette or 'F' key"

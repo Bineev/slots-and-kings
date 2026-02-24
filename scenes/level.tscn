@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=52 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://ydpupk1dhkwt" path="res://img/arrow_down.png" id="32_v3why"]
 [ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="33_asl66"]
 [ext_resource type="Texture2D" uid="uid://bfvcg6sehc778" path="res://img/arrow_help.png" id="34_2jdvr"]
+[ext_resource type="PackedScene" uid="uid://k8m1bigwqx0j" path="res://scenes/messages/message_ui_crystalls.tscn" id="43_iafhg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
 shader = ExtResource("13_64w2a")
@@ -731,6 +732,8 @@ label_settings = ExtResource("33_asl66")
 
 [node name="ShaderLayer" parent="." instance=ExtResource("30_v3why")]
 unique_name_in_owner = true
+
+[node name="MessageUICrystalls" parent="." instance=ExtResource("43_iafhg")]
 
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
 [connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]

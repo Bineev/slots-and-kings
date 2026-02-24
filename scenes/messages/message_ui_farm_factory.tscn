@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvi5tcj5l13fa"]
+
+[ext_resource type="PackedScene" uid="uid://bgpebdd5p8tof" path="res://scenes/message_ui.tscn" id="1_gc3yw"]
+
+[node name="MessageUIFarmFactory" instance=ExtResource("1_gc3yw")]
+text1 = "It doesn't hurt to build a Farm [img]res://img/res_food.png[/img] and Factory [img]res://img/res_token.png[/img] on other sites - resources will always come in handy."

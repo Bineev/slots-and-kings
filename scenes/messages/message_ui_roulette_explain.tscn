@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3gatbx02kar0"]
+
+[ext_resource type="PackedScene" uid="uid://bgpebdd5p8tof" path="res://scenes/message_ui.tscn" id="1_f3xkb"]
+
+[node name="MessageUIRouletteExplain" instance=ExtResource("1_f3xkb")]
+text1 = "Roulette creates fighters in the middle line [img]res://img/roullete_middle.png[/img] and adds vertical slots to them if they are the same"

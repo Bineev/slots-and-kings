@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8munfo4mrdqu"]
+
+[ext_resource type="PackedScene" uid="uid://bgpebdd5p8tof" path="res://scenes/message_ui.tscn" id="1_rpvog"]
+
+[node name="MessageUIBuildingExplain" instance=ExtResource("1_rpvog")]
+text1 = "Sire, it's time to start building.[br]Click on an empty plot [img]res://img/sale.png[/img] and build Barracks to add a new fighter to the roulette.[br]It doesn't hurt to build a Farm and Factory on other sites - resources will always come in handy"

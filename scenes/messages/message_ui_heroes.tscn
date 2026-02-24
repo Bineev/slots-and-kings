@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvm8e66ktbtmm"]
+
+[ext_resource type="PackedScene" uid="uid://bgpebdd5p8tof" path="res://scenes/message_ui.tscn" id="1_axcam"]
+
+[node name="MessageUIHeroes" instance=ExtResource("1_axcam")]
+offset_right = 225.0
+text1 = "No battle can be won without heroes. [br]Active skills (top row) can be dragged onto the battlefield, while passive skills are always active"
