@@ -1,0 +1,50 @@
+[gd_scene load_steps=15 format=3 uid="uid://cwdmx6c0ktwpt"]
+
+[ext_resource type="Script" uid="uid://du7sjy73fu8e" path="res://scripts/other/messages_pack_ui.gd" id="1_us542"]
+[ext_resource type="PackedScene" uid="uid://dvlwchbofgxtf" path="res://scenes/messages/message_ui_enemy_coming.tscn" id="2_nv728"]
+[ext_resource type="PackedScene" uid="uid://eh3obs0w61pb" path="res://scenes/messages/message_ui_create_fighters.tscn" id="3_4eu5k"]
+[ext_resource type="PackedScene" uid="uid://3gatbx02kar0" path="res://scenes/messages/message_ui_roulette_explain.tscn" id="4_pd6b3"]
+[ext_resource type="PackedScene" uid="uid://b8munfo4mrdqu" path="res://scenes/messages/message_ui_building_explain.tscn" id="5_e6mx8"]
+[ext_resource type="PackedScene" uid="uid://bvi5tcj5l13fa" path="res://scenes/messages/message_ui_farm_factory.tscn" id="6_01lgn"]
+[ext_resource type="PackedScene" uid="uid://bdokvqns8apbw" path="res://scenes/messages/message_ui_swap.tscn" id="7_5wqfp"]
+[ext_resource type="PackedScene" uid="uid://dvm8e66ktbtmm" path="res://scenes/messages/message_ui_heroes.tscn" id="8_tfofv"]
+[ext_resource type="PackedScene" uid="uid://bfvp8sjgkwuyu" path="res://scenes/messages/message_ui_gold.tscn" id="9_cs71p"]
+[ext_resource type="PackedScene" uid="uid://k8m1bigwqx0j" path="res://scenes/messages/message_ui_crystalls.tscn" id="10_q6geq"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="11_01lgn"]
+[ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="12_5wqfp"]
+[ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="13_tfofv"]
+[ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="14_cs71p"]
+
+[node name="MessagesPackUI" type="Control"]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_us542")
+messages_scenes = Array[PackedScene]([ExtResource("2_nv728"), ExtResource("3_4eu5k"), ExtResource("4_pd6b3"), ExtResource("5_e6mx8"), ExtResource("6_01lgn"), ExtResource("7_5wqfp"), ExtResource("8_tfofv"), ExtResource("9_cs71p"), ExtResource("10_q6geq")])
+
+[node name="showtuts_btn" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_disabled_color = Color(0.7529412, 0.5803922, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("11_01lgn")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("12_5wqfp")
+theme_override_styles/pressed = ExtResource("12_5wqfp")
+theme_override_styles/hover = ExtResource("13_tfofv")
+theme_override_styles/disabled = ExtResource("14_cs71p")
+theme_override_styles/focus = ExtResource("12_5wqfp")
+text = "UI_COUNSELOR_NAME"
+
+[connection signal="pressed" from="showtuts_btn" to="." method="_on_showtuts_btn_pressed"]

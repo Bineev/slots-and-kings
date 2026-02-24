@@ -63,6 +63,7 @@ var is_tutorial_8_done : bool
 @onready var result_panel: PanelContainer = $UI/result_panel
 @onready var shaders_layer: ShadersLayer = %shaders_layer
 @onready var shader_layer: CanvasLayer = %ShaderLayer
+@onready var messages_pack_ui: MessagesPackUI = %MessagesPackUI
 
 
 func _ready() -> void:
@@ -110,13 +111,12 @@ func _ready() -> void:
 	Player.set_wave_rewards(wave_rewards)
 	Player.level = self
 	Player.diff_count = difficulty_count
-	if difficulty_count == 0:
-		Player.is_tutorial = true
-	else:
-		Player.is_tutorial = false
 	waves_count = difficulty_count * 2 + 6
-	if Player.is_tutorial:
-		waves_count = 5
+	if difficulty_count == 0:
+		messages_pack_ui.show()
+		waves_count = 7
+	else:
+		messages_pack_ui.hide()
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
 	start_waves()
 	SoundManager.play_music(3)

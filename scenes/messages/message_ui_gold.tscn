@@ -3,4 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://bgpebdd5p8tof" path="res://scenes/message_ui.tscn" id="1_kcf2n"]
 
 [node name="MessageUIGold" instance=ExtResource("1_kcf2n")]
-text1 = "The enemies are getting stronger, but we are not standing still.[br]If you have accumulated enough gold [img]res://img/res_gold.png[/img] you can build something useful - a barracks with stronger fighters, a training camp, or something for the economy"
+text1 = "The enemies are getting stronger, but we are not standing still.[br]If you have accumulated enough gold [img]res://img/res_gold.png[/img] you can build something useful"

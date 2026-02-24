@@ -42,7 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://ydpupk1dhkwt" path="res://img/arrow_down.png" id="32_v3why"]
 [ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="33_asl66"]
 [ext_resource type="Texture2D" uid="uid://bfvcg6sehc778" path="res://img/arrow_help.png" id="34_2jdvr"]
-[ext_resource type="PackedScene" uid="uid://k8m1bigwqx0j" path="res://scenes/messages/message_ui_crystalls.tscn" id="43_iafhg"]
+[ext_resource type="PackedScene" uid="uid://cwdmx6c0ktwpt" path="res://scenes/messages_pack_ui.tscn" id="38_iafhg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
 shader = ExtResource("13_64w2a")
@@ -559,6 +559,9 @@ label_settings = SubResource("LabelSettings_556r4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MessagesPackUI" parent="UI" instance=ExtResource("38_iafhg")]
+unique_name_in_owner = true
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0.34117648, 0.44705883, 0.46666667, 1)
@@ -732,8 +735,6 @@ label_settings = ExtResource("33_asl66")
 
 [node name="ShaderLayer" parent="." instance=ExtResource("30_v3why")]
 unique_name_in_owner = true
-
-[node name="MessageUICrystalls" parent="." instance=ExtResource("43_iafhg")]
 
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
 [connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]
