@@ -12,3 +12,4 @@ class_name SlotResUtil
 @export var health_count : int
 @export var player_units_count : int
 @export var enemy_units_count : int
+@export var unit_position : DataManager.UnitPosition

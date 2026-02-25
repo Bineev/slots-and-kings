@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SlotResUtil" load_steps=3 format=3 uid="uid://bty0ev2tjesgt"]
+
+[ext_resource type="Script" uid="uid://t82ojgqdbgkw" path="res://resources/slot_util_res.gd" id="1_ay2pr"]
+[ext_resource type="Texture2D" uid="uid://bndnrgfg7mjtq" path="res://img/slots/util_crystal.png" id="2_3mcoy"]
+
+[resource]
+script = ExtResource("1_ay2pr")
+positive_procentage = 0.1
+res_types = Array[int]([3])
+res_counts = Array[int]([1])
+slot_name = "UTIL_PGIFT_NAME"
+slot_description = "UTIL_PGIFT_DESC"
+slot_sprite = ExtResource("2_3mcoy")
+slot_type = 3
+metadata/_custom_type_script = "uid://t82ojgqdbgkw"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SlotResUtil" load_steps=3 format=3 uid="uid://dkd0iu2xfseir"]
+
+[ext_resource type="Script" uid="uid://t82ojgqdbgkw" path="res://resources/slot_util_res.gd" id="1_38rod"]
+[ext_resource type="Texture2D" uid="uid://bwq307lp37a88" path="res://img/slots/util_repair.png" id="2_eskem"]
+
+[resource]
+script = ExtResource("1_38rod")
+slot_util_type = 1
+positive_procentage = 0.1
+health_count = 5
+slot_name = "UTIL_FIX_NAME"
+slot_description = "UTIL_FIX_DESC"
+slot_sprite = ExtResource("2_eskem")
+metadata/_custom_type_script = "uid://t82ojgqdbgkw"

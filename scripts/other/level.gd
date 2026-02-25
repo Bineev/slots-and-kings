@@ -181,7 +181,7 @@ func activate_util_slots():
 		match slot_util_res.slot_util_type:
 			DataManager.UtilType.RES:
 				if rand_pos <= slot_util_res.positive_procentage:
-					if rand_neg <= slot_util_res.negative_procentage:
+					if rand_neg < slot_util_res.negative_procentage:
 						for i in range(slot_util_res.res_types):
 							Player.get_res(slot_util_res.res_types[i], slot_util_res.res_counts[i])
 			DataManager.UtilType.HEALTH:
@@ -189,7 +189,23 @@ func activate_util_slots():
 					if rand_neg <= slot_util_res.negative_procentage:
 						Player.get_heal(slot_util_res.health_count)
 			DataManager.UtilType.CREATE_UNIT:
-				pass
+				if rand_pos <= slot_util_res.positive_procentage:
+					var unit : Unit = create_unit_from_scratch()
+					if rand_neg < slot_util_res.negative_procentage:
+						unit.unit_owner == DataManager.UnitOwner.ENEMY
+					match slot_util_res.unit_position:
+						DataManager.UnitPosition.MIDDLECENTER:
+							pass
+						DataManager.UnitPosition.MIDDLEBOT:
+							pass
+						DataManager.UnitPosition.MIDDLETOP:
+							pass
+						DataManager.UnitPosition.ENEMYSIDEMIDDLE:
+							pass
+						DataManager.UnitPosition.ENEMYSIDEBOT:
+							pass
+						DataManager.UnitPosition.ENEMYSIDETOP:
+							pass
 			DataManager.UtilType.CREATE_SKILL:
 				pass
 			DataManager.UtilType.CREATE_THING:
@@ -249,6 +265,7 @@ func create_unit_from_scratch():
 	if Player.check_enemies(DataManager.UnitOwner.PLAYER):
 		unit.is_in_fight = true
 	SignalManager.on_unit_created.emit(unit)
+	return unit
 
 
 func add_unit_from_skill(unit : Unit, spawn_position : Vector2):
