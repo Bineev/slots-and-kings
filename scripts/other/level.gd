@@ -154,7 +154,7 @@ func start_waves():
 func add_player_unit():
 	if not current_unit:
 		return
-
+	activate_util_slots()
 	for i in range(Player.creates_unit_count):
 		if Player.check_res(current_unit.unit_cost, DataManager.ResType.FOOD):
 			Player.get_res(DataManager.ResType.FOOD, -current_unit.unit_cost)
@@ -167,6 +167,33 @@ func add_player_unit():
 	if Player.is_tutorial and not is_tutorial_2_done:
 		is_tutorial_2_done = true
 		show_tutorial_item()
+
+
+func activate_util_slots():
+	for slot in Player.util_slots:
+		if slot.slot_type != DataManager.SlotType.ULT:
+			return
+		if slot.slot_name == DataManager.empty_slot_name or slot.slot_name == DataManager.empty_slot_name_en:
+			return
+		var slot_util_res : SlotResUtil = slot.slot_res
+		var rand_pos : float = randf()
+		var rand_neg : float = randf()
+		match slot_util_res.slot_util_type:
+			DataManager.UtilType.RES:
+				if rand_pos <= slot_util_res.positive_procentage:
+					if rand_neg <= slot_util_res.negative_procentage:
+						for i in range(slot_util_res.res_types):
+							Player.get_res(slot_util_res.res_types[i], slot_util_res.res_counts[i])
+			DataManager.UtilType.HEALTH:
+				if rand_pos <= slot_util_res.positive_procentage:
+					if rand_neg <= slot_util_res.negative_procentage:
+						Player.get_heal(slot_util_res.health_count)
+			DataManager.UtilType.CREATE_UNIT:
+				pass
+			DataManager.UtilType.CREATE_SKILL:
+				pass
+			DataManager.UtilType.CREATE_THING:
+				pass
 
 
 func update_units_count():

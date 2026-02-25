@@ -106,11 +106,35 @@ func create_unit():
 	var unit_slot : Slot = slots[0]
 	Player.set_units_count_for_next_create(units_count)
 	castle_unit_factory.choose_unit(slots.slice(0, 1) + slots.slice(units_count))
+	merge_util_slots()
 
 #
 #func dehighlight_spots():
 	#for slot in current_active_slots:
 		#slot.stop_highlight()
+
+
+func merge_util_slots():
+	var util_slots : Array[Slot] = slots.filter(func(slot : Slot): return slot.slot_type == DataManager.SlotType.ULT)
+	var unique_slots : Array
+	for slot in util_slots:
+		var count = 1
+		for inner_slot in util_slots:
+			if slot == inner_slot:
+				continue
+			if slot.slot_name == inner_slot.slot_name:
+				count += 1
+		if not unique_slots.has(slot):
+			unique_slots.append([slot, count])
+	# может быть нужно будет по утилити типу по разному мерджить
+	var merged_slots : Array[Slot]
+	for slot_pack in unique_slots:
+		var slot : Slot = slot_pack[0]
+		slot.slot_res.positive_procentage *= slot_pack[1]
+		merged_slots.append(slot)
+	
+	Player.util_slots = merged_slots
+	
 
 
 func check_is_spin_end():

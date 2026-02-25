@@ -85,6 +85,7 @@ var player_die_count : int
 var enemy_die_count : int
 var is_should_shake : bool = true
 var is_should_shader_work : bool = true
+var util_slots : Array[Slot]
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
@@ -101,6 +102,7 @@ func initialize():
 	buildings.clear()
 	enemy_units.clear()
 	player_units.clear()
+	util_slots.clear()
 	current_progress = ProgressManager.get_base_progress_by_family(current_king)
 	current_progress.meta_stats = DataManager.meta_stats_dict
 	current_health = health
@@ -125,6 +127,7 @@ func clear_after_result():
 	buildings.clear()
 	enemy_units.clear()
 	player_units.clear()
+	util_slots.clear()
 	current_wave_count = 1
 	current_health = health * current_progress.meta_stats[DataManager.MetaType.BASE_HP]
 	DataManager.default_damage_to_base * current_progress.meta_stats[DataManager.MetaType.BASE_DAMAGE]
