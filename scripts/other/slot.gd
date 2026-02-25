@@ -300,3 +300,20 @@ func get_closest_swap_slot():
 		return current_swap_slots[0]
 	else:
 		return null
+
+
+func activate():
+	if slot_type != DataManager.SlotType.ULT:
+		return
+	var slot_util_res : SlotResUtil = slot_res
+	match slot_util_res.slot_util_type:
+		DataManager.UtilType.RES:
+			pass
+		DataManager.UtilType.HEALTH:
+			pass
+		DataManager.UtilType.CREATE_UNIT:
+			pass
+		DataManager.UtilType.CREATE_SKILL:
+			pass
+		DataManager.UtilType.CREATE_THING:
+			pass

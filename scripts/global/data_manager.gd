@@ -8,6 +8,10 @@ enum SlotType {
 	UPGRADE, UNIT, PERC, ULT
 }
 
+enum UtilType {
+	RES, HEALTH, CREATE_UNIT, CREATE_SKILL, CREATE_THING
+}
+
 enum CarouselType {
 	TOP, MID, BOT
 }

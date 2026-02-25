@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SlotResUtil" load_steps=3 format=3 uid="uid://c8m0mmfoduqdg"]
+
+[ext_resource type="Script" uid="uid://t82ojgqdbgkw" path="res://resources/slot_util_res.gd" id="1_r2uig"]
+[ext_resource type="Texture2D" uid="uid://b3woo61i4wqnm" path="res://img/slots/util_phantasm.png" id="2_ff81l"]
+
+[resource]
+script = ExtResource("1_r2uig")
+slot_util_type = 2
+positive_procentage = 0.1
+negative_procentage = 0.5
+duration = 60.0
+player_units_count = 1
+enemy_units_count = 1
+slot_name = "UTIL_PHANTASM_NAME"
+slot_description = "UTIL_PHANTASM_DESC"
+slot_sprite = ExtResource("2_ff81l")
+slot_type = 3
+metadata/_custom_type_script = "uid://t82ojgqdbgkw"
