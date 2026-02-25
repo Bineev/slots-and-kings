@@ -478,6 +478,54 @@ UI_UPGRBUILDING_NAME,Текущий уровень улучшений ,Current l
 UI_UPGRBUILDINGD_NAME,Повысить до ,Upgrade to
 UI_UNITBUILDING_NAME,Текущее количество призываемых бойцов,The current number of fighters being created
 UI_UNITBUILDINGD_NAME,Увеличить количество до ,Increase the number to
+UI_PREV_NAME,НАЗАД,PREV
+UI_NEXT_NAME,ДАЛЕЕ,NEXT
+UI_MCLOSE_NAME,ЗАКРЫТЬ,CLOSE
+UI_COUNSELOR_NAME,СОВЕТНИК,COUNSELOR
+MSG_1_NAME,"Сир, враг приближается.[br] Нажмите [b] ""Крутить""[/b] в рулетке или клавишу [b] ""Пробел""[/b], чтобы начать создавать армию","Sire, the enemy is coming.[br]Click [b]'Spin'[/b] on roulette or press [b]'Space'[/b] key to start creating an army"
+MSG_2_NAME,"Один жетон[img]res://img/res_token.png[/img] тратится на запуск.[br] Для создания бойцов требуется еда [img]res://img/res_food.png[/img].[br]Нажмите кнопку ""Создать"" или клавишу ""F""","One token[img]res://img/res_token.png[/img] is spent on spin.[br]Food [img]res://img/res_food.png[/img]is needed to create fighters.[br]Click the ""Create"" button on the roulette or 'F' key"
+MSG_3_NAME,Рулетка создает бойцов в средней линии [img]res://img/roullete_middle.png[/img] и добавляет к ним одинаковые слоты по вертикали,Roulette creates fighters in the middle line [img]res://img/roullete_middle.png[/img] and adds vertical slots to them if they are the same
+MSG_4_NAME,"Сир, время заняться строительством.[br]Нажмите на пустой участок [img]res://img/sale.png[/img] и постройте казармы, чтобы добавить нового бойца в рулетку","Sire, it's time to start building.[br]Click on an empty plot [img]res://img/sale.png[/img] and build Barracks to add a new fighter to the roulette"
+MSG_5_NAME,Не помешает построить ферму [img]res://img/res_food.png[/img] и фабрику [img]res://img/res_token.png[/img] на других участках - ресурсы еще пригодятся,It doesn't hurt to build a Farm [img]res://img/res_food.png[/img] and Factory [img]res://img/res_token.png[/img] on other sites - resources will always come in handy.
+MSG_6_NAME,"Между нами говоря, Сир, линию бойцов можно перемещать вверх (клавиша W) или вниз (клавиша S).Но только в случае, когда шкала перемещения зеленая","Between you and me, Sire, the line of fighters can be moved up (W key) or down (S key).[br]Only if the scale on the right in the roulette is filled and green"
+MSG_7_NAME,"Без героев ни одну битву не выиграешь.[br]Активные навыки (верхний ряд) можно перетащить на поле боя, в то время как пассивные навыки работают всегда","No battle can be won without heroes. [br]Active skills (top row) can be dragged onto the battlefield, while passive skills are always active"
+MSG_8_NAME,"Враги становятся сильнее, но и мы не стоим на месте.[br]Если накопилось достаточно золота [img]res://img/res_gold.png[/img], можно построить что-нибудь полезное","The enemies are getting stronger, but we are not standing still.[br]If you have accumulated enough gold [img]res://img/res_gold.png[/img] you can build something useful"
+MSG_9_NAME,"Кристаллы [img]res://img/res_crystal.png[/img] - редкий и ценный ресурс.[br]Их можно использовать для улучшения Казарм и Тренировочного лагеря.[br] Нажмите на здание, чтобы увидеть варианты",Crystals [img]res://img/res_crystal.png[/img] are a rare and valuable resource. They can be used to upgrade barracks and Training camp.[br]Click on the building to see the options
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
 LEVEL_E0_NAME,Обучение,Tutorial
 LEVEL_E0_DESC,Освойте основы игры. Волны врагов немногочисленные. Враги без улучшений.,Get to know the basics of the game
 LEVEL_E1_NAME,Сложность 1,Difficulty 1

@@ -4,4 +4,4 @@
 
 [node name="MessageUIHeroes" instance=ExtResource("1_axcam")]
 offset_right = 225.0
-text1 = "No battle can be won without heroes. [br]Active skills (top row) can be dragged onto the battlefield, while passive skills are always active"
+text1 = "MSG_7_NAME"

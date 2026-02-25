@@ -3,4 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://bgpebdd5p8tof" path="res://scenes/message_ui.tscn" id="1_0t0yl"]
 
 [node name="MessageUISwap" instance=ExtResource("1_0t0yl")]
-text1 = "Between you and me, sir, the line of fighters can be moved up (W key) or down (S key).[br]Only if the scale on the right in the roulette is filled and green."
+text1 = "MSG_6_NAME"

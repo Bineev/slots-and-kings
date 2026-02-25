@@ -3,4 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://bgpebdd5p8tof" path="res://scenes/message_ui.tscn" id="1_gc3yw"]
 
 [node name="MessageUIFarmFactory" instance=ExtResource("1_gc3yw")]
-text1 = "It doesn't hurt to build a Farm [img]res://img/res_food.png[/img] and Factory [img]res://img/res_token.png[/img] on other sites - resources will always come in handy."
+text1 = "MSG_5_NAME"
