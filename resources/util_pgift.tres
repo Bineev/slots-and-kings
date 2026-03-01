@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_ay2pr")
-positive_procentage = 0.1
+positive_procentage = 0.15
 res_types = Array[int]([3])
 res_counts = Array[int]([1])
 slot_name = "UTIL_PGIFT_NAME"

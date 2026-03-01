@@ -177,21 +177,38 @@ func activate_util_slots():
 			return
 		var slot_util_res : SlotResUtil = slot.slot_res
 		var rand_pos : float = randf()
-		var rand_neg : float = randf()
 		match slot_util_res.slot_util_type:
 			DataManager.UtilType.RES:
 				if rand_pos <= slot_util_res.positive_procentage:
-					if rand_neg < slot_util_res.negative_procentage:
-						for i in range(slot_util_res.res_types):
+					var rand_neg : float = randf()
+					if rand_neg > slot_util_res.negative_procentage:
+						print('res proc')
+						for i in range(slot_util_res.res_types.size()):
 							Player.get_res(slot_util_res.res_types[i], slot_util_res.res_counts[i])
 			DataManager.UtilType.HEALTH:
 				if rand_pos <= slot_util_res.positive_procentage:
-					if rand_neg <= slot_util_res.negative_procentage:
+					var rand_neg : float = randf()
+					if rand_neg > slot_util_res.negative_procentage:
+						print('heal proc')
 						Player.get_heal(slot_util_res.health_count)
 			DataManager.UtilType.CREATE_UNIT:
-				if rand_pos <= slot_util_res.positive_procentage:
+				var create_chance : float
+				match slot_util_res.entity_tier:
+					DataManager.EntityTier.T0:
+						create_chance = slot_util_res.positive_procentage
+					DataManager.EntityTier.T1:
+						create_chance = slot_util_res.positive_procentage
+					DataManager.EntityTier.T2:
+						create_chance = slot_util_res.positive_procentage - slot_util_res.positive_procentage / float(3)
+					DataManager.EntityTier.T3:
+						create_chance = slot_util_res.positive_procentage - slot_util_res.positive_procentage / float(3) * 2
+					DataManager.EntityTier.T4:
+						create_chance = (slot_util_res.positive_procentage - slot_util_res.positive_procentage / float(3) * 2) / float(2)
+				if rand_pos <= create_chance:
 					var unit : Unit = create_unit_from_scratch()
-					if rand_neg < slot_util_res.negative_procentage:
+					print('unit proc')
+					var rand_neg : float = randf()
+					if rand_neg > slot_util_res.negative_procentage:
 						unit.unit_owner == DataManager.UnitOwner.ENEMY
 					match slot_util_res.unit_position:
 						DataManager.UnitPosition.MIDDLECENTER:

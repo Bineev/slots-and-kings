@@ -18,6 +18,7 @@ offset_right = 20.0
 offset_bottom = 73.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("1_rrd0p")
 script = ExtResource("2_yfd4e")
 choose_item_hero_scene = ExtResource("3_y6vm4")

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_r2uig")
 slot_util_type = 2
-positive_procentage = 0.1
+positive_procentage = 0.15
 negative_procentage = 0.5
 duration = 60.0
 player_units_count = 1

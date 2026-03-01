@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="HeroStatRes" load_steps=3 format=3 uid="uid://ds7yhdng0fkcb"]
+[gd_resource type="Resource" script_class="HeroStatRes" load_steps=4 format=3 uid="uid://ds7yhdng0fkcb"]
 
+[ext_resource type="Resource" uid="uid://bty0ev2tjesgt" path="res://resources/util_pgift.tres" id="1_3js82"]
 [ext_resource type="Texture2D" uid="uid://lm6yxbajv2oi" path="res://img/heroes/hero_castle_knight.png" id="1_j6wbl"]
 [ext_resource type="Script" uid="uid://1x2ug41h1aiq" path="res://resources/hero_stat_res.gd" id="1_ufbg0"]
 
 [resource]
 script = ExtResource("1_ufbg0")
 hero_class = 4
+hero_slot = ExtResource("1_3js82")
 portraits_pool = Array[Texture2D]([ExtResource("1_j6wbl")])
 hero_names_pool = Array[String](["Бенедикт", "Ульрих", "Артур", "Бернард", "Гийом"])
 power = 1

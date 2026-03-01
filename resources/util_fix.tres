@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("1_38rod")
 slot_util_type = 1
-positive_procentage = 0.1
+positive_procentage = 0.15
 health_count = 5
 slot_name = "UTIL_FIX_NAME"
 slot_description = "UTIL_FIX_DESC"
 slot_sprite = ExtResource("2_eskem")
+slot_type = 3
 metadata/_custom_type_script = "uid://t82ojgqdbgkw"

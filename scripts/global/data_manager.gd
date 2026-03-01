@@ -252,7 +252,7 @@ var default_damage_to_base : int = 25
 
 var meta_price_coeff : float = 1.5
 
-var default_souls_inc : int = 15
+var default_souls_inc : int = 10
 
 var market_res_chain : Array[ResType] = [ResType.GOLD, ResType.SPIN_TOKEN, ResType.FOOD, ResType.CRYSTAL]
 

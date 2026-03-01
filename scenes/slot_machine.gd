@@ -84,9 +84,11 @@ func get_active_slots():
 	var unit_slot = third_column.get_active_slots()
 	var upgrade_slots = second_column.get_active_slots() + fourth_column.get_active_slots()
 	var perc_slots = first_column.get_active_slots()
+	var util_slots = fifth_column.get_active_slots()
 	new_slots.append_array(unit_slot)
 	new_slots.append_array(upgrade_slots)
 	new_slots.append_array(perc_slots)
+	new_slots.append_array(util_slots)
 	#for slot in new_slots:
 		#slot.set_collision_layer_value(11, true)
 		#slot.monitorable = true
@@ -115,7 +117,7 @@ func create_unit():
 
 
 func merge_util_slots():
-	var util_slots : Array[Slot] = slots.filter(func(slot : Slot): return slot.slot_type == DataManager.SlotType.ULT)
+	var util_slots : Array[Slot] = slots.filter(func(slot : Slot): return slot.slot_type == DataManager.SlotType.ULT and (slot.slot_name != DataManager.empty_slot_name and slot.slot_name != DataManager.empty_slot_name_en))
 	var unique_slots : Array
 	for slot in util_slots:
 		var count = 1
@@ -124,13 +126,20 @@ func merge_util_slots():
 				continue
 			if slot.slot_name == inner_slot.slot_name:
 				count += 1
-		if not unique_slots.has(slot):
+		var is_has_slot : bool
+		for unique_slot_pack in unique_slots:
+			if unique_slot_pack[0].slot_name == slot.slot_name:
+				is_has_slot = true
+				break
+		if not is_has_slot:
 			unique_slots.append([slot, count])
 	# может быть нужно будет по утилити типу по разному мерджить
 	var merged_slots : Array[Slot]
 	for slot_pack in unique_slots:
 		var slot : Slot = slot_pack[0]
-		slot.slot_res.positive_procentage *= slot_pack[1]
+		var copy_res : SlotResUtil = slot.slot_res.duplicate()
+		copy_res.positive_procentage *= slot_pack[1]
+		slot.slot_res = copy_res
 		merged_slots.append(slot)
 	
 	Player.util_slots = merged_slots

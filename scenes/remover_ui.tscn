@@ -33,7 +33,7 @@ theme_override_constants/separation = 8
 
 [node name="label_header" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Выберите слот, который хотите удалить из рулетки"
+text = "UI_REMOVERH_NAME"
 label_settings = SubResource("LabelSettings_tb6si")
 horizontal_alignment = 1
 autowrap_mode = 2

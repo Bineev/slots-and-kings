@@ -532,6 +532,7 @@ func clear_base_decks():
 	base_upgrades_deck.clear()
 	base_units_deck.clear()
 	base_percs_deck.clear()
+	base_ults_deck.clear()
 
 
 func generate_bonus_dict():
@@ -673,6 +674,7 @@ func create_hero(hero_class : DataManager.HeroClass, hero_level : int):
 	hero.set_hero_family(hero_stat_res.hero_family)
 	hero.set_hero_class(hero_stat_res.hero_class)
 	hero.set_hero_gender(hero_stat_res.hero_gender)
+	hero.set_slot_res(hero_stat_res.hero_slot)
 	# открыть когда появятся скиллы
 	hero.add_passive_reses(get_passive_res_by_class_and_level(hero, hero.hero_class, 1))
 	hero.add_active_reses(get_active_res_by_class_and_level(hero, hero.hero_class, 1))

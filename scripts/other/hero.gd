@@ -11,11 +11,14 @@ class_name Hero
 @export var hero_portrait : Texture2D
 @export var passives_reses : Array[Resource]
 @export var actives_reses : Array[Resource]
+@export var hero_slot_res : SlotResUtil
+@export var hero_slot : Slot
 
 var passives : Array[PassiveSkill]
 var actives : Array[ActiveSkill]
 var is_active : bool
 var previous_position : Vector2
+var slot_container : BoxContainer
 
 # мощь атакующих заклинаний
 # урон заклинания = базовый урон + базовый урон / 4 * power
@@ -39,6 +42,9 @@ var previous_position : Vector2
 @onready var passive_container: HBoxContainer = %passive_container
 @onready var label_hero_class: Label = %label_hero_class
 @onready var label_hero_level: Label = %label_hero_level
+@onready var hero_info_cont: HBoxContainer = %hero_info_cont
+@onready var hero_level_cont: HBoxContainer = %hero_level_cont
+@onready var filler: Control = %filler
 
 
 func initialize():
@@ -73,6 +79,17 @@ func initialize():
 		add_active_skill(active)
 		#actives.append(active)
 	is_active = true
+	slot_container = BoxContainer.new()
+	slot_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	slot_container.size = DataManager.slot_size
+	slot_container.size_flags_horizontal = Control.SIZE_SHRINK_END
+	hero_level_cont.add_child(slot_container)
+	hero_slot = Player.create_slot_scene(hero_slot_res).instantiate()
+	slot_container.add_child(hero_slot)
+	hero_slot.initialize()
+	hero_slot.input_pickable = true
+	await get_tree().process_frame
+	hero_slot.slot_back_sprite.hide()
 
 
 func set_stats(new_power : int, new_quickness : int, new_mastery : int, new_grace : int):
@@ -127,6 +144,10 @@ func set_hero_name(new_hero_name : String):
 	hero_name = new_hero_name
 
 
+func set_slot_res(new_hero_slot_res : SlotResUtil):
+	hero_slot_res = new_hero_slot_res
+
+
 func level_up():
 	hero_level += 1
 
@@ -150,4 +171,8 @@ func update_hero_level():
 		'ru_RU':
 			level_prefix = 'уровень %d'
 	label_hero_level.text = level_prefix % hero_level
-	
+
+
+func remove_hero_slot():
+	slot_container.queue_free()
+	filler.queue_free()

@@ -7,6 +7,7 @@ class_name HeroStatRes
 @export var hero_class : DataManager.HeroClass
 @export var hero_gender : DataManager.HeroGender
 @export var hero_family : DataManager.UnitFamily
+@export var hero_slot : SlotResUtil
 
 @export var portraits_pool : Array[Texture2D]
 @export var hero_names_pool : Array[String]
