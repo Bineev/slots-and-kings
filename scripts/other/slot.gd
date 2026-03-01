@@ -39,6 +39,7 @@ class_name Slot
 @export var unit_attack_type : DataManager.AttackType
 @export var unit_projectile_texture : Texture2D
 @export var before_can_swap_position : Vector2
+@export var slot_particle_scene : PackedScene
 
 var slot_name : String
 var slot_description : String
@@ -104,6 +105,7 @@ func set_is_on_remover_UI(new_is_on_remover_UI : bool):
 
 func highlight_slot():
 	#slot_anim_player.play("highlight")
+	add_child(slot_particle_scene.instantiate())
 	var shader_material = ShaderMaterial.new()
 	shader_material.shader = shader
 	shader_rect.material = shader_material
