@@ -43,9 +43,13 @@ script = ExtResource("1_aifk4")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "ПКМ - закрыть"
+text = "UI_RMB_NAME"
 label_settings = SubResource("LabelSettings_4msli")
 vertical_alignment = 2
+
+[node name="filler" type="Control" parent="label_close"]
+custom_minimum_size = Vector2(0, 5)
+anchors_preset = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -62,7 +66,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "ресурсы игрока"
+text = "UI_MARKETRP_NAME"
 label_settings = SubResource("LabelSettings_ennqm")
 
 [node name="filler" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
@@ -71,7 +75,7 @@ size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "рынок"
+text = "UI_MARKETRM_NAME"
 label_settings = SubResource("LabelSettings_ennqm")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]

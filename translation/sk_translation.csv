@@ -483,6 +483,9 @@ UI_NEXT_NAME,ДАЛЕЕ,NEXT
 UI_MCLOSE_NAME,ЗАКРЫТЬ,CLOSE
 UI_COUNSELOR_NAME,СОВЕТНИК,COUNSELOR
 UI_REMOVERH_NAME,"Выберите слот, который хотите удалить из рулетки",Select the slot you want to remove from the roulette
+UI_SKILLHELP_NAME,Зажмите ЛКМ и перетащите умение на поле боя. ПКМ - отменить умение,Click LMB and drag the skill onto the battlefield. RMB - cancel skill
+UI_MARKETRP_NAME,Ваши ресурсы,Your resources
+UI_MARKETRM_NAME,Рынок,Market
 MSG_1_NAME,"Сир, враг приближается.[br] Нажмите [b] ""Крутить""[/b] в рулетке или клавишу [b] ""Пробел""[/b], чтобы начать создавать армию","Sire, the enemy is coming.[br]Click [b]'Spin'[/b] on roulette or press [b]'Space'[/b] key to start creating an army"
 MSG_2_NAME,"Один жетон[img]res://img/res_token.png[/img] тратится на запуск.[br] Для создания бойцов требуется еда [img]res://img/res_food.png[/img].[br]Нажмите кнопку ""Создать"" или клавишу ""F""","One token[img]res://img/res_token.png[/img] is spent on spin.[br]Food [img]res://img/res_food.png[/img]is needed to create fighters.[br]Click the ""Create"" button on the roulette or 'F' key"
 MSG_3_NAME,Рулетка создает бойцов в средней линии [img]res://img/roullete_middle.png[/img] и добавляет к ним одинаковые слоты по вертикали,Roulette creates fighters in the middle line [img]res://img/roullete_middle.png[/img] and adds vertical slots to them if they are the same
@@ -495,9 +498,9 @@ MSG_9_NAME,"Кристаллы [img]res://img/res_crystal.png[/img] - редки
 UTIL_PHANTASM_NAME,Фантазм,Phantasm
 UTIL_PHANTASM_DESC,Создает фантазм бойца с шансом 15/10/5/2.5% в зависимости от тира. Фантазм может оказаться вражеским,"Creates a fighter's fantasm with 15/10/5/2.5% chance, depending on figther tier. Phantasm may turn out to be an enemy one"
 UTIL_PGIFT_NAME,Драгоценность,Precious gift
-UTIL_PGIFT_DESC,Дает один кристалл с шансом 10%,Gives you one crystal with a 10% chance
+UTIL_PGIFT_DESC,Дает один кристалл с шансом 15%,Gives you one crystal with a 15% chance
 UTIL_FIX_NAME,Починка,Fix
-UTIL_FIX_DESC,Восстанавливает 5 прочности с шансом 10%,Restores 5 fortress strength with a 10% chance
+UTIL_FIX_DESC,Восстанавливает 5 прочности с шансом 15%,Restores 5 fortress strength with a 15% chance
 LEVEL_E0_NAME,Обучение,Tutorial
 LEVEL_E0_DESC,Освойте основы игры. Волны врагов немногочисленные. Враги без улучшений.,Get to know the basics of the game
 LEVEL_E1_NAME,Сложность 1,Difficulty 1

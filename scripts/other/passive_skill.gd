@@ -128,12 +128,13 @@ func apply_stat(current_unit : Unit):
 	var current_locale : String = TranslationServer.get_locale()
 	var current_skill_unit_name : String = skill_unit_name
 	# TODO имя к кому применяется не работает из-за локали
+	# BUG поменять первую букву
 	if skill_unit_name != '':
 		match current_locale:
 			'en_US':
-				current_skill_unit_name = DataManager.unit_name_ru_to_en[skill_unit_name.capitalize()]
+				current_skill_unit_name = DataManager.unit_name_ru_to_en[capitalize_first(skill_unit_name)]
 	
-	if skill_passive_type == DataManager.PassiveSkillType.UNIT_NAME and not current_unit.unit_name == current_skill_unit_name:
+	if skill_passive_type == DataManager.PassiveSkillType.UNIT_NAME and not current_unit.unit_name.to_lower() == current_skill_unit_name.to_lower():
 		return
 	for dict in skill_buff_stats:
 		if dict.stat_change_type == 0:
@@ -150,3 +151,9 @@ func apply_stat(current_unit : Unit):
 	#current_unit.hide_tooltip()
 	#current_unit.parse_stats()
 	#current_unit.create_tooltip()
+
+
+func capitalize_first(s: String) -> String:
+	if s.is_empty():
+		return s
+	return s.left(1).to_upper() + s.substr(1)
