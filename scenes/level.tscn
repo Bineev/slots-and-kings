@@ -135,9 +135,6 @@ position = Vector2(27, 0)
 [node name="Spawner3" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(54, 0)
 
-[node name="Spawner4" parent="spawners" instance=ExtResource("5_ppgk2")]
-position = Vector2(82, 0)
-
 [node name="Spawner5" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(10, -31)
 
@@ -147,9 +144,6 @@ position = Vector2(37, -31)
 [node name="Spawner7" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(64, -31)
 
-[node name="Spawner8" parent="spawners" instance=ExtResource("5_ppgk2")]
-position = Vector2(92, -31)
-
 [node name="Spawner9" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(11, 30)
 
@@ -158,9 +152,6 @@ position = Vector2(38, 30)
 
 [node name="Spawner11" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(65, 30)
-
-[node name="Spawner12" parent="spawners" instance=ExtResource("5_ppgk2")]
-position = Vector2(93, 30)
 
 [node name="Spawner13" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(-1, -59)
@@ -183,9 +174,6 @@ position = Vector2(28, 59)
 [node name="Spawner19" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(55, 59)
 
-[node name="Spawner20" parent="spawners" instance=ExtResource("5_ppgk2")]
-position = Vector2(83, 59)
-
 [node name="Spawner21" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(12, 0)
 
@@ -194,9 +182,6 @@ position = Vector2(39, 0)
 
 [node name="Spawner23" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(66, 0)
-
-[node name="Spawner24" parent="spawners" instance=ExtResource("5_ppgk2")]
-position = Vector2(94, 0)
 
 [node name="Spawner25" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(22, -31)
@@ -207,9 +192,6 @@ position = Vector2(49, -31)
 [node name="Spawner27" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(76, -31)
 
-[node name="Spawner28" parent="spawners" instance=ExtResource("5_ppgk2")]
-position = Vector2(104, -31)
-
 [node name="Spawner29" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(23, 30)
 
@@ -218,9 +200,6 @@ position = Vector2(50, 30)
 
 [node name="Spawner31" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(77, 30)
-
-[node name="Spawner32" parent="spawners" instance=ExtResource("5_ppgk2")]
-position = Vector2(105, 30)
 
 [node name="Spawner33" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(11, -59)
@@ -231,9 +210,6 @@ position = Vector2(38, -59)
 [node name="Spawner35" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(65, -59)
 
-[node name="Spawner36" parent="spawners" instance=ExtResource("5_ppgk2")]
-position = Vector2(93, -59)
-
 [node name="Spawner37" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(13, 59)
 
@@ -243,8 +219,92 @@ position = Vector2(40, 59)
 [node name="Spawner39" parent="spawners" instance=ExtResource("5_ppgk2")]
 position = Vector2(67, 59)
 
-[node name="Spawner40" parent="spawners" instance=ExtResource("5_ppgk2")]
-position = Vector2(95, 59)
+[node name="Spawner41" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(3, -14)
+
+[node name="Spawner42" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(30, -14)
+
+[node name="Spawner43" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(57, -14)
+
+[node name="Spawner45" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(13, -45)
+
+[node name="Spawner46" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(40, -45)
+
+[node name="Spawner47" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(67, -45)
+
+[node name="Spawner49" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(14, 16)
+
+[node name="Spawner50" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(41, 16)
+
+[node name="Spawner51" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(68, 16)
+
+[node name="Spawner53" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(2, -73)
+
+[node name="Spawner54" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(29, -73)
+
+[node name="Spawner55" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(56, -73)
+
+[node name="Spawner57" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(4, 45)
+
+[node name="Spawner58" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(31, 45)
+
+[node name="Spawner59" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(58, 45)
+
+[node name="Spawner61" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(15, -14)
+
+[node name="Spawner62" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(42, -14)
+
+[node name="Spawner63" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(69, -14)
+
+[node name="Spawner65" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(25, -45)
+
+[node name="Spawner66" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(52, -45)
+
+[node name="Spawner67" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(79, -45)
+
+[node name="Spawner69" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(26, 16)
+
+[node name="Spawner70" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(53, 16)
+
+[node name="Spawner73" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(14, -73)
+
+[node name="Spawner74" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(41, -73)
+
+[node name="Spawner75" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(68, -73)
+
+[node name="Spawner77" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(16, 45)
+
+[node name="Spawner78" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(43, 45)
+
+[node name="Spawner79" parent="spawners" instance=ExtResource("5_ppgk2")]
+position = Vector2(70, 45)
 
 [node name="enemy_spawners" type="Node2D" parent="."]
 unique_name_in_owner = true

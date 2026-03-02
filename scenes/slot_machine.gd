@@ -101,8 +101,11 @@ func create_unit():
 		for slot in slots:
 			slot.stop_highlight()
 	slots = get_active_slots()
+	var active_slots_count : int = slots.filter(func(slot : Slot): return tr(slot.slot_name) != DataManager.empty_slot_name and tr(slot.slot_name) != DataManager.empty_slot_name_en).size()
 	for slot in slots:
 		if tr(slot.slot_name) != DataManager.empty_slot_name and tr(slot.slot_name) != DataManager.empty_slot_name_en:
+			if active_slots_count >= 4:
+				slot.is_should_multiple_effects = true
 			slot.highlight_slot()
 	var units_count : int = slots.filter(func(slot : Slot): return slot.slot_type == DataManager.SlotType.UNIT).size()
 	var unit_slot : Slot = slots[0]

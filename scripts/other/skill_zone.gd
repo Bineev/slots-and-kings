@@ -78,6 +78,7 @@ func start_working():
 func stop_working():
 	set_inactive()
 	set_is_stopped(false)
+	hide()
 	global_position = previous_position
 
 

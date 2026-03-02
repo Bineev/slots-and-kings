@@ -21,6 +21,7 @@ class_name ActiveSkill
 
 var is_on_cd : bool
 var was_trap : bool
+var is_canceled : bool
 var unit_stat_changes_dict : Dictionary[Unit, Dictionary]
 
 @onready var timer_skill_delay: Timer = %timer_skill_delay
@@ -151,13 +152,24 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			skill_zone.start_working()
+			print('drag skill')
 			# Calculate the offset from the object's origin to the mouse position
 			#skill_zone.offset = get_global_mouse_position() - global_position
 		else:
-			start_skill()
+			if not is_canceled:
+				start_skill()
+				print('start skill')
+			else:
+				is_canceled = false
 			# вернуть зону в неактивное состояние
 			# запустить КД скилла
 			# Optional: Add logic here to "drop" the object or apply momentum
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
+		if event.pressed:
+			is_canceled = true
+			skill_zone.stop_working()
+			clear_targets()
+			print('cancel skill')
 
 
 func activate():

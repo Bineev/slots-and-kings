@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcui4flydkyhp"]
+
+[ext_resource type="Script" uid="uid://hjv4wvxkag0v" path="res://scripts/other/multiple_particle.gd" id="1_ia4de"]
+[ext_resource type="PackedScene" uid="uid://c2ldoih45cx8l" path="res://scenes/texture_particle.tscn" id="2_v02rk"]
+
+[node name="MultipleParticle" type="Node2D"]
+modulate = Color(1, 1, 1, 0.8)
+script = ExtResource("1_ia4de")
+preparticle = ExtResource("2_v02rk")

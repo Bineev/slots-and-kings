@@ -40,6 +40,7 @@ class_name Slot
 @export var unit_projectile_texture : Texture2D
 @export var before_can_swap_position : Vector2
 @export var slot_particle_scene : PackedScene
+@export var multiple_patricle_scene : PackedScene
 
 var slot_name : String
 var slot_description : String
@@ -54,6 +55,7 @@ var slot_for_swap : Slot
 var previous_z_index : int
 var is_can_swap : bool = true
 var current_swap_slots : Array[Slot]
+var is_should_multiple_effects : bool
 
 @onready var slot_sprite: AnimatedSprite2D = %slot_sprite
 @onready var slot_anim_player: AnimationPlayer = %slot_anim_player
@@ -105,11 +107,15 @@ func set_is_on_remover_UI(new_is_on_remover_UI : bool):
 
 func highlight_slot():
 	#slot_anim_player.play("highlight")
-	add_child(slot_particle_scene.instantiate())
 	var shader_material = ShaderMaterial.new()
 	shader_material.shader = shader
 	shader_rect.material = shader_material
 	slot_back_sprite.texture = highlight_texture
+	if is_should_multiple_effects:
+		add_child(slot_particle_scene.instantiate())
+		add_child(multiple_patricle_scene.instantiate())
+	else:
+		add_child(slot_particle_scene.instantiate())
 
 
 func stop_highlight():
