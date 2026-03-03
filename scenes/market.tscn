@@ -40,6 +40,7 @@ theme_override_styles/panel = ExtResource("1_iks0y")
 script = ExtResource("1_aifk4")
 
 [node name="label_close" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -167,7 +168,41 @@ texture_normal = ExtResource("7_hvm52")
 stretch_mode = 3
 
 [node name="filler" type="Control" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="label_commission" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "UI_MARKETCOM_NAME"
+label_settings = SubResource("LabelSettings_ennqm")
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="label_commission_count" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+text = "1"
+label_settings = ExtResource("4_ygeob")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="rect_commission_res" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("5_co8of")
+stretch_mode = 2
+
+[node name="filler2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="choose_button" type="Button" parent="MarginContainer/VBoxContainer"]

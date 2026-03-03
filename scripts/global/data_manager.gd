@@ -256,6 +256,8 @@ var default_souls_inc : int = 10
 
 var max_sounds : int = 30
 
+var default_market_commission : float = 0.1
+
 var market_res_chain : Array[ResType] = [ResType.GOLD, ResType.SPIN_TOKEN, ResType.FOOD, ResType.CRYSTAL]
 
 var default_market_coeffs_dict : Dictionary[ResType, int] = {

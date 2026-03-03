@@ -471,7 +471,7 @@ UI_SHOWSTATS_NAME,показать статы,show stats
 UI_CHOOSEHERO_NAME,"Выберите героя, который будет помогать вам отбиваться от врагов",Choose a hero who will help you hold off your enemies
 UI_RMB_NAME,ПКМ - закрыть,RMB - close
 UI_BUILDING_NAME,СТРОИТЕЛЬСТВО,BUILDING
-UI_BTNGET_NAME,ПОЛУЧИТЬ,OBTAIN
+UI_BTNGET_NAME,ПОЛУЧИТЬ,GET
 UI_BTNSKIP_NAME,ПРОПУСТИТЬ,SKIP
 UI_REMOVER_NAME,"Выберите слот, который хотите удалить из рулетки",Select the slot you want to remove from the roulette
 UI_UPGRBUILDING_NAME,Текущий уровень улучшений ,Current level of upgrades
@@ -486,6 +486,8 @@ UI_REMOVERH_NAME,"Выберите слот, который хотите уда�
 UI_SKILLHELP_NAME,Зажмите ЛКМ и перетащите умение на поле боя. ПКМ - отменить умение,Click LMB and drag the skill onto the battlefield. RMB - cancel skill
 UI_MARKETRP_NAME,Ваши ресурсы,Your resources
 UI_MARKETRM_NAME,Рынок,Market
+UI_MARKET_OK,По рукам,Deal
+UI_MARKETCOM_NAME,Комиссия,Commission
 MSG_1_NAME,"Сир, враг приближается.[br] Нажмите [b] ""Крутить""[/b] в рулетке или клавишу [b] ""Пробел""[/b], чтобы начать создавать армию","Sire, the enemy is coming.[br]Click [b]'Spin'[/b] on roulette or press [b]'Space'[/b] key to start creating an army"
 MSG_2_NAME,"Один жетон[img]res://img/res_token.png[/img] тратится на запуск.[br] Для создания бойцов требуется еда [img]res://img/res_food.png[/img].[br]Нажмите кнопку ""Создать"" или клавишу ""F""","One token[img]res://img/res_token.png[/img] is spent on spin.[br]Food [img]res://img/res_food.png[/img]is needed to create fighters.[br]Click the ""Create"" button on the roulette or 'F' key"
 MSG_3_NAME,Рулетка создает бойцов в средней линии [img]res://img/roullete_middle.png[/img] и добавляет к ним одинаковые слоты по вертикали,Roulette creates fighters in the middle line [img]res://img/roullete_middle.png[/img] and adds vertical slots to them if they are the same
