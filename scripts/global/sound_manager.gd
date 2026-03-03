@@ -7,6 +7,7 @@ var main_theme2 = preload('res://sounds/2026-01-23 SNC.mp3')
 var main_theme = [main_theme1, main_theme2]
 
 var music_index : int
+var played_streams : Array[AudioStreamPlayer]
 #const UI_HOVER : AudioStream = preload("res://sound/ui.wav")
 #const ARROW = preload("res://sound/arrow.wav")
 #const HIT_1 = preload("res://sound/hit1.wav")
@@ -18,15 +19,24 @@ var music_index : int
 func play(source : Node, stream : AudioStream):
 	#if sound and sound.playing:
 		#sound.stop()
+	if played_streams.size() > DataManager.max_sounds:
+		return
 	sound = AudioStreamPlayer.new()
 	sound.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(sound)
+	played_streams.append(sound)
 	sound.bus = "SFX"
 	sound.stream = stream
 	sound.volume_db = -25
-	sound.connect("finished", sound.queue_free)
+	sound.connect("finished", erase_finished_sound.bind(sound))
 	#sound.volume_db = -15
 	sound.play()
+
+
+func erase_finished_sound(new_sound : AudioStreamPlayer):
+	played_streams.erase(new_sound)
+	if sound and is_instance_valid(new_sound):
+		sound.queue_free()
 
 
 func play_local(sound_local : AudioStreamPlayer2D, stream : AudioStream):

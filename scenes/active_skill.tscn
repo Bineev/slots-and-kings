@@ -118,6 +118,7 @@ tooltip_scene = ExtResource("3_hh2ii")
 
 [node name="SkillZone" parent="." index="0" instance=ExtResource("3_g3xg3")]
 unique_name_in_owner = true
+input_pickable = false
 
 [node name="timer_skill_delay" type="Timer" parent="." index="1"]
 unique_name_in_owner = true

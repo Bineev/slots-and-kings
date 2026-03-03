@@ -176,13 +176,20 @@ func show_slot_remover():
 		remover_slot_UI.max_remove_count = 2
 	var slot_scenes : Array[PackedScene]
 	var units : Array[PackedScene] = Player.get_deck_by_slot_type(DataManager.SlotType.UNIT)
-	if units.size() >= 4 + remover_slot_UI.max_remove_count:
-		slot_scenes.append_array(units)
+	units.sort_custom(sort_by_entity_tier)
+	var sliced_units : Array[PackedScene] = units.slice(4)
+	slot_scenes.append_array(sliced_units)
 	slot_scenes.append_array(Player.get_deck_by_slot_type(DataManager.SlotType.UPGRADE))
 	slot_scenes.append_array(Player.get_deck_by_slot_type(DataManager.SlotType.PERC))
 	remover_slot_UI.set_slot_scenes(slot_scenes)
 	remover_slot_UI.set_is_should_start_wave(true)
 	SignalManager.on_show_choose_UI_after_wave.emit(remover_slot_UI)
+
+
+func sort_by_entity_tier(a: PackedScene, b: PackedScene):
+	var slotA : Slot = a.instantiate()
+	var slotB : Slot = b.instantiate()
+	return slotA.slot_res.entity_tier > slotB.slot_res.entity_tier
 
 
 func show_next_choose_UI():

@@ -55,6 +55,7 @@ func create_tooltip():
 	tooltip.set_entity_name(skill_name)
 	tooltip.set_entity_desc(skill_desc)
 	tooltip.set_entity_tier(skill_tier)
+	tooltip.set_is_should_hide_label_close(true)
 
 
 func parse_skill():

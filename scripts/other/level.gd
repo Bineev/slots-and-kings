@@ -555,13 +555,15 @@ func add_tooltip(object : Object, tooltip : Tooltip):
 	current_tooltip = tooltip
 	ui.add_child(tooltip)
 	tooltip.initialize()
-	tooltip.global_position = object.global_position
+	await get_tree().process_frame
+	if tooltip and is_instance_valid(tooltip) and object and is_instance_valid(object):
+		tooltip.global_position = object.global_position - Vector2(0, (tooltip.size.y + 30))
 	#if not tooltip.is_initialized:
 		#tooltip.initialize()
 		#tooltip.is_initialized = true
 	# здесь может быть баг
 	#await get_tree().process_frame
-	tooltip.global_position.y -= (tooltip.size.y + 30)
+	#tooltip.global_position.y -= (tooltip.size.y / 2 + 30)
 
 
 func remove_tooltip(tooltip : Tooltip):

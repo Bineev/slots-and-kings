@@ -16,10 +16,13 @@ extends Node
 @export var units_choose_count : int = 2
 @export var upgrades_choose_count : int = 3
 @export var diff_count : int
-
+#
 @export var wave_rewards : Array
-@export var empty_perc_scene : PackedScene
-@export var empty_upgrade_scene : PackedScene
+#@export var empty_perc_scene : PackedScene
+#@export var empty_upgrade_scene : PackedScene
+@export var empty_perc_res : Resource
+@export var empty_upgrade_res : Resource
+@export var empty_util_res : Resource
 @export var slot_scene : PackedScene
 @export var passive_skill_scene : PackedScene
 @export var active_skill_scene : PackedScene
@@ -479,16 +482,23 @@ func remove_slot_by_type(slot : Slot, slot_type : DataManager.SlotType):
 			remove_slot(base_units_deck, slot)
 
 
+# здесь поправить
 func remove_slot(deck : Array[PackedScene], slot : Slot):
 	var slots : Array[Slot]
 	for item in deck:
 		var item_instance : Slot = item.instantiate()
-		if item_instance.slot_res.slot_name == slot.slot_name:
-			if deck.size() <= 4:
-				if slot.slot_type == DataManager.SlotType.UNIT:
-					return
-				deck.erase(item)
-				deck.append(empty_perc_scene if slot.slot_type == DataManager.SlotType.PERC else empty_upgrade_scene)
+		if tr(item_instance.slot_res.slot_name) == slot.slot_name:
+			if deck.size() <= 4 and slot.slot_type != DataManager.SlotType.UNIT:
+				match slot.slot_type:
+					DataManager.SlotType.PERC:
+						deck.erase(item)
+						deck.append(create_slot_scene(empty_perc_res))
+					DataManager.SlotType.UPGRADE:
+						deck.erase(item)
+						deck.append(create_slot_scene(empty_upgrade_res))
+					DataManager.SlotType.ULT:
+						deck.erase(item)
+						deck.append(create_slot_scene(empty_util_res))
 				break
 			else:
 				deck.erase(item)

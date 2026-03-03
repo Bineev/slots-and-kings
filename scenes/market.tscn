@@ -187,7 +187,7 @@ theme_override_styles/pressed = ExtResource("8_4msli")
 theme_override_styles/hover = ExtResource("9_wa5cj")
 theme_override_styles/disabled = ExtResource("10_k7ps5")
 theme_override_styles/focus = ExtResource("8_4msli")
-text = "По рукам"
+text = "UI_MARKET_OK"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/change_res_up_button" to="." method="_on_change_res_up_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/change_res_down_button" to="." method="_on_change_res_down_button_pressed"]
