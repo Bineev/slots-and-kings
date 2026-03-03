@@ -152,13 +152,11 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			skill_zone.start_working()
-			print('drag skill')
 			# Calculate the offset from the object's origin to the mouse position
 			#skill_zone.offset = get_global_mouse_position() - global_position
 		else:
 			if not is_canceled:
 				start_skill()
-				print('start skill')
 			else:
 				is_canceled = false
 			# вернуть зону в неактивное состояние
@@ -169,7 +167,6 @@ func _on_gui_input(event: InputEvent) -> void:
 			is_canceled = true
 			skill_zone.stop_working()
 			clear_targets()
-			print('cancel skill')
 
 
 func activate():
@@ -389,7 +386,6 @@ func apply_damage(current_target : Unit):
 
 	# применить урон к цели
 	current_target.get_damage(round(attack), self, is_crit)
-	print('%s наносит %f урона %s' % [skill_owner.hero_name, attack, current_target.unit_name])
 
 
 func deactivate():
@@ -499,5 +495,4 @@ func set_is_active(new_is_active : bool):
 
 
 func _on_skill_anim_player_animation_started(anim_name: StringName) -> void:
-	print(anim_name)
-	print(skill_anim_player.get_animation(anim_name).loop_mode)
+	pass

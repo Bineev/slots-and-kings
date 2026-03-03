@@ -4,10 +4,15 @@ var sound : AudioStreamPlayer
 var music : AudioStreamPlayer
 var main_theme1 = preload('res://sounds/2025-12-26 SLOTS&KINGS.mp3')
 var main_theme2 = preload('res://sounds/2026-01-23 SNC.mp3')
+var menu_theme : Resource
 var main_theme = [main_theme1, main_theme2]
+var peaceful_music : Array[Resource]
+var martial_music : Array[Resource]
 
-var music_index : int
+var peaceful_music_index : int
+var martial_music_index : int
 var played_streams : Array[AudioStreamPlayer]
+var is_martial_phase : bool
 #const UI_HOVER : AudioStream = preload("res://sound/ui.wav")
 #const ARROW = preload("res://sound/arrow.wav")
 #const HIT_1 = preload("res://sound/hit1.wav")
@@ -19,6 +24,7 @@ var played_streams : Array[AudioStreamPlayer]
 func play(source : Node, stream : AudioStream):
 	#if sound and sound.playing:
 		#sound.stop()
+	print(played_streams.size())
 	if played_streams.size() > DataManager.max_sounds:
 		return
 	sound = AudioStreamPlayer.new()
@@ -59,7 +65,7 @@ func play_ui(source : Node, stream : AudioStream):
 	sound_temp.play()
 
 
-func play_music(current_delay : int = 0):
+func play_peaceful_music(current_delay : int = 0):
 	#if sound and sound.playing:
 		#sound.stop()
 	if music:
@@ -69,12 +75,64 @@ func play_music(current_delay : int = 0):
 	music.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music)
 	music.bus = "Music"
-	if music_index == 2:
-		music_index = 0
-	music.stream = main_theme[music_index]
-	music_index += 1
+	if peaceful_music_index == peaceful_music.size():
+		peaceful_music_index = 0
+	music.stream = main_theme[peaceful_music_index]
+	peaceful_music_index += 1
 	#music.volume_db = -5
-	music.connect("finished", play_music)
+	music.play()
+	#sound.volume_db = -15
+	#get_tree().create_timer(current_delay).timeout.connect(music.play)
+
+
+func play_martial_music(current_delay : int = 0):
+	#if sound and sound.playing:
+		#sound.stop()
+	if music:
+		music.stop()
+		music.queue_free()
+	music = AudioStreamPlayer.new()
+	music.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(music)
+	music.bus = "Music"
+	if martial_music_index == martial_music.size():
+		martial_music_index = 0
+	music.stream = main_theme[martial_music_index]
+	martial_music_index += 1
+	#music.volume_db = -5
+	music.play()
+	#sound.volume_db = -15
+	#get_tree().create_timer(current_delay).timeout.connect(music.play)
+
+
+func fade_out(duration: float):
+	# Создаем tween
+	var tween = create_tween()
+	# Плавное изменение volume_db от текущего до -80 (почти бесшумно)
+	tween.tween_property(music, "volume_db", -80.0, duration)
+	# После завершения затухания останавливаем звук
+	tween.finished.connect(on_fade_finished)
+
+
+func on_fade_finished():
+	if is_martial_phase:
+		play_martial_music()
+	else:
+		play_peaceful_music()
+
+
+func play_menu_music():
+	#if sound and sound.playing:
+		#sound.stop()
+	if music:
+		music.stop()
+		music.queue_free()
+	music = AudioStreamPlayer.new()
+	music.stream = menu_theme
+	music.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(music)
+	music.bus = "Music"
+	#music.volume_db = -5
 	music.play()
 	#sound.volume_db = -15
 	#get_tree().create_timer(current_delay).timeout.connect(music.play)

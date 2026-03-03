@@ -83,6 +83,7 @@ func _ready() -> void:
 	SignalManager.on_wave_done.connect(clear_fight_points)
 	SignalManager.on_wave_done.connect(pause_timers)
 	SignalManager.on_wave_done.connect(cancel_attack)
+	SignalManager.on_wave_done.connect(start_pieceful_music)
 	SignalManager.on_player_get_hit.connect(update_hp_bar)
 	SignalManager.on_drop_res_popup.connect(show_res_popup_after_unit_dead)
 	SignalManager.on_show_damage.connect(show_damage_ui)
@@ -119,7 +120,8 @@ func _ready() -> void:
 		messages_pack_ui.hide()
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
 	start_waves()
-	SoundManager.play_music(3)
+	#TODO здесь должна играть мирная музыка
+	#SoundManager.play_music(3)
 	if not Player.is_should_shader_work:
 		disable_shader()
 
@@ -435,6 +437,7 @@ func clear_player_spawns():
 
 
 func _on_timer_to_next_wave_timeout() -> void:
+	start_martial_music()
 	create_wave()
 	
 	
@@ -786,3 +789,13 @@ func update_shake(is_should_shake : bool):
 
 func disable_shader():
 	shader_layer.hide()
+
+
+func start_pieceful_music():
+	SoundManager.is_martial_phase = false
+	SoundManager.fade_out(5)
+
+
+func start_martial_music():
+	SoundManager.is_martial_phase = true
+	SoundManager.fade_out(5)

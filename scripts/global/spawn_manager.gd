@@ -21,6 +21,9 @@ func create_spawn_by_wave_count(wave_count : int, diff_count : int):
 	spawn.unit_factory = Player.get_unit_factory().duplicate()
 	var progress : PlayerProgress = ProgressManager.get_base_progress_by_family(DataManager.UnitFamily.HELL)
 	var enemies_count : int = clampf(ceil(float(wave_count) * 1.2 + 1.3) + floor(float(diff_count) / 1.5), 5, 11 + diff_count)
+	# резкое усложнение?
+	if wave_count > 12:
+		enemies_count += wave_count / 3
 	var spawn_coeff : int = diff_count if diff_count != 0 else 1
 	
 	var T0_units_pool : Array[Resource] = progress.units_T0_pool.duplicate(true)

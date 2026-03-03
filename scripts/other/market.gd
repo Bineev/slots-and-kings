@@ -42,17 +42,17 @@ func initialize():
 	target_res = DataManager.ResType.FOOD
 	current_commission = DataManager.default_market_commission
 	if Player.current_wave_count >= 22:
-		current_commission = 0.4
+		current_commission = 0.7
 	elif Player.current_wave_count >= 20:
-		current_commission = 0.35
+		current_commission = 0.6
 	elif Player.current_wave_count >= 18:
-		current_commission = 0.3
+		current_commission = 0.5
 	elif Player.current_wave_count >= 16:
-		current_commission = 0.25
+		current_commission = 0.4
 	elif Player.current_wave_count >= 14:
-		current_commission = 0.2
+		current_commission = 0.3
 	elif Player.current_wave_count >= 12:
-		current_commission = 0.15
+		current_commission = 0.2
 
 	label_commission.text = tr(label_commission.text) + ' ' + str(int(current_commission * 100)) + '%'
 	set_icons_by_res()
@@ -143,8 +143,6 @@ func setup_min_target_res_count():
 	if default_market_coeffs_dict[target_res] > default_market_coeffs_dict[source_res]:
 		target_res_min_count = 1
 	else:
-		print(default_market_coeffs_dict[source_res])
-		print(default_market_coeffs_dict[target_res])
 		target_res_min_count = default_market_coeffs_dict[source_res] / default_market_coeffs_dict[target_res]
 
 
