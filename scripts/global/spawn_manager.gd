@@ -301,6 +301,8 @@ func get_waves_by_diff_and_count(difficulty_count : int, waves_count : int):
 	var wave_scenes : Array[PackedScene]
 	var spawn_count : int = 2
 	var time_between_waves: int = 40
+	if difficulty_count == 0:
+		time_between_waves = 50
 	for i in range(1, waves_count + 1):
 		var wave : Wave = wave_scene.instantiate()
 		var regul_coeff : int

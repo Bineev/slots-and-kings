@@ -858,3 +858,25 @@ func toggle_shake():
 	is_should_shake = not is_should_shake
 	if level:
 		level.update_shake(is_should_shake)
+
+
+func add_random_slots_on_start():
+	var upgrade_slots : Array[PackedScene]
+	var perc_slots : Array[PackedScene]
+	if diff_count >= 7:
+		upgrade_slots.append_array(get_random_upgrades(DataManager.EntityTier.T2, 1))
+		upgrade_slots.append_array(get_random_upgrades(DataManager.EntityTier.T3, 1))
+		perc_slots.append_array(get_random_percs(DataManager.EntityTier.T2, 1))
+	elif diff_count >= 5:
+		upgrade_slots.append_array(get_random_upgrades(DataManager.EntityTier.T1, 1))
+		upgrade_slots.append_array(get_random_upgrades(DataManager.EntityTier.T2, 1))
+		perc_slots.append_array(get_random_percs(DataManager.EntityTier.T1, 1))
+	elif diff_count >= 3:
+		upgrade_slots.append_array(get_random_upgrades(DataManager.EntityTier.T1, 1))
+		upgrade_slots.append_array(get_random_upgrades(DataManager.EntityTier.T1, 1))
+	else:
+		upgrade_slots.append_array(get_random_upgrades(DataManager.EntityTier.T1, 1))
+	for upgrade in upgrade_slots:
+		add_upgrade_slot_to_deck(upgrade)
+	for perc in perc_slots:
+		add_perc_slot_to_deck(perc)

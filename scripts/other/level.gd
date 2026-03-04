@@ -112,6 +112,7 @@ func _ready() -> void:
 	Player.set_wave_rewards(wave_rewards)
 	Player.level = self
 	Player.diff_count = difficulty_count
+	Player.add_random_slots_on_start()
 	waves_count = difficulty_count * 2 + 6
 	if difficulty_count == 0:
 		messages_pack_ui.show()
