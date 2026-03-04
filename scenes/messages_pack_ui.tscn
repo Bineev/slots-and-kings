@@ -16,7 +16,7 @@
 [ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="14_cs71p"]
 
 [node name="MessagesPackUI" type="Control"]
-z_index = 4094
+z_index = 4093
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

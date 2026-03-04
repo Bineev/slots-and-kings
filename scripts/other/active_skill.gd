@@ -170,6 +170,10 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func activate():
+	if Player.is_message_tutorial and Player.is_hero_come and not Player.is_gold_inc:
+		Player.is_gold_inc = true
+		Player.start_check_crystall_timer()
+		SignalManager.on_message_pack_next.emit()
 	reinit()
 	if not is_void_zone and unit_slots_scenes.size() == 0 and targets.size() == 0:
 		skill_zone.stop_working()

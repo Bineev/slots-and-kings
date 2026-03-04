@@ -53,3 +53,5 @@ signal on_show_next_tutorial
 signal on_toggle_shake
 signal on_align_item(control : Control)
 signal on_disable_shader
+signal on_message_pack_next
+signal on_check_barracks_start

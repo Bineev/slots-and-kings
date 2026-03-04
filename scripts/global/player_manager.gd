@@ -82,13 +82,27 @@ var current_bonus_slot_name : String
 var is_dead : bool
 var current_runs_count : int
 var buildings : Array[Building]
-var is_tutorial : bool
 var level : Level
 var player_die_count : int
 var enemy_die_count : int
 var is_should_shake : bool = true
+var is_tutorial : bool
 var is_should_shader_work : bool = true
 var util_slots : Array[Slot]
+
+# активация туториала
+var is_message_tutorial : bool
+var is_first_spin : bool
+var is_first_create : bool
+var is_roulette_info : bool
+var is_first_build : bool
+var is_second_build : bool
+var is_first_swap : bool
+var is_hero_come : bool
+var is_skill_used : bool
+var is_gold_inc : bool
+var is_crystall_inc : bool
+
 
 func _ready() -> void:
 	SignalManager.on_choose_item.connect(add_item_to_deck)
@@ -118,6 +132,7 @@ func initialize():
 	current_wave_count = 1
 	current_runs_count = 0
 	current_bonus_slot_name = ''
+	is_message_tutorial = false
 	generate_base_decks()
 	generate_bonus_dict()
 
@@ -125,6 +140,7 @@ func initialize():
 
 func clear_after_result():
 	clear_base_decks()
+	is_message_tutorial = false
 	is_dead = false
 	heroes.clear()
 	buildings.clear()
@@ -880,3 +896,11 @@ func add_random_slots_on_start():
 		add_upgrade_slot_to_deck(upgrade)
 	for perc in perc_slots:
 		add_perc_slot_to_deck(perc)
+
+
+func start_check_crystall_timer():
+	level.start_check_crystall_timer()
+
+
+func start_check_hero():
+	level.check_hero()

@@ -11,6 +11,7 @@ class_name MessagesPackUI
 
 
 func _ready() -> void:
+	SignalManager.on_message_pack_next.connect(show_next_message)
 	initialize()
 
 

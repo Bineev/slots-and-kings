@@ -39,6 +39,8 @@ var is_tutorial_5_done : bool
 var is_tutorial_6_done : bool
 var is_tutorial_7_done : bool
 var is_tutorial_8_done : bool
+var is_farm_ready : bool
+var is_factory_ready : bool
 
 @onready var player_units: Node2D = %player_units
 @onready var spawners: Node2D = %spawners
@@ -64,6 +66,10 @@ var is_tutorial_8_done : bool
 @onready var shaders_layer: ShadersLayer = %shaders_layer
 @onready var shader_layer: CanvasLayer = %ShaderLayer
 @onready var messages_pack_ui: MessagesPackUI = %MessagesPackUI
+@onready var check_barracks_timer: Timer = %check_barracks_timer
+@onready var check_second_buildings_timer: Timer = %check_second_buildings_timer
+@onready var check_crystall_timer: Timer = %check_crystall_timer
+@onready var check_hero_timer: Timer = %check_hero_timer
 
 
 func _ready() -> void:
@@ -100,6 +106,7 @@ func _ready() -> void:
 	SignalManager.on_change_reward_state.connect(set_buildings_reward_state)
 	SignalManager.on_show_next_tutorial.connect(show_tutorial_item)
 	SignalManager.on_align_item.connect(align_popup2)
+	SignalManager.on_check_barracks_start.connect(check_barracks)
 	for spawner in spawners.get_children():
 		free_spawners.append(spawner)
 	for spawner in enemy_spawners.get_children():
@@ -116,6 +123,7 @@ func _ready() -> void:
 	waves_count = difficulty_count * 2 + 6
 	if difficulty_count == 0:
 		messages_pack_ui.show()
+		Player.is_message_tutorial = true
 		waves_count = 7
 	else:
 		messages_pack_ui.hide()
@@ -167,9 +175,9 @@ func add_player_unit():
 	await get_tree().process_frame
 	current_unit.get_parent().remove_child(current_unit)
 	current_unit = null
-	if Player.is_tutorial and not is_tutorial_2_done:
-		is_tutorial_2_done = true
-		show_tutorial_item()
+	if Player.is_message_tutorial and not Player.is_first_create:
+		Player.is_first_create = true
+		SignalManager.on_message_pack_next.emit()
 
 
 func activate_util_slots():
@@ -800,3 +808,54 @@ func start_pieceful_music():
 func start_martial_music():
 	SoundManager.is_martial_phase = true
 	SoundManager.fade_out(5)
+
+
+func check_barracks():
+	check_barracks_timer.start()
+
+
+func _on_check_barracks_timer_timeout() -> void:
+	# TODO Здесь проверка костылем для локалей
+	for building in buildings.get_children():
+		if tr(building.building_name).contains('1'):
+			Player.is_first_build = true
+			check_barracks_timer.stop()
+			check_second_buildings_timer.start()
+			SignalManager.on_message_pack_next.emit()
+
+
+func _on_check_second_buildings_timer_timeout() -> void:
+	# TODO Здесь проверка костылем для локалей
+	for building in buildings.get_children():
+		if not is_farm_ready:
+			if tr(building.building_name).contains('Farm') or tr(building.building_name).contains('Ферма'):
+				is_farm_ready = true
+		if not is_factory_ready:
+			if tr(building.building_name).contains('Factory') or tr(building.building_name).contains('Фабрика'):
+				is_factory_ready = true
+	if is_farm_ready and is_factory_ready:
+		check_second_buildings_timer.stop()
+		Player.is_second_build = true
+		SignalManager.on_message_pack_next.emit()
+
+
+func start_check_crystall_timer():
+	check_crystall_timer.start()
+
+
+func _on_check_crystall_timer_timeout() -> void:
+	if Player.check_res(3, DataManager.ResType.CRYSTAL):
+		check_crystall_timer.stop()
+		Player.is_crystall_inc = true
+		SignalManager.on_message_pack_next.emit()
+
+
+func check_hero():
+	check_hero_timer.start()
+
+
+func _on_check_hero_timeout() -> void:
+	if Player.heroes.size() > 0:
+		check_hero_timer.stop()
+		Player.is_hero_come = true
+		SignalManager.on_message_pack_next.emit()

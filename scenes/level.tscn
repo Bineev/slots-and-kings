@@ -792,7 +792,23 @@ label_settings = ExtResource("33_asl66")
 [node name="ShaderLayer" parent="." instance=ExtResource("30_v3why")]
 unique_name_in_owner = true
 
+[node name="check_barracks_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="check_second_buildings_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="check_crystall_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="check_hero_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="timer_to_next_wave" to="." method="_on_timer_to_next_wave_timeout"]
 [connection signal="timeout" from="timer_between_check_enemies" to="." method="_on_timer_between_check_enemies_timeout"]
 [connection signal="timeout" from="is_in_fight_timer" to="." method="_on_is_in_fight_timer_timeout"]
 [connection signal="timeout" from="timer_sort_units" to="." method="_on_timer_sort_units_timeout"]
+[connection signal="timeout" from="check_barracks_timer" to="." method="_on_check_barracks_timer_timeout"]
+[connection signal="timeout" from="check_second_buildings_timer" to="." method="_on_check_second_buildings_timer_timeout"]
+[connection signal="timeout" from="check_crystall_timer" to="." method="_on_check_crystall_timer_timeout"]
+[connection signal="timeout" from="check_hero_timer" to="." method="_on_check_hero_timeout"]

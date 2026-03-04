@@ -112,6 +112,9 @@ func create_unit():
 	Player.set_units_count_for_next_create(units_count)
 	castle_unit_factory.choose_unit(slots.slice(0, 1) + slots.slice(units_count))
 	merge_util_slots()
+	if Player.is_message_tutorial and not Player.is_first_spin:
+		Player.is_first_spin = true
+		SignalManager.on_message_pack_next.emit()
 
 #
 #func dehighlight_spots():
@@ -238,6 +241,9 @@ func swap_down():
 		target_slot.move_slots()
 		#change_slot.global_position = target_slot.before_can_swap_position
 		change_slot.z_index = 100
+	if Player.is_message_tutorial and Player.is_second_build and not Player.is_first_swap:
+		Player.is_first_swap = true
+		Player.start_check_hero()
 
 
 func swap_up():
@@ -249,6 +255,9 @@ func swap_up():
 		target_slot.move_slots()
 		#change_slot.global_position = target_slot.before_can_swap_position
 		change_slot.z_index = 100
+	if Player.is_message_tutorial and Player.is_second_build and not Player.is_first_swap:
+		Player.is_first_swap = true
+		Player.start_check_hero()
 
 
 func update_bonus_week(slot_name : String):

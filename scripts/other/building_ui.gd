@@ -48,6 +48,8 @@ func choose_building(building_scene : PackedScene):
 	get_tree().paused = false
 	SignalManager.on_build_building.emit(building_scene, prebuilding)
 	visible = false
+	if Player.is_message_tutorial and not Player.is_first_build:
+		SignalManager.on_check_barracks_start.emit()
 	var tween = get_tree().create_tween()
 	tween.tween_callback(destroy).set_delay(0.5)
 

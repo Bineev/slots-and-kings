@@ -9,11 +9,14 @@ func _ready() -> void:
 
 
 func show_ui():
+	if Player.is_message_tutorial and not Player.is_roulette_info:
+		return
 	if is_in_reward_state:
 		return
 	pop_up_ui = pop_up_ui_scene.instantiate()
 	pop_up_ui.prebuilding = self
 	SignalManager.on_pop_up_UI.emit(pop_up_ui)
+
 
 func close_ui():
 	pass
