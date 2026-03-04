@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://f2cu5p2ncjgg"]
+[gd_scene load_steps=29 format=3 uid="uid://f2cu5p2ncjgg"]
 
 [ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_h8njc"]
 [ext_resource type="Script" uid="uid://4vf8rxu2foyv" path="res://scripts/other/main_menu_ui.gd" id="2_np0fa"]
@@ -7,7 +7,6 @@
 [ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="4_mwf8v"]
 [ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="5_mtm5c"]
 [ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="6_sbo6t"]
-[ext_resource type="Texture2D" uid="uid://fns4xm0r5vtw" path="res://img/slot-machine.png" id="8_2tv7h"]
 [ext_resource type="Texture2D" uid="uid://cc0y4rlm7e1ah" path="res://img/wave_icon.png" id="9_p3tah"]
 [ext_resource type="Texture2D" uid="uid://cm5d82tgu1k56" path="res://img/buildings/building_barracks_T1.png" id="10_iudnm"]
 [ext_resource type="Texture2D" uid="uid://b2ixcd5klp7by" path="res://img/buildings/building_empty.png" id="11_6ru4n"]
@@ -17,8 +16,16 @@
 [ext_resource type="Texture2D" uid="uid://dmto8xic4s7o6" path="res://img/units/castle_ballista_anim.png" id="14_pi6li"]
 [ext_resource type="Texture2D" uid="uid://cix8pted4wep" path="res://img/units/hell_accursed_anim.png" id="15_b0ev8"]
 [ext_resource type="Texture2D" uid="uid://dj6r3jmry6rne" path="res://img/units/hell_bloodsucker_anim.png" id="16_xolnk"]
+[ext_resource type="Texture2D" uid="uid://dla85hjnyh5l" path="res://img/rus_local.png" id="17_5slqs"]
 [ext_resource type="Texture2D" uid="uid://b70qtn8py23uf" path="res://img/units/hell_fiend_anim.png" id="17_bx3vy"]
+[ext_resource type="Texture2D" uid="uid://t0uu8truj6yg" path="res://img/brit_local.png" id="18_hehjc"]
+[ext_resource type="Texture2D" uid="uid://b1h6awukwn8p8" path="res://img/units/castle_cannon_tower_anim.png" id="19_p3tah"]
+[ext_resource type="Texture2D" uid="uid://c31umre4xp23e" path="res://img/units/castle_inquistor_anim.png" id="20_iudnm"]
+[ext_resource type="Texture2D" uid="uid://beo0jq5jmnklq" path="res://img/units/castle_knight_anim.png" id="21_6ru4n"]
 [ext_resource type="PackedScene" uid="uid://dl7yvb67j0c5e" path="res://scenes/shader_layer.tscn" id="22_2tv7h"]
+[ext_resource type="Texture2D" uid="uid://bnlf6kt364fa" path="res://img/heroes/hero_hell_dominator.png" id="22_5slqs"]
+[ext_resource type="Texture2D" uid="uid://b8uapwien3qk4" path="res://img/heroes/hero_hell_lord.png" id="23_hehjc"]
+[ext_resource type="Texture2D" uid="uid://dxiqtmljmwcm4" path="res://img/units/castle_fyrd.png" id="24_iudnm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5tirf"]
 font = ExtResource("3_qooff")
@@ -47,10 +54,6 @@ texture = ExtResource("3_gn2ln")
 position = Vector2(877, 62)
 texture = ExtResource("10_iudnm")
 
-[node name="BuildingEmpty" type="Sprite2D" parent="."]
-position = Vector2(752, 480)
-texture = ExtResource("11_6ru4n")
-
 [node name="ActiveSkillMeteorAnim" type="Sprite2D" parent="."]
 position = Vector2(814, 243)
 texture = ExtResource("13_gn2ln")
@@ -61,20 +64,30 @@ frame = 2
 position = Vector2(147, 466)
 texture = ExtResource("11_6ru4n")
 
-[node name="BuildingEmpty3" type="Sprite2D" parent="."]
-position = Vector2(566, 57)
-texture = ExtResource("11_6ru4n")
-
 [node name="BuildingFarm" type="Sprite2D" parent="."]
-position = Vector2(446, 466)
+position = Vector2(881, 440)
 texture = ExtResource("12_5slqs")
 
 [node name="BuildingTrainingCamp" type="Sprite2D" parent="."]
-position = Vector2(256, 62)
+position = Vector2(79, 58)
 texture = ExtResource("13_hehjc")
 
 [node name="CastleBallistaAnim" type="Sprite2D" parent="."]
-position = Vector2(734, 192)
+position = Vector2(184, 176)
+texture = ExtResource("14_pi6li")
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="CastleBallistaAnim2" type="Sprite2D" parent="."]
+position = Vector2(185, 228)
+texture = ExtResource("14_pi6li")
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="CastleBallistaAnim3" type="Sprite2D" parent="."]
+position = Vector2(184, 281)
 texture = ExtResource("14_pi6li")
 hframes = 5
 vframes = 5
@@ -188,6 +201,7 @@ frame = 8
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(473, 400)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_h8njc")
 
@@ -205,6 +219,7 @@ layout_mode = 2
 layout_mode = 2
 text = "SLOT  KINGS"
 label_settings = SubResource("LabelSettings_5tirf")
+horizontal_alignment = 1
 
 [node name="filler" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -354,8 +369,27 @@ theme_override_styles/disabled = ExtResource("6_sbo6t")
 theme_override_styles/focus = ExtResource("4_mwf8v")
 text = "UI_BTNEXIT_NAME"
 
+[node name="filler2" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="locale_buttons_cont" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="rus_locale_btn" type="TextureButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/locale_buttons_cont"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("17_5slqs")
+
+[node name="eng_locale_btn" type="TextureButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/locale_buttons_cont"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("18_hehjc")
+
 [node name="WaveIcon" type="Sprite2D" parent="CenterContainer/PanelContainer/MarginContainer"]
-position = Vector2(195, 60)
+position = Vector2(228, 60)
 texture = ExtResource("9_p3tah")
 
 [node name="HellBloodsuckerAnim" type="Sprite2D" parent="CenterContainer/PanelContainer/MarginContainer/WaveIcon"]
@@ -368,9 +402,93 @@ frame = 11
 
 [node name="ShaderLayer" parent="." instance=ExtResource("22_2tv7h")]
 
-[node name="SlotMachine" type="Sprite2D" parent="."]
-position = Vector2(123, 244)
-texture = ExtResource("8_2tv7h")
+[node name="CastleCannonTowerAnim" type="Sprite2D" parent="."]
+position = Vector2(748, 174)
+texture = ExtResource("19_p3tah")
+hframes = 5
+vframes = 5
+frame = 12
+
+[node name="CastleInquistorAnim" type="Sprite2D" parent="."]
+position = Vector2(78, 192)
+texture = ExtResource("20_iudnm")
+hframes = 5
+vframes = 5
+frame = 14
+
+[node name="CastleInquistorAnim2" type="Sprite2D" parent="."]
+position = Vector2(66, 229)
+texture = ExtResource("20_iudnm")
+hframes = 5
+vframes = 5
+frame = 14
+
+[node name="CastleInquistorAnim3" type="Sprite2D" parent="."]
+position = Vector2(111, 208)
+texture = ExtResource("20_iudnm")
+hframes = 5
+vframes = 5
+frame = 14
+
+[node name="CastleKnightAnim" type="Sprite2D" parent="."]
+position = Vector2(756, 269)
+texture = ExtResource("21_6ru4n")
+hframes = 5
+vframes = 5
+frame = 13
+
+[node name="CastleKnightAnim2" type="Sprite2D" parent="."]
+position = Vector2(111, 289)
+texture = ExtResource("21_6ru4n")
+hframes = 5
+vframes = 5
+frame = 14
+
+[node name="CastleKnightAnim3" type="Sprite2D" parent="."]
+position = Vector2(119, 256)
+texture = ExtResource("21_6ru4n")
+hframes = 5
+vframes = 5
+frame = 14
+
+[node name="CastleKnightAnim4" type="Sprite2D" parent="."]
+position = Vector2(84, 278)
+texture = ExtResource("21_6ru4n")
+hframes = 5
+vframes = 5
+frame = 14
+
+[node name="HeroHellDominator" type="Sprite2D" parent="."]
+position = Vector2(876, 152)
+texture = ExtResource("22_5slqs")
+
+[node name="HeroHellLord" type="Sprite2D" parent="."]
+position = Vector2(815, 333)
+texture = ExtResource("23_hehjc")
+
+[node name="CastleFyrd" type="Sprite2D" parent="."]
+position = Vector2(146, 309)
+texture = ExtResource("24_iudnm")
+
+[node name="CastleFyrd2" type="Sprite2D" parent="."]
+position = Vector2(144, 288)
+texture = ExtResource("24_iudnm")
+
+[node name="CastleFyrd3" type="Sprite2D" parent="."]
+position = Vector2(150, 198)
+texture = ExtResource("24_iudnm")
+
+[node name="CastleFyrd4" type="Sprite2D" parent="."]
+position = Vector2(135, 182)
+texture = ExtResource("24_iudnm")
+
+[node name="CastleFyrd5" type="Sprite2D" parent="."]
+position = Vector2(130, 240)
+texture = ExtResource("24_iudnm")
+
+[node name="CastleFyrd6" type="Sprite2D" parent="."]
+position = Vector2(148, 232)
+texture = ExtResource("24_iudnm")
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/confirmed_container/hb/yes_button" to="." method="_on_yes_button_pressed"]
@@ -378,3 +496,5 @@ texture = ExtResource("8_2tv7h")
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/buttons/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/locale_buttons_cont/rus_locale_btn" to="." method="_on_rus_locale_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/locale_buttons_cont/eng_locale_btn" to="." method="_on_eng_locale_btn_pressed"]

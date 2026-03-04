@@ -69,3 +69,11 @@ func show_confirmed():
 
 func disable_shader():
 	shader_layer.hide()
+
+
+func _on_rus_locale_btn_pressed() -> void:
+	TranslationServer.set_locale('ru_RU')
+
+
+func _on_eng_locale_btn_pressed() -> void:
+	TranslationServer.set_locale('en_US')

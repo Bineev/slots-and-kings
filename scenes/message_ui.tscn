@@ -106,7 +106,7 @@ theme_override_styles/pressed = ExtResource("5_51tv2")
 theme_override_styles/hover = ExtResource("6_6ubmc")
 theme_override_styles/disabled = ExtResource("7_wafie")
 theme_override_styles/focus = ExtResource("5_51tv2")
-text = "NEXT"
+text = "UI_NEXT_NAME"
 
 [node name="close_btn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
