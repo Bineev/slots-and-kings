@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://j0ma0aggvqpt"]
+[gd_scene load_steps=10 format=3 uid="uid://j0ma0aggvqpt"]
 
 [ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="1_ah8om"]
-[ext_resource type="Resource" uid="uid://b4hgg0rssvudv" path="res://resources/upgrade_tattack_20.tres" id="2_p6vls"]
-[ext_resource type="Resource" uid="uid://b516xhwhqgplu" path="res://resources/upgrade_tattack_40.tres" id="3_hhfj6"]
-[ext_resource type="Resource" uid="uid://onueq6gpmlta" path="res://resources/upgrade_tattack_60.tres" id="4_wae8j"]
-[ext_resource type="Resource" uid="uid://ba4688633h3de" path="res://resources/upgrade_tattack_80.tres" id="5_ha73p"]
+[ext_resource type="Resource" uid="uid://5d7e4x3a7q1g" path="res://resources/upgrade_critattack_35.tres" id="2_ha73p"]
+[ext_resource type="Resource" uid="uid://dyjdhwvhcysyt" path="res://resources/upgrade_critattack_70.tres" id="3_vcx5n"]
+[ext_resource type="Resource" uid="uid://cw3xvx403gm8n" path="res://resources/upgrade_critattack_100.tres" id="4_56dhn"]
+[ext_resource type="Resource" uid="uid://ce2ntdxm6dxgh" path="res://resources/upgrade_critattack_125.tres" id="5_ax3dk"]
+[ext_resource type="Resource" uid="uid://cwy1gjlsinelc" path="res://resources/upgrade_critchance_15.tres" id="6_q2dsb"]
+[ext_resource type="Resource" uid="uid://pqmkvevl6qka" path="res://resources/upgrade_critchance_30.tres" id="7_p3r0x"]
+[ext_resource type="Resource" uid="uid://ir3mrhkfep7d" path="res://resources/upgrade_critchance_40.tres" id="8_5xqnf"]
+[ext_resource type="Resource" uid="uid://crhywc0f66oi8" path="res://resources/upgrade_critchance_50.tres" id="9_una4e"]
 
 [node name="Level3" instance=ExtResource("1_ah8om")]
 difficulty_count = 3
 level_name = "LEVEL_E3_NAME"
 level_desc = "LEVEL_E3_DESC"
-rewards = Array[Resource]([ExtResource("2_p6vls"), ExtResource("3_hhfj6"), ExtResource("4_wae8j"), ExtResource("5_ha73p")])
+rewards = Array[Resource]([ExtResource("2_ha73p"), ExtResource("3_vcx5n"), ExtResource("4_56dhn"), ExtResource("5_ax3dk"), ExtResource("6_q2dsb"), ExtResource("7_p3r0x"), ExtResource("8_5xqnf"), ExtResource("9_una4e")])

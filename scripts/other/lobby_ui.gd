@@ -18,6 +18,8 @@ var levels : Array[Level]
 @onready var start_button: Button = %start_button
 @onready var meta_shop: MetaShop = $MarginContainer/HBoxContainer/VBoxContainer/MetaShop
 @onready var shader_layer: CanvasLayer = $ShaderLayer
+@onready var label_level_rewards: Label = %label_level_rewards
+@onready var label_cant_play: Label = %label_cant_play
 
 
 func initialize():
@@ -70,18 +72,36 @@ func add_rewards(slot_scenes : Array[PackedScene]):
 		var texture_rect : TextureRect = TextureRect.new()
 		texture_rect.texture = slot.slot_res.slot_sprite
 		texture_rect.tooltip_text = slot.slot_res.slot_name
-		var theme = Theme.new()
-		theme.set_stylebox('panel', 'TooltipPanel', stylebox_tooltip)
-		theme.set_font('font', 'TooltipLabel', font_tooltip)
-		theme.set_font_size('font_size', 'TooltipLabel', 8)
-		theme.set_color('font_color', 'TooltipLabel', Color8(52, 28, 39, 255))
-		texture_rect.theme = theme
+		
+		#theme.set_stylebox('panel', 'TooltipPanel', stylebox_tooltip)
+		#theme.set_font('font', 'TooltipLabel', font_tooltip)
+		#theme.set_font_size('font_size', 'TooltipLabel', 8)
+		#theme.set_color('font_color', 'TooltipLabel', Color8(52, 28, 39, 255))
+		#texture_rect.theme = theme
+		
+		var new_theme = Theme.new()
+		var sb = stylebox_tooltip.duplicate()
+		sb.set_content_margin_all(10)
+		new_theme.set_stylebox('panel', 'TooltipPanel', sb)
+		new_theme.set_font('font', 'TooltipLabel', font_tooltip)
+		new_theme.set_font_size('font_size', 'TooltipLabel', 8)
+		new_theme.set_color('font_color', 'TooltipLabel', Color8(52, 28, 39, 255))
+		#var stylebox = new_theme.get_theme_stylebox('normal')
+		texture_rect.theme = new_theme
 		rewards_container.add_child(texture_rect)
 
 
-func show_start_button():
-	start_button.visible = true
+func show_start_button(is_should_show : bool):
+	start_button.visible = is_should_show
 
 
 func disable_shader():
 	shader_layer.hide()
+
+
+func show_rewards_label(is_should_show : bool):
+	label_level_rewards.visible = is_should_show
+
+
+func show_cant_play_info(is_should_show : bool):
+	label_cant_play.visible = is_should_show

@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c14nlkh4shcpm"]
+[gd_scene load_steps=10 format=3 uid="uid://c14nlkh4shcpm"]
 
 [ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="1_x4gu4"]
-[ext_resource type="Resource" uid="uid://dbnbyyfwoq76o" path="res://resources/upgrade_damage_10.tres" id="2_tbt7t"]
-[ext_resource type="Resource" uid="uid://cwsxhh4bvo0rb" path="res://resources/upgrade_damage_20.tres" id="3_cynta"]
-[ext_resource type="Resource" uid="uid://bwungclyl202l" path="res://resources/upgrade_damage_30.tres" id="4_ak5vt"]
-[ext_resource type="Resource" uid="uid://ba0lfpanmyffh" path="res://resources/upgrade_damage_40.tres" id="5_ij176"]
+[ext_resource type="Resource" uid="uid://dtoai7ayl4kov" path="res://resources/upgrade_mattack_20.tres" id="2_uva14"]
+[ext_resource type="Resource" uid="uid://cmkolxfbtlst6" path="res://resources/upgrade_mattack_40.tres" id="3_vqwqk"]
+[ext_resource type="Resource" uid="uid://btvd1hh87i27b" path="res://resources/upgrade_mattack_60.tres" id="4_1q3ip"]
+[ext_resource type="Resource" uid="uid://dhyprj51oqsus" path="res://resources/upgrade_mattack_80.tres" id="5_e4ab4"]
+[ext_resource type="Resource" uid="uid://b4hgg0rssvudv" path="res://resources/upgrade_tattack_20.tres" id="6_xxvx7"]
+[ext_resource type="Resource" uid="uid://b516xhwhqgplu" path="res://resources/upgrade_tattack_40.tres" id="7_68hud"]
+[ext_resource type="Resource" uid="uid://onueq6gpmlta" path="res://resources/upgrade_tattack_60.tres" id="8_jwrea"]
+[ext_resource type="Resource" uid="uid://ba4688633h3de" path="res://resources/upgrade_tattack_80.tres" id="9_ls1u8"]
 
 [node name="Level_5" instance=ExtResource("1_x4gu4")]
 difficulty_count = 5
 level_name = "LEVEL_E5_NAME"
 level_desc = "LEVEL_E5_DESC"
-rewards = Array[Resource]([ExtResource("2_tbt7t"), ExtResource("3_cynta"), ExtResource("4_ak5vt"), ExtResource("5_ij176")])
+rewards = Array[Resource]([ExtResource("2_uva14"), ExtResource("3_vqwqk"), ExtResource("4_1q3ip"), ExtResource("5_e4ab4"), ExtResource("6_xxvx7"), ExtResource("7_68hud"), ExtResource("8_jwrea"), ExtResource("9_ls1u8")])

@@ -1,21 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://d34fbn78sawc1"]
+[gd_scene load_steps=7 format=3 uid="uid://d34fbn78sawc1"]
 
 [ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="1_conm7"]
-[ext_resource type="Resource" uid="uid://ucn2n2kbgw18" path="res://resources/upgrade_health_20.tres" id="2_d3jkd"]
-[ext_resource type="Resource" uid="uid://qv5pd5k8c4ma" path="res://resources/upgrade_health_40.tres" id="3_u3awl"]
-[ext_resource type="Resource" uid="uid://bfrkrpb27lrlr" path="res://resources/upgrade_health_60.tres" id="4_2ku1j"]
-[ext_resource type="Resource" uid="uid://b56dn0ndjxcpo" path="res://resources/upgrade_health_80.tres" id="5_f31uk"]
-[ext_resource type="Resource" uid="uid://dtoai7ayl4kov" path="res://resources/upgrade_mattack_20.tres" id="6_gnai3"]
-[ext_resource type="Resource" uid="uid://cmkolxfbtlst6" path="res://resources/upgrade_mattack_40.tres" id="7_i8kv5"]
-[ext_resource type="Resource" uid="uid://btvd1hh87i27b" path="res://resources/upgrade_mattack_60.tres" id="8_dxn3v"]
-[ext_resource type="Resource" uid="uid://dhyprj51oqsus" path="res://resources/upgrade_mattack_80.tres" id="9_14jow"]
+[ext_resource type="Resource" uid="uid://ou85bbbd7mbo" path="res://resources/upgrade_movespeed_15.tres" id="2_6sh32"]
+[ext_resource type="Resource" uid="uid://codtsdnasqp0i" path="res://resources/upgrade_movespeed_30.tres" id="3_ejswk"]
+[ext_resource type="Resource" uid="uid://brcqckwqllyle" path="res://resources/upgrade_movespeed_45.tres" id="4_bbk5w"]
+[ext_resource type="Resource" uid="uid://blaclrv2daxqi" path="res://resources/upgrade_movespeed_60.tres" id="5_conm7"]
 [ext_resource type="LabelSettings" uid="uid://d1jhwgxjej5fh" path="res://styles/8_dark.tres" id="10_d3jkd"]
 
 [node name="Level" instance=ExtResource("1_conm7")]
 difficulty_count = 1
 level_name = "LEVEL_E1_NAME"
 level_desc = "LEVEL_E1_DESC"
-rewards = Array[Resource]([ExtResource("2_d3jkd"), ExtResource("3_u3awl"), ExtResource("4_2ku1j"), ExtResource("5_f31uk"), ExtResource("6_gnai3"), ExtResource("7_i8kv5"), ExtResource("8_dxn3v"), ExtResource("9_14jow")])
+rewards = Array[Resource]([ExtResource("2_6sh32"), ExtResource("3_ejswk"), ExtResource("4_bbk5w"), ExtResource("5_conm7")])
 
 [node name="label_result" parent="UI/result_panel/MarginContainer" index="0"]
 label_settings = ExtResource("10_d3jkd")

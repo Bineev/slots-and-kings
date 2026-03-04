@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhkj2rgutbqo5"]
+[gd_scene load_steps=18 format=3 uid="uid://bhkj2rgutbqo5"]
 
 [ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="1_5vpyn"]
 [ext_resource type="Script" uid="uid://dx7qhf584us1x" path="res://scripts/other/lobby_ui.gd" id="2_hphob"]
@@ -10,6 +10,7 @@
 [ext_resource type="LabelSettings" uid="uid://cjxq87g1sh7c8" path="res://styles/10_dark.tres" id="5_kmds0"]
 [ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="8_kmds0"]
 [ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="9_e3wjx"]
+[ext_resource type="LabelSettings" uid="uid://rg1jvfslwg7w" path="res://styles/5_red.tres" id="9_qgti5"]
 [ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="10_ifn6l"]
 [ext_resource type="PackedScene" uid="uid://dl7yvb67j0c5e" path="res://scenes/shader_layer.tscn" id="12_ifn6l"]
 
@@ -144,6 +145,7 @@ layout_mode = 2
 
 [node name="label_level_rewards" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "UI_REWARDS_NAME"
 label_settings = SubResource("LabelSettings_hphob")
@@ -152,6 +154,19 @@ uppercase = true
 [node name="rewards_container" type="HBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="filler5" type="Control" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label_cant_play" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "UI_LOBBYCANT_NAME"
+label_settings = ExtResource("9_qgti5")
+autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

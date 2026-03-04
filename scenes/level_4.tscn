@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvd2etwxn052a"]
 
 [ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="1_huvaw"]
-[ext_resource type="Resource" uid="uid://b6rnvvrt23ec8" path="res://resources/upgrade_pattack_20.tres" id="2_wom6i"]
-[ext_resource type="Resource" uid="uid://dc5l7qa04224d" path="res://resources/upgrade_pattack_40.tres" id="3_ycko3"]
-[ext_resource type="Resource" uid="uid://dnr77dj47al36" path="res://resources/upgrade_pattack_60.tres" id="4_x7blo"]
-[ext_resource type="Resource" uid="uid://yevvp12f84vx" path="res://resources/upgrade_pattack_80.tres" id="5_qsmat"]
+[ext_resource type="Resource" uid="uid://o6yes6k2q74f" path="res://resources/upgrade_attackspeed_0.2.tres" id="2_wom6i"]
+[ext_resource type="Resource" uid="uid://cfb6xhmomw62e" path="res://resources/upgrade_attackspeed_0.4.tres" id="3_ycko3"]
+[ext_resource type="Resource" uid="uid://bxlnd3ngp723x" path="res://resources/upgrade_attackspeed_0.5.tres" id="4_x7blo"]
+[ext_resource type="Resource" uid="uid://m5mh0jt4jh8s" path="res://resources/upgrade_attackspeed_0.6.tres" id="5_qsmat"]
 
 [node name="Level_4" instance=ExtResource("1_huvaw")]
 difficulty_count = 4

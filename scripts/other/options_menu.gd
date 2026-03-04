@@ -13,6 +13,7 @@ var is_opened : bool
 
 
 func initialize():
+	# BUG
 	await get_tree().process_frame
 	GameManager.correct_options()
 	is_opened = true

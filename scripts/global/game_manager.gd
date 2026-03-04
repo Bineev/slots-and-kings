@@ -47,12 +47,13 @@ func _input(event: InputEvent) -> void:
 func show_options():
 	options_UI = options_scene.instantiate()
 	get_tree().paused = true
-	if current_level and is_instance_valid(current_level):
-		current_level.add_child(options_UI)
-	elif main_menu_UI and is_instance_valid(main_menu_UI):
+	#BUG
+	if main_menu_UI and is_instance_valid(main_menu_UI):
 		main_menu_UI.add_child(options_UI)
 	elif lobby and is_instance_valid(lobby):
 		lobby.add_child(options_UI)
+	elif current_level and is_instance_valid(current_level):
+		current_level.add_child(options_UI)
 	options_UI.initialize()
 
 

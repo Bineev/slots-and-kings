@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=48 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -19,14 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://dawq8kdhvtnp2" path="res://scenes/resources_ui.tscn" id="6_b121j"]
 [ext_resource type="PackedScene" uid="uid://c0k8gncge82r7" path="res://scenes/tuts/tutorial_item_ui_4.tscn" id="6_uhfbm"]
 [ext_resource type="PackedScene" uid="uid://v5p8mlxcerdv" path="res://scenes/waves/wave_1_3.tscn" id="6_w3o6u"]
-[ext_resource type="Resource" uid="uid://o6yes6k2q74f" path="res://resources/upgrade_attackspeed_0.2.tres" id="6_wu01b"]
-[ext_resource type="Resource" uid="uid://cfb6xhmomw62e" path="res://resources/upgrade_attackspeed_0.4.tres" id="7_3ies3"]
 [ext_resource type="Resource" uid="uid://dldc0ba4s4xnb" path="res://resources/upgrade_range_20.tres" id="7_7agi7"]
 [ext_resource type="PackedScene" uid="uid://cdst0eivbooje" path="res://scenes/tuts/tutorial_item_ui_5.tscn" id="7_lqb7q"]
 [ext_resource type="Resource" uid="uid://brsef0opm8j3c" path="res://resources/upgrade_range_30.tres" id="8_kih21"]
 [ext_resource type="PackedScene" uid="uid://crg6t448758fq" path="res://scenes/tuts/tutorial_item_ui_6.tscn" id="8_ok3ci"]
-[ext_resource type="Resource" uid="uid://bxlnd3ngp723x" path="res://resources/upgrade_attackspeed_0.5.tres" id="8_xy2fk"]
-[ext_resource type="Resource" uid="uid://m5mh0jt4jh8s" path="res://resources/upgrade_attackspeed_0.6.tres" id="9_cmcjb"]
 [ext_resource type="PackedScene" uid="uid://v3l6kp3bik6u" path="res://scenes/tuts/tutorial_item_ui_7.tscn" id="9_hv3ux"]
 [ext_resource type="Resource" uid="uid://cafepvrf7mf8n" path="res://resources/upgrade_range_40.tres" id="9_w3o6u"]
 [ext_resource type="PackedScene" uid="uid://bc51x6lairqdx" path="res://scenes/tuts/tutorial_item_ui_8.tscn" id="10_j4eoh"]
@@ -98,7 +94,7 @@ wave_reward_UI_scene = ExtResource("4_olg7q")
 bonus_ui_scene = ExtResource("5_8gofh")
 level_name = "LEVEL_E0_NAME"
 level_desc = "LEVEL_E0_DESC"
-rewards = Array[Resource]([ExtResource("6_556r4"), ExtResource("7_7agi7"), ExtResource("8_kih21"), ExtResource("9_w3o6u"), ExtResource("6_wu01b"), ExtResource("7_3ies3"), ExtResource("8_xy2fk"), ExtResource("9_cmcjb")])
+rewards = Array[Resource]([ExtResource("6_556r4"), ExtResource("7_7agi7"), ExtResource("8_kih21"), ExtResource("9_w3o6u")])
 
 [node name="shaders_layer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

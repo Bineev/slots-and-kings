@@ -12,6 +12,9 @@ class_name LevelItem
 @export var stylebox_active : StyleBoxFlat = preload("res://styles/panel_blue.tres")
 @export var stylebox_done : StyleBoxFlat = preload("res://styles/panel_green.tres")
 @export var stylebox_undone : StyleBoxFlat = preload("res://styles/panel_red.tres")
+@export var stylebox_closed : StyleBoxFlat = preload("res://styles/panel_gray.tres")
+@export var stylebox_closed_active : StyleBoxFlat = preload("res://styles/panel_gray.tres")
+@export var is_closed : bool
 
 var is_checked : bool
 
@@ -28,7 +31,11 @@ func initialize():
 	if Player.check_is_level_done(level_difficulty):
 		add_theme_stylebox_override('panel', stylebox_done)
 	else:
-		add_theme_stylebox_override('panel', stylebox_undone)
+		if Player.check_is_level_done(level_difficulty - 1) or level_difficulty == 0:
+			add_theme_stylebox_override('panel', stylebox_undone)
+		else:
+			is_closed = true
+			add_theme_stylebox_override('panel', stylebox_closed)
 
 
 func set_data(new_level : Level, new_lobby : LobbyUI):
@@ -48,9 +55,19 @@ func _on_gui_input(event: InputEvent) -> void:
 			is_checked = true
 			lobby.change_level_data(level_name, level_desc)
 			generate_rewards()
+			if rewards.size() > 0:
+				lobby.show_rewards_label(true)
+			else:
+				lobby.show_rewards_label(false)
 			GameManager.set_current_level(level)
-			add_theme_stylebox_override('panel', stylebox_active)
-			lobby.show_start_button()
+			if not is_closed:
+				add_theme_stylebox_override('panel', stylebox_active)
+				lobby.show_start_button(true)
+				lobby.show_cant_play_info(false)
+			else:
+				add_theme_stylebox_override('panel', stylebox_closed_active)
+				lobby.show_cant_play_info(true)
+				lobby.show_start_button(false)
 			SignalManager.on_level_click.emit(self)
 
 
@@ -60,7 +77,10 @@ func uncheck(level_item : LevelItem):
 		if Player.check_is_level_done(level_difficulty):
 			add_theme_stylebox_override('panel', stylebox_done)
 		else:
-			add_theme_stylebox_override('panel', stylebox_undone)
+			if not is_closed:
+				add_theme_stylebox_override('panel', stylebox_undone)
+			else:
+				add_theme_stylebox_override('panel', stylebox_closed)
 
 
 func generate_rewards():

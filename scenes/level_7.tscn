@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ndhowu4ahlar"]
+[gd_scene load_steps=6 format=3 uid="uid://ndhowu4ahlar"]
 
 [ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="1_huyg5"]
+[ext_resource type="Resource" uid="uid://dbnbyyfwoq76o" path="res://resources/upgrade_damage_10.tres" id="2_l1kof"]
+[ext_resource type="Resource" uid="uid://cwsxhh4bvo0rb" path="res://resources/upgrade_damage_20.tres" id="3_v7yg4"]
+[ext_resource type="Resource" uid="uid://bwungclyl202l" path="res://resources/upgrade_damage_30.tres" id="4_ci1vt"]
+[ext_resource type="Resource" uid="uid://ba0lfpanmyffh" path="res://resources/upgrade_damage_40.tres" id="5_ophlp"]
 
 [node name="Level_7" instance=ExtResource("1_huyg5")]
 difficulty_count = 7
 level_name = "LEVEL_E7_NAME"
 level_desc = "LEVEL_E7_DESC"
-rewards = Array[Resource]([])
+rewards = Array[Resource]([ExtResource("2_l1kof"), ExtResource("3_v7yg4"), ExtResource("4_ci1vt"), ExtResource("5_ophlp")])

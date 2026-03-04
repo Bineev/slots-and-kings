@@ -1,17 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://g1a5yw2a03b3"]
+[gd_scene load_steps=6 format=3 uid="uid://g1a5yw2a03b3"]
 
 [ext_resource type="PackedScene" uid="uid://rl65frn0ke4w" path="res://scenes/level.tscn" id="1_3bmlt"]
-[ext_resource type="Resource" uid="uid://cwy1gjlsinelc" path="res://resources/upgrade_critchance_15.tres" id="2_6cvei"]
-[ext_resource type="Resource" uid="uid://pqmkvevl6qka" path="res://resources/upgrade_critchance_30.tres" id="3_que50"]
-[ext_resource type="Resource" uid="uid://ir3mrhkfep7d" path="res://resources/upgrade_critchance_40.tres" id="4_hey2k"]
-[ext_resource type="Resource" uid="uid://crhywc0f66oi8" path="res://resources/upgrade_critchance_50.tres" id="5_172wr"]
-[ext_resource type="Resource" uid="uid://5d7e4x3a7q1g" path="res://resources/upgrade_critattack_35.tres" id="6_g2hoc"]
-[ext_resource type="Resource" uid="uid://dyjdhwvhcysyt" path="res://resources/upgrade_critattack_70.tres" id="7_fldb1"]
-[ext_resource type="Resource" uid="uid://cw3xvx403gm8n" path="res://resources/upgrade_critattack_100.tres" id="8_guvtl"]
-[ext_resource type="Resource" uid="uid://ce2ntdxm6dxgh" path="res://resources/upgrade_critattack_125.tres" id="9_igmy8"]
+[ext_resource type="Resource" uid="uid://ucn2n2kbgw18" path="res://resources/upgrade_health_20.tres" id="2_b4j7a"]
+[ext_resource type="Resource" uid="uid://qv5pd5k8c4ma" path="res://resources/upgrade_health_40.tres" id="3_wo48x"]
+[ext_resource type="Resource" uid="uid://bfrkrpb27lrlr" path="res://resources/upgrade_health_60.tres" id="4_y0kc7"]
+[ext_resource type="Resource" uid="uid://b56dn0ndjxcpo" path="res://resources/upgrade_health_80.tres" id="5_ne2mo"]
 
 [node name="Level2" instance=ExtResource("1_3bmlt")]
 difficulty_count = 2
 level_name = "LEVEL_E2_NAME"
 level_desc = "LEVEL_E2_DESC"
-rewards = Array[Resource]([ExtResource("2_6cvei"), ExtResource("3_que50"), ExtResource("4_hey2k"), ExtResource("5_172wr"), ExtResource("6_g2hoc"), ExtResource("7_fldb1"), ExtResource("8_guvtl"), ExtResource("9_igmy8")])
+rewards = Array[Resource]([ExtResource("2_b4j7a"), ExtResource("3_wo48x"), ExtResource("4_y0kc7"), ExtResource("5_ne2mo")])

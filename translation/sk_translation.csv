@@ -488,6 +488,7 @@ UI_MARKETRP_NAME,Ваши ресурсы,Your resources
 UI_MARKETRM_NAME,Рынок,Market
 UI_MARKET_OK,По рукам,Deal
 UI_MARKETCOM_NAME,Комиссия,Commission
+UI_LOBBYCANT_NAME,Нужно пройти предыдущие уровни,Requires complete the previous levels
 MSG_1_NAME,"Сир, враг приближается.[br] Нажмите [b] ""Крутить""[/b] в рулетке или клавишу [b] ""Пробел""[/b], чтобы начать создавать армию","Sire, the enemy is coming.[br]Click [b]'Spin'[/b] on roulette or press [b]'Space'[/b] key to start creating an army"
 MSG_2_NAME,"Один жетон[img]res://img/res_token.png[/img] тратится на запуск.[br] Для создания бойцов требуется еда [img]res://img/res_food.png[/img].[br]Нажмите кнопку ""Создать"" или клавишу ""F""","One token[img]res://img/res_token.png[/img] is spent on spin.[br]Food [img]res://img/res_food.png[/img]is needed to create fighters.[br]Click the ""Create"" button on the roulette or 'F' key"
 MSG_3_NAME,Рулетка создает бойцов в средней линии [img]res://img/roullete_middle.png[/img] и добавляет к ним одинаковые слоты по вертикали,Roulette creates fighters in the middle line [img]res://img/roullete_middle.png[/img] and adds vertical slots to them if they are the same
