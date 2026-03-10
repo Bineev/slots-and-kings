@@ -90,6 +90,17 @@ var is_tutorial : bool
 var is_should_shader_work : bool = true
 var util_slots : Array[Slot]
 
+var level_stats : Dictionary = {
+	DataManager.LevelStats.UNITS_LOST : 0,
+	DataManager.LevelStats.UNITS_DESTROYED : 0,
+	DataManager.LevelStats.PHYS_DAMAGE_COUNT : 0,
+	DataManager.LevelStats.MAGE_DAMAGE_COUNT : 0,
+	DataManager.LevelStats.PURE_DAMAGE_COUNT : 0,
+	DataManager.LevelStats.FORTRESS_HEALTH_LOST : 0,
+	DataManager.LevelStats.FORTRESS_HEALTH_RESTORED : 0,
+	DataManager.LevelStats.HEROES_DAMAGE_DEALT : 0
+}
+
 # активация туториала
 var is_message_tutorial : bool
 var is_first_spin : bool
@@ -450,10 +461,14 @@ func get_wave_rewards():
 func get_damage(damage : float):
 	if is_dead:
 		return
+	var damage_dealt : int
+	if current_health - damage >= 0:
+		damage_dealt = damage
 	current_health = clamp(current_health - damage, 0, health)
+	Player.update_level_stats(DataManager.LevelStats.FORTRESS_HEALTH_LOST, damage_dealt)
 	if current_health <= 0:
 		Player.is_dead = true
-		GameManager.loose()
+		level.show_end_level()
 	Player.enemy_die_count = clamp(Player.enemy_die_count - 1, 0, 1000000)
 	SignalManager.on_player_get_hit.emit()
 	# тряска
@@ -484,6 +499,12 @@ func get_unit_factory():
 
 
 func get_heal(amount : int):
+	var health_added : int
+	if current_health + amount <= health:
+		health_added = amount
+	else:
+		health_added = health - current_health
+	Player.update_level_stats(DataManager.LevelStats.FORTRESS_HEALTH_RESTORED, health_added)
 	current_health = clamp(current_health + amount, 0, health)
 	SignalManager.on_player_get_health.emit()
 
@@ -904,3 +925,11 @@ func start_check_crystall_timer():
 
 func start_check_hero():
 	level.check_hero()
+
+
+func get_level_stats():
+	return level_stats.duplicate()
+
+
+func update_level_stats(level_stats_key : DataManager.LevelStats, update_count : int):
+	level_stats[level_stats_key] += update_count

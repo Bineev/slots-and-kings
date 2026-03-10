@@ -15,11 +15,13 @@ class_name Level
 @export var level_desc : String
 @export var rewards : Array[Resource]
 @export var waves_count : int = 10
+@export var end_level_scene : PackedScene
 
 var is_need_def_of_loop : bool
 var free_spawners : Array[Spawner]
 var free_enemy_spawners : Array[Spawner]
 var unit_preview_UI : UnitPreviewUI
+var end_level : EndLevelUI
 var current_unit : Unit
 var is_wave_in_progress : bool
 var next_wave : Wave
@@ -125,6 +127,8 @@ func _ready() -> void:
 		messages_pack_ui.show()
 		Player.is_message_tutorial = true
 		waves_count = 7
+		Player.current_food = 10
+		Player.current_tokens = 10
 	else:
 		messages_pack_ui.hide()
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
@@ -461,6 +465,12 @@ func create_wave():
 	Player.set_player_units_in_fight()
 
 
+func show_end_level():
+	end_level = end_level_scene.instantiate()
+	ui.add_child(end_level)
+	end_level.initialize()
+
+
 func start_next_wave_countdown():
 	unpause_timers()
 	if Player.get_current_wave_count() > 1 and waves_scenes.size() > 0:
@@ -469,7 +479,7 @@ func start_next_wave_countdown():
 	Player.clear_statistics()
 	if not next_wave_scene:
 		timer_to_next_wave.stop()
-		GameManager.win()
+		show_end_level()
 		return
 	next_wave = next_wave_scene.instantiate()
 	waves.add_child(next_wave)

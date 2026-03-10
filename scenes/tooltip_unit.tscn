@@ -7,18 +7,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cib3"]
 
 [node name="TooltipUnit" instance=ExtResource("1_38x0f")]
-custom_minimum_size = Vector2(0, 0)
-anchors_preset = 2
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-offset_left = 0.0
 offset_top = -100.0
 offset_right = 100.0
-offset_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8cib3")
 script = ExtResource("2_gd0l7")
 preview_texture = null

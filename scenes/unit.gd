@@ -571,16 +571,42 @@ func get_enemy_on_field():
 func get_damage(damage : int, damage_owner : Object, is_crit : bool = false):
 	if not is_active:
 		return
+	var attacking_unit_type : DataManager.UnitType
+	if damage_owner and not is_instance_valid(damage_owner):
+		if damage_owner is Unit:
+			for unit_type in damage_owner.unit_types:
+				if unit_type == DataManager.UnitType.PHYS:
+					attacking_unit_type = DataManager.UnitType.PHYS
+					break
+				if unit_type == DataManager.UnitType.MAGE:
+					attacking_unit_type = DataManager.UnitType.MAGE
+					break
+				if unit_type == DataManager.UnitType.ASSASSIN:
+					attacking_unit_type = DataManager.UnitType.ASSASSIN
+					break
+		elif damage_owner is ActiveSkill:
+			Player.update_level_stats(DataManager.LevelStats.HEROES_DAMAGE_DEALT, damage)
 	show_damage(damage, is_crit)
 	show_blood()
 	if unit_owner == DataManager.UnitOwner.PLAYER:
 		SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.HIT_SELF])
 	else:
 		SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.HIT_ENEMY])
+		match attacking_unit_type:
+			DataManager.UnitType.PHYS:
+				Player.update_level_stats(DataManager.LevelStats.PHYS_DAMAGE_COUNT, damage)
+			DataManager.UnitType.MAGE:
+				Player.update_level_stats(DataManager.LevelStats.MAGE_DAMAGE_COUNT, damage)
+			DataManager.UnitType.ASSASSIN:
+				Player.update_level_stats(DataManager.LevelStats.PURE_DAMAGE_COUNT, damage)
 	if actual_health - damage <= 0:
 		if unit_owner == DataManager.UnitOwner.PLAYER:
 			SoundManager.play(self, DataManager.sound_dict[DataManager.SoundType.DIED_SELF])
 		Player.update_statistics(unit_owner)
+		if unit_owner == DataManager.UnitOwner.PLAYER:
+			Player.update_level_stats(DataManager.LevelStats.UNITS_LOST, 1)
+		else:
+			Player.update_level_stats(DataManager.LevelStats.UNITS_DESTROYED, 1)
 		actual_health = 0
 		timer_aspd.stop()
 		timer_regen.stop()

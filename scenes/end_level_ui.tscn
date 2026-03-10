@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1gqq3u4g8ws1"]
+
+[ext_resource type="Script" uid="uid://cnrwor0nff5nn" path="res://scripts/other/end_level_ui.gd" id="1_g0l4g"]
+[ext_resource type="StyleBox" uid="uid://du584tqyxd2xy" path="res://styles/panel_light.tres" id="1_mbm2k"]
+[ext_resource type="LabelSettings" uid="uid://cjxq87g1sh7c8" path="res://styles/10_dark.tres" id="3_uv24i"]
+[ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="4_uv24i"]
+[ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="5_6augx"]
+[ext_resource type="StyleBox" uid="uid://b0kevfheu70gy" path="res://styles/button_flat.tres" id="6_uq5lj"]
+[ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="7_uk36k"]
+[ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="8_qbfhf"]
+
+[node name="EndLevelUI" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_mbm2k")
+script = ExtResource("1_g0l4g")
+win_text = "UI_RESULTWIN_NAME"
+loose_text = "UI_RESULTLOOSE_NAME"
+units_lost_text = "UI_ENDUNITLOST_NAME"
+units_destroyed_text = "UI_ENDUNITDEST_NAME"
+phdamage_text = "UI_ENDDAMAGEPH_NAME"
+mdamage_text = "UI_ENDDAMAGEM_NAME"
+pdamage_text = "UI_ENDDAMAGEP_NAME"
+hdamage_text = "  UI_ENDDAMAGHERO_NAME"
+castle_strengthr_text = "UI_ENDCASTLEGETHP_NAME"
+castle_strengthl_text = "UI_ENDCASTLELOSTHP_NAME"
+gold_spent_text = "UI_ENDGOLDL_NAME"
+token_spent_text = "UI_ENDTOKENL_NAME"
+food_spent_text = "UI_ENDFOODL_NAME"
+crystall_spent_text = "UI_ENDCRYSTALLL_NAME"
+soulsearned_text = "UI_ENDSOULSGET_NAME"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="stats_container" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="stats_header_label" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("3_uv24i")
+
+[node name="filler" type="Control" parent="MarginContainer/stats_container"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="stats_unit_destroyed" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_unit_lost" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_phdamage" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_mdamage" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_pdamage" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_hdamage" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_castlehplost" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_castlehprest" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_goldlost" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_tokenlost" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_foodlost" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_crystalllost" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="stats_soulsearned" type="Label" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("4_uv24i")
+
+[node name="filler2" type="Control" parent="MarginContainer/stats_container"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="button_complete" type="Button" parent="MarginContainer/stats_container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_colors/font_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0.87058824, 0.61960787, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.20392157, 0.10980392, 0.15294118, 1)
+theme_override_fonts/font = ExtResource("5_6augx")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("6_uq5lj")
+theme_override_styles/pressed = ExtResource("7_uk36k")
+theme_override_styles/hover = ExtResource("7_uk36k")
+theme_override_styles/hover_pressed = ExtResource("7_uk36k")
+theme_override_styles/disabled = ExtResource("8_qbfhf")
+text = "UI_ENDCLOSE_NAME"
+
+[connection signal="pressed" from="MarginContainer/stats_container/button_complete" to="." method="_on_button_complete_pressed"]

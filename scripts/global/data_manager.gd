@@ -113,6 +113,11 @@ enum MetaType {
 }
 
 
+enum LevelStats {
+	UNITS_LOST, UNITS_DESTROYED, PHYS_DAMAGE_COUNT, MAGE_DAMAGE_COUNT, PURE_DAMAGE_COUNT, FORTRESS_HEALTH_LOST, FORTRESS_HEALTH_RESTORED, GOLD_LOST, TOKEN_LOST, FOOD_LOST, CRYSTALLS_LOST, HEROES_DAMAGE_DEALT
+}
+
+
 var default_hero_up_order : Array[HeroUpType] = [HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.PASSIVE, HeroUpType.STAT, HeroUpType.ACTIVE, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT, HeroUpType.STAT]
 
 

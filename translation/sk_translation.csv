@@ -441,7 +441,7 @@ UI_SFX_NAME,Звуки,SFX
 UI_SHAKE_NAME,Тряска,Shake
 UI_EXITCONFIRMED_NAME,"Уверены, что хотите покинуть игру? Прогресс будет потерян.",Are you sure you want to go to the lobby? The progress will be lost
 UI_CASTLE_NAME,текущий замок,current castle
-UI_DIFF_NAME,выберите сложность,choose the difficulty
+UI_DIFF_NAME,выберите уровень,choose level
 UI_REWARDS_NAME,НАГРАДЫ,REWARDS
 UI_BTNTOMENU_NAME,В МЕНЮ,MENU
 UI_BTNTOGAME_NAME,В БОЙ,START RUN
@@ -488,7 +488,23 @@ UI_MARKETRP_NAME,Ваши ресурсы,Your resources
 UI_MARKETRM_NAME,Рынок,Market
 UI_MARKET_OK,По рукам,Deal
 UI_MARKETCOM_NAME,Комиссия,Commission
-UI_LOBBYCANT_NAME,Нужно пройти предыдущие уровни,Requires complete the previous levels
+UI_LOBBYCANT_NAME,Нужно пройти предыдущие уровни,Requires complete previous levels
+UI_RESULTWIN_NAME,Замок выстоял!,Castle has survived!
+UI_RESULTLOOSE_NAME,Замок разрушен...,Castle is destroyed...
+UI_ENDUNITLOST_NAME,Бойцов потеряно,Fighters lost
+UI_ENDUNITDEST_NAME,Врагов уничтожено,Enemies destroyed
+UI_ENDDAMAGEPH_NAME,Нанесено физ урона,Physical damage done
+UI_ENDDAMAGEM_NAME,Нанесено маг урона,Magic damage done
+UI_ENDDAMAGEP_NAME,Нанесено чистого урона,Pure damage done
+UI_ENDDAMAGHERO_NAME,Нанесено урона героями,Heroes damage done
+UI_ENDCASTLEGETHP_NAME,Восстановлено прочности замка,Castles strength restored
+UI_ENDCASTLELOSTHP_NAME,Потеряно прочности замка,Castles strength lost
+UI_ENDGOLDL_NAME,Золота затрачено,Gold spent
+UI_ENDTOKENL_NAME,Жетонов использовано,Tokens spent
+UI_ENDFOODL_NAME,Еды затрачено,Food spent
+UI_ENDCRYSTALLL_NAME,Кристаллов затрачено,Crystals spent
+UI_ENDSOULSGET_NAME,Душ заработано,Souls is earned
+UI_ENDCLOSE_NAME,Завершить,Complete
 MSG_1_NAME,"Сир, враг приближается.[br] Нажмите [b] ""Крутить""[/b] в рулетке или клавишу [b] ""Пробел""[/b], чтобы начать создавать армию","Sire, the enemy is coming.[br]Click [b]'Spin'[/b] on roulette or press [b]'Space'[/b] key to start creating an army"
 MSG_2_NAME,"Один жетон[img]res://img/res_token.png[/img] тратится на запуск.[br] Для создания бойцов требуется еда [img]res://img/res_food.png[/img].[br]Нажмите кнопку ""Создать"" или клавишу ""F""","One token[img]res://img/res_token.png[/img] is spent on spin.[br]Food [img]res://img/res_food.png[/img]is needed to create fighters.[br]Click the ""Create"" button on the roulette or 'F' key"
 MSG_3_NAME,Рулетка создает бойцов в средней линии [img]res://img/roullete_middle.png[/img] и добавляет к ним одинаковые слоты по вертикали,Roulette creates fighters in the middle line [img]res://img/roullete_middle.png[/img] and adds vertical slots to them if they are the same
@@ -506,19 +522,19 @@ UTIL_FIX_NAME,Починка,Fix
 UTIL_FIX_DESC,Восстанавливает 5 прочности с шансом 15%,Restores 5 fortress strength with a 15% chance
 LEVEL_E0_NAME,Обучение,Tutorial
 LEVEL_E0_DESC,Освойте основы игры. Волны врагов немногочисленные. Враги без улучшений.,Get to know the basics of the game
-LEVEL_E1_NAME,Сложность 1,Difficulty 1
+LEVEL_E1_NAME,Уровень 1,Level 1
 LEVEL_E1_DESC,Враги наступают. Волны врагов средние. Враги без улучшений.,The enemies are advancing. The waves of enemies are average. Enemies without upgrades.
-LEVEL_E2_NAME,Сложность 2,Difficulty 2
+LEVEL_E2_NAME,Уровень 2,Level 2
 LEVEL_E2_DESC,Враг усиливает натиск. Волны врагов средние. Могут попадаться враги с улучшениями,The enemy intensifies the onslaught. The waves of enemies are average. There may be enemies with upgrades
-LEVEL_E3_NAME,Сложность 3,Difficulty 3
+LEVEL_E3_NAME,Уровень 3,Level 3
 LEVEL_E3_DESC,Врагов утомило соседство с вашим замком. Волны врагов усилены. Враги бывают с улучшениями,The enemies are tired of the neighborhood of your castle. The waves of enemies are reinforced. Enemies come with upgrades
-LEVEL_E4_NAME,Сложность 4,Difficulty 4
+LEVEL_E4_NAME,Уровень 4,Level 4
 LEVEL_E4_DESC,Враги совсем распоясались. Волны врагов большие. Враги бывают с улучшениями,The enemies are completely out of control. The waves of enemies are big. Enemies come with upgrades
-LEVEL_E5_NAME,Сложность 5,Difficulty 5
+LEVEL_E5_NAME,Уровень 5,Level 5
 LEVEL_E5_DESC,Враги истекают слюной при виде вашего замка. Волны врагов большие. Враги часто с улучшениями,Enemies are salivating at the sight of your castle. The waves of enemies are big. Enemies are often upgraded
-LEVEL_E6_NAME,Сложность 6,Difficulty 6
+LEVEL_E6_NAME,Уровень 6,Level 6
 LEVEL_E6_DESC,Ад начинается здесь. Волны врагов многочисленные. Враги часто с улучшениями,Hell starts here. The waves of enemies are numerous. Enemies are often upgraded
-LEVEL_E7_NAME,Сложность 7,Difficulty 7
+LEVEL_E7_NAME,Уровень 7,Level 7
 LEVEL_E7_DESC,Дорога в пекло все еще открыта. Волны врагов многочисленные. Враги часто с улучшениями,The road to hell is still open. The waves of enemies are numerous. Enemies are often upgraded
-LEVEL_E8_NAME,Сложность 8,Difficulty 8
+LEVEL_E8_NAME,Уровень 8,Level 8
 LEVEL_E8_DESC,Конечная остановка. Волна врагов безумные. Враги редко без улучшений,The final stop. The wave of enemies are insane. Enemies are rarely without upgrades

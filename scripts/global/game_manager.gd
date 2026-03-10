@@ -123,7 +123,7 @@ func win():
 	Player.current_progress.current_souls_count = Player.current_souls
 	Player.add_rewards_to_progress(current_level.rewards)
 	Player.add_level_as_done(current_level.difficulty_count)
-	current_level.show_win_label()
+	#current_level.show_win_label()
 	current_level.is_result = true
 	ProgressManager.save_progress_by_family(Player.current_king)
 
@@ -132,9 +132,10 @@ func loose():
 	Player.current_runs_count += 1
 	Player.current_progress.current_runs_count = Player.current_runs_count
 	Player.current_progress.current_souls_count = Player.current_souls
-	current_level.show_loose_label()
+	#current_level.show_loose_label()
 	current_level.is_result = true
 	ProgressManager.save_progress_by_family(Player.current_king)
+
 
 func stop_all():
 	get_tree().paused = true
@@ -144,3 +145,7 @@ func remove_current_level():
 	if current_level:
 		current_level.queue_free()
 		current_level = null
+
+
+func show_end_level():
+	pass
