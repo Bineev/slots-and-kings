@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwrt5w7q3wbfy"]
+[gd_scene load_steps=18 format=3 uid="uid://dwrt5w7q3wbfy"]
 
 [ext_resource type="Texture2D" uid="uid://fns4xm0r5vtw" path="res://img/slot-machine.png" id="1_xixe3"]
 [ext_resource type="Script" uid="uid://bno6cf315is3a" path="res://scenes/slot_machine.gd" id="1_xjw1r"]
@@ -12,6 +12,7 @@
 [ext_resource type="StyleBox" uid="uid://be6u687femxvx" path="res://styles/button_flat_hover.tres" id="10_r2p6a"]
 [ext_resource type="StyleBox" uid="uid://baew25fe5nfe2" path="res://styles/button_flat_disabled.tres" id="11_awi2f"]
 [ext_resource type="StyleBox" uid="uid://cf6xqxw6sq8a7" path="res://styles/bar_fill_purple.tres" id="11_r2p6a"]
+[ext_resource type="StyleBox" uid="uid://us8k3x6nox0m" path="res://styles/button_brown.tres" id="13_bcb0g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xjw1r"]
 animations = [{
@@ -187,6 +188,38 @@ size_flags_horizontal = 4
 text = "F"
 label_settings = SubResource("LabelSettings_r2p6a")
 
+[node name="swap_down_button" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(19, 19)
+offset_left = -11.0
+offset_top = -75.0
+offset_right = 9.0
+offset_bottom = -55.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = ExtResource("13_bcb0g")
+theme_override_styles/pressed = ExtResource("13_bcb0g")
+theme_override_styles/hover = ExtResource("13_bcb0g")
+theme_override_styles/disabled = ExtResource("13_bcb0g")
+theme_override_styles/focus = ExtResource("13_bcb0g")
+
+[node name="swap_up_button" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(19, 19)
+offset_left = -11.0
+offset_top = 10.0
+offset_right = 9.0
+offset_bottom = 30.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = ExtResource("13_bcb0g")
+theme_override_styles/pressed = ExtResource("13_bcb0g")
+theme_override_styles/hover = ExtResource("13_bcb0g")
+theme_override_styles/disabled = ExtResource("13_bcb0g")
+theme_override_styles/focus = ExtResource("13_bcb0g")
+
 [connection signal="timeout" from="timer_can_swap" to="." method="_on_timer_can_swap_timeout"]
 [connection signal="pressed" from="buttons_container/HBoxContainer/VBoxContainer/spin_button" to="." method="_on_spin_button_pressed"]
 [connection signal="pressed" from="buttons_container/HBoxContainer/VBoxContainer2/create_button" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="swap_down_button" to="." method="_on_swap_down_button_pressed"]
+[connection signal="pressed" from="swap_up_button" to="." method="_on_swap_up_button_pressed"]

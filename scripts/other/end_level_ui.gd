@@ -5,6 +5,8 @@ class_name EndLevelUI
 
 @export var stylebox_tooltip : StyleBox = preload("res://styles/panel_gold.tres")
 @export var font_tooltip : Font = preload("res://fonts/DigitalPixelV124-Regular.otf")
+@export var texture_win : Texture2D = preload("res://img/end_level_empire_win.png")
+@export var texture_loose : Texture2D = preload("res://img/end_level_empire_loose.png")
 @export var win_text : String
 @export var loose_text : String
 @export var units_lost_text : String
@@ -41,6 +43,7 @@ class_name EndLevelUI
 @onready var rewards_container: HBoxContainer = %rewards_container
 @onready var label_open_stats: Label = %label_open_stats
 @onready var stats_container: VBoxContainer = %stats_container
+@onready var rect_result: TextureRect = %rect_result
 
 
 func initialize():
@@ -49,9 +52,11 @@ func initialize():
 	if Player.get_health() > 0:
 		stats_header_label.text = tr(win_text)
 		SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SHOW_REWARDS])
+		rect_result.texture = texture_win
 	else:
 		SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.START_WAVE])
 		stats_header_label.text = tr(loose_text)
+		rect_result.texture = texture_loose
 	stats_unit_destroyed.text = tr(units_destroyed_text) + ' : ' + str(stats[DataManager.LevelStats.UNITS_DESTROYED])
 	stats_unit_lost.text = tr(units_lost_text) + ' : ' + str(stats[DataManager.LevelStats.UNITS_LOST])
 	stats_phdamage.text = tr(phdamage_text) + ' : ' + str(stats[DataManager.LevelStats.PHYS_DAMAGE_COUNT])

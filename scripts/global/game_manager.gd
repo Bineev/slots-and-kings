@@ -89,6 +89,9 @@ func get_rewards():
 
 
 func show_lobby():
+	if current_level and is_instance_valid(current_level):
+		current_level.ui.hide()
+		current_level.hide()
 	get_tree().paused = false
 	if main_menu_UI:
 		main_menu_UI.queue_free()

@@ -27,13 +27,17 @@ func update_resources(res_type : DataManager.ResType):
 	match res_type:
 		DataManager.ResType.GOLD:
 			label_res_gold.text = str(Player.get_gold())
-			resource_ui_anim.play("blink_gold")
+			if not resource_ui_anim.is_playing():
+				resource_ui_anim.play("blink_gold")
 		DataManager.ResType.FOOD:
 			label_res_food.text = str(Player.get_food())
-			resource_ui_anim.play("blink_food")
+			if not resource_ui_anim.is_playing():
+				resource_ui_anim.play("blink_food")
 		DataManager.ResType.SPIN_TOKEN:
 			label_res_tokens.text = str(Player.get_tokens())
-			resource_ui_anim.play("blink_token")
+			if not resource_ui_anim.is_playing():
+				resource_ui_anim.play("blink_token")
 		DataManager.ResType.CRYSTAL:
 			label_res_crystals.text = str(Player.get_crystals())
-			resource_ui_anim.play("blink_crystal")
+			if not resource_ui_anim.is_playing():
+				resource_ui_anim.play("blink_crystal")

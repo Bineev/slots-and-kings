@@ -149,7 +149,7 @@ func initialize():
 	current_bonus_slot_name = ''
 	is_message_tutorial = false
 	generate_base_decks()
-	generate_bonus_dict()
+	#generate_bonus_dict()
 
 
 
@@ -174,7 +174,7 @@ func clear_after_result():
 	current_bonus_slot_name = ''
 	current_runs_count = current_progress.current_runs_count
 	generate_base_decks()
-	generate_bonus_dict()
+	#generate_bonus_dict()
 
 
 func initialize_with_data():

@@ -64,7 +64,6 @@ var is_factory_ready : bool
 @onready var heroes_slots: Node2D = %heroes_slots
 @onready var projectiles: Node2D = %projectiles
 @onready var label_result: Label = %label_result
-@onready var result_panel: PanelContainer = $UI/result_panel
 @onready var shaders_layer: ShadersLayer = %shaders_layer
 @onready var shader_layer: CanvasLayer = %ShaderLayer
 @onready var messages_pack_ui: MessagesPackUI = %MessagesPackUI
@@ -126,12 +125,13 @@ func _ready() -> void:
 	if difficulty_count == 0:
 		messages_pack_ui.show()
 		Player.is_message_tutorial = true
-		waves_count = 1
-		Player.current_food = 10
-		Player.current_tokens = 10
+		waves_count = 7
+		Player.current_food = 12
+		Player.current_tokens = 12
 	else:
 		messages_pack_ui.hide()
 	waves_scenes = SpawnManager.get_waves_by_diff_and_count(difficulty_count, waves_count)
+	Player.generate_bonus_dict()
 	start_waves()
 	#TODO здесь должна играть мирная музыка
 	#SoundManager.play_music(3)
@@ -756,9 +756,9 @@ func show_win_label():
 	var tween : Tween = get_tree().create_tween()
 	tween.set_parallel()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
+	#tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
 	tween.tween_callback(GameManager.stop_all).set_delay(0.5)
-	tween.tween_callback(GameManager.show_lobby).set_delay(0.6)
+	tween.tween_callback(GameManager.show_lobby).set_delay(0.5)
 	tween.tween_callback(queue_free).set_delay(1)
 
 func show_loose_label():
@@ -774,9 +774,9 @@ func show_loose_label():
 	var tween : Tween = get_tree().create_tween()
 	tween.set_parallel()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
+	#tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
 	tween.tween_callback(GameManager.stop_all).set_delay(0.5)
-	tween.tween_callback(GameManager.show_lobby).set_delay(0.6)
+	tween.tween_callback(GameManager.show_lobby).set_delay(0.5)
 	tween.tween_callback(queue_free).set_delay(1)
 
 
@@ -847,6 +847,7 @@ func _on_check_second_buildings_timer_timeout() -> void:
 	if is_farm_ready and is_factory_ready:
 		check_second_buildings_timer.stop()
 		Player.is_second_build = true
+		slot_machine.show_swaps()
 		SignalManager.on_message_pack_next.emit()
 
 

@@ -19,12 +19,15 @@ class_name SlotMachine
 @onready var timer_can_swap: Timer = %timer_can_swap
 @onready var label_bonus: Label = %label_bonus
 @onready var buttons_container: MarginContainer = %buttons_container
+@onready var swap_down_button: Button = %swap_down_button
+@onready var swap_up_button: Button = %swap_up_button
 
 
 var slots : Array[Slot]
 var is_need_check : bool
 var is_already_created : bool
 var current_active_slots : Array[Slot]
+var is_first_spin_end : bool
 
 func _ready() -> void:
 	SignalManager.on_spin_end.connect(create_unit)
@@ -77,6 +80,11 @@ func spin_columns():
 	third_column.set_carousels_spin_start()
 	fourth_column.set_carousels_spin_start()
 	is_need_check = true
+	if not is_first_spin_end:
+		is_first_spin_end = true
+		if not Player.is_message_tutorial:
+			swap_down_button.self_modulate = Color(1, 1, 1, 0)
+			swap_up_button.self_modulate = Color(1, 1, 1, 0)
 
 
 func get_active_slots():
@@ -223,16 +231,23 @@ func _on_timer_can_swap_timeout() -> void:
 		timer_can_swap.stop()
 		bar_can_swap.add_theme_stylebox_override("fill", style_box_full)
 		Player.set_is_can_swap(true)
+		if is_first_spin_end and (not Player.is_message_tutorial or (Player.is_message_tutorial and Player.is_second_build)):
+			swap_down_button.self_modulate = Color(1, 1, 1, 0)
+			swap_up_button.self_modulate = Color(1, 1, 1, 0)
 
 
 func clear_bar_can_swap():
 	create_unit()
 	bar_can_swap.value = 0
 	bar_can_swap.add_theme_stylebox_override("fill", style_box_not_full)
+	swap_down_button.self_modulate = Color(1, 1, 1, 1)
+	swap_up_button.self_modulate = Color(1, 1, 1, 1)
 	timer_can_swap.start()
 
 
 func swap_down():
+	if not is_first_spin_end:
+		return
 	var target_slot : Slot = third_column.slot_carousel_top.slots[1]
 	target_slot.before_can_swap_position = target_slot.global_position
 	var change_slot : Slot = third_column.slot_carousel_mid.slots[1]
@@ -247,6 +262,8 @@ func swap_down():
 
 
 func swap_up():
+	if not is_first_spin_end:
+		return
 	var target_slot : Slot = third_column.slot_carousel_bot.slots[1]
 	target_slot.before_can_swap_position = target_slot.global_position
 	var change_slot : Slot = third_column.slot_carousel_mid.slots[1]
@@ -269,3 +286,18 @@ func update_bonus_week(slot_name : String):
 		'ru_RU':
 			bonus_prefix = 'Неделя: %s'
 	label_bonus.text = bonus_prefix % tr(slot_name)
+
+
+func _on_swap_down_button_pressed() -> void:
+	if Player.is_can_swap:
+		swap_down()
+
+
+func _on_swap_up_button_pressed() -> void:
+	if Player.is_can_swap:
+		swap_up()
+
+
+func show_swaps():
+	swap_down_button.self_modulate = Color(1, 1, 1, 0)
+	swap_up_button.self_modulate = Color(1, 1, 1, 0)

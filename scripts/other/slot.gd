@@ -220,32 +220,32 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		# Check specifically for the left mouse button being pressed down
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_on_remover_UI:
 			SignalManager.on_choose_removed_slot.emit(self)
-		elif event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			if not is_can_swap:
-				return
-			if Player.get_is_can_swap():
-				hide_tooltip()
-				#input_pickable = false
-				Player.set_is_can_swap(false)
-				set_collision_layer_value(11, false)
-				set_collision_mask_value(11, true)
-				before_can_swap_position = global_position
-				is_in_swap_state = true
-				previous_z_index = z_index
-				z_index = 100
-				# Calculate the offset from the object's origin to the mouse position
-				#skill_zone.offset = get_global_mouse_position() - global_position
-		else:
-			if current_swap_slots.size() > 0:
-				is_in_swap_state = false
-				z_index = previous_z_index
-				move_slots()
-			else:
-				if is_in_swap_state:
-					global_position = before_can_swap_position
-					is_in_swap_state = false
-					z_index = previous_z_index
-					Player.set_is_can_swap(true)
+		#elif event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			#if not is_can_swap:
+				#return
+			#if Player.get_is_can_swap():
+				#hide_tooltip()
+				##input_pickable = false
+				#Player.set_is_can_swap(false)
+				#set_collision_layer_value(11, false)
+				#set_collision_mask_value(11, true)
+				#before_can_swap_position = global_position
+				#is_in_swap_state = true
+				#previous_z_index = z_index
+				#z_index = 100
+				## Calculate the offset from the object's origin to the mouse position
+				##skill_zone.offset = get_global_mouse_position() - global_position
+		#else:
+			#if current_swap_slots.size() > 0:
+				#is_in_swap_state = false
+				#z_index = previous_z_index
+				#move_slots()
+			#else:
+				#if is_in_swap_state:
+					#global_position = before_can_swap_position
+					#is_in_swap_state = false
+					#z_index = previous_z_index
+					#Player.set_is_can_swap(true)
 			# вернуть зону в неактивное состояние
 			# запустить КД скилла
 			# Optional: Add logic here to "drop" the object or apply momentum
