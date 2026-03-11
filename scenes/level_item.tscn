@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://o5k7j3e2hpng"]
+[gd_scene load_steps=8 format=3 uid="uid://o5k7j3e2hpng"]
 
 [ext_resource type="FontFile" uid="uid://co45erws16hd7" path="res://fonts/DigitalPixelV124-Regular.otf" id="1_sdepi"]
 [ext_resource type="StyleBox" uid="uid://cv04p4n21vr5r" path="res://styles/panel_blue.tres" id="1_xwwko"]
 [ext_resource type="Script" uid="uid://cy0ecqdes6eb2" path="res://scripts/other/level_item.gd" id="2_8rjrl"]
 [ext_resource type="StyleBox" uid="uid://bgi54k5j5cy1r" path="res://styles/panel_gray.tres" id="3_8rjrl"]
-[ext_resource type="StyleBox" uid="uid://bngjc1hlwlk2o" path="res://styles/panel_green.tres" id="4_4ae8e"]
 [ext_resource type="StyleBox" uid="uid://dqay4lnoeh1ll" path="res://styles/panel_red.tres" id="5_rd0an"]
 [ext_resource type="StyleBox" uid="uid://c8hp105k7ewh4" path="res://styles/panel_orange.tres" id="6_rd0an"]
 
@@ -21,9 +20,7 @@ offset_bottom = 40.0
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("1_xwwko")
 script = ExtResource("2_8rjrl")
-stylebox_active = ExtResource("4_4ae8e")
-stylebox_done = ExtResource("3_8rjrl")
-stylebox_undone = ExtResource("1_xwwko")
+stylebox_undone = ExtResource("3_8rjrl")
 stylebox_closed = ExtResource("5_rd0an")
 stylebox_closed_active = ExtResource("6_rd0an")
 

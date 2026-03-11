@@ -37,6 +37,3 @@ wave_count = 0
 [node name="label_reward_info" parent="MarginContainer/VBoxContainer" index="1"]
 label_settings = ExtResource("9_w26ks")
 horizontal_alignment = 0
-
-[node name="button_take_rewards" parent="MarginContainer/VBoxContainer" index="3"]
-text = "UI_BTNGET_NAME"

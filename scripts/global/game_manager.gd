@@ -126,6 +126,7 @@ func win():
 	#current_level.show_win_label()
 	current_level.is_result = true
 	ProgressManager.save_progress_by_family(Player.current_king)
+	current_level.show_win_label()
 
 
 func loose():

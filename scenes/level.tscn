@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://rl65frn0ke4w"]
+[gd_scene load_steps=49 format=3 uid="uid://rl65frn0ke4w"]
 
 [ext_resource type="Script" uid="uid://bvn7noakik1hq" path="res://scripts/other/level.gd" id="1_klq6b"]
 [ext_resource type="PackedScene" uid="uid://tl8eifxjdkdk" path="res://scenes/unit_preview_ui.tscn" id="2_klq6b"]
@@ -34,6 +34,7 @@
 [ext_resource type="StyleBox" uid="uid://ddmqku8uocxls" path="res://styles/panel_gold.tres" id="16_82cfe"]
 [ext_resource type="Texture2D" uid="uid://cc0y4rlm7e1ah" path="res://img/wave_icon.png" id="16_ux5qa"]
 [ext_resource type="Script" uid="uid://dl4s2yfpgmxi0" path="res://scenes/spawner.gd" id="19_gunhw"]
+[ext_resource type="PackedScene" uid="uid://c1gqq3u4g8ws1" path="res://scenes/end_level_ui.tscn" id="21_535f6"]
 [ext_resource type="PackedScene" uid="uid://dl7yvb67j0c5e" path="res://scenes/shader_layer.tscn" id="30_v3why"]
 [ext_resource type="Texture2D" uid="uid://ydpupk1dhkwt" path="res://img/arrow_down.png" id="32_v3why"]
 [ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="33_asl66"]
@@ -95,6 +96,7 @@ bonus_ui_scene = ExtResource("5_8gofh")
 level_name = "LEVEL_E0_NAME"
 level_desc = "LEVEL_E0_DESC"
 rewards = Array[Resource]([ExtResource("6_556r4"), ExtResource("7_7agi7"), ExtResource("8_kih21"), ExtResource("9_w3o6u")])
+end_level_scene = ExtResource("21_535f6")
 
 [node name="shaders_layer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

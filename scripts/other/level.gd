@@ -126,7 +126,7 @@ func _ready() -> void:
 	if difficulty_count == 0:
 		messages_pack_ui.show()
 		Player.is_message_tutorial = true
-		waves_count = 7
+		waves_count = 1
 		Player.current_food = 10
 		Player.current_tokens = 10
 	else:
@@ -505,6 +505,7 @@ func _on_timer_between_check_enemies_timeout() -> void:
 
 
 func show_reward():
+	Player.get_res(DataManager.ResType.SOULS, DataManager.default_souls_inc)
 	if is_result:
 		return
 	if waves_scenes.size() == 0:
@@ -743,40 +744,40 @@ func get_waves_remaining():
 
 
 func show_win_label():
-	var current_locale : String = TranslationServer.get_locale()
-	var result_text : String
-	match current_locale:
-		'en_US':
-			result_text = 'CONGRATULATIONS!'
-		'ru_RU':
-			result_text = 'ПОБЕДА!'
-	label_result.text = result_text
+	#var current_locale : String = TranslationServer.get_locale()
+	#var result_text : String
+	#match current_locale:
+		#'en_US':
+			#result_text = 'CONGRATULATIONS!'
+		#'ru_RU':
+			#result_text = 'ПОБЕДА!'
+	#label_result.text = result_text
 	#result_panel.global_position = get_viewport_rect().get_center()
 	var tween : Tween = get_tree().create_tween()
 	tween.set_parallel()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
-	tween.tween_callback(GameManager.stop_all).set_delay(2.5)
-	tween.tween_callback(GameManager.show_lobby).set_delay(3)
-	tween.tween_callback(queue_free).set_delay(3)
+	tween.tween_callback(GameManager.stop_all).set_delay(0.5)
+	tween.tween_callback(GameManager.show_lobby).set_delay(0.6)
+	tween.tween_callback(queue_free).set_delay(1)
 
 func show_loose_label():
-	var current_locale : String = TranslationServer.get_locale()
-	var result_text : String
-	match current_locale:
-		'en_US':
-			result_text = 'DEFEAT!'
-		'ru_RU':
-			result_text = 'ПОРАЖЕНИЕ!'
-	label_result.text = result_text
+	#var current_locale : String = TranslationServer.get_locale()
+	#var result_text : String
+	#match current_locale:
+		#'en_US':
+			#result_text = 'DEFEAT!'
+		#'ru_RU':
+			#result_text = 'ПОРАЖЕНИЕ!'
+	#label_result.text = result_text
 	#result_panel.global_position = get_viewport_rect().get_center()
 	var tween : Tween = get_tree().create_tween()
 	tween.set_parallel()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(result_panel, 'modulate', Color(1, 1, 1, 1), 1.5)
-	tween.tween_callback(GameManager.stop_all).set_delay(2.5)
-	tween.tween_callback(GameManager.show_lobby).set_delay(3)
-	tween.tween_callback(queue_free).set_delay(3)
+	tween.tween_callback(GameManager.stop_all).set_delay(0.5)
+	tween.tween_callback(GameManager.show_lobby).set_delay(0.6)
+	tween.tween_callback(queue_free).set_delay(1)
 
 
 func hide_bonus_ui():

@@ -98,7 +98,11 @@ var level_stats : Dictionary = {
 	DataManager.LevelStats.PURE_DAMAGE_COUNT : 0,
 	DataManager.LevelStats.FORTRESS_HEALTH_LOST : 0,
 	DataManager.LevelStats.FORTRESS_HEALTH_RESTORED : 0,
-	DataManager.LevelStats.HEROES_DAMAGE_DEALT : 0
+	DataManager.LevelStats.GOLD_LOST : 0,
+	DataManager.LevelStats.TOKEN_LOST : 0,
+	DataManager.LevelStats.FOOD_LOST : 0,
+	DataManager.LevelStats.CRYSTALLS_LOST : 0,
+	DataManager.LevelStats.HEROES_DAMAGE_DEALT : 0,
 }
 
 # активация туториала
@@ -333,26 +337,31 @@ func get_res(res_type : DataManager.ResType, res_amount : int):
 		DataManager.ResType.GOLD:
 			if res_amount >= 0:
 				current_gold += res_amount * Player.current_progress.meta_stats[DataManager.MetaType.GOLD_INC]
+				update_level_stats(DataManager.LevelStats.GOLD_LOST, res_amount * Player.current_progress.meta_stats[DataManager.MetaType.GOLD_INC])
 			else:
 				current_gold += res_amount
+				update_level_stats(DataManager.LevelStats.GOLD_LOST, res_amount)
 		DataManager.ResType.SPIN_TOKEN:
 			if rand <= abs(1 - Player.current_progress.meta_stats[DataManager.MetaType.TOKEN_INC]):
 				bonus_res = 1
 			if res_amount < 0:
 				bonus_res = 0
 			current_tokens += res_amount + bonus_res
+			update_level_stats(DataManager.LevelStats.TOKEN_LOST, res_amount + bonus_res)
 		DataManager.ResType.CRYSTAL:
 			if rand <= abs(1 - Player.current_progress.meta_stats[DataManager.MetaType.CRYSTAL_INC]):
 				bonus_res = 1
 			if res_amount < 0:
 				bonus_res = 0
 			current_crystals += res_amount + bonus_res
+			update_level_stats(DataManager.LevelStats.CRYSTALLS_LOST, res_amount + bonus_res)
 		DataManager.ResType.FOOD:
 			if rand <= abs(1 - Player.current_progress.meta_stats[DataManager.MetaType.FOOD_INC]):
 				bonus_res = 1
 			if res_amount < 0:
 				bonus_res = 0
 			current_food += res_amount + bonus_res
+			update_level_stats(DataManager.LevelStats.FOOD_LOST, res_amount + bonus_res)
 		DataManager.ResType.SOULS:
 			current_souls += res_amount
 	SignalManager.on_res_change.emit(res_type)

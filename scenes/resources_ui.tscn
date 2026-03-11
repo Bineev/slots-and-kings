@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dawq8kdhvtnp2"]
+[gd_scene load_steps=14 format=3 uid="uid://dawq8kdhvtnp2"]
 
 [ext_resource type="LabelSettings" uid="uid://b5gsqq11l4a38" path="res://styles/7_dark_gray.tres" id="2_sje42"]
 [ext_resource type="Script" uid="uid://c0b2e38fqdxju" path="res://scripts/other/resources_ui.gd" id="2_vo0oj"]
@@ -12,6 +12,134 @@ bg_color = Color(0.65882355, 0.70980394, 0.69803923, 1)
 shadow_color = Color(0.08235294, 0.11372549, 0.15686275, 1)
 shadow_size = 2
 shadow_offset = Vector2(0, 1)
+
+[sub_resource type="Animation" id="Animation_rfy7p"]
+resource_name = "blink_gold"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/resources_container/rect_res_gold:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_isxp0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/resources_container/rect_res_gold:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/resources_container/rect_res_food:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/resources_container/rect_res_tokens:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/resources_container/rect_res_crystals:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vo0oj"]
+resource_name = "blink_food"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/resources_container/rect_res_food:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sje42"]
+resource_name = "blink_token"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/resources_container/rect_res_tokens:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0cyah"]
+resource_name = "blink_crystal"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/resources_container/rect_res_crystals:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vo0oj"]
+_data = {
+&"RESET": SubResource("Animation_isxp0"),
+&"blink_crystal": SubResource("Animation_0cyah"),
+&"blink_food": SubResource("Animation_vo0oj"),
+&"blink_gold": SubResource("Animation_rfy7p"),
+&"blink_token": SubResource("Animation_sje42")
+}
 
 [node name="ResourcesUI" type="PanelContainer"]
 offset_right = 198.0
@@ -105,3 +233,9 @@ layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("6_vo0oj")
 stretch_mode = 5
+
+[node name="resource_ui_anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_vo0oj")
+}

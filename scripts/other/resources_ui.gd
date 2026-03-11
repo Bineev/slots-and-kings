@@ -7,6 +7,7 @@ class_name ResourcesUI
 @onready var label_res_food: Label = %label_res_food
 @onready var label_res_tokens: Label = %label_res_tokens
 @onready var label_res_crystals: Label = %label_res_crystals
+@onready var resource_ui_anim: AnimationPlayer = %resource_ui_anim
 
 
 func _ready() -> void:
@@ -26,9 +27,13 @@ func update_resources(res_type : DataManager.ResType):
 	match res_type:
 		DataManager.ResType.GOLD:
 			label_res_gold.text = str(Player.get_gold())
+			resource_ui_anim.play("blink_gold")
 		DataManager.ResType.FOOD:
 			label_res_food.text = str(Player.get_food())
+			resource_ui_anim.play("blink_food")
 		DataManager.ResType.SPIN_TOKEN:
 			label_res_tokens.text = str(Player.get_tokens())
+			resource_ui_anim.play("blink_token")
 		DataManager.ResType.CRYSTAL:
 			label_res_crystals.text = str(Player.get_crystals())
+			resource_ui_anim.play("blink_crystal")

@@ -322,7 +322,8 @@ func get_waves_by_diff_and_count(difficulty_count : int, waves_count : int):
 		var time_between_spawns : float = clamp(20 - i * difficulty_count / regul_coeff, 10, 30)
 		wave.time_to_next_spawn = time_between_spawns
 		wave.time_to_next_wave = time_between_waves
-		
+		if difficulty_count == 0 and i == 1:
+			wave.time_to_next_wave = 70
 		for j in range(spawn_count):
 			var spawn_scene : PackedScene = create_spawn_by_wave_count(i, difficulty_count)
 			wave.enemy_spawn_scenes.append(spawn_scene)

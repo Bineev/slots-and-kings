@@ -572,7 +572,7 @@ func get_damage(damage : int, damage_owner : Object, is_crit : bool = false):
 	if not is_active:
 		return
 	var attacking_unit_type : DataManager.UnitType
-	if damage_owner and not is_instance_valid(damage_owner):
+	if damage_owner and is_instance_valid(damage_owner):
 		if damage_owner is Unit:
 			for unit_type in damage_owner.unit_types:
 				if unit_type == DataManager.UnitType.PHYS:

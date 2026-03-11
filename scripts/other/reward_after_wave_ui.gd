@@ -136,7 +136,7 @@ func set_entity_tier_by_wave_count():
 
 
 func set_resorces_count_by_wave_count():
-	resources_dict[DataManager.ResType.SOULS] = DataManager.default_souls_inc
+	#resources_dict[DataManager.ResType.SOULS] = DataManager.default_souls_inc
 	if wave_count >=DataManager.T4_transition:
 		resources_dict[DataManager.ResType.GOLD] = DataManager.default_gold_reward * 2.5 
 		resources_dict[DataManager.ResType.CRYSTAL] = DataManager.default_crystal_reward * 3 
