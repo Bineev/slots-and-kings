@@ -56,6 +56,7 @@ func _on_start_button_pressed() -> void:
 	GameManager.start_level()
 
 
+
 func _on_back_to_menu_button_pressed() -> void:
 	SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.UI])
 	Player.current_progress.current_souls_count = Player.current_souls

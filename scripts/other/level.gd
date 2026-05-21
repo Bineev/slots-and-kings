@@ -90,7 +90,6 @@ func _ready() -> void:
 	SignalManager.on_wave_done.connect(clear_fight_points)
 	SignalManager.on_wave_done.connect(pause_timers)
 	SignalManager.on_wave_done.connect(cancel_attack)
-	SignalManager.on_wave_done.connect(start_pieceful_music)
 	SignalManager.on_player_get_hit.connect(update_hp_bar)
 	SignalManager.on_drop_res_popup.connect(show_res_popup_after_unit_dead)
 	SignalManager.on_show_damage.connect(show_damage_ui)
@@ -450,7 +449,6 @@ func clear_player_spawns():
 
 
 func _on_timer_to_next_wave_timeout() -> void:
-	start_martial_music()
 	create_wave()
 	
 	
@@ -812,13 +810,11 @@ func disable_shader():
 
 
 func start_pieceful_music():
-	SoundManager.is_martial_phase = false
-	SoundManager.fade_out(5)
+	SoundManager.change_to_peaceful_phase()
 
 
 func start_martial_music():
-	SoundManager.is_martial_phase = true
-	SoundManager.fade_out(5)
+	SoundManager.change_to_martial_phase()
 
 
 func check_barracks():

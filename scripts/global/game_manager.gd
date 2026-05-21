@@ -28,8 +28,13 @@ func clear_scene():
 
 func show_menu():
 	#clear_scene()
+	if current_level:
+		current_level.queue_free()
+		current_level = null
 	if lobby:
 		lobby.queue_free()
+	else:
+		SoundManager.play_menu_music()
 	if main_menu_UI:
 		main_menu_UI.queue_free()
 	main_menu_UI = main_menu_scene.instantiate()
@@ -70,6 +75,7 @@ func start_level():
 		lobby.queue_free()
 	get_tree().root.add_child(current_level)
 	main_menu_UI = null
+	SoundManager.start_gameplay_playlist()
 
 
 
@@ -92,6 +98,7 @@ func show_lobby():
 	if current_level and is_instance_valid(current_level):
 		current_level.ui.hide()
 		current_level.hide()
+		SoundManager.play_menu_music()
 	get_tree().paused = false
 	if main_menu_UI:
 		main_menu_UI.queue_free()

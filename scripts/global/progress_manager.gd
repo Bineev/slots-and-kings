@@ -10,6 +10,9 @@ extends Node
 
 func get_current_progress_by_family(family : DataManager.UnitFamily):
 	var progress : PlayerProgress = load_progress_from_file_by_family(family)
+	# Если файла на диске нет, возвращаем дефолтный дубликат
+	if not progress:
+		return get_base_progress_by_family(family)
 	return progress.duplicate()
 
 
@@ -43,27 +46,29 @@ func load_progress_from_file_by_family(family : DataManager.UnitFamily):
 	match family:
 		DataManager.UnitFamily.CASTLE:
 			if ResourceLoader.exists(base_progress_empire.save_path):
-				progress = ResourceLoader.load(base_progress_empire.save_path)
+				# CACHE_MODE_REPLACE заставляет Godot принудительно перечитать файл с диска браузера
+				progress = ResourceLoader.load(base_progress_empire.save_path, "", ResourceLoader.CACHE_MODE_REPLACE)
 				if progress:
 					current_progress_empire = progress
 				else:
 					current_progress_empire = base_progress_empire
 		DataManager.UnitFamily.HELL:
 			if ResourceLoader.exists(base_progress_hell.save_path):
-				progress = ResourceLoader.load(base_progress_hell.save_path)
+				progress = ResourceLoader.load(base_progress_hell.save_path, "", ResourceLoader.CACHE_MODE_REPLACE)
 				if progress:
 					current_progress_hell = progress
 				else:
-					current_progress_hell = base_progress_empire
+					# ИСПРАВЛЕНО: заменил base_progress_empire на base_progress_hell
+					current_progress_hell = base_progress_hell 
 	return progress
 
 
 func is_progress_exists():
 	var progress_empire : PlayerProgress
 	if ResourceLoader.exists(base_progress_empire.save_path):
-		progress_empire = ResourceLoader.load(base_progress_empire.save_path)
+		progress_empire = ResourceLoader.load(base_progress_empire.save_path, "", ResourceLoader.CACHE_MODE_REPLACE)
 	var progress_hell : PlayerProgress
 	if ResourceLoader.exists(base_progress_hell.save_path):
-		progress_hell = ResourceLoader.load(base_progress_hell.save_path)
+		progress_hell = ResourceLoader.load(base_progress_hell.save_path, "", ResourceLoader.CACHE_MODE_REPLACE)
 
 	return progress_empire or progress_hell

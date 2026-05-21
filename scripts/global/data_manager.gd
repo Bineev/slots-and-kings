@@ -259,7 +259,7 @@ var meta_price_coeff : float = 1.5
 
 var default_souls_inc : int = 10
 
-var max_sounds : int = 30
+var max_sounds : int = 50
 
 var default_market_commission : float = 0.1
 
