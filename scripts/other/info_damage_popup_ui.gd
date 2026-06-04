@@ -38,6 +38,13 @@ func initialize():
 	if action_type == DataManager.ActionType.HEAL:
 		label_amount.label_settings = heal_label_settings
 		#scale = Vector2(1.5, 1.5)
-	label_amount.text = str(amount) if amount > 0 else 'промах'
+	var current_locale : String = TranslationServer.get_locale()
+	var hit_result : String
+	match current_locale:
+		'en_US':
+			hit_result = 'miss'
+		'ru_RU':
+			hit_result = 'промах'
+	label_amount.text = str(amount) if amount > 0 else hit_result
 	if is_crit:
 		scale = Vector2(1.5, 1.5)

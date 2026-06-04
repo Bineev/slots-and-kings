@@ -1,54 +1,28 @@
 extends Node
 
-
 var music_player : AudioStreamPlayer
 
 # Заполняйте эти массивы в инспекторе Godot (mp3/wav)
 @export var gameplay_playlist : Array[AudioStream] = [
-	preload("res://sounds/piece.mp3"),
-	preload("res://sounds/fight2.mp3"),
-	preload("res://sounds/piece2.mp3"),
-	#preload("res://sounds/battle_epic.mp3"),
-	preload("res://sounds/piece3.mp3"),
+	preload("res://sounds/piece.ogg"),
+	preload("res://sounds/piece2.ogg"),
+	preload("res://sounds/piece3.ogg"),
 ]
-@export var menu_theme : AudioStream = preload("res://sounds/menu.mp3")
+@export var menu_theme : AudioStream = preload("res://sounds/menu.ogg")
 
 var played_streams : Array[AudioStreamPlayer] = []
 var remaining_tracks : Array[AudioStream] = []
 var is_in_gameplay : bool = false
 
-
-func play(source : Node, stream : AudioStream):
-	# Контроль звуковой каши
-	if played_streams.size() >= DataManager.max_sounds:
-		 # Опционально: можно удалять самый старый звук вместо игнорирования нового
-		var oldest = played_streams.pop_front()
-		if is_instance_valid(oldest): oldest.queue_free()
-		#return
-		
-	var sound = AudioStreamPlayer.new()
-	sound.process_mode = Node.PROCESS_MODE_ALWAYS
-	add_child(sound)
-	played_streams.append(sound)
-	
-	sound.bus = "SFX"
-	sound.stream = stream
-	sound.volume_db = -25
-	
-	# Передаем конкретный плеер в функцию удаления
-	sound.connect("finished", erase_finished_sound.bind(sound))
-	sound.play()
+# Словарь для отслеживания времени последнего запуска конкретных аудиоресурсов
+var sound_cooldowns: Dictionary = {}
 
 
+# --- СЕКЦИЯ МУЗЫКИ (ЖЕЛЕЗОБЕТОННЫЙ ВАРИАНТ НА ТАЙМЕРЕ) ---
 
-func _ready():
-	# При запуске игры сразу включаем музыку меню
-	play_menu_music()
+# Добавим внутренний таймер для контроля очереди треков
+var music_timer : SceneTreeTimer
 
-
-# --- СЕКЦИЯ МУЗЫКИ (ЕДИНЫЙ ПЛЕЙЛИСТ) ---
-
-# 1. Вызывать при загрузке главного меню (или при выходе из игры в меню)
 func play_menu_music():
 	is_in_gameplay = false
 	_stop_music_player()
@@ -61,21 +35,19 @@ func play_menu_music():
 	music_player.stream = menu_theme
 	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	music_player.bus = "Music"
-	music_player.volume_db = -5
+	music_player.volume_db = -15
 	
-	# Музыка меню обычно одна, пусть зацикливается сама (если не включен Loop в импорте)
+	# Для меню можно оставить зацикливание через сигнал, тут оно обычно не дает сбоев
 	music_player.connect("finished", music_player.play)
 	
 	add_child(music_player)
 	music_player.play()
 
 
-# 2. Вызывать ОДИН РАЗ, когда игрок нажимает «Играть» и заходит на уровень
 func start_gameplay_playlist(fade_duration: float = 1.0):
 	is_in_gameplay = true
 	
 	if is_instance_valid(music_player) and music_player.playing:
-		# Плавно глушим меню и запускаем плейлист уровня
 		var tween = create_tween()
 		tween.tween_property(music_player, "volume_db", -80.0, fade_duration)
 		tween.finished.connect(func():
@@ -86,39 +58,97 @@ func start_gameplay_playlist(fade_duration: float = 1.0):
 		_play_next_random_track()
 
 
-# Внутренний метод: выбирает случайный трек и следит за его окончанием
 func _play_next_random_track():
 	if not is_in_gameplay: return
-	_stop_music_player()
 	
 	if gameplay_playlist.is_empty():
 		print("Внимание: Плейлист геймплея пуст!")
 		return
 		
-	# Если все треки из пула отыграли, заполняем его заново для нового круга
 	if remaining_tracks.is_empty():
 		remaining_tracks = gameplay_playlist.duplicate()
-		remaining_tracks.shuffle() # Перемешиваем случайным образом
+		remaining_tracks.shuffle()
 		
-	# Берем первый трек из перемешанного списка и удаляем его оттуда
 	var next_track = remaining_tracks.pop_front()
+	
+	_stop_music_player()
 	
 	music_player = AudioStreamPlayer.new()
 	music_player.stream = next_track
 	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	music_player.bus = "Music"
-	music_player.volume_db = -5
-	
-	# Когда трек доиграет до конца, автоматически вызовется эта же функция и включит СЛЕДУЮЩИЙ трек
-	music_player.connect("finished", _play_next_random_track)
+	music_player.volume_db = -20
 	
 	add_child(music_player)
 	music_player.play()
+	
+	# Узнаем точную длину трека в секундах
+	var track_length = next_track.get_length()
+	
+	# Создаем безопасный таймер. Когда трек физически кончится, 
+	# автоматически запустится следующий, даже если сигнал "finished" завис.
+	music_timer = get_tree().create_timer(track_length, false) # false — не ставится на паузу
+	music_timer.timeout.connect(func():
+		if is_in_gameplay and is_instance_valid(music_player) and music_player.stream == next_track:
+			_play_next_random_track()
+	)
 
 
 func _stop_music_player():
+	# Если мы принудительно меняем трек, сбрасываем старый таймер, чтобы они не накладывались
+	music_timer = null 
 	if is_instance_valid(music_player):
+		music_player.stop()
 		music_player.queue_free()
+
+
+
+func play(source : Node, stream : AudioStream):
+	if not stream:
+		return
+
+	# 1. ЗАЩИТА ОТ СТАКАНЬЯ ОДИНАКОВЫХ ЗВУКОВ (Звуковой кулдаун)
+	var current_time = Time.get_ticks_msec()
+	var stream_id = stream.get_instance_id()
+	
+	if sound_cooldowns.has(stream_id):
+		if current_time - sound_cooldowns[stream_id] < DataManager.sound_delay:
+			return # Игнорируем дубликат
+			
+	sound_cooldowns[stream_id] = current_time
+
+	# 2. Контроль общей звуковой каши
+	if played_streams.size() >= DataManager.max_sounds:
+		var oldest = played_streams.pop_front()
+		if is_instance_valid(oldest): 
+			oldest.queue_free()
+		
+	var sound = AudioStreamPlayer.new()
+	sound.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(sound)
+	played_streams.append(sound)
+	
+	sound.bus = "SFX"
+	sound.stream = stream
+	sound.volume_db = -20
+	
+	# 3. Рандомизация Pitch (убирает резонанс)
+	sound.pitch_scale = randf_range(0.92, 1.08)
+	
+	sound.connect("finished", erase_finished_sound.bind(sound))
+	sound.play()
+
+
+func _ready():
+	# Автоматически очищаем кэш кулдаунов раз в 30 секунд, чтобы память не засорялась
+	var timer = Timer.new()
+	timer.wait_time = 30.0
+	timer.autostart = true
+	timer.process_mode = Node.PROCESS_MODE_ALWAYS
+	timer.timeout.connect(func(): sound_cooldowns.clear())
+	add_child(timer)
+	
+	play_menu_music()
 
 
 
@@ -127,18 +157,21 @@ func erase_finished_sound(sound_to_erase : AudioStreamPlayer):
 	if is_instance_valid(sound_to_erase):
 		sound_to_erase.queue_free()
 
+
 func play_local(sound_local : AudioStreamPlayer2D, stream : AudioStream):
 	if is_instance_valid(sound_local):
 		sound_local.volume_db = -2
 		sound_local.stream = stream
 		sound_local.play()
 
+
 func play_ui(source : Node, stream : AudioStream):
+	if not stream: return
 	var sound_temp = AudioStreamPlayer.new()
 	sound_temp.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(sound_temp)
 	sound_temp.bus = "SFX"
 	sound_temp.stream = stream
-	sound_temp.volume_db = -15
+	sound_temp.volume_db = -10
 	sound_temp.connect("finished", sound_temp.queue_free)
 	sound_temp.play()

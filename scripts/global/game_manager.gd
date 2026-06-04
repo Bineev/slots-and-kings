@@ -12,6 +12,21 @@ var lobby : LobbyUI
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	# Проверяем, запущена ли игра в браузере
+	if OS.has_feature("web"):
+		_remove_esc_from_options_action()
+
+func _remove_esc_from_options_action() -> void:
+	# Получаем список всех клавиш, привязанных к действию open_options
+	var events = InputMap.action_get_events("open_options")
+	
+	for event in events:
+		# Проверяем, является ли событие нажатием клавиши на клавиатуре
+		if event is InputEventKey:
+			# Если это клавиша Escape (KEY_ESCAPE)
+			if event.keycode == KEY_ESCAPE:
+				# Удаляем этот конкретный шорткат из действия
+				InputMap.action_erase_event("open_options", event)
 
 
 func clear_scene():
@@ -87,7 +102,13 @@ func end_level():
 
 
 func exit():
-	get_tree().quit()
+	if OS.has_feature("web"):
+		# Если это ВЕБ: принудительно перезагружаем страницу в браузере.
+		# Пользователь вернется на исходный стартовый экран до запуска игры.
+		JavaScriptBridge.eval("window.location.reload();")
+	else:
+		# Если это ПК (Windows/Linux/Mac): игра закроется как обычно
+		get_tree().quit()
 
 
 func get_rewards():

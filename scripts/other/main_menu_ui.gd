@@ -9,6 +9,7 @@ class_name MainMenuUI
 @onready var play_button: Button = %play_button
 @onready var continue_button: Button = %continue_button
 @onready var shader_layer: CanvasLayer = $ShaderLayer
+@onready var exit_button: Button = %exit_button
 
 
 func _ready() -> void:
@@ -17,6 +18,9 @@ func _ready() -> void:
 
 func initialize():
 	await get_tree().process_frame
+	if OS.has_feature("web"):
+		# Скрываем кнопку выхода, так как в вебе она не нужна
+		exit_button.hide() 
 	if ProgressManager.is_progress_exists():
 		continue_button.show()
 	else:
