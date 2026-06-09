@@ -255,6 +255,8 @@ var bottom_fight_limit : float = 280
 
 var default_damage_to_base : int = 25
 
+var diff_coeff_damage_to_base : float = 0.5
+
 var meta_price_coeff : float = 1.5
 
 var default_souls_inc : int = 10

@@ -36,7 +36,7 @@ class_name EndLevelUI
 @onready var stats_tokenlost: Label = %stats_tokenlost
 @onready var stats_foodlost: Label = %stats_foodlost
 @onready var stats_crystalllost: Label = %stats_crystalllost
-@onready var stats_soulsearned: Label = %stats_soulsearned
+#@onready var stats_soulsearned: Label = %stats_soulsearned
 @onready var button_complete: Button = %button_complete
 @onready var label_res_souls: Label = %label_res_souls
 @onready var label_souls_earned: Label = %label_souls_earned
@@ -49,7 +49,7 @@ class_name EndLevelUI
 func initialize():
 	await get_tree().process_frame
 	var stats : Dictionary = Player.get_level_stats()
-	if Player.get_health() > 0:
+	if Player.get_current_health() > 0:
 		stats_header_label.text = tr(win_text)
 		SoundManager.play_ui(self, DataManager.sound_dict[DataManager.SoundType.SHOW_REWARDS])
 		rect_result.texture = texture_win
@@ -70,6 +70,8 @@ func initialize():
 	stats_foodlost.text = tr(food_spent_text) + ' : ' + str(abs(stats[DataManager.LevelStats.FOOD_LOST]))
 	stats_crystalllost.text = tr(crystall_spent_text) + ' : ' + str(abs(stats[DataManager.LevelStats.CRYSTALLS_LOST]))
 	label_res_souls.text = str(Player.current_souls)
+	if Player.get_current_health() <= 0:
+		return
 	for reward in Player.level.rewards:
 		var slot : Slot = Player.create_slot_scene(reward).instantiate()
 		#slot.initialize()
@@ -91,7 +93,7 @@ func initialize():
 func _on_button_complete_pressed() -> void:
 	button_complete.disabled
 	hide()
-	if Player.get_health() > 0:
+	if Player.get_current_health() > 0:
 		GameManager.win()
 	else:
 		GameManager.loose()

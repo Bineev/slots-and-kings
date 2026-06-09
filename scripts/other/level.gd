@@ -503,6 +503,8 @@ func _on_timer_between_check_enemies_timeout() -> void:
 
 
 func show_reward():
+	if Player.get_current_health() <= 0:
+		return
 	Player.get_res(DataManager.ResType.SOULS, DataManager.default_souls_inc)
 	if is_result:
 		return

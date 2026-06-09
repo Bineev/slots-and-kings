@@ -467,9 +467,11 @@ func get_wave_rewards():
 	return wave_rewards
 
 
-func get_damage(damage : float):
+func get_damage(base_damage : float):
 	if is_dead:
 		return
+	var damage = base_damage + float(GameManager.current_level.difficulty_count) * DataManager.diff_coeff_damage_to_base
+	print(damage)
 	var damage_dealt : int
 	if current_health - damage >= 0:
 		damage_dealt = damage
@@ -486,7 +488,7 @@ func get_damage(damage : float):
 func get_current_health():
 	return current_health
 
-
+# TODO
 func get_health():
 	return health
 

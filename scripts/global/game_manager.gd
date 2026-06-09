@@ -167,6 +167,7 @@ func loose():
 	#current_level.show_loose_label()
 	current_level.is_result = true
 	ProgressManager.save_progress_by_family(Player.current_king)
+	current_level.show_loose_label()
 
 
 func stop_all():
